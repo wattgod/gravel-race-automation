@@ -2353,3 +2353,26 @@ class TestPersonalizedVisibilityCSS:
         css_section = any_page.replace(" ", "")
         assert "opacity:0" in css_section
         assert "visibility:hidden" in css_section
+
+
+class TestClusterHandbookOverhaul:
+    """Chapter pages carry the rebuilt charts and the painted openers, as the single page does."""
+
+    def test_chapter_hero_opens_on_painted_scene(self):
+        from generate_guide_cluster import build_chapter_hero
+        html = build_chapter_hero({"number": 3, "title": "T", "subtitle": "S"})
+        assert "/guide/media/gg-art-03-training-fundamentals-1x.webp" in html
+        assert "gg-guide-chapter-hero--art" in html
+        assert "gg-guide-plate" not in html
+
+    def test_chapter_without_scene_keeps_plate(self):
+        from generate_guide_cluster import build_chapter_hero
+        html = build_chapter_hero({"number": 9, "title": "T"})
+        assert "gg-guide-chapter-art" not in html
+
+    def test_cluster_bundles_chart_css_and_js(self):
+        import guide_ig
+        from generate_guide_cluster import _guide_js_for_config, GRAVEL_GUIDE
+        assert guide_ig.JS and guide_ig.JS in _guide_js_for_config(GRAVEL_GUIDE)
+        src = (Path(__file__).resolve().parent.parent / "wordpress" / "generate_guide_cluster.py").read_text()
+        assert "build_guide_css() + \"\\n\" + guide_ig.CSS" in src

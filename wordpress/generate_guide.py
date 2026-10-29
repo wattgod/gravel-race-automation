@@ -45,6 +45,7 @@ from generate_neo_brutalist import (
 )
 
 from guide_infographics import INFOGRAPHIC_RENDERERS
+import guide_ig
 from guide_plates import render_chapter_plate
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
@@ -773,9 +774,9 @@ def render_image(block: dict) -> str:
         return (f'<figure class="gg-guide-img{cls}">'
                 f'<img src="{src}" alt="{alt}" loading="lazy" decoding="async" '
                 f'class="gg-guide-img-el">{cap}</figure>')
-    infographic_renderer = INFOGRAPHIC_RENDERERS.get(block["asset_id"])
+    infographic_renderer = guide_ig.RENDERERS.get(block["asset_id"]) or INFOGRAPHIC_RENDERERS.get(block["asset_id"])
     if infographic_renderer:
-        return infographic_renderer(block)
+        return f'<div class="gg-ig-slot" data-ig="{esc(block["asset_id"])}">{infographic_renderer(block)}</div>'
     asset_id = esc(block["asset_id"])
     alt = esc(block.get("alt", ""))
     caption = block.get("caption", "")
@@ -1266,13 +1267,42 @@ def build_nav() -> str:
   </div>'''
 
 
+# Painted scenes of the Gravel God character (v6 rig look, gravel-god-character repo),
+# one per chapter. Files: guide/art/gg-art-<slug>-{1x,2x}.webp, served from /guide/media/.
+GUIDE_ART = {
+    0: "00-cover",
+    1: "01-what-is-gravel",
+    2: "02-race-selection",
+    3: "03-training-fundamentals",
+    4: "04-workout-execution",
+    5: "05-nutrition",
+    6: "06-mental",
+    7: "07-race-week",
+    8: "08-post-race",
+}
+
+
+def _art_img(num: int, cls: str, eager: bool = False) -> str:
+    slug = GUIDE_ART.get(num)
+    if not slug:
+        return ""
+    base = f"/guide/media/gg-art-{slug}"
+    loading = 'fetchpriority="high"' if eager else 'loading="lazy" decoding="async"'
+    return (f'<img class="{cls}" src="{base}-1x.webp" srcset="{base}-1x.webp 960w, {base}-2x.webp 1920w" '
+            f'sizes="(max-width: 1000px) 100vw, 1000px" alt="" {loading}>')
+
+
 def build_hero(content: dict) -> str:
     title = esc(content["title"])
     subtitle = esc(content["subtitle"])
-    return f'''<div class="gg-hero">
-    <div class="gg-hero-tier" style="background:#178079">FREE GUIDE</div>
-    <h1>{title}</h1>
-    <p class="gg-hero-tagline">{subtitle}</p>
+    n = len(content.get("chapters", []))
+    return f'''<div class="gg-hero gg-guide-cover">
+    {_art_img(0, "gg-guide-cover-art", eager=True)}
+    <div class="gg-guide-cover-slab">
+      <span class="gg-guide-cover-eyebrow">FREE GUIDE &middot; {n} CHAPTERS</span>
+      <h1>{title}</h1>
+      <p class="gg-hero-tagline">{subtitle}</p>
+    </div>
   </div>'''
 
 
@@ -1308,7 +1338,9 @@ def build_chapter(chapter: dict) -> str:
     subtitle_html = f'<p class="gg-guide-chapter-subtitle">{subtitle}</p>' if subtitle else ''
 
     variant = "dark" if num in {2, 4, 6, 8} else "light"
-    plate = render_chapter_plate(num, {"race_index": _RACE_INDEX})
+    art = _art_img(num, "gg-guide-chapter-art")
+    plate = "" if art else render_chapter_plate(num, {"race_index": _RACE_INDEX})
+    art_class = " gg-guide-chapter-hero--art" if art else ""
 
     sections_html = []
     for section in chapter["sections"]:
@@ -1325,9 +1357,10 @@ def build_chapter(chapter: dict) -> str:
       </div>''')
 
     return f'''<div class="gg-guide-chapter{gated_class}" id="{esc(ch_id)}" data-chapter="{num}">
-    <div class="gg-guide-chapter-hero gg-guide-chapter-hero--{variant}">
-      {plate}
+    <div class="gg-guide-chapter-hero gg-guide-chapter-hero--{variant}{art_class}">
+      {art}{plate}
       <div class="gg-guide-chapter-title-block">
+        <span class="gg-guide-chapter-bignum" aria-hidden="true">{num:02d}</span>
         <span class="gg-guide-chapter-num">CHAPTER {num:02d}</span>
         <h2 class="gg-guide-chapter-title">{title}</h2>
         {subtitle_html}
@@ -1651,6 +1684,33 @@ def build_guide_css() -> str:
 .gg-guide-chapter-hero--dark .gg-guide-chapter-title{color:var(--gg-color-white)}
 .gg-guide-chapter-hero--dark .gg-guide-chapter-subtitle{color:var(--gg-color-sand)}
 .gg-guide-chapter-body{padding:40px 48px}
+
+/* ── Painted chapter openers ── */
+.gg-guide-chapter-hero--art{display:block;min-height:0;padding:0;background:var(--gg-color-dark-brown)}
+.gg-guide-chapter-art{display:block;width:100%;aspect-ratio:21/9;object-fit:cover;object-position:50% 38%;border-bottom:3px solid var(--gg-color-dark-brown)}
+.gg-guide-chapter-hero--art .gg-guide-chapter-title-block{max-width:none;display:grid;grid-template-columns:auto 1fr;column-gap:24px;align-items:end;padding:24px 32px 28px;background:var(--gg-color-dark-brown)}
+.gg-guide-chapter-bignum{display:none}
+.gg-guide-chapter-hero--art .gg-guide-chapter-bignum{display:block;grid-row:1 / span 3;font-family:var(--gg-font-data);font-size:112px;font-weight:700;line-height:.8;letter-spacing:-6px;color:var(--gg-color-light-gold)}
+.gg-guide-chapter-hero--art .gg-guide-chapter-num{color:var(--gg-color-tan)}
+.gg-guide-chapter-hero--art .gg-guide-chapter-title{color:var(--gg-color-white);font-size:40px}
+.gg-guide-chapter-hero--art .gg-guide-chapter-subtitle{color:var(--gg-color-sand);font-size:16px}
+
+/* ── Cover ── */
+.gg-neo-brutalist-page .gg-hero.gg-guide-cover{padding:0;background:var(--gg-color-dark-brown);border-bottom:3px solid var(--gg-color-dark-brown)}
+.gg-guide-cover-art{display:block;width:100%;aspect-ratio:16/8;object-fit:cover;object-position:30% 50%}
+.gg-guide-cover-slab{position:relative;margin:-120px 0 0 32px;max-width:620px;background:var(--gg-color-dark-brown);border:3px solid var(--gg-color-light-gold);padding:28px 32px 32px}
+.gg-guide-cover-eyebrow{display:block;font-family:var(--gg-font-data);font-size:12px;font-weight:700;letter-spacing:3px;color:var(--gg-color-light-gold);margin-bottom:12px}
+.gg-neo-brutalist-page .gg-guide-cover h1{font-size:48px;margin-bottom:12px}
+.gg-guide-cover .gg-hero-tagline{color:var(--gg-color-sand);margin:0}
+@media (max-width:700px){
+  .gg-guide-chapter-art{aspect-ratio:3/2}
+  .gg-guide-chapter-hero--art .gg-guide-chapter-title-block{padding:20px;column-gap:16px}
+  .gg-guide-chapter-hero--art .gg-guide-chapter-bignum{font-size:64px;letter-spacing:-3px}
+  .gg-guide-chapter-hero--art .gg-guide-chapter-title{font-size:26px}
+  .gg-guide-cover-art{aspect-ratio:4/3}
+  .gg-guide-cover-slab{margin:-48px 12px 0;padding:20px}
+  .gg-neo-brutalist-page .gg-guide-cover h1{font-size:28px}
+}
 
 /* ── Gating ── */
 .gg-guide-gated{display:none}
@@ -3163,11 +3223,12 @@ var bodyEl=tree.querySelector(".gg-decision-tree__body");
 var restartEl=tree.querySelector(".gg-decision-tree__restart");
 if(bodyEl)bodyEl.style.display="none";
 if(resultEl){
-var resultHtml='<div class="gg-decision-tree__result-title">WE RECOMMEND</div>';
-resultHtml+='<div class="gg-decision-tree__result-race">';
-resultHtml+='<a href="/race/'+target+'/">'+target.replace(/-/g," ").replace(/\b\w/g,function(c){return c.toUpperCase();})+'</a>';
-resultHtml+='</div>';
-resultEl.innerHTML=resultHtml;
+while(resultEl.firstChild)resultEl.removeChild(resultEl.firstChild);
+var rTitle=document.createElement("div");rTitle.className="gg-decision-tree__result-title";rTitle.textContent="WE RECOMMEND";
+var rRace=document.createElement("div");rRace.className="gg-decision-tree__result-race";
+var rLink=document.createElement("a");rLink.href="/race/"+encodeURIComponent(target)+"/";
+rLink.textContent=target.replace(/-/g," ").replace(/\b\w/g,function(c){return c.toUpperCase();});
+rRace.appendChild(rLink);resultEl.appendChild(rTitle);resultEl.appendChild(rRace);
 resultEl.style.display="block";
 }
 if(restartEl)restartEl.style.display="block";
@@ -3179,7 +3240,7 @@ var qEl=tree.querySelector(".gg-decision-tree__question");
 var optsEl=tree.querySelector(".gg-decision-tree__options");
 if(qEl)qEl.textContent=node.question||"";
 if(optsEl){
-optsEl.innerHTML="";
+while(optsEl.firstChild)optsEl.removeChild(optsEl.firstChild);
 (node.options||[]).forEach(function(opt){
 var b=document.createElement("button");
 b.className="gg-decision-tree__option";
@@ -3206,11 +3267,11 @@ var resultEl=tree.querySelector(".gg-decision-tree__result");
 var qEl=tree.querySelector(".gg-decision-tree__question");
 var optsEl=tree.querySelector(".gg-decision-tree__options");
 if(bodyEl)bodyEl.style.display="block";
-if(resultEl){resultEl.style.display="none";resultEl.innerHTML="";}
+if(resultEl){resultEl.style.display="none";while(resultEl.firstChild)resultEl.removeChild(resultEl.firstChild);}
 btn.style.display="none";
 if(qEl)qEl.textContent=root.question||"";
 if(optsEl){
-optsEl.innerHTML="";
+while(optsEl.firstChild)optsEl.removeChild(optsEl.firstChild);
 (root.options||[]).forEach(function(opt){
 var b=document.createElement("button");
 b.className="gg-decision-tree__option";
@@ -3260,8 +3321,8 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
             chapters_html.append(CTA_BUILDERS[cta_type]())
 
     # CSS/JS
-    guide_css_content = build_guide_css()
-    guide_js_content = build_guide_js()
+    guide_css_content = build_guide_css() + "\n" + guide_ig.CSS
+    guide_js_content = build_guide_js() + ("\n(function(){\n\"use strict\";\n" + guide_ig.JS + "\n})();" if guide_ig.JS else "")
 
     if inline:
         css_html = f'<style>{guide_css_content}</style>'
@@ -3318,7 +3379,7 @@ def generate_guide_page(content: dict, inline: bool = False, assets_dir: Path = 
   <link rel="canonical" href="{esc(canonical_url)}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sometype+Mono:wght@400;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500;700;800&family=Geist:wght@400;600&display=swap">
   <!-- GA4 -->
   {get_ga4_head_snippet()}
   {og_tags}

@@ -659,9 +659,10 @@ def render_race_table(block: dict) -> str:
             f'{_e(h)}<span class="gg-ig-a-rt__arrow" aria-hidden="true">'
             f'{"↓" if active else ""}</span></button>'
         )
+    sorted_attr = ' aria-sort="descending"'
     th = "".join(
         f'<th scope="col" data-col="{i}"'
-        f'{" aria-sort=\"descending\"" if h == "Score" else ""}>{_e(h)}</th>'
+        f'{sorted_attr if h == "Score" else ""}>{_e(h)}</th>'
         for i, h in enumerate(TABLE_HEADERS)
     )
     trs = []

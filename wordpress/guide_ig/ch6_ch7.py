@@ -170,8 +170,8 @@ def render_psych_phases(block: dict) -> str:
         f' aria-label="Mood curve across race progress: high at the start, lowest in the Dark Patch'
         f' between 40 and 60 percent, then recovering to the finish">'
         f'{bands}<path class="gg-ig-d-psy-line" d="{_smooth_path(pts)}"/>'
-        f'<circle class="gg-ig-d-psy-low" cx="{lx:.0f}" cy="{ly:.0f}" r="13"/>'
-        f'<circle class="gg-ig-d-psy-here" cx="0" cy="0" r="12" hidden/></svg>'
+        f'<rect class="gg-ig-d-psy-low" x="{lx - 13:.0f}" y="{ly - 13:.0f}" width="26" height="26"/>'
+        f'<rect class="gg-ig-d-psy-here" x="0" y="0" width="24" height="24" hidden/></svg>'
     )
     cards = []
     for name, s, e, tip, details in PHASES:
@@ -645,7 +645,7 @@ pr.forEach(function(root){
     });
     if(on){
       var pt=pointAt(p/100*vb.width);
-      dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y);
+      dot.setAttribute('x',pt.x-12);dot.setAttribute('y',pt.y-12);
       var f=fmtPoint(p,st);
       var txt='At '+p+'%'+(f?' ('+f+')':'')+' \\u00b7 '+(cur?cur.getAttribute('data-name'):'');
       status.textContent=txt;

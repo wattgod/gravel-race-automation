@@ -1267,7 +1267,7 @@ def build_nav() -> str:
   </div>'''
 
 
-# Painted scenes of the Gravel God character (v7 lean, gravel-god-character repo),
+# Painted scenes of the Gravel God character (v6 rig look, gravel-god-character repo),
 # one per chapter. Files: guide/art/gg-art-<slug>-{1x,2x}.webp, served from /guide/media/.
 GUIDE_ART = {
     0: "00-cover",

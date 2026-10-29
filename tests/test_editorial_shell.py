@@ -991,6 +991,10 @@ def test_memes_are_placed_after_their_paragraphs_with_their_files(source):
 def test_committed_article_html_is_fresh(source):
     """Fails after a change to the shell, data/pricing.json, brand_tokens
     snippets, the consent banner or the logo: regenerate and commit."""
+    withdrawn = json.loads((PROJECT_ROOT / "web/withdrawn-articles.json").read_text())
+    if source.SLUG in withdrawn:
+        assert source.SLUG not in {row["slug"] for row in json.loads((PROJECT_ROOT / "web/blog-index.json").read_text())}
+        return  # Withdrawn artifacts stay archived; never regenerate or deploy them.
     assert source.OUTPUT_PATH.read_text(encoding="utf-8") == source.render(), (
         f"stale: run python3 wordpress/article_sources/{Path(source.__file__).name}"
     )

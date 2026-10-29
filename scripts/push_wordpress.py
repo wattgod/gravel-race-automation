@@ -3703,6 +3703,30 @@ def sync_training_form():
         return False
 
 
+def sync_newsletter_report():
+    """Deploy the private newsletter report and welcome-link mu-plugin."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+    plugin = Path(__file__).resolve().parent.parent / "wordpress/mu-plugins/gg-newsletter-report.php"
+    remote = "~/www/gravelgodcycling.com/public_html/wp-content/mu-plugins"
+    try:
+        subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}", f"mkdir -p {remote}"],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+        subprocess.run(
+            ["scp", "-i", str(SSH_KEY), "-P", port, str(plugin), f"{user}@{host}:{remote}/gg-newsletter-report.php"],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+        print("✓ Deployed newsletter report mu-plugin")
+        return True
+    except Exception as error:
+        print(f"✗ Failed to deploy newsletter report: {error}")
+        return False
+
+
 def sync_ga4():
     """Deploy the GA4 analytics mu-plugin to WordPress.
 
@@ -5431,6 +5455,10 @@ if __name__ == "__main__":
         help="Deploy GA4 analytics mu-plugin to wp-content/mu-plugins/"
     )
     parser.add_argument(
+        "--sync-newsletter-report", action="store_true",
+        help="Deploy the private newsletter report and tracked welcome links"
+    )
+    parser.add_argument(
         "--sync-header", action="store_true",
         help="Deploy shared header mu-plugin to wp-content/mu-plugins/"
     )
@@ -5622,6 +5650,7 @@ if __name__ == "__main__":
         args.sync_ctas = True
         args.sync_training_form = True
         args.sync_ga4 = True
+        args.sync_newsletter_report = True
         args.sync_prep_kits = True
         args.sync_tire_guides = True
         args.sync_series = True
@@ -5680,7 +5709,7 @@ if __name__ == "__main__":
                       args.sync_consult_intake,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
                       args.sync_sitemap, args.sync_favicons, args.sync_redirects,
-                      args.sync_noindex, args.sync_headings, args.sync_ctas, args.sync_training_form, args.sync_ga4, args.sync_header, args.sync_prep_kits, args.sync_plan_pages, args.sync_tire_guides,
+                      args.sync_noindex, args.sync_headings, args.sync_ctas, args.sync_training_form, args.sync_ga4, args.sync_newsletter_report, args.sync_header, args.sync_prep_kits, args.sync_plan_pages, args.sync_tire_guides,
                       args.sync_series, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.sync_ab, args.sync_courses,
                       args.sync_meta_descriptions, args.sync_mission_control,
@@ -5771,6 +5800,8 @@ if __name__ == "__main__":
         _run("sync-training-form", sync_training_form)
     if args.sync_ga4:
         _run("sync-ga4", sync_ga4)
+    if args.sync_newsletter_report:
+        _run("sync-newsletter-report", sync_newsletter_report)
     if args.sync_header:
         _run("sync-header", sync_header)
     if args.sync_photos:

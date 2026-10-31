@@ -32,8 +32,14 @@ jobs:
       - name: Only publish from main
         run: test "$GITHUB_REF" = refs/heads/main
 
+      # Full history: race pages, their JSON-LD and the sitemap date each
+      # race by the last commit that touched its data (page_dates.py). A
+      # shallow clone falls back to the checkout time, so every page would
+      # look freshly updated on every publish.
       - name: Checkout Gravel God source
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       # The generators read ../gravel-god-training-plans/db, the sibling
       # checkout a laptop publish has next to this repo.
@@ -142,7 +148,7 @@ jobs:
             --sync-guide --sync-legal --sync-season-review --sync-plan-intake \
             --season-review-variants athlete,goal_2027 \
             --sync-redirects --sync-sitemap --sync-meta-descriptions \
-            --sync-insights --sync-about --sync-tire-guides \
+            --sync-insights --sync-about --sync-tire-guides --sync-index \
             $OG_FLAG --purge-cache
 
       - name: Check the live site

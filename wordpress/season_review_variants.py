@@ -345,6 +345,16 @@ def s_habit():
     ]}
 
 
+def s_help():
+    """The lead form's last question: what to pitch in Matti's personal reply.
+    Optional, so a rider who skips it still gets the poster. The keys are
+    what Mission Control's coach alert reads (HELP_MOST_LABELS)."""
+    return {"title": "One Last Thing", "fields": [
+        {"name": "help_most", "label": "What would help most?", "kind": "radio",
+         "options": [("plan", "A plan"), ("coaching", "Coaching"), ("tips", "Just tips")]},
+    ]}
+
+
 def s_logistics():
     return {"title": "The Boring Logistics", "sub": "Include the kids, the commute, and the partner who thinks you ride too much.", "fields": [
         {"name": "hours_next", "label": "Hours a week you can actually train. Not aspirationally.", "kind": "select", "req": True, "options": HOURS},
@@ -404,7 +414,9 @@ MATTI = {
 # ── The public lead form (/goals/) — same voice, no coaching talk ──
 # D6/D14: a stranger gets the autopsy and the 2027 goal, not the logistics
 # and not "what do you want from me". Those belong in the plan form, after
-# they have a reason to care.
+# they have a reason to care. One exception (Matti, Oct 30 2026): a single
+# optional "what would help most" tap, so his personal reply can pitch the
+# right thing.
 
 GOAL_2027 = {
     "slug": "goal_2027",
@@ -412,7 +424,7 @@ GOAL_2027 = {
     "og_line": "Don’t write what you’d post.",  # share card line, from the intro
     "h1": f"So. {SEASON}.",
     "intro": "Fifteen minutes. Don&#39;t write what you&#39;d post. Write what you&#39;d admit after the second beer. You leave with a 2027 goal poster and the one thing most likely to wreck it. It saves as you go.",
-    "sections": [s_you(), s_highlight(), s_blooper(), s_2027(), s_obstacle(), s_habit()],
+    "sections": [s_you(), s_highlight(), s_blooper(), s_2027(), s_obstacle(), s_habit(), s_help()],
     "done": "That&#39;s it. Hit submit and your poster is on its way &mdash; or keep digging first.",
     "deep_title": "Extra credit &mdash; for the obsessive",
     "modules": MATTI_MODULES,

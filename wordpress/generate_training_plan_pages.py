@@ -52,7 +52,7 @@ OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output" / "training-plan"
 TESTIMONIALS_PATH = PROJECT_ROOT / "data" / "testimonials.json"
 
 SITE_BASE_URL = "https://gravelgodcycling.com"
-QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/questionnaire/"
+QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/training-plans/start/"
 
 DIM_LABELS = {
     "durability": "Durability",

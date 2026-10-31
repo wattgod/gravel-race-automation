@@ -93,6 +93,23 @@ jobs:
           python3 wordpress/generate_legal_pages.py
           python3 wordpress/generate_season_review.py
           python3 wordpress/generate_plan_intake_pages.py
+          python3 wordpress/generate_methodology.py
+          python3 wordpress/generate_tier_hubs.py
+          python3 wordpress/generate_insights.py
+          python3 wordpress/generate_about.py
+          # Methodology and the tier hubs ship with --sync-pages, insights,
+          # about and the tire guides with their own flags below. The /tire/
+          # pages are built only so the sitemap lists them: their deploy
+          # deletes live dirs missing from the build, so it stays a laptop
+          # step. Then the sitemap, which nothing here pushed
+          # before, so the live one sat at 2026-08-28. The blog sitemap is
+          # built from the committed blog-index.json: roundups aren't
+          # generated in this job, so rebuilding the index here drops them.
+          python3 wordpress/generate_tire_guide.py --all
+          python3 wordpress/generate_tire_pages.py
+          python3 wordpress/generate_tire_vs_pages.py
+          python3 scripts/generate_sitemap.py --blog
+          python3 scripts/generate_meta_descriptions.py
 
       # Share images are nice to have: if the browser render fails, the run
       # publishes the pages anyway and leaves the live share images as they are.
@@ -123,7 +140,10 @@ jobs:
           python3 scripts/push_wordpress.py \
             --sync-pages --sync-plan-pages --sync-training-plans --sync-training \
             --sync-guide --sync-legal --sync-season-review --sync-plan-intake \
-            --sync-redirects $OG_FLAG --purge-cache
+            --season-review-variants athlete,goal_2027 \
+            --sync-redirects --sync-sitemap --sync-meta-descriptions \
+            --sync-insights --sync-about --sync-tire-guides \
+            $OG_FLAG --purge-cache
 
       - name: Check the live site
         run: |
@@ -132,7 +152,7 @@ jobs:
           v="v=$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
           fail=0
           code() { curl -s -o /dev/null -w '%{http_code} %{redirect_url}' "$1"; }
-          for path in /training-plans/start/ /training-plans/details/ /products/training-plans/; do
+          for path in /training-plans/start/ /training-plans/details/ /products/training-plans/ /goals/; do
             got=$(code "$base$path?$v")
             echo "$path -> $got"
             case "$got" in 200*) ;; *) fail=1 ;; esac
@@ -142,7 +162,7 @@ jobs:
           case "$got" in "302 "*/training-plans/start/*) ;; *) fail=1 ;; esac
           got=$(code "$base/season-plan/?$v")
           echo "/season-plan/ -> $got"
-          case "$got" in "301 "*/questionnaire/*) ;; *) fail=1 ;; esac
+          case "$got" in "301 "*/training-plans/start/*) ;; *) fail=1 ;; esac
           if curl -sL "$base/products/training-plans/?$v" | grep -q '\$249'; then
             echo "::error::The live training plans page still shows \$249"
             fail=1

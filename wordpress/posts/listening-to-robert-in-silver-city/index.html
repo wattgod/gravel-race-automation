@@ -289,6 +289,19 @@ sup a:hover{text-decoration:underline}
 .foot .pitch{font:400 19px/1.45 var(--serif);color:var(--paper);margin:0 0 18px;max-width:34em}
 .foot .fine{font:700 13px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:#e2d6c7;margin:14px 0 0}
 .foot .btn{background:var(--teal)}
+.newsletter-signup{width:100%;max-width:480px}
+.newsletter-signup{scroll-margin-top:100px}
+.newsletter-signup form{display:grid;gap:12px}
+.newsletter-signup label{font:700 13px var(--mono)}
+.newsletter-signup input[type=email]{width:100%;box-sizing:border-box;border:2px solid var(--paper);background:var(--paper);color:var(--ink);padding:14px 12px;font:400 17px var(--serif);border-radius:0}
+.newsletter-signup .btn{justify-self:start;border:0;cursor:pointer}
+.newsletter-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.newsletter-fallback{display:inline-block;margin-top:14px;font:500 13px var(--mono);text-underline-offset:4px}
+.article-offer{border-top:1px solid var(--sand2);margin-top:56px;padding:28px 0;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.article .article-offer h2{font:700 25px/1.2 var(--serif);margin:0}
+.article .article-offer-detail{font:500 13px/1.5 var(--mono);margin:10px 0 0;color:var(--ink2)}
+.article-offer .btn{flex-shrink:0;background:var(--teal);color:var(--paper)}
+@media(max-width:640px){.article-offer{align-items:flex-start;flex-direction:column;gap:18px}}
 .foot nav{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;align-content:start}
 .foot nav a{font:700 14px var(--mono);text-transform:uppercase;text-decoration:none;padding:6px 0}
 .foot .base{max-width:1296px;margin:0 auto;padding:0 32px 28px;font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#d9cbbb}
@@ -521,7 +534,7 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
       </div>
       <a href="https://gravelgodcycling.com/about/">ABOUT</a>
     </nav>
-    <a class="btn gg-hdr-sub" href="https://gravelgodcycling.substack.com" data-event="article_cta_click" data-label="substack_header">Subscribe <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+    <a class="btn gg-hdr-sub" href="#newsletter-signup" data-event="article_cta_click" data-label="substack_header">Subscribe <span class="chev" aria-hidden="true">&rsaquo;</span></a>
     <button class="gg-hamburger" id="gg-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="gg-mobile-nav">
       <span class="gg-hamburger-bar"></span>
       <span class="gg-hamburger-bar"></span>
@@ -694,42 +707,23 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 <p id="p-robert">But for thirty minutes – guaranteed – Robert didn’t feel that way. No result any of us could have won, no cycling-related feat on our part compared to how we made him feel for thirty minutes, all because we listened. We made him feel seen.</p>
 <p>When promoters meet to plan for the Tour of the Gila 2025 and locals fill the back room asking to chop the UCI race, Robert will stand up in the crowd and push back – not because of how fast we are (lol) but because of how we made him feel.</p>
 </section>
-
-<div class="slot slot-ladder" data-slot="ladder">
-<aside class="ladder" aria-label="Training plans and coaching">
-  <p class="lead">See how we actually structure plans — polarized, race-specific, built for your life.</p>
-  <div class="rung main">
-    <div>
-      <span class="k">One race</span>
-      <strong>Custom Training Plan</strong>
-      <span class="price">$15/week · paid once</span>
-      <span class="d">One race, periodised to your date, in your TrainingPeaks calendar within 24 hours. 7-day refund.</span>
-    </div>
-    <a class="btn" href="/products/training-plans/" data-event="article_cta_click" data-label="custom_plan" data-cta="custom_plan">Get a custom plan <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-  </div>
-  <div class="pair">
-    <div class="rung">
-      <span class="k">A human</span>
-      <strong>Coaching</strong>
-      <span class="price">From $199 every 4 weeks</span>
-      <span class="d">A human coach and a plan that adjusts weekly.</span>
-      <a class="btn" href="/coaching/" data-event="article_cta_click" data-label="coaching" data-cta="coaching">See coaching <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-    </div>
-  </div>
-</aside>
-</div>
     </article>
   </div>
 </main>
 
 <footer class="foot">
   <div class="in">
-    <div>
+    <section class="newsletter-signup" id="newsletter-signup" aria-label="Slow, Mid, 38s newsletter">
       <h3>Slow, Mid, 38s</h3>
-      <p class="pitch">More like this every week. Training science without the marketing. Race intel without the fluff.</p>
-      <a class="btn" href="https://gravelgodcycling.substack.com" target="_blank" rel="noopener" data-event="article_cta_click" data-label="substack_bottom">Subscribe to Slow, Mid, 38s <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-      <p class="fine">Free &mdash; Unsubscribe anytime</p>
-    </div>
+      <p class="pitch">For cyclists with more passion than talent.</p>
+      <form data-newsletter-signup action="https://newsletter-attribution.gravelgodcoaching.workers.dev/capture" method="post">
+        <label for="newsletter-email">Email</label>
+        <input id="newsletter-email" type="email" name="email" autocomplete="email" required>
+        <input type="hidden" name="article" value="">
+        <div class="newsletter-honeypot" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button class="btn" type="submit" data-event="article_cta_click" data-label="substack_bottom">Continue on Substack</button>
+      </form>
+    </section>
     <nav aria-label="Footer"><a href="https://gravelgodcycling.com/gravel-races/">Races</a><a href="https://gravelgodcycling.com/products/training-plans/">Products</a><a href="https://gravelgodcycling.com/coaching/">Services</a><a href="https://gravelgodcycling.com/articles/">Articles</a><a href="https://gravelgodcycling.com/about/">About</a><a href="https://gravelgodcycling.substack.com">Substack</a></nav>
   </div>
   <div class="base"><span>&copy; Gravel God Cycling</span></div>
@@ -890,6 +884,9 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 </script>
 <script>
 (function(){
+  document.querySelectorAll('form[data-newsletter-signup]').forEach(function(form){
+    if(form.elements && form.elements.article) form.elements.article.value=window.location.pathname;
+  });
   var heads=[].slice.call(document.querySelectorAll('#article h2[data-toc]'));
   var lists=[].slice.call(document.querySelectorAll('ol.toc')).map(function(ol){return [].slice.call(ol.children);});
   var claims=[].slice.call(document.querySelectorAll('.inshort li'));
@@ -943,7 +940,7 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
               'depth_threshold': depths[i]
             });
             // Fire separate deep-read event at 75%+ for funnel tracking
-            if (depths[i] >= 75) {
+            if (depths[i] === 75) {
               gtag('event', 'article_deep_read', {
                 'article_slug': "listening-to-robert-in-silver-city",
                 'depth_threshold': depths[i]

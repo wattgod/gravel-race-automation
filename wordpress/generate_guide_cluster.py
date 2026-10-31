@@ -56,6 +56,7 @@ from guide_configs import (
 
 # Reuse ALL block renderers + helpers from existing guide generator
 import generate_guide
+import guide_ig
 generate_guide._GLOSSARY = None  # Will be set during generation
 from generate_guide import (
     BLOCK_RENDERERS,
@@ -72,6 +73,7 @@ from generate_guide import (
     esc,
     _md_inline,
     _safe_json_for_script,
+    _art_img,
 )
 
 
@@ -319,19 +321,22 @@ def build_chapter_breadcrumb(chapter: dict, config: GuideConfig = GRAVEL_GUIDE) 
   </div>'''
 
 
-def build_chapter_hero(chapter: dict) -> str:
-    """Build the hero section for a chapter page."""
+def build_chapter_hero(chapter: dict, config: GuideConfig = GRAVEL_GUIDE) -> str:
+    """Build the hero section for a chapter page (the painted scene on the gravel guide)."""
     num = chapter["number"]
     title = esc(chapter["title"])
     subtitle = esc(chapter.get("subtitle", ""))
     subtitle_html = f'<p class="gg-guide-chapter-subtitle">{subtitle}</p>' if subtitle else ''
     variant = "dark" if num in {2, 4, 6, 8} else "light"
-    plate = render_chapter_plate(num, {"race_index": generate_guide._RACE_INDEX})
+    art = _art_img(num, "gg-guide-chapter-art", eager=True) if config.key == GRAVEL_GUIDE.key else ""
+    plate = "" if art else render_chapter_plate(num, {"race_index": generate_guide._RACE_INDEX})
+    art_class = " gg-guide-chapter-hero--art" if art else ""
+    bignum = f'<span class="gg-guide-chapter-bignum" aria-hidden="true">{num:02d}</span>' if art else ""
 
-    return f'''<div class="gg-guide-chapter-hero gg-guide-chapter-hero--{variant}">
-      {plate}
+    return f'''<div class="gg-guide-chapter-hero gg-guide-chapter-hero--{variant}{art_class}">
+      {art}{plate}
       <div class="gg-guide-chapter-title-block">
-        <span class="gg-guide-chapter-num">CHAPTER {num:02d}</span>
+        {bignum}<span class="gg-guide-chapter-num">CHAPTER {num:02d}</span>
         <h1 class="gg-guide-chapter-title">{title}</h1>
         {subtitle_html}
       </div>
@@ -1005,7 +1010,7 @@ def generate_chapter_page(chapter: dict, chapters: list, content: dict,
     nav = get_site_header_html(active="products")
     breadcrumb = build_chapter_breadcrumb(chapter, config)
     progress = build_chapter_progress(chapter, chapters)
-    hero = build_chapter_hero(chapter)
+    hero = build_chapter_hero(chapter, config)
     rider_selector = build_rider_selector(content)
     chapter_content = build_chapter_content(chapter)
     email_capture = build_chapter_email_capture(chapter)
@@ -1555,6 +1560,8 @@ def generate_configurator_page(content: dict, guide_css: str, guide_js: str,
 def _guide_js_for_config(config: GuideConfig) -> str:
     """Namespace legacy guide interactions without modifying the gravel baseline."""
     guide_js = build_guide_js()
+    if guide_ig.JS:
+        guide_js += "\n(function(){\n\"use strict\";\n" + guide_ig.JS + "\n})();"
     if config.key == GRAVEL_GUIDE.key:
         return guide_js
     return (guide_js
@@ -1590,7 +1597,7 @@ def generate_cluster(output_dir: Path = None, inline: bool = False,
     generate_guide._RACE_INDEX = generate_guide.load_race_index()
 
     # Build CSS/JS once
-    guide_css = build_guide_css()
+    guide_css = build_guide_css() + "\n" + guide_ig.CSS
     guide_js = _guide_js_for_config(config)
     cluster_css = build_cluster_css()
     cluster_js = build_cluster_js(config)

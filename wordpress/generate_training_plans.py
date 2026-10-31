@@ -41,7 +41,7 @@ OUTPUT_DIR = Path(__file__).parent / "output"
 
 # ── Constants ─────────────────────────────────────────────────
 
-QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/questionnaire/"
+QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/training-plans/start/"
 TRAINING_PLANS_URL = f"{SITE_BASE_URL}/products/training-plans/"
 COACHING_URL = f"{SITE_BASE_URL}/coaching/"
 # PRICE_PER_WEEK comes from pricing.py (data/pricing.json) —

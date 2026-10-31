@@ -22,7 +22,7 @@ def _load_preflight_quality():
 def test_state_hub_has_canonical_cta_click():
     html = build_state_page("Testland", [], 0)
 
-    assert 'href="/questionnaire/"' in html
+    assert 'href="/training-plans/start/"' in html
     assert "gtag('event', 'cta_click'" in html
     assert "source: 'state_hub'" in html
     assert "cta_name: el.getAttribute('data-cta')" in html

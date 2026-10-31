@@ -386,7 +386,7 @@ class TestAnalyticsAndChrome:
         assert "'article_slug': \"test-article\"" in page
         # Deep read fires only at 75%+ (the funnel metric).
         deep = page.split("'article_deep_read'", 1)[0]
-        assert "if (depths[i] >= 75)" in deep[-400:]
+        assert "if (depths[i] === 75)" in deep[-400:]
 
     def test_events_can_be_off(self):
         html = es.render_editorial_page(_meta(track_article_events=False), BODY)
@@ -991,6 +991,10 @@ def test_memes_are_placed_after_their_paragraphs_with_their_files(source):
 def test_committed_article_html_is_fresh(source):
     """Fails after a change to the shell, data/pricing.json, brand_tokens
     snippets, the consent banner or the logo: regenerate and commit."""
+    withdrawn = json.loads((PROJECT_ROOT / "web/withdrawn-articles.json").read_text())
+    if source.SLUG in withdrawn:
+        assert source.SLUG not in {row["slug"] for row in json.loads((PROJECT_ROOT / "web/blog-index.json").read_text())}
+        return  # Withdrawn artifacts stay archived; never regenerate or deploy them.
     assert source.OUTPUT_PATH.read_text(encoding="utf-8") == source.render(), (
         f"stale: run python3 wordpress/article_sources/{Path(source.__file__).name}"
     )
@@ -1013,13 +1017,15 @@ class TestSweetSpotArticle:
     def test_slots_and_figures(self):
         html = SWEET_SPOT_INDEX.read_text(encoding="utf-8")
         slots = re.findall(r'data-slot="([a-z]+)"', html)
-        assert slots == ["summary", "drift", "recovery", "polarized", "ladder"]
+        assert slots == ["summary", "drift", "recovery", "polarized"]
         # Every "In short" link resolves to an anchor on the page.
         for href in re.findall(r'<a class="ev" href="#([^"]+)"', html):
             assert f'id="{href}"' in html, href
-        # Ladder sits right before the G-Spot section.
+        # One relevant offer follows the complete essay and references.
         main = _main(html).split('id="article">', 1)[1]
-        assert main.index("slot-ladder") < main.index("That Said, G-Spot") < main.index("gg-references")
+        assert "slot-ladder" not in main
+        assert main.index("gg-references") < main.index('class="article-offer"')
+        assert main.count('class="article-offer"') == 1
 
     def test_all_images_exist(self):
         html = SWEET_SPOT_INDEX.read_text(encoding="utf-8")

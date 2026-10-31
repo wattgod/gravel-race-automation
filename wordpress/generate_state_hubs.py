@@ -995,7 +995,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   <section class="gg-state-cta">
     <h2>Racing in {esc(state)}?</h2>
     <p>Get a personalized training plan for any {esc(state)} gravel race — tailored to your fitness, schedule, and goals.</p>
-    <a href="/questionnaire/" class="gg-state-cta-btn" data-cta="build_my_plan">Build My Plan</a>
+    <a href="/training-plans/start/" class="gg-state-cta-btn" data-cta="build_my_plan">Build My Plan</a>
     <p style="font-size:11px;color:var(--gg-color-tan);margin-top:8px">{PRICE_PER_WEEK}/week until your race. One-time payment.</p>
   </section>
 
@@ -1020,7 +1020,7 @@ document.querySelectorAll('[data-cta]').forEach(function(el) {
 });
 ''' + '</script>' + '''
 
-{get_consent_banner_html()}
+''' + get_consent_banner_html() + '''
 </body>
 </html>'''
 

@@ -64,7 +64,7 @@ from generate_guide import (
 
 # ── Constants ──────────────────────────────────────────────────
 
-QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/questionnaire/"
+QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/training-plans/start/"
 GUIDE_DIR = Path(__file__).parent.parent / "guide"
 CONTENT_JSON = GUIDE_DIR / "gravel-guide-content.json"
 OUTPUT_DIR = Path(__file__).parent / "output" / "prep-kit"
@@ -2350,10 +2350,29 @@ def build_pk_recovery(guide_sections: dict) -> str:
   </section>'''
 
 
+def _has_training_guide(slug: str) -> bool:
+    """True when /race/{slug}/training-plan/ is generated.
+
+    Mirrors generate_training_plan_pages.py, which skips races whose race
+    pack has no demand profile.
+    """
+    pack_path = Path(__file__).resolve().parent.parent / "web" / "race-packs" / f"{slug}.json"
+    try:
+        return bool(json.loads(pack_path.read_text(encoding="utf-8")).get("demands"))
+    except (OSError, json.JSONDecodeError):
+        return False
+
+
 def build_pk_footer_cta(rd: dict) -> str:
     """Build footer CTA linking to training plans and newsletter."""
     name = esc(rd["name"])
     slug = esc(rd["slug"])
+    # The training guide pages had no inbound links; the prep kit is their
+    # natural parent (same race, same plan-intent reader).
+    guide_link = (
+        f' &middot; <a href="/race/{slug}/training-plan/">How to Train for {name}</a>'
+        if _has_training_guide(rd["slug"]) else ''
+    )
     return f'''<footer class="gg-pk-footer">
     <div class="gg-pk-footer-inner">
       <h3>Ready to Race {name}?</h3>
@@ -2365,7 +2384,7 @@ def build_pk_footer_cta(rd: dict) -> str:
         <a href="{esc(COACHING_URL)}" class="gg-pk-btn gg-pk-btn--secondary">1:1 COACHING</a>
       </div>
       <p class="gg-pk-footer-back">
-        <a href="/race/{slug}/">Back to {name} Race Profile</a>
+        <a href="/race/{slug}/">Back to {name} Race Profile</a>{guide_link}
       </p>
     </div>
   </footer>'''

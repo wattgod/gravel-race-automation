@@ -95,4 +95,4 @@ def test_la_epica_index_and_page_are_generated() -> None:
     assert "170 km" in html
     assert "Not published for 2027" in html
     assert '"@type":"SportsEvent"' in html
-    assert "questionnaire/?race=la-epica-gravel-grinder" in html
+    assert "training-plans/start/?race=la-epica-gravel-grinder" in html

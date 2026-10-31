@@ -434,7 +434,7 @@ class TestGoalsPage:
         assert [p["key"] for p in plans] == ["race"]
         (race,) = plans
         assert f"{PRICE_PER_WEEK} a week until your race, paid once" in race["price"]
-        assert race["cta_href"] == "/questionnaire/?src=goals"
+        assert race["cta_href"] == "/training-plans/start/?src=goals"
 
     def test_offer_html_renders_only_the_plan_cta(self):
         html = page("goal_2027")

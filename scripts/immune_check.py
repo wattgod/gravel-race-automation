@@ -65,6 +65,10 @@ GREEN, YELLOW, RED = "green", "yellow", "red"
 # Money-path CTA markers — the conversion links a visitor clicks (buy the plan /
 # talk to a coach). Anything on these paths is RED, never auto-healed.
 MONEY_PATH_MARKERS = ("/questionnaire/", "/training-plans/start/", "/coaching/")
+# The CTAs the race-page generator itself must emit. /questionnaire/ is still a
+# money path (it redirects to the start page) but race pages link the start
+# page directly, so it isn't required here.
+RACE_PAGE_CTA_MARKERS = ("/training-plans/start/", "/coaching/")
 
 # Make audit_race_data.py importable and reuse its logic (don't reinvent it).
 sys.path.insert(0, str(SCRIPT_DIR))
@@ -239,7 +243,7 @@ def check_money_path_wiring() -> list[Finding]:
                         "Money Path Generator Missing", str(gen),
                         "The race-page generator is unreadable — the money path "
                         "can't be verified.", None, "immune")]
-    missing = [m for m in MONEY_PATH_MARKERS if m not in src]
+    missing = [m for m in RACE_PAGE_CTA_MARKERS if m not in src]
     if missing:
         return [Finding("money-path-cta-dropped", RED, "critical",
                         "Money Path CTA Dropped",

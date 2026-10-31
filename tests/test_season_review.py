@@ -200,10 +200,27 @@ class TestOneVoice:
         for field in ("hours_next", "constraints", "next_season_plan", "coach_notes"):
             assert f'name="{field}"' not in core, field
 
+    def test_lead_form_asks_what_would_help_most(self):
+        # Matti, Oct 30 2026: one optional tap so his reply pitches the right
+        # thing. Mission Control's alert labels these values (its own test
+        # checks the two stay in step).
+        core = core_form("goal_2027")
+        values = re.findall(r'name="help_most" value="([a-z_]+)"([^>]*)>', core)
+        assert [v for v, _ in values] == ["plan", "coaching", "tips"]
+        assert not any("required" in attrs for _, attrs in values)
+        for label in ("A plan", "Coaching", "Just tips"):
+            assert f">{label}</div>" in core, label
+
+    def test_help_question_is_lead_form_only(self):
+        for slug in ALL:
+            if slug != "goal_2027":
+                assert 'name="help_most"' not in page(slug), slug
+
     def test_lead_form_stays_a_fifteen_minute_job(self):
         names = set(re.findall(r'name="([a-z_0-9]+)"', core_form("goal_2027"))) - {"website"}
         names = {n for n in names if not re.fullmatch(r"why_[2-5]", n)}
-        assert len(names) <= 25, sorted(names)
+        # 25 typed answers plus the one optional "what would help most" tap.
+        assert len(names) <= 26, sorted(names)
 
 
 class TestGoalsPage:

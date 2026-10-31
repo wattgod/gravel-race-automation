@@ -123,6 +123,7 @@ jobs:
           python3 scripts/push_wordpress.py \
             --sync-pages --sync-plan-pages --sync-training-plans --sync-training \
             --sync-guide --sync-legal --sync-season-review --sync-plan-intake \
+            --season-review-variants athlete,goal_2027 \
             --sync-redirects $OG_FLAG --purge-cache
 
       - name: Check the live site
@@ -132,7 +133,7 @@ jobs:
           v="v=$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
           fail=0
           code() { curl -s -o /dev/null -w '%{http_code} %{redirect_url}' "$1"; }
-          for path in /training-plans/start/ /training-plans/details/ /products/training-plans/; do
+          for path in /training-plans/start/ /training-plans/details/ /products/training-plans/ /goals/; do
             got=$(code "$base$path?$v")
             echo "$path -> $got"
             case "$got" in 200*) ;; *) fail=1 ;; esac

@@ -64,7 +64,7 @@ GREEN, YELLOW, RED = "green", "yellow", "red"
 
 # Money-path CTA markers — the conversion links a visitor clicks (buy the plan /
 # talk to a coach). Anything on these paths is RED, never auto-healed.
-MONEY_PATH_MARKERS = ("/questionnaire/", "/coaching/")
+MONEY_PATH_MARKERS = ("/questionnaire/", "/training-plans/start/", "/coaching/")
 
 # Make audit_race_data.py importable and reuse its logic (don't reinvent it).
 sys.path.insert(0, str(SCRIPT_DIR))

@@ -93,6 +93,16 @@ jobs:
           python3 wordpress/generate_legal_pages.py
           python3 wordpress/generate_season_review.py
           python3 wordpress/generate_plan_intake_pages.py
+          # Tire pages are built only so the sitemap lists them (they ship
+          # with --deploy-all); then the sitemap, which nothing here pushed
+          # before, so the live one sat at 2026-08-28. The blog sitemap is
+          # built from the committed blog-index.json: roundups aren't
+          # generated in this job, so rebuilding the index here drops them.
+          python3 wordpress/generate_tire_guide.py --all
+          python3 wordpress/generate_tire_pages.py
+          python3 wordpress/generate_tire_vs_pages.py
+          python3 scripts/generate_sitemap.py --blog
+          python3 scripts/generate_meta_descriptions.py
 
       # Share images are nice to have: if the browser render fails, the run
       # publishes the pages anyway and leaves the live share images as they are.
@@ -124,7 +134,8 @@ jobs:
             --sync-pages --sync-plan-pages --sync-training-plans --sync-training \
             --sync-guide --sync-legal --sync-season-review --sync-plan-intake \
             --season-review-variants athlete,goal_2027 \
-            --sync-redirects $OG_FLAG --purge-cache
+            --sync-redirects --sync-sitemap --sync-meta-descriptions \
+            $OG_FLAG --purge-cache
 
       - name: Check the live site
         run: |

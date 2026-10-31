@@ -454,7 +454,7 @@ class TestSectionBuilders:
 
     def test_training_cta_links(self):
         html = build_training_cta()
-        assert "/questionnaire/" in html
+        assert "/training-plans/start/" in html
 
     def test_training_cta_has_no_empty_panel(self):
         """Regression: gg-hp-cta-right used to render as an empty
@@ -550,7 +550,7 @@ class TestLadderStrip:
     def test_cta_hrefs_correct(self, stats):
         html = build_ladder_strip(stats)
         assert 'href="https://gravelgodcycling.com/gravel-races/"' in html
-        assert 'href="https://gravelgodcycling.com/questionnaire/"' in html
+        assert 'href="https://gravelgodcycling.com/training-plans/start/"' in html
         assert 'href="https://gravelgodcycling.com/coaching/"' in html
         # Coaching CTA must NOT use the imported COACHING_URL (/coaching/apply/)
         assert 'href="https://gravelgodcycling.com/coaching/apply/"' not in html
@@ -1137,7 +1137,7 @@ class TestSidebar:
     def test_sidebar_cta(self, stats, race_index, upcoming):
         html = build_sidebar(stats, race_index, upcoming)
         assert "gg-hp-sidebar-cta" in html
-        assert "/questionnaire/" in html
+        assert "/training-plans/start/" in html
 
     def test_sidebar_coming_up(self, stats, race_index, upcoming):
         html = build_sidebar(stats, race_index, upcoming)

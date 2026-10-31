@@ -197,7 +197,7 @@ def build_ctas() -> str:
         <div class="gg-about-cta">
           <h3>Training Plans</h3>
           <p data-ab="training_price">Race-specific. Built for your target event. Less than your race hotel &mdash; $2/day.</p>
-          <a href="{SITE_BASE_URL}/questionnaire/" class="gg-about-cta-btn gg-about-cta-btn--gold" data-cta="training_plans" data-ab="training_cta_btn">BUILD MY PLAN</a>
+          <a href="{SITE_BASE_URL}/training-plans/start/" class="gg-about-cta-btn gg-about-cta-btn--gold" data-cta="training_plans" data-ab="training_cta_btn">BUILD MY PLAN</a>
         </div>
         <div class="gg-about-cta">
           <h3>1:1 Coaching</h3>

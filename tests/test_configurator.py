@@ -562,8 +562,8 @@ class TestConfiguratorJS:
             if '.href' in line and 'race=' in line
         ]
         for line in cta_href_lines:
-            assert '/questionnaire/' in line, (
-                f"CTA href must point to /questionnaire/, not /coaching: {line}"
+            assert '/training-plans/start/' in line, (
+                f"CTA href must point to /training-plans/start/, not /coaching: {line}"
             )
         # Should never contain /coaching? as a CTA destination
         assert "'/coaching?" not in js_content, (

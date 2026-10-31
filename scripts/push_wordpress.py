@@ -412,8 +412,10 @@ def sync_guide(guide_dir: str):
     # Media lives at project_root/guide/media/, not in the output dir
     project_root = Path(__file__).resolve().parent.parent
     media_dir = project_root / "guide" / "media"
-    if media_dir.exists():
-        media_files = [f for f in media_dir.iterdir() if f.suffix in (".webp", ".mp4")]
+    # guide/art/ holds the committed character scenes; they're served from /guide/media/ too.
+    art_dir = project_root / "guide" / "art"
+    if media_dir.exists() or art_dir.exists():
+        media_files = [f for d in (media_dir, art_dir) if d.exists() for f in d.iterdir() if f.suffix in (".webp", ".mp4")]
         if media_files:
             # Create remote media directory
             try:
@@ -433,10 +435,14 @@ def sync_guide(guide_dir: str):
                 return None
 
             # Upload via tar+ssh pipe for efficiency
-            file_list = [f.name for f in media_files]
+            tar_args = []
+            for d in (media_dir, art_dir):
+                names = [f.name for f in media_files if f.parent == d]
+                if names:
+                    tar_args += ["-C", str(d)] + names
             try:
                 tar_cmd = subprocess.Popen(
-                    ["tar", "-cf", "-", "-C", str(media_dir)] + file_list,
+                    ["tar", "-cf", "-"] + tar_args,
                     stdout=subprocess.PIPE,
                 )
                 ssh_cmd = subprocess.run(
@@ -450,8 +456,8 @@ def sync_guide(guide_dir: str):
                     text=True,
                     timeout=120,
                 )
-                tar_cmd.wait()
-                if ssh_cmd.returncode == 0:
+                tar_status = tar_cmd.wait()
+                if ssh_cmd.returncode == 0 and tar_status == 0:
                     print(f"✓ Uploaded {len(media_files)} media files to /guide/media/")
                 else:
                     print(f"✗ Media upload failed: {ssh_cmd.stderr.strip()}")
@@ -537,7 +543,7 @@ def sync_guide_cluster(cluster_dir: str):
         tar_proc.stdout.close()
         stdout, stderr = ssh_proc.communicate(timeout=300)
 
-        if ssh_proc.returncode != 0:
+        if ssh_proc.returncode != 0 or tar_proc.wait() != 0:
             print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
             return None
     except subprocess.TimeoutExpired:
@@ -548,6 +554,22 @@ def sync_guide_cluster(cluster_dir: str):
     except Exception as e:
         print(f"✗ Error uploading guide cluster pages: {e}")
         return None
+
+    # The chapter pages open on the painted scenes, served from /guide/media/.
+    art_dir = Path(__file__).resolve().parent.parent / "guide" / "art"
+    art_files = sorted(f.name for f in art_dir.glob("*.webp")) if art_dir.exists() else []
+    if art_files:
+        art_tar = subprocess.Popen(["tar", "-cf", "-", "-C", str(art_dir)] + art_files, stdout=subprocess.PIPE)
+        art_ssh = subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+             f"mkdir -p {remote_base}/media && tar -xf - -C {remote_base}/media"],
+            stdin=art_tar.stdout, capture_output=True, text=True, timeout=120,
+        )
+        art_tar.stdout.close()
+        if art_ssh.returncode != 0 or art_tar.wait() != 0:
+            print(f"✗ Guide art upload failed: {art_ssh.stderr.strip()}")
+            return None
+        print(f"✓ Uploaded {len(art_files)} guide art files to /guide/media/")
 
     # Fix permissions
     try:
@@ -2700,7 +2722,9 @@ def sync_pages(pages_dir: str, dry_run: bool = False, force_unlock: bool = False
     html_files = sorted(f for f in pages_path.glob("*.html")
                         if f.stem not in ROOT_CANONICAL_SLUGS)
     # Also check for pre-built subdirectories (vs pages, state hubs, etc.)
-    SKIP_DIRS = {"assets", "og", "prep-kit", "blog", "race", "athletes"}
+    # tire/ holds the /tire/ review pages (--sync-tire-pages), not race pages;
+    # without the skip a build that includes them would also ship /race/tire/.
+    SKIP_DIRS = {"assets", "og", "prep-kit", "blog", "race", "athletes", "tire"}
     subdirs_with_pages = [
         d for d in sorted(pages_path.iterdir())
         if d.is_dir() and d.name not in SKIP_DIRS
@@ -2803,7 +2827,9 @@ RewriteRule ^custom-training-plans/?$ /products/training-plans/ [R=301,L]
 # Season Plan retired 2026-10-23 (Matti: one product). The intake page stays
 # on disk but every visit, ?t= prefill links included, goes to the custom-plan
 # questionnaire. /season-plan/success/ is untouched (exact match only).
-RewriteRule ^season-plan/?$ /questionnaire/ [R=301,L]
+# Goes straight to the start page (2026-10-31): /questionnaire/ itself
+# redirects there, and a chained 301 -> 302 costs crawlers an extra hop.
+RewriteRule ^season-plan/?$ /training-plans/start/ [R=301,L]
 
 # Two-step switch (2026-10-23): the long one-page questionnaire becomes
 # step 1 (race, date, name, email → checkout) at /training-plans/start/, with
@@ -3678,6 +3704,30 @@ def sync_training_form():
         return True
     except Exception as e:
         print(f"✗ Failed to deploy training-form mu-plugin: {e}")
+        return False
+
+
+def sync_newsletter_report():
+    """Deploy the private newsletter report and welcome-link mu-plugin."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+    plugin = Path(__file__).resolve().parent.parent / "wordpress/mu-plugins/gg-newsletter-report.php"
+    remote = "~/www/gravelgodcycling.com/public_html/wp-content/mu-plugins"
+    try:
+        subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}", f"mkdir -p {remote}"],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+        subprocess.run(
+            ["scp", "-i", str(SSH_KEY), "-P", port, str(plugin), f"{user}@{host}:{remote}/gg-newsletter-report.php"],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+        print("✓ Deployed newsletter report mu-plugin")
+        return True
+    except Exception as error:
+        print(f"✗ Failed to deploy newsletter report: {error}")
         return False
 
 
@@ -5409,6 +5459,10 @@ if __name__ == "__main__":
         help="Deploy GA4 analytics mu-plugin to wp-content/mu-plugins/"
     )
     parser.add_argument(
+        "--sync-newsletter-report", action="store_true",
+        help="Deploy the private newsletter report and tracked welcome links"
+    )
+    parser.add_argument(
         "--sync-header", action="store_true",
         help="Deploy shared header mu-plugin to wp-content/mu-plugins/"
     )
@@ -5576,6 +5630,9 @@ if __name__ == "__main__":
         args.sync_widget = True
         args.sync_llms_txt = True
         args.sync_markdown = True
+        # preflight --deploy regenerates the sitemap right before this; ship it
+        # (it was --deploy-all only, so the live sitemap went stale).
+        args.sync_sitemap = True
         args.purge_cache = True
     if args.deploy_all:
         args.sync_pages = True
@@ -5600,6 +5657,7 @@ if __name__ == "__main__":
         args.sync_ctas = True
         args.sync_training_form = True
         args.sync_ga4 = True
+        args.sync_newsletter_report = True
         args.sync_prep_kits = True
         args.sync_tire_guides = True
         args.sync_series = True
@@ -5658,7 +5716,7 @@ if __name__ == "__main__":
                       args.sync_consult_intake,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
                       args.sync_sitemap, args.sync_favicons, args.sync_redirects,
-                      args.sync_noindex, args.sync_headings, args.sync_ctas, args.sync_training_form, args.sync_ga4, args.sync_header, args.sync_prep_kits, args.sync_plan_pages, args.sync_tire_guides,
+                      args.sync_noindex, args.sync_headings, args.sync_ctas, args.sync_training_form, args.sync_ga4, args.sync_newsletter_report, args.sync_header, args.sync_prep_kits, args.sync_plan_pages, args.sync_tire_guides,
                       args.sync_series, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.sync_ab, args.sync_courses,
                       args.sync_meta_descriptions, args.sync_mission_control,
@@ -5749,6 +5807,8 @@ if __name__ == "__main__":
         _run("sync-training-form", sync_training_form)
     if args.sync_ga4:
         _run("sync-ga4", sync_ga4)
+    if args.sync_newsletter_report:
+        _run("sync-newsletter-report", sync_newsletter_report)
     if args.sync_header:
         _run("sync-header", sync_header)
     if args.sync_photos:

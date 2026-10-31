@@ -200,7 +200,9 @@ def test_comments_archive_only_where_approved(pid):
     n = COMMENTS.get(pid, 0)
     assert len(m.SOURCE.data["comments"]) == n
     if n:
-        assert 'id="comments"' in html and "<form" not in html.split('id="comments"', 1)[1]
+        assert 'id="comments"' in html
+        comments = html.split('id="comments"', 1)[1].split("</section>", 1)[0]
+        assert "<form" not in comments
         for c in m.SOURCE.data["comments"]:
             assert es.esc(c["author"]) in html
     else:

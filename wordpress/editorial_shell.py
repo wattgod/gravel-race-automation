@@ -560,7 +560,7 @@ def render_subscribe_callout(text_html: str, link_text: str, sub_name_html: str,
     return (
         '<div class="gg-subscribe-callout">\n'
         f"  <p>{text_html}</p>\n"
-        f'  <a href="{SUBSTACK_URL}" target="_blank" rel="noopener"{_cta_attrs(label)}>{esc(link_text)} &rarr;</a>\n'
+        f'  <a href="#newsletter-signup"{_cta_attrs(label)}>{esc(link_text)} &rarr;</a>\n'
         f'  <p class="gg-sub-name">{sub_name_html}</p>\n'
         "</div>"
     )
@@ -583,7 +583,7 @@ def render_header(active: str | None = "articles") -> str:
             "update editorial_shell._HEADER_SUBSCRIBE_ANCHOR so the Subscribe button still renders"
         )
     sub = (
-        f'<a class="btn gg-hdr-sub" href="{SUBSTACK_URL}"{_cta_attrs("substack_header")}>Subscribe '
+        f'<a class="btn gg-hdr-sub" href="#newsletter-signup"{_cta_attrs("substack_header")}>Subscribe '
         '<span class="chev" aria-hidden="true">&rsaquo;</span></a>\n    '
     )
     return header.replace(_HEADER_SUBSCRIBE_ANCHOR, sub + _HEADER_SUBSCRIBE_ANCHOR, 1)
@@ -641,9 +641,16 @@ def render_footer() -> str:
     nav = "".join(f'<a href="{esc(href)}">{esc(label.title())}</a>' for href, label in header_nav_links())
     return f"""<footer class="foot">
   <div class="in">
-    <section class="newsletter-signup" aria-label="Slow, Mid, 38s newsletter">
-      <iframe src="{SUBSTACK_URL}/embed" title="Subscribe to Slow, Mid, 38s" width="480" height="320" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      <a class="newsletter-fallback" href="{SUBSTACK_URL}/subscribe" target="_blank" rel="noopener"{_cta_attrs("substack_bottom")}>Subscribe on Substack <span aria-hidden="true">&rsaquo;</span></a>
+    <section class="newsletter-signup" id="newsletter-signup" aria-label="Slow, Mid, 38s newsletter">
+      <h3>Slow, Mid, 38s</h3>
+      <p class="pitch">For cyclists with more passion than talent.</p>
+      <form data-newsletter-signup action="https://newsletter-attribution.gravelgodcoaching.workers.dev/capture" method="post">
+        <label for="newsletter-email">Email</label>
+        <input id="newsletter-email" type="email" name="email" autocomplete="email" required>
+        <input type="hidden" name="article" value="">
+        <div class="newsletter-honeypot" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button class="btn" type="submit"{_cta_attrs("substack_bottom")}>Continue on Substack</button>
+      </form>
     </section>
     <nav aria-label="Footer">{nav}<a href="{SUBSTACK_URL}">Substack</a></nav>
   </div>
@@ -830,6 +837,9 @@ MINI_DOTS_MAX = 10
 # visible and every link works without it.
 SHELL_JS = """<script>
 (function(){
+  document.querySelectorAll('form[data-newsletter-signup]').forEach(function(form){
+    if(form.elements && form.elements.article) form.elements.article.value=window.location.pathname;
+  });
   var heads=[].slice.call(document.querySelectorAll('#article h2[data-toc]'));
   var lists=[].slice.call(document.querySelectorAll('ol.toc')).map(function(ol){return [].slice.call(ol.children);});
   var claims=[].slice.call(document.querySelectorAll('.inshort li'));
@@ -1917,7 +1927,12 @@ sup a:hover{text-decoration:underline}
 .foot .fine{font:700 13px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:#e2d6c7;margin:14px 0 0}
 .foot .btn{background:var(--teal)}
 .newsletter-signup{width:100%;max-width:480px}
-.newsletter-signup iframe{display:block;width:100%;height:320px;border:0;background:var(--paper)}
+.newsletter-signup{scroll-margin-top:100px}
+.newsletter-signup form{display:grid;gap:12px}
+.newsletter-signup label{font:700 13px var(--mono)}
+.newsletter-signup input[type=email]{width:100%;box-sizing:border-box;border:2px solid var(--paper);background:var(--paper);color:var(--ink);padding:14px 12px;font:400 17px var(--serif);border-radius:0}
+.newsletter-signup .btn{justify-self:start;border:0;cursor:pointer}
+.newsletter-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 .newsletter-fallback{display:inline-block;margin-top:14px;font:500 13px var(--mono);text-underline-offset:4px}
 .article-offer{border-top:1px solid var(--sand2);margin-top:56px;padding:28px 0;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .article .article-offer h2{font:700 25px/1.2 var(--serif);margin:0}

@@ -290,7 +290,12 @@ sup a:hover{text-decoration:underline}
 .foot .fine{font:700 13px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:#e2d6c7;margin:14px 0 0}
 .foot .btn{background:var(--teal)}
 .newsletter-signup{width:100%;max-width:480px}
-.newsletter-signup iframe{display:block;width:100%;height:320px;border:0;background:var(--paper)}
+.newsletter-signup{scroll-margin-top:100px}
+.newsletter-signup form{display:grid;gap:12px}
+.newsletter-signup label{font:700 13px var(--mono)}
+.newsletter-signup input[type=email]{width:100%;box-sizing:border-box;border:2px solid var(--paper);background:var(--paper);color:var(--ink);padding:14px 12px;font:400 17px var(--serif);border-radius:0}
+.newsletter-signup .btn{justify-self:start;border:0;cursor:pointer}
+.newsletter-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 .newsletter-fallback{display:inline-block;margin-top:14px;font:500 13px var(--mono);text-underline-offset:4px}
 .article-offer{border-top:1px solid var(--sand2);margin-top:56px;padding:28px 0;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .article .article-offer h2{font:700 25px/1.2 var(--serif);margin:0}
@@ -538,7 +543,7 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
       </div>
       <a href="https://gravelgodcycling.com/about/">ABOUT</a>
     </nav>
-    <a class="btn gg-hdr-sub" href="https://gravelgodcycling.substack.com" data-event="article_cta_click" data-label="substack_header">Subscribe <span class="chev" aria-hidden="true">&rsaquo;</span></a>
+    <a class="btn gg-hdr-sub" href="#newsletter-signup" data-event="article_cta_click" data-label="substack_header">Subscribe <span class="chev" aria-hidden="true">&rsaquo;</span></a>
     <button class="gg-hamburger" id="gg-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="gg-mobile-nav">
       <span class="gg-hamburger-bar"></span>
       <span class="gg-hamburger-bar"></span>
@@ -742,9 +747,16 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 
 <footer class="foot">
   <div class="in">
-    <section class="newsletter-signup" aria-label="Slow, Mid, 38s newsletter">
-      <iframe src="https://gravelgodcycling.substack.com/embed" title="Subscribe to Slow, Mid, 38s" width="480" height="320" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-      <a class="newsletter-fallback" href="https://gravelgodcycling.substack.com/subscribe" target="_blank" rel="noopener" data-event="article_cta_click" data-label="substack_bottom">Subscribe on Substack <span aria-hidden="true">&rsaquo;</span></a>
+    <section class="newsletter-signup" id="newsletter-signup" aria-label="Slow, Mid, 38s newsletter">
+      <h3>Slow, Mid, 38s</h3>
+      <p class="pitch">For cyclists with more passion than talent.</p>
+      <form data-newsletter-signup action="https://newsletter-attribution.gravelgodcoaching.workers.dev/capture" method="post">
+        <label for="newsletter-email">Email</label>
+        <input id="newsletter-email" type="email" name="email" autocomplete="email" required>
+        <input type="hidden" name="article" value="">
+        <div class="newsletter-honeypot" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button class="btn" type="submit" data-event="article_cta_click" data-label="substack_bottom">Continue on Substack</button>
+      </form>
     </section>
     <nav aria-label="Footer"><a href="https://gravelgodcycling.com/gravel-races/">Races</a><a href="https://gravelgodcycling.com/products/training-plans/">Products</a><a href="https://gravelgodcycling.com/coaching/">Services</a><a href="https://gravelgodcycling.com/articles/">Articles</a><a href="https://gravelgodcycling.com/guide/">Resources</a><a href="https://gravelgodcycling.com/about/">About</a><a href="https://gravelgodcycling.substack.com">Substack</a></nav>
   </div>
@@ -906,6 +918,9 @@ h2[id],h3[id],[data-slot],figure[id]{scroll-margin-top:72px}
 </script>
 <script>
 (function(){
+  document.querySelectorAll('form[data-newsletter-signup]').forEach(function(form){
+    if(form.elements && form.elements.article) form.elements.article.value=window.location.pathname;
+  });
   var heads=[].slice.call(document.querySelectorAll('#article h2[data-toc]'));
   var lists=[].slice.call(document.querySelectorAll('ol.toc')).map(function(ol){return [].slice.call(ol.children);});
   var claims=[].slice.call(document.querySelectorAll('.inshort li'));

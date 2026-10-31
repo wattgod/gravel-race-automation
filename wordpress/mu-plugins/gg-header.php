@@ -161,6 +161,8 @@ function gg_shared_header_html() {
         $active = 'services';
     } elseif ( strpos( $uri, '/articles' ) !== false || strpos( $uri, '/blog' ) !== false || strpos( $uri, '/insights' ) !== false ) {
         $active = 'articles';
+    } elseif ( strpos( $uri, '/guide' ) !== false || strpos( $uri, '/surge-check' ) !== false || strpos( $uri, '-methodology' ) !== false ) {
+        $active = 'resources';
     } elseif ( strpos( $uri, '/about' ) !== false ) {
         $active = 'about';
     }
@@ -190,7 +192,6 @@ function gg_shared_header_html() {
         <div class="gg-site-header-dropdown">
           <a href="<?php echo $base; ?>/products/training-plans/">Custom Training Plans</a>
           <a href="<?php echo $base; ?>/course/">Courses</a>
-          <a href="<?php echo $base; ?>/guide/">Gravel Handbook</a>
         </div>
       </div>
       <div class="gg-site-header-item">
@@ -206,6 +207,13 @@ function gg_shared_header_html() {
           <a href="<?php echo $substack; ?>" target="_blank" rel="noopener">Slow Mid 38s</a>
           <a href="<?php echo $base; ?>/articles/">Hot Takes</a>
           <a href="<?php echo $base; ?>/insights/">The State of Gravel</a>
+        </div>
+      </div>
+      <div class="gg-site-header-item">
+        <a href="<?php echo $base; ?>/guide/"<?php echo $aria('resources'); ?>>RESOURCES</a>
+        <div class="gg-site-header-dropdown">
+          <a href="<?php echo $base; ?>/guide/">Gravel Handbook</a>
+          <a href="<?php echo $base; ?>/surge-check/">Surge Check</a>
           <a href="<?php echo $base; ?>/fueling-methodology/">White Papers</a>
         </div>
       </div>
@@ -230,7 +238,6 @@ function gg_shared_header_html() {
       <div class="gg-mobile-nav-sub">
         <a href="<?php echo $base; ?>/products/training-plans/">Custom Training Plans</a>
         <a href="<?php echo $base; ?>/course/">Courses</a>
-        <a href="<?php echo $base; ?>/guide/">Gravel Handbook</a>
       </div>
     </div>
     <div class="gg-mobile-nav-group">
@@ -246,6 +253,13 @@ function gg_shared_header_html() {
         <a href="<?php echo $substack; ?>" target="_blank" rel="noopener">Slow Mid 38s</a>
         <a href="<?php echo $base; ?>/articles/">Hot Takes</a>
         <a href="<?php echo $base; ?>/insights/">The State of Gravel</a>
+      </div>
+    </div>
+    <div class="gg-mobile-nav-group">
+      <button class="gg-mobile-nav-toggle" aria-expanded="false">RESOURCES</button>
+      <div class="gg-mobile-nav-sub">
+        <a href="<?php echo $base; ?>/guide/">Gravel Handbook</a>
+        <a href="<?php echo $base; ?>/surge-check/">Surge Check</a>
         <a href="<?php echo $base; ?>/fueling-methodology/">White Papers</a>
       </div>
     </div>

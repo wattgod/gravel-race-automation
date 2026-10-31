@@ -56,11 +56,9 @@ def build_nav() -> str:
     breadcrumb = f'''<div class="gg-wp-breadcrumb">
   <a href="{SITE_BASE_URL}/">Home</a>
   <span class="gg-wp-breadcrumb-sep">&rsaquo;</span>
-  <a href="{SITE_BASE_URL}/articles/">Articles</a>
-  <span class="gg-wp-breadcrumb-sep">&rsaquo;</span>
   <span>Fueling Methodology</span>
 </div>'''
-    return get_site_header_html("articles") + "\n" + breadcrumb
+    return get_site_header_html("resources") + "\n" + breadcrumb
 
 
 def build_hero() -> str:

@@ -356,8 +356,10 @@ class TestNavIntegration:
 
     def test_breadcrumb_present(self, page_html):
         assert "gg-wp-breadcrumb" in page_html
-        assert "Articles" in page_html
         assert "Fueling Methodology" in page_html
+        # White papers live under Resources now, not Articles.
+        assert '/articles/">Articles' not in page_html
+        assert 'aria-current="page">RESOURCES' in page_html
 
 
 # ── TestAccessibility ─────────────────────────────────────────

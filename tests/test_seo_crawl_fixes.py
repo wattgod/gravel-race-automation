@@ -105,3 +105,20 @@ def test_race_page_money_path_check_follows_the_direct_links():
     sys.path.insert(0, str(ROOT / "scripts"))
     import immune_check
     assert immune_check.check_money_path_wiring() == []
+
+
+def test_publish_ships_the_pages_this_pass_changed():
+    wf = (ROOT / ".github" / "workflows" / "publish-site.yml").read_text(encoding="utf-8")
+    for gen in ("generate_methodology.py", "generate_tier_hubs.py",
+                "generate_insights.py", "generate_about.py"):
+        assert gen in wf
+    for flag in ("--sync-insights", "--sync-about", "--sync-tire-guides"):
+        assert flag in wf
+    # The live check must expect the single-hop redirect.
+    assert '"301 "*/training-plans/start/*' in wf
+
+
+def test_race_page_sweep_skips_the_tire_pages():
+    src = (ROOT / "scripts" / "push_wordpress.py").read_text(encoding="utf-8")
+    skip = re.search(r"SKIP_DIRS = \{([^}]*)\}", src).group(1)
+    assert '"tire"' in skip

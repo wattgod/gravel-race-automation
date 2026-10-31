@@ -2722,7 +2722,9 @@ def sync_pages(pages_dir: str, dry_run: bool = False, force_unlock: bool = False
     html_files = sorted(f for f in pages_path.glob("*.html")
                         if f.stem not in ROOT_CANONICAL_SLUGS)
     # Also check for pre-built subdirectories (vs pages, state hubs, etc.)
-    SKIP_DIRS = {"assets", "og", "prep-kit", "blog", "race", "athletes"}
+    # tire/ holds the /tire/ review pages (--sync-tire-pages), not race pages;
+    # without the skip a build that includes them would also ship /race/tire/.
+    SKIP_DIRS = {"assets", "og", "prep-kit", "blog", "race", "athletes", "tire"}
     subdirs_with_pages = [
         d for d in sorted(pages_path.iterdir())
         if d.is_dir() and d.name not in SKIP_DIRS

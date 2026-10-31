@@ -93,8 +93,15 @@ jobs:
           python3 wordpress/generate_legal_pages.py
           python3 wordpress/generate_season_review.py
           python3 wordpress/generate_plan_intake_pages.py
-          # Tire pages are built only so the sitemap lists them (they ship
-          # with --deploy-all); then the sitemap, which nothing here pushed
+          python3 wordpress/generate_methodology.py
+          python3 wordpress/generate_tier_hubs.py
+          python3 wordpress/generate_insights.py
+          python3 wordpress/generate_about.py
+          # Methodology and the tier hubs ship with --sync-pages, insights,
+          # about and the tire guides with their own flags below. The /tire/
+          # pages are built only so the sitemap lists them: their deploy
+          # deletes live dirs missing from the build, so it stays a laptop
+          # step. Then the sitemap, which nothing here pushed
           # before, so the live one sat at 2026-08-28. The blog sitemap is
           # built from the committed blog-index.json: roundups aren't
           # generated in this job, so rebuilding the index here drops them.
@@ -135,6 +142,7 @@ jobs:
             --sync-guide --sync-legal --sync-season-review --sync-plan-intake \
             --season-review-variants athlete,goal_2027 \
             --sync-redirects --sync-sitemap --sync-meta-descriptions \
+            --sync-insights --sync-about --sync-tire-guides \
             $OG_FLAG --purge-cache
 
       - name: Check the live site
@@ -154,7 +162,7 @@ jobs:
           case "$got" in "302 "*/training-plans/start/*) ;; *) fail=1 ;; esac
           got=$(code "$base/season-plan/?$v")
           echo "/season-plan/ -> $got"
-          case "$got" in "301 "*/questionnaire/*) ;; *) fail=1 ;; esac
+          case "$got" in "301 "*/training-plans/start/*) ;; *) fail=1 ;; esac
           if curl -sL "$base/products/training-plans/?$v" | grep -q '\$249'; then
             echo "::error::The live training plans page still shows \$249"
             fail=1

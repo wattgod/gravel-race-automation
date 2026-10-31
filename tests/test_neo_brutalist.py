@@ -1887,7 +1887,7 @@ class TestFunnelAttribution:
         from wordpress.generate_neo_brutalist import build_custom_plan_offer
         rd = normalize_race_data(sample_race_data)
         html = build_custom_plan_offer(rd)
-        assert "questionnaire/?race=test-gravel-100&amp;src=race_profile" in html  # esc() encodes the ampersand
+        assert "training-plans/start/?race=test-gravel-100&amp;src=race_profile" in html  # esc() encodes the ampersand
 
     def test_cta_section_prefers_measured_section_name(self):
         src = (Path(__file__).parent.parent / "wordpress" / "generate_neo_brutalist.py").read_text()

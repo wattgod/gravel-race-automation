@@ -2722,7 +2722,9 @@ def sync_pages(pages_dir: str, dry_run: bool = False, force_unlock: bool = False
     html_files = sorted(f for f in pages_path.glob("*.html")
                         if f.stem not in ROOT_CANONICAL_SLUGS)
     # Also check for pre-built subdirectories (vs pages, state hubs, etc.)
-    SKIP_DIRS = {"assets", "og", "prep-kit", "blog", "race", "athletes"}
+    # tire/ holds the /tire/ review pages (--sync-tire-pages), not race pages;
+    # without the skip a build that includes them would also ship /race/tire/.
+    SKIP_DIRS = {"assets", "og", "prep-kit", "blog", "race", "athletes", "tire"}
     subdirs_with_pages = [
         d for d in sorted(pages_path.iterdir())
         if d.is_dir() and d.name not in SKIP_DIRS
@@ -2825,7 +2827,9 @@ RewriteRule ^custom-training-plans/?$ /products/training-plans/ [R=301,L]
 # Season Plan retired 2026-10-23 (Matti: one product). The intake page stays
 # on disk but every visit, ?t= prefill links included, goes to the custom-plan
 # questionnaire. /season-plan/success/ is untouched (exact match only).
-RewriteRule ^season-plan/?$ /questionnaire/ [R=301,L]
+# Goes straight to the start page (2026-10-31): /questionnaire/ itself
+# redirects there, and a chained 301 -> 302 costs crawlers an extra hop.
+RewriteRule ^season-plan/?$ /training-plans/start/ [R=301,L]
 
 # Two-step switch (2026-10-23): the long one-page questionnaire becomes
 # step 1 (race, date, name, email → checkout) at /training-plans/start/, with
@@ -5626,6 +5630,9 @@ if __name__ == "__main__":
         args.sync_widget = True
         args.sync_llms_txt = True
         args.sync_markdown = True
+        # preflight --deploy regenerates the sitemap right before this; ship it
+        # (it was --deploy-all only, so the live sitemap went stale).
+        args.sync_sitemap = True
         args.purge_cache = True
     if args.deploy_all:
         args.sync_pages = True

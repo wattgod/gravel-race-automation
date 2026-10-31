@@ -1288,8 +1288,11 @@ def _art_img(num: int, cls: str, eager: bool = False) -> str:
         return ""
     base = f"/guide/media/gg-art-{slug}"
     loading = 'fetchpriority="high"' if eager else 'loading="lazy" decoding="async"'
+    # Intrinsic size of the 1x file (guide/art/): cover 960x540, chapters 960x640.
+    # CSS aspect-ratio still crops; width/height reserve space before CSS loads.
+    height = 540 if num == 0 else 640
     return (f'<img class="{cls}" src="{base}-1x.webp" srcset="{base}-1x.webp 960w, {base}-2x.webp 1920w" '
-            f'sizes="(max-width: 1000px) 100vw, 1000px" alt="" {loading}>')
+            f'sizes="(max-width: 1000px) 100vw, 1000px" width="960" height="{height}" alt="" {loading}>')
 
 
 def build_hero(content: dict) -> str:

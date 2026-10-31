@@ -465,7 +465,7 @@ GOAL_2027 = {
                 "key": "race",
                 "price": f"Custom plan: {PRICE_PER_WEEK} a week until your race, paid once",
                 "cta": f"Build my {NEXT} plan",
-                "cta_href": "/questionnaire/?src=goals",
+                "cta_href": "/training-plans/start/?src=goals",
             },
         ],
         "decline": "Just the poster, thanks",

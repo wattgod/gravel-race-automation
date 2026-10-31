@@ -656,18 +656,20 @@ class TestThumbnailUrlInHtml:
             "https://i.ytimg.com/vi/vKCSt1e392M/maxresdefault.jpg"
         rd = normalize_race_data(race_with_youtube)
         html = build_from_the_field(rd)
-        assert "maxresdefault.jpg" in html
+        # YouTube thumbnails are served as WebP (same image, smaller file)
+        assert "https://i.ytimg.com/vi_webp/vKCSt1e392M/maxresdefault.webp" in html
+        assert ".jpg" not in html
         assert 'width="1280"' in html
         assert 'height="720"' in html
 
     def test_fallback_hqdefault(self, race_with_youtube):
-        """Absent thumbnail_url should use hqdefault.jpg."""
+        """Absent thumbnail_url should use the hqdefault thumbnail (WebP)."""
         # Ensure no thumbnail_url is set
         for v in race_with_youtube["race"]["youtube_data"]["videos"]:
             v.pop("thumbnail_url", None)
         rd = normalize_race_data(race_with_youtube)
         html = build_from_the_field(rd)
-        assert "hqdefault.jpg" in html
+        assert "/hqdefault.webp" in html
         assert 'width="480"' in html
 
 

@@ -227,6 +227,7 @@ def clone_fill(a: np.ndarray, m: np.ndarray) -> np.ndarray:
         cand_ring = P[sy:sy + h + 2 * g, sx:sx + w + 2 * g][rmask].mean(axis=0)
         patch = np.clip(patch + (ring_mean - cand_ring), 0, 255)
         out[y:y + h, x:x + w] = (patch * alpha + reg * (1 - alpha)).astype(np.uint8)
+        m = m.copy(); m[lab == i] = 0      # filled: later holes may copy from here
     return out
 
 
@@ -496,7 +497,7 @@ def original(collection: str, slug: str, file: str):
     im1 = Image.open(io.BytesIO(one)); im1.seek(0)
     size1 = im1.size
     best = im1
-    if collection == 'posts':
+    if True:   # posts and hand-built articles keep an @2x for wide images
         two = git_bytes(re.sub(r'\.webp$', '@2x.webp', rel))
         if two:
             best = Image.open(io.BytesIO(two))

@@ -753,14 +753,14 @@ def sync_about(about_file: str):
         return None
 
     # Upload avatar image if present
-    avatar_path = html_path.parent / "matti-avatar.png"
+    avatar_path = html_path.parent / "matti-avatar-v67.png"  # v6.7 character redraw (new name: long cache)
     if avatar_path.exists():
         try:
             subprocess.run(
                 [
                     "scp", "-i", str(SSH_KEY), "-P", port,
                     str(avatar_path),
-                    f"{user}@{host}:{remote_base}/matti-avatar.png",
+                    f"{user}@{host}:{remote_base}/matti-avatar-v67.png",
                 ],
                 check=True,
                 capture_output=True,
@@ -768,7 +768,7 @@ def sync_about(about_file: str):
                 timeout=30,
             )
         except subprocess.CalledProcessError:
-            print("  ⚠ Could not upload matti-avatar.png (non-fatal)")
+            print("  ⚠ Could not upload matti-avatar-v67.png (non-fatal)")
 
     # Upload shared CSS/JS assets (about page references them via /race/assets/)
     assets_dir = html_path.parent / "assets"

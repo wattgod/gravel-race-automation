@@ -42,16 +42,16 @@ def cover_of(slug: str) -> str | None:
     og = d / 'og.jpg'
     if not og.exists():
         return None
-    import numpy as np
-    o = np.asarray(Image.open(og).convert('L').resize((120, 63)), np.float32)
+    from PIL import ImageChops, ImageStat
+    o = Image.open(og).convert('L').resize((120, 63))
     best, name = 1e9, None
     for f in d.iterdir():
         if f.suffix not in ('.webp', '.gif') or TAG in f.stem:
             continue
         with Image.open(f) as im:
             im.seek(0)
-            c = np.asarray(ImageOps.fit(im.convert('L'), (120, 63)), np.float32)
-        err = float(np.abs(c - o).mean())
+            c = ImageOps.fit(im.convert('L'), (120, 63))
+        err = ImageStat.Stat(ImageChops.difference(c, o)).mean[0]
         if err < best:
             best, name = err, f.name
     return name if best < 12 else None
@@ -174,6 +174,8 @@ def apply(work: Path, only=None):
         subprocess.run([sys.executable, 'scripts/import_substack_posts.py'], cwd=ROOT, check=True)
     for slug in touched_posts:
         subprocess.run([sys.executable, str(post_module(slug))], cwd=ROOT, check=True)
+    if touched_articles or touched_posts:     # the listing shows each page's og image
+        subprocess.run([sys.executable, 'wordpress/generate_articles_index.py'], cwd=ROOT, check=True)
     print(f'applied {total} images')
 
 

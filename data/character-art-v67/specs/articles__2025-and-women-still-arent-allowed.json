@@ -1,0 +1,234 @@
+{
+ "collection": "articles",
+ "slug": "2025-and-women-still-arent-allowed",
+ "images": [
+  {
+   "file": "img/1d9c8b6b4f7d1eac.webp",
+   "verdict": "keep",
+   "why": "Shaq and a generic road cyclist; no Gravel God."
+  },
+  {
+   "file": "img/1fbbbedcfe561c1f.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "flat",
+    "color": "#cbcbcb"
+   },
+   "insets": [
+    {
+     "src": [
+      352,
+      0,
+      911,
+      537
+     ],
+     "box": [
+      352,
+      0,
+      911,
+      537
+     ]
+    },
+    {
+     "src": [
+      560,
+      395,
+      911,
+      537
+     ],
+     "box": [
+      0,
+      395,
+      351,
+      537
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "line",
+     "box": [
+      88,
+      336,
+      354,
+      328
+     ],
+     "fill": "#3b3b3b",
+     "width": 15
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      95,
+      95,
+      320,
+      330
+     ],
+     "pose": "sit",
+     "face": "thinking",
+     "psi": 45
+    }
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "text": "Health",
+     "box": [
+      85,
+      362,
+      200,
+      398
+     ],
+     "font": "mono",
+     "weight": 400,
+     "size": 24,
+     "color": "#2b2b2b",
+     "align": "left"
+    }
+   ],
+   "joke": "Health / Performance (seesaw)",
+   "match": "closest",
+   "note": "He sits knees-up on the low Health end of the seesaw; the original leaned forward on it in jeans and boots."
+  },
+  {
+   "file": "img/2b3620c2be9a4850.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "gradient",
+    "top": "#5c6a5e",
+    "bottom": "#4a564c"
+   },
+   "insets": [
+    {
+     "src": [
+      920,
+      0,
+      1536,
+      1024
+     ],
+     "box": [
+      920,
+      0,
+      1536,
+      1024
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      0,
+      900,
+      920,
+      1024
+     ],
+     "fill": "#6b4a32"
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      200,
+      300,
+      700,
+      960
+     ],
+     "pose": "sit",
+     "face": "grin",
+     "psi": 50
+    }
+   ],
+   "joke": "Watching the Tour on TV",
+   "match": "closest",
+   "note": "No armchair or remote in the rig: he sits on the floor in front of the original TV and bike."
+  },
+  {
+   "file": "img/5303a43e7698eff2.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      480,
+      20,
+      1060,
+      505
+     ],
+     "mask": "box",
+     "erase_box": [
+      430,
+      0,
+      1180,
+      505
+     ],
+     "pose": "wave",
+     "face": "laugh",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "contain"
+    },
+    {
+     "box": [
+      520,
+      560,
+      1000,
+      1024
+     ],
+     "mask": "box",
+     "erase_box": [
+      430,
+      515,
+      1180,
+      1024
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "Two panels: excited pointing, then a thoughtful chin rub",
+   "match": "closest",
+   "note": "Top panel: hand raised (the rig has no index-finger point up); bottom: thinking face without the chin rub."
+  },
+  {
+   "file": "img/655ab28e75f263d8.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      1000,
+      280,
+      1536,
+      1024
+     ],
+     "mask": "box",
+     "erase_box": [
+      1000,
+      200,
+      1536,
+      1024
+     ],
+     "pose": "wave",
+     "face": "grin",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "ONE SIMPLE TRICK",
+   "match": "closest",
+   "note": "Raised hand instead of one finger up."
+  }
+ ]
+}

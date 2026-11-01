@@ -2361,7 +2361,7 @@ class TestClusterHandbookOverhaul:
     def test_chapter_hero_opens_on_painted_scene(self):
         from generate_guide_cluster import build_chapter_hero
         html = build_chapter_hero({"number": 3, "title": "T", "subtitle": "S"})
-        assert "/guide/media/gg-art-03-training-fundamentals-1x.webp" in html
+        assert "/guide/media/gg-art-v67-03-training-fundamentals-1x.webp" in html
         assert "gg-guide-chapter-hero--art" in html
         assert "gg-guide-plate" not in html
 

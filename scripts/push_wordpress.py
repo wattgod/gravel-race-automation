@@ -555,7 +555,7 @@ def sync_guide_cluster(cluster_dir: str):
         print(f"✗ Error uploading guide cluster pages: {e}")
         return None
 
-    # The chapter pages open on the painted scenes, served from /guide/media/.
+    # The chapter pages open on the character scenes, served from /guide/media/.
     art_dir = Path(__file__).resolve().parent.parent / "guide" / "art"
     art_files = sorted(f.name for f in art_dir.glob("*.webp")) if art_dir.exists() else []
     if art_files:

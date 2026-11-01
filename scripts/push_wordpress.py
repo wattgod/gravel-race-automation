@@ -2819,6 +2819,9 @@ RewriteRule ^llms\\.txt$ /llms-repo.txt [L]
 # the generator no longer produces them. Pages removed from server 2026-07-25.
 RewriteRule ^blog/roundup-december-2026/?$ /blog/ [R=301,L]
 RewriteRule ^blog/roundup-northeast-fall-2026/?$ /blog/ [R=301,L]
+# January 2026 roundup drops below the 3-race floor once not-running races
+# are excluded from roundups (2026-11-01 data-quality pass).
+RewriteRule ^blog/roundup-january-2026/?$ /blog/ [R=301,L]
 
 # Legacy Elementor custom-plan page (old per-week pricing copy, self-canonical,
 # not in any repo) → the current product page. Receipts spec §4 (2026-09-28).

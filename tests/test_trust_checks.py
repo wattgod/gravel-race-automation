@@ -487,3 +487,14 @@ class TestDuplicates:
         assert not suspects, (
             f"Possible duplicate race pages (check, then merge or add to "
             f"NOT_DUPLICATES with the reason): {sorted(suspects)}")
+
+
+class TestHeadToHead:
+    def test_vs_pages_only_pair_running_non_road_races(self):
+        from generate_vs_pages import select_pairs
+        index = _index()
+        by_slug = {r["slug"]: r for r in index}
+        bad = [f"{a}-vs-{b}" for a, b in select_pairs(index)
+               if any(by_slug[s].get("status") == "inactive"
+                      or by_slug[s].get("discipline") == "road" for s in (a, b))]
+        assert not bad, bad

@@ -80,7 +80,10 @@ def select_pairs(races: list) -> list:
     3. T1 vs top-T2 same region (aspiration comparisons)
     4. T2 vs T2 same region (only top 5 per region)
     """
-    scored = [r for r in races if r.get("scores") and r.get("tier") in (1, 2)]
+    # A head-to-head helps someone choose which race to enter: both races must
+    # be running, and road races belong on Roadie Labs, not here.
+    scored = [r for r in races if r.get("scores") and r.get("tier") in (1, 2)
+              and r.get("status") != "inactive" and r.get("discipline") != "road"]
     by_region = defaultdict(list)
     by_month = defaultdict(list)
 

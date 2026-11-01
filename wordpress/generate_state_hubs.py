@@ -319,7 +319,9 @@ def build_faq(state: str, races: list, disc_label: str = "Gravel") -> tuple:
     total = len(races)
     t1 = [r for r in races if r.get("tier") == 1]
     t2 = [r for r in races if r.get("tier") == 2]
-    top = races[0] if races else None
+    # Recommend only races that are running; badged not-running cards stay
+    # in the list above but never get the "best race" answer.
+    top = next((r for r in races if is_ranked(r)), None)
     dl = disc_label.lower()
 
     pairs = []

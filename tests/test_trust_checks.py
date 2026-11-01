@@ -258,12 +258,13 @@ PUBLIC_SOURCES = (
     + [p for p in sorted((ROOT / "mission_control" / "templates" / "emails").rglob("*.html"))
        if not p.name.startswith("road_")]   # Roadie Labs copy: its own rubric
     + [ROOT / "seo" / "meta-descriptions.json", ROOT / "website-data" / "README.md"]
+    + sorted((ROOT / "wordpress" / "mu-plugins").glob("*.php"))   # article boxes
 )
 
 _FIFTEEN_RE = re.compile(
     r"\b(?:15|fifteen)[\s-]+(?:scoring[\s-]+)?(?:criteria|dimensions?|things)\b", re.IGNORECASE)
 _STALE_COUNT_RE = re.compile(
-    r"\b(?:328|757|700\+?|700-plus)\s+(?:gravel\s+)?(?:races?|race profiles|course profiles|analyzed courses|Race Prep Kits)\b",
+    r"\b(?:328|757|700\+?|700-plus|750\+?)\s+(?:gravel\s+)?(?:races?|race profiles|course profiles|analyzed courses|Race Prep Kits)\b",
     re.IGNORECASE)
 # Coaching copy describes the coach's whole body of work across brands.
 _COUNT_EXEMPT = {"generate_coaching.py"}
@@ -318,6 +319,9 @@ class TestCountries:
         ("Banff, Alberta to Antelope Wells, New Mexico", ["Canada", "USA"]),
         ("Mudgee, New South Wales, Australia", ["Australia"]),
         ("Hong Kong, China", ["China"]),
+        ("Peille, France (near Monaco)", ["France"]),
+        ("Tbilisi, Georgia", ["Georgia"]),
+        ("Athens, Georgia", ["USA"]),
     ])
     def test_location_countries(self, loc, want):
         assert location_countries(loc) == want

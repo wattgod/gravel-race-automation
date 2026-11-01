@@ -170,7 +170,8 @@ def build_quiz_page(races: list) -> str:
         ]
     })
 
-    race_count = len(races)
+    race_count = len(races)            # the whole catalog (browse links)
+    quiz_count = len(race_js_items)    # races the quiz scores (running only)
     faq_jsonld = json.dumps({
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -180,7 +181,7 @@ def build_quiz_page(races: list) -> str:
                 "name": "How does the Gravel God race finder quiz work?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": f"The quiz asks 5 questions about your fitness level, preferred distance, terrain type, location, and timing. It then scores all {race_count} gravel races in our database and recommends your top 5 matches."
+                    "text": f"The quiz asks 5 questions about your fitness level, preferred distance, terrain type, location, and timing. It then scores all {quiz_count} running gravel races in our database and recommends your top 5 matches."
                 }
             },
             {
@@ -216,10 +217,10 @@ def build_quiz_page(races: list) -> str:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Race Finder Quiz — Which Gravel Race Should You Do? | Gravel God</title>
-  <meta name="description" content="Answer 5 questions to find your perfect gravel race. Personalized recommendations from {race_count} races ranked by the Gravel God rating system.">
+  <meta name="description" content="Answer 5 questions to find your perfect gravel race. Personalized recommendations from {quiz_count} races ranked by the Gravel God rating system.">
   <link rel="canonical" href="{SITE_BASE_URL}/race/quiz/">
   <meta property="og:title" content="Race Finder Quiz — Which Gravel Race Should You Do?">
-  <meta property="og:description" content="Answer 5 questions to find your perfect gravel race from {race_count} options.">
+  <meta property="og:description" content="Answer 5 questions to find your perfect gravel race from {quiz_count} options.">
   <meta property="og:url" content="{SITE_BASE_URL}/race/quiz/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Gravel God Cycling">
@@ -238,7 +239,7 @@ def build_quiz_page(races: list) -> str:
     <a href="/gravel-races/" class="gg-quiz-back">&larr; All Races</a>
     <div class="gg-quiz-badge">RACE FINDER</div>
     <h1 class="gg-quiz-title">Which Gravel Race<br>Should You Do?</h1>
-    <p class="gg-quiz-subtitle">5 questions. {race_count} races. Your perfect match.</p>
+    <p class="gg-quiz-subtitle">5 questions. {quiz_count} races. Your perfect match.</p>
   </header>
 
   <div class="gg-quiz-progress" id="gg-quiz-progress">

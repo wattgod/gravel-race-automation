@@ -149,6 +149,7 @@ COUNTRY_ALIASES = {
     "philippines": ("Philippines", "Asia"), "malaysia": ("Malaysia", "Asia"),
     "india": ("India", "Asia"), "oman": ("Oman", "Asia"),
     "vietnam": ("Vietnam", "Asia"), "taiwan": ("Taiwan", "Asia"),
+    "sakartvelo": ("Georgia", "Asia"),
 }
 
 US_REGION = {
@@ -200,6 +201,12 @@ def location_places(location: str) -> list:
     """Ordered, de-duplicated ``(country, continent, us_state_or_None)``."""
     if not location:
         return []
+    # "Peille, France (near Monaco)": a landmark, not a host country.
+    location = re.sub(r"\(\s*near\s[^)]*\)|\bnear\s+[^,()]+", "", location,
+                      flags=re.IGNORECASE)
+    # Georgia the country, not the US state, when a Georgian city is named.
+    if re.search(r"\b(?:tbilisi|batumi|kutaisi|svaneti|kakheti)\b", location, re.IGNORECASE):
+        location = re.sub(r"\bGeorgia\b", "Sakartvelo", location)
     low = location.lower()
     foreign = _alias_hits(low)
     states = _us_states(location)

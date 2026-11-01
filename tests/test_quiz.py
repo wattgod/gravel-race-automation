@@ -359,7 +359,7 @@ class TestMetaDescriptions:
 
     def test_real_race_count_in_meta(self, race_index, real_quiz_html):
         """Real race index should have its actual count in meta descriptions."""
-        race_count = str(len(race_index))
+        race_count = str(sum(1 for r in race_index if r.get("status") != "inactive"))  # quiz scores running races only
         match = re.search(r'name="description" content="([^"]+)"', real_quiz_html)
         assert match is not None
         assert race_count in match.group(1), (

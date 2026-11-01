@@ -648,7 +648,10 @@ def main():
                         help="Path to race-index.json")
     args = parser.parse_args()
 
-    races = load_race_index(Path(args.index_file))
+    # Roundups list races "happening" in a window; a race that is not
+    # running (index status "inactive") must never be recommended there.
+    races = [r for r in load_race_index(Path(args.index_file))
+             if r.get("status") != "inactive"]
     out_dir = Path(args.output_dir)
 
     if args.monthly:

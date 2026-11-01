@@ -28,7 +28,6 @@ def _race_index() -> list[dict]:
 
 
 def test_generated_homepage_guide_pillar_and_coaching_avoid_defensive_copy(monkeypatch, tmp_path):
-    monkeypatch.setattr(generate_homepage, "fetch_substack_posts", lambda: [])
     homepage_html = generate_homepage.generate_homepage(_race_index())
 
     guide_dir = tmp_path / "guide"

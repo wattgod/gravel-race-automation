@@ -49,11 +49,9 @@ def test_race_profile_uses_wide_frame_and_readable_prose():
 def test_homepage_major_sections_share_1200px_measure():
     css = build_homepage_css()
     selectors = (
+        ".gg-hp-goal-hero-inner",
         ".gg-hp-hero-inner",
-        ".gg-hp-ladder-grid",
-        ".gg-hp-stats-inner",
-        ".gg-hp-content-grid",
-        ".gg-hp-how-it-works",
+        ".gg-hp-doors-grid",
     )
     for selector in selectors:
         assert "max-width: 1200px" in _rule(css, selector)

@@ -47,6 +47,9 @@ from scroll_animations import get_scroll_animation_css, get_scroll_animation_js
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
 from validate_gravel_weekly import load_public_issues  # noqa: E402
+from race_facts import (  # noqa: E402
+    is_ranked, location_countries, race_discipline, race_status,
+)
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 RACE_INDEX_PATH = Path(__file__).parent.parent / "web" / "race-index.json"
@@ -75,16 +78,18 @@ STAT_BAR_DIMENSIONS_COMPACT = [
 ]
 
 # ── Hero radar visualization constants ──
-# All 15 scored criteria in race.gravel_god_rating (course + editorial dims,
-# plus the cultural_impact bonus dimension). This is the single source of
-# truth for the radar's axis count — copy that states a criteria count
-# (stats["dimensions"], the aria-label, meta descriptions) reads len() of
-# this list rather than hardcoding a number.
+# The radar draws all 15 scored fields in race.gravel_god_rating: the 14
+# base criteria (course + editorial) plus the cultural_impact bonus. The
+# bonus is not a criterion — it adds on top of the /70 base — so copy that
+# states a criteria count (stats["dimensions"]) reads BASE_CRITERIA_COUNT,
+# never len(HERO_VIZ_DIMS).
 HERO_VIZ_DIMS = [
     "logistics", "length", "technicality", "elevation", "climate",
     "altitude", "adventure", "prestige", "race_quality", "experience",
     "community", "field_depth", "value", "expenses", "cultural_impact",
 ]
+
+BASE_CRITERIA_COUNT = len(HERO_VIZ_DIMS) - 1  # 14; cultural_impact is a bonus
 
 HERO_VIZ_LABELS = {
     "logistics": "LOGISTICS", "length": "LENGTH", "technicality": "TECHNICALITY",
@@ -221,19 +226,19 @@ def compute_stats(race_index: list) -> dict:
     race_count = len(race_index)
     t1_count = sum(1 for r in race_index if r.get("tier") == 1)
     t2_count = sum(1 for r in race_index if r.get("tier") == 2)
-    regions = set()
+    # Countries, not "regions": the old count took the text after the last
+    # comma of every location, so "CO" and "Colorado" were two regions and
+    # "McCook)" was one. race_facts normalizes states, provinces and
+    # territories to their country.
+    countries = set()
     for r in race_index:
-        loc = r.get("location", "")
-        if loc:
-            parts = [p.strip() for p in loc.split(",")]
-            if parts:
-                regions.add(parts[-1])
+        countries.update(location_countries(r.get("location", "")))
     return {
         "race_count": race_count,
-        "dimensions": len(HERO_VIZ_DIMS),
+        "dimensions": BASE_CRITERIA_COUNT,
         "t1_count": t1_count,
         "t2_count": t2_count,
-        "region_count": len(regions),
+        "country_count": len(countries),
     }
 
 
@@ -242,13 +247,13 @@ def get_featured_races(race_index: list) -> list:
     by_slug = {r["slug"]: r for r in race_index}
     featured = []
     for slug in FEATURED_SLUGS:
-        if slug in by_slug:
+        if slug in by_slug and is_ranked(by_slug[slug]):
             featured.append(by_slug[slug])
     # Fallback: fill remaining slots with top T1 gravel races by score
     if len(featured) < 3:
         t1_races = sorted(
             [r for r in race_index if r.get("tier") == 1 and r not in featured
-             and (r.get("discipline") or "gravel") == "gravel"],
+             and (r.get("discipline") or "gravel") == "gravel" and is_ranked(r)],
             key=lambda r: r.get("overall_score", 0),
             reverse=True,
         )
@@ -271,8 +276,9 @@ def load_editorial_one_liners(race_data_dir: Path = None) -> list:
             tier = rating.get("tier", 4)
             if tier > 2:
                 continue
-            discipline = (rating.get("discipline") or "gravel")
-            if discipline != "gravel":
+            if race_discipline(race) != "gravel":
+                continue
+            if race_status(race)["status"] != "active":
                 continue
             name = race.get("display_name") or race.get("name", "")
             slug = race.get("slug", f.stem)
@@ -299,8 +305,9 @@ def load_upcoming_races(race_data_dir: Path = None, today: date = None) -> list:
             data = json.loads(f.read_text(encoding="utf-8"))
             race = data.get("race", data)
             rating = race.get("gravel_god_rating", {})
-            discipline = (rating.get("discipline") or "gravel")
-            if discipline != "gravel":
+            if race_discipline(race) != "gravel":
+                continue
+            if race_status(race)["status"] != "active":
                 continue
             ds = race.get("vitals", {}).get("date_specific", "")
             m = re.match(r"(\d{4}):\s*(\w+)\s+(\d+)", ds)
@@ -605,7 +612,7 @@ def build_goal_hero() -> str:
 
 def build_hero(stats: dict, race_index: list = None) -> str:
     race_count = stats["race_count"]
-    region_count = stats["region_count"]
+    country_count = stats["country_count"]
     dimensions = stats["dimensions"]
 
     return f'''<section class="gg-hp-hero" id="race-database">
@@ -636,7 +643,7 @@ def build_hero(stats: dict, race_index: list = None) -> str:
         <!-- Animated stat counters -->
         <div class="gg-hp-hero-stats">
           <div class="gg-hp-hero-stat"><span class="gg-hp-hero-stat-num" data-counter="{race_count}">{race_count}</span><span class="gg-hp-hero-stat-label">Races</span></div>
-          <div class="gg-hp-hero-stat"><span class="gg-hp-hero-stat-num" data-counter="{region_count}">{region_count}</span><span class="gg-hp-hero-stat-label">Regions</span></div>
+          <div class="gg-hp-hero-stat"><span class="gg-hp-hero-stat-num" data-counter="{country_count}">{country_count}</span><span class="gg-hp-hero-stat-label">Countries</span></div>
           <div class="gg-hp-hero-stat"><span class="gg-hp-hero-stat-num" data-counter="{dimensions}">{dimensions}</span><span class="gg-hp-hero-stat-label">Criteria</span></div>
         </div>
       </div>
@@ -699,7 +706,7 @@ def build_stats_bar(stats: dict) -> str:
         (stats["race_count"], "Races", ""),
         (stats["t1_count"], "Tier 1", ""),
         (stats["t2_count"], "Tier 2", ""),
-        (stats["region_count"], "Regions", "+"),
+        (stats["country_count"], "Countries", ""),
         (stats["dimensions"], "Criteria", ""),
     ]
     cells = ""
@@ -877,7 +884,7 @@ def _build_hero_radar_viz(race_index: list = None) -> str:
 
     svg = (
         f'<svg viewBox="0 0 460 460" role="img" '
-        f'aria-label="Rating system radar chart showing {n} scoring criteria" '
+        f'aria-label="Rating system radar chart showing {n - 1} scoring criteria plus the cultural impact bonus" '
         f'xmlns="http://www.w3.org/2000/svg">\n'
         f'{grid_svg}{data_polygon}{markers}{labels}'
         f'</svg>'
@@ -1041,7 +1048,8 @@ def build_tabbed_rankings(race_index: list) -> str:
         </a>'''
         return items
 
-    gravel_only = [r for r in race_index if (r.get("discipline") or "gravel") == "gravel"]
+    gravel_only = [r for r in race_index
+                   if (r.get("discipline") or "gravel") == "gravel" and is_ranked(r)]
     all_sorted = sorted(gravel_only, key=lambda r: r.get("overall_score", 0), reverse=True)
     t1_sorted = sorted(
         [r for r in gravel_only if r.get("tier") == 1],
@@ -1107,7 +1115,8 @@ def build_sidebar(stats: dict, race_index: list, upcoming: list) -> str:
     </div>'''
 
     # 2. Top 5 rankings (top 5 by score, gravel only)
-    gravel_index = [r for r in race_index if (r.get("discipline") or "gravel") == "gravel"]
+    gravel_index = [r for r in race_index
+                    if (r.get("discipline") or "gravel") == "gravel" and is_ranked(r)]
     top5 = sorted(gravel_index, key=lambda r: r.get("overall_score", 0), reverse=True)[:5]
     rank_items = ""
     for i, race in enumerate(top5, 1):
@@ -2488,7 +2497,7 @@ def main():
     one_liners = load_editorial_one_liners()
     chapters = load_guide_chapters()
     print(f"Generated {output_file} ({len(html_content):,} bytes)")
-    print(f"  {stats['race_count']} races, {stats['t1_count']} T1, {stats['t2_count']} T2, {stats['region_count']} regions, {stats['dimensions']} dimensions")
+    print(f"  {stats['race_count']} races, {stats['t1_count']} T1, {stats['t2_count']} T2, {stats['country_count']} countries, {stats['dimensions']} dimensions")
     print(f"  Ticker: {len(one_liners)} one-liners")
     print(f"  Coming up: {len([r for r in upcoming if r['days'] >= 0])} upcoming, {len([r for r in upcoming if r['days'] < 0])} recent")
     print(f"  Guide: {len(chapters)} chapters")

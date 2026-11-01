@@ -143,7 +143,7 @@ class TestKnownMajorRaces:
     KNOWN_TIER2_MINIMUM = {
         'the-rift', 'dirty-reiver', 'grinduro-california', 'grinduro-france',
         'grinduro-germany', 'vermont-overland', 'rasputitsa',
-        'paris-to-ancaster', 'bwr-california', 'bwr-asheville', 'bwr-utah',
+        'paris-to-ancaster', 'bwr-california',
         'bwr-montana', 'bwr-cedar-city', 'sbt-grvl', 'big-sugar',
         'migration-gravel-race', 'nova-eroica', 'fnld-grvl',
     }

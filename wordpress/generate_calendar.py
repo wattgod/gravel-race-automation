@@ -26,6 +26,8 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+sys.path.append(str(Path(__file__).parent.parent / "scripts"))
+from race_facts import is_ranked  # noqa: E402
 from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, get_ga4_head_snippet, get_tokens_css, SITE_BASE_URL
 from shared_header import get_site_header_css, get_site_header_html
 from cookie_consent import get_consent_banner_html
@@ -55,6 +57,8 @@ def esc(text) -> str:
 
 def build_calendar_page(races: list) -> str:
     """Generate the full calendar page."""
+    # A calendar lists races that are happening; not-running races are out.
+    races = [r for r in races if is_ranked(r)]
     # Group by month
     by_month = defaultdict(list)
     for r in races:

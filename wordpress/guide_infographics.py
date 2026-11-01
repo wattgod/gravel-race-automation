@@ -797,22 +797,41 @@ def render_hierarchy_pyramid(block: dict) -> str:
     )
 
 
+def _live_tier_counts() -> dict:
+    """Tier -> race count from web/race-index.json (empty dict if missing)."""
+    path = Path(__file__).resolve().parent.parent / "web" / "race-index.json"
+    try:
+        index = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    counts = {}
+    for race in index:
+        tier = race.get("tier", 4)
+        counts[tier] = counts.get(tier, 0) + 1
+    return counts
+
+
 def render_tier_distribution(block: dict) -> str:
     """Tier distribution as pyramid with narrowing bars (T4 widest, T1 narrowest).
 
     Uses data-animate="pyramid" with bottom-to-top stagger.
     Visual hierarchy: T1 at top (narrow, prestigious), T4 at bottom (wide, many races).
     """
-    # Ordered top-to-bottom: T1 (fewest) → T4 (most)
+    # Ordered top-to-bottom: T1 (fewest) → T4 (most). Counts come from the
+    # live index; the hard-coded 25/73/154/76 split (and "SBT GRVL, Gravel
+    # Worlds, Mid South" as Tier 2 examples) went stale.
+    counts = _live_tier_counts()
+    total_live = sum(counts.values()) or 1
+    styles = {
+        1: ("var(--gg-color-primary-brown)", "the bucket-list events"),
+        2: ("var(--gg-color-secondary-brown)", "strong fields, great courses"),
+        3: ("var(--gg-color-tier-3)", "Regional favorites with solid organization and community"),
+        4: ("var(--gg-color-tier-4)", "Local or niche events \u2014 great entry points for beginners"),
+    }
     tiers = [
-        ("T1", 25, 8, "var(--gg-color-primary-brown)", "var(--gg-color-warm-paper)",
-         "Unbound, BWR, Leadville \u2014 the bucket-list events"),
-        ("T2", 73, 22, "var(--gg-color-secondary-brown)", "var(--gg-color-warm-paper)",
-         "SBT GRVL, Gravel Worlds, Mid South \u2014 strong fields, great courses"),
-        ("T3", 154, 47, "var(--gg-color-tier-3)", "var(--gg-color-warm-paper)",
-         "Regional favorites with solid organization and community"),
-        ("T4", 76, 23, "var(--gg-color-tier-4)", "var(--gg-color-warm-paper)",
-         "Local or niche events \u2014 great entry points for beginners"),
+        (f"T{t}", counts.get(t, 0), round(counts.get(t, 0) / total_live * 100),
+         styles[t][0], "var(--gg-color-warm-paper)", styles[t][1])
+        for t in (1, 2, 3, 4)
     ]
 
     total = sum(t[1] for t in tiers)
@@ -842,8 +861,8 @@ def render_tier_distribution(block: dict) -> str:
     return _figure_wrap(
         inner, block.get("caption", ""), block.get("layout", "inline"),
         block.get("asset_id", ""), block.get("alt", ""),
-        title="How We Tier 328 Gravel Races",
-        takeaway="Only 8% earn Tier 1. If your target race is T1, respect it with T1 preparation.",
+        title=f"How We Tier {total} Races",
+        takeaway=f"Only {tiers[0][2]}% earn Tier 1. If your target race is T1, respect it with T1 preparation.",
     )
 
 

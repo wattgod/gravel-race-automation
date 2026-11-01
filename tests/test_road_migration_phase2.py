@@ -75,8 +75,66 @@ class TestApprovedDisposition:
 
 
 class TestCatalogContract:
+    # The July migration selected pages by index discipline == "road". The
+    # index read only gravel_god_rating.discipline, so these 47 road profiles
+    # (discipline in vitals) were labelled "gravel" and never migrated. The
+    # index now labels them correctly (2026-11-01). Whether they move to
+    # Roadie Labs like the other 359 is Matti's call; until then this list may
+    # only shrink.
+    PENDING_ROAD_DISPOSITION = {
+        "balatonfondo",
+        "bluewater-gran-fondo",
+        "dartmoor-legend-ultra",
+        "epic-gran-canaria",
+        "etape-du-dales",
+        "flandrien-ride",
+        "gfny-nyc",
+        "gfny-philippines",
+        "gfny-san-juan",
+        "gran-fondo-argentina",
+        "gran-fondo-badlands",
+        "gran-fondo-coimbra",
+        "gran-fondo-curacavi",
+        "gran-fondo-hainan",
+        "gran-fondo-san-diego",
+        "granfondo-alpe-adria",
+        "granfondo-bratislava",
+        "granfondo-gf-do-porto",
+        "granfondo-leiria",
+        "granfondo-nove-colli",
+        "granfondo-yunnan",
+        "haervejslobet",
+        "hong-kong-cyclothon",
+        "jamtlandspilen",
+        "la-vaujany",
+        "london-edinburgh-london",
+        "majka-gran-fondo",
+        "mt-fuji-hill-climb",
+        "nordsjorittet",
+        "pekan-classics",
+        "race-across-france",
+        "race-across-germany",
+        "race-across-spain",
+        "race-around-austria",
+        "race-around-ireland",
+        "ring-of-clare",
+        "seorak-granfondo",
+        "sierra-nevada-limite",
+        "struggle-dales",
+        "tour-de-romandie-cyclosportive",
+        "tour-of-oman-sportive",
+        "tour-of-the-peak",
+        "tour-of-thekkady",
+        "uci-gran-fondo-hangzhou",
+        "velothon-berlin",
+        "veloturk-gran-fondo-cesme",
+        "yangyang-gran-fondo",
+    }
+
     def test_road_count_is_zero(self, race_index):
-        assert sum(race.get("discipline") == "road" for race in race_index) == 0
+        road = {race["slug"] for race in race_index if race.get("discipline") == "road"}
+        new = road - self.PENDING_ROAD_DISPOSITION
+        assert not new, f"road races on Gravel God outside the pending list: {sorted(new)}"
 
     def test_post_migration_catalog_count_has_map_provenance(
         self, migration_map, race_index
@@ -111,12 +169,17 @@ class TestCatalogContract:
         # Grinder's organizer-confirmed 2027 stage race (net +1).
         # The Aug. 15 identity audit removed 66 South Pyrénées after proving it
         # duplicates the canonical Pyrénées Catalanes Gravel Tour (net -1).
+        # The Nov. 1 data-quality pass retired five duplicate identities to
+        # their canonical pages: Garmin Gravel Worlds and Gravel Worlds
+        # Amateur -> Gravel Worlds, BWR San Diego -> BWR California, BWR Utah
+        # -> BWR Cedar City, BWR Asheville -> BWR North Carolina (net -5;
+        # data/duplicate-merges.json).
         source_count = migration_map["source_snapshot"]["gravel_god"][
             "race_data_total_profiles"
         ]
         departing_count = len(road_migration.redirected_entries(migration_map))
-        post_migration_additions = 14
-        assert len(race_index) == source_count - departing_count + post_migration_additions == 384
+        post_migration_additions = 9
+        assert len(race_index) == source_count - departing_count + post_migration_additions == 379
 
     def test_archived_profiles_never_feed_generated_index(
         self, migration_map, race_index

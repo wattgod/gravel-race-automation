@@ -28,6 +28,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+sys.path.append(str(Path(__file__).parent.parent / "scripts"))
+from race_facts import is_ranked  # noqa: E402
 from brand_tokens import COLORS, get_font_face_css, get_ga4_head_snippet, get_tokens_css, SITE_BASE_URL
 from cookie_consent import get_consent_banner_html
 
@@ -123,9 +125,10 @@ def _state_from_location(location):
 def build_quiz_page(races: list) -> str:
     """Build the complete quiz HTML page."""
 
-    # Pre-compute race data JS array (only fields needed for scoring)
+    # Pre-compute race data JS array (only fields needed for scoring).
+    # The quiz recommends races to enter; never recommend one not running.
     race_js_items = []
-    for r in races:
+    for r in (r for r in races if is_ranked(r)):
         slug = r.get("slug", "")
         name = r.get("name", "")
         tier = _num(r.get("tier", 4), 4)
@@ -167,7 +170,8 @@ def build_quiz_page(races: list) -> str:
         ]
     })
 
-    race_count = len(races)
+    race_count = len(races)            # the whole catalog (browse links)
+    quiz_count = len(race_js_items)    # races the quiz scores (running only)
     faq_jsonld = json.dumps({
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -177,7 +181,7 @@ def build_quiz_page(races: list) -> str:
                 "name": "How does the Gravel God race finder quiz work?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": f"The quiz asks 5 questions about your fitness level, preferred distance, terrain type, location, and timing. It then scores all {race_count} gravel races in our database and recommends your top 5 matches."
+                    "text": f"The quiz asks 5 questions about your fitness level, preferred distance, terrain type, location, and timing. It then scores all {quiz_count} running gravel races in our database and recommends your top 5 matches."
                 }
             },
             {
@@ -185,7 +189,7 @@ def build_quiz_page(races: list) -> str:
                 "name": "How many gravel races are in the database?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": f"The Gravel God database includes {race_count} gravel races across the United States, each rated on 15 dimensions including difficulty, technicality, elevation, logistics, and more."
+                    "text": f"The Gravel God database includes {race_count} races worldwide, each rated on 14 criteria plus a cultural-impact bonus, including difficulty, technicality, elevation, logistics, and more."
                 }
             },
             {
@@ -213,10 +217,10 @@ def build_quiz_page(races: list) -> str:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Race Finder Quiz — Which Gravel Race Should You Do? | Gravel God</title>
-  <meta name="description" content="Answer 5 questions to find your perfect gravel race. Personalized recommendations from {race_count} races ranked by the Gravel God rating system.">
+  <meta name="description" content="Answer 5 questions to find your perfect gravel race. Personalized recommendations from {quiz_count} races ranked by the Gravel God rating system.">
   <link rel="canonical" href="{SITE_BASE_URL}/race/quiz/">
   <meta property="og:title" content="Race Finder Quiz — Which Gravel Race Should You Do?">
-  <meta property="og:description" content="Answer 5 questions to find your perfect gravel race from {race_count} options.">
+  <meta property="og:description" content="Answer 5 questions to find your perfect gravel race from {quiz_count} options.">
   <meta property="og:url" content="{SITE_BASE_URL}/race/quiz/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Gravel God Cycling">
@@ -235,7 +239,7 @@ def build_quiz_page(races: list) -> str:
     <a href="/gravel-races/" class="gg-quiz-back">&larr; All Races</a>
     <div class="gg-quiz-badge">RACE FINDER</div>
     <h1 class="gg-quiz-title">Which Gravel Race<br>Should You Do?</h1>
-    <p class="gg-quiz-subtitle">5 questions. 328 races. Your perfect match.</p>
+    <p class="gg-quiz-subtitle">5 questions. {quiz_count} races. Your perfect match.</p>
   </header>
 
   <div class="gg-quiz-progress" id="gg-quiz-progress">
@@ -388,13 +392,13 @@ def build_quiz_page(races: list) -> str:
     <div class="gg-quiz-results-badge">YOUR TOP 5 MATCHES</div>
     <div class="gg-quiz-results-list" id="gg-quiz-results-list"></div>
     <div class="gg-quiz-results-cta">
-      <a href="/gravel-races/" class="gg-quiz-btn gg-quiz-btn--secondary">BROWSE ALL 328 RACES</a>
+      <a href="/gravel-races/" class="gg-quiz-btn gg-quiz-btn--secondary">BROWSE ALL {race_count} RACES</a>
       <button class="gg-quiz-btn" id="gg-quiz-restart">TAKE QUIZ AGAIN</button>
     </div>
   </div>
 
   <footer class="gg-quiz-footer">
-    <p>Powered by the <a href="/gravel-races/">Gravel God</a> rating system &mdash; 328 races, 15 dimensions, zero BS.</p>
+    <p>Powered by the <a href="/gravel-races/">Gravel God</a> rating system &mdash; {race_count} races, 14 criteria, zero BS.</p>
   </footer>
 </div>
 

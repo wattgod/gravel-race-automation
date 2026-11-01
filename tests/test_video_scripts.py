@@ -280,7 +280,7 @@ class TestHookAnalysis:
             pytest.skip("No hidden gem race found in dataset")
 
     def test_prestige_override(self):
-        rd = _load_test_race("bwr-san-diego")
+        rd = _load_test_race("little-sugar-mtb")
         hooks = analyze_hooks(rd)
         angles = [h["angle"] for h in hooks]
         assert "prestige_override" in angles

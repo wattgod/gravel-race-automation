@@ -192,7 +192,7 @@ def render_card(race: dict, brand: str, kind: str = "countdown") -> Path:
                else "SHORT RUNWAY. STRUCTURE WHAT'S LEFT.")
     else:
         big = f"SCORED {score}/100"
-        sub = "EVERY RACE. SAME 15 CRITERIA. IN PUBLIC."
+        sub = "EVERY RACE. SAME RULER. IN PUBLIC."
     d.text((margin + 40, band_y + 28), big, font=_font(True, 64), fill=b["accent"])
     d.text((margin + 40, band_y + 116), sub, font=_font(True, 28), fill=ink)
     d.text((margin + 40, H - margin - 60),
@@ -218,12 +218,12 @@ def post_text(race: dict, brand: str, kind: str) -> dict:
                  f"gets decided: {url}")
             ig = (f"{race['name']}: {w:.0f} weeks out.\n\nThe base-building window "
                   f"is open — it's the one part of race prep you can't cram later. "
-                  f"We scored this one {race['score']}/100 on the same fifteen "
+                  f"We scored this one {race['score']}/100 on the same fourteen "
                   f"criteria as every race in the database, in public, including "
                   f"the insulting scores.\n\nFull profile free — link in bio.")
         else:
             x = (f"We gave {race['name']} a {race['score']}/100. Not an insult — "
-                 f"a ruler. Every race, same fifteen criteria, in public: {url}")
+                 f"a ruler. Every race, same fourteen criteria, in public: {url}")
             ig = (f"{race['name']}: {race['score']}/100.\n\nA rating system is "
                   f"only useful if it's willing to be rude. Same ruler for every "
                   f"race in the database — the 97s and the 36s alike.\n\n"
@@ -231,7 +231,7 @@ def post_text(race: dict, brand: str, kind: str) -> dict:
     else:
         if kind == "countdown":
             x = (f"{race['name']}: {w:.0f} weeks out. The full training window. "
-                 f"Scored {race['score']}/100 on the published 15-criteria "
+                 f"Scored {race['score']}/100 on the published 15-criteria "  # Roadie Labs rubric
                  f"rubric. Profile: {url}")
             ig = (f"{race['name']} — {w:.0f} weeks out.\n\nBase does not "
                   f"compress. The weeks lost to waiting come off the front of "

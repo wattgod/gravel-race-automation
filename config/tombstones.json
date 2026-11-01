@@ -135,6 +135,31 @@
       "slug": "66-south-pyrenees",
       "reason": "duplicate identity for the same September 26, 2026 Font-Romeu UCI Gravel World Series race tracked canonically as pyrenees-catalanes-gravel-tour; the retired profile also carried a lower stale grade and unrelated Pyrenees-crossing rider intel",
       "redirect": "/race/pyrenees-catalanes-gravel-tour/"
+    },
+    {
+      "slug": "garmin-gravel-worlds",
+      "reason": "duplicate identity: Garmin is the title sponsor of the same Lincoln, Nebraska event tracked canonically as gravel-worlds (data/duplicate-merges.json, 2026-11-01)",
+      "redirect": "/race/gravel-worlds/"
+    },
+    {
+      "slug": "gravel-worlds-amateur",
+      "reason": "duplicate identity: amateurs ride the same Lincoln, Nebraska 150-mile day tracked canonically as gravel-worlds (data/duplicate-merges.json, 2026-11-01)",
+      "redirect": "/race/gravel-worlds/"
+    },
+    {
+      "slug": "bwr-san-diego",
+      "reason": "duplicate identity: the original Del Mar Belgian Waffle Ride is tracked canonically as bwr-california (data/duplicate-merges.json, 2026-11-01)",
+      "redirect": "/race/bwr-california/"
+    },
+    {
+      "slug": "bwr-utah",
+      "reason": "duplicate identity: BWR Utah is the Cedar City event tracked canonically as bwr-cedar-city (data/duplicate-merges.json, 2026-11-01)",
+      "redirect": "/race/bwr-cedar-city/"
+    },
+    {
+      "slug": "bwr-asheville",
+      "reason": "duplicate identity: the one North Carolina BWR (Hendersonville, near Asheville) is tracked canonically as bwr-north-carolina (data/duplicate-merges.json, 2026-11-01)",
+      "redirect": "/race/bwr-north-carolina/"
     }
   ]
 }

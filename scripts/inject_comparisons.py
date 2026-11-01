@@ -30,7 +30,7 @@ PREFERRED_ANCHORS = {
     "dirty-kanza",  # old name people know
     "gravel-worlds", "leadville-100", "land-run-100",
     "rule-of-three", "gravel-locos", "grinduro", "almanzo-100",
-    "bwr-san-diego", "belgian-waffle-ride-san-diego",
+    "bwr-california", "belgian-waffle-ride-san-diego",
     "crusher-in-the-tushar", "lost-and-found-gravel",
     "iowa-wind-and-rock", "rebecca-private-idaho",
     "dirty-30",

@@ -539,7 +539,8 @@ class TestLadderStrip:
         html = build_ladder_strip(stats)
         assert f'{stats["race_count"]} races, rated. Start with yours.' in html
         assert "Built for the race on your calendar, around the hours you actually have." in html
-        assert "A human in your corner &mdash; not an AI, not a spreadsheet." in html
+        assert "A human in your corner." in html
+        assert "not an AI" not in html
 
     def test_cta_labels_present(self, stats):
         html = build_ladder_strip(stats)

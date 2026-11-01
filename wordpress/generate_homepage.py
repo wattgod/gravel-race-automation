@@ -655,11 +655,6 @@ def build_ladder_strip(stats: dict) -> str:
     only (see build_homepage_css() for the CSS block).
     """
     race_count = stats["race_count"]
-    # SANCTIONED EXCEPTION to the anti-defensive-messaging rule: "not an AI, not
-    # a spreadsheet" already ships on this page in the coaching band
-    # (build_testimonials()) and is the Roadie Labs 2026-07-18
-    # /coaching/ hero precedent (generate_coaching.py build_hero()). Carried
-    # verbatim into cell 03 below.
     cells = [
         (
             "01", "Pick a race",
@@ -673,7 +668,7 @@ def build_ladder_strip(stats: dict) -> str:
         ),
         (
             "03", "Find out what you could be.",
-            "A human in your corner &mdash; not an AI, not a spreadsheet.",
+            "A human in your corner.",
             "GET ME IN YOUR CORNER &rarr;", f"{SITE_BASE_URL}/coaching/", "ladder_coaching",
         ),
     ]
@@ -1257,7 +1252,7 @@ def build_testimonials() -> str:
     docs/specs/receipts-social-proof-2026.md."""
     return f'''<section class="gg-hp-testimonials" id="testimonials">
     <div class="gg-hp-test-cta">
-      <p>You could be better than you think. A human in your corner &mdash; not an AI, not a spreadsheet.</p>
+      <p>You could be better than you think. A human in your corner.</p>
       <a href="{esc(SITE_BASE_URL)}/coaching/" class="gg-hp-btn gg-hp-btn--primary" data-ga="cta_click" data-ga-label="coaching">GET ME IN YOUR CORNER &rarr;</a>
     </div>
   </section>'''

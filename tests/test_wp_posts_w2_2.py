@@ -166,7 +166,7 @@ def test_every_image_has_alt_text_and_committed_files(pid):
         assert (m.OUTPUT_PATH.parent / path).is_file(), path
     shipped = {p.suffix for p in img_dir.iterdir() if not p.name.endswith("-og.jpg")}
     assert shipped <= {".webp", ".mp4", ".webm"}
-    assert [p.name for p in img_dir.glob("*.jpg")] == ([f"{feat['name']}-og.jpg"] if feat else [])
+    assert [p.name for p in img_dir.glob("*.jpg")] == ([m.SOURCE.data["renditions"][feat["name"]]["og"]["file"]] if feat else [])
 
 
 @pytest.mark.parametrize("pid", POSTS)

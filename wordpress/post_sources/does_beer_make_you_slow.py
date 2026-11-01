@@ -39,15 +39,15 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "does-beer-make-you-slow": "Close-up of golden beer and foam filling the frame, with cartoon Gravel God in a cowboy hat standing arms crossed in front of it.",
-    "thats-unexpected": "Cartoon Gravel God's head in a cowboy hat beside a speech bubble: \"Wait, so drinking poison makes me feel great? That's Unexpected.\"",
-    "dont-drink": "Chalkboard headed \"Don't freaking drink\" in red neon letters: four glasses of beer, each crossed out with a red no sign, around cartoon Gravel God.",
+    "does-beer-make-you-slow": "Close-up of golden beer and foam filling the frame, with cartoon Gravel God, handlebar mustache and white tee, standing arms crossed in front of it.",
+    "thats-unexpected": "Cartoon Gravel God's head, eyebrows up, beside a speech bubble: \"Wait, so drinking poison makes me feel great? That's Unexpected.\"",
+    "dont-drink": "Chalkboard headed \"Don't freaking drink\" in red neon letters: four glasses of beer, each crossed out with a red no sign, around cartoon Gravel God, pointing and shouting.",
     "fitness-progression-sober": "Chalkboard chart titled \"Fitness progression - sober\": fitness against time as eight chalk steps climbing evenly from bottom left to upper right, with a big hatched arrow pointing up.",
     "fitness-progression-sober-1": "The same chalkboard chart titled \"Fitness progression\" with a beer mug: the eight white sober steps, and below them seven yellow steps that start at the second step and climb about half as steeply. Cartoon Gravel God in the corner says \"Oh.\"",
     "blinking-arrow": "Animated: a big white arrow pointing right, nudging forward on a dark background.",
     "dont-drink-1": "A huge wave and fiery meteors bear down on a coastal town; a tiny cartoon Gravel God on a bike in the foreground says: \"It's a disaster.\"",
-    "why-cyclists-drink": "Chalkboard titled \"Why cyclists drink\" beside cartoon Gravel God: \"1. It's fun. 2. Athletes think training allows them certain liberties, like happy hour. 3. Humans suck at grasping the effect of small choices over time.\"",
-    "it-depends": "Cartoon Gravel God in a cowboy hat, arms crossed, wearing an adult diaper, with an arrow labelled \"It...\" pointing at it; small text in the corner reads \"(That's a Depends diaper)\".",
+    "why-cyclists-drink": "Chalkboard titled \"Why cyclists drink\" beside cartoon Gravel God, arms crossed: \"1. It's fun. 2. Athletes think training allows them certain liberties, like happy hour. 3. Humans suck at grasping the effect of small choices over time.\"",
+    "it-depends": "Cartoon Gravel God shrugging, with an arrow labelled \"It...\" pointing at his shorts; small text in the corner reads \"(That's a Depends diaper)\".",
 }
 
 # Figures this module adds (excluded from the word-for-word text diff).

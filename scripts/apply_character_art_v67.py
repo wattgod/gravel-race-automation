@@ -94,10 +94,21 @@ def apply_article(slug: str, spec: dict, work: Path, stem: str) -> int:
 def set_alt(module: Path, key: str, alt: str):
     src = module.read_text()
     tree = ast.parse(src)
+    ns = {}                                   # module-level string constants, for keys like f"{_P}-3"
+    for node in tree.body:
+        if (isinstance(node, ast.Assign) and len(node.targets) == 1 and isinstance(node.targets[0], ast.Name)
+                and isinstance(node.value, ast.Constant) and isinstance(node.value.value, str)):
+            ns[node.targets[0].id] = node.value.value
+
+    def keyval(k):
+        try:
+            return eval(compile(ast.Expression(k), '<alt-key>', 'eval'), {'__builtins__': {}}, dict(ns))
+        except Exception:
+            return None
     for node in tree.body:
         if isinstance(node, ast.Assign) and any(getattr(t, 'id', '') == 'ALT' for t in node.targets):
             for k, v in zip(node.value.keys, node.value.values):
-                if isinstance(k, ast.Constant) and k.value == key:
+                if k is not None and keyval(k) == key:
                     lines = src.splitlines(keepends=True)
                     # col_offset is in UTF-8 bytes
                     pre = lines[v.lineno - 1].encode()[:v.col_offset].decode()

@@ -1,0 +1,484 @@
+{
+ "collection": "posts",
+ "slug": "i-didnt-screw-up-unbound-200-and-you-dont-have-to-either",
+ "images": [
+  {
+   "file": "img/wakeeney-pit-stop.webp",
+   "name": "wakeeney-pit-stop",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1290,
+      95,
+      1510,
+      880
+     ],
+     "erase_box": [
+      1300,
+      230,
+      1560,
+      890
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 60
+    }
+   ],
+   "joke": "(no words: roadside stop with the hood up)",
+   "match": "exact",
+   "alt": "A rider in a grey tee stands by a black SUV with its hood up on the highway shoulder; cartoon Gravel God stands on the other side, thinking.",
+   "erase_extra": [
+    [
+     1195,
+     80,
+     1600,
+     310
+    ]
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/wakeeney-pit-stop-1.webp",
+   "name": "wakeeney-pit-stop-1",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      500,
+      640,
+      850,
+      900
+     ],
+     "erase_box": [
+      500,
+      630,
+      850,
+      900
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "width",
+     "anchor": "top"
+    }
+   ],
+   "joke": "(no words: his view from the back of the pack)",
+   "match": "exact",
+   "alt": "The back of cartoon Gravel God's head at the bottom of the frame as the pack rolls down a muddy gravel road under a big Kansas sky.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/forest-hietpas-2.webp",
+   "name": "forest-hietpas-2",
+   "verdict": "keep",
+   "why": "Selfie photo of two riders with drinks; no Gravel God."
+  },
+  {
+   "file": "img/pale-uncle.webp",
+   "name": "pale-uncle",
+   "verdict": "keep",
+   "why": "Photo of two men talking by the highway; no Gravel God."
+  },
+  {
+   "file": "img/forest-hietpas.webp",
+   "name": "forest-hietpas",
+   "verdict": "keep",
+   "why": "Muddy post-race selfie photo; no Gravel God."
+  },
+  {
+   "file": "img/pale-uncle-3.webp",
+   "name": "pale-uncle-3",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      560,
+      265,
+      1110,
+      1000
+     ],
+     "erase_box": [
+      500,
+      440,
+      1165,
+      1000
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "width",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "(no words: him from behind, riders ahead on red dirt)",
+   "match": "exact",
+   "alt": "Cartoon Gravel God seen from behind on a red dirt road through green hills, with a line of riders ahead of him.",
+   "erase_extra": [
+    [
+     640,
+     250,
+     985,
+     445
+    ]
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/forest-hietpas-1.webp",
+   "name": "forest-hietpas-1",
+   "verdict": "keep",
+   "why": "Night street photo of a muddy rider with his bike; no Gravel God."
+  },
+  {
+   "file": "img/pale-uncle-1.webp",
+   "name": "pale-uncle-1",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      990,
+      458,
+      1035,
+      528
+     ],
+     "erase_box": [
+      982,
+      450,
+      1042,
+      532
+     ],
+     "ride": "cruise",
+     "face": "focused",
+     "psi": 110
+    }
+   ],
+   "joke": "(no words: tiny him among the riders)",
+   "match": "exact",
+   "alt": "Aerial view of a line of riders on a gravel road across green Flint Hills grassland, tiny cartoon Gravel God among them.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/forest-hietpas-3.webp",
+   "name": "forest-hietpas-3",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      150,
+      1110,
+      1120,
+      2133
+     ],
+     "erase_box": [
+      120,
+      1090,
+      1150,
+      2133
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "width",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "(no words: him from behind in the line of walking riders)",
+   "match": "exact",
+   "alt": "Cartoon Gravel God seen from behind in a line of riders pushing their bikes up a grassy double track beside a wire fence.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/pale-uncle-2.webp",
+   "name": "pale-uncle-2",
+   "mode": "rebuild",
+   "bg": {
+    "type": "gradient",
+    "top": "#5aa4ef",
+    "bottom": "#c26d4a"
+   },
+   "insets": [
+    {
+     "src": [
+      1250,
+      0,
+      1600,
+      100
+     ],
+     "box": [
+      1250,
+      0,
+      1600,
+      100
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      125,
+      292,
+      1480,
+      918
+     ],
+     "fill": "#14181f"
+    },
+    {
+     "type": "rect",
+     "box": [
+      1140,
+      48,
+      1158,
+      78
+     ],
+     "fill": "#ffffff"
+    },
+    {
+     "type": "rect",
+     "box": [
+      1166,
+      38,
+      1184,
+      78
+     ],
+     "fill": "#ffffff"
+    },
+    {
+     "type": "rect",
+     "box": [
+      1192,
+      28,
+      1210,
+      78
+     ],
+     "fill": "#ffffff"
+    },
+    {
+     "type": "rect",
+     "box": [
+      1218,
+      18,
+      1236,
+      78
+     ],
+     "fill": "#ffffff"
+    },
+    {
+     "type": "rect",
+     "box": [
+      1378,
+      362,
+      1428,
+      384
+     ],
+     "fill": "#ffffff"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      640,
+      415,
+      1005,
+      780
+     ],
+     "outline": "#3c414a",
+     "width": 20
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      560,
+      0,
+      1040,
+      300
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 90,
+     "crop": "head",
+     "fit": "height"
+    }
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "text": "06:26",
+     "box": [
+      200,
+      -3.9999999999999964,
+      480,
+      94.0
+     ],
+     "font": "mono",
+     "size": 90,
+     "color": "#ffffff",
+     "align": "left"
+    },
+    {
+     "type": "caption",
+     "text": "91%",
+     "box": [
+      1200,
+      342.5,
+      1370,
+      397.5
+     ],
+     "font": "mono",
+     "size": 45,
+     "color": "#ffffff",
+     "align": "right"
+    },
+    {
+     "type": "caption",
+     "text": "1%",
+     "box": [
+      360,
+      452.0,
+      560,
+      543.0
+     ],
+     "font": "mono",
+     "size": 84,
+     "color": "#c8243a",
+     "align": "right"
+    },
+    {
+     "type": "caption",
+     "text": "RECOVERY",
+     "box": [
+      240,
+      537.6,
+      560,
+      589.4
+     ],
+     "font": "mono",
+     "size": 50,
+     "color": "#c8243a",
+     "align": "right"
+    },
+    {
+     "type": "caption",
+     "text": "HRV",
+     "box": [
+      360,
+      610.4,
+      560,
+      663.6
+     ],
+     "font": "mono",
+     "size": 50,
+     "color": "#6b6f76",
+     "align": "right"
+    },
+    {
+     "type": "caption",
+     "text": "19",
+     "box": [
+      400,
+      671.0,
+      560,
+      734.0
+     ],
+     "font": "mono",
+     "size": 59,
+     "color": "#6b6f76",
+     "align": "right"
+    },
+    {
+     "type": "caption",
+     "text": "0.3",
+     "box": [
+      1045,
+      452.0,
+      1260,
+      543.0
+     ],
+     "font": "mono",
+     "size": 84,
+     "color": "#2e86c1",
+     "align": "left"
+    },
+    {
+     "type": "caption",
+     "text": "STRAIN",
+     "box": [
+      1045,
+      537.6,
+      1320,
+      589.4
+     ],
+     "font": "mono",
+     "size": 50,
+     "color": "#2e86c1",
+     "align": "left"
+    },
+    {
+     "type": "caption",
+     "text": "CALORIES",
+     "box": [
+      1045,
+      610.4,
+      1360,
+      663.6
+     ],
+     "font": "mono",
+     "size": 50,
+     "color": "#6b6f76",
+     "align": "left"
+    },
+    {
+     "type": "caption",
+     "text": "431",
+     "box": [
+      1045,
+      671.0,
+      1220,
+      734.0
+     ],
+     "font": "mono",
+     "size": 59,
+     "color": "#6b6f76",
+     "align": "left"
+    },
+    {
+     "type": "caption",
+     "text": "W",
+     "box": [
+      760,
+      540.0,
+      885,
+      655.0
+     ],
+     "font": "mono",
+     "size": 80,
+     "color": "#e8e8e8"
+    },
+    {
+     "type": "caption",
+     "text": "WHOOP",
+     "box": [
+      700,
+      933.75,
+      900,
+      996.25
+     ],
+     "font": "mono",
+     "size": 50,
+     "color": "#ffffff"
+    }
+   ],
+   "joke": "WHOOP: 1% RECOVERY, HRV 19, 0.3 STRAIN, CALORIES 431, 06:26",
+   "match": "closest",
+   "note": "Old cartoon was a faded face behind a see-through phone widget; the renderer has no see-through layers, so his head peeks over a redrawn widget. Numbers and labels in the brand mono font, not the WHOOP font.",
+   "alt": "A WHOOP phone widget at 06:26: 1% recovery, HRV 19, 0.3 strain, 431 calories. Cartoon Gravel God's grimacing head peeks over the top of it.",
+   "verdict": "replace"
+  }
+ ]
+}

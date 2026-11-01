@@ -39,11 +39,11 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "sherpacafe": "A café patio strung with Tibetan prayer flags under a blue sky; a man in sunglasses sits at a table at the back, and cartoon Gravel God in a cowboy hat, seen from behind, stands in the foreground looking at him.",
+    "sherpacafe": "A sunny cafe patio strung with Tibetan prayer flags, iron tables and red umbrellas; cartoon Gravel God, seen from behind, looks across at a rider sitting at a table.",
     "139-5": "Bare feet on a bathroom scale reading 139.5, set over a black-and-white photo of a dug-up backyard with cardboard foundation tubes for a deck.",
     "img-9209": "A rider in a helmet, hoodie and shorts bends over a gravel bike with a frame bag in a motel parking lot, a Registration banner and pine trees behind him.",
-    "easystreet": "A green highway sign, \"Easy Street NEXT EXIT\", against a blue sky; cartoon Gravel God in a cowboy hat says: \"Whew! I knew I'd find you! I'd hate to have to push myself.\"",
-    "onewetbar": "A white speedboat carves a wake along a rocky coastline; cartoon Gravel God in a cowboy hat stands on its bow, saying: \"Don't judge, I've got problems. This boat only has 1 wet bar!\"",
+    "easystreet": "A green highway sign reads \"Easy Street NEXT EXIT\" against a blue sky; cartoon Gravel God says: \"Whew! I knew I'd find you! I'd hate to have to push myself.\"",
+    "onewetbar": "A white speedboat carves a wake along a rocky Mediterranean coast; cartoon Gravel God stands on the bow saying: \"Don't judge, I've got problems. This boat only has 1 wet bar!\"",
     "img-9214": "Bare legs on a hotel-room carpet, caked in dust and grime down to sharp sock lines, the feet clean below them.",
     "cantbeit-3": "Two men in matching striped Nordic-style sweaters pose shoulder to shoulder, one with an arm around the other, against a faded desert landscape.",
 }

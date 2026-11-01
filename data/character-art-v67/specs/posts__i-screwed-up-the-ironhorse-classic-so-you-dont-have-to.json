@@ -1,0 +1,272 @@
+{
+ "collection": "posts",
+ "slug": "i-screwed-up-the-ironhorse-classic-so-you-dont-have-to",
+ "images": [
+  {
+   "file": "img/ironhorse-classic.webp",
+   "name": "ironhorse-classic",
+   "verdict": "keep",
+   "why": "Screenshot of the event; no Gravel God."
+  },
+  {
+   "file": "img/ned-overend.webp",
+   "name": "ned-overend",
+   "verdict": "keep",
+   "why": "Real photo of a man in a hospital room; no cartoon."
+  },
+  {
+   "file": "img/semis-crashing.webp",
+   "name": "semis-crashing",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "figs": [
+    {
+     "box": [
+      505,
+      440,
+      635,
+      800
+     ],
+     "erase_box": [
+      495,
+      430,
+      645,
+      805
+     ],
+     "ride": "cruise",
+     "psi": 60,
+     "face": "surprised",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "A wreck on a highway: a Target semi-trailer and a second truck have collided, boxes and debris are scattered across the road, and cartoon Gravel God rides his bike between orange traffic cones.",
+   "erase": "telea"
+  },
+  {
+   "file": "img/dumb.webp",
+   "name": "dumb",
+   "verdict": "keep",
+   "why": "Animated photo meme (red and blue pill hands); no Gravel God."
+  },
+  {
+   "file": "img/quinn-simmons.webp",
+   "name": "quinn-simmons",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "figs": [
+    {
+     "box": [
+      605,
+      485,
+      855,
+      760
+     ],
+     "erase_box": [
+      595,
+      475,
+      865,
+      765
+     ],
+     "ride": "attack",
+     "psi": 0,
+     "face": "grimace",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Black-and-white desert highway: a motorcycle rider with a photo head of a red-bearded rider leads, and cartoon Gravel God sprints on his bike just behind.",
+   "erase": "telea"
+  },
+  {
+   "file": "img/besties-1.webp",
+   "name": "besties-1",
+   "verdict": "replace",
+   "match": "closest",
+   "mode": "composite",
+   "figs": [
+    {
+     "box": [
+      310,
+      30,
+      760,
+      478
+     ],
+     "erase_box": [
+      240,
+      0,
+      810,
+      472
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "fit": "height",
+     "anchor": "bottom",
+     "face": "smile",
+     "psi": 90
+    }
+   ],
+   "alt": "Two friends pose arm in arm in a sunny park: a red-bearded rider grins, and the other man has the head of cartoon Gravel God, smiling, with a handlebar mustache.",
+   "erase": "telea",
+   "note": "Head swap on a real photo: the rig head sits on the photo's own neck; the old hat area is filled by smoothing and shows soft streaks."
+  },
+  {
+   "file": "img/dumb-2.webp",
+   "name": "dumb-2",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "figs": [
+    {
+     "box": [
+      190,
+      115,
+      275,
+      195
+     ],
+     "erase_box": [
+      180,
+      105,
+      285,
+      205
+     ],
+     "ride": "bunny_hop",
+     "psi": 20,
+     "face": "surprised",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "A huge volcanic ash cloud boils over a mountain under a stormy sky, and tiny cartoon Gravel God is blown through the air on his bike in the corner.",
+   "erase": "telea"
+  },
+  {
+   "file": "img/da-boyz.webp",
+   "name": "da-boyz",
+   "verdict": "replace",
+   "match": "closest",
+   "mode": "composite",
+   "figs": [
+    {
+     "box": [
+      760,
+      200,
+      1150,
+      728
+     ],
+     "erase_box": [
+      692,
+      140,
+      1262,
+      724
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "fit": "height",
+     "anchor": "bottom",
+     "face": "smile",
+     "psi": 90
+    }
+   ],
+   "alt": "A selfie of two riders in a mountain canyon: a smiling man in a red helmet and red jersey, and beside him a rider with the head of cartoon Gravel God.",
+   "erase": "telea",
+   "note": "Head swap on a real photo: the rig head sits on the photo's own neck; the old hat area is filled by smoothing and shows soft streaks."
+  },
+  {
+   "file": "img/readup.webp",
+   "name": "readup",
+   "verdict": "replace",
+   "match": "closest",
+   "mode": "composite",
+   "figs": [
+    {
+     "box": [
+      530,
+      240,
+      750,
+      512
+     ],
+     "erase_box": [
+      465,
+      200,
+      805,
+      508
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "fit": "height",
+     "anchor": "bottom",
+     "face": "smile",
+     "psi": 90
+    }
+   ],
+   "alt": "A rider in a red Rio Grande jersey, with the head of cartoon Gravel God, reads a picture book to two small blond boys on a window seat.",
+   "erase": "telea",
+   "note": "Head swap on a real photo: the rig head sits on the photo's own neck; the old hat area is filled by smoothing and shows soft streaks."
+  },
+  {
+   "file": "img/screen-shot-2022-09-29-at-2-28-22-pm.webp",
+   "name": "screen-shot-2022-09-29-at-2-28-22-pm",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon."
+  },
+  {
+   "file": "img/screen-shot-2022-09-29-at-2-27-38-pm.webp",
+   "name": "screen-shot-2022-09-29-at-2-27-38-pm",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon."
+  },
+  {
+   "file": "img/img-4113-scaled.webp",
+   "name": "img-4113-scaled",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon."
+  },
+  {
+   "file": "img/whip.webp",
+   "name": "whip",
+   "verdict": "replace",
+   "match": "closest",
+   "mode": "composite",
+   "figs": [
+    {
+     "box": [
+      615,
+      70,
+      795,
+      338
+     ],
+     "erase_box": [
+      575,
+      38,
+      806,
+      334
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "fit": "height",
+     "anchor": "bottom",
+     "face": "smile",
+     "psi": 90
+    }
+   ],
+   "alt": "On a mountain-town main street, a rider in a red Rio Grande jersey with race number 307 and the head of cartoon Gravel God pedals with a paper bag hanging from his bars.",
+   "erase": "telea",
+   "note": "Head swap on a real photo: the rig head sits on the photo's own neck; the old hat area is filled by smoothing and shows soft streaks."
+  },
+  {
+   "file": "img/img-1859.webp",
+   "name": "img-1859",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon."
+  },
+  {
+   "file": "img/img-2083.webp",
+   "name": "img-2083",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon."
+  }
+ ]
+}

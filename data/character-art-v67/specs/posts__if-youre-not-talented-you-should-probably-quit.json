@@ -1,0 +1,340 @@
+{
+ "collection": "posts",
+ "slug": "if-youre-not-talented-you-should-probably-quit",
+ "images": [
+  {
+   "file": "img/dont-quit-your-day-job.webp",
+   "name": "dont-quit-your-day-job",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      30,
+      130,
+      260,
+      600
+     ],
+     "erase_box": [
+      0,
+      115,
+      315,
+      600
+     ],
+     "pose": "point",
+     "face": "grin",
+     "psi": 70
+    }
+   ],
+   "joke": "Don't Quit your day job!",
+   "match": "exact",
+   "alt": "Cartoon Gravel God points down an empty office corridor of cubicles, saying: \"Don't Quit your day job!\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/dont-quit-your-day-job-1.webp",
+   "name": "dont-quit-your-day-job-1",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      400,
+      300,
+      630,
+      600
+     ],
+     "erase_box": [
+      395,
+      290,
+      630,
+      600
+     ],
+     "pose": "lean_on_bike",
+     "face": "surprised",
+     "psi": 70,
+     "scale": 1.12
+    }
+   ],
+   "joke": "My VO2 max2 is 12ml/kg? Take me to Jesus.",
+   "match": "exact",
+   "alt": "Cartoon Gravel God stands with his bike in the road in front of an oncoming city bus, saying: \"My VO2 max2 is 12ml/kg? Take me to Jesus.\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/dont-quit-your-day-job-2.webp",
+   "name": "dont-quit-your-day-job-2",
+   "verdict": "keep",
+   "why": "Chalkboard list with no character on it."
+  },
+  {
+   "file": "img/dont-quit-your-day-job-3.webp",
+   "name": "dont-quit-your-day-job-3",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      485,
+      505,
+      560,
+      595
+     ],
+     "erase_box": [
+      478,
+      498,
+      565,
+      598
+     ],
+     "ride": "cruise",
+     "face": "smile",
+     "psi": 70
+    }
+   ],
+   "joke": "\"I've looked at love from both sides now...\"",
+   "match": "exact",
+   "alt": "A bare tree in a snowy white field; tiny cartoon Gravel God rides past a woman with a guitar who sings: \"I've looked at love from both sides now...\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/dont-quit-your-day-job-4.webp",
+   "name": "dont-quit-your-day-job-4",
+   "verdict": "keep",
+   "why": "No Gravel God character in it (photo, screenshot, chart or other art)."
+  },
+  {
+   "file": "img/dont-quit-your-day-job-5.webp",
+   "name": "dont-quit-your-day-job-5",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      860,
+      365,
+      980,
+      600
+     ],
+     "erase_box": [
+      830,
+      355,
+      1000,
+      600
+     ],
+     "pose": "arms_crossed",
+     "face": "neutral",
+     "psi": 80
+    }
+   ],
+   "joke": "TALENT (tay-lahnt) noun 1. A natural aptitude for something aka good without trying. 2. Hypersensitivity to stimulus e.g. you look at a bike and you get fitter.",
+   "match": "exact",
+   "alt": "A chalkboard: \"TALENT (tay-lahnt) noun. 1. A natural aptitude for something aka good without trying. 2. Hypersensitivity to stimulus e.g. you look at a bike and you get fitter.\" Cartoon Gravel God stands below, arms crossed.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/reason-to-live.webp",
+   "name": "reason-to-live",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      455,
+      235,
+      530,
+      345
+     ],
+     "erase_box": [
+      445,
+      225,
+      540,
+      348
+     ],
+     "ride": "cruise",
+     "face": "focused",
+     "psi": 60,
+     "mask": "grabcut"
+    }
+   ],
+   "joke": "(no words: he rides out onto the cliff ledge)",
+   "match": "closest",
+   "note": "The old animation of him riding out becomes a still.",
+   "alt": "Tiny cartoon Gravel God rides out onto the tip of a rock ledge high above a fjord at sunset.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/mr-waffles-1.webp",
+   "name": "mr-waffles-1",
+   "verdict": "keep",
+   "why": "Mugshot height chart with a Danish-flag face, not Gravel God."
+  },
+  {
+   "file": "img/the-great-dane-2018-3.webp",
+   "name": "the-great-dane-2018-3",
+   "verdict": "keep",
+   "why": "Power chart; the small figure is a Danish-flag head, not Gravel God."
+  },
+  {
+   "file": "img/mr-waffles.webp",
+   "name": "mr-waffles",
+   "verdict": "keep",
+   "why": "Crossed-out food, beer and couch icons; no Gravel God."
+  },
+  {
+   "file": "img/the-great-dane-2018-5.webp",
+   "name": "the-great-dane-2018-5",
+   "verdict": "keep",
+   "why": "Power chart; the small figure is a Danish-flag head, not Gravel God."
+  },
+  {
+   "file": "img/dont-quit-your-day-job-6.webp",
+   "name": "dont-quit-your-day-job-6",
+   "verdict": "keep",
+   "why": "No Gravel God character in it (photo, screenshot, chart or other art)."
+  },
+  {
+   "file": "img/gaimon-jealousy-3.webp",
+   "name": "gaimon-jealousy-3",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      600,
+      40,
+      800,
+      600
+     ],
+     "erase_box": [
+      560,
+      0,
+      790,
+      600
+     ],
+     "pose": "arms_crossed",
+     "face": "thinking",
+     "psi": 80
+    }
+   ],
+   "erase_extra": [
+    [
+     515,
+     140,
+     600,
+     200
+    ],
+    [
+     790,
+     0,
+     905,
+     265
+    ]
+   ],
+   "joke": "2 books, Funny, 36k Twitter, World Tour, 39 ml/kg, Skinny / 0 books, Wife thinks he's funny, 0 Twitter, Barely CAT 1, loser ml/kg, Norwegian",
+   "match": "closest",
+   "note": "Old cartoon was tinted green with envy; the rig has no colour tint, so he is normal colours with arms crossed.",
+   "alt": "Phil Gaimon in a Cookie Monster beanie beside \"2 books, Funny, 36k Twitter, World Tour, 39 ml/kg, Skinny\"; cartoon Gravel God, arms crossed, beside \"0 books, Wife thinks he's funny, 0 Twitter, Barely CAT 1, loser ml/kg, Norwegian\".",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/dont-quit-your-day-job-7.webp",
+   "name": "dont-quit-your-day-job-7",
+   "verdict": "keep",
+   "why": "No Gravel God character in it (photo, screenshot, chart or other art)."
+  },
+  {
+   "file": "img/philg-claptrap.webp",
+   "name": "philg-claptrap",
+   "verdict": "keep",
+   "why": "No Gravel God character in it (photo, screenshot, chart or other art)."
+  },
+  {
+   "file": "img/dont-quit-your-day-job-8.webp",
+   "name": "dont-quit-your-day-job-8",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      40,
+      130,
+      300,
+      600
+     ],
+     "erase_box": [
+      5,
+      115,
+      335,
+      600
+     ],
+     "pose": "arms_crossed",
+     "face": "thinking",
+     "psi": 70
+    }
+   ],
+   "joke": "Weird. But Phil said if you can't hold 475 watts for 14 minutes at 147 pounds you should just quit.",
+   "match": "exact",
+   "alt": "Cartoon Gravel God, arms crossed, beside the words: \"Weird. But Phil said if you can't hold 475 watts for 14 minutes at 147 pounds you should just quit.\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/reuse-your-trainingpeaks-training-plan.webp",
+   "name": "reuse-your-trainingpeaks-training-plan",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      518,
+      500,
+      595,
+      595
+     ],
+     "erase_box": [
+      510,
+      492,
+      600,
+      598
+     ],
+     "pose": "lean_on_bike",
+     "face": "smile",
+     "psi": 70
+    }
+   ],
+   "joke": "(no words: he stands by the road as a rider passes)",
+   "match": "exact",
+   "alt": "A winding road through hills in tilt-shift blur; tiny cartoon Gravel God stands with his bike at the roadside as a cyclist rides by.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/dont-quit-your-day-job-9.webp",
+   "name": "dont-quit-your-day-job-9",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      255,
+      260,
+      490,
+      600
+     ],
+     "erase_box": [
+      250,
+      250,
+      490,
+      600
+     ],
+     "pose": "lean_on_bike",
+     "face": "grin",
+     "psi": 70,
+     "scale": 1.12
+    }
+   ],
+   "joke": "(no words: him and his bike in front of a coach bus)",
+   "match": "exact",
+   "alt": "Cartoon Gravel God stands with his road bike in front of a big white coach bus on a country road.",
+   "verdict": "replace"
+  }
+ ]
+}

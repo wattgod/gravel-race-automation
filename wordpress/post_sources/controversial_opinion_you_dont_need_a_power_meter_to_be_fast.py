@@ -40,8 +40,8 @@ DESCRIPTION = ("Fortunato Ferrara, a national-level New Mexico rider, trains abo
 
 ALT = {
     "fortunato-doesnt-use-a-power-meter": "A nuclear mushroom cloud glowing orange against a dark sky, under the words \"Fortunato doesn't use a power meter.\"",
-    "you-dont-need-a-power-meter-to-be-fast": "Chalk lightbulbs hang on a blackboard; the one above cartoon Gravel God's head is lit in rainbow colours, and his speech bubble reads: \"You don't need a power meter to be fast.\"",
-    "wow": "Cartoon Gravel God rides his bike through a starfield in front of a spiral galaxy, saying: \"Wow.\"",
+    "you-dont-need-a-power-meter-to-be-fast": "Chalk light bulbs hang on a blackboard around one bright rainbow bulb; below it, cartoon Gravel God grins beside a chalk speech bubble: \"YOU DON'T NEED A POWER METER TO BE FAST.\"",
+    "wow": "Cartoon Gravel God rides his bike through a starry galaxy with a speech bubble that says \"Wow.\"",
     "copy-of-just-say-no-1": "A red no-entry street sign on a weathered wall, with a Shimano 105 crank arm laid across it as the slash.",
 }
 

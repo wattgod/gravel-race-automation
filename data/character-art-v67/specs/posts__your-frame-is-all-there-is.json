@@ -1,0 +1,165 @@
+{
+ "collection": "posts",
+ "slug": "your-frame-is-all-there-is",
+ "images": [
+  {
+   "file": "img/hey-wanna-get-high-2.webp",
+   "name": "hey-wanna-get-high-2",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1160,
+      110,
+      1600,
+      900
+     ],
+     "erase_box": [
+      1142,
+      100,
+      1600,
+      900
+     ],
+     "pose": "stand",
+     "psi": 157.5,
+     "crop": "bust",
+     "fit": "width",
+     "face": "thinking"
+    }
+   ],
+   "erase_extra": [
+    [
+     1085,
+     160,
+     1145,
+     335
+    ]
+   ],
+   "joke": "I have so many questions.",
+   "alt": "A man in a shaggy black wig and sleeveless top glowers against a graffiti wall; cartoon Gravel God, in profile, says: \"I have so many questions.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/hey-wanna-get-high.webp",
+   "name": "hey-wanna-get-high",
+   "verdict": "keep",
+   "why": "Real photo of a rider and a hooded man by a mural; no cartoon."
+  },
+  {
+   "file": "img/baaaa.webp",
+   "name": "baaaa",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      250,
+      60,
+      690,
+      600
+     ],
+     "erase_box": [
+      290,
+      320,
+      650,
+      585
+     ],
+     "mask": "grabcut",
+     "pose": "stand",
+     "psi": 90,
+     "crop": "head",
+     "fit": "height",
+     "face": "neutral",
+     "pad": 4
+    }
+   ],
+   "alt": "Two sheep in a green field; the little one in front has cartoon Gravel God's head.",
+   "match": "closest",
+   "erase_extra": [
+    [
+     235,
+     80,
+     700,
+     300
+    ],
+    [
+     130,
+     285,
+     810,
+     378
+    ],
+    [
+     250,
+     290,
+     390,
+     480
+    ]
+   ],
+   "note": "His head and collar sit on the lamb's body; the grass behind where the old hat was is patched and slightly soft."
+  },
+  {
+   "file": "img/hey-wanna-get-high-1.webp",
+   "name": "hey-wanna-get-high-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      1040,
+      105,
+      1185,
+      318
+     ],
+     "erase_box": [
+      1030,
+      98,
+      1192,
+      322
+     ],
+     "pose": "lean_on_bike",
+     "psi": 100,
+     "face": "smile",
+     "mask": "box"
+    }
+   ],
+   "alt": "Cartoon Gravel God stands with his bike and a coffee on a rocky summit above a sea of clouds.",
+   "match": "exact"
+  },
+  {
+   "file": "img/your-frame-is-all-there-is.webp",
+   "name": "your-frame-is-all-there-is",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#2b2b30",
+   "figs": [
+    {
+     "box": [
+      500,
+      180,
+      920,
+      732
+     ],
+     "erase_box": [
+      372,
+      160,
+      1150,
+      735
+     ],
+     "mask": "box",
+     "pose": "stand",
+     "psi": 90,
+     "crop": "head",
+     "fit": "height",
+     "face": "neutral"
+    }
+   ],
+   "alt": "A gilded picture frame floating in a starry grey galaxy holds cartoon Gravel God's head.",
+   "match": "closest",
+   "note": "The inside of the frame is a flat dark panel: the old hat filled most of it and the galaxy behind could not be rebuilt cleanly."
+  }
+ ]
+}

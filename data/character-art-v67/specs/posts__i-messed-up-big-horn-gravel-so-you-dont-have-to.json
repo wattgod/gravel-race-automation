@@ -1,0 +1,111 @@
+{
+ "collection": "posts",
+ "slug": "i-messed-up-big-horn-gravel-so-you-dont-have-to",
+ "images": [
+  {
+   "file": "img/big-horn-gravel.webp",
+   "name": "big-horn-gravel",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      650,
+      430,
+      870,
+      869
+     ],
+     "erase_box": [
+      620,
+      410,
+      890,
+      869
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "ride": "cruise",
+     "psi": 270
+    }
+   ],
+   "joke": "(no words: him riding away up the red dirt road)",
+   "match": "exact",
+   "alt": "Cartoon Gravel God rides away from us up a rutted red dirt road through sagebrush toward a lone rider and the mountains.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/a-gravel-race-huh.webp",
+   "name": "a-gravel-race-huh",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      120,
+      215,
+      430,
+      660
+     ],
+     "erase_box": [
+      110,
+      205,
+      440,
+      665
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "pose": "lean_on_bike",
+     "face": "thinking",
+     "psi": 70
+    }
+   ],
+   "joke": "A \"GRAVEL\" RACE, HUH?",
+   "match": "exact",
+   "alt": "In an aspen forest on a rooty singletrack, cartoon Gravel God stands with his bike and says: \"A 'gravel' race, huh?\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/turbio.webp",
+   "name": "turbio",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      785,
+      480,
+      870,
+      665
+     ],
+     "erase_box": [
+      775,
+      470,
+      880,
+      665
+     ],
+     "ride": "cruise",
+     "psi": 270,
+     "mask": "grabcut",
+     "pad": 6
+    }
+   ],
+   "joke": "(no words: tiny him riding down the aspen road)",
+   "match": "exact",
+   "alt": "A dirt road through a tall aspen forest; tiny cartoon Gravel God rides away from us down the middle of it.",
+   "erase_extra": [
+    [
+     740,
+     640,
+     860,
+     830
+    ]
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/where-your-fear-is.webp",
+   "name": "where-your-fear-is",
+   "verdict": "keep",
+   "why": "Photo of Carl Jung with the quote \"Where your fear is, there your task is.\"; no Gravel God."
+  }
+ ]
+}

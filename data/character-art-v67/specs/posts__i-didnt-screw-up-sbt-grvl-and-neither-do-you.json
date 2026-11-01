@@ -1,0 +1,407 @@
+{
+ "collection": "posts",
+ "slug": "i-didnt-screw-up-sbt-grvl-and-neither-do-you",
+ "images": [
+  {
+   "file": "img/festival-of-pain.webp",
+   "name": "festival-of-pain",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "flat",
+    "color": "#ffffff"
+   },
+   "figs": [
+    {
+     "box": [
+      40,
+      170,
+      640,
+      1043
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "face": "sleepy",
+     "psi": 90,
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "shapes": [
+    {
+     "type": "line",
+     "box": [
+      700,
+      330,
+      1560,
+      330
+     ],
+     "fill": "#dddddd",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      700,
+      700,
+      1560,
+      700
+     ],
+     "fill": "#dddddd",
+     "width": 3
+    }
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "text": "5:58 AM on Sunday, August 20, 2023 · Steamboat Springs, Colorado",
+     "box": [
+      700,
+      40,
+      1560,
+      90
+     ],
+     "size": 30,
+     "align": "left",
+     "valign": "top",
+     "font": "mono",
+     "color": "#666666"
+    },
+    {
+     "type": "caption",
+     "text": "SBT GRVL - Topp Femti!",
+     "box": [
+      700,
+      100,
+      1560,
+      190
+     ],
+     "size": 64,
+     "align": "left",
+     "valign": "top",
+     "weight": 700
+    },
+    {
+     "type": "caption",
+     "text": "145.42 mi    7:15:32    9,419 ft    337",
+     "box": [
+      700,
+      215,
+      1560,
+      280
+     ],
+     "size": 52,
+     "align": "left",
+     "valign": "top",
+     "font": "mono",
+     "weight": 700
+    },
+    {
+     "type": "caption",
+     "text": "Distance      Moving Time    Elevation     Relative Effort",
+     "box": [
+      700,
+      280,
+      1560,
+      320
+     ],
+     "size": 22,
+     "align": "left",
+     "valign": "top",
+     "font": "mono",
+     "color": "#666666"
+    },
+    {
+     "type": "caption",
+     "text": "268 W Weighted Avg Power    5,995 kJ Total Work\n425 Training Load    76% Intensity\nSpeed 20.0 mi/h avg, 53.7 mi/h max\nElapsed Time 9:17:05",
+     "box": [
+      700,
+      360,
+      1560,
+      680
+     ],
+     "size": 34,
+     "align": "left",
+     "valign": "top",
+     "font": "mono"
+    },
+    {
+     "type": "caption",
+     "text": "PR on SBT 2019 Oak Creek Loop (1:09:40)\nPR on 29 down Part 1 to 179 (14:39)\nPR on SBT Smartwool Corkscrew (5:59)\nPR on Laundry Day (7:02)",
+     "box": [
+      700,
+      730,
+      1560,
+      1010
+     ],
+     "size": 34,
+     "align": "left",
+     "valign": "top",
+     "font": "mono",
+     "color": "#c0512f"
+    }
+   ],
+   "alt": "The Strava summary of SBT GRVL, \"Topp Femti!\": 145.42 mi, 7:15:32 moving, 9,419 ft, 268 W weighted average power, 9:17:05 elapsed, and four PRs. Beside it, cartoon Gravel God looks wrecked and half asleep.",
+   "match": "closest",
+   "note": "The old image washed a giant bloodshot-eyed cartoon face over the screenshot; it can't be peeled off, so the Strava numbers are re-typed beside a tired rig bust."
+  },
+  {
+   "file": "img/panic-pack.webp",
+   "name": "panic-pack",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      200,
+      240,
+      820,
+      900
+     ],
+     "erase_box": [
+      150,
+      275,
+      880,
+      900
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "elev": 6,
+     "crop": "bust",
+     "fit": "width",
+     "anchor": "bottom",
+     "dy": 0,
+     "mask": "grabcut",
+     "pad": 12
+    }
+   ],
+   "alt": "Black-and-white photo of a gravel climb crowded with riders, seen over the shoulder of cartoon Gravel God, who watches from behind in the foreground."
+  },
+  {
+   "file": "img/sbt-grvl-climb.webp",
+   "name": "sbt-grvl-climb",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1025,
+      -120,
+      1195,
+      122
+     ],
+     "erase_box": [
+      990,
+      0,
+      1210,
+      115
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "face": "focused",
+     "psi": 90,
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "A group of gravel racers climbs toward the camera on a dirt road; the rider in the red Rio Grande jersey has the head of cartoon Gravel God, looking focused."
+  },
+  {
+   "file": "img/surge-addicts.webp",
+   "name": "surge-addicts",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      140,
+      505,
+      298,
+      715
+     ],
+     "erase_box": [
+      135,
+      498,
+      300,
+      718
+     ],
+     "ride": "manual",
+     "psi": 0,
+     "face": "laugh",
+     "mask": "grabcut",
+     "pad": 6
+    }
+   ],
+   "joke": "CHEESE AND CRACKERS! I FEEL FREAKING GREEEEEEAT!!!!",
+   "alt": "A TrainingPeaks file from SBT GRVL (7:15:37, 145 mi, 455 TSS) with a spiky power graph; cartoon Gravel God pulls a wheelie across it shouting: \"CHEESE AND CRACKERS! I FEEL FREAKING GREEEEEEAT!!!!\""
+  },
+  {
+   "file": "img/1.webp",
+   "name": "1",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      530,
+      100,
+      950,
+      880
+     ],
+     "erase_box": [
+      515,
+      90,
+      955,
+      885
+     ],
+     "ride": "attack",
+     "psi": 90,
+     "face": "grimace",
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "joke": "1 / WHAT CHAIN?",
+   "alt": "Panel 1: cartoon Gravel God charges straight at the camera on a gravel road, a dust cloud behind him. Caption: \"WHAT CHAIN?\""
+  },
+  {
+   "file": "img/2.webp",
+   "name": "2",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      500,
+      185,
+      925,
+      840
+     ],
+     "erase_box": [
+      490,
+      175,
+      935,
+      845
+     ],
+     "pose": "straddle",
+     "psi": 80,
+     "face": "smile",
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "joke": "2 / NOT PEDALING FEELS NICE.",
+   "alt": "Panel 2: cartoon Gravel God stands straddling his stopped bike on the gravel road, smiling. Caption: \"NOT PEDALING FEELS NICE.\""
+  },
+  {
+   "file": "img/3.webp",
+   "name": "3",
+   "verdict": "replace",
+   "match": "closest",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      430,
+      470,
+      920,
+      880
+     ],
+     "erase_box": [
+      405,
+      465,
+      930,
+      880
+     ],
+     "pose": "sit",
+     "psi": 60,
+     "face": "grimace",
+     "mask": "grabcut",
+     "pad": 10,
+     "fit": "height"
+    },
+    {
+     "box": [
+      55,
+      555,
+      320,
+      815
+     ],
+     "only_erase": true,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "joke": "3 / WHY DA F DO I DO THIS?",
+   "alt": "Panel 3: cartoon Gravel God sits slumped in the gravel by the roadside, grimacing. Caption: \"WHY DA F DO I DO THIS?\"",
+   "note": "The old panel showed him crashed head-first with legs in the air; the rig has no crash pose, so he sits slumped in the gravel."
+  },
+  {
+   "file": "img/matti-jet.webp",
+   "name": "matti-jet",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      455,
+      65,
+      580,
+      368
+     ],
+     "erase_box": [
+      450,
+      60,
+      585,
+      370
+     ],
+     "pose": "drink",
+     "psi": 80,
+     "face": "neutral"
+    }
+   ],
+   "alt": "A blurred gravel race photo with a fighter jet streaking low across the hills; cartoon Gravel God stands on top of the jet, calmly having a drink."
+  },
+  {
+   "file": "img/sbt-grvl-23.webp",
+   "name": "sbt-grvl-23",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      440,
+      50,
+      575,
+      345
+     ],
+     "erase_box": [
+      432,
+      45,
+      580,
+      348
+     ],
+     "pose": "drink",
+     "psi": 80,
+     "face": "neutral"
+    }
+   ],
+   "alt": "A blurred gravel race photo with a fighter jet streaking low across the hills; cartoon Gravel God rides on top of the jet, calmly having a drink."
+  }
+ ]
+}

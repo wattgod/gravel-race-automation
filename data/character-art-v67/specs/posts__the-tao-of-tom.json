@@ -1,0 +1,36 @@
+{
+ "collection": "posts",
+ "slug": "the-tao-of-tom",
+ "images": [
+  {
+   "file": "img/tao-of-tom.webp",
+   "name": "tao-of-tom",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      825,
+      232,
+      905,
+      497
+     ],
+     "erase_box": [
+      782,
+      222,
+      942,
+      502
+     ],
+     "pose": "walk",
+     "face": "neutral",
+     "psi": 160,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Three monks in saffron robes walk away through a misty grove of old trees, and cartoon Gravel God walks along beside them."
+  }
+ ]
+}

@@ -1,0 +1,287 @@
+{
+ "collection": "posts",
+ "slug": "you-dont-need-to-bike-to-bike-fast",
+ "images": [
+  {
+   "file": "img/you-dont-need-to-bike-to-bike-fast-1.webp",
+   "name": "you-dont-need-to-bike-to-bike-fast-1",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "figs": [
+    {
+     "box": [
+      515,
+      140,
+      645,
+      505
+     ],
+     "erase_box": [
+      518,
+      135,
+      645,
+      508
+     ],
+     "pose": "point",
+     "face": "shout",
+     "psi": 90,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "joke": "You didn't even love her Jake! You won't get away with this... / And...Scene.",
+   "alt": "Cartoon Gravel God stands on a red-curtained stage between thrown tomatoes, pointing and shouting: \"You didn't even love her Jake! You won't get away with this...\" A cartoon director at the edge says: \"And...Scene.\"",
+   "erase": "telea"
+  },
+  {
+   "file": "img/you-dont-need-to-bike-to-bike-fast-2.webp",
+   "name": "you-dont-need-to-bike-to-bike-fast-2",
+   "verdict": "keep",
+   "why": "Question-mark graphic with text; no character."
+  },
+  {
+   "file": "img/you-dont-need-to-bike-to-bike-fast-3.webp",
+   "name": "you-dont-need-to-bike-to-bike-fast-3",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      850,
+      290,
+      1110,
+      600
+     ],
+     "erase_box": [
+      780,
+      255,
+      1165,
+      600
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "face": "thinking",
+     "psi": 112.5,
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "Reasons Jake Boyce was faster: 1. He stole the love of my life! (crossed out) 1. Cycling training made him fitter",
+   "alt": "Chalkboard titled \"Reasons Jake Boyce was faster\": \"He stole the love of my life!\" is crossed out and replaced by \"1. Cycling training made him fitter.\" Cartoon Gravel God's head looks on from the corner."
+  },
+  {
+   "file": "img/you-dont-need-to-bike-to-bike-fast-4.webp",
+   "name": "you-dont-need-to-bike-to-bike-fast-4",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      5,
+      15,
+      200,
+      560
+     ],
+     "erase_box": [
+      0,
+      5,
+      212,
+      565
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 90,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "text": "•",
+     "box": [
+      17,
+      167,
+      237,
+      407
+     ],
+     "size": 180,
+     "color": "#ff1a1a",
+     "align": "center",
+     "valign": "center"
+    },
+    {
+     "type": "caption",
+     "text": "•",
+     "box": [
+      -50,
+      300,
+      170,
+      540
+     ],
+     "size": 180,
+     "color": "#ff1a1a",
+     "align": "center",
+     "valign": "center"
+    },
+    {
+     "type": "caption",
+     "text": "•",
+     "box": [
+      34,
+      300,
+      254,
+      540
+     ],
+     "size": 180,
+     "color": "#ff1a1a",
+     "align": "center",
+     "valign": "center"
+    }
+   ],
+   "alt": "Cartoon Gravel God stands beside a pink 1967 Mustang with its hood up, red dots on his chest and legs, and arrows labelled \"Central\" (to the engine) and \"Periphery\" (to the wheels)."
+  },
+  {
+   "file": "img/you-dont-need-to-bike-to-bike-fast-5.webp",
+   "name": "you-dont-need-to-bike-to-bike-fast-5",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      850,
+      290,
+      1110,
+      600
+     ],
+     "erase_box": [
+      780,
+      255,
+      1165,
+      600
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "face": "grimace",
+     "psi": 112.5,
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "2. He's a terrible human being (crossed out) 2. Jake was happy training. I hated it.",
+   "alt": "The chalkboard list grows: \"He's a terrible human being\" is crossed out, replaced by \"2. Jake was happy training. I hated it.\" Cartoon Gravel God's head grimaces in the corner."
+  },
+  {
+   "file": "img/you-dont-need-to-bike-to-bike-fast-6.webp",
+   "name": "you-dont-need-to-bike-to-bike-fast-6",
+   "verdict": "keep",
+   "why": "Hammer and table drawing; no character."
+  },
+  {
+   "file": "img/you-dont-need-to-bike-to-bike-fast-7.webp",
+   "name": "you-dont-need-to-bike-to-bike-fast-7",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      850,
+      290,
+      1110,
+      600
+     ],
+     "erase_box": [
+      780,
+      255,
+      1165,
+      600
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "face": "grin",
+     "psi": 112.5,
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "3. Jake should never have been born (crossed out) 3. Bike racing made Jake a good racer.",
+   "alt": "The finished chalkboard list: \"Jake should never have been born\" is crossed out, replaced by \"3. Bike racing made Jake a good racer.\" Cartoon Gravel God's head grins in the corner."
+  },
+  {
+   "file": "img/you-dont-need-to-bike-to-bike-fast-8.webp",
+   "name": "you-dont-need-to-bike-to-bike-fast-8",
+   "verdict": "keep",
+   "why": "Real ski race photo; the \"Me (Not pictured)\" joke has no cartoon."
+  },
+  {
+   "file": "img/you-dont-need-to-bike-to-bike-fast-9.webp",
+   "name": "you-dont-need-to-bike-to-bike-fast-9",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      110,
+      275,
+      370,
+      598
+     ],
+     "erase_box": [
+      0,
+      262,
+      385,
+      600
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "face": "grimace",
+     "psi": 67.5,
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "But NO SNOWSHOEING! ANYTHING BUT THAT.",
+   "alt": "Cartoon Gravel God's head thinks: \"But NO SNOWSHOEING! ANYTHING BUT THAT.\" Beside him, a pair of yellow snowshoes in the snow is crossed out with a big red X."
+  },
+  {
+   "file": "img/you-dont-need-to-bike-to-bike-fast.webp",
+   "name": "you-dont-need-to-bike-to-bike-fast",
+   "verdict": "replace",
+   "match": "exact",
+   "mode": "composite",
+   "figs": [
+    {
+     "box": [
+      712,
+      372,
+      772,
+      555
+     ],
+     "erase_box": [
+      712,
+      362,
+      773,
+      560
+     ],
+     "pose": "arms_crossed",
+     "face": "smile",
+     "psi": 80,
+     "mask": "grabcut",
+     "pad": 6
+    }
+   ],
+   "alt": "A snowy clearing in a spruce forest with a ski track: cartoon Gravel God stands arms crossed next to two pairs of cross-country skis and a mug of hot cocoa in the snow.",
+   "erase": "telea"
+  }
+ ]
+}

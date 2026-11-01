@@ -375,7 +375,7 @@ def test_phasic_chart_is_redrawn_with_the_original_kept():
     html = _page(2161)
     fig = html.split('id="fig-phasic"', 1)[1].split("</figure>", 1)[0]
     assert fig.count("<svg") == 2 and "data-draw=\"wipe\"" in fig
-    assert '<details class="gg-original" data-gg-added>' in fig and "img/phasic.webp" in fig
+    assert '<details class="gg-original" data-gg-added>' in fig and ("img/phasic.webp" in fig or "img/phasic-v67.webp" in fig)
     assert fig.count("<polyline") == 2
 
 

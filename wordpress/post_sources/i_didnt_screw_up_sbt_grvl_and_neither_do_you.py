@@ -40,15 +40,15 @@ DESCRIPTION = ("An SBT GRVL 2023 race report from Steamboat Springs: the Panic P
                "good reasons to surge, 45th place, and the post-race community.")  # <=160 chars
 
 ALT = {
-    "festival-of-pain": "Strava activity \"SBT GRVL - Topp Femti!\", Sunday, August 20, 2023, Steamboat Springs, Colorado: 145.42 mi, 7:15:32 moving time, 9,419 ft of climbing, 268 W weighted average power, 5,995 kJ, with four segment PRs; faded behind it, cartoon Gravel God's face with bloodshot eyes.",
-    "panic-pack": "Black-and-white photo of a long line of gravel riders strung out up a dirt road between grassy hills, seen past the back of cartoon Gravel God's cowboy hat in the foreground.",
-    "sbt-grvl-climb": "A group of gravel racers riding toward the camera on a dirt road with mountains behind; one rider at the right, drinking from a bottle, has cartoon Gravel God's face pasted over his own.",
-    "surge-addicts": "TrainingPeaks file for Sunday, August 20, 2023: 7:15:37, 145 mi, 455 TSS, normalized power 277 W, IF 0.79, with the route map and a jagged power graph; cartoon Gravel God on a bike pops a wheelie, saying \"Cheese and crackers! I feel freaking greeeeeat!!!!\"",
-    "1": "Panel 1, black and white: cartoon Gravel God in a cowboy hat sprints up a gravel road, a cloud of dust behind him, with the words \"What chain?\"",
-    "2": "Panel 2: cartoon Gravel God stands straddling his bike on the same gravel road, with the words \"Not pedaling feels nice.\"",
-    "3": "Panel 3: cartoon Gravel God has collapsed on the gravel road, legs in the air, with the words \"Why da f do I do this?\"",
-    "matti-jet": "Blurred gravel racers on a dirt road with mountains behind, and a small plane flying low over them with cartoon Gravel God in a cowboy hat standing on top of it, hand at his mouth.",
-    "sbt-grvl-23": "Blurred gravel racers on a dirt road below a green mountain, and a small plane flying low over them with cartoon Gravel God in a cowboy hat standing on top of it.",
+    "festival-of-pain": "The Strava summary of SBT GRVL, \"Topp Femti!\": 145.42 mi, 7:15:32 moving, 9,419 ft, 268 W weighted average power, 9:17:05 elapsed, and four PRs. Beside it, cartoon Gravel God looks wrecked and half asleep.",
+    "panic-pack": "Black-and-white photo of a gravel climb crowded with riders, seen over the shoulder of cartoon Gravel God, who watches from behind in the foreground.",
+    "sbt-grvl-climb": "A group of gravel racers climbs toward the camera on a dirt road; the rider in the red Rio Grande jersey has the head of cartoon Gravel God, looking focused.",
+    "surge-addicts": "A TrainingPeaks file from SBT GRVL (7:15:37, 145 mi, 455 TSS) with a spiky power graph; cartoon Gravel God pulls a wheelie across it shouting: \"CHEESE AND CRACKERS! I FEEL FREAKING GREEEEEEAT!!!!\"",
+    "1": "Panel 1: cartoon Gravel God charges straight at the camera on a gravel road, a dust cloud behind him. Caption: \"WHAT CHAIN?\"",
+    "2": "Panel 2: cartoon Gravel God stands straddling his stopped bike on the gravel road, smiling. Caption: \"NOT PEDALING FEELS NICE.\"",
+    "3": "Panel 3: cartoon Gravel God sits slumped in the gravel by the roadside, grimacing. Caption: \"WHY DA F DO I DO THIS?\"",
+    "matti-jet": "A blurred gravel race photo with a fighter jet streaking low across the hills; cartoon Gravel God stands on top of the jet, calmly having a drink.",
+    "sbt-grvl-23": "A blurred gravel race photo with a fighter jet streaking low across the hills; cartoon Gravel God rides on top of the jet, calmly having a drink.",
 }
 
 ANCHORS = {

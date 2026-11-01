@@ -39,7 +39,7 @@ DESCRIPTION = ("A story about Tom, a younger teammate on the author’s college 
 TITLE = "The Tao of Tom — Trusting the Plan | Gravel God"
 
 ALT = {
-    "tao-of-tom": "Three monks in saffron robes walk away down a misty, grassy path under arching trees; cartoon Gravel God in a cowboy hat, arms crossed, stands beside them facing the camera.",
+    "tao-of-tom": "Three monks in saffron robes walk away through a misty grove of old trees, and cartoon Gravel God walks along beside them.",
 }
 
 ANCHORS = {

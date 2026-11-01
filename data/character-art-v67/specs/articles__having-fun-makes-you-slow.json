@@ -1,0 +1,87 @@
+{
+ "collection": "articles",
+ "slug": "having-fun-makes-you-slow",
+ "images": [
+  {
+   "file": "img/bc2f7a3564a4daac.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      195,
+      225,
+      345,
+      478
+     ],
+     "erase_box": [
+      205,
+      300,
+      350,
+      462
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "face": "smile",
+     "psi": 90,
+     "fit": "height"
+    }
+   ],
+   "erase_extra": [
+    [
+     120,
+     196,
+     422,
+     306
+    ]
+   ]
+  },
+  {
+   "file": "img/d05dd60c03f75e8b.webp",
+   "verdict": "keep",
+   "why": "Meme photo of a man in a yellow jacket; no Gravel God."
+  },
+  {
+   "file": "img/dd6fea3978e8ba8b.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "closest",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      900,
+      600,
+      1015,
+      978
+     ],
+     "erase_box": [
+      880,
+      700,
+      1010,
+      982
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 80
+    }
+   ],
+   "erase_extra": [
+    [
+     792,
+     540,
+     1125,
+     712
+    ]
+   ],
+   "note": "A soft darker patch is left where the old hat brim covered the background."
+  },
+  {
+   "file": "img/e7493444cf104e61.webp",
+   "verdict": "keep",
+   "why": "Will Smith meme; no Gravel God."
+  }
+ ]
+}

@@ -35,12 +35,12 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "focofondo-2": "Black-and-white photo of a gravel road curving through open rolling hills toward dark forested ridges; two riders lead around the bend while a cartoon Gravel God in a cowboy hat pedals far behind at the left.",
-    "focofondo-rolling-hills": "A dusty dirt road across green-brown prairie under a deep blue sky: a tight bunch of riders up the road, and a cartoon Gravel God in a cowboy hat chasing alone behind them in a huge cloud of dust.",
+    "focofondo-2": "Black-and-white photo of a gravel road winding through open grassland: two riders ahead in the distance, and cartoon Gravel God riding after them in the near left corner.",
+    "focofondo-rolling-hills": "A long dirt road across green rolling prairie: a small pack of riders up ahead, and cartoon Gravel God, seen from behind, chasing them through a cloud of dust.",
     "whitney-and-zach": "Photo of race promoters Whitney and Zach Allison in matching cream FoCo Fondo shirts, studying a phone and a clipboard together by an event tent.",
-    "focofondo-rocket": "Animated: cartoon Gravel God in a cowboy hat rockets down a straight dirt road across the prairie with a fireball streaming beside him, riders silhouetted up the road ahead.",
-    "focofondo-3": "A wide gravel road climbing across a grassy plain: a rider in a blue kit and a cartoon Gravel God in a cowboy hat ride side by side toward the camera.",
-    "focofondo-5": "Aerial photo of a lone rider on a red-dirt road through scrubby hillside, under a thought bubble from Gravel God's face: \"FML just kill me. Even your dog doesn't like you. You're ugly and that can't be fixed. Quit and never come back. You're as bright as a tunnel.\"",
+    "focofondo-rocket": "Cartoon Gravel God sprints toward the camera on a dirt road across the prairie, a cartoon rocket flame blasting out beside him, past riders ahead.",
+    "focofondo-3": "Two riders crest a wide gravel climb across open grassland: a rider in blue, and cartoon Gravel God beside him, grimacing.",
+    "focofondo-5": "Aerial view of a lone rider on a dirt road through scrubland, with a thought bubble holding cartoon Gravel God's grimacing head: \"FML just kill me. Even your dog doesn't like you. You're ugly and that can't be fixed. Quit and never come back. You're as bright as a tunnel.\"",
     "focofondo-4": "Aerial photo of a lone rider on a straight red-dirt road cutting through green, scrubby hillside.",
 }
 

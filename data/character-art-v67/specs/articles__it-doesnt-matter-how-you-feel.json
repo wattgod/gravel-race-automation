@@ -1,0 +1,101 @@
+{
+ "collection": "articles",
+ "slug": "it-doesnt-matter-how-you-feel",
+ "images": [
+  {
+   "file": "img/faf773fcdd1f430d.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      440,
+      70,
+      680,
+      310
+     ],
+     "erase_box": [
+      388,
+      50,
+      770,
+      312
+     ],
+     "pose": "stand",
+     "psi": 112.5,
+     "crop": "head",
+     "fit": "contain",
+     "face": "neutral",
+     "shadow": false
+    }
+   ],
+   "joke": "Stop giving me your toughest battles / I'm literally asking you to ride more than 5 hours a week if you're going to do Unbound 200.",
+   "match": "exact"
+  },
+  {
+   "file": "img/e49d4bee24dac5f1.webp",
+   "verdict": "keep",
+   "why": "Training table screenshot; no character."
+  },
+  {
+   "file": "img/7b6e805366768acc.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      0,
+      40,
+      390,
+      500
+     ],
+     "erase_box": [
+      0,
+      25,
+      392,
+      500
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "width",
+     "anchor": "bottom",
+     "mask": "grabcut",
+     "pad": 5
+    }
+   ],
+   "joke": "You don't mind if I drink in here, do you?",
+   "match": "exact",
+   "erase_extra": [
+    [
+     300,
+     190,
+     430,
+     290
+    ]
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "text": "You don't mind if I drink in here, do you?",
+     "box": [
+      226,
+      302,
+      512,
+      500
+     ],
+     "tail": [
+      250,
+      262
+     ],
+     "font": "mono",
+     "weight": 400,
+     "size": 22,
+     "color": "#1a1613",
+     "fill": "#ffffff"
+    }
+   ]
+  }
+ ]
+}

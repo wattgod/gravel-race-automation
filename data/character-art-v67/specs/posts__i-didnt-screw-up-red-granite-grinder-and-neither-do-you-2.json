@@ -1,0 +1,232 @@
+{
+ "collection": "posts",
+ "slug": "i-didnt-screw-up-red-granite-grinder-and-neither-do-you-2",
+ "images": [
+  {
+   "file": "img/rgggggg.webp",
+   "name": "rgggggg",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      15,
+      72,
+      112,
+      166
+     ],
+     "erase_box": [
+      8,
+      64,
+      120,
+      170
+     ],
+     "mask": "box",
+     "pose": "stand",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain",
+     "face": "smile",
+     "shadow": false
+    },
+    {
+     "box": [
+      800,
+      205,
+      990,
+      770
+     ],
+     "erase_box": [
+      738,
+      192,
+      1032,
+      776
+     ],
+     "mask": "grabcut",
+     "pose": "stand",
+     "psi": 90,
+     "face": "grin",
+     "pad": 4
+    }
+   ],
+   "alt": "Strava activity \"Red Granite Grinder - Andre Plass!\", Saturday, October 14, 2023, Wausau, Wisconsin: 145.04 mi, 7:43:15 moving time, 7,631 ft, 282 W weighted average power, 18.8 mi/h average, and KOMs on four segments; a grinning cartoon Gravel God stands beside the stats, and his head is the profile picture.",
+   "match": "exact"
+  },
+  {
+   "file": "img/rgg-gif-podium.webp",
+   "name": "rgg-gif-podium",
+   "verdict": "keep",
+   "why": "Real photo of the podium; the man in a hat is real."
+  },
+  {
+   "file": "img/img-4766.webp",
+   "name": "img-4766",
+   "verdict": "keep",
+   "why": "Strava comments screenshot."
+  },
+  {
+   "file": "img/rgg-rib-year-comparison.webp",
+   "name": "rgg-rib-year-comparison",
+   "verdict": "keep",
+   "why": "Strava segment comparison."
+  },
+  {
+   "file": "img/bekken.webp",
+   "name": "bekken",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      195,
+      15,
+      470,
+      325
+     ],
+     "erase_box": [
+      175,
+      0,
+      480,
+      330
+     ],
+     "ride": "descend",
+     "psi": 40,
+     "face": "grin"
+    }
+   ],
+   "alt": "A rider in a blue team kit and helmet carries his muddy gravel bike up out of a small forest stream on a leafy singletrack, while cartoon Gravel God rides past on the bank above.",
+   "match": "exact"
+  },
+  {
+   "file": "img/theyre-away.webp",
+   "name": "theyre-away",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      470,
+      205,
+      635,
+      560
+     ],
+     "erase_box": [
+      445,
+      190,
+      650,
+      555
+     ],
+     "ride": "cruise",
+     "psi": 80,
+     "face": "focused",
+     "mask": "box"
+    }
+   ],
+   "alt": "A dusty, autumn-forest gravel road: a rider in a mustard-and-navy kit with a number plate on his bars leads, and cartoon Gravel God sits on his wheel through the dust.",
+   "match": "exact"
+  },
+  {
+   "file": "img/pit-climb.webp",
+   "name": "pit-climb",
+   "verdict": "keep",
+   "why": "TrainingPeaks screenshot."
+  },
+  {
+   "file": "img/gruff.webp",
+   "name": "gruff",
+   "verdict": "keep",
+   "why": "TrainingPeaks screenshot."
+  },
+  {
+   "file": "img/final-billy-goat.webp",
+   "name": "final-billy-goat",
+   "verdict": "keep",
+   "why": "TrainingPeaks screenshot."
+  },
+  {
+   "file": "img/brokaw.webp",
+   "name": "brokaw",
+   "verdict": "keep",
+   "why": "TrainingPeaks screenshot."
+  },
+  {
+   "file": "img/rgg-finish.webp",
+   "name": "rgg-finish",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      1066,
+      182,
+      1122,
+      352
+     ],
+     "erase_box": [
+      1050,
+      170,
+      1135,
+      355
+     ],
+     "pose": "stand",
+     "psi": 120,
+     "face": "neutral"
+    }
+   ],
+   "alt": "A rider in a blue kit crosses the line on a brick plaza between red \"Finish\" and \"Start\" banners strung with pennants and traffic cones, with cartoon Gravel God watching from the path behind.",
+   "match": "exact"
+  },
+  {
+   "file": "img/unc-and-ce.webp",
+   "name": "unc-and-ce",
+   "verdict": "keep",
+   "why": "Real race photo."
+  },
+  {
+   "file": "img/matti-doing-shit-scaled.webp",
+   "name": "matti-doing-shit-scaled",
+   "verdict": "keep",
+   "why": "Real photo of Matti in a real hat."
+  },
+  {
+   "file": "img/img-5129.webp",
+   "name": "img-5129",
+   "verdict": "keep",
+   "why": "Strava screenshot."
+  },
+  {
+   "file": "img/forest-hietpas.webp",
+   "name": "forest-hietpas",
+   "verdict": "keep",
+   "why": "Real selfie."
+  },
+  {
+   "file": "img/kumgo.webp",
+   "name": "kumgo",
+   "verdict": "keep",
+   "why": "Photo of hats."
+  },
+  {
+   "file": "img/rice-cake-creation.webp",
+   "name": "rice-cake-creation",
+   "verdict": "keep",
+   "why": "Real video still."
+  },
+  {
+   "file": "img/krueger-heia.webp",
+   "name": "krueger-heia",
+   "verdict": "keep",
+   "why": "Real video still."
+  },
+  {
+   "file": "img/sunny-d.webp",
+   "name": "sunny-d",
+   "verdict": "keep",
+   "why": "Product photo."
+  }
+ ]
+}

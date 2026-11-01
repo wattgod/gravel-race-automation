@@ -1,0 +1,167 @@
+{
+ "collection": "articles",
+ "slug": "you-should-try-whole-30",
+ "images": [
+  {
+   "file": "img/43268fe7d1a92f4d.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1090,
+      330,
+      1600,
+      900
+     ],
+     "erase_box": [
+      1128,
+      365,
+      1600,
+      900
+     ],
+     "pose": "stand",
+     "psi": 157.5,
+     "crop": "bust",
+     "fit": "height",
+     "face": "neutral",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "joke": "Hey wanna get out of here?",
+   "match": "exact"
+  },
+  {
+   "file": "img/d218e47e8d98b6a4.webp",
+   "verdict": "keep",
+   "why": "Film still meme (\"Tom, you need carbs!\"); no Gravel God."
+  },
+  {
+   "file": "img/a8f2b5da8ee3c01f.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      948,
+      470,
+      1072,
+      990
+     ],
+     "erase_box": [
+      845,
+      380,
+      1155,
+      990
+     ],
+     "pose": "stand",
+     "psi": 90,
+     "face": "thinking",
+     "mask": "box"
+    }
+   ],
+   "shapes": [
+    {
+     "type": "line",
+     "box": [
+      943,
+      555,
+      943,
+      990
+     ],
+     "fill": "#a3a3a3",
+     "width": 13
+    },
+    {
+     "type": "line",
+     "box": [
+      1076,
+      555,
+      1076,
+      990
+     ],
+     "fill": "#a3a3a3",
+     "width": 13
+    }
+   ],
+   "match": "closest",
+   "note": "He stands behind the bars in the gap between two of them; the rig figure is drawn over the bars it overlaps, and he has no hand-on-chin pose."
+  },
+  {
+   "file": "img/aeafd1ba7e732a82.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1240,
+      90,
+      1580,
+      774
+     ],
+     "erase_box": [
+      1185,
+      85,
+      1600,
+      774
+     ],
+     "pose": "stand",
+     "psi": 112.5,
+     "face": "grimace",
+     "mask": "box"
+    }
+   ],
+   "joke": "No it's NOT! I'm on W30 Uhhhnnnnn",
+   "match": "closest",
+   "note": "The original had him crying with a hand over his eyes; the rig grimaces instead. The store shelves behind him on the right are a copied strip of the left-hand shelves.",
+   "insets": [
+    {
+     "src": [
+      0,
+      85,
+      160,
+      774
+     ],
+     "box": [
+      1190,
+      85,
+      1600,
+      774
+     ]
+    }
+   ]
+  },
+  {
+   "file": "img/92e167d58e6d77b0.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1030,
+      230,
+      1230,
+      774
+     ],
+     "erase_box": [
+      930,
+      185,
+      1325,
+      774
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "joke": "Your punishment is only eating W30 foods for the rest of your life.",
+   "match": "exact"
+  }
+ ]
+}

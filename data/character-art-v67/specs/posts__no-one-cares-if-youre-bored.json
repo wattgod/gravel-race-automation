@@ -1,0 +1,174 @@
+{
+ "collection": "posts",
+ "slug": "no-one-cares-if-youre-bored",
+ "images": [
+  {
+   "file": "img/um-no.webp",
+   "name": "um-no",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1220,
+      400,
+      1600,
+      900
+     ],
+     "erase_box": [
+      1200,
+      390,
+      1600,
+      900
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "pose": "stand",
+     "face": "neutral",
+     "psi": 135,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "joke": "Thou shalt NEVER be bored! / Um...No",
+   "match": "exact",
+   "alt": "A speaker lectures a packed room: \"Thou shalt NEVER be bored!\" Cartoon Gravel God, in the audience, answers: \"Um...No\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/really.webp",
+   "name": "really",
+   "verdict": "keep",
+   "why": "Photo of two road racers in red with speech bubbles; no Gravel God."
+  },
+  {
+   "file": "img/volcano.webp",
+   "name": "volcano",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      0,
+      330,
+      460,
+      900
+     ],
+     "erase_box": [
+      0,
+      320,
+      480,
+      900
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "joke": "(no words: a volcano erupts behind him while he reads the workout)",
+   "match": "exact",
+   "alt": "A volcano erupts behind cartoon Gravel God as he stares at a laptop showing a planned workout, next to a bucket of grass.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/boredom.webp",
+   "name": "boredom",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1250,
+      215,
+      1560,
+      890
+     ],
+     "erase_box": [
+      1035,
+      385,
+      1600,
+      900
+     ],
+     "mask": "box",
+     "pad": 0,
+     "pose": "stand",
+     "face": "neutral",
+     "psi": 135
+    }
+   ],
+   "joke": "What is your superpower? / Boredom.",
+   "match": "exact",
+   "alt": "Cartoon Gravel God asks a boy in a superhero cape and mask, \"What is your superpower?\" The boy answers: \"Boredom.\"",
+   "erase_extra": [
+    [
+     625,
+     0,
+     1600,
+     385
+    ],
+    [
+     1000,
+     385,
+     1600,
+     440
+    ]
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "text": "What is your superpower?",
+     "box": [
+      680,
+      40,
+      1160,
+      340
+     ],
+     "tail": [
+      1230,
+      330
+     ],
+     "size": 64,
+     "font": "serif",
+     "weight": 500
+    }
+   ],
+   "note": "Top bubble redrawn in the brand serif so the old hat touching it could be removed.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/1.webp",
+   "name": "1",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      400,
+      400,
+      510,
+      725
+     ],
+     "erase_box": [
+      390,
+      390,
+      520,
+      730
+     ],
+     "mask": "grabcut",
+     "pad": 8,
+     "ride": "cruise",
+     "face": "neutral",
+     "psi": 90
+    }
+   ],
+   "joke": "(thought bubble: TV, beer, friends, books, cheese)",
+   "match": "exact",
+   "alt": "Cartoon Gravel God rides toward us down an empty black-and-white desert highway, dreaming of TV, a beer, friends, books and cheese.",
+   "verdict": "replace"
+  }
+ ]
+}

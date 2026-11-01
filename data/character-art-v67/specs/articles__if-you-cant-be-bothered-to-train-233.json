@@ -1,0 +1,100 @@
+{
+ "collection": "articles",
+ "slug": "if-you-cant-be-bothered-to-train-233",
+ "images": [
+  {
+   "file": "img/2620abe477f51a9b.webp",
+   "verdict": "keep",
+   "why": "Phone screenshot of a WHOOP score."
+  },
+  {
+   "file": "img/6d57475361a38a27.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "match": "closest",
+   "figs": [
+    {
+     "box": [
+      960,
+      200,
+      1560,
+      889
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "face": "sleepy",
+     "psi": 112.5,
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "note": "The painted version lay asleep in bed under a quilt; the rig has no lying pose, so a sleepy bust replaces him and the bed.",
+   "bg": {
+    "type": "gradient",
+    "top": "#1e1e1e",
+    "bottom": "#0c0c0c"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      835,
+      889
+     ],
+     "box": [
+      0,
+      0,
+      835,
+      889
+     ]
+    }
+   ]
+  },
+  {
+   "file": "img/7aaf2d97dd231af0.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      590,
+      280,
+      760,
+      742
+     ],
+     "erase_box": [
+      630,
+      560,
+      762,
+      742
+     ],
+     "pose": "stand",
+     "face": "neutral",
+     "psi": 120
+    }
+   ],
+   "joke": "Fall asleep to three hours of blue light like a real man...",
+   "erase_extra": [
+    [
+     538,
+     284,
+     898,
+     572
+    ]
+   ]
+  },
+  {
+   "file": "img/9fd849cf2e540b59.webp",
+   "verdict": "keep",
+   "why": "Text-message screenshot."
+  },
+  {
+   "file": "img/eb38a9eb445a85a1.webp",
+   "verdict": "keep",
+   "why": "Tweet screenshot."
+  }
+ ]
+}

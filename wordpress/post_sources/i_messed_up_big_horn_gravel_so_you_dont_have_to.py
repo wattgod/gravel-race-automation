@@ -37,9 +37,9 @@ DESCRIPTION = ("A Big Horn Gravel race report: slow, nervous descending on techn
                "about 70th to the top 25, and a back that gave out before the finish.")  # <=160 chars
 
 ALT = {
-    "big-horn-gravel": "A rutted red-dirt double track through sagebrush toward distant mountains, with a rider far ahead and cartoon Gravel God in a cowboy hat riding away from the camera.",
-    "a-gravel-race-huh": "A root-covered singletrack through the woods, photographers at the side and riders coming down it; cartoon Gravel God in a cowboy hat stands with his bike, saying \"A 'gravel' race, huh?\"",
-    "turbio": "A smooth dirt road through a tall aspen forest under blue sky, with a tiny cartoon Gravel God in a cowboy hat speeding away, motion lines behind him.",
+    "big-horn-gravel": "Cartoon Gravel God rides away from us up a rutted red dirt road through sagebrush toward a lone rider and the mountains.",
+    "a-gravel-race-huh": "In an aspen forest on a rooty singletrack, cartoon Gravel God stands with his bike and says: \"A 'gravel' race, huh?\"",
+    "turbio": "A dirt road through a tall aspen forest; tiny cartoon Gravel God rides away from us down the middle of it.",
     "where-your-fear-is": "Black-and-white portrait of Carl Jung in round glasses beside the quote \"Where your fear is, there your task is.\"",
 }
 

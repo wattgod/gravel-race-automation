@@ -1,0 +1,341 @@
+{
+ "collection": "articles",
+ "slug": "faith-needs-evidence",
+ "images": [
+  {
+   "file": "img/7540f873a8c74d6e.webp",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      970,
+      700,
+      1230,
+      950
+     ],
+     "erase_box": [
+      985,
+      735,
+      1210,
+      948
+     ],
+     "pad": 4,
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "bottom",
+     "scale": 1.0
+    }
+   ],
+   "joke": "(no words: his head on the podium, arms up)",
+   "match": "exact",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/d040ad17629629af.webp",
+   "mode": "rebuild",
+   "figs": [
+    {
+     "box": [
+      820,
+      280,
+      1340,
+      820
+     ],
+     "erase_box": [
+      880,
+      240,
+      1500,
+      890
+     ],
+     "pose": "sit",
+     "face": "sleepy",
+     "psi": 60
+    }
+   ],
+   "joke": "(no words: slumped at home, bike leaning unused)",
+   "match": "closest",
+   "note": "The rig has no couch pose; he sits slumped on a plain redrawn couch (flat shapes). Bike, pictures and window kept from the original.",
+   "bg": {
+    "type": "flat",
+    "color": "#1b2730"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      600,
+      1024
+     ],
+     "box": [
+      0,
+      0,
+      600,
+      1024
+     ]
+    },
+    {
+     "src": [
+      380,
+      30,
+      900,
+      210
+     ],
+     "box": [
+      380,
+      30,
+      900,
+      210
+     ]
+    },
+    {
+     "src": [
+      1380,
+      0,
+      1536,
+      560
+     ],
+     "box": [
+      1380,
+      0,
+      1536,
+      560
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      600,
+      880,
+      1536,
+      1024
+     ],
+     "fill": "#101523"
+    },
+    {
+     "type": "rect",
+     "box": [
+      640,
+      440,
+      1470,
+      660
+     ],
+     "fill": "#1e2a3c",
+     "outline": "#0b1018",
+     "width": 6
+    },
+    {
+     "type": "rect",
+     "box": [
+      600,
+      640,
+      1500,
+      830
+     ],
+     "fill": "#26344a",
+     "outline": "#0b1018",
+     "width": 6
+    },
+    {
+     "type": "rect",
+     "box": [
+      600,
+      800,
+      1010,
+      890
+     ],
+     "fill": "#5a4638",
+     "outline": "#2a201a",
+     "width": 5
+    }
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/a7e442aa2014e849.webp",
+   "mode": "rebuild",
+   "figs": [
+    {
+     "box": [
+      250,
+      250,
+      720,
+      870
+     ],
+     "pose": "sit",
+     "face": "sleepy",
+     "psi": 60
+    }
+   ],
+   "joke": "(no words: sitting on the curb at sunset with empty beers)",
+   "match": "closest",
+   "note": "Sits on the road instead of crouching on a curb; no sunglasses. Sky and road behind him are flat colour; trees, sun and two beer cans kept.",
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      240,
+      440,
+      740,
+      520
+     ],
+     "fill": "#2b4946"
+    },
+    {
+     "type": "rect",
+     "box": [
+      240,
+      520,
+      740,
+      560
+     ],
+     "fill": "#a6b2a9"
+    },
+    {
+     "type": "rect",
+     "box": [
+      240,
+      560,
+      740,
+      1024
+     ],
+     "fill": "#3a3f58"
+    }
+   ],
+   "bg": {
+    "type": "flat",
+    "color": "#ffbc7f"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      240,
+      1024
+     ],
+     "box": [
+      0,
+      0,
+      240,
+      1024
+     ]
+    },
+    {
+     "src": [
+      740,
+      0,
+      1536,
+      1024
+     ],
+     "box": [
+      740,
+      0,
+      1536,
+      1024
+     ]
+    }
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/7c16f042507d07d8.webp",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      290,
+      300,
+      610,
+      650
+     ],
+     "erase_box": [
+      280,
+      320,
+      610,
+      645
+     ],
+     "pose": "stand",
+     "face": "sleepy",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "bottom",
+     "mask": "box"
+    }
+   ],
+   "joke": "(no words: lying in bed, race kit hanging on the wall)",
+   "match": "closest",
+   "note": "The rig cannot lie down; his head rests on the pillow over the original body under the blanket.",
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      130,
+      410,
+      650,
+      660
+     ],
+     "fill": "#59b0bc"
+    }
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/46137369804e24ec.webp",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      130,
+      560,
+      400,
+      860
+     ],
+     "erase_box": [
+      15,
+      540,
+      345,
+      845
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "center",
+     "mask": "box"
+    }
+   ],
+   "joke": "(no words: crashed while a rider steps over him; LIFE finish banner)",
+   "match": "closest",
+   "note": "The rig cannot lie flat; his head replaces the old helmeted head on the original crashed body.",
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      10,
+      540,
+      325,
+      850
+     ],
+     "fill": "#cdbb9c"
+    }
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/400ff78885db8f47.webp",
+   "verdict": "keep",
+   "why": "Instagram post screenshot of a real rider; no Gravel God."
+  }
+ ]
+}

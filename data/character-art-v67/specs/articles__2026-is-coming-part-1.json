@@ -1,0 +1,127 @@
+{
+ "collection": "articles",
+ "slug": "2026-is-coming-part-1",
+ "images": [
+  {
+   "file": "img/555106ca7157dd16.webp",
+   "verdict": "replace",
+   "mode": "scene",
+   "scene": {
+    "pose": "arms_crossed",
+    "face": "focused",
+    "rel": 120,
+    "elev": 5,
+    "k": 520,
+    "pos": [
+     0.55,
+     0.68
+    ],
+    "trees": [
+     [
+      40,
+      -6
+     ],
+     [
+      52,
+      6
+     ]
+    ],
+    "seed": 4
+   },
+   "match": "closest",
+   "note": "The painted scene of him smashing a blank whiteboard in a garage is redrawn as a rig gravel-road scene; the rig has no hammer or garage."
+  },
+  {
+   "file": "img/22f533be88784c72.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "gradient",
+    "top": "#2c5a5c",
+    "bottom": "#4a8580"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      380,
+      1024
+     ],
+     "box": [
+      0,
+      0,
+      380,
+      1024
+     ]
+    },
+    {
+     "src": [
+      1010,
+      0,
+      1536,
+      1024
+     ],
+     "box": [
+      1010,
+      0,
+      1536,
+      1024
+     ]
+    },
+    {
+     "src": [
+      380,
+      700,
+      1010,
+      1024
+     ],
+     "box": [
+      380,
+      700,
+      1010,
+      1024
+     ]
+    },
+    {
+     "src": [
+      1010,
+      0,
+      1536,
+      90
+     ],
+     "box": [
+      380,
+      0,
+      906,
+      90
+     ]
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      400,
+      40,
+      1010,
+      760
+     ],
+     "pose": "stand",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "width",
+     "face": "focused",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "Athlete Goals",
+   "match": "closest",
+   "note": "The rig has no headlamp, gloves or scalpel; he stands at the bench behind the open \"Athlete Goals\" book, and the lab wall behind him is plain."
+  },
+  {
+   "file": "img/3d20b0aa1dc0c32e.webp",
+   "verdict": "keep",
+   "why": "SMART goals table; no character."
+  }
+ ]
+}

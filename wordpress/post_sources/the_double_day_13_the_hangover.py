@@ -29,11 +29,11 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "the-hangover": "Google Maps route from Denver, Colorado, to Silver City, New Mexico, via Pueblo, Santa Fe and Albuquerque: 11 hr 6 min, 720 miles, with two alternatives; cartoon Gravel God in a cowboy hat smokes a cigar on the left.",
-    "road-trip": "Animated: from the front seat of a packed SUV, a girl in a yellow sundress thrashes and sings in the back while a small boy in a car seat beside her laughs; the brim of cartoon Gravel God's cowboy hat fills the right edge.",
-    "untitled-design-1": "Tweet from Chris Bianchi (@BianchiWeather): with no snow in the forecast, Denver looks likely to have its shortest snow season on record, 97 days, from first measurable snow on Dec. 10 to the last on Mar. 17; cartoon Gravel God shrugs in front of it.",
-    "untitled-design": "A family around a long patio table with a birthday cake and wine glasses, adults and several young children, one man's face swapped for cartoon Gravel God in a cowboy hat and a boy in front grinning at the camera.",
-    "las-vegas-fire": "A plume of wildfire smoke rises over pine-dotted hills beyond dry grassland and a power pole, while cartoon Gravel God in a cowboy hat, seen from behind, looks on.",
+    "the-hangover": "A Google Maps route from Denver down through Colorado and New Mexico to Silver City, with a bleary-eyed cartoon Gravel God holding a coffee over Arizona.",
+    "road-trip": "Inside a car on a road trip: a woman in the back seat and a toddler in a car seat, with cartoon Gravel God's face peeking in from the right edge.",
+    "untitled-design-1": "A tweet from Chris Bianchi (@BianchiWeather): \"With no snow in the forecast, it looks likely Denver will have - by far - its shortest snow season on record (97 days).\" A Denver (DIA) stats card reads first measurable snow Dec. 10, last measurable snow Mar. 17, 97 day snow season; cartoon Gravel God shrugs in front of it.",
+    "untitled-design": "A big family lunch at a long patio table, kids and grown-ups smiling at the camera, with cartoon Gravel God's head on one of the men at the back.",
+    "las-vegas-fire": "Cartoon Gravel God, seen from behind beside a wooden power pole, looks across dry grassland to wildfire smoke rising over the hills.",
 }
 
 # The "In short" rule (wp_post docstring); section = 0-based h2 index.

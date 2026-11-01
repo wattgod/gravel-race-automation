@@ -42,12 +42,12 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "untitled-design-3": "A smiling nurse in blue scrubs pushes a wheelchair along a bright, glass-walled hospital corridor; the man in it, in a grey sweater, has the face of cartoon Gravel God in a cowboy hat.",
-    "lifestyle": "A split image. Left, labelled \"20s\": cartoon Gravel God in a cowboy hat partying among dancers in a purple-lit club. Right, labelled \"30+\": a black-and-white A-frame cabin in a dark forest, a small cartoon Gravel God standing quietly on its deck.",
-    "vo2-max-decline-with-age": "Line chart, \"VO2max decline with age (Trappe et al., 1996)\": VO2max against age for five groups. The trained line falls from about 70 at age 25 to about 45 at 75; continued high training from about 69 at 30 to 60 at 50; untrained-lean from about 70 at 30 to 45 at 50; no training from about 47 at 30 to under 30 at 75. Cartoon Gravel God stands at the left.",
+    "untitled-design-3": "A smiling nurse in blue scrubs pushes a man in a grey sweater in a wheelchair through a bright glass hallway; the man has cartoon Gravel God's head.",
+    "lifestyle": "Split picture: under \"20s\" cartoon Gravel God parties with a drink among dancers in pink club light; under \"30+\" he stands alone on the deck of a dark A-frame cabin in the woods.",
+    "vo2-max-decline-with-age": "A chart, \"VO2max decline with age (Trappe et al., 1996)\", shows VO2max falling from age 20 to 80 for trained, untrained, continued high training, fitness training and no training groups, with cartoon Gravel God standing on the left edge.",
     "screen-shot-2023-01-19-at-12-18-30-pm": "Alan Couzens' chart of how long training adaptations take, as four stacked bars. Weeks: anaerobic enzymes, blood volume, muscle glycogen, substrate shift, insulin sensitivity, muscular speed/power, lactate tolerance. Months: aerobic enzymes, Hb mass, muscle hypertrophy, muscular strength. Years: type II fiber development, structural changes of the heart, VO2max, anaerobic threshold. Decades, the widest base: economy, type I fiber development, aerobic threshold.",
-    "psych": "Cartoon Gravel God in a cowboy hat grins in front of a chalkboard, a tangle of chalk arrows scribbled above his head.",
-    "pound-sand-rugrats": "Children ride bikes along a sunny dirt path; cartoon Gravel God in a cowboy hat, on a road bike, leads them, saying: \"You rugrats can pound sand.\"",
+    "psych": "A tangle of chalk scribbles and arrows bursts out of a grinning cartoon Gravel God's head on a blackboard.",
+    "pound-sand-rugrats": "Kids in helmets ride bikes along a summer dirt path; cartoon Gravel God rides in front of them, saying: \"You rugrats can pound sand.\"",
 }
 
 # ── fig-adaptations: the Couzens chart, redrawn ──────────────

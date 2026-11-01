@@ -29,7 +29,7 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "ironhorse-classic": "Strava screenshot of Matti Rowe's ride \"Flittig som en maur\", May 28, 2022, La Plata County, Colorado: 77.40 mi, 4:10:10 moving time, 277 W weighted average power, with a route map running north from Durango and an elevation profile topping out near 11,000 ft.",
+    "ironhorse-classic": "Strava ride summary, \"Flittig som en maur\", Saturday, May 28, 2022 in La Plata County, Colorado: 77.40 mi, 4:10:10, 4,751 ft, with the mustached Gravel God character as the profile picture.",
     "ned-overend": "Composite: a lean, gray-haired man in a black Specialized T-shirt in front of a wheelchair and a hospital-style bed, a joke on the post's line about Ned Overend looking as if he had escaped from a nursing home.",
     "semis-crashing": "A wreck on a highway: a Target semi-trailer and a second truck have collided, boxes and debris are scattered across the road, and cartoon Gravel God rides his bike between orange traffic cones.",
     "dumb": "Animated: two open hands against a black background, one holding a red pill under the glowing word \"SMART\", the other a blue pill under \"DUMB\", the labels flickering on and off.",

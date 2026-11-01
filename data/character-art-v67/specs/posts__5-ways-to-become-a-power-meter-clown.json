@@ -43,8 +43,35 @@
   {
    "file": "img/power-meter-clown-2.webp",
    "name": "power-meter-clown-2",
-   "verdict": "keep",
-   "why": "No Gravel God character."
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#f3f1ed",
+   "figs": [
+    {
+     "box": [
+      870,
+      60,
+      1090,
+      600
+     ],
+     "erase_box": [
+      870,
+      30,
+      1185,
+      600
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 67.5,
+     "fit": "contain",
+     "mask": "grabcut",
+     "pad": 14
+    }
+   ],
+   "alt": "A recipe notebook among baking things, titled \"Watt Clown Cake\": \"1. Look at someone's file on Strava, usually a Pro. 2. See how many watts they held. 3. Realize you've once held the same or nearly the same watts. 4. Since you can do almost do what they did, that makes you pro. 5. Actually, maybe it makes you better than them.\" The mustached Gravel God character stands beside it, thinking.",
+   "joke": "Watt Clown Cake",
+   "match": "closest",
+   "note": "No hand-on-chin pose; thinking face instead."
   },
   {
    "file": "img/wat.webp",
@@ -61,8 +88,35 @@
   {
    "file": "img/power-meter-clown-4.webp",
    "name": "power-meter-clown-4",
-   "verdict": "keep",
-   "why": "No Gravel God character."
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      880,
+      60,
+      1060,
+      238
+     ],
+     "erase_box": [
+      880,
+      45,
+      1095,
+      242
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain",
+     "mask": "box",
+     "pad": 4
+    }
+   ],
+   "alt": "A Jeopardy set: the host at the left podium with $14,400, and the mustached Gravel God character grinning behind the right podium, answering: \"What is heteroskedasticity, just the way your mother likes it Trebeck!\"",
+   "joke": "What is heteroskedasticity, just the way your mother likes it Trebeck!",
+   "match": "exact"
   },
   {
    "file": "img/power-meter-clown-5.webp",

@@ -33,7 +33,7 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "gila-monster-1": "Strava screenshot of Matti Rowe's ride \"Dag 12: Tjuefjerde plass! Dyret endelig våknet.\", 9:19 AM on Sunday, May 1, 2022, Silver City, New Mexico: 112.05 mi, 5:20:12 moving time, 7,825 ft of climbing, 256 W weighted average power, 4,099 kJ, with the loop north of Silver City on the map and an elevation profile with three big climbs.",
+    "gila-monster-1": "Strava ride summary, \"Dag 12: Tjuefjerde plass! Dyret endelig våknet.\", Sunday, May 1, 2022 in Silver City, New Mexico: 112.05 mi, 5:20:12, 7,825 ft, with the mustached Gravel God character as the profile picture.",
     "udyret-kommer": "A TrainingPeaks file \"Gila St5\" (5:19:54, 112 mi, 289 TSS, normalized power 265 W) with cartoon Gravel God in a white tee, seen from behind, riding a bike up the right side of the screen.",
     "ristra": "Cartoon Gravel God, handlebar mustache, grins on an adobe porch beside a white ladder where a red cycling jersey hangs with two Tour of the Gila race numbers, 63, still pinned on; a chile ristra hangs on the wall behind.",
     "da-fugg": "Cartoon Gravel God, handlebar mustache, points at an old bathtub shower with exposed nickel pipes, a wall-mounted showerhead and a hand shower in a white-tiled bathroom.",

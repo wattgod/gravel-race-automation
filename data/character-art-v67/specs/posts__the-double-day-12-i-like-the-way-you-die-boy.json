@@ -5,8 +5,33 @@
   {
    "file": "img/gila-monster-1.webp",
    "name": "gila-monster-1",
-   "verdict": "keep",
-   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      8,
+      75,
+      158,
+      262
+     ],
+     "erase_box": [
+      0,
+      58,
+      165,
+      272
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain"
+    }
+   ],
+   "alt": "Strava ride summary, \"Dag 12: Tjuefjerde plass! Dyret endelig våknet.\", Sunday, May 1, 2022 in Silver City, New Mexico: 112.05 mi, 5:20:12, 7,825 ft, with the mustached Gravel God character as the profile picture.",
+   "joke": "Dag 12: Tjuefjerde plass! Dyret endelig våknet.",
+   "match": "exact"
   },
   {
    "file": "img/udyret-kommer.webp",

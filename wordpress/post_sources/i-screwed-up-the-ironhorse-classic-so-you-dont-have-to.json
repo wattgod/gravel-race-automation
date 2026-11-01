@@ -228,29 +228,29 @@
  "renditions": {
   "ironhorse-classic": {
    "1x": {
-    "file": "ironhorse-classic.webp",
+    "file": "ironhorse-classic-v67.webp",
     "width": 1600,
     "height": 900,
-    "bytes": 92442
+    "bytes": 88386
    },
    "phone": {
-    "file": "ironhorse-classic-m.webp",
+    "file": "ironhorse-classic-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 27512
+    "bytes": 26876
    },
    "phone2x": {
-    "file": "ironhorse-classic-m@2x.webp",
+    "file": "ironhorse-classic-v67-m@2x.webp",
     "width": 1320,
     "height": 742,
-    "bytes": 72650
+    "bytes": 67680
    },
    "source_bytes": 1214771,
    "og": {
-    "file": "ironhorse-classic-og.jpg",
+    "file": "ironhorse-classic-v67-og.jpg",
     "width": 1200,
     "height": 630,
-    "bytes": 109476
+    "bytes": 106169
    }
   },
   "ned-overend": {
@@ -279,19 +279,19 @@
     "file": "semis-crashing-v67.webp",
     "width": 1600,
     "height": 900,
-    "bytes": 66890
+    "bytes": 66880
    },
    "phone": {
     "file": "semis-crashing-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 24162
+    "bytes": 24224
    },
    "phone2x": {
     "file": "semis-crashing-v67-m@2x.webp",
     "width": 1320,
     "height": 742,
-    "bytes": 53198
+    "bytes": 53182
    },
    "source_bytes": 1661361
   },
@@ -329,19 +329,19 @@
     "file": "quinn-simmons-v67.webp",
     "width": 1600,
     "height": 900,
-    "bytes": 186536
+    "bytes": 186560
    },
    "phone": {
     "file": "quinn-simmons-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 38388
+    "bytes": 38472
    },
    "phone2x": {
     "file": "quinn-simmons-v67-m@2x.webp",
     "width": 1320,
     "height": 742,
-    "bytes": 131924
+    "bytes": 131862
    },
    "source_bytes": 2150103
   },
@@ -377,13 +377,13 @@
     "file": "dumb-2-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 29108
+    "bytes": 29090
    },
    "phone2x": {
     "file": "dumb-2-v67-m@2x.webp",
     "width": 1320,
     "height": 742,
-    "bytes": 75646
+    "bytes": 75590
    },
    "source_bytes": 2991936
   },

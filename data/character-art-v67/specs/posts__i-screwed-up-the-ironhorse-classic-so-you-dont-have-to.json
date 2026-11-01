@@ -5,8 +5,33 @@
   {
    "file": "img/ironhorse-classic.webp",
    "name": "ironhorse-classic",
-   "verdict": "keep",
-   "why": "Screenshot of the event; no Gravel God."
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      22,
+      85,
+      185,
+      272
+     ],
+     "erase_box": [
+      8,
+      68,
+      200,
+      288
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain"
+    }
+   ],
+   "alt": "Strava ride summary, \"Flittig som en maur\", Saturday, May 28, 2022 in La Plata County, Colorado: 77.40 mi, 4:10:10, 4,751 ft, with the mustached Gravel God character as the profile picture.",
+   "joke": "Flittig som en maur",
+   "match": "exact"
   },
   {
    "file": "img/ned-overend.webp",

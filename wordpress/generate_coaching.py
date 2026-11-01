@@ -116,27 +116,11 @@ def build_nav() -> str:
   </div>'''
 
 
-# SANCTIONED EXCEPTION to the anti-defensive-messaging rule (see
-# .claude/skills/brand-and-trust/SKILL.md, "Never defensive messaging" —
-# phrases naming what something ISN'T are normally banned because they
-# plant doubt nobody had). The sub-line below ("Not an AI, not a
-# dashboard, not a coach who reads you like a spreadsheet") is an
-# explicit, owner-approved exception. It is carried over verbatim from
-# the Roadie Labs /coaching/ hero
-# (road-race-automation/wordpress/generate_coaching.py, build_hero()) —
-# Roadie Labs shipped this line 2026-07-18 as the precedent-setting
-# instance of this exception, under the same brand-and-trust
-# anti-defensive-messaging rule that governs both sites. This is
-# gravel adopting an already-owner-sanctioned pattern from the sibling
-# brand, not a fabricated in-repo precedent — no equivalent footnote
-# existed anywhere in gravel-race-automation before this rebuild
-# (checked including HTML-entity/curly-apostrophe variants and
-# generated output).
 def build_hero() -> str:
     return f'''<section class="gg-coach-band gg-coach-hero" id="hero">
     <div class="gg-coach-inner">
       <h1>You could be better than you think. That is not encouragement &mdash; it&#39;s an observation about people who train alone.</h1>
-      <p class="gg-coach-tagline">The fix is a human in your corner. Not an AI, not a dashboard, not a coach who reads you like a spreadsheet. The terms are below.</p>
+      <p class="gg-coach-tagline">The fix is a human in your corner. The terms are below.</p>
       <a href="{QUESTIONNAIRE_URL}" class="gg-coach-hero-cta" data-cta="hero_apply">GET ME IN YOUR CORNER &rarr;</a>
     </div>
   </section>'''

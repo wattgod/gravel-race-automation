@@ -154,7 +154,7 @@ class TestHero:
     def test_subhead(self):
         hero = build_hero()
         assert "The fix is a human in your corner." in hero
-        assert "Not an AI, not a dashboard, not a coach who reads you like a spreadsheet." in hero
+        assert "Not an AI" not in hero
         assert "The terms are below." in hero
 
 

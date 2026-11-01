@@ -3824,7 +3824,7 @@ def build_coaching_footnote(rd: dict) -> str:
     return f'''<aside class="gg-coaching-note" data-measure-section="coaching">
   <div>
     <h2>Really want to see what you can do?</h2>
-    <p>Hire a coach. You&rsquo;ll never become what you could be alone. (And no, AI isn&rsquo;t a person.)</p>
+    <p>Hire a coach. You&rsquo;ll never become what you could be alone.</p>
   </div>
   <a class="gg-coaching-link" href="{esc(href)}" data-cta="approved_coaching">GET ME IN YOUR CORNER &rarr;</a>
 </aside>'''

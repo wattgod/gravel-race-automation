@@ -38,13 +38,13 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "lars-did-you-know-were-all-going-to-die": "A girl in a Halloween costume and a small boy in an orange coat walk a dirt road through a new housing development at sunset; cartoon Gravel God in a cowboy hat and black suit stands beside them, and the girl's speech bubble reads: \"Lars, did you know we're all going to die?\"",
-    "2023": "A shirtless man in jeans and work gloves, his face a cartoon Gravel God in a cowboy hat, splits logs beside a huge woodpile, with \"2023\" in glowing red neon numerals on the stump in front of him.",
+    "lars-did-you-know-were-all-going-to-die": "A girl in a Halloween costume and a small boy in an orange coat walk a dirt road through a new housing development at sunset; cartoon Gravel God stands beside them, hands on hips, and the girl's speech bubble reads: \"Lars, did you know we're all going to die?\"",
+    "2023": "Cartoon Gravel God stands hands on hips beside a huge woodpile, with \"2023\" in glowing red neon numerals on the stump in front of him.",
     "lars-did-you-know-were-all-going-to-die-1": "A handwritten list on lined notebook paper titled \"Goals 2023\": \"Maybe finish a few races\", \"Live, laugh, love\", \"Push through 'ouchie' feelings\", \"Only miss two workouts a week\".",
     "redacted": "A greyed-out TrainingPeaks Performance Management Chart, \"Last Year, Last 365 days\", from late 2021 to October 2022: TSS per day and form (TSB) traces, with fitness building to about 65 TSS/d in spring and early summer and sliding to about 30 at several breaks.",
-    "lars-did-you-know-were-all-going-to-die-2": "Cartoon Gravel God in a cowboy hat, hand on chin, in front of a chalkboard, with a thought bubble: \"DNF? DFL? How do I get slower?\"",
-    "lars-did-you-know-were-all-going-to-die-3": "Two step charts of level against year, with cartoon Gravel God standing on the last step of each. Left: from level 1 the steps go up to 2, down to 1, and up to 2 over three years. Right: they climb 2, 3, 4.",
-    "untitled-design-2": "A grey, surreal image of a human figure built entirely of clock faces, with clocks breaking off and floating away from its shoulder, beside a faded profile of cartoon Gravel God in a cowboy hat.",
+    "lars-did-you-know-were-all-going-to-die-2": "Cartoon Gravel God, arms crossed and one eyebrow up, in front of a chalkboard, with a thought bubble: \"DNF? DFL? How do I get slower?\"",
+    "lars-did-you-know-were-all-going-to-die-3": "Two step charts of level against year, with cartoon Gravel God standing on the last step of each. Left: from level 1 the steps go up to 2, down to 1, and up to 2 over three years, and he winces. Right: they climb 2, 3, 4, and he gives a thumbs up.",
+    "untitled-design-2": "A grey, surreal image of a human figure built entirely of clock faces, with clocks breaking off and floating away from its shoulder, beside cartoon Gravel God in profile.",
 }
 
 # ── fig-steps: the post's step chart, redrawn ────────────────

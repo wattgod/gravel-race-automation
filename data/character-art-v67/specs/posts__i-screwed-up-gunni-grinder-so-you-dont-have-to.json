@@ -1,0 +1,141 @@
+{
+ "collection": "posts",
+ "slug": "i-screwed-up-gunni-grinder-so-you-dont-have-to",
+ "images": [
+  {
+   "file": "img/sherpacafe.webp",
+   "name": "sherpacafe",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      500,
+      140,
+      1130,
+      900
+     ],
+     "erase_box": [
+      470,
+      110,
+      1160,
+      900
+     ],
+     "mask": "box",
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "width",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "A sunny cafe patio strung with Tibetan prayer flags, iron tables and red umbrellas; cartoon Gravel God, seen from behind, looks across at a rider sitting at a table.",
+   "match": "exact"
+  },
+  {
+   "file": "img/139-5.webp",
+   "name": "139-5",
+   "verdict": "keep",
+   "why": "Photo of feet on a scale over a grey photo; no cartoon."
+  },
+  {
+   "file": "img/img-9209.webp",
+   "name": "img-9209",
+   "verdict": "keep",
+   "why": "Real photo."
+  },
+  {
+   "file": "img/easystreet.webp",
+   "name": "easystreet",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1265,
+      545,
+      1555,
+      900
+     ],
+     "erase_box": [
+      1272,
+      520,
+      1600,
+      900
+     ],
+     "pose": "stand",
+     "psi": 157.5,
+     "crop": "bust",
+     "fit": "height",
+     "face": "surprised",
+     "mask": "box",
+     "pad": 5
+    }
+   ],
+   "joke": "Whew! I knew I'd find you! I'd hate to have to push myself.",
+   "alt": "A green highway sign reads \"Easy Street NEXT EXIT\" against a blue sky; cartoon Gravel God says: \"Whew! I knew I'd find you! I'd hate to have to push myself.\"",
+   "match": "exact",
+   "insets": [
+    {
+     "src": [
+      1592,
+      500,
+      1600,
+      900
+     ],
+     "box": [
+      1190,
+      500,
+      1600,
+      900
+     ]
+    }
+   ]
+  },
+  {
+   "file": "img/onewetbar.webp",
+   "name": "onewetbar",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1400,
+      368,
+      1515,
+      625
+     ],
+     "erase_box": [
+      1385,
+      355,
+      1530,
+      628
+     ],
+     "mask": "box",
+     "pad": 6,
+     "pose": "stand",
+     "psi": 112.5,
+     "face": "smile"
+    }
+   ],
+   "joke": "Don't judge, I've got problems. This boat only has 1 wet bar!",
+   "alt": "A white speedboat carves a wake along a rocky Mediterranean coast; cartoon Gravel God stands on the bow saying: \"Don't judge, I've got problems. This boat only has 1 wet bar!\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/img-9214.webp",
+   "name": "img-9214",
+   "verdict": "keep",
+   "why": "Real photo."
+  },
+  {
+   "file": "img/cantbeit-3.webp",
+   "name": "cantbeit-3",
+   "verdict": "keep",
+   "why": "Real photo of two men in matching sweaters; no cartoon."
+  }
+ ]
+}

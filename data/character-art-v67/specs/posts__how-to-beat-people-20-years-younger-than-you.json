@@ -1,0 +1,205 @@
+{
+ "collection": "posts",
+ "slug": "how-to-beat-people-20-years-younger-than-you",
+ "images": [
+  {
+   "file": "img/untitled-design-3.webp",
+   "name": "untitled-design-3",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      745,
+      100,
+      1055,
+      515
+     ],
+     "erase_box": [
+      700,
+      135,
+      1100,
+      505
+     ],
+     "mask": "grabcut",
+     "pose": "stand",
+     "psi": 90,
+     "crop": "head",
+     "fit": "width",
+     "face": "smile",
+     "pad": 6
+    }
+   ],
+   "alt": "A smiling nurse in blue scrubs pushes a man in a grey sweater in a wheelchair through a bright glass hallway; the man has cartoon Gravel God's head.",
+   "match": "exact"
+  },
+  {
+   "file": "img/lifestyle.webp",
+   "name": "lifestyle",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      70,
+      300,
+      480,
+      900
+     ],
+     "erase_box": [
+      30,
+      270,
+      530,
+      900
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "pose": "drink",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "height",
+     "face": "grin"
+    },
+    {
+     "box": [
+      985,
+      575,
+      1090,
+      820
+     ],
+     "erase_box": [
+      955,
+      530,
+      1112,
+      830
+     ],
+     "pose": "stand",
+     "psi": 112.5,
+     "face": "neutral"
+    }
+   ],
+   "joke": "20s / 30+",
+   "alt": "Split picture: under \"20s\" cartoon Gravel God parties with a drink among dancers in pink club light; under \"30+\" he stands alone on the deck of a dark A-frame cabin in the woods.",
+   "match": "exact"
+  },
+  {
+   "file": "img/vo2-max-decline-with-age.webp",
+   "name": "vo2-max-decline-with-age",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      150,
+      265,
+      330,
+      765
+     ],
+     "erase_box": [
+      98,
+      250,
+      350,
+      770
+     ],
+     "pose": "stand",
+     "psi": 67.5,
+     "face": "neutral"
+    }
+   ],
+   "alt": "A chart, \"VO2max decline with age (Trappe et al., 1996)\", shows VO2max falling from age 20 to 80 for trained, untrained, continued high training, fitness training and no training groups, with cartoon Gravel God standing on the left edge.",
+   "match": "exact"
+  },
+  {
+   "file": "img/screen-shot-2023-01-19-at-12-18-30-pm.webp",
+   "name": "screen-shot-2023-01-19-at-12-18-30-pm",
+   "verdict": "keep",
+   "why": "Screenshot; no cartoon."
+  },
+  {
+   "file": "img/psych.webp",
+   "name": "psych",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      500,
+      410,
+      1100,
+      900
+     ],
+     "erase_box": [
+      395,
+      415,
+      1145,
+      900
+     ],
+     "mask": "box",
+     "pose": "stand",
+     "psi": 90,
+     "crop": "head",
+     "fit": "width",
+     "anchor": "top",
+     "face": "grin"
+    }
+   ],
+   "alt": "A tangle of chalk scribbles and arrows bursts out of a grinning cartoon Gravel God's head on a blackboard.",
+   "match": "exact"
+  },
+  {
+   "file": "img/pound-sand-rugrats.webp",
+   "name": "pound-sand-rugrats",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      770,
+      100,
+      990,
+      900
+     ],
+     "erase_box": [
+      752,
+      95,
+      1010,
+      900
+     ],
+     "mask": "grabcut",
+     "ride": "cruise",
+     "psi": 90,
+     "face": "grin",
+     "pad": 8
+    }
+   ],
+   "joke": "You rugrats can pound sand.",
+   "alt": "Kids in helmets ride bikes along a summer dirt path; cartoon Gravel God rides in front of them, saying: \"You rugrats can pound sand.\"",
+   "match": "exact",
+   "erase_extra": [
+    [
+     960,
+     238,
+     1060,
+     312
+    ],
+    [
+     1058,
+     238,
+     1112,
+     288
+    ],
+    [
+     890,
+     820,
+     980,
+     900
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,264 @@
+{
+ "collection": "posts",
+ "slug": "what-is-hrv-and-why-should-i-care",
+ "images": [
+  {
+   "file": "img/y-should-i-care.webp",
+   "name": "y-should-i-care",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1300,
+      440,
+      1560,
+      900
+     ],
+     "erase_box": [
+      1235,
+      420,
+      1600,
+      900
+     ],
+     "pose": "shrug",
+     "face": "thinking",
+     "psi": 100,
+     "mask": "grabcut",
+     "pad": 12
+    }
+   ],
+   "joke": "WHY SHOULD I CARE?",
+   "alt": "\"WHY SHOULD I CARE?\" chalked on a blackboard, a stopwatch standing in for the O, with cartoon Gravel God, handlebar mustache and white tee, shrugging beside it.",
+   "match": "exact"
+  },
+  {
+   "file": "img/big-load.webp",
+   "name": "big-load",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      40,
+      400,
+      300,
+      900
+     ],
+     "erase_box": [
+      0,
+      380,
+      340,
+      900
+     ],
+     "pose": "point",
+     "face": "surprised",
+     "psi": 45
+    }
+   ],
+   "joke": "Whooee-uueet!! That's a big load!",
+   "alt": "A flatbed truck stacked with wrapped pallets on a mountain road, and cartoon Gravel God pointing at it and saying, \"Whooee-uueet!! That's a big load!\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/analyse.webp",
+   "name": "analyse",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      0,
+      260,
+      380,
+      900
+     ],
+     "erase_box": [
+      0,
+      195,
+      520,
+      900
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 45,
+     "crop": "bust",
+     "fit": "height",
+     "mask": "grabcut",
+     "pad": 12
+    }
+   ],
+   "alt": "Cartoon Gravel God, frowning in thought, studies a wall of trading screens full of price charts.",
+   "match": "exact"
+  },
+  {
+   "file": "img/hrv-1.webp",
+   "name": "hrv-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      560,
+      210,
+      840,
+      895
+     ],
+     "mask": "box",
+     "erase_box": [
+      520,
+      180,
+      935,
+      900
+     ],
+     "pose": "shrug",
+     "face": "thinking",
+     "psi": 90
+    }
+   ],
+   "alt": "Cartoon Gravel God shrugs between a glowing up arrow labelled \"HRV\" and a down arrow labelled \"Resting HR\".",
+   "match": "exact"
+  },
+  {
+   "file": "img/hrv-20-22.webp",
+   "name": "hrv-20-22",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#eaeced",
+   "figs": [
+    {
+     "box": [
+      470,
+      180,
+      700,
+      870
+     ],
+     "erase_box": [
+      395,
+      165,
+      775,
+      880
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 45
+    }
+   ],
+   "alt": "Line chart titled \"HRV '20-'22\": daily HRV (yellow) and resting heart rate (light blue) from mid-2020 to early 2022, with a gap from late 2020 to spring 2021 where cartoon Gravel God stands.",
+   "match": "exact"
+  },
+  {
+   "file": "img/hrv-garbage.webp",
+   "name": "hrv-garbage",
+   "verdict": "keep",
+   "why": "Photo of a dumpster; no character."
+  },
+  {
+   "file": "img/hrv-case-study.webp",
+   "name": "hrv-case-study",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      10,
+      470,
+      280,
+      900
+     ],
+     "erase_box": [
+      0,
+      440,
+      310,
+      900
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "alt": "Wooden letter tiles spelling \"CASE STUDY\" on a grid notebook beside a coffee cup, glasses and a phone, with cartoon Gravel God grinning in the corner.",
+   "match": "exact"
+  },
+  {
+   "file": "img/hrv-trend.webp",
+   "name": "hrv-trend",
+   "verdict": "keep",
+   "why": "Chart; no character."
+  },
+  {
+   "file": "img/hrv-zoom.webp",
+   "name": "hrv-zoom",
+   "verdict": "keep",
+   "why": "Chart; no character."
+  },
+  {
+   "file": "img/hrv-invest.webp",
+   "name": "hrv-invest",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      60,
+      410,
+      330,
+      900
+     ],
+     "erase_box": [
+      15,
+      385,
+      410,
+      900
+     ],
+     "pose": "arms_crossed",
+     "face": "thinking",
+     "psi": 67.5,
+     "mask": "grabcut",
+     "pad": 12
+    }
+   ],
+   "alt": "Cartoon Gravel God, arms crossed and thinking, in front of blurred stacks of coins and a rising line chart.",
+   "match": "closest",
+   "note": "No hand-on-chin gesture in the rig: arms crossed with a thinking face."
+  },
+  {
+   "file": "img/hrv.webp",
+   "name": "hrv",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1100,
+      20,
+      1600,
+      900
+     ],
+     "erase_box": [
+      1050,
+      0,
+      1600,
+      900
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 112.5,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "alt": "A red heartbeat trace running across a dark monitor grid, with cartoon Gravel God, handlebar mustache and white tee, grinning at the right.",
+   "match": "exact"
+  }
+ ]
+}

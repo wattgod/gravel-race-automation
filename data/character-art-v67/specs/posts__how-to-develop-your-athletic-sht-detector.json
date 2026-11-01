@@ -1,0 +1,221 @@
+{
+ "collection": "posts",
+ "slug": "how-to-develop-your-athletic-sht-detector",
+ "images": [
+  {
+   "file": "img/my-thoughts-if-you-can-afford-a-bike-you-can-afford-a-portable-lactate-teste-3.webp",
+   "name": "my-thoughts-if-you-can-afford-a-bike-you-can-afford-a-portable-lactate-teste-3",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      640,
+      420,
+      1040,
+      900
+     ],
+     "erase_box": [
+      620,
+      560,
+      1075,
+      900
+     ],
+     "mask": "box",
+     "pad": 10,
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "width",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "I only train in Zone 7 now, fueled entirely by meatloaf.",
+   "match": "exact",
+   "alt": "Cartoon Gravel God, seen from behind at his desk, watches a cartoon cyclist on his monitor say: \"I only train in Zone 7 now, fueled entirely by meatloaf.\"",
+   "insets": [
+    {
+     "src": [
+      1000,
+      440,
+      1100,
+      578
+     ],
+     "box": [
+      720,
+      440,
+      820,
+      578
+     ]
+    },
+    {
+     "src": [
+      1000,
+      440,
+      1100,
+      578
+     ],
+     "box": [
+      820,
+      440,
+      920,
+      578
+     ]
+    },
+    {
+     "src": [
+      1000,
+      440,
+      1100,
+      578
+     ],
+     "box": [
+      920,
+      440,
+      1020,
+      578
+     ]
+    },
+    {
+     "src": [
+      1200,
+      560,
+      1310,
+      712
+     ],
+     "box": [
+      622,
+      560,
+      732,
+      712
+     ]
+    },
+    {
+     "src": [
+      1200,
+      560,
+      1310,
+      712
+     ],
+     "box": [
+      962,
+      560,
+      1072,
+      712
+     ]
+    }
+   ],
+   "erase_extra": [
+    [
+     722,
+     445,
+     955,
+     560
+    ]
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/my-thoughts-if-you-can-afford-a-bike-you-can-afford-a-portable-lactate-teste.webp",
+   "name": "my-thoughts-if-you-can-afford-a-bike-you-can-afford-a-portable-lactate-teste",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      250,
+      470,
+      590,
+      900
+     ],
+     "erase_box": [
+      425,
+      585,
+      512,
+      712
+     ],
+     "mask": "box",
+     "pad": 0,
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "width",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "BIOPSYCHOSOCIAL IMPACT",
+   "match": "closest",
+   "note": "The old spinning-globe animation becomes a still.",
+   "alt": "Cartoon Gravel God, seen from behind, looks up at a cartoon Earth in a starry sky labelled \"BIOPSYCHOSOCIAL IMPACT\".",
+   "insets": [
+    {
+     "src": [
+      1100,
+      455,
+      1480,
+      900
+     ],
+     "box": [
+      60,
+      455,
+      440,
+      900
+     ]
+    }
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/my-thoughts-if-you-can-afford-a-bike-you-can-afford-a-portable-lactate-teste-2.webp",
+   "name": "my-thoughts-if-you-can-afford-a-bike-you-can-afford-a-portable-lactate-teste-2",
+   "verdict": "keep",
+   "why": "Screenshot of an Alan Couzens tweet; no Gravel God."
+  },
+  {
+   "file": "img/my-thoughts-if-you-can-afford-a-bike-you-can-afford-a-portable-lactate-teste-1.webp",
+   "name": "my-thoughts-if-you-can-afford-a-bike-you-can-afford-a-portable-lactate-teste-1",
+   "verdict": "keep",
+   "why": "Screenshot of an Alan Couzens thread; no Gravel God."
+  },
+  {
+   "file": "img/my-thoughts-if-you-can-afford-a-bike-you-can-afford-a-portable-lactate-teste-2-2.webp",
+   "name": "my-thoughts-if-you-can-afford-a-bike-you-can-afford-a-portable-lactate-teste-2-2",
+   "verdict": "keep",
+   "why": "Photo of a glucose monitor app and arm sensor; no Gravel God."
+  },
+  {
+   "file": "img/untitled-design.webp",
+   "name": "untitled-design",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      280,
+      330,
+      650,
+      900
+     ],
+     "erase_box": [
+      255,
+      320,
+      665,
+      900
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "joke": "(no words: him thinking it over)",
+   "match": "closest",
+   "note": "Thinking face without the hand on his chin.",
+   "alt": "Cartoon Gravel God, thinking, in front of a faded whiteboard of charts, arrows and sketches.",
+   "verdict": "replace"
+  }
+ ]
+}

@@ -1,0 +1,233 @@
+{
+ "collection": "posts",
+ "slug": "i-didnt-screw-up-ned-gravel-and-neither-do-you",
+ "images": [
+  {
+   "file": "img/ned-gravel.webp",
+   "name": "ned-gravel",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      20,
+      300,
+      330,
+      1110
+     ],
+     "erase_box": [
+      0,
+      292,
+      412,
+      700
+     ],
+     "pose": "stand",
+     "face": "focused",
+     "psi": 22.5
+    },
+    {
+     "box": [
+      30,
+      92,
+      190,
+      232
+     ],
+     "erase_box": [
+      12,
+      84,
+      202,
+      240
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "fit": "contain",
+     "face": "smile",
+     "psi": 80
+    }
+   ],
+   "erase_extra": [
+    [
+     0,
+     700,
+     300,
+     1132
+    ],
+    [
+     410,
+     292,
+     450,
+     545
+    ]
+   ],
+   "alt": "Strava screenshot of Matti Rowe's ride \"Ned Gravel: Åttende Plass!\", July 8, 2023, Nederland, Colorado: 69.96 mi, 4:21:01 moving time, 9,108 ft of climbing, 287 W weighted average power, with the looping route map west of Boulder and the elevation profile; cartoon Gravel God, handlebar mustache, stands in front of it in profile.",
+   "match": "exact",
+   "note": "The Strava profile picture was the old cartoon too; it is swapped for the rig head."
+  },
+  {
+   "file": "img/food-stall.webp",
+   "name": "food-stall",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      205,
+      0,
+      440,
+      232
+     ],
+     "erase_box": [
+      168,
+      0,
+      488,
+      236
+     ],
+     "mask": "grabcut",
+     "pad": 8,
+     "pose": "stand",
+     "crop": "head",
+     "fit": "contain",
+     "face": "grin",
+     "psi": 80
+    }
+   ],
+   "alt": "A kitchen island set with a charcuterie plate and a vegetable tray; cartoon Gravel God's head, handlebar mustache and all, sits on a man in a floral shirt leaning on the counter, while a girl in pigtails eats a carrot and gives the camera a sideways look.",
+   "match": "exact"
+  },
+  {
+   "file": "img/the-sherrif.webp",
+   "name": "the-sherrif",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      565,
+      235,
+      640,
+      372
+     ],
+     "erase_box": [
+      552,
+      220,
+      648,
+      374
+     ],
+     "ride": "cruise",
+     "psi": 100
+    }
+   ],
+   "alt": "Two pro riders sprint side by side down a long, dusty dirt road, with a tiny cartoon Gravel God far behind them in the distance.",
+   "match": "exact"
+  },
+  {
+   "file": "img/back-pain.webp",
+   "name": "back-pain",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      870,
+      370,
+      1010,
+      702
+     ],
+     "erase_box": [
+      835,
+      350,
+      1040,
+      735
+     ],
+     "mask": "box",
+     "ride": "seated_climb",
+     "psi": 270
+    }
+   ],
+   "alt": "Cartoon Gravel God, seen from behind, rides up a dirt road through pine trees toward snowy peaks, with red lightning bolts flashing from his lower back.",
+   "match": "exact",
+   "shapes": [
+    {
+     "type": "line",
+     "box": [
+      905,
+      485,
+      872,
+      470
+     ],
+     "fill": "#e3241b",
+     "width": 6
+    },
+    {
+     "type": "line",
+     "box": [
+      872,
+      470,
+      888,
+      495
+     ],
+     "fill": "#e3241b",
+     "width": 6
+    },
+    {
+     "type": "line",
+     "box": [
+      888,
+      495,
+      848,
+      479
+     ],
+     "fill": "#e3241b",
+     "width": 6
+    },
+    {
+     "type": "line",
+     "box": [
+      965,
+      485,
+      998,
+      470
+     ],
+     "fill": "#e3241b",
+     "width": 6
+    },
+    {
+     "type": "line",
+     "box": [
+      998,
+      470,
+      982,
+      495
+     ],
+     "fill": "#e3241b",
+     "width": 6
+    },
+    {
+     "type": "line",
+     "box": [
+      982,
+      495,
+      1022,
+      479
+     ],
+     "fill": "#e3241b",
+     "width": 6
+    }
+   ]
+  },
+  {
+   "file": "img/img-0449-scaled.webp",
+   "name": "img-0449-scaled",
+   "verdict": "keep",
+   "why": "Real photo of Matti and his daughter."
+  }
+ ]
+}

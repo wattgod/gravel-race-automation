@@ -101,22 +101,22 @@
  "renditions": {
   "um-no": {
    "1x": {
-    "file": "um-no.webp",
+    "file": "um-no-v67.webp",
     "width": 1600,
     "height": 900,
-    "bytes": 90618
+    "bytes": 68664
    },
    "phone": {
-    "file": "um-no-m.webp",
+    "file": "um-no-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 21988
+    "bytes": 20332
    },
    "phone2x": {
-    "file": "um-no-m@2x.webp",
+    "file": "um-no-v67-m@2x.webp",
     "width": 1320,
     "height": 742,
-    "bytes": 63824
+    "bytes": 48576
    },
    "source_bytes": 3370663
   },
@@ -143,71 +143,71 @@
   },
   "volcano": {
    "1x": {
-    "file": "volcano.webp",
+    "file": "volcano-v67.webp",
     "width": 1600,
     "height": 900,
-    "bytes": 71584
+    "bytes": 61996
    },
    "phone": {
-    "file": "volcano-m.webp",
+    "file": "volcano-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 20848
+    "bytes": 19118
    },
    "phone2x": {
-    "file": "volcano-m@2x.webp",
+    "file": "volcano-v67-m@2x.webp",
     "width": 1320,
     "height": 742,
-    "bytes": 55386
+    "bytes": 47728
    },
    "source_bytes": 1836318
   },
   "boredom": {
    "1x": {
-    "file": "boredom.webp",
+    "file": "boredom-v67.webp",
     "width": 1600,
     "height": 900,
-    "bytes": 49520
+    "bytes": 42080
    },
    "phone": {
-    "file": "boredom-m.webp",
+    "file": "boredom-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 16238
+    "bytes": 14030
    },
    "phone2x": {
-    "file": "boredom-m@2x.webp",
+    "file": "boredom-v67-m@2x.webp",
     "width": 1320,
     "height": 742,
-    "bytes": 38458
+    "bytes": 33126
    },
    "source_bytes": 1557988
   },
   "1": {
    "1x": {
-    "file": "1.webp",
+    "file": "1-v67.webp",
     "width": 1600,
     "height": 900,
-    "bytes": 292244
+    "bytes": 288842
    },
    "phone": {
-    "file": "1-m.webp",
+    "file": "1-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 52476
+    "bytes": 52184
    },
    "phone2x": {
-    "file": "1-m@2x.webp",
+    "file": "1-v67-m@2x.webp",
     "width": 1320,
     "height": 742,
-    "bytes": 208730
+    "bytes": 203140
    },
    "source_bytes": 2727173,
    "og": {
-    "file": "1-og.jpg",
+    "file": "1-v67-og.jpg",
     "width": 1200,
     "height": 630,
-    "bytes": 179544
+    "bytes": 176080
    }
   }
  }

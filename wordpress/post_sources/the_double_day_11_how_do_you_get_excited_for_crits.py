@@ -37,8 +37,8 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "boolin-1": "Strava screenshot of Matti Rowe's ride \"Dag 11: Det er på tid for Boolin'\", April 30, 2022, Silver City, New Mexico: 49.43 mi, 1:58:38 moving time, 1,263 ft of climbing, 239 W weighted average power, 25.0 mi/h average, clear and 26 °C, with the downtown crit loop traced in red on the map.",
-    "silver-city-boolin": "TrainingPeaks file \"Gila St4 - Crit\", April 30, 2022: 1:58:43, 49.4 mi, 105 TSS; the selected 1:34:10 race portion shows 43.8 mi, 91 TSS, normalized power 275 W, IF 0.77 and 3.07 W/kg over a dense, spiky power graph of the laps. A cartoon Gravel God in a cowboy hat and short shorts stands in front, hand at his mouth.",
+    "boolin-1": "Strava screenshot of Matti Rowe's ride \"Dag 11: Det er på tid for Boolin'\", April 30, 2022, Silver City, New Mexico, with cartoon Gravel God's head as the profile picture: 49.43 mi, 1:58:38 moving time, 1,263 ft of climbing, 239 W weighted average power and a red criterium loop on the map.",
+    "silver-city-boolin": "TrainingPeaks file \"Gila St4 - Crit\", April 30, 2022: 1:58:43, 49.4 mi, 105 TSS; the selected 1:34:10 race portion shows 43.8 mi, 91 TSS, normalized power 275 W, IF 0.77 and 3.07 W/kg, with cartoon Gravel God standing over the power chart sipping a drink.",
 }
 
 DESCRIPTION = ("Day 11 of The Double: the Tour of the Gila Silver City criterium, a teammate's "

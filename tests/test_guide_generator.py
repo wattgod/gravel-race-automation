@@ -1426,15 +1426,15 @@ class TestChapterHeroImage:
             "hero_image": "ch1-hero",
         }
         html = build_chapter(chapter)
-        # Chapters with a painted scene open on it; the survey plate is the fallback.
+        # Chapters with a character scene open on it; the survey plate is the fallback.
         assert 'class="gg-guide-chapter-art"' in html
-        assert "/guide/media/gg-art-01-what-is-gravel-1x.webp" in html
+        assert "/guide/media/gg-art-v67-01-what-is-gravel-1x.webp" in html
         assert "gg-guide-plate" not in html
         assert "gg-guide-chapter-title-block" in html
         assert "url(/guide/media/ch1-hero-1x.webp)" not in html
 
     def test_chapter_no_hero_image(self):
-        """A chapter without a painted scene still renders a survey plate."""
+        """A chapter without a character scene still renders a survey plate."""
         chapter = {
             "number": 9,
             "id": "test-chapter",
@@ -1770,8 +1770,8 @@ class TestGuideArt:
             for tag in ("1x", "2x"):
                 assert (art / f"gg-art-{slug}-{tag}.webp").is_file(), slug
 
-    def test_cover_opens_on_the_painted_scene(self):
+    def test_cover_opens_on_the_character_scene(self):
         from generate_guide import build_hero
         html = build_hero({"title": "T", "subtitle": "S", "chapters": [{}] * 8})
-        assert "gg-art-00-cover-1x.webp" in html and 'fetchpriority="high"' in html
+        assert "gg-art-v67-00-cover-1x.webp" in html and 'fetchpriority="high"' in html
         assert "8 CHAPTERS" in html

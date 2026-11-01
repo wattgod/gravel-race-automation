@@ -1,0 +1,228 @@
+{
+ "collection": "articles",
+ "slug": "top-50-on-the-planet-for-my-age",
+ "images": [
+  {
+   "file": "img/858ca32846b00ed5.webp",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      0,
+      40,
+      600,
+      900
+     ],
+     "erase_box": [
+      0,
+      0,
+      470,
+      900
+     ],
+     "pose": "stand",
+     "face": "focused",
+     "psi": 45,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "joke": "(no words: driving across the desert, checking his phone)",
+   "match": "closest",
+   "note": "Bust at the wheel; his hand with the phone is the original.",
+   "erase_extra": [
+    [
+     0,
+     0,
+     580,
+     260
+    ]
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/5790ae1c9270a205.webp",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      640,
+      60,
+      960,
+      880
+     ],
+     "erase_box": [
+      530,
+      20,
+      1085,
+      900
+     ],
+     "pad": 0,
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 80
+    }
+   ],
+   "joke": "(no words: him between two Phil Gaimon Instagram posts)",
+   "match": "closest",
+   "note": "Thinking face without the hand on his chin.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/4248193a5796d65b.webp",
+   "mode": "rebuild",
+   "figs": [
+    {
+     "box": [
+      360,
+      250,
+      980,
+      880
+     ],
+     "pose": "sit",
+     "face": "surprised",
+     "psi": 60
+    }
+   ],
+   "joke": "(no words: sitting in the road next to a smoking bomb - hoist with his own petard)",
+   "match": "closest",
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      300,
+      900
+     ],
+     "box": [
+      0,
+      0,
+      300,
+      900
+     ]
+    },
+    {
+     "src": [
+      1010,
+      0,
+      1600,
+      900
+     ],
+     "box": [
+      1010,
+      0,
+      1600,
+      900
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      100,
+      320,
+      1200,
+      640
+     ],
+     "fill": "#719235"
+    },
+    {
+     "type": "rect",
+     "box": [
+      300,
+      560,
+      1010,
+      900
+     ],
+     "fill": "#fbc993"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      600,
+      470,
+      1200,
+      640
+     ],
+     "fill": "#fbc993"
+    },
+    {
+     "type": "rect",
+     "box": [
+      995,
+      200,
+      1065,
+      310
+     ],
+     "fill": "#85e1fd"
+    },
+    {
+     "type": "rect",
+     "box": [
+      990,
+      660,
+      1070,
+      790
+     ],
+     "fill": "#fbc993"
+    }
+   ],
+   "note": "Middle of the background redrawn flat (sky, hill, road); sides of the picture and the bomb kept.",
+   "bg": {
+    "type": "flat",
+    "color": "#85e1fd"
+   },
+   "verdict": "replace"
+  },
+  {
+   "file": "img/68fb72e27bb74526.webp",
+   "verdict": "keep",
+   "why": "Screenshot of text about the phrase hoist with his own petard; no Gravel God."
+  },
+  {
+   "file": "img/050626908b6fd2fa.webp",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      600,
+      190,
+      920,
+      980
+     ],
+     "erase_box": [
+      560,
+      100,
+      960,
+      1024
+     ],
+     "pose": "stand",
+     "face": "neutral",
+     "psi": 80,
+     "mask": "box"
+    }
+   ],
+   "joke": "(no words: standing before a tree half autumn, half green with blood-dripping fruit)",
+   "match": "closest",
+   "note": "No book in his hand; he stands in a plain framed panel over the trunk, since the old figure filled the middle of the tree.",
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      575,
+      150,
+      945,
+      1000
+     ],
+     "fill": "#fffff4",
+     "outline": "#1a1613",
+     "width": 6
+    }
+   ],
+   "verdict": "replace"
+  }
+ ]
+}

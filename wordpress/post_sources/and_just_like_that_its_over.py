@@ -37,8 +37,8 @@ DESCRIPTION = ("An end-of-season essay: after the year’s last race, the author
 
 ALT = {
     "season": "Google Maps driving routes from Wisconsin to Fort Collins, Colorado, about 16 hours and 1,019 to 1,086 miles; the Colorado half of the map is grey and labelled \"Off-season\", the Wisconsin half green and labelled \"Season\".",
-    "season-1": "Cartoon Gravel God in a cowboy hat, wearing a parachute harness, leaps off the top of a wind turbine above flat brown farm fields.",
-    "untitled-design-1": "Cartoon Gravel God in a cowboy hat sits on a wooden bench with his back to the camera, facing a grey, foggy sky between bare shrubs.",
+    "season-1": "Cartoon Gravel God, handlebar mustache and white tee, strides off across flat brown farm fields, laughing.",
+    "untitled-design-1": "Cartoon Gravel God sits on a wooden bench with his back to the camera, facing a grey, foggy sky between bare shrubs.",
 }
 
 ANCHORS = {

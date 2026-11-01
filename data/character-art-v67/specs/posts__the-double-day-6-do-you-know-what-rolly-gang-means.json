@@ -1,0 +1,49 @@
+{
+ "collection": "posts",
+ "slug": "the-double-day-6-do-you-know-what-rolly-gang-means",
+ "images": [
+  {
+   "file": "img/dag-seks.webp",
+   "name": "dag-seks",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      400,
+      140,
+      620,
+      385
+     ],
+     "erase_box": [
+      395,
+      130,
+      625,
+      390
+     ],
+     "mask": "grabcut",
+     "pad": 8,
+     "ride": "cruise",
+     "face": "grin",
+     "psi": 70
+    }
+   ],
+   "joke": "(no words: him riding the route on the map)",
+   "match": "exact",
+   "alt": "A Google map route from Redlands through Phoenix and Tucson to Silver City, New Mexico; cartoon Gravel God rides his bike over the California desert.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/boolin.webp",
+   "name": "boolin",
+   "verdict": "keep",
+   "why": "Black-and-white crit photo with a neon BOOLIN sign; no Gravel God."
+  },
+  {
+   "file": "img/67261683480-135b1b38-4acb-4334-a87b-0d311e27fa14-scaled.webp",
+   "name": "67261683480-135b1b38-4acb-4334-a87b-0d311e27fa14-scaled",
+   "verdict": "keep",
+   "why": "Photo of two kids grinning; no Gravel God."
+  }
+ ]
+}

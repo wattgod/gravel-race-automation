@@ -1,0 +1,32 @@
+{
+ "collection": "articles",
+ "slug": "part-1-why-should-you-race-your-bike",
+ "images": [
+  {
+   "file": "img/1f409b5a5acf5852.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#000000",
+   "figs": [
+    {
+     "box": [
+      490,
+      70,
+      800,
+      980
+     ],
+     "erase_box": [
+      380,
+      0,
+      900,
+      1000
+     ],
+     "pose": "stand",
+     "psi": 90,
+     "face": "grin"
+    }
+   ],
+   "match": "exact"
+  }
+ ]
+}

@@ -1,0 +1,395 @@
+{
+ "collection": "posts",
+ "slug": "how-do-i-know-if-im-getting-fitter",
+ "images": [
+  {
+   "file": "img/time.webp",
+   "name": "time",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      990,
+      40,
+      1150,
+      595
+     ],
+     "erase_box": [
+      940,
+      0,
+      1200,
+      360
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90
+    }
+   ],
+   "erase_extra": [
+    [
+     985,
+     360,
+     1200,
+     600
+    ]
+   ],
+   "joke": "TAKE TAKE TAKE take",
+   "alt": "Cartoon Gravel God, handlebar mustache and white tee, stands beside a vacuum cleaner sucking up the words \"TAKE TAKE TAKE take\", next to a round illustration of a three-generation family.",
+   "match": "exact"
+  },
+  {
+   "file": "img/time-2.webp",
+   "name": "time-2",
+   "verdict": "keep",
+   "why": "Photo of a basement door with the word SANITY; no Gravel God."
+  },
+  {
+   "file": "img/time-1.webp",
+   "name": "time-1",
+   "verdict": "keep",
+   "why": "Photo of a little girl on the stairs; no Gravel God."
+  },
+  {
+   "file": "img/time-2-2.webp",
+   "name": "time-2-2",
+   "verdict": "keep",
+   "why": "T -16HRS and an hourglass; no Gravel God."
+  },
+  {
+   "file": "img/time-3.webp",
+   "name": "time-3",
+   "verdict": "keep",
+   "why": "Stock photo of a parent and baby; no Gravel God."
+  },
+  {
+   "file": "img/time-4.webp",
+   "name": "time-4",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      400,
+      60,
+      1000,
+      600
+     ],
+     "erase_box": [
+      370,
+      0,
+      1010,
+      600
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "contain"
+    }
+   ],
+   "joke": "Shame. Shame. Shame.",
+   "alt": "Cartoon Gravel God, wincing, walks through a jeering crowd, speech bubbles all around reading \"Shame.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/time-5.webp",
+   "name": "time-5",
+   "verdict": "keep",
+   "why": "Cartoon legs in heels and The Bachelor; no Gravel God."
+  },
+  {
+   "file": "img/time-6.webp",
+   "name": "time-6",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      50,
+      80,
+      330,
+      595
+     ],
+     "erase_box": [
+      10,
+      60,
+      382,
+      600
+     ],
+     "pose": "point",
+     "face": "smile",
+     "psi": 90
+    }
+   ],
+   "joke": "Thank The people that support Your Training and Racing.",
+   "alt": "Cartoon Gravel God points at the viewer beside the words \"Thank the people that support Your Training and Racing.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/time-7.webp",
+   "name": "time-7",
+   "verdict": "keep",
+   "why": "Sympathy card; no Gravel God."
+  },
+  {
+   "file": "img/time-9.webp",
+   "name": "time-9",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      880,
+      50,
+      1080,
+      560
+     ],
+     "erase_box": [
+      835,
+      0,
+      1135,
+      575
+     ],
+     "pose": "arms_crossed",
+     "face": "thinking",
+     "psi": 90
+    }
+   ],
+   "joke": "STOP IT. SAVE YOUR SYMPATHY FOR SOMEONE WHO ACTUALLY DESERVES IT.",
+   "alt": "Cartoon Gravel God, arms crossed and one eyebrow up, beside the words \"STOP IT. SAVE YOUR SYMPATHY FOR SOMEONE WHO ACTUALLY DESERVES IT.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/time-10.webp",
+   "name": "time-10",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      830,
+      115,
+      1010,
+      322
+     ],
+     "erase_box": [
+      800,
+      80,
+      958,
+      215
+     ],
+     "ride": "sprint",
+     "face": "shout",
+     "psi": 35
+    }
+   ],
+   "erase_extra": [
+    [
+     860,
+     190,
+     1034,
+     300
+    ],
+    [
+     870,
+     295,
+     965,
+     352
+    ],
+    [
+     955,
+     85,
+     982,
+     150
+    ]
+   ],
+   "joke": "FML!!!",
+   "alt": "Two women grin in a heart-shaped photo beside bacon and a Bloody Mary, while a thought bubble shows cartoon Gravel God sprinting away on his bike shouting \"FML!!!\" as two crying children chase him.",
+   "match": "exact"
+  },
+  {
+   "file": "img/1.webp",
+   "name": "1",
+   "verdict": "keep",
+   "why": "Generic icon of a young cyclist; not Gravel God."
+  },
+  {
+   "file": "img/2.webp",
+   "name": "2",
+   "verdict": "keep",
+   "why": "Generic icon of a student with a bike; not Gravel God."
+  },
+  {
+   "file": "img/3.webp",
+   "name": "3",
+   "verdict": "keep",
+   "why": "Generic icon of an office worker; not Gravel God."
+  },
+  {
+   "file": "img/4.webp",
+   "name": "4",
+   "verdict": "keep",
+   "why": "Generic icon of a parent and a cyclist; not Gravel God."
+  },
+  {
+   "file": "img/2021-04-01-10-56-43-1.webp",
+   "name": "2021-04-01-10-56-43-1",
+   "verdict": "keep",
+   "why": "Animated clip of real people; no Gravel God."
+  },
+  {
+   "file": "img/time-11.webp",
+   "name": "time-11",
+   "verdict": "keep",
+   "why": "Photo of a toddler on a balance bike; no Gravel God."
+  },
+  {
+   "file": "img/time-12.webp",
+   "name": "time-12",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "flat",
+    "color": "#ffffff"
+   },
+   "figs": [
+    {
+     "box": [
+      930,
+      60,
+      1150,
+      590
+     ],
+     "pose": "arms_crossed",
+     "face": "smile",
+     "psi": 112.5
+    }
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "text": "TRAINING IS A PRIVILEGE. RACING IS A PRIVILEGE. THE CAPACITY FOR CYCLING TO MAKE YOU A BETTER HUMAN TO EVERYONE CONNECTED TO YOU REPRESENTS ITS ACTUAL VALUE.",
+     "box": [
+      30,
+      90,
+      880,
+      510
+     ],
+     "size": 52,
+     "weight": 500,
+     "color": "#59473c",
+     "align": "left"
+    }
+   ],
+   "joke": "TRAINING IS A PRIVILEGE. RACING IS A PRIVILEGE. THE CAPACITY FOR CYCLING TO MAKE YOU A BETTER HUMAN TO EVERYONE CONNECTED TO YOU REPRESENTS ITS ACTUAL VALUE.",
+   "alt": "Cartoon Gravel God, arms crossed, beside the words \"Training is a privilege. Racing is a privilege. The capacity for cycling to make you a better human to everyone connected to you represents its actual value.\"",
+   "match": "closest",
+   "note": "He stands beside the words instead of as a faded picture behind them; the two bold PRIVILEGE words are set in the same weight as the rest."
+  },
+  {
+   "file": "img/time-13.webp",
+   "name": "time-13",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      40,
+      250,
+      240,
+      600
+     ],
+     "erase_box": [
+      12,
+      280,
+      258,
+      600
+     ],
+     "pose": "hands_hips",
+     "face": "smile",
+     "psi": 45,
+     "crop": "full",
+     "fit": "height"
+    }
+   ],
+   "joke": "Heyyyy.. Want to do anything else today but watch the kids while I bike 500 miles? / Who are you and what have you done with my husband?",
+   "alt": "Cartoon Gravel God asks, \"Heyyyy.. Want to do anything else today but watch the kids while I bike 500 miles?\" and a woman in sunglasses replies, \"Who are you and what have you done with my husband?\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/time-14.webp",
+   "name": "time-14",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      325,
+      0,
+      690,
+      352
+     ],
+     "erase_box": [
+      352,
+      0,
+      700,
+      352
+     ],
+     "pose": "coffee",
+     "face": "smile",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "erase_extra": [
+    [
+     700,
+     0,
+     748,
+     92
+    ]
+   ],
+   "joke": "Step-Daddy-Matti parenting for the win.",
+   "alt": "Cartoon Gravel God with a coffee in a cluttered family kitchen, with a thought bubble: \"Step-Daddy-Matti parenting for the win.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/dreaming.webp",
+   "name": "dreaming",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      60,
+      150,
+      220,
+      595
+     ],
+     "erase_box": [
+      22,
+      130,
+      270,
+      600
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 67.5
+    }
+   ],
+   "joke": "(daydream of the yellow jersey)",
+   "alt": "Cartoon Gravel God smiles as he daydreams of a rider in the yellow jersey holding a stuffed lion on a podium.",
+   "match": "exact"
+  }
+ ]
+}

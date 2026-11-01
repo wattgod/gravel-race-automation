@@ -1,0 +1,140 @@
+{
+ "collection": "posts",
+ "slug": "listening-to-robert-in-silver-city",
+ "images": [
+  {
+   "file": "img/are-you-all-alive-1.webp",
+   "name": "are-you-all-alive-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      345,
+      50,
+      440,
+      170
+     ],
+     "erase_box": [
+      325,
+      38,
+      458,
+      172
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "head",
+     "fit": "height",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Black-and-white group photo of riders with bikes; cartoon Gravel God's head is on one of the riders.",
+   "match": "closest",
+   "note": "Head only from the rig; it stays in colour on the black-and-white photo."
+  },
+  {
+   "file": "img/cancelled.webp",
+   "name": "cancelled",
+   "verdict": "keep",
+   "why": "Graphic of the cancelled Gila logo."
+  },
+  {
+   "file": "img/losers.webp",
+   "name": "losers",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      870,
+      90,
+      1110,
+      739
+     ],
+     "erase_box": [
+      860,
+      85,
+      1110,
+      739
+     ],
+     "ride": "cruise",
+     "face": "shout",
+     "psi": 75,
+     "mask": "grabcut",
+     "pad": 8,
+     "scale": 1.15
+    }
+   ],
+   "alt": "Cartoon Gravel God rides through a downtown kids' race shouting \"LOSERS!\"",
+   "joke": "LOSERS!",
+   "match": "exact"
+  },
+  {
+   "file": "img/keanu-reeves-1680-x-1137-px.webp",
+   "name": "keanu-reeves-1680-x-1137-px",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1080,
+      230,
+      1600,
+      1083
+     ],
+     "erase_box": [
+      1030,
+      190,
+      1600,
+      1083
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 135,
+     "crop": "bust",
+     "fit": "contain",
+     "anchor": "bottom",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Sad Keanu Reeves sits alone on a bench while cartoon Gravel God looks at him from the right.",
+   "match": "exact"
+  },
+  {
+   "file": "img/robert-roberting.webp",
+   "name": "robert-roberting",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1330,
+      30,
+      1560,
+      715
+     ],
+     "erase_box": [
+      1270,
+      20,
+      1600,
+      720
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 135,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God watches two men load gear into a white team van.",
+   "match": "exact"
+  }
+ ]
+}

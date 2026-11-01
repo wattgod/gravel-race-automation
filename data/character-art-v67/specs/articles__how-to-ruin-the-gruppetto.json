@@ -1,0 +1,214 @@
+{
+ "collection": "articles",
+ "slug": "how-to-ruin-the-gruppetto",
+ "images": [
+  {
+   "file": "img/2181b7d0aa74d661.webp",
+   "mode": "rebuild",
+   "figs": [
+    {
+     "box": [
+      880,
+      170,
+      1440,
+      960
+     ],
+     "erase_box": [
+      880,
+      60,
+      1300,
+      965
+     ],
+     "ride": "cruise",
+     "face": "shout",
+     "psi": 30,
+     "fit": "height"
+    }
+   ],
+   "joke": "(no words: a rider points and yells at him)",
+   "match": "exact",
+   "bg": {
+    "type": "flat",
+    "color": "#ffffff"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      880,
+      1024
+     ],
+     "box": [
+      0,
+      0,
+      880,
+      1024
+     ]
+    },
+    {
+     "src": [
+      0,
+      860,
+      656,
+      1024
+     ],
+     "box": [
+      880,
+      860,
+      1536,
+      1024
+     ]
+    }
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/93327f3bc83c52cf.webp",
+   "mode": "composite",
+   "figs": [
+    {
+     "box": [
+      830,
+      280,
+      1330,
+      960
+     ],
+     "erase_box": [
+      830,
+      250,
+      1536,
+      640
+     ],
+     "ride": "cruise",
+     "face": "neutral",
+     "psi": 30,
+     "fit": "height",
+     "mask": "box",
+     "pad": 0
+    }
+   ],
+   "joke": "(no words: a rider yells at him from behind)",
+   "match": "closest",
+   "note": "Hills and road behind him redrawn as flat shapes.",
+   "erase": "#fffbec",
+   "erase_extra": [
+    [
+     870,
+     640,
+     1536,
+     1024
+    ]
+   ],
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      870,
+      540,
+      2000,
+      760
+     ],
+     "fill": "#aba673"
+    },
+    {
+     "type": "rect",
+     "box": [
+      870,
+      650,
+      1536,
+      820
+     ],
+     "fill": "#aba673"
+    },
+    {
+     "type": "rect",
+     "box": [
+      870,
+      800,
+      1536,
+      1024
+     ],
+     "fill": "#fde3c4"
+    }
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/fa2aa35d78e3855c.webp",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      760,
+      680,
+      1180,
+      1024
+     ],
+     "erase_box": [
+      760,
+      640,
+      1170,
+      1024
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "width",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "(no words: him watching the lone rider ride away)",
+   "match": "exact",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/e1c11e4fe4048fa7.webp",
+   "mode": "rebuild",
+   "figs": [
+    {
+     "box": [
+      60,
+      170,
+      840,
+      960
+     ],
+     "erase_box": [
+      80,
+      160,
+      840,
+      970
+     ],
+     "ride": "cruise",
+     "face": "focused",
+     "psi": 20,
+     "fit": "height"
+    }
+   ],
+   "joke": "(no words: riding alone across the desert)",
+   "match": "exact",
+   "bg": {
+    "type": "flat",
+    "color": "#fde9c4"
+   },
+   "insets": [
+    {
+     "src": [
+      840,
+      0,
+      1536,
+      1024
+     ],
+     "box": [
+      0,
+      0,
+      1536,
+      1024
+     ]
+    }
+   ],
+   "verdict": "replace"
+  }
+ ]
+}

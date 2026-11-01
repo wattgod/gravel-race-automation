@@ -1,0 +1,178 @@
+{
+ "collection": "articles",
+ "slug": "matti-i-fing-won",
+ "images": [
+  {
+   "file": "img/25f4be871ae988bb.webp",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      40,
+      190,
+      380,
+      1010
+     ],
+     "erase_box": [
+      130,
+      170,
+      480,
+      1005
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "ride": "cruise",
+     "psi": 270
+    }
+   ],
+   "joke": "(no words: riding away down a dirt road at dusk)",
+   "match": "exact",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/6ed04b649d29582b.webp",
+   "mode": "rebuild",
+   "bg": {
+    "type": "flat",
+    "color": "#4f3422"
+   },
+   "insets": [
+    {
+     "src": [
+      480,
+      0,
+      1024,
+      1024
+     ],
+     "box": [
+      480,
+      0,
+      1024,
+      1024
+     ]
+    },
+    {
+     "src": [
+      0,
+      0,
+      480,
+      90
+     ],
+     "box": [
+      0,
+      0,
+      480,
+      90
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      0,
+      880,
+      480,
+      1024
+     ],
+     "fill": "#2a2a2a"
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      60,
+      120,
+      440,
+      1010
+     ],
+     "pose": "phone",
+     "face": "neutral",
+     "psi": 60,
+     "crop": "full",
+     "fit": "height"
+    }
+   ],
+   "joke": "(no words: on the phone in the garage while a couple rides off on a scooter)",
+   "match": "closest",
+   "note": "Shelves on the left are a plain wall now; no pistol in his other hand.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/cf18cc9b9abee412.webp",
+   "mode": "rebuild",
+   "bg": {
+    "type": "flat",
+    "color": "#6b3726"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      450,
+      1024
+     ],
+     "box": [
+      0,
+      0,
+      450,
+      1024
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      450,
+      0,
+      1024,
+      1024
+     ],
+     "fill": "#6b3726"
+    },
+    {
+     "type": "rect",
+     "box": [
+      450,
+      600,
+      1024,
+      1024
+     ],
+     "fill": "#5a2e1f"
+    },
+    {
+     "type": "rect",
+     "box": [
+      450,
+      580,
+      1024,
+      620
+     ],
+     "fill": "#c58a5a"
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      520,
+      140,
+      980,
+      820
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "joke": "(no words: thinking at the kitchen counter while a pot boils)",
+   "match": "closest",
+   "note": "Leaning on a stool becomes a bust behind a plain counter; thinking face without the arm pose.",
+   "verdict": "replace"
+  }
+ ]
+}

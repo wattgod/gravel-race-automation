@@ -42,17 +42,17 @@ OUTPUT_PATH = wp_post.output_path(SLUG)
 _TP = "TrainingPeaks file of the October 14, 2023 ride (7:43:13, 145 mi, 530 TSS) with the route map and power, heart-rate and cadence traces"
 
 ALT = {
-    "rgggggg": "Strava activity \"Red Granite Grinder - Andre Plass!\", Saturday, October 14, 2023, Wausau, Wisconsin: 145.04 mi, 7:43:15 moving time, 7,631 ft, 282 W weighted average power, 18.8 mi/h average, and KOMs on four segments including the Billy Goat Hills; cartoon Gravel God in a cowboy hat grins on the right.",
+    "rgggggg": "Strava activity \"Red Granite Grinder - Andre Plass!\", Saturday, October 14, 2023, Wausau, Wisconsin: 145.04 mi, 7:43:15 moving time, 7,631 ft, 282 W weighted average power, 18.8 mi/h average, and KOMs on four segments; a grinning cartoon Gravel God stands beside the stats, and his head is the profile picture.",
     "rgg-gif-podium": "Animated: three riders on tree-stump podium blocks in a grassy square before a tall brick hotel. The winner, centre, in a light-blue hoodie, hoists a wooden cutting board overhead; the rider in a cowboy hat on the right holds his board. A grey-haired woman walks past in front with a speech bubble: \"It's honestly hard to be proud of you today.\"",
     "img-4766": "Strava comments on Hayden Pucker's 61.18-mile \"Morning Ride\" near Fond du Lac: Adam Bird asks \"You racing red granite?\", Hayden replies \"I am!\" and then \"I'm gonna beat Matti Rowe this year\".",
     "rgg-rib-year-comparison": "Animated Strava segment comparison of the \"Wisport TT Climb Section\" on Rib Mountain (2.1 mi, 5% grade, 600 ft): the 2023 ride, 2021 and 2022 race up the map and elevation profile together; at the top the 2023 effort reads 9:47, with 2021 24 seconds and 2022 35 seconds behind.",
-    "bekken": "A rider in a blue team kit and helmet carries his muddy gravel bike up out of a small forest stream on a leafy singletrack, while a cartoon Gravel God in a cowboy hat rides past on the bank above.",
-    "theyre-away": "A dusty, autumn-forest gravel road: a rider in a mustard-and-navy kit with a number plate on his bars leads, and cartoon Gravel God in a cowboy hat sits on his wheel through the dust.",
+    "bekken": "A rider in a blue team kit and helmet carries his muddy gravel bike up out of a small forest stream on a leafy singletrack, while cartoon Gravel God rides past on the bank above.",
+    "theyre-away": "A dusty, autumn-forest gravel road: a rider in a mustard-and-navy kit with a number plate on his bars leads, and cartoon Gravel God sits on his wheel through the dust.",
     "pit-climb": "TrainingPeaks file of the October 14, 2023 ride (7:43:13, 145 mi, 530 TSS) with a 0.22-mile climb selected: 415 W normalized, average 392 W and max 542 W, heart rate 123 to 150 bpm, 5.07 W/kg.",
     "gruff": _TP + ", a 48-second, 0.13-mile climb selected: 545 W normalized, 505 W average, 648 W max, heart rate up to 157 bpm, 12.7% grade, 6.53 W/kg.",
     "final-billy-goat": _TP + ", a 1:25.90, 0.28-mile climb selected: 500 W normalized, 450 W average, 607 W max, heart rate up to 164 bpm, 8.5% grade, 5.82 W/kg.",
     "brokaw": _TP + ", a 3:02.53, 0.57-mile climb selected: 441 W normalized, 423 W average, 543 W max, heart rate up to 165 bpm, 6.9% grade, 5.47 W/kg.",
-    "rgg-finish": "A rider in a blue kit crosses the line on a brick plaza between red \"Finish\" and \"Start\" banners strung with pennants and traffic cones, with a cartoon Gravel God in a cowboy hat watching from the path behind.",
+    "rgg-finish": "A rider in a blue kit crosses the line on a brick plaza between red \"Finish\" and \"Start\" banners strung with pennants and traffic cones, with cartoon Gravel God watching from the path behind.",
     "unc-and-ce": "A group of gravel riders in helmets and dark jackets rides a red dirt track between tall golden cornstalks, a rider wearing race number 201 at the front and a smiling rider in a blue jacket alongside.",
     "matti-doing-shit-scaled": "A grinning man in a cowboy hat and a red, white and blue jacket holds a giant \"Lotzza Motzza\" sausage and mushroom pizza in a supermarket freezer aisle.",
     "img-5129": "Strava activity \"Solo Haul\" by Labi Shabani from the Village of Weston, Wisconsin: a route from Wausau to La Crosse, 146.02 mi, 5,161 ft of climbing, 6:48:11 moving time, 221 W average power, 21.5 mi/h.",

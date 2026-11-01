@@ -555,7 +555,7 @@ def sync_guide_cluster(cluster_dir: str):
         print(f"✗ Error uploading guide cluster pages: {e}")
         return None
 
-    # The chapter pages open on the painted scenes, served from /guide/media/.
+    # The chapter pages open on the character scenes, served from /guide/media/.
     art_dir = Path(__file__).resolve().parent.parent / "guide" / "art"
     art_files = sorted(f.name for f in art_dir.glob("*.webp")) if art_dir.exists() else []
     if art_files:
@@ -753,14 +753,14 @@ def sync_about(about_file: str):
         return None
 
     # Upload avatar image if present
-    avatar_path = html_path.parent / "matti-avatar.png"
+    avatar_path = html_path.parent / "matti-avatar-v67.png"  # v6.7 character redraw (new name: long cache)
     if avatar_path.exists():
         try:
             subprocess.run(
                 [
                     "scp", "-i", str(SSH_KEY), "-P", port,
                     str(avatar_path),
-                    f"{user}@{host}:{remote_base}/matti-avatar.png",
+                    f"{user}@{host}:{remote_base}/matti-avatar-v67.png",
                 ],
                 check=True,
                 capture_output=True,
@@ -768,7 +768,7 @@ def sync_about(about_file: str):
                 timeout=30,
             )
         except subprocess.CalledProcessError:
-            print("  ⚠ Could not upload matti-avatar.png (non-fatal)")
+            print("  ⚠ Could not upload matti-avatar-v67.png (non-fatal)")
 
     # Upload shared CSS/JS assets (about page references them via /race/assets/)
     assets_dir = html_path.parent / "assets"

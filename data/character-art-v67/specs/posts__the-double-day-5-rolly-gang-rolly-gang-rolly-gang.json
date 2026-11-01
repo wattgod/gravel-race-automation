@@ -1,0 +1,86 @@
+{
+ "collection": "posts",
+ "slug": "the-double-day-5-rolly-gang-rolly-gang-rolly-gang",
+ "images": [
+  {
+   "file": "img/rolly-gang.webp",
+   "name": "rolly-gang",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      12,
+      62,
+      92,
+      150
+     ],
+     "erase_box": [
+      5,
+      55,
+      100,
+      160
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain",
+     "shadow": false
+    }
+   ],
+   "alt": "Strava screenshot of Matti Rowe's ride \"Dag 5: Rolly gang rolly gang rolly gang\" (cartoon Gravel God avatar), 10:47 AM on Sunday, April 24, 2022, Riverside County, California: 23.88 mi, 1:16:16 moving time, 1,191 ft of climbing, 232 W weighted average power, 1,025 kJ, with the route map and elevation profile; a faded photo of a herd of donkeys shows through behind the profile.",
+   "match": "exact"
+  },
+  {
+   "file": "img/img-1389.webp",
+   "name": "img-1389",
+   "verdict": "keep",
+   "why": "Real photo of two riders after a crash; no Gravel God."
+  },
+  {
+   "file": "img/img-1393.webp",
+   "name": "img-1393",
+   "verdict": "keep",
+   "why": "Instagram story of a real rider; no Gravel God."
+  },
+  {
+   "file": "img/elser.webp",
+   "name": "elser",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      150,
+      330,
+      520,
+      750
+     ],
+     "erase_box": [
+      135,
+      300,
+      520,
+      760
+     ],
+     "ride": "cruise",
+     "face": "smile",
+     "psi": 10,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "Cartoon Gravel God rides a bike along a curb, past a landscaped hillside where a wild donkey grazes among the bushes.",
+   "match": "closest",
+   "note": "The original was a short animation; the redraw is a still."
+  },
+  {
+   "file": "img/img-9715.webp",
+   "name": "img-9715",
+   "verdict": "keep",
+   "why": "Photo of a toddler in an arcade; no Gravel God."
+  }
+ ]
+}

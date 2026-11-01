@@ -1,0 +1,125 @@
+{
+ "collection": "posts",
+ "slug": "tour-of-the-gila-silver-city-criterium",
+ "images": [
+  {
+   "file": "img/untitled-design-10.webp",
+   "name": "untitled-design-10",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      40,
+      95,
+      180,
+      240
+     ],
+     "mask": "box",
+     "erase_box": [
+      28,
+      85,
+      192,
+      250
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 90,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "center"
+    },
+    {
+     "box": [
+      1290,
+      225,
+      1480,
+      825
+     ],
+     "mask": "grabcut",
+     "erase_box": [
+      1238,
+      212,
+      1522,
+      828
+     ],
+     "pose": "drink",
+     "face": "smile",
+     "psi": 112.5
+    }
+   ],
+   "alt": "Strava activity \"Stage 4: Circle Rhizzing\", Saturday, April 29, 2023, Silver City, New Mexico: 48.98 mi, 1:59:25 moving time, 2,500 ft, 239 W weighted average power, 24.6 mi/h average; cartoon Gravel God, handlebar mustache and white tee, stands at the right edge sipping a drink, and his head is the profile picture.",
+   "match": "closest",
+   "note": "Old hand-to-mouth gesture becomes a drink pose."
+  },
+  {
+   "file": "img/untitled-design-11.webp",
+   "name": "untitled-design-11",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      440,
+      600,
+      660,
+      1060
+     ],
+     "erase_box": [
+      445,
+      640,
+      640,
+      745
+     ],
+     "pose": "hands_hips",
+     "face": "grin",
+     "psi": 80
+    }
+   ],
+   "alt": "Cartoon Gravel God, hands on hips, stands on a sidewalk beside a sky-blue adobe building painted with a big black-and-white lizard curled in a circle and a white bear, under a deep blue sky.",
+   "match": "exact",
+   "erase_extra": [
+    [
+     495,
+     740,
+     605,
+     1052
+    ]
+   ]
+  },
+  {
+   "file": "img/untitled-design-14.webp",
+   "name": "untitled-design-14",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      260,
+      120,
+      740,
+      640
+     ],
+     "erase_box": [
+      290,
+      150,
+      715,
+      625
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "A mustached man in a tan cap with blue mirrored sunglasses takes a selfie on a porch hung with dried red chiles, while a man with cartoon Gravel God's head leans on a white post behind him holding a mug.",
+   "match": "closest",
+   "note": "Only the pasted-on head is redrawn; the body under it is a real photo, as in the original."
+  }
+ ]
+}

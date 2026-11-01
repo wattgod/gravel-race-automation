@@ -1,0 +1,179 @@
+{
+ "collection": "posts",
+ "slug": "if-you-really-want-to-race-bikes-fast-train-your-heart",
+ "images": [
+  {
+   "file": "img/fml.webp",
+   "name": "fml",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      90,
+      360,
+      760,
+      1150
+     ],
+     "mask": "box",
+     "erase_box": [
+      0,
+      330,
+      845,
+      900
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "elev": 10,
+     "crop": "bust",
+     "fit": "height",
+     "anchor": "top"
+    }
+   ],
+   "joke": "FML - what am I doing?",
+   "alt": "Cartoon Gravel God, seen from behind, drives away; in the rear-view mirror two small children, a girl in sunglasses and a smiling boy, look back at him. Speech bubble: \"FML - what am I doing?\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/are-you-quitting-bike-racing.webp",
+   "name": "are-you-quitting-bike-racing",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1000,
+      110,
+      1600,
+      900
+     ],
+     "mask": "box",
+     "erase_box": [
+      990,
+      100,
+      1600,
+      900
+     ],
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 157.5,
+     "crop": "bust",
+     "fit": "height",
+     "anchor": "top"
+    }
+   ],
+   "joke": "Are you quitting bike racing?",
+   "alt": "Several hands push microphones toward cartoon Gravel God, shown in profile, eyebrows up; a speech bubble from the reporters asks: \"Are you quitting bike racing?\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/da-fugg.webp",
+   "name": "da-fugg",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      1290,
+      215,
+      1560,
+      880
+     ],
+     "mask": "box",
+     "erase_box": [
+      1228,
+      205,
+      1600,
+      900
+     ],
+     "pose": "arms_crossed",
+     "face": "thinking",
+     "psi": 112.5
+    }
+   ],
+   "joke": "Da fugg? Nice facial hair loser.",
+   "alt": "Two panels. \"2010\": a photo of a young, clean-shaven Matti in a grey T-shirt with orange sunglasses pushed up on his forehead, in a kitchen. \"2021\": cartoon Gravel God, handlebar mustache, arms crossed, eyeing the photo, with a speech bubble: \"Da fugg? Nice facial hair loser.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/makes-sense.webp",
+   "name": "makes-sense",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      720,
+      440,
+      915,
+      860
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "erase_box": [
+      675,
+      405,
+      950,
+      862
+     ],
+     "pose": "arms_crossed",
+     "face": "thinking",
+     "psi": 90
+    }
+   ],
+   "joke": "One thing I realize is that I don't like spending prolonged stretches away from my family, especially when the best-case scenario is that I'll get my shit kicked in. Makes sense.",
+   "alt": "Cartoon Gravel God stands on a gravel road at sunset, arms crossed and thinking, with a thought bubble: \"One thing I realize is that I don't like spending prolonged stretches away from my family, especially when the best-case scenario is that I'll get my shit kicked in. Makes sense.\"",
+   "match": "closest",
+   "note": "No hand-on-chin gesture: arms crossed with a thinking face."
+  },
+  {
+   "file": "img/train-your-heart.webp",
+   "name": "train-your-heart",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "flat",
+    "color": "#ece3da"
+   },
+   "figs": [
+    {
+     "box": [
+      0,
+      0,
+      700,
+      900
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "insets": [
+    {
+     "src": [
+      700,
+      295,
+      950,
+      895
+     ],
+     "box": [
+      840,
+      130,
+      1150,
+      874
+     ]
+    }
+   ],
+   "alt": "A close-up of cartoon Gravel God smiling at the left, beside a photo of two small children, a boy and a girl, walking away hand in hand.",
+   "match": "closest",
+   "note": "The rig face can't sit faded behind the photo; he is beside the children instead of under them."
+  }
+ ]
+}

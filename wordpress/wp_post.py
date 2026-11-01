@@ -458,7 +458,13 @@ def article_ld(src: PostSource, description: str | None = None, title: str | Non
         "publisher": {"@type": "Organization", "name": "Gravel God", "url": SITE},
         "mainEntityOfPage": src.url,
     }
-    if live.get("ld_image"):
+    # The redrawn featured image (character-art v6.7) lives in the post's own img/; the live
+    # ld_image still points at the old art in the WordPress media library.
+    feat = src.data.get("featured")
+    one = (src.data.get("renditions", {}).get(feat["name"], {}).get("1x") or {}) if feat else {}
+    if one.get("file", "").endswith("-v67.webp"):
+        ld["image"] = f"{src.url}img/{one['file']}"
+    elif live.get("ld_image"):
         ld["image"] = live["ld_image"]
     return ld
 

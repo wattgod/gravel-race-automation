@@ -1,0 +1,249 @@
+{
+ "collection": "posts",
+ "slug": "how-to-hydrate-so-you-dont-die-in-your-gravel-race",
+ "images": [
+  {
+   "file": "img/leg-twitch-1.webp",
+   "name": "leg-twitch-1",
+   "verdict": "keep",
+   "why": "Real video still of a cramping calf; no cartoon."
+  },
+  {
+   "file": "img/seethisplaceinjanuary.webp",
+   "name": "seethisplaceinjanuary",
+   "verdict": "replace",
+   "mode": "scene",
+   "scene": {
+    "pose": "coffee",
+    "face": "smile",
+    "bike": false,
+    "rel": 40,
+    "elev": 7,
+    "k": 300,
+    "pos": [
+     0.22,
+     0.62
+    ],
+    "palette": "snow",
+    "trees": [
+     [
+      40,
+      10
+     ],
+     [
+      44,
+      12
+     ],
+     [
+      47,
+      9.5
+     ]
+    ],
+    "seed": 3
+   },
+   "texts": [
+    {
+     "type": "bubble",
+     "text": "Cold? It's June. You should see this place in January.",
+     "box": [
+      520,
+      120,
+      1060,
+      430
+     ],
+     "tail": [
+      430,
+      420
+     ],
+     "size": 54,
+     "weight": 500
+    }
+   ],
+   "joke": "Cold? It's June. You should see this place in January.",
+   "alt": "Cartoon Gravel God stands in the snow with a coffee: \"Cold? It's June. You should see this place in January.\"",
+   "match": "closest",
+   "note": "The photo of the frozen fjord is redrawn as the rig's snow scene; the words are reset in the brand serif."
+  },
+  {
+   "file": "img/sweat.webp",
+   "name": "sweat",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      610,
+      50,
+      800,
+      748
+     ],
+     "erase_box": [
+      380,
+      0,
+      1035,
+      690
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90
+    }
+   ],
+   "erase_extra": [
+    [
+     835,
+     640,
+     918,
+     724
+    ]
+   ],
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      848,
+      722,
+      922,
+      808
+     ],
+     "fill": "#b7eaff"
+    }
+   ],
+   "alt": "Cartoon Gravel God grins, standing in a puddle of his own sweat.",
+   "match": "closest",
+   "note": "The sweat drops on his face and legs are gone (the rig can't draw them); the puddle stays."
+  },
+  {
+   "file": "img/glood-plasma.webp",
+   "name": "glood-plasma",
+   "verdict": "keep",
+   "why": "Diagram of a blood sample; no Gravel God."
+  },
+  {
+   "file": "img/inbloodbro.webp",
+   "name": "inbloodbro",
+   "verdict": "keep",
+   "why": "Photo of a real man; no Gravel God."
+  },
+  {
+   "file": "img/startdehydrated.webp",
+   "name": "startdehydrated",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      170,
+      50,
+      520,
+      1500
+     ],
+     "erase_box": [
+      90,
+      50,
+      640,
+      900
+     ],
+     "pose": "thumbs_up",
+     "face": "grin",
+     "psi": 67.5,
+     "anchor": "top",
+     "fit": "height"
+    }
+   ],
+   "joke": "You're going to start your workout dehydrated? Awesome. It's going to go great!",
+   "alt": "Cartoon Gravel God grins and gives a thumbs up: \"You're going to start your workout dehydrated? Awesome. It's going to go great!\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/sodium.webp",
+   "name": "sodium",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      0,
+      30,
+      470,
+      900
+     ],
+     "erase_box": [
+      0,
+      0,
+      525,
+      900
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 22.5,
+     "crop": "bust",
+     "fit": "contain"
+    }
+   ],
+   "alt": "Cartoon Gravel God, one eyebrow up, eyes two wooden spoons heaped with fine salt and coarse salt crystals on dark slate.",
+   "match": "exact"
+  },
+  {
+   "file": "img/just-drink.webp",
+   "name": "just-drink",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      0,
+      60,
+      330,
+      612
+     ],
+     "erase_box": [
+      0,
+      0,
+      425,
+      618
+     ],
+     "pose": "drink",
+     "face": "smile",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "contain"
+    }
+   ],
+   "joke": "So what I'm getting from your 2,000 words is to just drink beer and you won't cramp.",
+   "alt": "Cartoon Gravel God, drink in hand at a bar counter: \"So what I'm getting from your 2,000 words is to just drink beer and you won't cramp.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/desert.webp",
+   "name": "desert",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      100,
+      330,
+      330,
+      900
+     ],
+     "erase_box": [
+      100,
+      280,
+      365,
+      900
+     ],
+     "ride": "cruise",
+     "face": "grimace",
+     "psi": 80
+    }
+   ],
+   "alt": "Cartoon Gravel God rides a bike across a cracked, dried-out desert lake bed toward low mountains, under a blazing sun.",
+   "match": "exact"
+  }
+ ]
+}

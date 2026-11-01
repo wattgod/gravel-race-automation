@@ -1,0 +1,196 @@
+{
+ "collection": "posts",
+ "slug": "i-screwed-up-foco-fondo-so-you-dont-have-to",
+ "images": [
+  {
+   "file": "img/focofondo-2.webp",
+   "name": "focofondo-2",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      38,
+      592,
+      205,
+      825
+     ],
+     "erase_box": [
+      30,
+      585,
+      212,
+      828
+     ],
+     "ride": "cruise",
+     "psi": 0,
+     "face": "focused",
+     "mask": "grabcut",
+     "pad": 6
+    }
+   ],
+   "alt": "Black-and-white photo of a gravel road winding through open grassland: two riders ahead in the distance, and cartoon Gravel God riding after them in the near left corner."
+  },
+  {
+   "file": "img/focofondo-rolling-hills.webp",
+   "name": "focofondo-rolling-hills",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1022,
+      405,
+      1088,
+      558
+     ],
+     "erase_box": [
+      1015,
+      398,
+      1095,
+      560
+     ],
+     "ride": "cruise",
+     "psi": 270,
+     "mask": "grabcut",
+     "pad": 6
+    }
+   ],
+   "alt": "A long dirt road across green rolling prairie: a small pack of riders up ahead, and cartoon Gravel God, seen from behind, chasing them through a cloud of dust."
+  },
+  {
+   "file": "img/whitney-and-zach.webp",
+   "name": "whitney-and-zach",
+   "verdict": "keep",
+   "why": "Real photo of two people; no cartoon."
+  },
+  {
+   "file": "img/focofondo-rocket.webp",
+   "name": "focofondo-rocket",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      360,
+      205,
+      560,
+      850
+     ],
+     "erase_box": [
+      340,
+      195,
+      632,
+      852
+     ],
+     "ride": "sprint",
+     "psi": 90,
+     "face": "shout",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God sprints toward the camera on a dirt road across the prairie, a cartoon rocket flame blasting out beside him, past riders ahead."
+  },
+  {
+   "file": "img/focofondo-3.webp",
+   "name": "focofondo-3",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1228,
+      208,
+      1325,
+      432
+     ],
+     "erase_box": [
+      1215,
+      200,
+      1330,
+      435
+     ],
+     "ride": "seated_climb",
+     "psi": 90,
+     "face": "grimace",
+     "mask": "grabcut",
+     "pad": 6
+    }
+   ],
+   "alt": "Two riders crest a wide gravel climb across open grassland: a rider in blue, and cartoon Gravel God beside him, grimacing."
+  },
+  {
+   "file": "img/focofondo-5.webp",
+   "name": "focofondo-5",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "#a88f81",
+   "figs": [
+    {
+     "box": [
+      360,
+      100,
+      512,
+      310
+     ],
+     "erase_box": [
+      388,
+      85,
+      518,
+      256
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "face": "grimace",
+     "psi": 67.5,
+     "fit": "contain",
+     "anchor": "bottom",
+     "pad": 0
+    }
+   ],
+   "erase_extra": [
+    [
+     335,
+     165,
+     530,
+     216
+    ],
+    [
+     530,
+     177,
+     537,
+     200
+    ],
+    [
+     546,
+     185,
+     576,
+     195
+    ],
+    [
+     388,
+     256,
+     511,
+     312
+    ]
+   ],
+   "joke": "FML just kill me. Even your dog doesn't like you. You're ugly and that can't be fixed. Quit and never come back. You're as bright as a tunnel.",
+   "alt": "Aerial view of a lone rider on a dirt road through scrubland, with a thought bubble holding cartoon Gravel God's grimacing head: \"FML just kill me. Even your dog doesn't like you. You're ugly and that can't be fixed. Quit and never come back. You're as bright as a tunnel.\""
+  },
+  {
+   "file": "img/focofondo-4.webp",
+   "name": "focofondo-4",
+   "verdict": "keep",
+   "why": "Aerial photo of the road; no character."
+  }
+ ]
+}

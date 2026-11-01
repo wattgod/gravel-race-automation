@@ -1,0 +1,35 @@
+{
+ "collection": "articles",
+ "slug": "unbound-two-huni-mean-five-point",
+ "images": [
+  {
+   "file": "img/5775fa1a081eda05.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      470,
+      690,
+      870,
+      1024
+     ],
+     "erase_box": [
+      488,
+      728,
+      902,
+      1024
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "psi": 270,
+     "fit": "width",
+     "anchor": "top"
+    }
+   ],
+   "match": "exact"
+  }
+ ]
+}

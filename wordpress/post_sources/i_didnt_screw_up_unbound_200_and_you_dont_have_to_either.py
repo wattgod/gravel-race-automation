@@ -29,16 +29,16 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "wakeeney-pit-stop": "A black Subaru with Colorado \"GRVLGOD\" plates parked on a highway shoulder, hood up and a dark pool of oil under the front; a man in a grey T-shirt stands beside it, and cartoon Gravel God in a cowboy hat takes a drag on a cigar on the right.",
-    "wakeeney-pit-stop-1": "Helmet-camera view from the back of a gravel pack at dawn: dozens of riders funnel onto a churned, muddy farm track between green fields, with the brim of cartoon Gravel God's cowboy hat poking up at the bottom of the frame.",
+    "wakeeney-pit-stop": "A rider in a grey tee stands by a black SUV with its hood up on the highway shoulder; cartoon Gravel God stands on the other side, thinking.",
+    "wakeeney-pit-stop-1": "The back of cartoon Gravel God's head at the bottom of the frame as the pack rolls down a muddy gravel road under a big Kansas sky.",
     "forest-hietpas-2": "Selfie at a green-walled bar hung with old black-and-white photos: a grey-haired man in a blue shirt raises a copper mug, and a red-bearded man in a SkyGOAT T-shirt grins and lifts a glass behind him.",
     "pale-uncle": "Two men talk on a grassy roadside above an interstate under a big Kansas sky: a grey-haired man in sunglasses and a blue shirt, and a red-bearded man in a grey T-shirt.",
     "forest-hietpas": "Close-up selfie of a rider with a big ginger mustache, his face and white \"The Corson Building\" jersey spattered with mud.",
-    "pale-uncle-3": "Cartoon Gravel God in a cowboy hat, seen from behind, stands on a red gravel road through green prairie, watching a few riders pedal away ahead of him.",
+    "pale-uncle-3": "Cartoon Gravel God seen from behind on a red dirt road through green hills, with a line of riders ahead of him.",
     "forest-hietpas-1": "At night on a downtown street near a \"Restrooms\" sign, a mud-caked rider in a helmet and hydration-vest straps holds a slice of pizza and a can of Miller Lite beside his filthy gravel bike, aero bars on the front.",
-    "pale-uncle-1": "Aerial view of a thin line of riders strung out along a dirt road across rolling green Flint Hills grassland, with a tiny cartoon Gravel God in his cowboy hat among them.",
-    "forest-hietpas-3": "Riders push their bikes on foot through tall grass along a fence line beside a muddy prairie road, with a long queue of walkers stretching to the horizon; cartoon Gravel God's hat fills the bottom of the frame.",
-    "pale-uncle-2": "A phone lock-screen WHOOP widget at 06:26: 1% recovery, HRV 19, strain 0.3, 431 calories, with a faded cartoon Gravel God in a cowboy hat grinning behind it.",
+    "pale-uncle-1": "Aerial view of a line of riders on a gravel road across green Flint Hills grassland, tiny cartoon Gravel God among them.",
+    "forest-hietpas-3": "Cartoon Gravel God seen from behind in a line of riders pushing their bikes up a grassy double track beside a wire fence.",
+    "pale-uncle-2": "A WHOOP phone widget at 06:26: 1% recovery, HRV 19, 0.3 strain, 431 calories. Cartoon Gravel God's grimacing head peeks over the top of it.",
 }
 
 # Paragraph anchors for the "In short" links (the post has almost no headings).

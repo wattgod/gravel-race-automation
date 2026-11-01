@@ -1,0 +1,250 @@
+{
+ "collection": "posts",
+ "slug": "how-to-manage-dopamine-to-be-a-better-cyclist",
+ "images": [
+  {
+   "file": "img/phasic.webp",
+   "name": "phasic",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1380,
+      150,
+      1575,
+      650
+     ],
+     "erase_box": [
+      1355,
+      140,
+      1600,
+      657
+     ],
+     "pose": "drink",
+     "face": "smile",
+     "psi": 70
+    }
+   ],
+   "joke": "Tonic / Phasic",
+   "match": "exact",
+   "alt": "Two dopamine charts: a flat, wiggly tonic line with a wedge of cheese, and a sharp phasic spike with a Norwegian flag. Cartoon Gravel God drinks beside them.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/never-coming-out-1.webp",
+   "name": "never-coming-out-1",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1120,
+      185,
+      1320,
+      650
+     ],
+     "erase_box": [
+      1095,
+      170,
+      1340,
+      660
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 70
+    }
+   ],
+   "joke": "I'm never coming out.",
+   "match": "exact",
+   "alt": "Cartoon Gravel God stands in the dark mouth of a rock tunnel with a beer and cheese at his feet, saying: \"I'm never coming out.\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/say-no-to-drugs.webp",
+   "name": "say-no-to-drugs",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      740,
+      480,
+      1090,
+      900
+     ],
+     "erase_box": [
+      720,
+      470,
+      1100,
+      900
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "joke": "Say NO to Drugs / It all makes so much sense now!",
+   "match": "closest",
+   "note": "Thinking face without the hand on his chin.",
+   "alt": "A heart of colourful pills on a wooden table next to a \"Say NO to Drugs\" note; cartoon Gravel God, thinking, says: \"It all makes so much sense now!\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/feels-great.webp",
+   "name": "feels-great",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      700,
+      410,
+      910,
+      880
+     ],
+     "erase_box": [
+      690,
+      400,
+      920,
+      885
+     ],
+     "ride": "cruise",
+     "psi": 270
+    }
+   ],
+   "joke": "This feels great, I want to be here, I love this. (lolz)",
+   "match": "exact",
+   "alt": "Cartoon Gravel God rides away from us down a dusty gravel road through dry hills, saying: \"This feels great, I want to be here, I love this. (lolz)\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/dopamine-layering.webp",
+   "name": "dopamine-layering",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      110,
+      215,
+      400,
+      880
+     ],
+     "erase_box": [
+      85,
+      205,
+      382,
+      885
+     ],
+     "pose": "shrug",
+     "face": "neutral",
+     "psi": 70,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "joke": "How can I train without coffee, snacks, my phone, music, and a beer at the end?",
+   "match": "exact",
+   "alt": "In a dark gym, cartoon Gravel God shrugs over a coffee, a croissant, a phone, a speaker and a beer: \"How can I train without coffee, snacks, my phone, music, and a beer at the end?\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/hangover-future-me.webp",
+   "name": "hangover-future-me",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1170,
+      215,
+      1560,
+      890
+     ],
+     "erase_box": [
+      1165,
+      205,
+      1595,
+      900
+     ],
+     "pose": "hands_hips",
+     "face": "grin",
+     "psi": 80,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "joke": "Hangover? Sounds like a problem for future me.",
+   "match": "exact",
+   "alt": "A crowd dances under falling confetti; cartoon Gravel God grins, hands on hips: \"Hangover? Sounds like a problem for future me.\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/cold-shower.webp",
+   "name": "cold-shower",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      940,
+      400,
+      1470,
+      900
+     ],
+     "erase_box": [
+      922,
+      390,
+      1480,
+      900
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "height",
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "joke": "I hate that this works.",
+   "match": "exact",
+   "alt": "Cartoon Gravel God grimaces under a running shower in a sepia bathroom, saying: \"I hate that this works.\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/dope.webp",
+   "name": "dope",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1380,
+      215,
+      1580,
+      890
+     ],
+     "erase_box": [
+      1260,
+      200,
+      1600,
+      895
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 80,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "joke": "Dopamine C8H11NO2",
+   "match": "exact",
+   "alt": "A chalkboard with \"Dopamine\", its formula C8H11NO2 and its molecule drawing; cartoon Gravel God stands grinning beside it.",
+   "verdict": "replace"
+  }
+ ]
+}

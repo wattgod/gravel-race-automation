@@ -1,0 +1,126 @@
+{
+ "collection": "posts",
+ "slug": "i-got-into-yoga-so-you-dont-have-to",
+ "images": [
+  {
+   "file": "img/yoga-bros-1.webp",
+   "name": "yoga-bros-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "closest",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      345,
+      45,
+      500,
+      242
+     ],
+     "erase_box": [
+      292,
+      0,
+      558,
+      248
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "face": "smile",
+     "psi": 90,
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "Two shirtless men in briefs pose arm in arm on a yoga studio floor: one in a red bandana grins, the other, in Norway-flag trunks, has the head of cartoon Gravel God.",
+   "note": "Head swap on a real photo: the rig head sits on the photo's own neck; the old hat area is filled by smoothing and shows soft streaks."
+  },
+  {
+   "file": "img/mmmmmm.webp",
+   "name": "mmmmmm",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      360,
+      560,
+      780,
+      1144
+     ],
+     "erase_box": [
+      355,
+      555,
+      805,
+      1144
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "psi": 270,
+     "fit": "width",
+     "anchor": "bottom",
+     "mask": "grabcut",
+     "pad": 12
+    }
+   ],
+   "alt": "An empty, misty yoga studio with mats and bolsters on the floor, seen from behind cartoon Gravel God's head."
+  },
+  {
+   "file": "img/feels.webp",
+   "name": "feels",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      505,
+      400,
+      640,
+      762
+     ],
+     "erase_box": [
+      448,
+      388,
+      688,
+      766
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 90
+    }
+   ],
+   "alt": "A large, bright yoga studio lined with mats and a mirrored wall; cartoon Gravel God stands in the middle of the room."
+  },
+  {
+   "file": "img/toye-seg-litt.webp",
+   "name": "toye-seg-litt",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      945,
+      36,
+      1022,
+      282
+     ],
+     "erase_box": [
+      914,
+      26,
+      1058,
+      288
+     ],
+     "pose": "coffee",
+     "face": "neutral",
+     "psi": 110
+    }
+   ],
+   "alt": "Black-and-white overhead view of a packed yoga class stretching on rows of mats; cartoon Gravel God stands apart in the corner, sipping a coffee."
+  }
+ ]
+}

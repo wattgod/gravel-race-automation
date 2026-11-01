@@ -1,0 +1,110 @@
+{
+ "collection": "articles",
+ "slug": "gmsr-day-2-randolph-circuit-race",
+ "images": [
+  {
+   "file": "img/3285443c58728fbd.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "#000000",
+   "figs": [
+    {
+     "box": [
+      1190,
+      40,
+      1450,
+      990
+     ],
+     "erase_box": [
+      1160,
+      20,
+      1480,
+      1000
+     ],
+     "pose": "arms_crossed",
+     "face": "neutral",
+     "psi": 80
+    }
+   ]
+  },
+  {
+   "file": "img/8007cef9174e2831.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "closest",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      250,
+      90,
+      520,
+      520
+     ],
+     "erase_box": [
+      150,
+      60,
+      655,
+      525
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "face": "smile",
+     "psi": 90,
+     "fit": "height",
+     "anchor": "bottom",
+     "mask": "grabcut",
+     "pad": 6
+    }
+   ],
+   "note": "Head swap on a real photo: the rig head sits on the photo's own neck; the old hat area is filled by smoothing and shows soft streaks.",
+   "erase_extra": [
+    [
+     470,
+     200,
+     690,
+     350
+    ],
+    [
+     130,
+     160,
+     270,
+     320
+    ]
+   ]
+  },
+  {
+   "file": "img/8c1a912388673067.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "closest",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      560,
+      330,
+      1000,
+      1024
+     ],
+     "erase_box": [
+      500,
+      330,
+      1080,
+      1024
+     ],
+     "pose": "sit",
+     "crop": "bust",
+     "face": "neutral",
+     "psi": 90,
+     "fit": "height",
+     "anchor": "bottom",
+     "mask": "grabcut",
+     "pad": 12
+    }
+   ],
+   "note": "The cartoon toilet seat under him is gone; he is shown as a seated bust filling the stall."
+  }
+ ]
+}

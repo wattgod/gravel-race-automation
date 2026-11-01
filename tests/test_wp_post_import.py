@@ -207,7 +207,7 @@ def test_every_image_has_alt_text_and_committed_files(pid):
         assert (m.OUTPUT_PATH.parent / path).is_file(), path
     shipped = {p.suffix for p in img_dir.iterdir() if not p.name.endswith("-og.jpg")}
     assert shipped <= {".webp", ".mp4", ".webm"}, "no PNG/JPEG/GIF ships; WebP + video only (+ the og:image JPEG)"
-    assert [p.name for p in img_dir.glob("*.jpg")] == ([f"{feat['name']}-og.jpg"] if feat else [])
+    assert [p.name for p in img_dir.glob("*.jpg")] == ([m.SOURCE.data["renditions"][feat["name"]]["og"]["file"]] if feat else [])
 
 
 @pytest.mark.parametrize("pid", PILOTS)
@@ -272,7 +272,7 @@ def test_og_image_is_the_featured_image_crop(pid):
     feat = m.SOURCE.data["featured"]
     og = m.SOURCE.data["renditions"][feat["name"]]["og"]
     url = f"https://gravelgodcycling.com/{m.SLUG}/img/{og['file']}"
-    assert og["file"] == f"{feat['name']}-og.jpg"
+    assert og["file"] in (f"{feat['name']}-og.jpg", f"{feat['name']}-v67-og.jpg")  # -v67: character redraw
     assert f'<meta property="og:image" content="{url}">' in html
     assert '<meta property="og:image:width" content="1200">' in html
     assert '<meta property="og:image:height" content="630">' in html
@@ -375,7 +375,7 @@ def test_phasic_chart_is_redrawn_with_the_original_kept():
     html = _page(2161)
     fig = html.split('id="fig-phasic"', 1)[1].split("</figure>", 1)[0]
     assert fig.count("<svg") == 2 and "data-draw=\"wipe\"" in fig
-    assert '<details class="gg-original" data-gg-added>' in fig and "img/phasic.webp" in fig
+    assert '<details class="gg-original" data-gg-added>' in fig and ("img/phasic.webp" in fig or "img/phasic-v67.webp" in fig)
     assert fig.count("<polyline") == 2
 
 

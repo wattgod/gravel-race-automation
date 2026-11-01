@@ -28,8 +28,8 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "to-the-slaughter": "Black-and-white photo from behind a large road-race peloton in numbered kits, riding toward a scrubby hillside and a Gila Cliff Dwellings National Monument sign, with a colour cartoon Gravel God in a cowboy hat riding at the left edge.",
-    "sign-in": "The Tour of the Gila 2024 \"UCI Men\" sign-in board, April 24 thru 28, Silver City, NM, its grid of riders' names filled with signatures, and a smiling cartoon Gravel God in a cowboy hat standing in front.",
+    "to-the-slaughter": "Black-and-white photo of a big pack of racers riding away into the hills, with cartoon Gravel God riding into it from the left.",
+    "sign-in": "Cartoon Gravel God gives a thumbs up in front of the Tour of the Gila UCI Men sign-in board.",
     "reked": "A bicycle saddle shredded down to its yellow foam and plastic shell, the torn black cover hanging in strips, on a silver seatpost beside a bike rack.",
 }
 

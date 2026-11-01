@@ -1,0 +1,480 @@
+{
+ "collection": "posts",
+ "slug": "i-screwed-up-belgian-waffle-ride-so-you-dont-have-to",
+ "images": [
+  {
+   "file": "img/watch-out-im-behind-you-14.webp",
+   "name": "watch-out-im-behind-you-14",
+   "verdict": "keep",
+   "why": "Cut-out face of a real woman rider with a speech bubble; no Gravel God."
+  },
+  {
+   "file": "img/watch-out-im-behind-you-1-1.webp",
+   "name": "watch-out-im-behind-you-1-1",
+   "verdict": "keep",
+   "why": "Cut-out face of a real woman rider with a speech bubble; no Gravel God."
+  },
+  {
+   "file": "img/hangonb.webp",
+   "name": "hangonb",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      120,
+      30,
+      980,
+      900
+     ],
+     "erase_box": [
+      30,
+      0,
+      1010,
+      900
+     ],
+     "pose": "stand",
+     "face": "focused",
+     "psi": 90,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "erase_extra": [
+    [
+     1000,
+     0,
+     1300,
+     560
+    ]
+   ],
+   "joke": "Ready? Hang on.",
+   "match": "exact",
+   "alt": "A big close-up of cartoon Gravel God's head, jaw set and focused, beside the words \"Ready? Hang on.\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/watch-out-im-behind-you-3.webp",
+   "name": "watch-out-im-behind-you-3",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      30,
+      400,
+      470,
+      830
+     ],
+     "erase_box": [
+      25,
+      400,
+      455,
+      840
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "bottom",
+     "scale": 1.0
+    }
+   ],
+   "joke": "Ow.",
+   "match": "exact",
+   "alt": "TrainingPeaks file of the race, 7:44:55, 131 mi, 420 TSS, with the route map around Escondido and Ramona; the cursor at 3:43:08 reads 182 bpm, 7.64 mph and 95 °F. Cartoon Gravel God's head, grimacing, says \"Ow.\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/watch-out-im-behind-you-4.webp",
+   "name": "watch-out-im-behind-you-4",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      230,
+      150,
+      530,
+      860
+     ],
+     "erase_box": [
+      190,
+      110,
+      590,
+      870
+     ],
+     "pose": "shrug",
+     "face": "neutral",
+     "psi": 80
+    }
+   ],
+   "joke": "Yeah I guess. Got nothing better to do.",
+   "match": "closest",
+   "note": "He shrugs instead of holding a hand to his mouth.",
+   "alt": "Cartoon Gravel God in a white tee and denim shorts shrugs beside a speech bubble: \"Yeah I guess. Got nothing better to do.\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/babes.webp",
+   "name": "babes",
+   "verdict": "keep",
+   "why": "No Gravel God character in it (photo, screenshot, chart or other art)."
+  },
+  {
+   "file": "img/watch-out-im-behind-you-5.webp",
+   "name": "watch-out-im-behind-you-5",
+   "mode": "rebuild",
+   "figs": [
+    {
+     "box": [
+      0,
+      40,
+      640,
+      900
+     ],
+     "erase_box": [
+      0,
+      0,
+      620,
+      900
+     ],
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 22.5,
+     "crop": "bust",
+     "fit": "height",
+     "scale": 1.2,
+     "dx": 0.04
+    }
+   ],
+   "joke": "(no words: he eyes the race food)",
+   "match": "closest",
+   "alt": "Paper plates of seasoned fries, a burger and a foil-wrapped hot dog with ketchup on a sidewalk; cartoon Gravel God, eyebrows up, eyes them in profile.",
+   "bg": {
+    "type": "gradient",
+    "top": "#b3aea6",
+    "bottom": "#9c968d"
+   },
+   "insets": [
+    {
+     "src": [
+      600,
+      0,
+      1600,
+      900
+     ],
+     "box": [
+      600,
+      0,
+      1600,
+      900
+     ]
+    }
+   ],
+   "note": "Left edge of the pavement is plain grey; the food is the original photo.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/unnamed-1-scaled.webp",
+   "name": "unnamed-1-scaled",
+   "verdict": "keep",
+   "why": "No Gravel God character in it (photo, screenshot, chart or other art)."
+  },
+  {
+   "file": "img/watch-out-im-behind-you-6.webp",
+   "name": "watch-out-im-behind-you-6",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1040,
+      300,
+      1310,
+      860
+     ],
+     "erase_box": [
+      1060,
+      380,
+      1290,
+      880
+     ],
+     "pose": "hands_hips",
+     "face": "grin",
+     "psi": 90
+    }
+   ],
+   "joke": "GRAVEL RACING TACTICS: 1. Blow every match to stay with the front group. 2. Wisely pace yourself.",
+   "match": "exact",
+   "alt": "A chalkboard headed \"GRAVEL RACING TACTICS\": \"1. Blow every match to stay with the front group. 2. Wisely pace yourself.\" Cartoon Gravel God grins beside it, hands on hips.",
+   "erase_extra": [
+    [
+     990,
+     150,
+     1350,
+     400
+    ]
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/bwrstaart-scaled.webp",
+   "name": "bwrstaart-scaled",
+   "verdict": "keep",
+   "why": "No Gravel God character in it (photo, screenshot, chart or other art)."
+  },
+  {
+   "file": "img/watch-out-im-behind-you-7.webp",
+   "name": "watch-out-im-behind-you-7",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      330,
+      30,
+      800,
+      900
+     ],
+     "erase_box": [
+      390,
+      0,
+      790,
+      900
+     ],
+     "ride": "sprint",
+     "face": "shout",
+     "psi": 60,
+     "fit": "contain"
+    }
+   ],
+   "erase_extra": [
+    [
+     780,
+     0,
+     950,
+     360
+    ],
+    [
+     780,
+     480,
+     950,
+     900
+    ]
+   ],
+   "joke": "F EVERYTHING!!!",
+   "match": "exact",
+   "alt": "Cartoon Gravel God sprints out of the saddle on his gravel bike, shouting, beside the words \"F EVERYTHING!!!\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/watch-out-im-behind-you-8.webp",
+   "name": "watch-out-im-behind-you-8",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      10,
+      230,
+      440,
+      900
+     ],
+     "erase_box": [
+      0,
+      200,
+      440,
+      900
+     ],
+     "pose": "stand",
+     "face": "neutral",
+     "psi": 22.5,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "joke": "You should see somebody. / BWR Director",
+   "match": "exact",
+   "alt": "Cartoon Gravel God in profile, speech bubble \"You should see somebody.\", faces a faceless figure in a dark hoodie labelled \"BWR Director\".",
+   "erase_extra": [
+    [
+     425,
+     290,
+     528,
+     560
+    ]
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/leg-twitch-1.webp",
+   "name": "leg-twitch-1",
+   "verdict": "keep",
+   "why": "No Gravel God character in it (photo, screenshot, chart or other art)."
+  },
+  {
+   "file": "img/watch-out-im-behind-you-9.webp",
+   "name": "watch-out-im-behind-you-9",
+   "verdict": "keep",
+   "why": "No Gravel God character in it (photo, screenshot, chart or other art)."
+  },
+  {
+   "file": "img/img-8865.webp",
+   "name": "img-8865",
+   "verdict": "keep",
+   "why": "No Gravel God character in it (photo, screenshot, chart or other art)."
+  },
+  {
+   "file": "img/whip.webp",
+   "name": "whip",
+   "verdict": "keep",
+   "why": "No Gravel God character in it (photo, screenshot, chart or other art)."
+  },
+  {
+   "file": "img/watch-out-im-behind-you-11.webp",
+   "name": "watch-out-im-behind-you-11",
+   "mode": "rebuild",
+   "figs": [
+    {
+     "box": [
+      80,
+      190,
+      330,
+      880
+     ],
+     "erase_box": [
+      40,
+      170,
+      375,
+      890
+     ],
+     "pose": "drink",
+     "face": "smile",
+     "psi": 70
+    }
+   ],
+   "joke": "This will help.",
+   "match": "closest",
+   "note": "He drinks from a bottle instead of holding a hand to his mouth.",
+   "alt": "Cartoon Gravel God drinks from a bottle on a desert ridge of bare hills and a lone tree, saying: \"This will help.\"",
+   "bg": {
+    "type": "flat",
+    "color": "#b98a5a"
+   },
+   "insets": [
+    {
+     "src": [
+      375,
+      0,
+      1600,
+      900
+     ],
+     "box": [
+      375,
+      0,
+      1600,
+      900
+     ]
+    },
+    {
+     "src": [
+      880,
+      0,
+      1255,
+      900
+     ],
+     "box": [
+      0,
+      0,
+      375,
+      900
+     ]
+    }
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/watch-out-im-behind-you-12.webp",
+   "name": "watch-out-im-behind-you-12",
+   "mode": "rebuild",
+   "figs": [
+    {
+     "box": [
+      1190,
+      480,
+      1600,
+      900
+     ],
+     "erase_box": [
+      1160,
+      600,
+      1600,
+      900
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 112.5,
+     "crop": "bust",
+     "fit": "height",
+     "anchor": "bottom",
+     "scale": 1.0,
+     "no_erase": true
+    }
+   ],
+   "joke": "Love the meat sweats.",
+   "match": "closest",
+   "alt": "A spread of raw meats, chicken breasts, sausage coils, ground beef, pork belly and steaks, with cartoon Gravel God's grinning head saying: \"Love the meat sweats.\"",
+   "bg": {
+    "type": "flat",
+    "color": "#d9d4cf"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      1600,
+      900
+     ],
+     "box": [
+      0,
+      0,
+      1600,
+      900
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      1170,
+      450,
+      1610,
+      910
+     ],
+     "fill": "#ffffff",
+     "outline": "#111111",
+     "width": 7
+    }
+   ],
+   "note": "His head sits in a plain white corner panel over the photo; the old cartoon was too tangled in the meat to erase cleanly.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/watch-out-im-behind-you-13.webp",
+   "name": "watch-out-im-behind-you-13",
+   "verdict": "keep",
+   "why": "No Gravel God character in it (photo, screenshot, chart or other art)."
+  },
+  {
+   "file": "img/screen-shot-2021-08-11-at-10-13-02-pm.webp",
+   "name": "screen-shot-2021-08-11-at-10-13-02-pm",
+   "verdict": "keep",
+   "why": "No Gravel God character in it (photo, screenshot, chart or other art)."
+  }
+ ]
+}

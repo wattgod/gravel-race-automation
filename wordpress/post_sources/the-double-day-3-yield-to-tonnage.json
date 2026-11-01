@@ -53,7 +53,7 @@
   {
    "name": "mega-lol",
    "url": "https://gravelgodcycling.com/wp-content/uploads/2022/04/Mega-lol.gif",
-   "kind": "gif",
+   "kind": "still",
    "width": 1440,
    "height": 810,
    "caption_html": "",
@@ -65,7 +65,7 @@
   {
    "name": "bufz-doge-fuchs",
    "url": "https://gravelgodcycling.com/wp-content/uploads/2022/04/Bufz-Doge-Fuchs.gif",
-   "kind": "gif",
+   "kind": "still",
    "width": 1688,
    "height": 690,
    "caption_html": "",
@@ -134,76 +134,64 @@
   },
   "mega-lol": {
    "1x": {
-    "file": "mega-lol.webp",
+    "file": "mega-lol-v67.webp",
     "width": 1440,
     "height": 810,
-    "bytes": 109116
+    "bytes": 97360
    },
    "phone": {
-    "file": "mega-lol-m.webp",
+    "file": "mega-lol-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 31862
+    "bytes": 30104
    },
    "phone2x": {
-    "file": "mega-lol-m@2x.webp",
+    "file": "mega-lol-v67-m@2x.webp",
     "width": 1320,
     "height": 742,
-    "bytes": 87062
-   },
-   "mp4": {
-    "file": "mega-lol.mp4",
-    "bytes": 210936
-   },
-   "webm": {
-    "file": "mega-lol.webm",
-    "bytes": 167887
+    "bytes": 79414
    },
    "source_bytes": 4109405
   },
   "bufz-doge-fuchs": {
    "1x": {
-    "file": "bufz-doge-fuchs.webp",
+    "file": "bufz-doge-fuchs-v67.webp",
     "width": 1600,
     "height": 654,
-    "bytes": 67392
+    "bytes": 61272
    },
    "phone": {
-    "file": "bufz-doge-fuchs-m.webp",
+    "file": "bufz-doge-fuchs-v67-m.webp",
     "width": 660,
     "height": 270,
-    "bytes": 20386
+    "bytes": 19690
    },
    "phone2x": {
-    "file": "bufz-doge-fuchs-m@2x.webp",
+    "file": "bufz-doge-fuchs-v67-m@2x.webp",
     "width": 1320,
     "height": 540,
-    "bytes": 52592
-   },
-   "mp4": {
-    "file": "bufz-doge-fuchs.mp4",
-    "bytes": 76079
+    "bytes": 48780
    },
    "source_bytes": 3037182
   },
   "nap-god": {
    "1x": {
-    "file": "nap-god.webp",
+    "file": "nap-god-v67.webp",
     "width": 1600,
     "height": 1200,
-    "bytes": 205634
+    "bytes": 187272
    },
    "phone": {
-    "file": "nap-god-m.webp",
+    "file": "nap-god-v67-m.webp",
     "width": 660,
     "height": 495,
-    "bytes": 46796
+    "bytes": 44650
    },
    "phone2x": {
-    "file": "nap-god-m@2x.webp",
+    "file": "nap-god-v67-m@2x.webp",
     "width": 1320,
     "height": 990,
-    "bytes": 149118
+    "bytes": 135102
    },
    "source_bytes": 2661785
   },

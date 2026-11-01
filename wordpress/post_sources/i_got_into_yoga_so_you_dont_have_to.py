@@ -35,10 +35,10 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "yoga-bros-1": "Two shirtless men in swimwear and running shoes stand arm in arm on a yoga mat in a grey studio: one in red Norway-flag trunks, his face a long-haired cartoon Gravel God in a cowboy hat, the other in blue briefs and a USA headband.",
-    "mmmmmm": "A black-and-white image of an empty, misty yoga studio, mats and bolsters on the floor and tall windows at the far end; cartoon Gravel God in a cowboy hat, seen from behind, stands looking in.",
-    "feels": "Rows of yoga mats in a bright, empty studio facing a wall of mirrors, in which a cartoon Gravel God in a cowboy hat is reflected, hand on his chin.",
-    "toye-seg-litt": "A black-and-white overhead view of a full yoga class, everyone in a lunge with one arm raised; cartoon Gravel God in a cowboy hat watches from the corner, hand at his mouth.",
+    "yoga-bros-1": "Two shirtless men in briefs pose arm in arm on a yoga studio floor: one in a red bandana grins, the other, in Norway-flag trunks, has the head of cartoon Gravel God.",
+    "mmmmmm": "An empty, misty yoga studio with mats and bolsters on the floor, seen from behind cartoon Gravel God's head.",
+    "feels": "A large, bright yoga studio lined with mats and a mirrored wall; cartoon Gravel God stands in the middle of the room.",
+    "toye-seg-litt": "Black-and-white overhead view of a packed yoga class stretching on rows of mats; cartoon Gravel God stands apart in the corner, sipping a coffee.",
 }
 
 DESCRIPTION = ("A cyclist takes up hot yoga after the 2023 season: the stillness it brings, the "

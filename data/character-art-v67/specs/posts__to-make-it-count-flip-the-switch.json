@@ -1,0 +1,233 @@
+{
+ "collection": "posts",
+ "slug": "to-make-it-count-flip-the-switch",
+ "images": [
+  {
+   "file": "img/the-switch-1.webp",
+   "name": "the-switch-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      50,
+      365,
+      470,
+      900
+     ],
+     "erase_box": [
+      0,
+      385,
+      485,
+      900
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "face": "grin",
+     "psi": 90,
+     "fit": "height"
+    }
+   ],
+   "joke": "Punch in.",
+   "alt": "Cartoon Gravel God grins beside an old time clock showing twelve o'clock and says: \"Punch in.\"",
+   "erase_extra": [
+    [
+     0,
+     348,
+     305,
+     388
+    ]
+   ]
+  },
+  {
+   "file": "img/the-switch-2.webp",
+   "name": "the-switch-2",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1340,
+      375,
+      1595,
+      900
+     ],
+     "erase_box": [
+      1300,
+      365,
+      1600,
+      900
+     ],
+     "pose": "stand",
+     "face": "neutral",
+     "psi": 157.5,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "joke": "You know you have to train tomorrow, right?",
+   "alt": "Friends dance with sparklers under string lights at a night party; cartoon Gravel God stands at the edge and asks: \"You know you have to train tomorrow, right?\""
+  },
+  {
+   "file": "img/ritual.webp",
+   "name": "ritual",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      650,
+      640,
+      940,
+      900
+     ],
+     "erase_box": [
+      615,
+      628,
+      975,
+      900
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "psi": 270,
+     "fit": "width",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "Whoops wrong visual.",
+   "alt": "A dark wooden table set with red candles, a skull and a carved pentagram, seen from behind cartoon Gravel God's head. A bubble says: \"Whoops wrong visual.\""
+  },
+  {
+   "file": "img/the-switch-3.webp",
+   "name": "the-switch-3",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      10,
+      70,
+      350,
+      880
+     ],
+     "erase_box": [
+      0,
+      330,
+      215,
+      885
+     ],
+     "pose": "stand",
+     "face": "neutral",
+     "psi": 45
+    }
+   ],
+   "joke": "Back in 2010 I rode 5 hours a day.",
+   "alt": "A man in a yellow T-shirt lounges on a grey sofa with a laptop and a beer and says: \"Back in 2010 I rode 5 hours a day.\" Cartoon Gravel God stands at the left, listening.",
+   "erase_extra": [
+    [
+     0,
+     60,
+     350,
+     332
+    ]
+   ]
+  },
+  {
+   "file": "img/the-switch-4.webp",
+   "name": "the-switch-4",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      452,
+      556,
+      500,
+      655
+     ],
+     "erase_box": [
+      445,
+      550,
+      505,
+      660
+     ],
+     "pose": "stand",
+     "psi": 80,
+     "face": "neutral"
+    }
+   ],
+   "joke": "THE TROUBLE IS, YOU THINK YOU HAVE TIME.",
+   "alt": "Black-and-white night photo of a wide waterfall under the northern lights, with tiny cartoon Gravel God on the snowy edge. Glowing red text: \"THE TROUBLE IS, YOU THINK YOU HAVE TIME.\""
+  },
+  {
+   "file": "img/the-switch-5.webp",
+   "name": "the-switch-5",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1385,
+      515,
+      1540,
+      858
+     ],
+     "erase_box": [
+      1355,
+      505,
+      1552,
+      862
+     ],
+     "ride": "cruise",
+     "psi": 90,
+     "face": "smile",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Sunrise over farm fields with long rays across a paved country road; cartoon Gravel God rides toward the camera on the right."
+  },
+  {
+   "file": "img/the-switch.webp",
+   "name": "the-switch",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      640,
+      440,
+      960,
+      1180
+     ],
+     "erase_box": [
+      630,
+      432,
+      965,
+      900
+     ],
+     "pose": "shrug",
+     "face": "neutral",
+     "psi": 90,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Two white light switches on a wall, one off and one on; cartoon Gravel God stands between them with a shrug."
+  }
+ ]
+}

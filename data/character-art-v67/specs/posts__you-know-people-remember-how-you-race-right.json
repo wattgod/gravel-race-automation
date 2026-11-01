@@ -1,0 +1,450 @@
+{
+ "collection": "posts",
+ "slug": "you-know-people-remember-how-you-race-right",
+ "images": [
+  {
+   "file": "img/so-long-suckas.webp",
+   "name": "so-long-suckas",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      540,
+      10,
+      900,
+      600
+     ],
+     "erase_box": [
+      525,
+      0,
+      850,
+      600
+     ],
+     "ride": "attack",
+     "face": "laugh",
+     "psi": 80,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "joke": "So long Suckasss!!",
+   "alt": "Cartoon Gravel God, handlebar mustache and white tee, sprints clear of a big crash in a road race, riders and bikes piled on the asphalt behind him and bananas on the road, and says: \"So long Suckasss!!\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/hey-fubo-tv-who-is-laughing-now.webp",
+   "name": "hey-fubo-tv-who-is-laughing-now",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      1300,
+      745,
+      1520,
+      1246
+     ],
+     "erase_box": [
+      1140,
+      712,
+      1548,
+      1045
+     ],
+     "pose": "thumbs_up",
+     "face": "laugh",
+     "psi": 90
+    }
+   ],
+   "joke": "Hey Fubo TV, who is laughing now???",
+   "alt": "The Tiz-Cycling video site (\"Your #1 Source for Quality Cycling Videos\") with featured race videos and a Bredene Koksijde Classic 2021 live-stream banner; cartoon Gravel God gives a thumbs up and says: \"Hey Fubo TV, who is laughing now???\"",
+   "match": "exact",
+   "erase_extra": [
+    [
+     1078,
+     1045,
+     1548,
+     1246
+    ]
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      1140,
+      712,
+      1548,
+      1090
+     ],
+     "fill": "#e8383d"
+    },
+    {
+     "type": "rect",
+     "box": [
+      1140,
+      755,
+      1535,
+      1045
+     ],
+     "fill": "#ffffff"
+    },
+    {
+     "type": "rect",
+     "box": [
+      1078,
+      1045,
+      1548,
+      1090
+     ],
+     "fill": "#e8383d"
+    },
+    {
+     "type": "rect",
+     "box": [
+      1078,
+      1090,
+      1548,
+      1140
+     ],
+     "fill": "#ffffff"
+    },
+    {
+     "type": "rect",
+     "box": [
+      1078,
+      1140,
+      1548,
+      1246
+     ],
+     "fill": "#e8383d"
+    }
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "text": "START TIME: 14:30 UTC",
+     "box": [
+      1150,
+      716,
+      1530,
+      750
+     ],
+     "font": "mono",
+     "weight": 400,
+     "size": 24,
+     "color": "#ffffff"
+    },
+    {
+     "type": "caption",
+     "text": "Kuurne\nClassic",
+     "box": [
+      1150,
+      830,
+      1300,
+      980
+     ],
+     "font": "serif",
+     "weight": 900,
+     "size": 46,
+     "color": "#1d3a5c",
+     "align": "left"
+    },
+    {
+     "type": "caption",
+     "text": "MILANO SANREMO",
+     "box": [
+      1090,
+      1155,
+      1540,
+      1240
+     ],
+     "font": "serif",
+     "weight": 700,
+     "size": 52,
+     "color": "#ffffff"
+    }
+   ],
+   "note": "The live-stream banner behind him is redrawn as flat red and white panels with its words retyped."
+  },
+  {
+   "file": "img/gammeldags-skiloper.webp",
+   "name": "gammeldags-skiloper",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/screen-shot-2021-03-18-at-7-09-38-am.webp",
+   "name": "screen-shot-2021-03-18-at-7-09-38-am",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/marit-bjorgen-rollerskiing.webp",
+   "name": "marit-bjorgen-rollerskiing",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/picture-035.webp",
+   "name": "picture-035",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/durian-rider.webp",
+   "name": "durian-rider",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1010,
+      230,
+      1180,
+      600
+     ],
+     "erase_box": [
+      935,
+      236,
+      1186,
+      418
+     ],
+     "pose": "hands_hips",
+     "face": "thinking",
+     "psi": 112.5,
+     "mask": "box"
+    }
+   ],
+   "joke": "\"50 kilometers? Dassit? It would only take me like an hour to do that on a bike.\"",
+   "alt": "Cartoon Gravel God, hands on hips, stands beside a pair of skis and poles at a groomed ski track in snowy woods; at the left a man in a \"Go Vegan\" cycling jersey, a cigarette in his mouth, says: \"50 kilometers? Dassit? It would only take me like an hour to do that on a bike.\"",
+   "match": "exact",
+   "erase_extra": [
+    [
+     1005,
+     400,
+     1125,
+     600
+    ]
+   ]
+  },
+  {
+   "file": "img/klaebo-drama.webp",
+   "name": "klaebo-drama",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      0,
+      70,
+      240,
+      560
+     ],
+     "erase_box": [
+      0,
+      60,
+      228,
+      575
+     ],
+     "pose": "point",
+     "face": "surprised",
+     "psi": 20
+    }
+   ],
+   "joke": "Dramaaaaaa!!!!",
+   "alt": "TV footage of the 50 km finish straight, a skier in Norway's white and blue beside a skier in Russia's red, a red circle drawn around their tangled skis and poles; cartoon Gravel God at the left points and says: \"Dramaaaaaa!!!!\"",
+   "match": "closest",
+   "note": "The original was an animated GIF; the redraw is a still."
+  },
+  {
+   "file": "img/screen-shot-2021-03-07-at-7-42-17-am.webp",
+   "name": "screen-shot-2021-03-07-at-7-42-17-am",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/screen-shot-2021-03-07-at-7-52-35-am.webp",
+   "name": "screen-shot-2021-03-07-at-7-52-35-am",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/screen-shot-2021-03-07-at-8-25-51-am.webp",
+   "name": "screen-shot-2021-03-07-at-8-25-51-am",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/screen-shot-2021-03-18-at-10-32-58-am.webp",
+   "name": "screen-shot-2021-03-18-at-10-32-58-am",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/ulykket.webp",
+   "name": "ulykket",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/northug-cocaine.webp",
+   "name": "northug-cocaine",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/klaebo-interview-2.webp",
+   "name": "klaebo-interview-2",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      430,
+      165,
+      690,
+      600
+     ],
+     "erase_box": [
+      416,
+      148,
+      708,
+      600
+     ],
+     "pose": "shrug",
+     "face": "thinking",
+     "psi": 90
+    }
+   ],
+   "joke": "Did they run out of oil $? / Did they lose motivation when they ran out of snus?",
+   "alt": "Cartoon Gravel God shrugs in front of a Norwegian fjord, an oil platform on one side and a red cabin with a tin of snus on the other: \"Did they run out of oil $?\" \"Did they lose motivation when they ran out of snus?\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/klaebo-interview.webp",
+   "name": "klaebo-interview",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      760,
+      250,
+      1195,
+      600
+     ],
+     "erase_box": [
+      740,
+      228,
+      1195,
+      600
+     ],
+     "pose": "stand",
+     "face": "focused",
+     "psi": 157.5,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "\"Jeg føler at det blir feil å fortsette denne prosessen. Jeg ønsker å tenke positivt, samt legge dette bak meg. Jeg vil ikke bli oppfattet som en sytende skiløper.\"",
+   "alt": "Cartoon Gravel God, in profile, interviews a shirtless skier with a helmet, poles and a pack beside a snowy ski jump; the skier's speech bubble, in Norwegian: \"Jeg føler at det blir feil å fortsette denne prosessen. Jeg ønsker å tenke positivt, samt legge dette bak meg. Jeg vil ikke bli oppfattet som en sytende skiløper.\"",
+   "match": "closest",
+   "note": "The rig has no microphone, so the interview microphone is gone; he listens in profile."
+  },
+  {
+   "file": "img/klaebo-interview-1.webp",
+   "name": "klaebo-interview-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      760,
+      250,
+      1195,
+      600
+     ],
+     "erase_box": [
+      740,
+      228,
+      1195,
+      600
+     ],
+     "pose": "stand",
+     "face": "focused",
+     "psi": 157.5,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "\"Noen dager lykkes man og noen dager lykkes man ikke. ... Jeg konkurrerer mest mot meg selv, og jeg kommer til å konkurrere mot meg selv til jeg går i grava.\"",
+   "alt": "Cartoon Gravel God, in profile, listens to a shirtless young man in pink swim shorts standing in the snow; his speech bubble, in Norwegian: \"Noen dager lykkes man og noen dager lykkes man ikke. Men til syvende og sist er det viktigste hva jeg sitter igjen med til slutt og hva slags fyr jeg har lyst til å være. Jeg kommer ikke til å lage sånne fiendebilder, i hvert fall ikke overfor meg selv, men dere kan vær så god skrive det, sier han...Jeg konkurrerer mest mot meg selv, og jeg kommer til å konkurrere mot meg selv til jeg går i grava.\"",
+   "match": "closest",
+   "note": "The rig has no microphone, so the interview microphone is gone; he listens in profile."
+  },
+  {
+   "file": "img/first-loser-lance.webp",
+   "name": "first-loser-lance",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/10398726-508631980675-2532-n-508631980675.webp",
+   "name": "10398726-508631980675-2532-n-508631980675",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/sitater.webp",
+   "name": "sitater",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/klaebo-interview-3.webp",
+   "name": "klaebo-interview-3",
+   "verdict": "keep",
+   "why": "Photo, screenshot or quote graphic; no Gravel God cartoon."
+  },
+  {
+   "file": "img/klaebo-interview-4.webp",
+   "name": "klaebo-interview-4",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      400,
+      30,
+      700,
+      600
+     ],
+     "erase_box": [
+      375,
+      20,
+      705,
+      600
+     ],
+     "pose": "hands_hips",
+     "face": "shout",
+     "psi": 90,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "joke": "Wrong!",
+   "alt": "Cartoon Gravel God, hands on hips, stands in the middle of a road-race peloton riding toward the camera and shouts: \"Wrong!\"",
+   "match": "exact"
+  }
+ ]
+}

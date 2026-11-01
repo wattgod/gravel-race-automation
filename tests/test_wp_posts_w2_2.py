@@ -166,7 +166,7 @@ def test_every_image_has_alt_text_and_committed_files(pid):
         assert (m.OUTPUT_PATH.parent / path).is_file(), path
     shipped = {p.suffix for p in img_dir.iterdir() if not p.name.endswith("-og.jpg")}
     assert shipped <= {".webp", ".mp4", ".webm"}
-    assert [p.name for p in img_dir.glob("*.jpg")] == ([f"{feat['name']}-og.jpg"] if feat else [])
+    assert [p.name for p in img_dir.glob("*.jpg")] == ([m.SOURCE.data["renditions"][feat["name"]]["og"]["file"]] if feat else [])
 
 
 @pytest.mark.parametrize("pid", POSTS)
@@ -221,7 +221,8 @@ def test_gila_galleries_have_every_photo():
         assert len(names) == len(set(names)) == n
         html = _page(pid)
         for name in names:
-            assert html.count(f'src="img/{name}.webp"') == 1, name
+            # v6.7 character redraws ship under <name>-v67 (long cache)
+            assert html.count(f'src="img/{name}.webp"') + html.count(f'src="img/{name}-v67.webp"') == 1, name
 
 
 def test_rgg_race_figure_uses_the_posts_miles():

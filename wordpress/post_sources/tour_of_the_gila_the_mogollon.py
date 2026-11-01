@@ -35,17 +35,17 @@ DESCRIPTION = ("Tour of the Gila 2023, the Mogollon stage: a 90-plus-mile road r
                "the author's result, quotes from the team, and Silver City scenes.")  # <=160 chars
 
 ALT = {
-    "got-any-meelahrs": "Strava activity \"Stage 1: 'Got any MeeLahrs in Der?'\", Wednesday, April 26, 2023, Silver City, New Mexico: 74.21 mi, 3:00:19 moving time, 2,910 ft of climbing, 226 W weighted average power; cartoon Gravel God in a cowboy hat pops a wheelie at the right.",
-    "do-you-even-lift-bro": "A weathered home gym on a backyard deck under a tree: a white weight-stack machine, dumbbells and a rowing machine, with cartoon Gravel God in a cowboy hat, arms folded, in front.",
+    "got-any-meelahrs": "Strava ride summary for Stage 1: \"Got any MeeLahrs in Der?\" (74.21 mi, 2,910 ft), with cartoon Gravel God as the profile picture and popping a wheelie in the corner.",
+    "do-you-even-lift-bro": "Cartoon Gravel God stands on a sunny wooden porch next to a weight machine and a bench, thinking.",
     "abq-burritoes-scaled": "A store rack stacked with bags of large flour tortillas under a Coca-Cola sign, priced $2.99: \"Albuquerque burrito style tortillas\".",
-    "the-food-basket": "A smiling young man in a navy T-shirt stands in the parking lot of the Food Basket grocery store under a clear blue sky; cartoon Gravel God's cowboy hat is in the corner.",
-    "porch-treadmill": "A treadmill, a stationary bike and a small table on the peeling red porch of a brick house, with cartoon Gravel God in a cowboy hat standing among them.",
-    "straight-zonked": "A teal-walled bedroom with a fold-down bed, two bikes against the wall and a TV; cartoon Gravel God in a cowboy hat lies asleep on the bed.",
+    "the-food-basket": "Cartoon Gravel God, seen from behind in the foreground, faces a man in the Food Basket parking lot.",
+    "porch-treadmill": "Cartoon Gravel God stands hands on hips looking at a treadmill and a bike trainer set up on a brick porch.",
+    "straight-zonked": "Cartoon Gravel God sits on a hotel bed, half asleep, with bikes and gear around the room.",
     "ethan-anger-haircut-scaled": "A young man with a fresh mullet, shaved on the side, sits at a kitchen table in a red T-shirt, hand on his chin, staring at a plate of food.",
-    "jesus-candles": "Grocery shelves packed with religious prayer candles, saints and the Virgin of Guadalupe on the glass jars, with cartoon Gravel God's cowboy hat in the foreground.",
+    "jesus-candles": "Cartoon Gravel God, seen from behind, faces shelves full of religious prayer candles in a store.",
     "numbasssss-scaled": "Three Tour of the Gila race numbers, all 122, two body numbers and a bike plate, laid out on a grey sheet.",
-    "701-cooper": "A small pink stucco house behind a chain-link fence on a bright day, with cartoon Gravel God in a cowboy hat grinning on the sidewalk in front.",
-    "superman": "A rider in a red and blue jersey stands on the top step of the Tour of the Gila podium with both arms raised, the UCI America Tour sponsor board behind him; riders in the crowd watch, cartoon Gravel God among them.",
+    "701-cooper": "Cartoon Gravel God gives a thumbs up in front of a small pink house behind a chain-link fence.",
+    "superman": "A rider in red raises both arms on the Tour of the Gila podium while cartoon Gravel God watches from the crowd at the left edge.",
 }
 
 # The "In short" rule (wp_post docstring); section = 0-based h2 index.

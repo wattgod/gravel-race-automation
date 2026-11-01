@@ -1,0 +1,273 @@
+{
+ "collection": "articles",
+ "slug": "i-screwed-up-gravel-worlds-so-you",
+ "images": [
+  {
+   "file": "img/0545f67707da2669.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "gradient",
+    "top": "#e2f3f0",
+    "bottom": "#fde5b4"
+   },
+   "insets": [
+    {
+     "src": [
+      770,
+      0,
+      1536,
+      1024
+     ],
+     "box": [
+      770,
+      0,
+      1536,
+      1024
+     ]
+    },
+    {
+     "src": [
+      650,
+      0,
+      770,
+      520
+     ],
+     "box": [
+      650,
+      0,
+      770,
+      520
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      0,
+      920,
+      770,
+      1024
+     ],
+     "fill": "#e7c99a"
+    },
+    {
+     "type": "rect",
+     "box": [
+      565,
+      522,
+      772,
+      560
+     ],
+     "fill": "#a5bbbb"
+    },
+    {
+     "type": "rect",
+     "box": [
+      578,
+      560,
+      594,
+      1000
+     ],
+     "fill": "#3a4a52"
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      180,
+      80,
+      520,
+      990
+     ],
+     "pose": "drink",
+     "face": "smile",
+     "psi": 67.5
+    }
+   ],
+   "match": "closest",
+   "note": "He stands with a drink beside the aid table instead of sitting in a folding chair (the rig has no chair); the crowd on the far left is gone."
+  },
+  {
+   "file": "img/115e880170b01a00.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      860,
+      70,
+      1180,
+      975
+     ],
+     "erase_box": [
+      850,
+      50,
+      1185,
+      975
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "pose": "straddle",
+     "face": "smile",
+     "psi": 90
+    }
+   ],
+   "erase_extra": [
+    [
+     1050,
+     920,
+     1500,
+     990
+    ],
+    [
+     890,
+     0,
+     1070,
+     95
+    ]
+   ],
+   "match": "closest",
+   "note": "He wears his tee and jorts instead of riding shirtless, and straddles the bike instead of giving a thumbs up."
+  },
+  {
+   "file": "img/1d2222b24669fafd.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "gradient",
+    "top": "#d2f8ed",
+    "bottom": "#e9c26a"
+   },
+   "insets": [
+    {
+     "src": [
+      1040,
+      0,
+      1536,
+      540
+     ],
+     "box": [
+      0,
+      0,
+      1536,
+      540
+     ]
+    },
+    {
+     "src": [
+      770,
+      540,
+      1536,
+      1024
+     ],
+     "box": [
+      770,
+      540,
+      1536,
+      1024
+     ]
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      20,
+      60,
+      820,
+      1024
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "match": "exact"
+  },
+  {
+   "file": "img/be0a8ebd0b676c06.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "gradient",
+    "top": "#b6f9ff",
+    "bottom": "#fce4b3"
+   },
+   "insets": [
+    {
+     "src": [
+      900,
+      0,
+      1536,
+      1024
+     ],
+     "box": [
+      900,
+      0,
+      1536,
+      1024
+     ]
+    },
+    {
+     "src": [
+      0,
+      0,
+      900,
+      70
+     ],
+     "box": [
+      0,
+      0,
+      900,
+      70
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      0,
+      640,
+      900,
+      700
+     ],
+     "fill": "#cfe3b0"
+    },
+    {
+     "type": "rect",
+     "box": [
+      0,
+      820,
+      900,
+      1024
+     ],
+     "fill": "#2f3740"
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      60,
+      120,
+      720,
+      1000
+     ],
+     "pose": "stand",
+     "face": "shout",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "match": "closest",
+   "note": "The steering wheel and his hands on it are gone; he screams at the oncoming truck from behind the dash."
+  }
+ ]
+}

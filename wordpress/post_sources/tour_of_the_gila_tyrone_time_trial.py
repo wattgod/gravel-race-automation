@@ -33,11 +33,11 @@ DESCRIPTION = ("Tour of the Gila 2023, the Tyrone Time Trial: a 25 km time trial
                "the author's best Tyrone TT with a mediocre result, and quotes from the team.")
 
 ALT = {
-    "screenshot-2023-04-29-at-14-55-07": "Strava activity \"Day 3: More Blessings\", Friday, April 28, 2023, Grant County, New Mexico: 35.03 mi, 1:43:45 moving time, 2,441 ft of climbing, 258 W weighted average power, 1,374 kJ; clear, 16 °C.",
-    "untitled-design-5": "Cartoon Gravel God's head on a rider in red Rio Grande kit, sitting on a black time-trial bike with a disc wheel in a sunny parking lot full of team vans and tents.",
+    "screenshot-2023-04-29-at-14-55-07": "Strava ride summary for Day 3: More Blessings (35.03 mi, 1:43:45, 2,441 ft) with cartoon Gravel God as the profile picture.",
+    "untitled-design-5": "Cartoon Gravel God's head on a rider in a red kit sitting on a time trial bike with a disc wheel in a team tent area.",
     "untitled-design-7": "A front-yard work session: two riders crouch on a brick path fixing a disc wheel and a bike on a red repair stand, while a third, his arm in a sling, stands by on the phone.",
     "untitled-design-6": "A rider in a red sugar-skull T-shirt, green shorts and sandals, his right forearm in a cast, looks at his phone on the sidewalk in front of a pink stucco house.",
-    "untitled-design-8": "A team house kitchen: a tub of cooked spaghetti on the counter, riders chatting by the stove and the dining table, and cartoon Gravel God in a cowboy hat in the foreground, seen from behind.",
+    "untitled-design-8": "Cartoon Gravel God, seen from behind, in a busy kitchen where people are cooking.",
 }
 
 # The "In short" rule (wp_post docstring); section = 0-based h2 index.

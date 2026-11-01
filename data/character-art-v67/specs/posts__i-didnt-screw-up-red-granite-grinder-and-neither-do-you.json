@@ -1,0 +1,492 @@
+{
+ "collection": "posts",
+ "slug": "i-didnt-screw-up-red-granite-grinder-and-neither-do-you",
+ "images": [
+  {
+   "file": "img/cruxassembly-1.webp",
+   "name": "cruxassembly-1",
+   "verdict": "keep",
+   "why": "Photo of a bike in a garage."
+  },
+  {
+   "file": "img/img-9425.webp",
+   "name": "img-9425",
+   "verdict": "keep",
+   "why": "Photo of bearings in gravel."
+  },
+  {
+   "file": "img/fml.webp",
+   "name": "fml",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "gradient",
+    "top": "#d4c5b9",
+    "bottom": "#a68e80"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      640,
+      574,
+      766
+     ],
+     "box": [
+      0,
+      640,
+      574,
+      766
+     ]
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      20,
+      30,
+      560,
+      700
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 90,
+     "elev": -12,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "bottom",
+     "shadow": false
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "text": "FML.",
+     "box": [
+      20,
+      520,
+      190,
+      630
+     ],
+     "tail": [
+      170,
+      500
+     ],
+     "size": 40
+    }
+   ],
+   "joke": "FML.",
+   "alt": "Cartoon Gravel God seen from below over his front tyre, grimacing at the camera, with a speech bubble: \"FML.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/who-wants-to-party.webp",
+   "name": "who-wants-to-party",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      960,
+      180,
+      1600,
+      900
+     ],
+     "erase_box": [
+      960,
+      50,
+      1600,
+      900
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "height",
+     "elev": 8,
+     "mask": "grabcut"
+    }
+   ],
+   "joke": "Who wants to party??!!!",
+   "alt": "A woman across a kitchen table shouts \"Who wants to party??!!!\" at cartoon Gravel God, seen from behind in the foreground.",
+   "match": "exact"
+  },
+  {
+   "file": "img/what-gave-me-away.webp",
+   "name": "what-gave-me-away",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      670,
+      525,
+      780,
+      865
+     ],
+     "erase_box": [
+      660,
+      510,
+      790,
+      870
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 90
+    }
+   ],
+   "joke": "'sup Matti! / What gave me away?",
+   "alt": "Evening at the Ironbull finish arch: a rider in pink says \"'sup Matti!\" and cartoon Gravel God, standing by his bike, answers \"What gave me away?\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/rgg-course.webp",
+   "name": "rgg-course",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1230,
+      230,
+      1490,
+      890
+     ],
+     "erase_box": [
+      1240,
+      190,
+      1600,
+      900
+     ],
+     "pose": "point",
+     "face": "grin",
+     "psi": 112.5
+    }
+   ],
+   "joke": "Grandpa's old farm / Childhood home",
+   "alt": "Map of the Red Granite Grinder course with Grandpa's old farm and his childhood home marked, an elevation profile below, and cartoon Gravel God standing on the right.",
+   "match": "exact"
+  },
+  {
+   "file": "img/let-him-go-es-a-nobody.webp",
+   "name": "let-him-go-es-a-nobody",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      445,
+      560,
+      510,
+      720
+     ],
+     "erase_box": [
+      430,
+      530,
+      520,
+      720
+     ],
+     "ride": "cruise",
+     "psi": 270
+    }
+   ],
+   "alt": "A tiny cartoon Gravel God rides away up a tree-lined road, far ahead of the photographer.",
+   "match": "exact"
+  },
+  {
+   "file": "img/waaaaaahhhhhhhhhhuhhh.webp",
+   "name": "waaaaaahhhhhhhhhhuhhh",
+   "verdict": "keep",
+   "why": "Real race photo of Matti carrying his bike."
+  },
+  {
+   "file": "img/casserole-here.webp",
+   "name": "casserole-here",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      200,
+      390,
+      960,
+      900
+     ],
+     "erase_box": [
+      200,
+      380,
+      960,
+      900
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "height",
+     "elev": 8,
+     "mask": "grabcut",
+     "scale": 1.1
+    }
+   ],
+   "joke": "Hot casserole here!",
+   "alt": "Cartoon Gravel God seen from behind on a gravel road; far ahead a group of people stands on the road, one calling \"Hot casserole here!\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/millar.webp",
+   "name": "millar",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1230,
+      280,
+      1470,
+      740
+     ],
+     "erase_box": [
+      1210,
+      230,
+      1480,
+      740
+     ],
+     "ride": "cruise",
+     "face": "smile",
+     "psi": 70
+    }
+   ],
+   "alt": "Cartoon Gravel God rides a gravel road through the woods, dreaming of a can of Miller Lite and a wedge of cheese in a thought bubble.",
+   "match": "exact"
+  },
+  {
+   "file": "img/cold-casserole.webp",
+   "name": "cold-casserole",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      980,
+      320,
+      1600,
+      900
+     ],
+     "erase_box": [
+      960,
+      360,
+      1600,
+      900
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "height",
+     "elev": 8,
+     "mask": "grabcut"
+    }
+   ],
+   "joke": "Cold casserole here!",
+   "alt": "Four people stand at the side of an autumn gravel road calling \"Cold casserole here!\" to cartoon Gravel God, seen from behind.",
+   "match": "exact"
+  },
+  {
+   "file": "img/seriously-tho.webp",
+   "name": "seriously-tho",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      30,
+      250,
+      780,
+      900
+     ],
+     "erase_box": [
+      30,
+      400,
+      780,
+      900
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "height",
+     "elev": 8,
+     "mask": "grabcut"
+    }
+   ],
+   "joke": "What UP MATTIIIIIIIIII!!! / Seriously, what's giving me away? Is it the hat?",
+   "alt": "On an autumn road a grinning rider flexes and shouts \"What UP MATTIIIIIIIIII!!!\" at cartoon Gravel God, seen from behind, who asks \"Seriously, what's giving me away? Is it the hat?\"",
+   "match": "closest",
+   "note": "He no longer wears a hat, so the line 'Is it the hat?' is kept verbatim but the hat is gone."
+  },
+  {
+   "file": "img/red-granite-bar.webp",
+   "name": "red-granite-bar",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      592,
+      450,
+      645,
+      545
+     ],
+     "erase_box": [
+      585,
+      440,
+      650,
+      548
+     ],
+     "ride": "cruise",
+     "psi": 70
+    }
+   ],
+   "joke": "Whoop whoop get ya watuhhh!!!",
+   "alt": "A roadside bar: a woman holding a water bottle cheers \"Whoop whoop get ya watuhhh!!!\" as a small cartoon Gravel God rides toward her.",
+   "match": "exact"
+  },
+  {
+   "file": "img/dingdingding.webp",
+   "name": "dingdingding",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      440,
+      820,
+      640,
+      1450
+     ],
+     "erase_box": [
+      360,
+      770,
+      680,
+      1000
+     ],
+     "ride": "cruise",
+     "face": "grimace",
+     "psi": 75,
+     "dx": 0.35
+    }
+   ],
+   "joke": "Don't explode. Don't explode. Don't explode. / Ding Ding Ding",
+   "alt": "Cartoon Gravel God rides toward the camera on a long sandy gravel road, grimacing, thinking \"Don't explode. Don't explode. Don't explode.\" while a bell goes \"Ding Ding Ding\".",
+   "match": "exact",
+   "erase_extra": [
+    [
+     455,
+     990,
+     625,
+     1465
+    ]
+   ]
+  },
+  {
+   "file": "img/img-9541-1.webp",
+   "name": "img-9541-1",
+   "verdict": "keep",
+   "why": "Photo of a pump and tyre."
+  },
+  {
+   "file": "img/img-9540-1.webp",
+   "name": "img-9540-1",
+   "verdict": "keep",
+   "why": "Photo of a bike drivetrain."
+  },
+  {
+   "file": "img/img-1793-scaled.webp",
+   "name": "img-1793-scaled",
+   "verdict": "keep",
+   "why": "Group photo."
+  },
+  {
+   "file": "img/tmp.webp",
+   "name": "tmp",
+   "verdict": "keep",
+   "why": "Movie still, no Gravel God."
+  },
+  {
+   "file": "img/rib-falls-flash.webp",
+   "name": "rib-falls-flash",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      125,
+      330,
+      220,
+      560
+     ],
+     "erase_box": [
+      115,
+      315,
+      230,
+      565
+     ],
+     "ride": "cruise",
+     "face": "thinking",
+     "psi": 60
+    }
+   ],
+   "alt": "Grey street view of a country road by a church; a small cartoon Gravel God rides in, with a flashback cloud of a grandfather holding a toddler.",
+   "match": "exact"
+  },
+  {
+   "file": "img/screen-shot-2021-10-21-at-10-53-13-am.webp",
+   "name": "screen-shot-2021-10-21-at-10-53-13-am",
+   "verdict": "keep",
+   "why": "TrainingPeaks screenshot."
+  },
+  {
+   "file": "img/img-9516.webp",
+   "name": "img-9516",
+   "verdict": "keep",
+   "why": "Race photo."
+  },
+  {
+   "file": "img/img-0368.webp",
+   "name": "img-0368",
+   "verdict": "keep",
+   "why": "Photo of bike."
+  },
+  {
+   "file": "img/img-9509.webp",
+   "name": "img-9509",
+   "verdict": "keep",
+   "why": "Photo of beer case."
+  },
+  {
+   "file": "img/img-9404.webp",
+   "name": "img-9404",
+   "verdict": "keep",
+   "why": "Photo of breakfast."
+  },
+  {
+   "file": "img/havent-showered-in-a-week.webp",
+   "name": "havent-showered-in-a-week",
+   "verdict": "keep",
+   "why": "Real photo of Matti riding, with a bubble; no cartoon."
+  },
+  {
+   "file": "img/billy-goat-fam.webp",
+   "name": "billy-goat-fam",
+   "verdict": "keep",
+   "why": "Group photo."
+  }
+ ]
+}

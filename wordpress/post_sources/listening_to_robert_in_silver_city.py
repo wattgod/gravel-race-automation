@@ -33,11 +33,11 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "are-you-all-alive-1": "Black-and-white group photo at a Tour of the Gila finish: riders in Rio Grande kit, one with cartoon Gravel God's face in a cowboy hat, stand with an older couple and a man in jeans beside a bike numbered 105, pine hills behind.",
+    "are-you-all-alive-1": "Black-and-white group photo of riders with bikes; cartoon Gravel God's head is on one of the riders.",
     "cancelled": "The faded Silver City's Tour of the Gila, powered by SRAM, logo of a cyclist on a time-trial bike, with \"CANCELED\" across it in glowing red neon letters.",
-    "losers": "A downtown street race lined with spectators and brick storefronts: a field of riders in red approaches, and cartoon Gravel God in a cowboy hat rides ahead of them, saying \"LOSERS!\"",
-    "keanu-reeves-1680-x-1137-px": "Keanu Reeves sits alone on a park bench beside a paper bag, looking down; cartoon Gravel God in a cowboy hat stands at the right, watching him.",
-    "robert-roberting": "An older man in a yellow shirt and khakis leans into the open back doors of a white Rio Grande team van parked on gravel while a rider in an orange T-shirt waits; cartoon Gravel God in a cowboy hat stands at the right.",
+    "losers": "Cartoon Gravel God rides through a downtown kids' race shouting \"LOSERS!\"",
+    "keanu-reeves-1680-x-1137-px": "Sad Keanu Reeves sits alone on a bench while cartoon Gravel God looks at him from the right.",
+    "robert-roberting": "Cartoon Gravel God watches two men load gear into a white team van.",
 }
 
 ANCHORS = {

@@ -40,8 +40,8 @@ DESCRIPTION = ("Day 2 of The Double: a six-lap road race with a final climb, a 7
 
 ALT = {
     "faenskap": "Strava activity \"Dag 2: Fænskap\", Thursday, April 21, 2022, Yucaipa, California: 96.17 mi, 4:13:25 moving time, 8,862 ft of climbing, 282 W weighted average power, 3,576 kJ, with the route map and elevation profile.",
-    "weeeak": "TrainingPeaks file \"Redlands St2 - Oak Glen\", April 21, 2022: 4:13:49, 96.2 mi, 286 TSS, normalized power 296 W, IF 0.82; peak power 605 W for 30 s, 457 W for 1 min, 385 W for 5 min. Cartoon Gravel God in a cowboy hat stands over the panel.",
-    "hallaigjen": "Two children play doctor in a bedroom: a small boy in a blue T-shirt and his sister's sparkly black shoes wears a yellow toy stethoscope, beside a girl in a white nurse costume; cartoon Gravel God in a cowboy hat stands behind them.",
+    "weeeak": "A TrainingPeaks file for Redlands Stage 2, Oak Glen (4:13:49, 96.2 mi, 286 TSS) with its route map and power graph; cartoon Gravel God stands beside it with his back turned.",
+    "hallaigjen": "Two small kids play doctor in a bedroom, the boy wearing a toy stethoscope; cartoon Gravel God stands grinning against the wall behind them.",
 }
 
 # The "In short" rule (wp_post docstring); section = 0-based h2 index.

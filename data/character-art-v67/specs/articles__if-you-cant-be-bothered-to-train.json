@@ -1,0 +1,104 @@
+{
+ "collection": "articles",
+ "slug": "if-you-cant-be-bothered-to-train",
+ "images": [
+  {
+   "file": "img/fb3d0e9c136b2f95.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      520,
+      120,
+      1080,
+      900
+     ],
+     "erase_box": [
+      410,
+      90,
+      1090,
+      900
+     ],
+     "mask": "box",
+     "pose": "stand",
+     "psi": 90,
+     "face": "grin",
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "match": "exact"
+  },
+  {
+   "file": "img/3c2d6af10ae8bd67.webp",
+   "verdict": "keep",
+   "why": "Supplement summary table; no character."
+  },
+  {
+   "file": "img/c256f776474128ef.webp",
+   "verdict": "keep",
+   "why": "Supplement summary table; no character."
+  },
+  {
+   "file": "img/cf7ed68009ceb549.webp",
+   "verdict": "keep",
+   "why": "Supplement summary table; no character."
+  },
+  {
+   "file": "img/2c9b58baa350b9d8.webp",
+   "verdict": "keep",
+   "why": "Supplement summary table; no character."
+  },
+  {
+   "file": "img/826e3c6fc60a9a59.webp",
+   "verdict": "keep",
+   "why": "Supplement summary table; no character."
+  },
+  {
+   "file": "img/ab4fab96f0de447c.webp",
+   "verdict": "keep",
+   "why": "Supplement summary table; no character."
+  },
+  {
+   "file": "img/a782949a87a4ec15.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      790,
+      290,
+      960,
+      830
+     ],
+     "erase_box": [
+      733,
+      268,
+      1012,
+      838
+     ],
+     "mask": "grabcut",
+     "pose": "coffee",
+     "psi": 90,
+     "face": "grin",
+     "pad": 8
+    }
+   ],
+   "joke": "Wanna Get high?",
+   "match": "exact"
+  },
+  {
+   "file": "img/8b613e01380502af.webp",
+   "verdict": "keep",
+   "why": "Supplement summary table; no character."
+  },
+  {
+   "file": "img/53e76f8c0c5d1468.webp",
+   "verdict": "keep",
+   "why": "Supplement summary table; no character."
+  }
+ ]
+}

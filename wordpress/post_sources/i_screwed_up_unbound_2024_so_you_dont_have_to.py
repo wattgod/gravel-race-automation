@@ -33,13 +33,13 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "trash-1": "Cartoon Gravel God in a cowboy hat lies sprawled on his back in a sunlit, litter-strewn alley beside a row of rusty green dumpsters.",
+    "trash-1": "A sunlit back alley of dumpsters, crushed cans and spilled trash; cartoon Gravel God sits slumped on the ground, half asleep.",
     "image000005": "Security-camera still photographed off a monitor, timestamped 06-07-2024: a man with a bulging backpack wheels a bike away along a store front lined with stacked cases of bottled water.",
     "image000004": "A second security-camera still off the same monitor: the man, in dark clothes with a backpack, walks along the store front beside the stacked water, bikes leaning against it.",
     "image000003": "A third security-camera still: the man walks toward the camera along the store front; below the monitor, a handwritten note reads \"June 5th 4:53pm - 5:00 pm\".",
-    "waxed": "Cartoon Gravel God in a cowboy hat stands with his bike at the foot of a rutted dirt road that climbs straight up a green hillside between wire fences.",
-    "hwy-h": "Cartoon Gravel God in a cowboy hat, T-shirt and shorts runs along the shoulder of a two-lane country highway past soybean fields, a farmhouse and a creek, the sun low behind him.",
-    "expectations": "Two-panel cartoon. \"Expectations\": cartoon Gravel God rides up a straight, steady slope to a can of Miller Lite. \"Reality\": he tumbles head-first along a wildly looping, up-and-down line to the same can.",
+    "waxed": "A grassy double track climbing between fences and trees; cartoon Gravel God's grimacing head and shoulders at the bottom of the frame.",
+    "hwy-h": "Cartoon Gravel God walks down the middle of a country highway past cornfields, a creek and power lines on a sunny morning.",
+    "expectations": "Two panels. \"EXPECTATIONS\": cartoon Gravel God rides a straight line up to a can of Miller Lite. \"REALITY\": he brakes hard, wide-eyed, on a wildly squiggly line to the same can.",
 }
 
 DESCRIPTION = ("Unbound 2024: an early flat, 99th place in 10:53, a bike stolen five days later, "

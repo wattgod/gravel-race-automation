@@ -1,0 +1,89 @@
+{
+ "collection": "posts",
+ "slug": "and-just-like-that-its-over",
+ "images": [
+  {
+   "file": "img/season.webp",
+   "name": "season",
+   "verdict": "keep",
+   "why": "Google Maps screenshot; no character."
+  },
+  {
+   "file": "img/season-1.webp",
+   "name": "season-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#a08060",
+   "figs": [
+    {
+     "box": [
+      560,
+      120,
+      1000,
+      820
+     ],
+     "no_erase": true,
+     "pose": "walk",
+     "face": "laugh",
+     "psi": 200,
+     "elev": 35
+    }
+   ],
+   "alt": "Cartoon Gravel God, handlebar mustache and white tee, strides off across flat brown farm fields, laughing.",
+   "match": "closest",
+   "note": "The wind turbine and parachute jump could not be redrawn with the rig; he walks off across the same fields.",
+   "insets": [
+    {
+     "src": [
+      1190,
+      0,
+      1600,
+      900
+     ],
+     "box": [
+      330,
+      0,
+      1190,
+      900
+     ]
+    }
+   ]
+  },
+  {
+   "file": "img/untitled-design-1.webp",
+   "name": "untitled-design-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      620,
+      250,
+      880,
+      702
+     ],
+     "erase_box": [
+      484,
+      0,
+      1015,
+      672
+     ],
+     "pose": "sit",
+     "psi": 270,
+     "elev": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God sits on a wooden bench with his back to the camera, facing a grey, foggy sky between bare shrubs.",
+   "match": "exact",
+   "erase_extra": [
+    [
+     610,
+     668,
+     790,
+     690
+    ]
+   ]
+  }
+ ]
+}

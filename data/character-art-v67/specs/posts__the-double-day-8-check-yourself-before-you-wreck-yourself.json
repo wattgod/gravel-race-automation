@@ -1,0 +1,73 @@
+{
+ "collection": "posts",
+ "slug": "the-double-day-8-check-yourself-before-you-wreck-yourself",
+ "images": [
+  {
+   "file": "img/mogollon-1.webp",
+   "name": "mogollon-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      28,
+      55,
+      158,
+      170
+     ],
+     "erase_box": [
+      15,
+      45,
+      170,
+      178
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain",
+     "shadow": false
+    }
+   ],
+   "alt": "Strava screenshot of Matti Rowe's ride \"Dag 7: Mogollonnnnnnnnn\" (cartoon Gravel God avatar), April 27, 2022, Silver City, New Mexico: 101.75 mi, 4:09:00 moving time, 5,052 ft of climbing, 264 W weighted average power; the route runs north-west from Silver City and the elevation profile ends on a steep climb.",
+   "match": "exact"
+  },
+  {
+   "file": "img/mogollon-2.webp",
+   "name": "mogollon-2",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#e2e2e2",
+   "figs": [
+    {
+     "box": [
+      1020,
+      480,
+      1260,
+      830
+     ],
+     "erase_box": [
+      1015,
+      470,
+      1255,
+      835
+     ],
+     "mask": "grabcut",
+     "pad": 6,
+     "pose": "lean_on_bike",
+     "face": "smile",
+     "psi": 80
+    }
+   ],
+   "alt": "TrainingPeaks file \"Gila St1\", April 27, 2022: 4:09:03, 102 mi, 240 TSS, 274 W normalized power, 2.88 W/kg, average power 226 W and heart rate 140 bpm, with the power and heart-rate traces; a cartoon Gravel God leans on his bike beside the stats.",
+   "match": "exact"
+  },
+  {
+   "file": "img/23f1958f-4a86-4717-ae65-7889b6ded975-scaled.webp",
+   "name": "23f1958f-4a86-4717-ae65-7889b6ded975-scaled",
+   "verdict": "keep",
+   "why": "Real family photo; no cartoon."
+  }
+ ]
+}

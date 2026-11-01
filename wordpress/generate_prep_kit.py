@@ -1457,7 +1457,7 @@ def build_pk_logistics(raw: dict, rd: dict) -> str:
         </div>''')
 
     official = logistics.get("official_site", "")
-    if official:
+    if str(official).startswith("http"):
         items.append(f'''<div class="gg-pk-logistics-item">
           <div class="gg-pk-logistics-label">Official Site</div>
           <p class="gg-pk-logistics-text"><a href="{esc(official)}" target="_blank" rel="noopener">{esc(official)}</a></p>

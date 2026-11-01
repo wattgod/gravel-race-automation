@@ -2,7 +2,7 @@
 """Generate /race/{slug}/training-plan/ pages — northstar Phase 2.
 
 Commercial-intent SEO: targets "{race} training plan" queries, the space
-where competitors fight generic head terms and we have 757 race-specific
+where competitors fight generic head terms and we have hundreds of race-specific
 data assets. Anti-shill structure: the page IS the free preparation guide
 (demand profile, training shape, phase timeline, fueling math, FAQ) and the
 product is the personalization of it.

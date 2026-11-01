@@ -233,10 +233,16 @@ class TestSpecificRenderers:
         # Radar chart has 14 axis labels with /5 in tooltips
         assert html.count("/5") == 14
 
-    def test_tier_distribution_shows_328(self):
+    def test_tier_distribution_uses_live_count(self):
+        """Counts come from web/race-index.json, never a hard-coded 328."""
+        import json
+        from pathlib import Path
+        index = json.loads((Path(__file__).resolve().parent.parent / "web" / "race-index.json").read_text())
         block = {"type": "image", "asset_id": "ch2-tier-distribution", "caption": ""}
         html = INFOGRAPHIC_RENDERERS["ch2-tier-distribution"](block)
-        assert "328" in html
+        assert f"How We Tier {len(index)} Races" in html
+        t1 = sum(1 for r in index if r.get("tier") == 1)
+        assert f"T1: {t1} races" in html
 
     def test_training_phases_has_legend(self):
         block = {"type": "image", "asset_id": "ch3-training-phases", "caption": ""}

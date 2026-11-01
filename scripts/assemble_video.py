@@ -509,7 +509,7 @@ def render_card_setup(brief: dict, size: tuple[int, int]):
                   fill=COLORS["secondary_brown"], anchor="mm")
         y += 90
     # stays above the caption band (CAPTION_Y_FRAC) and the avatar zone
-    draw.text((w / 2, h * 0.575), "SCORED ON 15 DIMENSIONS",
+    draw.text((w / 2, h * 0.575), "14 CRITERIA + CULTURAL BONUS",
               font=mono(32), fill=COLORS["near_black"], anchor="mm")
     bar_w, bar_h, gap = 52, 18, 12
     total = 15 * bar_w + 14 * gap

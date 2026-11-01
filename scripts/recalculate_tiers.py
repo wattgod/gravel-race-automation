@@ -9,7 +9,7 @@ Prestige override logic:
 
 Discipline tagging:
   - Known MTB slugs → "mtb"
-  - All others → "gravel"
+  - All others → the profile's own discipline (rating, then vitals), else "gravel"
 
 Usage:
     python recalculate_tiers.py --dry-run     # Preview changes
@@ -21,6 +21,9 @@ import json
 import sys
 from pathlib import Path
 from typing import Optional, Tuple
+
+sys.path.insert(0, str(Path(__file__).parent))
+from race_facts import race_discipline  # noqa: E402
 
 RACE_DATA = Path(__file__).parent.parent / "race-data"
 
@@ -100,8 +103,10 @@ def recalculate_race(data: dict, slug: str) -> dict:
     # Apply prestige override
     new_tier, override_reason = apply_prestige_override(base_tier, prestige, overall)
 
-    # Discipline tag
-    discipline = "mtb" if slug in MTB_SLUGS else "gravel"
+    # Discipline tag: keep what the profile already says (road / bikepacking
+    # / mtb live in rating or vitals). Overwriting with "gravel" is how 49
+    # non-gravel races ended up labelled gravel in the index.
+    discipline = "mtb" if slug in MTB_SLUGS else race_discipline(race)
 
     # Build change record
     changed = (new_tier != old_tier) or ("discipline" not in rating) or (overall != old_score)
@@ -155,7 +160,7 @@ def main():
     changes = []
     demotions = []
     promotions = []
-    discipline_tags = {"gravel": 0, "mtb": 0}
+    discipline_tags = {}
 
     for path in profiles:
         slug = path.stem
@@ -167,7 +172,7 @@ def main():
 
         change = recalculate_race(data, slug)
         changes.append(change)
-        discipline_tags[change["discipline"]] += 1
+        discipline_tags[change["discipline"]] = discipline_tags.get(change["discipline"], 0) + 1
 
         if change["score_changed"]:
             ci_tag = f"  ci={change['cultural_impact']}" if change["cultural_impact"] else ""
@@ -203,7 +208,7 @@ def main():
     for s in score_changes:
         ci_tag = f" (ci={s['cultural_impact']})" if s["cultural_impact"] else ""
         print(f"    {s['slug']}: {s['old_score']}→{s['overall_score']}{ci_tag}")
-    print(f"  Discipline: gravel={discipline_tags['gravel']}, mtb={discipline_tags['mtb']}")
+    print("  Discipline: " + ", ".join(f"{k}={v}" for k, v in sorted(discipline_tags.items())))
 
     # Tier distribution
     tier_dist = {1: 0, 2: 0, 3: 0, 4: 0}

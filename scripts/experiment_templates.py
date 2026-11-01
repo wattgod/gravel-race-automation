@@ -70,7 +70,7 @@ TEMPLATES: dict[str, list[dict]] = {
                 {
                     "id": "control",
                     "name": "control",
-                    "content": "328 races. 15 criteria. 4,920 scores — all assigned by hand.",
+                    "content": "Every race. 14 criteria. Every score assigned by hand.",
                 },
                 {
                     "id": "variant_a",

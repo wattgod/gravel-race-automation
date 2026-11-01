@@ -21,8 +21,8 @@ Plus a **4-tier classification system** and **overall score** (0-100+).
 
 | Tier | Label | Score | Description | Examples |
 |------|-------|-------|-------------|----------|
-| **1** | Elite | >= 80 | The definitive gravel events. World-class fields, iconic courses, bucket-list status. | Unbound, Badlands, SBT GRVL, Crusher |
-| **2** | Contender | >= 60 | Established races with strong reputations and competitive fields. The next tier of must-do events. | Barry-Roubaix, Rebecca's Private Idaho, Dirty Reiver |
+| **1** | Elite | >= 80 | The definitive gravel events. World-class fields, iconic courses, bucket-list status. | Unbound 200, Badlands, The Traka, Mid South |
+| **2** | Contender | >= 60 | Established races with strong reputations and competitive fields. The next tier of must-do events. | The Rift, Migration Gravel Race, BWR Montana |
 | **3** | Solid | >= 45 | Regional favorites and emerging races. Strong local scenes, genuine gravel character. | Most local gravel races |
 | **4** | Roster | < 45 | Up-and-coming races and local grinders. Grassroots gravel — small fields, raw vibes. | New/niche events |
 
@@ -236,46 +236,50 @@ overall_score = round((sum of 14 base scores + cultural_impact) / 70 × 100)
 ## Scoring Examples
 
 ### Tier 1 Example: Unbound Gravel 200
-| Category | Dimension | Score | Why |
-|----------|-----------|-------|-----|
-| Course | Length | 5 | 200 miles |
-| Course | Technicality | 3 | Flint Hills gravel, not extreme |
-| Course | Elevation | 4 | 11,000 ft total |
-| Course | Climate | 4 | Kansas heat, storms possible |
-| Course | Altitude | 2 | Low elevation |
-| Course | Logistics | 3 | Emporia accessible |
-| Course | Adventure | 5 | Iconic, bucket list |
-| **Course Total** | | **26/35** | |
-| Editorial | Prestige | 5 | The gravel race |
-| Editorial | Race Quality | 4 | Life Time production |
-| Editorial | Experience | 5 | Unforgettable |
-| Editorial | Community | 5 | Gravel mecca |
-| Editorial | Field Depth | 5 | Best in the world |
-| Editorial | Value | 4 | Premium but worth it |
-| Editorial | Expenses | 3 | Moderate total cost |
-| **Editorial Total** | | **31/35** | |
-| **Overall** | | **93/100** | |
+<!-- example-scores: unbound-200 — values must match race-data/unbound-200.json (tests/test_trust_checks.py) -->
+| Category | Dimension | Score |
+|----------|-----------|-------|
+| Course | Length | 5 |
+| Course | Technicality | 4 |
+| Course | Elevation | 5 |
+| Course | Climate | 5 |
+| Course | Altitude | 1 |
+| Course | Logistics | 4 |
+| Course | Adventure | 5 |
+| **Course Total** | | **29/35** |
+| Editorial | Prestige | 5 |
+| Editorial | Race Quality | 5 |
+| Editorial | Experience | 5 |
+| Editorial | Community | 5 |
+| Editorial | Field Depth | 5 |
+| Editorial | Value | 4 |
+| Editorial | Expenses | 4 |
+| **Editorial Total** | | **33/35** |
+| Bonus | Cultural Impact | 5 |
+| **Overall** | | **96/100** (29+33+5 = 67, /70 x 100) |
 
-### Tier 2 Example: Barry-Roubaix
-| Category | Dimension | Score | Why |
-|----------|-----------|-------|-----|
-| Course | Length | 3 | 62 miles (Killer) |
-| Course | Technicality | 3 | Sandy two-track |
-| Course | Elevation | 2 | ~2,500 ft |
-| Course | Climate | 3 | Michigan spring - mud! |
-| Course | Altitude | 1 | Low elevation |
-| Course | Logistics | 3 | Midwest accessible |
-| Course | Adventure | 3 | Fun, not epic |
-| **Course Total** | | **18/35** | |
-| Editorial | Prestige | 4 | Largest in Midwest |
-| Editorial | Race Quality | 4 | Well-organized |
-| Editorial | Experience | 4 | Great atmosphere |
-| Editorial | Community | 5 | Amazing vibe |
-| Editorial | Field Depth | 3 | Regional pros |
-| Editorial | Value | 4 | Good value |
-| Editorial | Expenses | 4 | Budget-friendly |
-| **Editorial Total** | | **28/35** | |
-| **Overall** | | **72/100** | |
+### Tier 2 Example: The Rift
+<!-- example-scores: the-rift — values must match race-data/the-rift.json (tests/test_trust_checks.py) -->
+| Category | Dimension | Score |
+|----------|-----------|-------|
+| Course | Length | 4 |
+| Course | Technicality | 4 |
+| Course | Elevation | 3 |
+| Course | Climate | 5 |
+| Course | Altitude | 1 |
+| Course | Logistics | 3 |
+| Course | Adventure | 5 |
+| **Course Total** | | **25/35** |
+| Editorial | Prestige | 4 |
+| Editorial | Race Quality | 4 |
+| Editorial | Experience | 5 |
+| Editorial | Community | 4 |
+| Editorial | Field Depth | 3 |
+| Editorial | Value | 4 |
+| Editorial | Expenses | 3 |
+| **Editorial Total** | | **27/35** |
+| Bonus | Cultural Impact | 3 |
+| **Overall** | | **79/100** (25+27+3 = 55, /70 x 100) |
 
 ---
 

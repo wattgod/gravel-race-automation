@@ -33,9 +33,9 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "sheeesh-1": "Strava screenshot of Matti Rowe's ride \"Dag 4: Sheeesh\", 3:31 PM on Saturday, April 23, 2022, Redlands, California: 19.75 mi, 47:58 moving time, 545 ft of climbing, 283 W weighted average power, 719 kJ, 24.7 mi/h average, with the twisting criterium circuit traced over and over on the map and a flat elevation profile.",
-    "mote-veggen": "Animated: a TrainingPeaks file \"Redlands St4 - Crit\" (48:08, 19.8 mi, 60 TSS, normalized power 313 W) where cartoon Gravel God in a cowboy hat rides across the power graph into a brick wall drawn over it, and a cartoon explosion fills the screen.",
-    "shame": "Meme: Matti's cartoon face in a cowboy hat pasted onto the Game of Thrones walk-of-shame scene, a nun in grey and a jeering crowd behind him, captioned \"SHAME SHAME SHAME SHAME\".",
+    "sheeesh-1": "Strava ride summary for Day 4: Sheeesh (19.75 mi, 47:58, 545 ft) with a route map, and cartoon Gravel God as the profile picture.",
+    "mote-veggen": "A training log for a Redlands crit with an explosion graphic in the middle and cartoon Gravel God sprinting out of it.",
+    "shame": "\"Shame\" meme: cartoon Gravel God, grimacing, walks through the jeering crowd with a nun behind him, captioned \"SHAME SHAME SHAME SHAME\".",
     "screen-shot-2022-04-24-at-9-09-04-am": "Message thread from the family road trip: \"Haha yep\", \"It's been an interesting trip\", \"Nana got severely car sick for quite a while\", \"Lars pitched a couple massive fits related to being denied treats in gas stations\", \"Hadley announced she had listed and illustrated 11 activities to do on Mother's Day\", \"Extremely high winds\", \"Just came through big fire, very Smokey\".",
 }
 

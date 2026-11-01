@@ -1,0 +1,610 @@
+{
+ "collection": "posts",
+ "slug": "5-ways-to-become-a-power-meter-clown",
+ "images": [
+  {
+   "file": "img/droppedbutpowernumbers.webp",
+   "name": "droppedbutpowernumbers",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      935,
+      315,
+      1170,
+      600
+     ],
+     "mask": "box",
+     "erase_box": [
+      905,
+      300,
+      1200,
+      600
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 112.5,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "joke": "Sure, I was 39/85 racers, but look at my power numbers!",
+   "alt": "A race results list (Men SM 1-2) with one row near the bottom highlighted, under a training-app summary of \"Boulder Roubaix\": 2:32:08, 48.7 mi, 151 TSS, peak 393 W 5-min power. Cartoon Gravel God grins in the corner and says: \"Sure, I was 39/85 racers, but look at my power numbers!\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/power-meter-clown-1.webp",
+   "name": "power-meter-clown-1",
+   "verdict": "keep",
+   "why": "No Gravel God character."
+  },
+  {
+   "file": "img/power-meter-clown-2.webp",
+   "name": "power-meter-clown-2",
+   "verdict": "keep",
+   "why": "No Gravel God character."
+  },
+  {
+   "file": "img/wat.webp",
+   "name": "wat",
+   "verdict": "keep",
+   "why": "No Gravel God character."
+  },
+  {
+   "file": "img/power-meter-clown-3.webp",
+   "name": "power-meter-clown-3",
+   "verdict": "keep",
+   "why": "No Gravel God character."
+  },
+  {
+   "file": "img/power-meter-clown-4.webp",
+   "name": "power-meter-clown-4",
+   "verdict": "keep",
+   "why": "No Gravel God character."
+  },
+  {
+   "file": "img/power-meter-clown-5.webp",
+   "name": "power-meter-clown-5",
+   "verdict": "keep",
+   "why": "No Gravel God character."
+  },
+  {
+   "file": "img/so-the-numbers-are-just-made-up-and-im-better-off-selling-the-power-meter-and-making-up-numbers.webp",
+   "name": "so-the-numbers-are-just-made-up-and-im-better-off-selling-the-power-meter-and-making-up-numbers",
+   "verdict": "keep",
+   "why": "No Gravel God character."
+  },
+  {
+   "file": "img/500-watts.webp",
+   "name": "500-watts",
+   "verdict": "keep",
+   "why": "No Gravel God character."
+  },
+  {
+   "file": "img/power-meter-clown-6.webp",
+   "name": "power-meter-clown-6",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      0,
+      40,
+      500,
+      600
+     ],
+     "mask": "box",
+     "erase_box": [
+      0,
+      0,
+      455,
+      600
+     ],
+     "pose": "stand",
+     "face": "shout",
+     "psi": 135,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "joke": "I think they're all on steroids.",
+   "alt": "Cartoon Gravel God turns to a man in a pink shirt and says: \"I think they're all on steroids.\"",
+   "match": "closest",
+   "note": "No argyle sweater in the rig; he wears his white tee."
+  },
+  {
+   "file": "img/what-cha-looking-at.webp",
+   "name": "what-cha-looking-at",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      50,
+      310,
+      290,
+      780
+     ],
+     "mask": "box",
+     "pad": 10,
+     "erase_box": [
+      0,
+      290,
+      330,
+      780
+     ],
+     "ride": "cruise",
+     "face": "shout",
+     "psi": 60
+    }
+   ],
+   "joke": "What cha looking at?",
+   "alt": "Cartoon Gravel God rides a gravel road past tall chalk rock formations while a pro rider in a white team kit rides beside him, head down toward his stem; Gravel God asks: \"What cha looking at?\"",
+   "match": "exact",
+   "insets": [
+    {
+     "src": [
+      600,
+      290,
+      800,
+      430
+     ],
+     "box": [
+      0,
+      290,
+      200,
+      430
+     ]
+    },
+    {
+     "src": [
+      600,
+      290,
+      730,
+      430
+     ],
+     "box": [
+      200,
+      290,
+      330,
+      430
+     ]
+    },
+    {
+     "src": [
+      590,
+      430,
+      800,
+      780
+     ],
+     "box": [
+      0,
+      430,
+      210,
+      780
+     ]
+    },
+    {
+     "src": [
+      590,
+      430,
+      710,
+      780
+     ],
+     "box": [
+      210,
+      430,
+      330,
+      780
+     ]
+    }
+   ]
+  },
+  {
+   "file": "img/chris-froome-pinnochio.webp",
+   "name": "chris-froome-pinnochio",
+   "verdict": "keep",
+   "why": "No Gravel God character."
+  },
+  {
+   "file": "img/power-meter-clown-7.webp",
+   "name": "power-meter-clown-7",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      40,
+      80,
+      280,
+      600
+     ],
+     "mask": "box",
+     "erase_box": [
+      25,
+      60,
+      300,
+      600
+     ],
+     "pose": "point",
+     "face": "focused",
+     "psi": 60
+    }
+   ],
+   "joke": "Because most training isn't you, three mountain passes in, with perfect knowledge of the power you need to put out to destroy your rivals. It's a Zone 2 ride.",
+   "alt": "Cartoon Gravel God points at the text: \"Because most training isn't you, three mountain passes in, with perfect knowledge of the power you need to put out to destroy your rivals. It's a Zone 2 ride.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/nothing-to-see-here.webp",
+   "name": "nothing-to-see-here",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      75,
+      430,
+      195,
+      578
+     ],
+     "mask": "box",
+     "pad": 2,
+     "erase_box": [
+      66,
+      350,
+      186,
+      578
+     ],
+     "ride": "cruise",
+     "face": "smile",
+     "psi": 200
+    }
+   ],
+   "joke": "Nothing to see here.",
+   "alt": "A small cartoon Gravel God rides a coastal road along a cliff above a wide, hazy ocean bay and says: \"Nothing to see here.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/process-of-delusion.webp",
+   "name": "process-of-delusion",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      800,
+      70,
+      1120,
+      600
+     ],
+     "mask": "box",
+     "erase_box": [
+      735,
+      60,
+      1120,
+      600
+     ],
+     "pose": "drink",
+     "face": "smile",
+     "psi": 100,
+     "pad": 6
+    }
+   ],
+   "joke": "1. Get in fantastic shape. 2. Confirm it by putting out lots of watts on your favorite Strava segment. 3. Secretly delude yourself into believing that your PR means you will automatically win the next race in domineering style.",
+   "alt": "A chalkboard reading \"1. Get in fantastic shape. 2. Confirm it by putting out lots of watts on your favorite Strava segment. 3. Secretly delude yourself into believing that your PR means you will automatically win the next race in domineering style.\" beside cartoon Gravel God taking a sip.",
+   "match": "closest",
+   "note": "No cigar in the rig; hand-to-mouth becomes a drink.",
+   "insets": [
+    {
+     "src": [
+      1125,
+      0,
+      1200,
+      600
+     ],
+     "box": [
+      735,
+      0,
+      810,
+      600
+     ]
+    },
+    {
+     "src": [
+      1125,
+      0,
+      1200,
+      600
+     ],
+     "box": [
+      810,
+      0,
+      885,
+      600
+     ]
+    },
+    {
+     "src": [
+      1125,
+      0,
+      1200,
+      600
+     ],
+     "box": [
+      885,
+      0,
+      960,
+      600
+     ]
+    },
+    {
+     "src": [
+      1125,
+      0,
+      1200,
+      600
+     ],
+     "box": [
+      960,
+      0,
+      1035,
+      600
+     ]
+    },
+    {
+     "src": [
+      1125,
+      0,
+      1200,
+      600
+     ],
+     "box": [
+      1035,
+      0,
+      1110,
+      600
+     ]
+    },
+    {
+     "src": [
+      1125,
+      0,
+      1200,
+      600
+     ],
+     "box": [
+      1110,
+      0,
+      1185,
+      600
+     ]
+    }
+   ]
+  },
+  {
+   "file": "img/power-meter-clown-8.webp",
+   "name": "power-meter-clown-8",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#000000",
+   "figs": [
+    {
+     "box": [
+      100,
+      150,
+      200,
+      560
+     ],
+     "mask": "box",
+     "erase_box": [
+      70,
+      140,
+      225,
+      565
+     ],
+     "pose": "arms_crossed",
+     "face": "focused",
+     "psi": 67.5
+    }
+   ],
+   "joke": "Someone who races below their ability level so they have a greater chance of winning. Now get out of here.",
+   "alt": "A dark alley with a bright door. A cartoon boy asks: \"Hey, what's a sandbagger?\" Cartoon Gravel God, arms crossed, answers: \"Someone who races below their ability level so they have a greater chance of winning. Now get out of here.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/power-meter-clown-1-1.webp",
+   "name": "power-meter-clown-1-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      150,
+      140,
+      520,
+      600
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "erase_box": [
+      40,
+      40,
+      290,
+      600
+     ],
+     "ride": "manual",
+     "face": "shout",
+     "psi": 20
+    }
+   ],
+   "joke": "Not today Sucka!",
+   "alt": "Cartoon Gravel God pops a wheelie over an open manhole on a city road, saying: \"Not today Sucka!\"",
+   "match": "exact",
+   "erase_extra": [
+    [
+     290,
+     205,
+     510,
+     600
+    ]
+   ]
+  },
+  {
+   "file": "img/power-meter-clown-2-1.webp",
+   "name": "power-meter-clown-2-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      255,
+      290,
+      355,
+      595
+     ],
+     "mask": "grabcut",
+     "pad": 8,
+     "erase_box": [
+      220,
+      230,
+      420,
+      600
+     ],
+     "ride": "cruise",
+     "face": "smile",
+     "psi": 250,
+     "elev": 10
+    }
+   ],
+   "joke": "Perfect! Everyone is in front of me! Now I will show them how many watts I can put out!",
+   "alt": "Cartoon Gravel God, seen from behind, rides at the back of a group of gravel racers in a dusty, sunlit desert and says: \"Perfect! Everyone is in front of me! Now I will show them how many watts I can put out!\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/im-pretty-much-a-pro-cyclist-i-can-push-400-watts-for-like-20-minutes.webp",
+   "name": "im-pretty-much-a-pro-cyclist-i-can-push-400-watts-for-like-20-minutes",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      560,
+      60,
+      1260,
+      1500
+     ],
+     "mask": "box",
+     "erase_box": [
+      600,
+      0,
+      1200,
+      600
+     ],
+     "pose": "stand",
+     "psi": 290,
+     "elev": 10,
+     "crop": "head",
+     "fit": "width",
+     "anchor": "top"
+    }
+   ],
+   "joke": "I'm pretty much a pro cyclist. I can push 400 watts for like 20 minutes.",
+   "alt": "A smiling woman at a bar listens as cartoon Gravel God, seen from behind, says: \"I'm pretty much a pro cyclist. I can push 400 watts for like 20 minutes.\"",
+   "match": "exact",
+   "erase_extra": [
+    [
+     410,
+     260,
+     600,
+     460
+    ]
+   ]
+  },
+  {
+   "file": "img/im-pretty-much-a-pro-cyclist-i-can-push-400-watts-for-like-20-minutes-1.webp",
+   "name": "im-pretty-much-a-pro-cyclist-i-can-push-400-watts-for-like-20-minutes-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      470,
+      30,
+      1200,
+      600
+     ],
+     "mask": "grabcut",
+     "erase_box": [
+      520,
+      0,
+      1200,
+      600
+     ],
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 157.5,
+     "crop": "bust",
+     "fit": "height",
+     "pad": 10
+    }
+   ],
+   "joke": "Best we can tell, your date died of a stroke because you talked about your watts too much.",
+   "alt": "A doctor in a white coat tells cartoon Gravel God: \"Best we can tell, your date died of a stroke because you talked about your watts too much.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/im-pretty-much-a-pro-cyclist-i-can-push-400-watts-for-like-20-minutes-2.webp",
+   "name": "im-pretty-much-a-pro-cyclist-i-can-push-400-watts-for-like-20-minutes-2",
+   "verdict": "keep",
+   "why": "No Gravel God character."
+  },
+  {
+   "file": "img/2021-03-11-17-40-13-1.webp",
+   "name": "2021-03-11-17-40-13-1",
+   "verdict": "keep",
+   "why": "No Gravel God character."
+  },
+  {
+   "file": "img/power-meter-clown.webp",
+   "name": "power-meter-clown",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      860,
+      300,
+      990,
+      600
+     ],
+     "mask": "grabcut",
+     "pad": 8,
+     "erase_box": [
+      840,
+      270,
+      1010,
+      600
+     ],
+     "pose": "arms_crossed",
+     "face": "focused",
+     "psi": 112.5
+    }
+   ],
+   "alt": "A clown in a red and yellow costume stands on a gravel road under a blue sky, a speech bubble full of power-meter crank arms and exclamation marks; cartoon Gravel God, arms crossed, stands across from him.",
+   "match": "exact"
+  }
+ ]
+}

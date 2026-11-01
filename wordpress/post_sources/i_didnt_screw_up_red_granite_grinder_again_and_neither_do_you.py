@@ -45,14 +45,14 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "strava-rgg": "Strava screenshot of Matti Rowe's ride \"Red Granite Grinder - Første plass!\", 6:20 AM on Saturday, October 15, 2022, Town of Stettin, Wisconsin: 148.43 mi, 8:54:42 moving time, 6,017 ft of climbing, 267 W weighted average power, 7,548 kJ, 9:24:38 elapsed, with the course map around Wausau and the elevation profile; KOMs listed below.",
-    "rgg-course-split": "Race photo on a gravel road lined with bare trees: rider 35, with cartoon Gravel God's face in a cowboy hat pasted on, rides beside rider 730 in a neck gaiter.",
+    "strava-rgg": "Strava screenshot of Matti Rowe's ride \"Red Granite Grinder - Første plass!\" (cartoon Gravel God avatar), 6:20 AM on Saturday, October 15, 2022, Town of Stettin, Wisconsin: 148.43 mi, 8:54:42 moving time, 6,017 ft of climbing, 267 W weighted average power, 7,548 kJ, 9:24:38 elapsed, with the course map around Wausau and the elevation profile; KOMs listed below.",
+    "rgg-course-split": "Cartoon Gravel God, in his white tee and jorts, rides a black gravel bike along a tree-lined gravel road, focused.",
     "sram-grx-axs": "Looking down at a garage floor: a boxed SRAM derailleur with a price sticker, next to a red Feedback Sports work stand, a bike wheel and a soda can.",
-    "fred-flinstone": "A forest trail covered in fallen yellow leaves with a dusting of snow; a rider with cartoon Gravel God's face in a cowboy hat pasted on puts a foot down to slow his bike.",
+    "fred-flinstone": "Cartoon Gravel God, in his white tee and jorts, puts a foot down to slow his bike on a gravel road through the trees, wincing.",
     "forest-tacoma": "A red Toyota Tacoma pulls alongside a rider on a gravel forest road, a man in a beanie leaning out of the window to talk to him.",
-    "two-specs": "A long, wet gravel road through the forest: two tiny riders appear far up the road behind a rider with cartoon Gravel God's face in a cowboy hat pasted on.",
-    "last-billy-goat-1": "Three riders crest a hill on a gravel road through bright autumn forest, the straight road dropping and rising behind them; rider 35, on the right, has cartoon Gravel God's face in a cowboy hat pasted on.",
-    "rgg-win": "A mud-spattered rider with a cartoon cowboy hat, seen from behind, rolls into a downtown finish plaza past spectators and a man sitting on a bench.",
+    "two-specs": "A long, wet gravel road through the forest: two tiny riders appear far up the road behind cartoon Gravel God, riding in his white tee and jorts.",
+    "last-billy-goat-1": "Cartoon Gravel God, in his white tee and jorts, grinds seated up a steep gravel climb, grimacing.",
+    "rgg-win": "Cartoon Gravel God rides no-handed past a FINISH sign and cones, laughing.",
     "img-3900": "Two men in jackets inspect a brown hunting blind for sale outside a farm store, snow falling, a \"Now Hiring\" sign in the window above.",
     "0c2e846d-50ec-4e5d-a8e1-8a85e5043d03": "An older couple in shorts, one in sunglasses and a grey shirt, the other in a plaid shirt, smiling on a park path beside flowering hydrangeas.",
     "img-3816": "An old photo of two teenagers on a front porch, a girl in a blue T-shirt and a boy in a white Umbro T-shirt.",

@@ -1,0 +1,138 @@
+{
+ "collection": "posts",
+ "slug": "tour-of-the-gila-stage-what-is-cole-doing",
+ "images": [
+  {
+   "file": "img/to-the-slaughter.webp",
+   "name": "to-the-slaughter",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      20,
+      290,
+      260,
+      852
+     ],
+     "erase_box": [
+      -34.199999999999996,
+      235.07999999999998,
+      319.2,
+      863.64
+     ],
+     "ride": "cruise",
+     "psi": 270,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "Black-and-white photo of a big pack of racers riding away into the hills, with cartoon Gravel God riding into it from the left.",
+   "match": "exact",
+   "note": "Rig stays in colour on the black-and-white photo."
+  },
+  {
+   "file": "img/sign-in.webp",
+   "name": "sign-in",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      780,
+      960,
+      1536,
+      2048
+     ],
+     "erase_box": [
+      820,
+      990,
+      1490,
+      2048
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 67.5,
+     "mask": "box",
+     "pad": 10,
+     "crop": "bust",
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "Cartoon Gravel God gives a thumbs up in front of the Tour of the Gila UCI Men sign-in board.",
+   "match": "exact",
+   "bg": {
+    "type": "flat",
+    "color": "#9d9682"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      1536,
+      860
+     ],
+     "box": [
+      0,
+      0,
+      1536,
+      860
+     ]
+    },
+    {
+     "src": [
+      0,
+      860,
+      820,
+      2048
+     ],
+     "box": [
+      0,
+      860,
+      820,
+      2048
+     ]
+    },
+    {
+     "src": [
+      420,
+      860,
+      800,
+      1240
+     ],
+     "box": [
+      820,
+      860,
+      1536,
+      1240
+     ]
+    },
+    {
+     "src": [
+      300,
+      1300,
+      800,
+      2048
+     ],
+     "box": [
+      820,
+      1240,
+      1536,
+      2048
+     ]
+    }
+   ],
+   "shapes": []
+  },
+  {
+   "file": "img/reked.webp",
+   "name": "reked",
+   "verdict": "keep",
+   "why": "Photo of a broken saddle."
+  }
+ ]
+}

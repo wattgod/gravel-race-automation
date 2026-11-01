@@ -1,0 +1,97 @@
+{
+ "collection": "articles",
+ "slug": "gmsr-day-4-bool-hawging",
+ "images": [
+  {
+   "file": "img/417900fbaecfeffe.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      500,
+      40,
+      1000,
+      1024
+     ],
+     "erase_box": [
+      480,
+      30,
+      1000,
+      1024
+     ],
+     "mask": "grabcut",
+     "pad": 12,
+     "pose": "thumbs_up",
+     "face": "grin",
+     "psi": 90
+    }
+   ],
+   "insets": [
+    {
+     "src": [
+      130,
+      0,
+      500,
+      330
+     ],
+     "box": [
+      500,
+      0,
+      870,
+      330
+     ]
+    },
+    {
+     "src": [
+      1040,
+      0,
+      1300,
+      330
+     ],
+     "box": [
+      800,
+      0,
+      1060,
+      330
+     ]
+    }
+   ],
+   "match": "closest",
+   "note": "He stands in the pool in his tee and jorts giving a thumbs up, not in the Lite singlet and sunglasses with the can raised overhead."
+  },
+  {
+   "file": "img/6999277d427e6368.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      1200,
+      220,
+      1430,
+      1000
+     ],
+     "erase_box": [
+      1200,
+      200,
+      1470,
+      1010
+     ],
+     "pose": "hands_hips",
+     "face": "surprised",
+     "psi": 67.5
+    }
+   ],
+   "match": "closest",
+   "note": "He stands hands on hips, surprised, instead of clutching his face in horror (the rig has no hands-on-face pose)."
+  },
+  {
+   "file": "img/de025e1ced75c31d.webp",
+   "verdict": "keep",
+   "why": "Phone screenshots of expenses; no Gravel God."
+  }
+ ]
+}

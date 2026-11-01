@@ -33,10 +33,10 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "rolly-gang": "Strava screenshot of Matti Rowe's ride \"Dag 5: Rolly gang rolly gang rolly gang\", 10:47 AM on Sunday, April 24, 2022, Riverside County, California: 23.88 mi, 1:16:16 moving time, 1,191 ft of climbing, 232 W weighted average power, 1,025 kJ, with the route map and elevation profile; a faded photo of a herd of donkeys shows through behind the profile.",
+    "rolly-gang": "Strava screenshot of Matti Rowe's ride \"Dag 5: Rolly gang rolly gang rolly gang\" (cartoon Gravel God avatar), 10:47 AM on Sunday, April 24, 2022, Riverside County, California: 23.88 mi, 1:16:16 moving time, 1,191 ft of climbing, 232 W weighted average power, 1,025 kJ, with the route map and elevation profile; a faded photo of a herd of donkeys shows through behind the profile.",
     "img-1389": "Two riders outside after the crash: one in a striped T-shirt dabs a wound on the shoulder of a shirtless, curly-haired rider who sits on a red cooler, his elbow and knee bandaged, pressing a blue shirt to his face.",
     "img-1393": "Instagram story selfie of Alex Marr in a hospital bed, his face dirty, wearing a neck brace and an oxygen tube, captioned \"Went in to a brick wall at 50mph but I'm breathing and recovering\".",
-    "elser": "Animated: cartoon Gravel God in a cowboy hat rides a road bike along a curb, past a landscaped hillside where a wild donkey grazes among the bushes.",
+    "elser": "Cartoon Gravel God rides a bike along a curb, past a landscaped hillside where a wild donkey grazes among the bushes.",
     "img-9715": "A toddler in a grey T-shirt and pink shoes sits on a blue arcade motorcycle racing game, tongue out and hands on the controls, in a busy neon-lit arcade.",
 }
 

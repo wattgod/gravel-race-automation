@@ -174,7 +174,7 @@ def test_phenotypes_redrawn_with_the_original_kept():
     html = _page(1230)
     fig = html.split('id="fig-phenotypes"', 1)[1].split("</figure>", 1)[0]
     assert fig.count("<svg") == 4 and fig.count('data-draw="wipe"') == 4
-    assert '<details class="gg-original" data-gg-added>' in fig and "img/phenotypes.webp" in fig
+    assert '<details class="gg-original" data-gg-added>' in fig and ("img/phenotypes.webp" in fig or "img/phenotypes-v67.webp" in fig)
 
 
 def test_fortunato_table_uses_the_posts_words():

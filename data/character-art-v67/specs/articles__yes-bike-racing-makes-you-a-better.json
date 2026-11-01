@@ -1,0 +1,38 @@
+{
+ "collection": "articles",
+ "slug": "yes-bike-racing-makes-you-a-better",
+ "images": [
+  {
+   "file": "img/28bed7132212d530.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      1340,
+      600,
+      1480,
+      900
+     ],
+     "erase_box": [
+      1300,
+      540,
+      1560,
+      900
+     ],
+     "pose": "hands_hips",
+     "face": "shout",
+     "psi": 67.5
+    }
+   ],
+   "joke": "Did you take enough yet you spoiled little sh*t?",
+   "match": "exact"
+  },
+  {
+   "file": "img/f8167be9387f7fec.webp",
+   "verdict": "keep",
+   "why": "Film still of real actors; no Gravel God."
+  }
+ ]
+}

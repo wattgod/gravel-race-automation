@@ -1,0 +1,95 @@
+{
+ "collection": "articles",
+ "slug": "shit-athletes-say-ill-just-train",
+ "images": [
+  {
+   "file": "img/a41357274adfbab5.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "flat",
+    "color": "#fed593"
+   },
+   "insets": [
+    {
+     "src": [
+      600,
+      0,
+      1024,
+      500
+     ],
+     "box": [
+      0,
+      0,
+      424,
+      500
+     ]
+    },
+    {
+     "src": [
+      600,
+      0,
+      1024,
+      500
+     ],
+     "box": [
+      400,
+      0,
+      824,
+      500
+     ]
+    },
+    {
+     "src": [
+      600,
+      0,
+      1024,
+      500
+     ],
+     "box": [
+      600,
+      0,
+      1024,
+      500
+     ]
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      180,
+      400,
+      560,
+      900
+     ],
+     "pose": "sit",
+     "face": "smile",
+     "psi": 30
+    }
+   ],
+   "joke": "Lounging on the beach instead of training",
+   "match": "closest",
+   "note": "No beach chair, beer or dropped bike: he sits on the sand by the sea."
+  },
+  {
+   "file": "img/9b5842a7330e81a2.webp",
+   "verdict": "keep",
+   "why": "Chart, no character."
+  },
+  {
+   "file": "img/df1fc07878e166ed.webp",
+   "verdict": "keep",
+   "why": "Chart, no character."
+  },
+  {
+   "file": "img/a8320bc631eb85b2.webp",
+   "verdict": "keep",
+   "why": "Chart, no character."
+  },
+  {
+   "file": "img/ad89f0c5ea3c9d23.webp",
+   "verdict": "keep",
+   "why": "Chart, no character."
+  }
+ ]
+}

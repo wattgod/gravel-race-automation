@@ -42,7 +42,7 @@ ALT = {
     "dumoulin-dilemma": "Tom Dumoulin in a yellow and black Jumbo-Visma jersey stands smiling between two thought bubbles: a bronze trophy on the left, a wedge of cheese on the right.",
     "happiness-vs-commitment": "Chalkboard sketch titled \"Happiness vs Commitment\": happiness on the vertical axis, commitment on the horizontal, and a bell curve that rises to a peak in the middle and falls back to zero at high commitment. A small photo of Tom Dumoulin smiles in the bottom right corner.",
     "dumoulin-tombstone": "A grey granite tombstone in a cemetery, engraved with one long sentence: train 4-7 hours every day for the next five years, often to the ragged edge, frequently starving yourself, denying every pleasure except coffee, living out of a suitcase, taking risks that could end your career or your life, knowing an ill-timed cough, crash or a competitor's cheating can undo all of it.",
-    "fast-as-possible": "Cartoon Gravel God in a cowboy hat, white T-shirt and denim shorts stands with a road bike on a tropical beach beside a thatched umbrella and two loungers, a wedge of cheese in the sand, asking in a speech bubble: \"Why do you want to be as fast as possible?\"",
+    "fast-as-possible": "Cartoon Gravel God, handlebar mustache, white T-shirt and denim shorts, stands astride a road bike on a tropical beach beside a thatched umbrella and two loungers, a wedge of cheese in the sand, asking in a speech bubble: \"Why do you want to be as fast as possible?\"",
 }
 
 ANCHORS = {

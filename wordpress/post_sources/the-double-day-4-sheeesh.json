@@ -54,7 +54,7 @@
   {
    "name": "mote-veggen",
    "url": "https://gravelgodcycling.com/wp-content/uploads/2022/04/Mote-veggen.gif",
-   "kind": "gif",
+   "kind": "still",
    "width": 1472,
    "height": 792,
    "caption_html": "",
@@ -96,68 +96,64 @@
  "renditions": {
   "sheeesh-1": {
    "1x": {
-    "file": "sheeesh-1.webp",
+    "file": "sheeesh-1-v67.webp",
     "width": 1600,
     "height": 900,
-    "bytes": 87212
+    "bytes": 85658
    },
    "phone": {
-    "file": "sheeesh-1-m.webp",
+    "file": "sheeesh-1-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 24088
+    "bytes": 23932
    },
    "phone2x": {
-    "file": "sheeesh-1-m@2x.webp",
+    "file": "sheeesh-1-v67-m@2x.webp",
     "width": 1320,
     "height": 742,
-    "bytes": 68636
+    "bytes": 66092
    },
    "source_bytes": 1307874,
    "og": {
-    "file": "sheeesh-1-og.jpg",
+    "file": "sheeesh-1-v67-og.jpg",
     "width": 1200,
     "height": 630,
-    "bytes": 101394
+    "bytes": 100080
    }
   },
   "mote-veggen": {
    "1x": {
-    "file": "mote-veggen.webp",
+    "file": "mote-veggen-v67.webp",
     "width": 1472,
     "height": 792,
-    "bytes": 79614
+    "bytes": 74698
    },
    "phone": {
-    "file": "mote-veggen-m.webp",
+    "file": "mote-veggen-v67-m.webp",
     "width": 660,
     "height": 355,
-    "bytes": 24682
+    "bytes": 25136
    },
    "phone2x": {
-    "file": "mote-veggen-m@2x.webp",
+    "file": "mote-veggen-v67-m@2x.webp",
     "width": 1320,
     "height": 710,
-    "bytes": 64752
-   },
-   "mp4": {
-    "file": "mote-veggen.mp4",
-    "bytes": 191103
+    "bytes": 61984
    },
    "source_bytes": 3924814
   },
   "shame": {
    "1x": {
-    "file": "shame.webp",
+    "file": "shame-v67.webp",
     "width": 888,
     "height": 499,
-    "bytes": 25594
+    "bytes": 21042
    },
    "phone": {
-    "file": "shame-m.webp",
+    "file": "shame-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 17566
+    "bytes": 15088
    },
    "source_bytes": 61132
   },

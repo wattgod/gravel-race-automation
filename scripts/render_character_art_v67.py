@@ -89,6 +89,24 @@ def svg_png(svg: str, W: int, H: int) -> Image.Image:
 _fig_cache: dict = {}
 
 
+def _drop_collar(im: Image.Image) -> Image.Image:
+    """Head crop: remove the tee (pale, grey-ish regions touching the bottom edge) so a head can
+    sit on a photo's own neck/jersey without a white shelf. Eye whites never touch the bottom."""
+    a = np.array(im)
+    rgb = a[:, :, :3].astype(np.int16); al = a[:, :, 3]
+    sat = rgb.max(axis=2) - rgb.min(axis=2)
+    pale = ((sat < 40) & (rgb.max(axis=2) > 90) & (al > 0)).astype(np.uint8)
+    import cv2
+    n, lab = cv2.connectedComponents(pale, connectivity=8)
+    H = a.shape[0]
+    bottom = set(np.unique(lab[H - 3:H][pale[H - 3:H] > 0]).tolist()) - {0}
+    if bottom:
+        m = np.isin(lab, list(bottom))
+        m = cv2.dilate(m.astype(np.uint8), np.ones((5, 5), np.uint8)) > 0
+        a[:, :, 3][m] = 0
+    return Image.fromarray(a)
+
+
 def figure(pose='arms_crossed', face=None, psi=80, elev=6, ride=None, crop='full', k=900, **_):
     """The rig character, transparent and tightly cropped. crop: full | bust | head."""
     key = (pose, face, psi, elev, ride, crop, k)
@@ -124,6 +142,8 @@ def figure(pose='arms_crossed', face=None, psi=80, elev=6, ride=None, crop='full
         hd = bodies[0].head
         _, ny = cam.P((hd[0], hd[1], hd[2] - (0.13 * hs if crop == 'head' else 0.42)))
         im = im.crop((0, 0, W, min(H, int(ny))))
+        if crop == 'head':
+            im = _drop_collar(im)
     im = im.crop(im.getbbox())
     _fig_cache[key] = im
     return im.copy()

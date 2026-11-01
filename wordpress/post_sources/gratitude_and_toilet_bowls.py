@@ -27,10 +27,10 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "toilet-bowls": "Cartoon Gravel God in a cowboy hat lies flat on a bathroom floor in front of a toilet, blue tiles behind him, staring up at the ceiling.",
-    "toilet-bowls-2": "Cartoon Gravel God lies in a hospital bed, hat still on, saying: \"I'm fine. I'm totally fine. I can train tomorrow for sure.\"",
-    "who-likes-to-party": "Photo of a family dining table on a snowy day: two small children at the table, a woman holding a baby, a plate of pastries; cartoon Gravel God floats above it holding a bottle of champagne and a cinnamon roll.",
-    "must-not-slip": "A TrainingPeaks calendar for the week of the 22nd to the 28th, with endurance rides, strength sessions and a summary panel (Fitness 78, Fatigue 41, Form 32); cartoon Gravel God rides a bike in front of it: \"Must. Not. Slip.\"",
+    "toilet-bowls": "Cartoon Gravel God's head, eyes half closed, on the bathroom floor beside a toilet.",
+    "toilet-bowls-2": "Cartoon Gravel God's sleepy head on a hospital bed pillow, saying \"I'm fine. I'm totally fine. I can train tomorrow for sure.\"",
+    "who-likes-to-party": "A family party around a dining table with the kids and a baby; cartoon Gravel God grins from behind the table.",
+    "must-not-slip": "A training calendar with cartoon Gravel God riding over it, gritting his teeth: \"Must. Not. Slip.\"",
     "must-not-slip-1": "A young man glares sideways under a speech bubble: \"I don't care if anyone likes me. I want to win the local race series at all costs!\"",
     "must-not-slip-2": "Photo of a smiling man in a cowboy hat and a laughing baby peeking over the back of a brown leather couch in a living room.",
 }

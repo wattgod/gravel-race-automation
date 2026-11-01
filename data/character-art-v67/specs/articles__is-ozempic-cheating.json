@@ -1,0 +1,191 @@
+{
+ "collection": "articles",
+ "slug": "is-ozempic-cheating",
+ "images": [
+  {
+   "file": "img/93fcba1c16847bde.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      480,
+      40,
+      720,
+      700
+     ],
+     "erase_box": [
+      372,
+      15,
+      790,
+      705
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 90,
+     "mask": "box",
+     "pad": 8
+    }
+   ],
+   "match": "closest",
+   "bg": {
+    "type": "flat",
+    "color": "#e8e8ec"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      372,
+      720
+     ],
+     "box": [
+      0,
+      0,
+      372,
+      720
+     ]
+    },
+    {
+     "src": [
+      790,
+      0,
+      1280,
+      720
+     ],
+     "box": [
+      790,
+      0,
+      1280,
+      720
+     ]
+    },
+    {
+     "src": [
+      372,
+      545,
+      470,
+      720
+     ],
+     "box": [
+      372,
+      545,
+      470,
+      720
+     ]
+    },
+    {
+     "src": [
+      700,
+      545,
+      790,
+      720
+     ],
+     "box": [
+      700,
+      545,
+      790,
+      720
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      470,
+      555,
+      700,
+      720
+     ],
+     "fill": "#c2c4c9"
+    }
+   ],
+   "note": "The little angel sticker on his shoulder is gone (it sat inside the old hat brim); the devil stays."
+  },
+  {
+   "file": "img/2b002622a888b048.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      410,
+      410,
+      540,
+      720
+     ],
+     "erase_box": [
+      345,
+      395,
+      600,
+      720
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 90,
+     "mask": "box",
+     "pad": 8
+    }
+   ],
+   "match": "exact"
+  },
+  {
+   "file": "img/fd36fca00b6d992c.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      110,
+      290,
+      395,
+      720
+     ],
+     "erase_box": [
+      69.84,
+      253.6,
+      433.15999999999997,
+      728.8
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "contain",
+     "anchor": "bottom",
+     "mask": "grabcut",
+     "pad": 10
+    },
+    {
+     "box": [
+      885,
+      290,
+      1170,
+      720
+     ],
+     "erase_box": [
+      850.8,
+      253.6,
+      1204.2,
+      728.8
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "contain",
+     "anchor": "bottom",
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "match": "closest",
+   "note": "The rig has no belly: \"Before\" grimaces, \"After\" grins."
+  }
+ ]
+}

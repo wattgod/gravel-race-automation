@@ -34,10 +34,10 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "ned-gravel": "Strava screenshot of Matti Rowe's ride \"Ned Gravel: Åttende Plass!\", July 8, 2023, Nederland, Colorado: 69.96 mi, 4:21:01 moving time, 9,108 ft of climbing, 287 W weighted average power, with the looping route map west of Boulder and the elevation profile; a cartoon Gravel God in a cowboy hat stands in front of it in profile.",
-    "food-stall": "A kitchen island set with a charcuterie plate and a vegetable tray; cartoon Gravel God's head in a cowboy hat sits on a man in a floral shirt leaning on the counter, while a girl in pigtails eats a carrot and gives the camera a sideways look.",
-    "the-sherrif": "Two pro riders sprint side by side down a long, dusty dirt road, with a tiny cartoon Gravel God in a cowboy hat far behind them in the distance.",
-    "back-pain": "Cartoon Gravel God in a cowboy hat, seen from behind, rides up a dirt road through pine trees toward snowy peaks, with red lightning bolts flashing from his lower back.",
+    "ned-gravel": "Strava screenshot of Matti Rowe's ride \"Ned Gravel: Åttende Plass!\", July 8, 2023, Nederland, Colorado: 69.96 mi, 4:21:01 moving time, 9,108 ft of climbing, 287 W weighted average power, with the looping route map west of Boulder and the elevation profile; cartoon Gravel God, handlebar mustache, stands in front of it in profile.",
+    "food-stall": "A kitchen island set with a charcuterie plate and a vegetable tray; cartoon Gravel God's head, handlebar mustache and all, sits on a man in a floral shirt leaning on the counter, while a girl in pigtails eats a carrot and gives the camera a sideways look.",
+    "the-sherrif": "Two pro riders sprint side by side down a long, dusty dirt road, with a tiny cartoon Gravel God far behind them in the distance.",
+    "back-pain": "Cartoon Gravel God, seen from behind, rides up a dirt road through pine trees toward snowy peaks, with red lightning bolts flashing from his lower back.",
     "img-0449-scaled": "The author, in a black cowboy hat and vest, smiles cheek to cheek with his grinning daughter at a restaurant table, a basket of chicken tenders and fries on newspaper and a beer in front of them.",
 }
 

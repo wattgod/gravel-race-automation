@@ -31,10 +31,10 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "are-you-all-alive": "The Rio Grande team after the stage, in a mountain town: five riders in red Rio Grande kit and a teammate in a red shirt pose with an older couple in yellow and pink shirts beside a white race bike, a cargo bike behind them. One rider's face is a cartoon Gravel God in a cowboy hat.",
-    "early-pain": "Race photo of a small group on a desert highway, mountains behind: a rider in red-and-white Rio Grande kit, his head a cartoon Gravel God in a cowboy hat, rides between a Landis Cyclery rider and riders in dark blue and teal kits.",
+    "are-you-all-alive": "The Rio Grande team after the stage, in a mountain town: five riders in red Rio Grande kit and a teammate in a red shirt pose with an older couple in yellow and pink shirts beside a white race bike; one rider's head is a cartoon Gravel God.",
+    "early-pain": "Race photo of a small group on a desert highway, mountains behind: a rider in red-and-white Rio Grande kit, his head a focused cartoon Gravel God in profile, rides between a Landis Cyclery rider and riders in blue.",
     "one-pounder-scaled": "A mustached teammate in a mauve T-shirt grins at the camera, both hands around a towering cheese-covered burger, a plate of fries in front of him, in a small diner.",
-    "fikk-den-gjort": "A rider in Rio Grande kit, his face a cartoon Gravel God in a cowboy hat, rolls up the road from the Tour of the Gila 2024 finish arch and race clock, spectators at the orange barriers and pine-covered mountains behind.",
+    "fikk-den-gjort": "A rider in Rio Grande kit, his face a grinning cartoon Gravel God, rolls up the road from the Tour of the Gila 2024 finish arch and race clock, spectators at the orange barriers and pine-covered hills behind.",
     "that-guy": "An open black toiletry bag on a table, stuffed with a Philips electric shaver, a toothpaste tube, a body-wash bottle and other toiletries.",
 }
 

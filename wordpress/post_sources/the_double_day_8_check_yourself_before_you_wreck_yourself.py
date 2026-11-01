@@ -34,8 +34,8 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "mogollon-1": "Strava screenshot of Matti Rowe's ride \"Dag 7: Mogollonnnnnnnnn\", April 27, 2022, Silver City, New Mexico: 101.75 mi, 4:09:00 moving time, 5,052 ft of climbing, 264 W weighted average power; the route runs north-west from Silver City and the elevation profile ends on a steep climb.",
-    "mogollon-2": "TrainingPeaks file \"Gila St1\", April 27, 2022: 4:09:03, 102 mi, 240 TSS, 274 W normalized power, 2.88 W/kg, average power 226 W and heart rate 140 bpm, with the power and heart-rate traces; a cartoon Gravel God in a cowboy hat stands with his bike beside the stats.",
+    "mogollon-1": "Strava screenshot of Matti Rowe's ride \"Dag 7: Mogollonnnnnnnnn\" (cartoon Gravel God avatar), April 27, 2022, Silver City, New Mexico: 101.75 mi, 4:09:00 moving time, 5,052 ft of climbing, 264 W weighted average power; the route runs north-west from Silver City and the elevation profile ends on a steep climb.",
+    "mogollon-2": "TrainingPeaks file \"Gila St1\", April 27, 2022: 4:09:03, 102 mi, 240 TSS, 274 W normalized power, 2.88 W/kg, average power 226 W and heart rate 140 bpm, with the power and heart-rate traces; a cartoon Gravel God leans on his bike beside the stats.",
     "23f1958f-4a86-4717-ae65-7889b6ded975-scaled": "The author in a black T-shirt laughs in front of a blue wall painted with a large lizard, his daughter holding balloons beside him and his son walking off with more balloons.",
 }
 

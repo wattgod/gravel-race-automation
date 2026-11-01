@@ -1,0 +1,193 @@
+{
+ "collection": "posts",
+ "slug": "the-double-day-12-i-like-the-way-you-die-boy",
+ "images": [
+  {
+   "file": "img/gila-monster-1.webp",
+   "name": "gila-monster-1",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/udyret-kommer.webp",
+   "name": "udyret-kommer",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      880,
+      345,
+      1100,
+      790
+     ],
+     "erase_box": [
+      850,
+      330,
+      1112,
+      790
+     ],
+     "ride": "standing_climb",
+     "psi": 270
+    }
+   ],
+   "alt": "A TrainingPeaks file \"Gila St5\" (5:19:54, 112 mi, 289 TSS, normalized power 265 W) with cartoon Gravel God in a white tee, seen from behind, riding a bike up the right side of the screen.",
+   "match": "closest",
+   "note": "The original was an animated GIF with dust puffs; the redraw is a still.",
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      850,
+      398,
+      1112,
+      790
+     ],
+     "fill": "#e1dfe0"
+    }
+   ]
+  },
+  {
+   "file": "img/ristra.webp",
+   "name": "ristra",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      0,
+      900,
+      620,
+      2048
+     ],
+     "erase_box": [
+      0,
+      940,
+      655,
+      2048
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 67.5,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God, handlebar mustache, grins on an adobe porch beside a white ladder where a red cycling jersey hangs with two Tour of the Gila race numbers, 63, still pinned on; a chile ristra hangs on the wall behind.",
+   "match": "exact",
+   "insets": [
+    {
+     "src": [
+      612,
+      1300,
+      672,
+      1460
+     ],
+     "box": [
+      612,
+      1120,
+      672,
+      1280
+     ]
+    }
+   ]
+  },
+  {
+   "file": "img/da-fugg.webp",
+   "name": "da-fugg",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      0,
+      500,
+      380,
+      1366
+     ],
+     "erase_box": [
+      0,
+      480,
+      378,
+      1366
+     ],
+     "pose": "point",
+     "face": "surprised",
+     "psi": 20,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God, handlebar mustache, points at an old bathtub shower with exposed nickel pipes, a wall-mounted showerhead and a hand shower in a white-tiled bathroom.",
+   "match": "exact"
+  },
+  {
+   "file": "img/esel.webp",
+   "name": "esel",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      150,
+      200,
+      480,
+      1070
+     ],
+     "erase_box": [
+      92,
+      188,
+      542,
+      1078
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God in a white tee and shorts, seen from behind, stands in a dusty yard while two children look at a dark donkey behind a metal pen fence.",
+   "match": "exact"
+  },
+  {
+   "file": "img/zia.webp",
+   "name": "zia",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      0,
+      520,
+      335,
+      1200
+     ],
+     "erase_box": [
+      0,
+      512,
+      336,
+      1200
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "face": "thinking",
+     "psi": 22.5,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God, handlebar mustache, looks in profile at a yellow metal tray on the wall, painted with the red Zia sun symbol of New Mexico and a small red heart.",
+   "match": "exact"
+  }
+ ]
+}

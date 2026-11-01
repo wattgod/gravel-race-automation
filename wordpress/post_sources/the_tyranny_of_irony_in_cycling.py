@@ -29,11 +29,11 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "trollmann-1": "Black-and-white photo of a misty gravel road through a forest; a green cartoon troll in a loincloth lurks at the roadside while cartoon Gravel God in a cowboy hat rides toward the camera.",
-    "hitchhiker": "Cartoon Gravel God in a cowboy hat, seen from behind, stands at the edge of a long dirt road through the trees, a car's headlights far in the distance.",
-    "hourglass": "Cartoon Gravel God in a cowboy hat, in profile, stares at an antique brass hourglass with sand running from the top bulb.",
-    "shit-on-cycling": "Cartoon Gravel God in a cowboy hat stands by a bicycle propped against a stained wall, watching a white dog squat to relieve itself on the pavement.",
-    "pyramid": "The pyramids of Giza under a blue sky, a camel caravan crossing the sand in front, with a tiny cartoon Gravel God in a cowboy hat standing among the camels with his bicycle.",
+    "trollmann-1": "Black-and-white photo of a misty gravel road through a forest; a green cartoon troll in a loincloth lurks at the roadside while cartoon Gravel God, handlebar mustache, rides toward the camera.",
+    "hitchhiker": "Cartoon Gravel God, seen from behind, stands at the edge of a long dirt road through the trees, a car's headlights far in the distance.",
+    "hourglass": "Cartoon Gravel God, handlebar mustache, in profile, stares at an antique brass hourglass with sand running from the top bulb.",
+    "shit-on-cycling": "Cartoon Gravel God, handlebar mustache, stands by a bicycle propped against a stained wall, watching a white dog squat to relieve itself on the pavement.",
+    "pyramid": "The pyramids of Giza under a blue sky, a camel caravan crossing the sand in front, with a tiny cartoon Gravel God in a white tee walking his bicycle among the camels.",
 }
 
 # The "In short" rule (wp_post docstring); section = 0-based h2 index.

@@ -41,17 +41,17 @@ OUTPUT_PATH = wp_post.output_path(SLUG)
 TITLE = "Eight Years of Nate Wilson, My Cycling Coach | Gravel God"
 
 ALT = {
-    "november-2015-bar": "Illustration: cartoon Gravel God's grinning head on a muscular man in a white T-shirt and denim shorts, holding a beer outside a bar on a Boulder, Colorado street, while a curly-haired man in glasses drinks at a stool nearby.",
-    "flagstaff-tears": "Illustration: cartoon Gravel God in a cowboy hat, tears streaming down his face, sits hugging his knees beside a road through golden foothills, his bike leaning on the bank.",
+    "november-2015-bar": "Illustration: cartoon Gravel God, handlebar mustache, white tee and denim shorts, grins with a drink outside a bar on a Boulder, Colorado street, while a curly-haired man in glasses drinks at a stool nearby.",
+    "flagstaff-tears": "Illustration: cartoon Gravel God, handlebar mustache, sits grimacing by a dirt road through golden foothills at dusk, his bike standing beside him.",
     "screenshot-2023-11-15-at-14-07-13": "TrainingPeaks workout description: \"45-60min Z1/Z2 warm up, then this gold standard Boulder climbing workout\": NCAR from Broadway at tempo (300-330w) with 1min 300-330w / 30 sec out of the saddle @ 420-460w alternations, Super Flag to the amphitheater @ 320-340w, a climb up to Gross at 300-330w after a hard first pitch, and a Z4 effort up backside Flag.",
     "screenshot-2023-11-15-at-14-05-27": "TrainingPeaks workout description: \"30-45min z2 warmup, then on a climb: 3x10min that are 2min @ 400-420, 8min @ 320-340. 6min recovery between efforts. Finish with 5x30 sec hard w/ 30 sec recovery between\", shooting for 500+.",
     "screenshot-2023-11-15-at-14-03-19": "TrainingPeaks workout description: \"Warmup for 30+. 6x10 sec HARD sprints, w/ 50 sec easy between. z2. 10min tempo climb @ 300-330, ramp to 380-400 the last 2min. spin out for 5-10min. 1x4min vo2 @ 400-430. cooldown\".",
-    "spirit-of-nate": "Illustration: cartoon Gravel God in a cowboy hat rides a gravel road through sagebrush toward mountains, as the faint face of a smiling man in glasses floats in the sky like a spirit.",
-    "icarus-matti": "Illustration: cartoon Gravel God, grinning, walks his bike up a ridge toward a blazing sun over rolling desert hills.",
-    "watching-nate-go": "Illustration: a man in a cowboy hat and denim shorts, seen from behind, stands at an airport window watching a plane take off.",
+    "spirit-of-nate": "Illustration: cartoon Gravel God, handlebar mustache, rides a gravel road through sagebrush toward the viewer, as the faint face of a smiling man in glasses floats in the sky like a spirit.",
+    "icarus-matti": "Illustration: cartoon Gravel God, grinning under his handlebar mustache, walks his bike up a ridge toward a blazing sun over rolling desert hills.",
+    "watching-nate-go": "Illustration: cartoon Gravel God in a white tee and shorts, seen from behind, stands at an airport window watching a plane take off.",
     "nate-zoom": "A laptop on a wooden table showing a video call with a smiling, curly-haired man in glasses, a coffee cup beside it.",
-    "life": "Illustration: cartoon Gravel God, seen from behind at his handlebars, looks down a long desert road, the word \"LIFE\" faint in the sky.",
-    "dalle-2023-11-15-14-18-34-create-a-full-body-portrait-of-a-character-for-company-branding-in-a-16-9-aspect-ratio-with-the-characters-back-shown-riding-toward-the-mountains-a": "Illustration: a rider in a cowboy hat, white T-shirt and denim shorts, seen from behind, rides down a road toward the Flatirons at sunrise, snow on the slopes.",
+    "life": "Illustration: cartoon Gravel God, seen from behind beside his handlebars, looks down a long desert road, the word \"LIFE\" faint in the sky.",
+    "dalle-2023-11-15-14-18-34-create-a-full-body-portrait-of-a-character-for-company-branding-in-a-16-9-aspect-ratio-with-the-characters-back-shown-riding-toward-the-mountains-a": "Illustration: cartoon Gravel God in a white tee and shorts, seen from behind, rides down a long road toward the mountains at sunrise.",
 }
 
 ANCHORS = {

@@ -1,0 +1,88 @@
+{
+ "collection": "articles",
+ "slug": "suffer-kink-is-not-a-victimless-crime",
+ "images": [
+  {
+   "file": "img/c6e0805843f08e8a.webp",
+   "verdict": "keep",
+   "why": "No Gravel God in it (photo/screenshot/meme)."
+  },
+  {
+   "file": "img/da6342a003ddc983.webp",
+   "verdict": "keep",
+   "why": "No Gravel God in it (photo/screenshot/meme)."
+  },
+  {
+   "file": "img/c790010b72c141bf.webp",
+   "verdict": "keep",
+   "why": "No Gravel God in it (photo/screenshot/meme)."
+  },
+  {
+   "file": "img/51f92845605bff50.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      320,
+      450,
+      490,
+      640
+     ],
+     "erase_box": [
+      250.36,
+      448.1,
+      556.64,
+      572.3
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "head",
+     "fit": "height",
+     "anchor": "top",
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "match": "exact"
+  },
+  {
+   "file": "img/75033c10c3928659.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1330,
+      210,
+      1590,
+      880
+     ],
+     "erase_box": [
+      1300,
+      190,
+      1600,
+      900
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 135,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "joke": "And after my warm-up in Z1/Z2 I did some high cadence work to loosen up for the main set, and of course, I kept taking 90g/CHO per hour...",
+   "match": "exact",
+   "erase_extra": [
+    [
+     1205,
+     185,
+     1300,
+     450
+    ]
+   ]
+  }
+ ]
+}

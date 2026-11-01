@@ -28,12 +28,12 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "untitled-design-5": "Cartoon Gravel God in a cowboy hat and a Santa suit lounges on a leather sofa in a living room lit with Christmas lights, a decorated tree and wrapped presents beside him.",
-    "untitled-design-6": "Cartoon Gravel God in a cowboy hat peers over a holiday table at a bottle labelled \"Egg Nog\", a glass of eggnog with whipped cream and a striped straw, and a green-frosted cupcake.",
-    "oysters-happiness": "Two arrows painted on asphalt split left and right around the crown of a cowboy hat: the left labelled \"Oysters, happiness.\", the right \"No Oysters, self-respect.\"",
-    "oysters-happiness-1": "Cartoon Gravel God in a cowboy hat rides a bike along a snowy path through a park at dusk, street lamps and Christmas lights glowing behind him.",
-    "oysters-happiness-2": "An older, white-bearded man in a red sweater talks into the ear of cartoon Gravel God in a cowboy hat, who says: \"Fishing stories AND Jeffery Epstein conspiracy theories? It really IS Christmas!\"",
-    "oysters-happiness-3": "A desert highway: cartoon Gravel God stands in the middle under \"Best way\", flanked by two red devil versions of himself labelled \"Lazy\" (\"No, I am!!\") and \"Nut\" (\"I'm more fun.\").",
+    "untitled-design-5": "Cartoon Gravel God lounges on a leather sofa in a living room lit with Christmas lights, a decorated tree and wrapped presents beside him.",
+    "untitled-design-6": "Cartoon Gravel God, one eyebrow up, peers over a holiday table at a bottle labelled \"Egg Nog\", a glass of eggnog with whipped cream and a striped straw, and a green-frosted cupcake.",
+    "oysters-happiness": "Two arrows painted on asphalt split left and right around the back of cartoon Gravel God's head: the left labelled \"Oysters, happiness.\", the right \"No Oysters, self-respect.\"",
+    "oysters-happiness-1": "Cartoon Gravel God rides a bike along a snowy path through a park at dusk, street lamps and Christmas lights glowing behind him.",
+    "oysters-happiness-2": "An older, white-bearded man in a red sweater talks into the ear of cartoon Gravel God, who laughs: \"Fishing stories AND Jeffery Epstein conspiracy theories? It really IS Christmas!\"",
+    "oysters-happiness-3": "A desert highway: cartoon Gravel God stands in the middle under \"Best way\", flanked by two more of himself labelled \"Lazy\" (\"No, I am!!\") and \"Nut\" (\"I'm more fun.\").",
 }
 
 # The "In short" rule (wp_post docstring); section = 0-based h2 index.

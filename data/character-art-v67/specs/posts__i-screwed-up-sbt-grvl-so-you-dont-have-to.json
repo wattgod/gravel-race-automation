@@ -1,0 +1,99 @@
+{
+ "collection": "posts",
+ "slug": "i-screwed-up-sbt-grvl-so-you-dont-have-to",
+ "images": [
+  {
+   "file": "img/crash-nurse.webp",
+   "name": "crash-nurse",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon character."
+  },
+  {
+   "file": "img/sbt-grvl-start.webp",
+   "name": "sbt-grvl-start",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      890,
+      600,
+      1250,
+      900
+     ],
+     "erase_box": [
+      885,
+      595,
+      1255,
+      900
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "width",
+     "anchor": "top",
+     "dy": 0,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "Painterly-filtered photo of the SBT GRVL start: a crowd of helmeted riders under string lights facing the SBT GRVL arch, with the back of cartoon Gravel God's slicked-back head among them.",
+   "match": "exact"
+  },
+  {
+   "file": "img/hey-yeah-you-snap-out-of-it-youre-a-stallion.webp",
+   "name": "hey-yeah-you-snap-out-of-it-youre-a-stallion",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon character."
+  },
+  {
+   "file": "img/sbt-aften.webp",
+   "name": "sbt-aften",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon character."
+  },
+  {
+   "file": "img/screen-shot-2021-11-24-at-10-56-27-am.webp",
+   "name": "screen-shot-2021-11-24-at-10-56-27-am",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon character."
+  },
+  {
+   "file": "img/check-those-rims-scaled.webp",
+   "name": "check-those-rims-scaled",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon character."
+  },
+  {
+   "file": "img/derailleur-danger-scaled.webp",
+   "name": "derailleur-danger-scaled",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon character."
+  },
+  {
+   "file": "img/salty-rims-scaled.webp",
+   "name": "salty-rims-scaled",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon character."
+  },
+  {
+   "file": "img/snack-security-scaled.webp",
+   "name": "snack-security-scaled",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon character."
+  },
+  {
+   "file": "img/solo-dolo.webp",
+   "name": "solo-dolo",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon character."
+  },
+  {
+   "file": "img/screen-shot-2021-11-24-at-11-23-12-am.webp",
+   "name": "screen-shot-2021-11-24-at-11-23-12-am",
+   "verdict": "keep",
+   "why": "Real photo or screenshot; no cartoon character."
+  }
+ ]
+}

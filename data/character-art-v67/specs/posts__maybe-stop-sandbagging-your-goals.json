@@ -1,0 +1,207 @@
+{
+ "collection": "posts",
+ "slug": "maybe-stop-sandbagging-your-goals",
+ "images": [
+  {
+   "file": "img/lars-did-you-know-were-all-going-to-die.webp",
+   "name": "lars-did-you-know-were-all-going-to-die",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1100,
+      280,
+      1240,
+      650
+     ],
+     "erase_box": [
+      1085,
+      262,
+      1258,
+      655
+     ],
+     "mask": "grabcut",
+     "pad": 8,
+     "pose": "hands_hips",
+     "face": "neutral",
+     "psi": 67.5
+    }
+   ],
+   "joke": "Lars, did you know we're all going to die?",
+   "alt": "A girl in a Halloween costume and a small boy in an orange coat walk a dirt road through a new housing development at sunset; cartoon Gravel God stands beside them, hands on hips, and the girl's speech bubble reads: \"Lars, did you know we're all going to die?\"",
+   "match": "closest",
+   "note": "He wears his tee and jorts, not the black suit."
+  },
+  {
+   "file": "img/2023.webp",
+   "name": "2023",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      450,
+      190,
+      700,
+      960
+     ],
+     "erase_box": [
+      430,
+      175,
+      725,
+      955
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "pose": "hands_hips",
+     "face": "grin",
+     "psi": 67.5
+    }
+   ],
+   "insets": [
+    {
+     "src": [
+      470,
+      940,
+      760,
+      1200
+     ],
+     "box": [
+      405,
+      590,
+      695,
+      850
+     ]
+    }
+   ],
+   "joke": "2023",
+   "alt": "Cartoon Gravel God stands hands on hips beside a huge woodpile, with \"2023\" in glowing red neon numerals on the stump in front of him.",
+   "match": "closest",
+   "note": "The rig has no axe: he stands by the woodpile instead of splitting logs."
+  },
+  {
+   "file": "img/lars-did-you-know-were-all-going-to-die-1.webp",
+   "name": "lars-did-you-know-were-all-going-to-die-1",
+   "verdict": "keep",
+   "why": "Handwritten goals list; no Gravel God."
+  },
+  {
+   "file": "img/redacted.webp",
+   "name": "redacted",
+   "verdict": "keep",
+   "why": "Training chart screenshot; no Gravel God."
+  },
+  {
+   "file": "img/lars-did-you-know-were-all-going-to-die-2.webp",
+   "name": "lars-did-you-know-were-all-going-to-die-2",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1150,
+      470,
+      1420,
+      900
+     ],
+     "erase_box": [
+      1105,
+      435,
+      1490,
+      900
+     ],
+     "pose": "arms_crossed",
+     "face": "thinking",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "DNF? DFL? How do I get slower?",
+   "alt": "Cartoon Gravel God, arms crossed and one eyebrow up, in front of a chalkboard, with a thought bubble: \"DNF? DFL? How do I get slower?\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/lars-did-you-know-were-all-going-to-die-3.webp",
+   "name": "lars-did-you-know-were-all-going-to-die-3",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      580,
+      290,
+      680,
+      588
+     ],
+     "erase_box": [
+      528,
+      245,
+      728,
+      587
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 90
+    },
+    {
+     "box": [
+      1385,
+      60,
+      1515,
+      372
+     ],
+     "erase_box": [
+      1352,
+      40,
+      1545,
+      372
+     ],
+     "pose": "thumbs_up",
+     "face": "grin",
+     "psi": 90
+    }
+   ],
+   "alt": "Two step charts of level against year, with cartoon Gravel God standing on the last step of each. Left: from level 1 the steps go up to 2, down to 1, and up to 2 over three years, and he winces. Right: they climb 2, 3, 4, and he gives a thumbs up.",
+   "match": "exact"
+  },
+  {
+   "file": "img/untitled-design-2.webp",
+   "name": "untitled-design-2",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      960,
+      120,
+      1560,
+      900
+     ],
+     "erase_box": [
+      880,
+      80,
+      1600,
+      900
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 0,
+     "crop": "bust",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "A grey, surreal image of a human figure built entirely of clock faces, with clocks breaking off and floating away from its shoulder, beside cartoon Gravel God in profile.",
+   "match": "closest",
+   "note": "He is in full colour, not a faded grey ghost behind the scene."
+  }
+ ]
+}

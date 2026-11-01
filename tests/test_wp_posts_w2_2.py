@@ -221,7 +221,8 @@ def test_gila_galleries_have_every_photo():
         assert len(names) == len(set(names)) == n
         html = _page(pid)
         for name in names:
-            assert html.count(f'src="img/{name}.webp"') == 1, name
+            # v6.7 character redraws ship under <name>-v67 (long cache)
+            assert html.count(f'src="img/{name}.webp"') + html.count(f'src="img/{name}-v67.webp"') == 1, name
 
 
 def test_rgg_race_figure_uses_the_posts_miles():

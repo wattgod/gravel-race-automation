@@ -1,0 +1,172 @@
+{
+ "collection": "posts",
+ "slug": "the-double-day-4-sheeesh",
+ "images": [
+  {
+   "file": "img/sheeesh-1.webp",
+   "name": "sheeesh-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      25,
+      80,
+      165,
+      220
+     ],
+     "erase_box": [
+      10,
+      70,
+      178,
+      228
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "head",
+     "fit": "contain",
+     "shadow": false
+    }
+   ],
+   "alt": "Strava ride summary for Day 4: Sheeesh (19.75 mi, 47:58, 545 ft) with a route map, and cartoon Gravel God as the profile picture.",
+   "match": "exact"
+  },
+  {
+   "file": "img/mote-veggen.webp",
+   "name": "mote-veggen",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      610,
+      460,
+      860,
+      792
+     ],
+     "erase_box": [
+      595,
+      445,
+      870,
+      792
+     ],
+     "ride": "sprint",
+     "face": "shout",
+     "psi": 20,
+     "fit": "contain",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "A training log for a Redlands crit with an explosion graphic in the middle and cartoon Gravel God sprinting out of it.",
+   "match": "exact"
+  },
+  {
+   "file": "img/shame.webp",
+   "name": "shame",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      170,
+      30,
+      770,
+      499
+     ],
+     "erase_box": [
+      195,
+      55,
+      745,
+      425
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "height",
+     "mask": "box",
+     "pad": 8,
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "\"Shame\" meme: cartoon Gravel God, grimacing, walks through the jeering crowd with a nun behind him, captioned \"SHAME SHAME SHAME SHAME\".",
+   "joke": "SHAME SHAME SHAME SHAME",
+   "match": "closest",
+   "note": "Rig head and shoulders in front of the original crowd and nun; the background behind him is the crowd stretched from the edge, and the blood-spattered bare shoulders are gone.",
+   "bg": {
+    "type": "gradient",
+    "top": "#3a302b",
+    "bottom": "#140e0b"
+   },
+   "insets": [
+    {
+     "src": [
+      745,
+      60,
+      812,
+      499
+     ],
+     "box": [
+      205,
+      60,
+      745,
+      499
+     ]
+    },
+    {
+     "src": [
+      0,
+      0,
+      205,
+      499
+     ],
+     "box": [
+      0,
+      0,
+      205,
+      499
+     ]
+    },
+    {
+     "src": [
+      745,
+      0,
+      888,
+      499
+     ],
+     "box": [
+      745,
+      0,
+      888,
+      499
+     ]
+    },
+    {
+     "src": [
+      0,
+      0,
+      888,
+      62
+     ],
+     "box": [
+      0,
+      0,
+      888,
+      62
+     ]
+    }
+   ]
+  },
+  {
+   "file": "img/screen-shot-2022-04-24-at-9-09-04-am.webp",
+   "name": "screen-shot-2022-04-24-at-9-09-04-am",
+   "verdict": "keep",
+   "why": "Screenshot of chat messages."
+  }
+ ]
+}

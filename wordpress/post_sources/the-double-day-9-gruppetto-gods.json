@@ -84,49 +84,49 @@
  "renditions": {
   "soppel": {
    "1x": {
-    "file": "soppel.webp",
+    "file": "soppel-v67.webp",
     "width": 1600,
     "height": 900,
-    "bytes": 67020
+    "bytes": 65168
    },
    "phone": {
-    "file": "soppel-m.webp",
+    "file": "soppel-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 18874
+    "bytes": 18430
    },
    "phone2x": {
-    "file": "soppel-m@2x.webp",
+    "file": "soppel-v67-m@2x.webp",
     "width": 1320,
     "height": 742,
-    "bytes": 51782
+    "bytes": 49644
    },
    "source_bytes": 1120777,
    "og": {
-    "file": "soppel-og.jpg",
+    "file": "soppel-v67-og.jpg",
     "width": 1200,
     "height": 630,
-    "bytes": 84086
+    "bytes": 81310
    }
   },
   "baesj": {
    "1x": {
-    "file": "baesj.webp",
+    "file": "baesj-v67.webp",
     "width": 1600,
     "height": 861,
-    "bytes": 111304
+    "bytes": 103506
    },
    "phone": {
-    "file": "baesj-m.webp",
+    "file": "baesj-v67-m.webp",
     "width": 660,
     "height": 355,
-    "bytes": 30614
+    "bytes": 29574
    },
    "phone2x": {
-    "file": "baesj-m@2x.webp",
+    "file": "baesj-v67-m@2x.webp",
     "width": 1320,
     "height": 710,
-    "bytes": 86576
+    "bytes": 80132
    },
    "source_bytes": 1755950
   },

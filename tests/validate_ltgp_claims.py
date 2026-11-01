@@ -33,8 +33,7 @@ FORMER_LTGP_SLUGS = {
 NEVER_LTGP_SLUGS = {
     "steamboat-gravel",  # SBT GRVL - Amy Charity independent
     "mid-south",         # Bobby Wintle independent
-    "bwr-san-diego",     # Belgian Waffle Ride series
-    "bwr-california",
+    "bwr-california",    # Belgian Waffle Ride series
     "bwr-north-carolina",
     "bwr-cedar-city",
     "bwr-arizona",

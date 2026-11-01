@@ -1,0 +1,38 @@
+{
+  "schema": "duplicate-merges/v1",
+  "decided": "2026-11-01",
+  "status": "prepared, not deployed — needs Matti's go before push_wordpress.py ships the redirects",
+  "rule": "One public page per real-world event. The canonical profile keeps its slug, score and tier; the duplicate's JSON moves to race-data-archived/duplicates/ and its /race/<slug>/ URLs 301 to the canonical page. Different distances of one event (unbound-100/200/xl) and different events at one festival (sea-otter-gravel / fuego-mtb) are separate on purpose and are not merged.",
+  "merges": [
+    {
+      "duplicate": "garmin-gravel-worlds",
+      "canonical": "gravel-worlds",
+      "scores": {"duplicate": 51, "canonical": 84},
+      "evidence": "Both: Lincoln, Nebraska, August 19-23, 2026, 150 mi. Garmin is Gravel Worlds' title sponsor, not a separate race. The duplicate had no official site ('Check Nebraska cycling calendars'); the canonical has gravel-worlds.com and carries ~all search traffic (39 clicks vs 0 in the last 60 GSC snapshots)."
+    },
+    {
+      "duplicate": "gravel-worlds-amateur",
+      "canonical": "gravel-worlds",
+      "scores": {"duplicate": 56, "canonical": 84},
+      "evidence": "Same Lincoln, Nebraska, August 19-23, 2026 festival and the same 150 mi course; amateurs race the same GW150 day. Two citations only; official site field was a placeholder."
+    },
+    {
+      "duplicate": "bwr-san-diego",
+      "canonical": "bwr-california",
+      "scores": {"duplicate": 79, "canonical": 87},
+      "evidence": "Both: Del Mar, California, the original BWR (May 2-3, 2026; 106.5 vs 107 mi). Canonical has the official site, the confirmed 2027 date (April 25), is a homepage featured race and gets the search traffic (12 clicks / 280 impressions vs 7 / 8). The duplicate has 20 citations worth folding into the canonical by an editor."
+    },
+    {
+      "duplicate": "bwr-utah",
+      "canonical": "bwr-cedar-city",
+      "scores": {"duplicate": 79, "canonical": 81},
+      "evidence": "Both: Cedar City, Utah, June 2026, 117 mi / 5,940 ft, same official page belgianwaffleride.bike/pages/utah. Canonical has 20 citations vs 9, was verified most recently (Oct 9, 2026) and already receives the old /bwr-cedar-city-race-guide/ redirect. Neither page shows search traffic. A Feb 2026 test comment had pointed the other way (cedar-city -> utah); the richer, newer profile wins."
+    },
+    {
+      "duplicate": "bwr-asheville",
+      "canonical": "bwr-north-carolina",
+      "scores": {"duplicate": 77, "canonical": 71},
+      "evidence": "The one BWR event in North Carolina. bwr-asheville cites GranFondo Daily News (Oct 8, 2025) for 'BWR Asheville results' — the October 3-4, 2025 Hendersonville edition that bwr-north-carolina describes. bwr-asheville showed as running with date 'Check official website for date' and the retired belgianwaffleride.com domain; the canonical uses the current official page and is already marked not running for 2026/2027. Note: the canonical's lower score (71) wins by rule; Matti may want to re-score."
+    }
+  ]
+}

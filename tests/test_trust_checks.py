@@ -15,6 +15,7 @@ fixed; the test keeps it from coming back.
 9. Examples       — methodology examples whose tier is not what they show.
 10. Stale dates   — new races dated more than a year in the past.
 11. Email claims  — "lowest score in the database" no longer true.
+12. Duplicates    — one real event published as two or three race pages.
 """
 
 import json
@@ -418,3 +419,67 @@ class TestEmailClaims:
         name = running[low].get("display_name") or running[low]["name"]
         assert f"{score} out of 100" in email and name.split()[0] in email, (
             f"lowest running race is now {low} ({score})")
+
+
+# ── 12. Duplicates ──────────────────────────────────────────────────────────
+
+MERGES = json.loads((ROOT / "data" / "duplicate-merges.json").read_text())["merges"]
+
+# Same first-location word + same month, but checked and NOT the same event.
+NOT_DUPLICATES = {
+    frozenset({"unbound-200", "unbound-xl"}): "two distances, separately rated",
+    frozenset({"sea-otter-gravel", "fuego-mtb"}): "gravel race vs MTB race at one festival",
+    frozenset({"big-sugar", "little-sugar-mtb"}): "gravel race vs MTB race, same weekend",
+    frozenset({"crystal-bear", "bear-100"}): "separate Laona events (flagged for review)",
+    frozenset({"opelika-okey-dokey", "standard-deluxe-dirt-road-century"}): "different dates (flagged for review)",
+    frozenset({"nordic-chase-berlin-copenhagen-gravel", "velothon-berlin"}): "bikepacking route vs road sportive",
+    frozenset({"forbidden-gravel", "unravel-gravel-va"}): "Cumberland, BC vs Cumberland, VA",
+}
+
+_MONTH_RE = re.compile(r"(January|February|March|April|May|June|July|August|"
+                       r"September|October|November|December)")
+
+
+class TestDuplicates:
+    def test_merged_duplicates_are_retired_and_redirected(self):
+        tombstones = {t["slug"]: t for t in json.loads(
+            (ROOT / "config" / "tombstones.json").read_text())["tombstones"]}
+        deployer = (ROOT / "scripts" / "push_wordpress.py").read_text()
+        for m in MERGES:
+            dup, canon = m["duplicate"], m["canonical"]
+            assert not (RACE_DATA / f"{dup}.json").exists(), dup
+            assert (ROOT / "race-data-archived" / "duplicates" / f"{dup}.json").exists(), dup
+            assert (RACE_DATA / f"{canon}.json").exists(), canon
+            assert tombstones.get(dup, {}).get("redirect") == f"/race/{canon}/", dup
+            for rule in (
+                f"RewriteRule ^race/{dup}/?$ /race/{canon}/ [R=301,L]",
+                f"RewriteRule ^race/{dup}\\\\.md$ /race/{canon}.md [R=301,L]",
+                f"RewriteRule ^race/{dup}/(.*)$ /race/{canon}/$1 [R=301,L]",
+            ):
+                assert rule in deployer, rule
+
+    def test_alternative_slugs_point_at_live_races(self):
+        bad = []
+        for slug, race in PROFILES.items():
+            for alt in (race.get("final_verdict") or {}).get("alternative_slugs") or []:
+                if alt == slug or alt not in PROFILES:
+                    bad.append(f"{slug} -> {alt}")
+        assert not bad, bad
+
+    def test_no_new_same_city_same_month_pairs(self):
+        groups = {}
+        for slug, race in PROFILES.items():
+            vitals = race.get("vitals") or {}
+            city = (vitals.get("location") or "").split(",")[0].strip().lower()
+            month = _MONTH_RE.search(vitals.get("date_specific") or "")
+            if city and month:
+                groups.setdefault((city, month.group(1)), []).append(slug)
+        suspects = []
+        for slugs in groups.values():
+            for i, a in enumerate(slugs):
+                for b in slugs[i + 1:]:
+                    if frozenset({a, b}) not in NOT_DUPLICATES:
+                        suspects.append((a, b))
+        assert not suspects, (
+            f"Possible duplicate race pages (check, then merge or add to "
+            f"NOT_DUPLICATES with the reason): {sorted(suspects)}")

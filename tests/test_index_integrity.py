@@ -72,12 +72,7 @@ class TestIndexSync:
     # Their race-data/*.json files may still exist but are intentionally NOT in the index.
     REDIRECTED_SLUGS = {
         "bighorn-gravel",       # → big-horn-gravel
-        "bwr-cedar-city",       # → bwr-utah
-        "bwr-north-carolina",   # → bwr-asheville
-        "bwr-san-diego",        # → bwr-california
-        "garmin-gravel-worlds", # → gravel-worlds
         "gravel-suisse",        # → gravel-fondo-switzerland
-        "gravel-worlds-amateur",# → gravel-worlds
         "pony-xpress-gravel-160", # → pony-xpress
         "rad-dirt-fest",        # → the-rad
         "rasputitsa-spring-classic", # → rasputitsa

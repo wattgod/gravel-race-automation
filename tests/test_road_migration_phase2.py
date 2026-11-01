@@ -169,12 +169,17 @@ class TestCatalogContract:
         # Grinder's organizer-confirmed 2027 stage race (net +1).
         # The Aug. 15 identity audit removed 66 South Pyrénées after proving it
         # duplicates the canonical Pyrénées Catalanes Gravel Tour (net -1).
+        # The Nov. 1 data-quality pass retired five duplicate identities to
+        # their canonical pages: Garmin Gravel Worlds and Gravel Worlds
+        # Amateur -> Gravel Worlds, BWR San Diego -> BWR California, BWR Utah
+        # -> BWR Cedar City, BWR Asheville -> BWR North Carolina (net -5;
+        # data/duplicate-merges.json).
         source_count = migration_map["source_snapshot"]["gravel_god"][
             "race_data_total_profiles"
         ]
         departing_count = len(road_migration.redirected_entries(migration_map))
-        post_migration_additions = 14
-        assert len(race_index) == source_count - departing_count + post_migration_additions == 384
+        post_migration_additions = 9
+        assert len(race_index) == source_count - departing_count + post_migration_additions == 379
 
     def test_archived_profiles_never_feed_generated_index(
         self, migration_map, race_index

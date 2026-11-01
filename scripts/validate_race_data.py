@@ -74,7 +74,7 @@ KNOWN_RACE_ID_TO_SLUG = {
     "leadville_100": "leadville-100",
     "belgian_waffle_ride": None,  # ambiguous: race-data has no unqualified
                                   # "Belgian Waffle Ride" file, only
-                                  # bwr-california / bwr-san-diego /
+                                  # bwr-california / bwr-cedar-city /
                                   # belgian-waffle-ride-kansas -- see report
     "dirty_kanza_200": "unbound-200",
     "gravel_worlds": "gravel-worlds",

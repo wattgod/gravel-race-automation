@@ -50,6 +50,7 @@ from shared_header import get_site_header_css, get_site_header_html, get_site_he
 from pricing import MIN_WEEKS, PRICE_PER_WEEK
 from page_dates import race_updated_date
 from fact_consistency import check_race
+from race_calculator import build_race_calculator, get_race_calculator_css, race_calculator_context
 
 # ── Constants ──────────────────────────────────────────────────
 
@@ -958,6 +959,7 @@ def normalize_race_data(data: dict) -> dict:
 
     return {
         'taking_a_break': race.get('taking_a_break'),
+        'calculator': race_calculator_context(race),
         'race_plan_eligible': eligibility.get('race_plan_eligible', True),
         'eligibility': eligibility,
         'name': race.get('display_name') or race.get('name', 'Unknown Race'),
@@ -2909,6 +2911,7 @@ def build_toc(active_sections=None) -> str:
         ('verdict', '06 Final Verdict'),
         ('training', '07 Training'),
         ('train-for-race', '08 Train for This Race'),
+        ('race-calculator', '08a Race Calculator'),
         ('logistics', '09 Race Logistics'),
         ('tires', '10 Tire Picks'),
         ('citations', '11 Sources'),
@@ -7402,9 +7405,14 @@ APPROVED_TOP_CSS = '''<style>
 </style>'''
 
 
+def _race_page_style_tags() -> str:
+    """One assembly path for inline pages and hashed shared stylesheets."""
+    return get_page_css() + APPROVED_TOP_CSS + '<style>' + get_race_calculator_css() + '</style>'
+
+
 def _extract_css_content() -> str:
-    """Extract raw CSS from get_page_css() (strip <style> tags)."""
-    raw = get_page_css() + APPROVED_TOP_CSS
+    """Extract assembled race-page CSS (strip <style> tags)."""
+    raw = _race_page_style_tags()
     return raw.replace('<style>', '').replace('</style>', '').strip()
 
 
@@ -7521,6 +7529,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     coaching = '' if suppress_plan_marketing else build_coaching_footnote(rd)
     goal_card = '' if suppress_plan_marketing else build_goal_card(rd)
     training = build_training_intelligence(rd)
+    race_calculator = build_race_calculator(rd)
     train_for_race = '' if suppress_plan_marketing else build_train_for_race(
         rd, email_capture, include_commerce=False)
     logistics_sec = build_logistics_section(rd)
@@ -7551,6 +7560,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         active.add('news')
     if train_for_race:
         active.add('train-for-race')
+    if race_calculator:
+        active.add('race-calculator')
     if citations_sec:
         active.add('citations')
     toc = build_toc(active)
@@ -7566,7 +7577,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         css = critical_css + '\n  ' + external_assets['css_tag']
         inline_js = external_assets['js_tag']
     else:
-        css = get_page_css() + APPROVED_TOP_CSS
+        css = _race_page_style_tags()
         inline_js = build_inline_js()
 
     # The approved first pass is locked: ratings, custom plan, coaching
@@ -7576,7 +7587,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 
     deep_sections = []
     for section in [course_overview, history, course_route, from_the_field,
-                    racer_reviews, training, train_for_race, logistics_sec,
+                    racer_reviews, training, train_for_race, race_calculator, logistics_sec,
                     tire_picks, news, similar, visible_faq, citations_sec]:
         if section:
             deep_sections.append(section)

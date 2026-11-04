@@ -857,9 +857,10 @@ class TestParseEventDates:
 # ── Sections ──────────────────────────────────────────────────
 
 class TestSections:
-    def test_toc_has_11_links(self):
+    def test_toc_has_12_links_including_race_calculator(self):
         html = build_toc()
-        assert html.count("<a ") == 11
+        assert html.count("<a ") == 12
+        assert 'href="#race-calculator" data-toc-target="race-calculator">08a Race Calculator</a>' in html
 
     def test_course_overview_has_map(self, normalized_data):
         html = build_course_overview(normalized_data)

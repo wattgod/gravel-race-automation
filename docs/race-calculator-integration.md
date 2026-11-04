@@ -256,10 +256,31 @@ deploy tests pass, including real paths with spaces, quotes and literal shell
 syntax; actual Fable review passes. Locking, count/size/truncation checks,
 promotion receipts and preservation of sibling content remain intact.
 
-The complete suite has not passed on this latest source yet: its first run
-stopped at that now-fixed path bug after 257 passes. The final rerun is held
-until the startup disk meets the required headroom. No test or release gate
-was waived. Source changes are checkpointed separately from a final full-suite
-receipt, hosting credentials, Endure Labs final-deployment acceptance and
-publication approval. The required SiteGround key and host/user configuration
-were absent at the metadata check; no credential was printed or deployment run.
+Head `40198d0` subsequently passed GitHub full-suite validation on an identical
+merge tree: 11,194 tests passed / 299 skipped, plus 423 Mission Control tests.
+Regression and immune checks also passed. The redundant local rerun was stopped
+after the exact-tree CI proof; no local full-suite pass is claimed. GitHub
+hosting secrets exist, while the local SiteGround key/configuration is absent.
+A separately reviewed scoped runner is being prepared; no deployment ran.
+
+## Product audit: finish outcomes before physics controls
+
+The user's November 4 review identified a more fundamental release blocker.
+The Endure Labs form currently asks for steady average power and simulates a
+solo ride. It does not yet infer sustainable race effort from athlete history,
+use forecast weather, or model group retention and getting dropped. Exposing
+fewer fields alone cannot close those gaps.
+
+The owning corrective contract is Endure Labs
+`specs/race-performance/product-audit-20261104.md`. It requires athlete ability,
+an exact course, valid weather and supported race scenarios to drive a ballpark
+finish estimate. Numerical settings belong inside the model; bike/setup
+assumptions should be understandable, disclosed and inspectable. Scenario
+spread must not be called a confidence interval without coverage validation.
+BBS functionality research is distinct from a matched-input numerical comparison;
+no numerical parity or real-world accuracy qualification is claimed.
+
+The public handoff remains on hold. Keep the existing namespace, edition and
+distance continuation contract, but regenerate publication artifacts only after
+the final product source is frozen. Passing site tests and preparing a safe
+release runner do not make the current manual calculator ready to launch.

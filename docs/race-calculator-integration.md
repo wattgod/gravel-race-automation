@@ -140,3 +140,18 @@ real-page test, and the CSS-extraction docstring was corrected. Remaining
 advisories concern minor repeated fallback wording, browser confirmation of
 anchor alignment and Endure confirmation of historical editions. None is
 a claimed visual or deployment result.
+
+## Narrow-screen integration correction
+
+A parent browser DOM audit found the existing single-column grid's automatic
+minimum expanding the main column to 632px inside a 456px mobile container.
+The mobile grid now uses `minmax(0, 1fr)` and the main grid item has
+`min-width: 0`. This permits the calculator and its ancestor column to shrink
+with the viewport; desktop retains its existing two-column track definition.
+The preview was regenerated for a new browser measurement. Source/test checks
+do not substitute for that measurement or visual acceptance.
+
+A fresh source-only `claude-fable-5-1` review returned PASS for this two-rule
+correction. Source inspection confirms the main element is the grid's direct
+child and no later main-width rule overrides it. The parent browser audit
+remains responsible for detecting independent child-content overflow.

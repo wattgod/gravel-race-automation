@@ -6576,6 +6576,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 /* Deterministic race-data changelog. The two-column shell exists only when
    this race has recent events, so empty feeds preserve the current layout. */
 .gg-neo-brutalist-page .gg-page-body-with-latest {{ display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: var(--gg-spacing-lg); align-items: start; }}
+.gg-neo-brutalist-page .gg-page-main {{ min-width: 0; }}
 .gg-neo-brutalist-page .gg-latest {{ border: var(--gg-border-standard); padding: var(--gg-spacing-md); margin-top: var(--gg-spacing-lg); }}
 .gg-neo-brutalist-page .gg-latest h2 {{ margin: 0 0 var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-gold); }}
 .gg-neo-brutalist-page .gg-latest ol {{ list-style: none; padding: 0; margin: 0; }}
@@ -6663,7 +6664,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 }}
 /* TOC — mobile: collapsible dropdown */
 @media (max-width: 768px) {{
-  .gg-neo-brutalist-page .gg-page-body-with-latest {{ grid-template-columns: 1fr; }}
+  .gg-neo-brutalist-page .gg-page-body-with-latest {{ grid-template-columns: minmax(0, 1fr); }}
   .gg-neo-brutalist-page .gg-latest {{ grid-row: 1; margin-top: var(--gg-spacing-md); }}
   .gg-neo-brutalist-page .gg-toc {{ position: sticky; top: var(--gg-header-height, 56px); padding: 0; }}
   .gg-neo-brutalist-page .gg-toc-toggle {{

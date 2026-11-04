@@ -96,8 +96,9 @@ not part of the generated public page.
 
 ## Verification and preview
 
-Run with the existing Python test environment or the small local test-only
-environment used here (Python 3.11 + pytest):
+Focused checks originally used a small Python 3.11 + pytest environment.
+The same task-local environment now has the complete `requirements.txt` set
+and a task-local Chromium headless runtime for the full test suite:
 
 ```sh
 work/test-venv/bin/python -m pytest tests/test_race_calculator.py tests/test_neo_brutalist.py tests/test_prep_strip.py -q --tb=short
@@ -110,8 +111,8 @@ Preview uses the production path, without deployment:
 python3 wordpress/generate_neo_brutalist.py barry-roubaix --output-dir work/calculator-preview/race
 ```
 
-The parent owns browser rendering, full preflight, publication and live
-verification. No deployment or live acceptance is claimed by these tests.
+The parent owns publication and live verification. Local browser and full
+validation receipts are recorded below; neither establishes production acceptance.
 
 Serve `work/calculator-preview` as the local root; open `/race/barry-roubaix.html#race-calculator` so the generated `/race/assets/` font/CSS paths resolve. Local generation copied all six host font files; no global font changes were needed.
 
@@ -130,8 +131,9 @@ coverage; both are implemented. Advisory fixes also centralize style assembly,
 clarify the edition/course-file instruction, add a sticky-anchor offset and
 correct the mount location documented above. The review excludes generated
 profiles and private athlete inputs. Local review prompts and JSON receipts
-remain under untracked `work/`. Browser screenshots returned blank canvases in
-the parent environment; no visual acceptance is claimed.
+remain under untracked `work/`. Earlier screenshot attempts returned blank
+canvases; a later local browser measurement and screenshot are recorded below.
+No production acceptance is claimed.
 
 The same Fable session independently rereviewed the corrections and returned
 **PASS for the GGC calculator entry**, with model usage confirming
@@ -155,3 +157,70 @@ A fresh source-only `claude-fable-5-1` review returned PASS for this two-rule
 correction. Source inspection confirms the main element is the grid's direct
 child and no later main-width rule overrides it. The parent browser audit
 remains responsible for detecting independent child-content overflow.
+
+## Full validation receipt — November 4, 2026
+
+The task-local Python 3.11.17 environment was completed with
+`work/test-venv/bin/python -m pip install --no-cache-dir -r requirements.txt`.
+`pip check` reports no broken requirements. Chromium headless and FFmpeg were
+installed under `work/playwright-browsers`, without changing the shared browser
+cache or global Python installation. The resolved package versions are retained
+in the untracked `work/calculator-venv-freeze.txt` receipt.
+
+```sh
+PLAYWRIGHT_BROWSERS_PATH="$PWD/work/playwright-browsers" work/test-venv/bin/python -m pytest tests/ -q --tb=short -x
+```
+
+Result: **11,139 passed, 298 skipped, 31 warnings in 370.70 seconds**; all
+11,437 tests collected. This includes the synthetic exit-survey browser tests,
+whose outbound requests are intercepted. The first complete-environment run
+stopped at the missing Chromium executable after 2,140 passes; installing the
+local runtime resolved that environment failure. No code changes were needed.
+The final full-suite log is
+`work/calculator-full-pytest-with-browser.log`.
+
+The complete release checks are not all green:
+
+- `work/test-venv/bin/python scripts/preflight_quality.py` exits 1 for live
+  questionnaire parity: 76 fields/markers differ from the repository form.
+  The fetched public page has the title “Build Your Plan | Gravel God Cycling”,
+  65,308 bytes, five form controls and no challenge-page indicators. Its SHA-256
+  is `2881bea70069e0a36d5d719435a945beeab4550c68eddc3f9ea5c289ae856617`.
+  Comparing the same response against pre-calculator commit `2cb53ff` produces
+  the same 76 findings; both the form source and checker are unchanged. This
+  proves an existing parity difference, not that the live form is broken.
+- `work/test-venv/bin/python scripts/preflight.py --skip-tests` was run alongside
+  the independent full pytest invocation, in validate-only mode. Color and
+  citation checks pass; the existing race-data audit warns. Blog validation
+  reports 61 passes and six failures because `wordpress/output/blog` and its
+  generated recap files are absent in this worktree. No `--generate` or
+  `--deploy` invocation was made.
+- Standalone `work/test-venv/bin/python scripts/youtube_validate.py` exits 1:
+  all 1,130 reported errors across 262 enriched profiles are missing photo/GIF
+  files on disk. The validator and `race-data` are unchanged from `2cb53ff`.
+- Full quality-check warnings also identify missing sibling brand-token files,
+  absent generated-output coverage/slop inputs, unavailable PHP syntax tooling,
+  existing generic-homepage citations, absent photo-QC metadata and the
+  research-dump backlog. Missing inputs remain unverified checks.
+
+Detailed untracked receipts are `work/calculator-full-validation-summary.json`,
+`work/calculator-questionnaire-baseline-receipt.json`,
+`work/calculator-existing-artifact-baseline.json`,
+`work/calculator-full-preflight-quality.log`,
+`work/calculator-validate-only.log` and
+`work/calculator-youtube-validation.log`.
+
+## Local narrow-screen browser receipt
+
+The parent measured the regenerated race preview in a **390 CSS-pixel iframe**:
+its document width was 390px, the calculator entry was 366px wide, the controls
+were 48px high, and there was no horizontal overflow. Keyboard focus showed a
+2px outline. The screenshot is `outputs/ggc-calculator-390.jpg` in the parent
+Codex task artifacts, outside this repository. This verifies that local browser
+configuration; it is not physical-device or production evidence.
+
+The public handoff remains on hold until Endure's target route is live. Publishing
+GGC still requires the matching regenerated shared CSS and HTML, the applicable
+release-gate disposition, cache purge and verification of the live race pages.
+Neither the full pytest result nor this local browser measurement is full
+production acceptance.

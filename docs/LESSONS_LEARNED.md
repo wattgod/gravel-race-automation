@@ -2426,3 +2426,9 @@ values.
 45. **CSV fat_pct + cho_pct must sum to ~100 for all rows.** The metabolic-reference.csv is the science source of truth. If a future edit introduces a row where fat + cho ≠ 100, every downstream calculation using these percentages is wrong. Test this invariant on every CSV row.
 
 46. **An A/B experiment must have a rendered target, and the report must count users.** Sep 10 2026: `race_sticky_cta_copy` and `race_coaching_teaser` kept logging `ab_impression` (820 users / 28d) although spine-v2 race pages render neither element — the engine fired the impression before checking the DOM swap succeeded. `ab_report.py` then divided page-load event counts by session-deduplicated conversion events. Now: `applyVariant()` returns false → no impression, no conversion binding; an impression that cannot be sent (no gtag) also skips binding; the report uses `totalUsers`. Before adding an experiment, grep the *generated* output for its `data-ab` selector, not the generator source.
+
+---
+
+## Deployment Path Portability
+
+47. **Generated deploy shell paths must be shell words, not raw interpolation.** A full-suite run with an external `TMPDIR` exposed `cd /Volumes/Seagate Backup Plus Drive/...` splitting into arguments. The verify and promote builders now use `_remote_path_expr()` for literal paths, preserving only the supported leading `~/` expansion with a quoted suffix. Within these builders, reuse quoted variables for commands and missing-path diagnostics; never interpolate the raw path again in an error message. Execute regressions with real spaces, quotes, glob characters and literal shell syntax, retaining size/truncation/count checks, promotion exit markers and sibling-content protection.

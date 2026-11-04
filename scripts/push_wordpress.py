@@ -2237,6 +2237,19 @@ def _release_deploy_lock(host: str, user: str, port: str) -> None:
         pass
 
 
+def _remote_path_expr(path: str) -> str:
+    """One literal shell word, preserving only the supported leading ~/ expansion.
+
+    Quote the suffix separately so spaces and shell syntax stay data while
+    Bash still expands an unquoted tilde prefix. Other paths are literal.
+    """
+    if path == "~":
+        return "~"
+    if path.startswith("~/"):
+        return "~/" + shlex.quote(path[2:])
+    return shlex.quote(path)
+
+
 def _build_verify_script(base: str, relpaths: list, check_total_count: bool,
                           sizes: dict = None) -> str:
     """Shell script (run via `ssh ... bash -s`, script text piped over
@@ -2267,12 +2280,10 @@ if [ "$actual_count" != "{len(relpaths)}" ]; then
   status=1
 fi
 '''
-    # `base` is always our own generated constant (DEPLOY_STAGING_ROOT +
-    # kind + timestamp, or the hardcoded remote_base path) — never user
-    # input — so it's used unquoted, the same way the rest of this file
-    # does, to keep server-side `~` expansion working.
+    # Assign one shell-safe word before use; a supported leading ~/ still expands.
     return f"""set -u
-cd {base} || {{ echo "MISSING_DIR:{base}"; exit 1; }}
+base={_remote_path_expr(base)}
+cd -- "$base" || {{ printf '%s\\n' "MISSING_DIR:$base"; exit 1; }}
 status=0
 {count_check}
 relpaths=( {relpaths_arr} )
@@ -2335,23 +2346,19 @@ def _build_promote_script(staging: str, remote_base: str, log_path: str, exit_pa
     moved it into remote_base, leaving a stray script file live on every
     single successful deploy.
 
-    `remote_base`/`staging`/`log_path`/`exit_path` are assigned to shell
-    variables via an UNQUOTED assignment first (so a leading `~` still
-    expands there), then referenced as "$remote_base" etc. everywhere else.
-    Embedding one of these directly inside a double-quoted string (e.g.
-    `destdir="{remote_base}/..."`) would NOT expand its leading `~` — bash
-    only tilde-expands an unquoted `~` — so files would silently land under
-    a literal "~" subdirectory instead of the real path."""
+    Paths are assigned as shell-safe words with leading ~/ expansion kept,
+    then referenced as quoted variables. No path suffix is evaluated as code.
+    """
     return f"""set -uo pipefail
-remote_base={remote_base}
-staging={staging}
-log_path={log_path}
-exit_path={exit_path}
+remote_base={_remote_path_expr(remote_base)}
+staging={_remote_path_expr(staging)}
+log_path={_remote_path_expr(log_path)}
+exit_path={_remote_path_expr(exit_path)}
 script_path="$staging/.promote.sh"
 (
   set -euo pipefail
   mkdir -p "$remote_base"
-  cd "$staging"
+  cd -- "$staging"
   rm -f "$script_path"
   rmdir "$staging/.promote-lock" 2>/dev/null || true
   find . -type f -print0 | while IFS= read -r -d '' f; do

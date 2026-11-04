@@ -224,3 +224,42 @@ GGC still requires the matching regenerated shared CSS and HTML, the applicable
 release-gate disposition, cache purge and verification of the live race pages.
 Neither the full pytest result nor this local browser measurement is full
 production acceptance.
+
+## Release-preparation checkpoint — November 4, afternoon
+
+The stale questionnaire blocker is repaired against the actual two-step public
+intake, retaining the legacy checks. All 133 scoped intake/checker tests pass;
+actual Fable source review and corrective review pass. The standalone live
+parity check passes. See `questionnaire-parity-check.md`.
+
+A complete fresh race-only package is retained on the external drive at
+`/Volumes/Seagate Backup Plus Drive/Codex-work/race-release-20261104/ggc-package`:
+384 race pages, 384 matching prep kits and 384 Markdown profiles, with eight
+shared assets. All slug sets match, every calculator handoff is present, and
+asset content hashes agree. Total package size is 92.1 MB. Its Markdown guide
+inventory comes from 354 genuine public training-guide HTML pages verified
+against exact URLs and canonicals; it is not an empty stand-in inventory.
+
+Separate validation inputs include 1,130 existing public media files restored
+with exact same-origin URL, type, signature, length and SHA256 receipts, plus
+real generated blog artifacts. No media or blog is added to the scoped
+publication package. The final stable validation tree contains 829 HTML files.
+Unmodified quality preflight passes with 12 existing advisories; validate-only
+preflight passes (four checks, two warnings), YouTube validation reports zero
+errors, and blog validation passes 132 checks with no failures or warnings.
+The external package retains manifests and the exact final logs.
+
+The recreated external Python 3.11 full-suite run exposed an existing raw-shell
+path bug when its temporary path contained spaces. The verify/promote builders
+now quote literal paths while retaining supported `~/` expansion. All 83 atomic
+deploy tests pass, including real paths with spaces, quotes and literal shell
+syntax; actual Fable review passes. Locking, count/size/truncation checks,
+promotion receipts and preservation of sibling content remain intact.
+
+The complete suite has not passed on this latest source yet: its first run
+stopped at that now-fixed path bug after 257 passes. The final rerun is held
+until the startup disk meets the required headroom. No test or release gate
+was waived. Source changes are checkpointed separately from a final full-suite
+receipt, hosting credentials, Endure Labs final-deployment acceptance and
+publication approval. The required SiteGround key and host/user configuration
+were absent at the metadata check; no credential was printed or deployment run.

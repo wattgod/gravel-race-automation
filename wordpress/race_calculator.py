@@ -1,4 +1,4 @@
-"""Public race metadata handoff; personal calculation stays in ENDURE LABS."""
+"""Public race metadata handoff; personal calculation stays in Endure Labs."""
 
 import html
 import math
@@ -129,15 +129,15 @@ def build_race_calculator(rd):
         choices = "".join('<option value="' + esc(option["key"]) + '">' + esc(option["label"]) + '</option>' for option in valid)
         choice = '<label for="gg-calculator-distance">Distance</label><select id="gg-calculator-distance" name="distance">' + choices + '</select>'
     else:
-        choice = '<p class="gg-race-calculator-unknown">Choose your distance in ENDURE LABS.</p>'
-    note = ("Confirm this race's edition and course file in ENDURE LABS." if context.get("source_blocked")
-            else "Choose the edition and course file in ENDURE LABS.")
+        choice = '<p class="gg-race-calculator-unknown">Choose your distance in Endure Labs.</p>'
+    note = ("Confirm this race's edition and course file in Endure Labs." if context.get("source_blocked")
+            else "Choose the edition and course file in Endure Labs.")
     return '''<section id="race-calculator" class="gg-race-calculator" aria-labelledby="gg-calculator-title" data-measure-section="race-calculator">
-  <div class="gg-race-calculator-heading"><span class="gg-race-calculator-kicker">ENDURE LABS</span><h2 id="gg-calculator-title">Race calculator</h2></div>
+  <div class="gg-race-calculator-heading"><span class="gg-race-calculator-kicker">Endure Labs</span><h2 id="gg-calculator-title">Race calculator</h2></div>
   <p class="gg-race-calculator-intro">Explore power and weather choices for ''' + esc(str(rd.get("name") or "this race")) + '''.</p>
   <form action="''' + ENDURE_CALCULATOR_URL + '''" method="get" class="gg-race-calculator-form">
     ''' + fields + choice + '''
-    <button type="submit" class="gg-race-calculator-button" data-cta="race_calculator_open">Open in ENDURE LABS <span aria-hidden="true">↗</span></button>
+    <button type="submit" class="gg-race-calculator-button" data-cta="race_calculator_open">Open in Endure Labs <span aria-hidden="true">↗</span></button>
   </form>
   <p class="gg-race-calculator-note">''' + esc(note) + '''</p>
 </section>'''
@@ -149,7 +149,7 @@ def get_race_calculator_css():
 .gg-neo-brutalist-page .gg-race-calculator { margin: var(--gg-spacing-xl) 0; padding: var(--gg-spacing-lg); border: var(--gg-border-standard); background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); scroll-margin-top: calc(var(--gg-header-height, 80px) + var(--gg-spacing-4xl)); }
 .gg-neo-brutalist-page .gg-race-calculator-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: var(--gg-spacing-sm); }
 .gg-neo-brutalist-page .gg-race-calculator-heading h2 { margin: 0; font-family: var(--gg-font-data); font-size: var(--gg-font-size-lg); }
-.gg-neo-brutalist-page .gg-race-calculator-kicker { font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wide); text-transform: uppercase; }
+.gg-neo-brutalist-page .gg-race-calculator-kicker { font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wide); }
 .gg-neo-brutalist-page .gg-race-calculator-intro { margin: var(--gg-spacing-md) 0; font-family: var(--gg-font-editorial); overflow-wrap: anywhere; }
 .gg-neo-brutalist-page .gg-race-calculator-form { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--gg-spacing-sm); font-family: var(--gg-font-data); }
 .gg-neo-brutalist-page .gg-race-calculator-form label { font-size: var(--gg-font-size-sm); }

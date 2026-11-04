@@ -1,4 +1,4 @@
-# Race calculator entry: GGC → ENDURE LABS
+# Race calculator entry: GGC → Endure Labs
 
 The race page now mounts a calculator entry in the actual `generate_page`
 deep-content list, after “Train for This Race”, with a matching table-of-contents link.
@@ -23,7 +23,7 @@ It submits only allowlisted public metadata:
 
 For example, `source=gravel&race=barry-roubaix&edition=2027&distance=62-mile`
 reflects the current GGC profile. It does not imply that the acquired 2026
-pilot GPX is a 2027 course. The ENDURE LABS calculator must preserve the selected
+pilot GPX is a 2027 course. The Endure Labs calculator must preserve the selected
 metadata through sign-in, verify catalog identity, and let the athlete select
 the edition and course file. It must never save an event implicitly.
 
@@ -46,13 +46,13 @@ source. Conflicting duplicate keys are omitted rather than silently selected.
 
 An unknown edition stays omitted; the current year is never a fallback.
 Source-blocked profiles do not pass an old edition or distance as current.
-Unsafe slugs downgrade to the generic ENDURE LABS calculator. Unknown choices are
-made in ENDURE LABS. All profile-supplied strings are HTML-escaped, and the
+Unsafe slugs downgrade to the generic Endure Labs calculator. Unknown choices are
+made in Endure Labs. All profile-supplied strings are HTML-escaped, and the
 destination host is a constant.
 
 This entry does not publish a finish estimate, readiness verdict, nutrition
 quantity or confidence interval. The personal calculation and its qualification
-state belong to ENDURE LABS. Raw route assets and private athlete values are not
+state belong to Endure Labs. Raw route assets and private athlete values are not
 redistributed by this change.
 
 ## GG×Glyph presentation
@@ -120,7 +120,7 @@ Serve `work/calculator-preview` as the local root; open `/race/barry-roubaix.htm
 
 The 35 new cases and neighboring generator/preparation-strip suites pass together: 299 tests. Python 3.11 compilation and `git diff --check` pass. A metadata-only sweep of all 384 source profiles succeeds: 384 safe slugs, 350 explicit editions, 370 with supported distance choices, and a maximum of five choices. This is not a full 384-page browser check.
 
-`preflight_quality.py --quick --offline` exits 0 with eight warnings: three upstream brand-token parity checks cannot run because the sibling brand repository is absent; generated `wordpress/output` coverage and slop checks lack that directory; PHP is unavailable; existing generic-homepage citations and absent photo-QC metadata remain warnings. This probe is not the complete live pre-deploy gate. Release ENDURE LABS's target calculator route before publishing GGC links, then regenerate/deploy the matching shared asset and HTML set and verify the live pages and cache through the parent workflow.
+`preflight_quality.py --quick --offline` exits 0 with eight warnings: three upstream brand-token parity checks cannot run because the sibling brand repository is absent; generated `wordpress/output` coverage and slop checks lack that directory; PHP is unavailable; existing generic-homepage citations and absent photo-QC metadata remain warnings. This probe is not the complete live pre-deploy gate. Release Endure Labs's target calculator route before publishing GGC links, then regenerate/deploy the matching shared asset and HTML set and verify the live pages and cache through the parent workflow.
 
 ## Independent source review
 
@@ -140,7 +140,7 @@ The same Fable session independently rereviewed the corrections and returned
 `claude-fable-5-1`. The suppression-path advisory then received an explicit
 real-page test, and the CSS-extraction docstring was corrected. Remaining
 advisories concern minor repeated fallback wording, browser confirmation of
-anchor alignment and ENDURE LABS confirmation of historical editions. None is
+anchor alignment and Endure Labs confirmation of historical editions. None is
 a claimed visual or deployment result.
 
 ## Narrow-screen integration correction
@@ -219,7 +219,7 @@ were 48px high, and there was no horizontal overflow. Keyboard focus showed a
 Codex task artifacts, outside this repository. This verifies that local browser
 configuration; it is not physical-device or production evidence.
 
-The public handoff remains on hold until ENDURE LABS's target route is live. Publishing
+The public handoff remains on hold until Endure Labs's target route is live. Publishing
 GGC still requires the matching regenerated shared CSS and HTML, the applicable
 release-gate disposition, cache purge and verification of the live race pages.
 Neither the full pytest result nor this local browser measurement is full

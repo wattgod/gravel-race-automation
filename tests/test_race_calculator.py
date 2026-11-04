@@ -1,4 +1,4 @@
-"""The real race-page output must contain a safe, usable ENDURE LABS handoff."""
+"""The real race-page output must contain a safe, usable Endure Labs handoff."""
 
 import copy
 from html.parser import HTMLParser
@@ -221,6 +221,9 @@ def test_real_external_asset_pipeline_contains_scoped_css_and_reduced_motion():
     assert ".gg-neo-brutalist-page .gg-race-calculator" in css
     assert "@media (prefers-reduced-motion: reduce)" in css
     assert "transition: transform 150ms ease" in css
+    kicker = re.search(r"\.gg-neo-brutalist-page \.gg-race-calculator-kicker \{([^}]*)\}", css)
+    assert kicker, "calculator brand kicker styling missing"
+    assert not re.search(r"text-transform\s*:\s*uppercase", kicker.group(1))
     text = page(external_assets={"css_tag": '<link rel="stylesheet" href="/test.css">', "js_tag": '<script src="/test.js"></script>'})
     assert 'id="race-calculator"' in text
     assert 'href="/test.css"' in text
@@ -247,7 +250,7 @@ def test_calculator_anchor_accounts_for_the_sticky_header():
 def test_calculator_copy_has_no_fake_result_or_slop():
     fragment = calculator(page())
     assert not check_text(fragment)
-    assert "Open in ENDURE LABS" in fragment
-    assert "Choose the edition and course file in ENDURE LABS." in fragment
+    assert "Open in Endure Labs" in fragment
+    assert "Choose the edition and course file in Endure Labs." in fragment
     assert "finish-range" not in fragment
     assert "confidence" not in fragment

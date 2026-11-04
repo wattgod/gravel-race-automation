@@ -1,4 +1,4 @@
-"""Public race metadata handoff; personal calculation stays in Endure."""
+"""Public race metadata handoff; personal calculation stays in ENDURE LABS."""
 
 import html
 import math
@@ -129,15 +129,15 @@ def build_race_calculator(rd):
         choices = "".join('<option value="' + esc(option["key"]) + '">' + esc(option["label"]) + '</option>' for option in valid)
         choice = '<label for="gg-calculator-distance">Distance</label><select id="gg-calculator-distance" name="distance">' + choices + '</select>'
     else:
-        choice = '<p class="gg-race-calculator-unknown">Choose your distance in Endure.</p>'
-    note = ("Confirm this race's edition and course file in Endure." if context.get("source_blocked")
-            else "Choose the edition and course file in Endure.")
+        choice = '<p class="gg-race-calculator-unknown">Choose your distance in ENDURE LABS.</p>'
+    note = ("Confirm this race's edition and course file in ENDURE LABS." if context.get("source_blocked")
+            else "Choose the edition and course file in ENDURE LABS.")
     return '''<section id="race-calculator" class="gg-race-calculator" aria-labelledby="gg-calculator-title" data-measure-section="race-calculator">
-  <div class="gg-race-calculator-heading"><span class="gg-race-calculator-kicker">Endure Labs</span><h2 id="gg-calculator-title">Race calculator</h2></div>
+  <div class="gg-race-calculator-heading"><span class="gg-race-calculator-kicker">ENDURE LABS</span><h2 id="gg-calculator-title">Race calculator</h2></div>
   <p class="gg-race-calculator-intro">Explore power and weather choices for ''' + esc(str(rd.get("name") or "this race")) + '''.</p>
   <form action="''' + ENDURE_CALCULATOR_URL + '''" method="get" class="gg-race-calculator-form">
     ''' + fields + choice + '''
-    <button type="submit" class="gg-race-calculator-button" data-cta="race_calculator_open">Open in Endure <span aria-hidden="true">↗</span></button>
+    <button type="submit" class="gg-race-calculator-button" data-cta="race_calculator_open">Open in ENDURE LABS <span aria-hidden="true">↗</span></button>
   </form>
   <p class="gg-race-calculator-note">''' + esc(note) + '''</p>
 </section>'''

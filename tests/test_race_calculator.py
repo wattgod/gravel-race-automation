@@ -1,4 +1,4 @@
-"""The real race-page output must contain a safe, usable Endure handoff."""
+"""The real race-page output must contain a safe, usable ENDURE LABS handoff."""
 
 import copy
 from html.parser import HTMLParser
@@ -247,7 +247,7 @@ def test_calculator_anchor_accounts_for_the_sticky_header():
 def test_calculator_copy_has_no_fake_result_or_slop():
     fragment = calculator(page())
     assert not check_text(fragment)
-    assert "Open in Endure" in fragment
-    assert "Choose the edition and course file in Endure." in fragment
+    assert "Open in ENDURE LABS" in fragment
+    assert "Choose the edition and course file in ENDURE LABS." in fragment
     assert "finish-range" not in fragment
     assert "confidence" not in fragment

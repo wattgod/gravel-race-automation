@@ -3,98 +3,118 @@ name: Deploy Race Page
 on:
   workflow_dispatch:
     inputs:
-      slug:
-        description: "Canonical race slug (for example, bootlegger-100)"
+      mode:
+        description: Validate prepares reviewable artifacts without SSH; publish releases the same validated bytes
+        type: choice
+        options: [validate, publish]
+        default: validate
         required: true
+      scope:
+        description: One canonical race or the complete active race catalog
+        type: choice
+        options: [single, all]
+        default: all
+        required: true
+      slug:
+        description: Canonical race slug; required only for single scope
+        required: false
         type: string
 
 permissions:
   contents: read
 
+# Publish serializes with the broad publishing workflow. Validation has its
+# own group so it cannot cancel a pending publish. Remote locks remain intact.
+concurrency:
+  group: ${{ inputs.mode == 'publish' && 'publish-site' || format('validate-race-{0}', github.run_id) }}
+  cancel-in-progress: false
+
 jobs:
-  deploy:
+  release:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-
+    timeout-minutes: 90
     steps:
-      - name: Checkout Gravel God source
-        uses: actions/checkout@v4
-
-      - name: Checkout published TrainingPeaks catalog
-        uses: actions/checkout@v4
-        with:
-          repository: wattgod/gravel-god-training-plans
-          ref: builtfor-publish
-          token: ${{ secrets.GH_PAT }}
-          path: gravel-god-training-plans
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-          cache: pip
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Build and validate scoped payload
+      - uses: actions/checkout@v4
+      - name: Reject publishing outside main
         env:
+          RELEASE_MODE: ${{ inputs.mode }}
+        run: |
+          set -euo pipefail
+          if [[ "$RELEASE_MODE" == publish ]]; then
+            test "$GITHUB_REF" = refs/heads/main
+          fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Define fresh runner output location
+        run: |
+          set -euo pipefail
+          echo "RELEASE_DIR=$RUNNER_TEMP/gg-race-release" >> "$GITHUB_ENV"
+      - name: Check storage before installation or tests
+        run: |
+          set -euo pipefail
+          python -c 'from scripts.prepare_race_release import disk_guard; disk_guard()'
+      - name: Install validation dependencies
+        run: |
+          set -euo pipefail
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+      - name: Prepare exact scoped package and run required gates
+        env:
+          RELEASE_SCOPE: ${{ inputs.scope }}
           RACE_SLUG: ${{ inputs.slug }}
         run: |
           set -euo pipefail
-          if ! printf '%s' "$RACE_SLUG" | grep -Eq '^[a-z0-9]+(-[a-z0-9]+)*$'; then
-            echo "::error::Invalid race slug: $RACE_SLUG"
-            exit 1
-          fi
-          test -f "race-data/$RACE_SLUG.json"
-          mkdir -p /tmp/gg-race-page
-          python wordpress/generate_neo_brutalist.py "$RACE_SLUG" \
-            --data-dir race-data \
-            --output-dir /tmp/gg-race-page \
-            --plans-db gravel-god-training-plans/db/plans.json
-          test -s "/tmp/gg-race-page/$RACE_SLUG.html"
-          test -d /tmp/gg-race-page/assets
-          grep -Eq 'trainingpeaks\.com/training-plans/cycling/tp-[0-9]+' \
-            "/tmp/gg-race-page/$RACE_SLUG.html"
-
-      - name: Setup SSH
+          args=(prepare --release-dir "$RELEASE_DIR" --scope "$RELEASE_SCOPE")
+          if [[ -n "$RACE_SLUG" ]]; then args+=(--slug "$RACE_SLUG"); fi
+          python scripts/prepare_race_release.py "${args[@]}"
+      - name: Preserve public package and validation receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: race-release-${{ github.sha }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/gg-race-release/package/
+            ${{ runner.temp }}/gg-race-release/receipts/
+          if-no-files-found: warn
+      - name: Configure SSH only after successful gates
+        if: inputs.mode == 'publish'
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
         run: |
           set -euo pipefail
+          test "$GITHUB_REF" = refs/heads/main
+          test -n "$DEPLOY_KEY"
+          test -n "$SSH_HOST"
+          test -n "$SSH_USER"
+          test -n "$SSH_PORT"
           mkdir -p ~/.ssh
-          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/siteground_key
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/siteground_key
           chmod 600 ~/.ssh/siteground_key
-          ssh-keyscan -p "${{ secrets.SSH_PORT }}" "${{ secrets.SSH_HOST }}" \
-            >> ~/.ssh/known_hosts 2>/dev/null
-
-      - name: Deploy page and shared assets
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          test -s ~/.ssh/known_hosts
+      - name: Publish only validated races and verify exact live bytes
+        if: inputs.mode == 'publish'
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PORT: ${{ secrets.SSH_PORT }}
         run: |
-          python scripts/push_wordpress.py \
-            --sync-pages \
-            --pages-dir /tmp/gg-race-page \
-            --purge-cache
-
-      - name: Verify exact live page
-        env:
-          RACE_SLUG: ${{ inputs.slug }}
+          set -euo pipefail
+          python scripts/prepare_race_release.py publish --release-dir "$RELEASE_DIR"
+      - name: Preserve live verification receipt
+        if: always() && inputs.mode == 'publish'
+        uses: actions/upload-artifact@v4
+        with:
+          name: race-release-live-${{ github.sha }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/gg-race-release/receipts/live-verification.json
+          if-no-files-found: warn
+      - name: Remove owned runner SSH key
+        if: always() && inputs.mode == 'publish'
         run: |
           set -euo pipefail
-          expected="/tmp/gg-race-page/$RACE_SLUG.html"
-          live="/tmp/$RACE_SLUG.live.html"
-          for attempt in 1 2 3 4 5 6 7 8; do
-            if curl -L --fail --silent --show-error --compressed \
-              "https://gravelgodcycling.com/race/$RACE_SLUG/?v=${GITHUB_SHA}-${GITHUB_RUN_ATTEMPT}-${attempt}" \
-              -o "$live" && cmp -s "$expected" "$live"; then
-              echo "Exact race page is live (attempt $attempt)"
-              exit 0
-            fi
-            echo "Attempt $attempt: live bytes do not yet match the deployed page"
-            sha256sum "$expected" "$live" || true
-            sleep 10
-          done
-          echo "::error::Live race page did not match the scoped deployment"
-          sha256sum "$expected" "$live" || true
-          exit 1
+          rm -f ~/.ssh/siteground_key

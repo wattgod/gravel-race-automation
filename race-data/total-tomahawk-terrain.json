@@ -5,7 +5,7 @@
     "display_name": "Total Tomahawk Terrain",
     "tagline": "Northern Wisconsin Northwoods gravel in Tomahawk.",
     "vitals": {
-      "distance_mi": 62,
+      "distance_mi": 103,
       "elevation_ft": 3000,
       "location": "Tomahawk, Wisconsin",
       "location_badge": "TOMAHAWK, WISCONSIN",
@@ -50,11 +50,11 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 44,
-      "tier": 4,
-      "tier_label": "TIER 4",
+      "overall_score": 46,
+      "tier": 3,
+      "tier_label": "TIER 3",
       "logistics": 2,
-      "length": 3,
+      "length": 4,
       "technicality": 2,
       "elevation": 2,
       "climate": 2,
@@ -69,7 +69,8 @@
       "expenses": 4,
       "score_note": "Small grassroots Wisconsin event. Affordable but very limited infrastructure and field.",
       "discipline": "gravel",
-      "display_tier": 4
+      "display_tier": 3,
+      "display_tier_label": "TIER 3"
     },
     "biased_opinion": {
       "verdict": "Northwoods Grassroots Ride",
@@ -91,7 +92,7 @@
       "bottom_line": "A small local gravel race in remote Wisconsin. Perfect for locals who want an affordable weekend ride in the Northwoods. Not worth traveling far for unless you're combining with Wisconsin vacation."
     },
     "final_verdict": {
-      "score": "44 / 100",
+      "score": "46 / 100",
       "one_liner": "Small grassroots Wisconsin Northwoods ride with modest ambitions.",
       "should_you_race": "Only if you're in Wisconsin and want an affordable, low-key gravel ride in the Northwoods. Not worth traveling far for.",
       "alternatives": "For better Wisconsin events: Chequamegon, Driftless Gravel. For similar grassroots vibes: other regional Midwest events.",
@@ -146,7 +147,7 @@
     },
     "guide_variables": {
       "race_name": "Total Tomahawk Terrain",
-      "race_distance": "62 miles",
+      "race_distance": "103 miles",
       "race_elevation": "3,000 feet",
       "race_date": "Summer",
       "race_location": "Tomahawk, Wisconsin",
@@ -245,7 +246,7 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Total Tomahawk Terrain",
-        "race_hook": "62 miles of northern Wisconsin Northwoods gravel.",
+        "race_hook": "103 miles of northern Wisconsin Northwoods gravel.",
         "race_hook_detail": "Small grassroots event in remote Tomahawk.",
         "distance": "62",
         "dark_mile": "40",
@@ -261,8 +262,8 @@
         "explanation": "SARA Park provides camping, showers, and beach access, but the course is unmarked and riders navigate with paper cue sheets or GPS files. Chris Schotz serves as the sole organizer for this free ride with minimal infrastructure details available."
       },
       "length": {
-        "score": 3,
-        "explanation": "The TTT 103 offers a proper century-length challenge with resupply in Tripoli at mile 77 and lunch available in Ogema at mile 52. The Willow 63 requires complete self-support with no resupply points along its route. Similar distance to Crusher in the Tushar."
+        "score": 4,
+        "explanation": "The TTT 103 offers a proper century-length challenge with resupply in Tripoli at mile 77 and lunch available in Ogema at mile 52. The Willow 63 requires complete self-support with no resupply points along its route. Similar distance to Crusher in the Tushar. At 103 miles it falls in the 100 to 149 mile band, which scores 4."
       },
       "technicality": {
         "score": 2,

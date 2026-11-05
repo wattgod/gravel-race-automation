@@ -5,7 +5,7 @@
     "display_name": "Tor Divide",
     "tagline": "UK Peak District gravel challenge.",
     "vitals": {
-      "distance_mi": 60,
+      "distance_mi": 155.3,
       "elevation_ft": 5000,
       "location": "Peak District, UK",
       "location_badge": "PEAK DISTRICT, UK",
@@ -45,16 +45,16 @@
         "Significant mountainous (5000 feet)",
         "Peak District scenery",
         "UK gravel experience",
-        "60-mile distance",
+        "155-mile distance",
         "Small-medium field"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 46,
+      "overall_score": 49,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 2,
-      "length": 3,
+      "length": 5,
       "technicality": 3,
       "elevation": 3,
       "climate": 2,
@@ -91,7 +91,7 @@
       "bottom_line": "A solid regional UK Peak District gravel race. Worth it for UK riders. Not worth traveling internationally for."
     },
     "final_verdict": {
-      "score": "46 / 100",
+      "score": "49 / 100",
       "one_liner": "UK Peak District gravel challenge.",
       "should_you_race": "If you're local to UK—yes, it's solid. If you're traveling internationally—skip it.",
       "alternatives": "For better UK races: Lauf Gritfest.",
@@ -146,7 +146,7 @@
     },
     "guide_variables": {
       "race_name": "Tor Divide",
-      "race_distance": "60 miles",
+      "race_distance": "155 miles",
       "race_elevation": "5,000 feet",
       "race_date": "Summer",
       "race_location": "Peak District, UK",
@@ -270,8 +270,8 @@
         "explanation": "Event village camping in Bamford with Saturday morning starts delivers solid organization, plus \"a train station a stone's throw from the start\" makes public transport viable. Laura describes taking away \"new skills\" and \"a renewed sense of what's possible\" from the experience, but basic details like entry fees and exact start times remain unpublished."
       },
       "length": {
-        "score": 3,
-        "explanation": "Claire Frecknall's team \"averaged a mere 10kmh for the first 35km\" on day one, showing how the 200km Peak Gravel and 250km Divide routes demand respect. The 32-hour cutoff and figure-eight design through Edale lets riders split it into manageable overnight segments or push through as a proper single-day challenge. Similar distance to Crusher in the Tushar."
+        "score": 5,
+        "explanation": "Claire Frecknall's team \"averaged a mere 10kmh for the first 35km\" on day one, showing how the 200km Peak Gravel and 250km Divide routes demand respect. The 32-hour cutoff and figure-eight design through Edale lets riders split it into manageable overnight segments or push through as a proper single-day challenge. Similar distance to Crusher in the Tushar. The 250 km flagship route (about 155 miles) clears 150 miles, which scores 5."
       },
       "technicality": {
         "score": 3,
@@ -342,6 +342,12 @@
         "url": "https://www.gravelunion.cc/article/ride-report-tor-ide-2024",
         "category": "community",
         "label": "gravelunion.cc: Ride Report Tor Ide 2024"
+      },
+      {
+        "url": "https://tordivide.co.uk/",
+        "category": "official",
+        "label": "Tor Divide official site — three routes from 150 km to 250 km",
+        "accessed": "2026-11-05"
       }
     ],
     "results": {

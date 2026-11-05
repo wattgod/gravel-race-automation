@@ -264,7 +264,13 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         SubElement(url, 'changefreq').text = 'weekly'
         SubElement(url, 'priority').text = '0.8'
 
-    # Series hub pages
+    # Series index + hub pages
+    if series_slugs:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/series/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'monthly'
+        SubElement(url, 'priority').text = '0.7'
     for slug in (series_slugs or []):
         url = SubElement(urlset, 'url')
         SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/series/{slug}/"
@@ -532,7 +538,7 @@ def main():
     course_slugs = load_course_slugs(project_root)
     course_url_count = (1 + len(course_slugs)) if course_slugs else 0
     guide_cluster_count = 10  # pillar + 8 chapters + configurator
-    total_urls = (7 + len(INDEXABLE_WORDPRESS_PAGES) + guide_cluster_count + len(series_slugs) + len(vs_slugs) + len(state_slugs)
+    total_urls = (7 + bool(series_slugs) + len(INDEXABLE_WORDPRESS_PAGES) + guide_cluster_count + len(series_slugs) + len(vs_slugs) + len(state_slugs)
                   + len(special_slugs) + len(plan_slugs) + len(tire_slugs)
                   + len(tire_page_slugs) + len(tire_vs_slugs) + course_url_count + len(race_index))
     print(f"Generated sitemap: {output_path} ({total_urls} URLs)")

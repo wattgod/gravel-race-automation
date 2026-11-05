@@ -4368,6 +4368,8 @@ def sync_series(series_dir: str):
 
     try:
         items = [d.name for d in series_dirs]
+        if (series_path / "index.html").exists():
+            items.append("index.html")  # /race/series/ index
         tar_cmd = ["tar", "-cf", "-", "-C", str(series_path)] + items
         ssh_cmd = [
             "ssh", "-i", str(SSH_KEY), "-p", port,

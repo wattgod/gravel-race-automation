@@ -24,7 +24,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, get_ga4_head_snippet, get_tokens_css, RACER_RATING_THRESHOLD
 from season import season_year
 from shared_footer import get_mega_footer_css, get_mega_footer_html
-from shared_header import get_site_header_css, get_site_header_html
+from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -229,6 +229,43 @@ def load_full_race_data(slugs: list) -> dict:
 # ── Section builders ──────────────────────────────────────────
 
 
+def is_ended(series: dict) -> bool:
+    return series.get("status") == "ended"
+
+
+def series_year(series: dict) -> int:
+    """The season a hub describes: ended_year for an ended series, else
+    the optional ``season`` field, else the current season."""
+    if is_ended(series) and series.get("ended_year"):
+        return int(series["ended_year"])
+    return int(series.get("season") or SEASON_YEAR)
+
+
+def series_event_count(series: dict) -> int:
+    return series.get("key_stats", {}).get("total_events") or len(series.get("events", []))
+
+
+def _event_date(event: dict):
+    raw = event.get("date")
+    if not raw:
+        return None
+    try:
+        return date.fromisoformat(str(raw)[:10])
+    except ValueError:
+        return None
+
+
+def sort_events(events: list, year: int) -> list:
+    """Dated events by date; undated ones by month in ``year``; ties by round."""
+    def key(event):
+        rnd = event.get("round") if isinstance(event.get("round"), int) else 99
+        d = _event_date(event)
+        if d:
+            return (d.year, d.month, d.day, rnd)
+        return (year, MONTH_ORDER.get(event.get("month", "TBD"), 99), 99, rnd)
+    return sorted(events, key=key)
+
+
 def build_event_card(event: dict, race_lookup: dict) -> str:
     """Build an event card for the calendar section."""
     name = event.get("name", "")
@@ -236,6 +273,16 @@ def build_event_card(event: dict, race_lookup: dict) -> str:
     location = event.get("location", "")
     month = event.get("month", "TBD")
     has_profile = event.get("has_profile", False)
+    event_date = _event_date(event)
+    if event_date:
+        when = (f'<time datetime="{event_date.isoformat()}">'
+                f'{event_date.strftime("%b")} {event_date.day}, {event_date.year}</time>')
+    else:
+        when = esc(event.get("date_text") or month)
+    if isinstance(event.get("round"), int):
+        when = f'<span class="gg-series-event-round">R{event["round"]}</span> {when}'
+    note_html = (f'\n      <div class="gg-series-event-note">{esc(event["note"])}</div>'
+                 if event.get("note") else "")
 
     # Pull tier + scores from index if available
     tier_badge = ""
@@ -265,9 +312,9 @@ def build_event_card(event: dict, race_lookup: dict) -> str:
         link_icon = ""
 
     return f'''<div class="gg-series-event-card">
-      <div class="gg-series-event-month">{esc(month)}</div>
+      <div class="gg-series-event-month">{when}</div>
       {name_html}{link_icon}
-      <div class="gg-series-event-location">{esc(location)}</div>
+      <div class="gg-series-event-location">{esc(location)}</div>{note_html}
       <div class="gg-series-event-badges">{tier_badge}{score_html}{racer_html}</div>
     </div>'''
 
@@ -973,7 +1020,7 @@ def _build_faq_pairs(series: dict, race_data: dict) -> list:
     name = series.get("display_name") or series.get("name", "")
     events = series.get("events", [])
     slug = series.get("slug", "")
-    year = SEASON_YEAR
+    year = series_year(series)
 
     qa_pairs = []
 
@@ -982,7 +1029,7 @@ def _build_faq_pairs(series: dict, race_data: dict) -> list:
     if total > 0:
         event_names = [e.get("name", "") for e in events if e.get("name")]
         countries = series.get("key_stats", {}).get("countries", 1)
-        answer = f"The {name} includes {total} events"
+        answer = f"The {name} {'included' if is_ended(series) else 'includes'} {total} events"
         if countries and countries > 1:
             answer += f" across {countries} countries"
         answer += f" in {year}."
@@ -1252,8 +1299,33 @@ def build_faq_jsonld(series: dict, race_data: dict, race_lookup: dict) -> str:
 # ── Page assembly ─────────────────────────────────────────────
 
 
-def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
-    """Generate a full series hub page."""
+def build_lineage_html(series: dict, series_names: dict) -> str:
+    """Links between an ended series and the one that replaced it."""
+    parts = []
+    successor = series.get("successor")
+    predecessor = series.get("predecessor")
+    if is_ended(series):
+        ended = f"Ended {series['ended_year']}" if series.get("ended_year") else "Ended"
+        if successor:
+            parts.append(
+                f'<a class="gg-series-lineage gg-series-lineage--successor" '
+                f'href="/race/series/{esc(successor)}/">{ended}. Continues as '
+                f'{esc(series_names.get(successor, successor))} &rarr;</a>')
+        else:
+            parts.append(f'<div class="gg-series-lineage">{ended}.</div>')
+    if predecessor:
+        parts.append(
+            f'<a class="gg-series-lineage" href="/race/series/{esc(predecessor)}/">'
+            f'&larr; Formerly {esc(series_names.get(predecessor, predecessor))}</a>')
+    return "\n  ".join(parts)
+
+
+def build_hub_page(series: dict, race_lookup: dict, race_data: dict,
+                   series_names: dict = None) -> str:
+    """Generate a full series hub page (a history page when the series ended)."""
+    ended = is_ended(series)
+    year = series_year(series)
+    lineage_html = build_lineage_html(series, series_names or {})
     name = series.get("display_name") or series.get("name", "")
     slug = series.get("slug", "")
     tagline = series.get("tagline", "")
@@ -1270,7 +1342,7 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
     countries = key_stats.get("countries", 1)
 
     # Sort events by month
-    sorted_events = sorted(events, key=lambda e: MONTH_ORDER.get(e.get("month", "TBD"), 99))
+    sorted_events = sort_events(events, year)
 
     # Build event cards
     cards_html = []
@@ -1294,7 +1366,15 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
     item_list_json = ",\n      ".join(item_list_entries)
 
     canonical = f"{SITE_BASE_URL}/race/series/{slug}/"
-    page_title = f"{name} — All Events & Series Guide | Gravel God"
+    page_title = (f"{name} — Series History | Gravel God" if ended
+                  else f"{name} — All Events & Series Guide | Gravel God")
+    if ended:
+        badge = f"ENDED {series['ended_year']}" if series.get("ended_year") else "ENDED"
+        calendar_title = (f"Final Season: {series['ended_year']}" if series.get("ended_year")
+                          else "Past Events")
+    else:
+        badge = "SERIES"
+        calendar_title = f"{year} Event Calendar"
     meta_desc = tagline if tagline else f"Complete guide to the {name} race series."
 
     # Stats line for hero
@@ -1859,6 +1939,22 @@ def build_hub_page(series: dict, race_lookup: dict, race_data: dict) -> str:
 }}
 
 /* Event calendar */
+.gg-series-lineage {{
+  display: block;
+  margin: 0 0 24px;
+  padding: 16px 20px;
+  border: 3px solid var(--gg-color-dark-brown);
+  background: var(--gg-color-warm-paper);
+  color: var(--gg-color-dark-brown);
+  font-family: var(--gg-font-data);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}}
+.gg-series-lineage--successor {{ background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); }}
+a.gg-series-lineage:hover {{ border-color: {teal}; }}
+.gg-series-event-round {{ border: 2px solid currentColor; padding: 0 4px; margin-right: 4px; }}
+.gg-series-event-note {{ font-size: 12px; margin-top: 6px; color: var(--gg-color-secondary-brown); }}
 .gg-series-calendar-title {{
   font-family: var(--gg-font-data);
   font-size: 11px;
@@ -2019,12 +2115,14 @@ a.gg-series-event-name:hover {{
   </div>
 
   <section class="gg-series-hero">
-    <span class="gg-series-hero-badge">SERIES</span>
+    <span class="gg-series-hero-badge">{badge}</span>
     {"<span class='gg-series-hero-founded'>Founded: " + str(founded) + "</span>" if founded else ""}
     <h1>{esc(name)}</h1>
     <div class="gg-series-hero-stats">{stats_line}</div>
     <p class="gg-series-hero-tagline">{esc(tagline)}</p>{site_btn}
   </section>
+
+  {lineage_html}
 
   {overview_section}
 
@@ -2036,7 +2134,7 @@ a.gg-series-event-name:hover {{
 
   {map_svg}
 
-  <div class="gg-series-calendar-title">{SEASON_YEAR} Event Calendar</div>
+  <div class="gg-series-calendar-title">{calendar_title}</div>
   <div class="gg-series-calendar">
     {cards}
   </div>
@@ -2164,6 +2262,112 @@ a.gg-series-event-name:hover {{
 </html>'''
 
 
+def _safe_jsonld(data) -> str:
+    """JSON for a <script> block: '</' cannot close the tag."""
+    return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+
+def build_series_index_page(all_series: list) -> str:
+    """/race/series/: every series with its event count and status."""
+    names = {x["slug"]: x.get("display_name") or x.get("name", x["slug"]) for x in all_series}
+    active = sorted((x for x in all_series if not is_ended(x)), key=lambda x: names[x["slug"]].lower())
+    ended = sorted((x for x in all_series if is_ended(x)),
+                   key=lambda x: (-(int(x.get("ended_year") or 0)), names[x["slug"]].lower()))
+
+    def row(series: dict) -> str:
+        slug = series["slug"]
+        count = series_event_count(series)
+        if is_ended(series):
+            status = f"Ended {series['ended_year']}" if series.get("ended_year") else "Ended"
+            if series.get("successor"):
+                succ = series["successor"]
+                status += (f' &rarr; <a href="/race/series/{esc(succ)}/">'
+                           f'{esc(names.get(succ, succ))}</a>')
+        else:
+            status = "Active"
+        return (f'<li class="gg-sidx-row" data-status="{"ended" if is_ended(series) else "active"}">'
+                f'<a class="gg-sidx-name" href="/race/series/{esc(slug)}/">{esc(names[slug])}</a>'
+                f'<span class="gg-sidx-count">{count} {"event" if count == 1 else "events"}</span>'
+                f'<span class="gg-sidx-status">{status}</span></li>')
+
+    sections = []
+    for title, group in (("Active", active), ("Ended", ended)):
+        if group:
+            rows = "\n      ".join(row(x) for x in group)
+            sections.append(f'<section class="gg-sidx-group"><h2>{title}</h2>'
+                            f'<ul class="gg-sidx-list">\n      {rows}\n    </ul></section>')
+
+    canonical = f"{SITE_BASE_URL}/race/series/"
+    title = f"Gravel Race Series ({len(all_series)}) | Gravel God"
+    description = ("Every gravel race series we track, with event counts and status: "
+                   + ", ".join(names[x["slug"]] for x in active[:6]) + ".")
+    jsonld = _safe_jsonld([
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_BASE_URL}/"},
+            {"@type": "ListItem", "position": 2, "name": "Gravel Races", "item": f"{SITE_BASE_URL}/gravel-races/"},
+            {"@type": "ListItem", "position": 3, "name": "Series", "item": canonical},
+        ]},
+        {"@context": "https://schema.org", "@type": "ItemList", "name": "Gravel Race Series",
+         "itemListElement": [
+             {"@type": "ListItem", "position": i, "name": names[x["slug"]],
+              "url": f"{SITE_BASE_URL}/race/series/{x['slug']}/"}
+             for i, x in enumerate(active + ended, 1)]},
+    ])
+    body = "\n\n  ".join(sections)
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{esc(title)}</title>
+  <meta name="description" content="{esc(description)}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{canonical}">
+  {get_favicon_head_snippet()}
+  <meta property="og:title" content="{esc(title)}">
+  <meta property="og:description" content="{esc(description)}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{canonical}">
+  <script type="application/ld+json">{jsonld}</script>
+  <style>
+{get_font_face_css()}
+{get_tokens_css()}
+body {{ margin: 0; background: var(--gg-color-warm-paper); }}
+*, *::before, *::after {{ border-radius: 0 !important; box-shadow: none !important; }}
+.gg-sidx-page {{ max-width: 960px; margin: 0 auto; padding: 0 16px; font-family: var(--gg-font-data); color: var(--gg-color-dark-brown); }}
+{get_site_header_css()}
+.gg-sidx-breadcrumb {{ font-size: 11px; padding: 12px 0; letter-spacing: 0.5px; color: var(--gg-color-secondary-brown); }}
+.gg-sidx-breadcrumb a {{ color: var(--gg-color-secondary-brown); text-decoration: none; }}
+.gg-sidx-page h1 {{ font-size: 32px; margin: 16px 0 24px; }}
+.gg-sidx-group h2 {{ font-size: 13px; letter-spacing: 2px; text-transform: uppercase; border-bottom: 3px solid var(--gg-color-dark-brown); padding-bottom: 6px; }}
+.gg-sidx-list {{ list-style: none; margin: 0 0 32px; padding: 0; }}
+.gg-sidx-row {{ display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; padding: 14px 0; border-bottom: 2px solid var(--gg-color-tan); }}
+.gg-sidx-name {{ font-family: var(--gg-font-editorial); font-size: 20px; font-weight: 700; color: var(--gg-color-dark-brown); text-decoration: none; }}
+.gg-sidx-name:hover {{ color: var(--gg-color-teal); }}
+.gg-sidx-count {{ font-size: 13px; align-self: center; }}
+.gg-sidx-status {{ grid-column: 1 / -1; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
+.gg-sidx-row[data-status="active"] .gg-sidx-status {{ color: var(--gg-color-teal); }}
+.gg-sidx-status a {{ color: var(--gg-color-dark-brown); }}
+{get_mega_footer_css()}
+  </style>
+  {get_ga4_head_snippet()}
+</head>
+<body>
+<div class="gg-sidx-page">
+  {get_site_header_html(active="races")}
+  <div class="gg-sidx-breadcrumb">
+    <a href="/">Home</a> &rsaquo; <a href="/gravel-races/">Gravel Races</a> &rsaquo; <span>Series</span>
+  </div>
+  <h1>Gravel Race Series</h1>
+  {body}
+</div>
+{get_mega_footer_html()}
+{get_site_header_js()}
+{get_consent_banner_html()}
+</body>
+</html>'''
+
+
 def main():
     parser = argparse.ArgumentParser(description="Generate series hub landing pages")
     parser.add_argument("--output-dir", default=None,
@@ -2209,18 +2413,27 @@ def main():
     if race_data:
         print(f"Loaded {len(race_data)} full race profiles for enrichment")
 
+    series_names = {x["slug"]: x.get("display_name") or x.get("name", x["slug"])
+                    for x in all_series_data}
+    # A successor links back even when only the ended series names it.
+    predecessors = {x["successor"]: x["slug"] for x in all_series_data if x.get("successor")}
+
     for series in all_series_data:
         slug = series["slug"]
+        if not series.get("predecessor") and slug in predecessors:
+            series = dict(series, predecessor=predecessors[slug])
         hub_dir = output_base / slug
         hub_dir.mkdir(parents=True, exist_ok=True)
 
-        page_html = build_hub_page(series, race_lookup, race_data)
+        page_html = build_hub_page(series, race_lookup, race_data, series_names)
         out_path = hub_dir / "index.html"
         out_path.write_text(page_html, encoding="utf-8")
 
         event_count = len(series.get("events", []))
         print(f"  Generated series/{slug}/index.html ({event_count} events)")
 
+    (output_base / "index.html").write_text(build_series_index_page(all_series_data), encoding="utf-8")
+    print("  Generated series/index.html")
     print(f"\nDone. {len(all_series_data)} series hub pages in {output_base}/")
 
 

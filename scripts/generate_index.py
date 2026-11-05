@@ -21,6 +21,7 @@ from pathlib import Path
 from typing import Optional
 
 sys.path.insert(0, str(Path(__file__).parent))
+from race_facts import location_region, race_discipline, race_status  # noqa: E402
 
 
 RACE_DATA = Path(__file__).parent.parent / "race-data"
@@ -159,93 +160,10 @@ def find_matching_profile(name: str, profiles: dict, seen_slugs: set) -> Optiona
 
 
 def extract_region(location: str) -> str:
-    """Extract broad region from location string."""
+    """Broad region from a location string (see race_facts.location_region)."""
     if not location:
         return "Unknown"
-
-    location_lower = location.lower()
-
-    # International
-    country_map = {
-        # Europe
-        "iceland": "Europe", "uk": "Europe", "england": "Europe",
-        "scotland": "Europe", "wales": "Europe", "spain": "Europe",
-        "italy": "Europe", "france": "Europe", "belgium": "Europe",
-        "germany": "Europe", "netherlands": "Europe", "switzerland": "Europe",
-        "austria": "Europe", "portugal": "Europe", "poland": "Europe",
-        "czech republic": "Europe", "romania": "Europe", "slovenia": "Europe",
-        "croatia": "Europe", "greece": "Europe", "denmark": "Europe",
-        "norway": "Europe", "finland": "Europe", "sweden": "Europe",
-        "latvia": "Europe", "luxembourg": "Europe", "monaco": "Europe",
-        "ardennes": "Europe",
-        "flanders": "Europe", "eifel": "Europe", "drenthe": "Europe",
-        "sardinia": "Europe", "tuscany": "Europe", "veneto": "Europe",
-        "catalonia": "Europe", "andalusia": "Europe", "vosges": "Europe",
-        "pyrénées": "Europe", "pyrenees": "Europe", "nürburgring": "Europe",
-        "europe": "Europe", "french": "Europe", "alps": "Europe",
-        "global": "North America",  # Multi-location series default to NA
-        # Oceania
-        "australia": "Oceania", "new zealand": "Oceania",
-        "queensland": "Oceania", "victoria": "Oceania", "tasmania": "Oceania",
-        "new south wales": "Oceania", "western australia": "Oceania",
-        "south australia": "Oceania",
-        # North America
-        "canada": "North America", "mexico": "North America",
-        "ontario": "North America", "british columbia": "North America",
-        "alberta": "North America",
-        # South America
-        "colombia": "South America", "argentina": "South America",
-        "chile": "South America", "brazil": "South America",
-        "patagonia": "South America",
-        # Africa
-        "south africa": "Africa", "morocco": "Africa", "kenya": "Africa",
-        # Asia
-        "japan": "Asia", "thailand": "Asia",
-    }
-    for country, region in country_map.items():
-        is_short_code = len(country) <= 3 and country.isalpha()
-        matches = (
-            re.search(rf"(?<![a-z]){re.escape(country)}(?![a-z])", location_lower)
-            if is_short_code
-            else country in location_lower
-        )
-        if matches:
-            return region
-
-    # US regions — full state names
-    us_regions = {
-        "West": ["california", "oregon", "washington", "colorado", "utah",
-                 "montana", "wyoming", "idaho", "nevada", "arizona", "new mexico",
-                 "alaska", "hawaii"],
-        "Midwest": ["kansas", "nebraska", "iowa", "illinois", "indiana", "ohio",
-                    "michigan", "wisconsin", "minnesota", "missouri", "oklahoma"],
-        "South": ["texas", "arkansas", "louisiana", "mississippi", "alabama",
-                 "georgia", "florida", "tennessee", "kentucky", "north carolina",
-                 "south carolina", "virginia", "west virginia"],
-        "Northeast": ["new york", "pennsylvania", "connecticut", "massachusetts",
-                     "vermont", "new hampshire", "maine", "maryland", "new jersey",
-                     "delaware", "rhode island", "district of columbia", "d.c."],
-    }
-    for region, states in us_regions.items():
-        if any(s in location_lower for s in states):
-            return region
-
-    # US state abbreviations — match ", XX" or "XX/" patterns to avoid false positives
-    us_abbrev = {
-        "West": ["CA", "OR", "WA", "CO", "UT", "MT", "WY", "ID", "NV", "AZ", "NM",
-                 "AK", "HI"],
-        "Midwest": ["KS", "NE", "IA", "IL", "IN", "OH", "MI", "WI", "MN", "MO", "OK"],
-        "South": ["TX", "AR", "LA", "MS", "AL", "GA", "FL", "TN", "KY", "NC", "SC",
-                  "VA", "WV"],
-        "Northeast": ["NY", "PA", "CT", "MA", "VT", "NH", "ME", "MD", "NJ", "DE",
-                      "RI", "DC"],
-    }
-    for region, abbrevs in us_abbrev.items():
-        for abbr in abbrevs:
-            if re.search(r'(?:,\s*|/\s*)' + abbr + r'(?:\s|$|/)', location):
-                return region
-
-    return "Other"
+    return location_region(location) or "Other"
 
 
 def extract_month(date_str: str) -> Optional[str]:
@@ -325,9 +243,15 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
         "tagline": race.get("tagline", ""),
         "has_profile": True,
         "profile_url": f"/race/{slug}/",
-        "discipline": rating.get("discipline", "gravel"),
+        "discipline": race_discipline(race),
         "has_tire_guide": bool(race.get("tire_recommendations", {}).get("primary")),
     }
+
+    # Not-running races stay searchable but drop out of rankings/top lists.
+    status = race_status(race)
+    entry["status"] = status["status"]
+    if status["label"]:
+        entry["status_label"] = status["label"]
 
     # Include coordinates if available
     if vitals.get("lat") is not None and vitals.get("lng") is not None:

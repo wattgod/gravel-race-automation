@@ -468,7 +468,7 @@ def build_coaching_success() -> str:
     crosssell = f"""
   <div class="gg-success-crosssell">
     <h2>While You Wait</h2>
-    <p>Browse 328 gravel race profiles with course intel, tier ratings,
+    <p>Browse every race profile with course intel, tier ratings,
     and free prep kits for every race in the database.</p>
     <a href="{SITE_BASE_URL}/gravel-races/" class="gg-success-cta">EXPLORE RACES</a>
   </div>"""

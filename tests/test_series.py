@@ -225,11 +225,13 @@ class TestSeriesHubPages:
         html = self._get_hub_html(slug)
         assert "gg-series-event-card" in html
 
-    def test_bwr_hub_has_9_event_cards(self):
+    def test_bwr_hub_has_one_card_per_event(self):
         html = self._get_hub_html("belgian-waffle-ride")
-        count = html.count("gg-series-event-card")
-        # Each card has the class in the div, some CSS may also match
-        assert count >= 9, f"BWR hub should have at least 9 event cards, found {count}"
+        series = json.loads((SERIES_DIR / "belgian-waffle-ride.json").read_text())
+        expected = len(series.get("series", series)["events"])
+        count = html.count('<div class="gg-series-event-card">')
+        assert count == expected, (
+            f"BWR hub should have {expected} event cards (one per series event), found {count}")
 
     @pytest.mark.parametrize("slug", [
         "belgian-waffle-ride",

@@ -331,10 +331,30 @@ SEO_TITLE_MAX_CHARS = 60
 SEO_DESCRIPTION_MAX_CHARS = 155
 
 
+def _fill_seo_placeholders(text: str, rd: dict) -> str:
+    """Resolve ``{year}`` and ``{score}`` in a per-race SEO override.
+
+    ``{year}`` is the next edition's year, as in the default title; when it
+    is unknown the token and the space before it are dropped
+    ("Salida 76 {year}: Course" -> "Salida 76: Course"). ``{score}`` is the
+    current overall score. Overrides use these instead of literal years and
+    scores, which go stale (tests/test_seo_overrides.py).
+    """
+    if "{year}" in text:
+        year = edition_year(rd.get('vitals', {}).get('date_specific'),
+                            project=may_estimate(rd))
+        text = (text.replace("{year}", str(year)) if year
+                else re.sub(r"\s*\{year\}", "", text))
+    if "{score}" in text:
+        text = text.replace("{score}", str(rd.get('overall_score', '')))
+    return text
+
+
 def _validated_seo_override(rd: dict, field: str, max_chars: int) -> str:
     """Return a per-race SEO override, enforcing the search-snippet charter."""
     raw_value = rd.get("seo", {}).get(field, "")
     value = "" if raw_value is None else str(raw_value).strip()
+    value = _fill_seo_placeholders(value, rd) if value else value
     if value and len(value) > max_chars:
         raise ValueError(
             f"{rd.get('slug', 'unknown')}: seo.{field} is {len(value)} chars "
@@ -443,8 +463,9 @@ def build_seo_description(rd: dict) -> str:
         if clause_break <= 30 and truncated:
             words = truncated.split()
             dangling = {
-                'a', 'an', 'and', 'at', 'but', 'for', 'has', 'in', 'no', 'of',
-                'on', 'or', 'the', 'to', 'with',
+                'a', 'across', 'an', 'and', 'at', 'but', 'by', 'for', 'from',
+                'has', 'in', 'into', 'no', 'of', 'on', 'or', 'the', 'through',
+                'to', 'with',
             }
             while len(words) > 1 and words[-1].lower() in dangling:
                 words.pop()

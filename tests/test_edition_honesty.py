@@ -1,8 +1,10 @@
 """Race pages, titles and JSON-LD say what the data knows about an edition.
 
-On 2026-11-05 "2026: August 30" has already run: the page says the next
-date is not announced, the <title> prints no stale year, and JSON-LD keeps
-the past startDate without calling it EventScheduled.
+On 2026-11-05 "2026: August 30" has already run: the page shows the
+estimated next date ("Aug 29, 2027 (estimate)"), the <title> prints the
+estimate's year, and JSON-LD keeps the past startDate without calling it
+EventScheduled and never carries the estimate. A race marked not running,
+or one that skipped a season, says the next date is not announced.
 """
 
 import copy
@@ -21,11 +23,12 @@ import verify_race_rankings as vrr  # noqa: E402
 from generate_neo_brutalist import (  # noqa: E402
     _location_tail,
     build_hero,
+    generate_page,
     build_seo_title,
     build_sports_event_jsonld,
     normalize_race_data,
 )
-from race_facts import organizer_type  # noqa: E402
+from race_facts import may_estimate, organizer_type  # noqa: E402
 
 SCHEDULED = "https://schema.org/EventScheduled"
 
@@ -66,7 +69,8 @@ def test_title_never_splits_inside_parentheses():
 
 @pytest.mark.parametrize("ds,expected", [
     ("2027: June 5", "Unbound Review 2027 | Kansas | Gravel God"),
-    ("2026: August 30", "Unbound Review | Kansas | Gravel God"),
+    ("2026: August 30", "Unbound Review 2027 | Kansas | Gravel God"),  # estimate
+    ("2025: August 3", "Unbound Review | Kansas | Gravel God"),        # skipped 2026
     ("Status: CANCELLED for 2026", "Unbound Review | Kansas | Gravel God"),
 ])
 def test_title_year_is_next_edition_or_none(ds, expected):
@@ -74,13 +78,31 @@ def test_title_year_is_next_edition_or_none(ds, expected):
     assert build_seo_title(rd) == expected
 
 
+def test_title_of_a_race_not_running_has_no_estimated_year():
+    rd = {"name": "Unbound", "taking_a_break": {"label": "Not running in 2027"},
+          "vitals": {"location": "Emporia, Kansas", "date_specific": "2026: August 30"}}
+    assert build_seo_title(rd) == "Unbound Review | Kansas | Gravel God"
+
+
 # ── Race page ─────────────────────────────────────────────────────────────
 
-def test_past_edition_page_says_next_date_not_announced(traka):
+def test_past_edition_page_shows_the_estimated_next_date(traka):
     rd = normalize_race_data(_with(traka, date_specific="2026: September 19"))
-    shown = "2027 date not announced · last ran Sep 19, 2026"
+    shown = "Sep 18, 2027 (estimate)"
     assert rd["vitals"]["date"] == shown
     assert shown in build_hero(rd)
+
+
+def test_skipped_season_page_says_next_date_not_announced(traka):
+    rd = normalize_race_data(_with(traka, date_specific="2025: August 3"))
+    assert rd["vitals"]["date"] == "2027 date not announced · last ran Aug 3, 2025"
+
+
+def test_race_not_running_gets_no_estimate(traka):
+    data = _with(traka, date_specific="2026: September 19")
+    data["race"]["taking_a_break"] = {"label": "Not running in 2027"}
+    rd = normalize_race_data(data)
+    assert rd["vitals"]["date"] == "2027 date not announced · last ran Sep 19, 2026"
 
 
 def test_estimated_edition_is_labelled_estimate(traka):
@@ -92,6 +114,16 @@ def test_upcoming_confirmed_edition_shows_as_stored(traka):
     rd = normalize_race_data(_with(traka, date_specific="2027: May 1"))
     assert rd["vitals"]["date"] == "May 1, 2027"
     assert rd["vitals"]["edition_note"] == ""
+
+
+@pytest.mark.parametrize("race,ok", [
+    ({"vitals": {"date_specific": "2026: May 1"}}, True),
+    ({"taking_a_break": {"label": "Cancelled for 2027"}, "vitals": {}}, False),
+    ({"vitals": {"date_specific": "On hiatus; last held May 1, 2026"}}, False),
+    ({"vitals": {"date_specific": "2026: May 1", "course_status": "source_blocked"}}, False),
+])
+def test_only_running_races_may_estimate(race, ok):
+    assert may_estimate(race) is ok
 
 
 # ── JSON-LD (race page and web/jsonld) ────────────────────────────────────
@@ -114,6 +146,23 @@ def test_past_edition_keeps_start_date_but_not_scheduled(traka):
     for ld in _both(_with(traka, date_specific="2026: May 1")):
         assert ld["startDate"] == "2026-05-01"
         assert "eventStatus" not in ld
+
+
+def test_jsonld_never_carries_an_estimate(traka):
+    data = _with(traka, date_specific="2026: September 19 - September 20")
+    for ld in _both(data):
+        text = json.dumps(ld)
+        assert ld["startDate"] == "2026-09-19"
+        assert "2027-09" not in text and "estimate" not in text.lower()
+        assert "eventStatus" not in ld
+
+
+def test_estimate_reaches_the_date_label_only(traka):
+    """No countdown, calendar export or structured date uses the estimate."""
+    html = generate_page(normalize_race_data(_with(traka, date_specific="2026: September 19")), [])
+    assert "Sep 18, 2027 (estimate)" in html
+    for leak in ("2027-09-18", "20270918", "Sep 18, 2027<", "September 18, 2027"):
+        assert leak not in html
 
 
 def test_break_note_is_postponed_or_cancelled(traka):

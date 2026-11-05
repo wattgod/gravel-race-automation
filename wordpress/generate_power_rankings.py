@@ -21,11 +21,12 @@ sys.path.insert(0, str(Path(__file__).parent))
 sys.path.append(str(Path(__file__).parent.parent / "scripts"))
 from race_facts import is_ranked  # noqa: E402
 from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, get_ga4_head_snippet, get_tokens_css, SITE_BASE_URL
+from season import season_year
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-CURRENT_YEAR = date.today().year
+SEASON_YEAR = season_year()
 
 TIER_NAMES = {1: "Elite", 2: "Contender", 3: "Solid", 4: "Roster"}
 TIER_COLORS = {
@@ -51,10 +52,10 @@ def build_power_rankings_page(races: list) -> str:
     font_face = get_font_face_css()
     tokens = get_tokens_css()
 
-    canonical = f"{SITE_BASE_URL}/race/power-rankings-{CURRENT_YEAR}/"
-    title = f"Gravel Race Power Rankings {CURRENT_YEAR} — All {len(races)} Races Ranked | Gravel God"
+    canonical = f"{SITE_BASE_URL}/race/power-rankings-{SEASON_YEAR}/"
+    title = f"Gravel Race Power Rankings {SEASON_YEAR} — All {len(races)} Races Ranked | Gravel God"
     description = (
-        f"The definitive {CURRENT_YEAR} gravel race power rankings. "
+        f"The definitive {SEASON_YEAR} gravel race power rankings. "
         f"All {len(races)} races ranked by our 14-criteria Gravel God Rating. "
         f"From the iconic Elite tier to grassroots gems."
     )
@@ -145,12 +146,12 @@ def build_power_rankings_page(races: list) -> str:
                 "itemListElement": [
                     {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_BASE_URL}/"},
                     {"@type": "ListItem", "position": 2, "name": "Gravel Races", "item": f"{SITE_BASE_URL}/gravel-races/"},
-                    {"@type": "ListItem", "position": 3, "name": f"Power Rankings {CURRENT_YEAR}", "item": canonical},
+                    {"@type": "ListItem", "position": 3, "name": f"Power Rankings {SEASON_YEAR}", "item": canonical},
                 ],
             },
             {
                 "@type": "ItemList",
-                "name": f"Gravel Race Power Rankings {CURRENT_YEAR}",
+                "name": f"Gravel Race Power Rankings {SEASON_YEAR}",
                 "description": description,
                 "url": canonical,
                 "numberOfItems": len(races),
@@ -372,11 +373,11 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   {get_site_header_html(active="races")}
 
   <div class="gg-pr-breadcrumb">
-    <a href="/">Home</a> &rsaquo; <a href="/gravel-races/">Gravel Races</a> &rsaquo; Power Rankings {CURRENT_YEAR}
+    <a href="/">Home</a> &rsaquo; <a href="/gravel-races/">Gravel Races</a> &rsaquo; Power Rankings {SEASON_YEAR}
   </div>
 
   <section class="gg-pr-hero">
-    <h1>{CURRENT_YEAR} Power Rankings</h1>
+    <h1>{SEASON_YEAR} Power Rankings</h1>
     <div class="gg-pr-hero-sub">Every gravel race, ranked. Updated annually.</div>
   </section>
 
@@ -421,7 +422,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
     <a href="/">Gravel God</a> &middot;
     <a href="/gravel-races/">Search All</a> &middot;
     <a href="/race/methodology/">Methodology</a> &middot;
-    <a href="/race/calendar/{CURRENT_YEAR}/">Calendar</a>
+    <a href="/race/calendar/{SEASON_YEAR}/">Calendar</a>
   </footer>
 
 </div>
@@ -496,13 +497,13 @@ def main():
         all_races = json.load(f)
     print(f"Loaded {len(all_races)} races")
 
-    page_dir = output_dir / f"power-rankings-{CURRENT_YEAR}"
+    page_dir = output_dir / f"power-rankings-{SEASON_YEAR}"
     page_dir.mkdir(parents=True, exist_ok=True)
 
     page_html = build_power_rankings_page(all_races)
     out_path = page_dir / "index.html"
     out_path.write_text(page_html, encoding="utf-8")
-    print(f"Generated power-rankings-{CURRENT_YEAR}/index.html ({len(all_races)} races)")
+    print(f"Generated power-rankings-{SEASON_YEAR}/index.html ({len(all_races)} races)")
 
 
 if __name__ == "__main__":

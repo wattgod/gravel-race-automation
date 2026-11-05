@@ -26,6 +26,7 @@ from brand_tokens import (
     get_tokens_css,
     get_ga4_head_snippet,
 )
+from season import season_year
 from cookie_consent import get_consent_banner_html
 
 from generate_tire_guide import load_tire_database
@@ -33,7 +34,7 @@ from generate_tire_guide import load_tire_database
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output" / "tire"
-CURRENT_YEAR = date.today().year
+SEASON_YEAR = season_year()
 
 
 def esc(text) -> str:
@@ -659,7 +660,7 @@ def build_header(tire: dict) -> str:
     return f'''<header class="tp-header">
   <div class="tp-container">
     <div class="tp-breadcrumb">
-      <a href="/">Gravel God</a> / <a href="/gravel-races/">Races</a> / Tire Review
+      <a href="/">Gravel God</a> / <a href="/tire/">Tires</a> / Tire Review
     </div>
     <span class="tp-badge">TIRE REVIEW</span>
     <span class="tp-tread-badge">{esc(tire["tread_type"].upper())} TREAD</span>
@@ -1398,6 +1399,9 @@ def main():
         out_path = page_dir / "index.html"
         out_path.write_text(html_content, encoding="utf-8")
         generated += 1
+
+    from generate_tire_index import write_tire_index
+    write_tire_index(output_dir, tire_db)
 
     print(f"\nDone. {generated} tire pages generated in {output_dir}/")
     total_recs = sum(len(v) for v in tire_races.values())

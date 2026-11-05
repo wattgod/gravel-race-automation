@@ -33,12 +33,13 @@ sys.path.insert(0, str(Path(__file__).parent))
 sys.path.append(str(Path(__file__).parent.parent / "scripts"))
 from race_facts import is_ranked  # noqa: E402
 from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, get_ga4_head_snippet, get_tokens_css, RACER_RATING_THRESHOLD, SITE_BASE_URL
+from season import season_year
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
 from pricing import PRICE_PER_WEEK
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-CURRENT_YEAR = date.today().year
+SEASON_YEAR = season_year()
 MIN_RACES = 3
 
 TIER_NAMES = {1: "Elite", 2: "Contender", 3: "Solid", 4: "Roster"}
@@ -493,7 +494,7 @@ def build_state_page(state: str, races: list, total_races: int) -> str:
     t2_count = sum(1 for r in races if r.get("tier") == 2)
 
     disc_label = _discipline_label(races)
-    title = f"Best {disc_label} Races in {state} ({CURRENT_YEAR}) | Gravel God"
+    title = f"Best {disc_label} Races in {state} ({SEASON_YEAR}) | Gravel God"
     # Keep meta description under 160 chars
     tier_note = ""
     if t1_count:

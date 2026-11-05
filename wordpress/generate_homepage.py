@@ -780,7 +780,7 @@ def _parse_score(raw) -> int:
 
 
 # Series umbrella slugs — not individual races, excluded from examples
-_SERIES_UMBRELLA_SLUGS = {"grasshopper-series", "grinduro", "gravel-earth"}
+_SERIES_UMBRELLA_SLUGS = {"grasshopper-series", "grinduro"}
 
 
 def _compute_archetype_examples(race_index: list) -> dict:

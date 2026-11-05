@@ -3043,6 +3043,15 @@ RewriteRule ^race/bwr-utah-vs-[a-z0-9-]+/?$ /race/bwr-cedar-city/ [R=301,L]
 RewriteRule ^race/[a-z0-9-]+-vs-bwr-utah/?$ /race/bwr-cedar-city/ [R=301,L]
 RewriteRule ^race/bwr-asheville-vs-[a-z0-9-]+/?$ /race/bwr-north-carolina/ [R=301,L]
 RewriteRule ^race/[a-z0-9-]+-vs-bwr-asheville/?$ /race/bwr-north-carolina/ [R=301,L]
+# Gravel Earth Series ended after 2026 (The Traka World Series replaced it).
+# The /race/gravel-earth/ profile reviewed the series itself; its sub-pages
+# (tires, training plan, prep kit), .md and head-to-head pages go to the series
+# history page. Profile in race-data-archived/ended-series/.
+RewriteRule ^race/gravel-earth/?$ /race/series/gravel-earth-series/ [R=301,L]
+RewriteRule ^race/gravel-earth\\.md$ /race/series/gravel-earth-series/ [R=301,L]
+RewriteRule ^race/gravel-earth/(.*)$ /race/series/gravel-earth-series/ [R=301,L]
+RewriteRule ^race/gravel-earth-vs-[a-z0-9-]+/?$ /race/series/gravel-earth-series/ [R=301,L]
+RewriteRule ^race/[a-z0-9-]+-vs-gravel-earth/?$ /race/series/gravel-earth-series/ [R=301,L]
 # No organizer or official event exists under the name Gravel des Flandres.
 # The retired page mixed unsupported facts with the old Flanders Gravel Series.
 RewriteRule ^race/gravel-des-flandres/?$ /race/calendar/ [R=301,L]
@@ -3121,7 +3130,7 @@ RewriteRule ^blog/crusher-in-the-tushar-recap/?$ /race/crusher-in-the-tushar/ [R
 RewriteRule ^blog/galactic-grinder-recap/?$ /race/galactic-grinder/ [R=301,L]
 RewriteRule ^blog/grasshopper-series-recap/?$ /race/grasshopper-series/ [R=301,L]
 RewriteRule ^blog/grassroots-gravel-recap/?$ /race/grassroots-gravel/ [R=301,L]
-RewriteRule ^blog/gravel-earth-recap/?$ /race/gravel-earth/ [R=301,L]
+RewriteRule ^blog/gravel-earth-recap/?$ /race/series/gravel-earth-series/ [R=301,L]
 RewriteRule ^blog/gravel-revival-recap/?$ /race/gravel-revival/ [R=301,L]
 RewriteRule ^blog/gravel-roll-pecan-shaker-recap/?$ /race/gravel-roll-pecan-shaker/ [R=301,L]
 RewriteRule ^blog/grinduro-recap/?$ /race/grinduro/ [R=301,L]

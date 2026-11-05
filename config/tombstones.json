@@ -160,6 +160,11 @@
       "slug": "bwr-asheville",
       "reason": "duplicate identity: the one North Carolina BWR (Hendersonville, near Asheville) is tracked canonically as bwr-north-carolina (data/duplicate-merges.json, 2026-11-01)",
       "redirect": "/race/bwr-north-carolina/"
+    },
+    {
+      "slug": "gravel-earth",
+      "reason": "series-ended",
+      "redirect": "/race/series/gravel-earth-series/"
     }
   ]
 }

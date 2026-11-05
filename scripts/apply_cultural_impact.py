@@ -42,7 +42,6 @@ CI_ASSIGNMENTS = {
     "strade-bianche-gran-fondo": 4,
     "sea-otter-gravel": 4,
     "unbound-100": 4,
-    "gravel-earth": 4,
 
     # CI=3 — Notable National
     "bwr-cedar-city": 3,

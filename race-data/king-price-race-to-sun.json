@@ -5,8 +5,8 @@
     "display_name": "King Price Race to Sun",
     "tagline": "South African mountain gravel stage race.",
     "vitals": {
-      "distance_mi": 250,
-      "elevation_ft": 20000,
+      "distance_mi": 100,
+      "elevation_ft": 3281,
       "location": "South Africa",
       "location_badge": "SOUTH AFRICA",
       "county": "South Africa",
@@ -50,13 +50,13 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 53,
+      "overall_score": 50,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 1,
       "length": 4,
       "technicality": 3,
-      "elevation": 4,
+      "elevation": 2,
       "climate": 3,
       "altitude": 2,
       "adventure": 4,
@@ -91,7 +91,7 @@
       "bottom_line": "A scenic South African mountain multi-stage race. Worth it for adventure seekers with big budgets. Not practical for most international riders."
     },
     "final_verdict": {
-      "score": "53 / 100",
+      "score": "50 / 100",
       "one_liner": "South African mountain gravel stage race.",
       "should_you_race": "If you have a big budget and want a South African adventure—maybe. For most riders—there are better options.",
       "alternatives": "For similar multi-stage: Ardenne Gravel Stages. For better value: regional gravel races.",
@@ -277,8 +277,8 @@
         "explanation": "Described as 'flat and fast' but riders face 'quite a bit of corrugation and loose sand' according to Dexter-morgan. Charity85 ran 45c tires 'as low as possible' but reports 'my hands are wrecked, everything after about 100km was k@k.' The corrugations demand equipment choices and bike handling without requiring mountain bike skills. Similar technical demands to Gravel Worlds. As Marc Pritzen puts it: \"You need the team to disrupt the chase and help you maintain a gap. Without them, the bunch can catch you much faster. There wasn't as much tar this year, which made it easier to control the gap.\""
       },
       "elevation": {
-        "score": 4,
-        "explanation": "Only 1,000m of climbing over 161km is pancake flat by gravel standards - that's about what you'd get on a gentle road ride. Perfect for riders who want to go fast without grinding up mountains all day. The 'flat and fast' description isn't marketing speak, it's accurate. More climbing than SBT GRVL at the same score. As JJDT puts it: \"As already mentioned the first half is easy, mostly flat with some downhill and no climbs and with this one tends to going all out.\""
+        "score": 2,
+        "explanation": "Only 1,000m of climbing over 161km is pancake flat by gravel standards - that's about what you'd get on a gentle road ride, and under 4,000 ft it scores low on elevation. Perfect for riders who want to go fast without grinding up mountains all day. The 'flat and fast' description isn't marketing speak, it's accurate. As JJDT puts it: \"As already mentioned the first half is easy, mostly flat with some downhill and no climbs and with this one tends to going all out.\""
       },
       "climate": {
         "score": 3,
@@ -366,6 +366,12 @@
         "url": "https://diverge.info/2025/11/25/race-to-the-sun-go-gravel-in-2026-with-sas-og-grave-bike-race/",
         "category": "community",
         "label": "diverge.info: Race To The Sun Go Gravel In 2026 With Sas Og Grave Bike ..."
+      },
+      {
+        "url": "https://racetothesun.co.za/",
+        "category": "official",
+        "label": "King Price Race to the Sun — 100-mile gravel race, 1,000 m climbing",
+        "accessed": "2026-11-05"
       }
     ],
     "tire_recommendations": {

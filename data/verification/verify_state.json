@@ -765,7 +765,16 @@
  },
  "gravel-tour-hlinsko": {
   "last_checked": "2026-09-03T14:03:35.650162+00:00",
-  "changed": true
+  "changed": true,
+  "sources": {
+   "elevation_ft": {
+    "value": 5174,
+    "tier": 4,
+    "url": "https://ucigravelworldseries.com/en/gravel-tour-hlinsko/",
+    "checked": "2026-11-05T12:00:00+00:00",
+    "human_review": "data/verification/review-decisions-2026-11-05.json"
+   }
+  }
  },
  "gravel-unravel-bon-jon-pass-out": {
   "last_checked": "2026-09-03T14:03:35.650162+00:00",
@@ -865,7 +874,16 @@
  },
  "hegau-gravel-race": {
   "last_checked": "2026-09-10T14:02:38.053307+00:00",
-  "changed": true
+  "changed": true,
+  "sources": {
+   "elevation_ft": {
+    "value": 6398,
+    "tier": 4,
+    "url": "https://ucigravelworldseries.com/en/?p=17100",
+    "checked": "2026-11-05T12:00:00+00:00",
+    "human_review": "data/verification/review-decisions-2026-11-05.json"
+   }
+  }
  },
  "hell-of-hunterdon": {
   "last_checked": "2026-09-10T14:02:38.053307+00:00",
@@ -945,7 +963,16 @@
  },
  "jeroboam": {
   "last_checked": "2026-09-17T14:03:13.932963+00:00",
-  "changed": true
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 186,
+    "tier": 4,
+    "url": "https://jeroboam.bike/",
+    "checked": "2026-11-05T12:00:00+00:00",
+    "human_review": "data/verification/review-decisions-2026-11-05.json"
+   }
+  }
  },
  "just-gravel": {
   "last_checked": "2026-09-17T14:03:13.932963+00:00",
@@ -957,7 +984,23 @@
  },
  "karukinka": {
   "last_checked": "2026-09-17T14:03:13.932963+00:00",
-  "changed": true
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 273.4,
+    "tier": 4,
+    "url": "https://karukinkagravelrace.com/",
+    "checked": "2026-11-05T12:00:00+00:00",
+    "human_review": "data/verification/review-decisions-2026-11-05.json"
+   },
+   "elevation_ft": {
+    "value": 18045,
+    "tier": 4,
+    "url": "https://karukinkagravelrace.com/",
+    "checked": "2026-11-05T12:00:00+00:00",
+    "human_review": "data/verification/review-decisions-2026-11-05.json"
+   }
+  }
  },
  "kettle-mettle": {
   "last_checked": "2026-09-17T14:03:13.932963+00:00",
@@ -973,7 +1016,23 @@
  },
  "king-price-race-to-sun": {
   "last_checked": "2026-09-17T14:03:13.932963+00:00",
-  "changed": true
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 100,
+    "tier": 4,
+    "url": "https://racetothesun.co.za/",
+    "checked": "2026-11-05T12:00:00+00:00",
+    "human_review": "data/verification/review-decisions-2026-11-05.json"
+   },
+   "elevation_ft": {
+    "value": 3281,
+    "tier": 4,
+    "url": "https://racetothesun.co.za/",
+    "checked": "2026-11-05T12:00:00+00:00",
+    "human_review": "data/verification/review-decisions-2026-11-05.json"
+   }
+  }
  },
  "king-of-the-lake": {
   "last_checked": "2026-10-01T14:03:14.707545+00:00",
@@ -3054,6 +3113,13 @@
     "tier": 4,
     "url": "https://velo29events.com/sportives/tour-of-the-peak-sportive/tour-of-the-peak-long/",
     "checked": "2026-11-05T14:02:03.671684+00:00"
+   },
+   "elevation_ft": {
+    "value": 11175,
+    "tier": 4,
+    "url": "https://velo29events.com/sportives/tour-of-the-peak-sportive/",
+    "checked": "2026-11-05T12:00:00+00:00",
+    "human_review": "data/verification/review-decisions-2026-11-05.json"
    }
   }
  },
@@ -3066,6 +3132,13 @@
     "tier": 4,
     "url": "https://www.tourofthekkady.com/",
     "checked": "2026-11-05T14:02:03.671684+00:00"
+   },
+   "distance_mi": {
+    "value": 103.8,
+    "tier": 4,
+    "url": "https://www.tourofthekkady.com/",
+    "checked": "2026-11-05T12:00:00+00:00",
+    "human_review": "data/verification/review-decisions-2026-11-05.json"
    }
   }
  },

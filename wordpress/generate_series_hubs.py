@@ -22,6 +22,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, get_ga4_head_snippet, get_tokens_css, RACER_RATING_THRESHOLD
+from season import season_year
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html
 from cookie_consent import get_consent_banner_html
@@ -61,8 +62,8 @@ MATRIX_CRITERIA = [
     ("Field Competitiveness", "field"),
 ]
 
-# Dynamic year — never hardcode "2026" in output
-CURRENT_YEAR = date.today().year
+# Rider-facing season (rolls over in September) — never hardcode a year in output
+SEASON_YEAR = season_year()
 
 # Display/truncation limits (named to prevent magic numbers)
 MAX_EVENT_NAMES_IN_FAQ = 12
@@ -972,7 +973,7 @@ def _build_faq_pairs(series: dict, race_data: dict) -> list:
     name = series.get("display_name") or series.get("name", "")
     events = series.get("events", [])
     slug = series.get("slug", "")
-    year = CURRENT_YEAR
+    year = SEASON_YEAR
 
     qa_pairs = []
 
@@ -2035,7 +2036,7 @@ a.gg-series-event-name:hover {{
 
   {map_svg}
 
-  <div class="gg-series-calendar-title">{CURRENT_YEAR} Event Calendar</div>
+  <div class="gg-series-calendar-title">{SEASON_YEAR} Event Calendar</div>
   <div class="gg-series-calendar">
     {cards}
   </div>

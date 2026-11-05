@@ -28,12 +28,13 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 sys.path.append(str(Path(__file__).parent.parent / "scripts"))
 from race_facts import is_ranked  # noqa: E402
+from season import season_year  # noqa: E402
 from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, get_ga4_head_snippet, get_tokens_css, SITE_BASE_URL
 from shared_header import get_site_header_css, get_site_header_html
 from cookie_consent import get_consent_banner_html
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-CURRENT_YEAR = date.today().year
+SEASON_YEAR = season_year()  # rider-facing season; rolls over in September
 
 TIER_NAMES = {1: "Elite", 2: "Contender", 3: "Solid", 4: "Roster"}
 TIER_COLORS = {
@@ -157,10 +158,10 @@ def build_calendar_page(races: list) -> str:
             f'<div class="gg-cal-grid">{"".join(tbd_cards)}</div></section>'
         )
 
-    canonical = f"{SITE_BASE_URL}/race/calendar/{CURRENT_YEAR}/"
-    title = f"Gravel Race Calendar {CURRENT_YEAR} — All {len(races)} Events | Gravel God"
+    canonical = f"{SITE_BASE_URL}/race/calendar/{SEASON_YEAR}/"
+    title = f"Gravel Race Calendar {SEASON_YEAR} — All {len(races)} Events | Gravel God"
     description = (
-        f"Complete {CURRENT_YEAR} gravel race calendar with {len(races)} events worldwide. "
+        f"Complete {SEASON_YEAR} gravel race calendar with {len(races)} events worldwide. "
         f"Filter by tier and region. Find your next race."
     )
 
@@ -185,7 +186,7 @@ def build_calendar_page(races: list) -> str:
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_BASE_URL}/"},
             {"@type": "ListItem", "position": 2, "name": "Gravel Races", "item": f"{SITE_BASE_URL}/gravel-races/"},
-            {"@type": "ListItem", "position": 3, "name": f"Calendar {CURRENT_YEAR}", "item": canonical},
+            {"@type": "ListItem", "position": 3, "name": f"Calendar {SEASON_YEAR}", "item": canonical},
         ],
     }, ensure_ascii=False, indent=2)
 
@@ -393,11 +394,11 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   {get_site_header_html(active="races")}
 
   <div class="gg-cal-breadcrumb">
-    <a href="/">Home</a> &rsaquo; <a href="/gravel-races/">Gravel Races</a> &rsaquo; Calendar {CURRENT_YEAR}
+    <a href="/">Home</a> &rsaquo; <a href="/gravel-races/">Gravel Races</a> &rsaquo; Calendar {SEASON_YEAR}
   </div>
 
   <section class="gg-cal-hero">
-    <h1>{CURRENT_YEAR} Gravel Race Calendar</h1>
+    <h1>{SEASON_YEAR} Gravel Race Calendar</h1>
     <div class="gg-cal-hero-sub">{len(races)} events worldwide &middot; Updated live</div>
   </section>
 
@@ -493,13 +494,13 @@ def main():
         all_races = json.load(f)
     print(f"Loaded {len(all_races)} races")
 
-    page_dir = output_dir / "calendar" / str(CURRENT_YEAR)
+    page_dir = output_dir / "calendar" / str(SEASON_YEAR)
     page_dir.mkdir(parents=True, exist_ok=True)
 
     page_html = build_calendar_page(all_races)
     out_path = page_dir / "index.html"
     out_path.write_text(page_html, encoding="utf-8")
-    print(f"Generated calendar/{CURRENT_YEAR}/index.html ({len(all_races)} races)")
+    print(f"Generated calendar/{SEASON_YEAR}/index.html ({len(all_races)} races)")
 
 
 if __name__ == "__main__":

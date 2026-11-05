@@ -26,6 +26,7 @@ from brand_tokens import (
     get_tokens_css,
     get_ga4_head_snippet,
 )
+from season import season_year
 from cookie_consent import get_consent_banner_html
 
 from generate_tire_guide import load_tire_database
@@ -33,7 +34,7 @@ from generate_tire_guide import load_tire_database
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output" / "tire"
-CURRENT_YEAR = date.today().year
+SEASON_YEAR = season_year()
 
 
 def esc(text) -> str:

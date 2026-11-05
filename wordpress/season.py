@@ -12,6 +12,12 @@ Two rules live here so no generator or audit re-derives them:
 2. An edition is stale when its date has passed, not when its year is lower
    than this year. "2026: August 30" is stale on 2026-11-05.
 
+3. A race that has not announced its next date is assumed to be running
+   again. ``estimate_next()`` projects the next edition from the last one
+   (same weekday of the same month, one year on) for visible date labels and
+   calendar placement only. It is computed at build time, never stored, and
+   gone once the official date is.
+
 ``vitals.date_specific`` is free text ("2027: June 5", "May 17, 2026",
 "2026: July TBD", "Status: HOLD — ..."). ``parse_edition()`` reads the first
 concrete date out of it and records how precise it is.
@@ -22,9 +28,10 @@ rollover month with GG_SEASON_ROLLOVER_MONTH.
 
 from __future__ import annotations
 
+import calendar
 import os
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import date
 
 ROLLOVER_MONTH = int(os.environ.get("GG_SEASON_ROLLOVER_MONTH", "9"))
@@ -198,6 +205,56 @@ def needs_date_refresh(date_specific, on: date | None = None) -> bool:
     return edition_state(date_specific, on) != UPCOMING
 
 
+def _nth_weekday(year: int, month: int, weekday: int, n: int) -> date:
+    """The ``n``-th ``weekday`` (Mon=0) of a month; n=5 means the last one."""
+    if n >= 5:
+        last = calendar.monthrange(year, month)[1]
+        return date(year, month, last - (date(year, month, last).weekday() - weekday) % 7)
+    first = date(year, month, 1).weekday()
+    return date(year, month, 1 + (weekday - first) % 7 + 7 * (n - 1))
+
+
+def _stored(start: date, end: date | None = None) -> str:
+    """The stored ``date_specific`` form ("2027: June 5", "2027: June 30 - July 2")."""
+    text = f"{start.year}: {start:%B} {start.day}"
+    if end and end.month == start.month:
+        text += f"-{end.day}"
+    elif end:
+        text += f" - {end:%B} {end.day}"
+    return text
+
+
+def estimate_next(date_specific, on: date | None = None) -> Edition | None:
+    """The likely next edition of a race whose last edition has passed.
+
+    Races keep their weekday: the 3rd Saturday of September 2026 projects to
+    the 3rd Saturday of September 2027, and a 5th weekday to the last one of
+    the month. A multi-day edition keeps its length; a month-only edition
+    ("2026: July TBD") projects to the same month next year.
+
+    None when the stored edition is not past, has no month, or the
+    projection has itself passed (the race skipped a season; say so rather
+    than guess further). Callers check ``race_facts.may_estimate`` first: a
+    race marked not running or source blocked gets no estimate. Estimates are
+    for visible date labels and calendar placement only, never structured
+    data, calendar exports, countdowns or plan dates.
+    """
+    on = on or today()
+    ed = date_specific if isinstance(date_specific, Edition) else parse_edition(date_specific)
+    if ed.state(on) != PAST or not ed.month:
+        return None
+    start = ed.date
+    if start:
+        nxt = _nth_weekday(start.year + 1, start.month, start.weekday(),
+                           (start.day - 1) // 7 + 1)
+        end = ed.end_date
+        text = _stored(nxt, end + (nxt - start) if end else None)
+    else:
+        text = f"{ed.year + 1}: {date(2000, ed.month, 1):%B} TBD"
+    est = replace(parse_edition(text), estimated=True)
+    return est if est.state(on) == UPCOMING else None
+
+
 def _short(d: date) -> str:
     return f"{d:%b} {d.day}, {d.year}"
 
@@ -211,29 +268,37 @@ def _when(ed: Edition) -> str:
     return str(ed.year)
 
 
-def edition_year(date_specific, on: date | None = None) -> int | None:
+def edition_year(date_specific, on: date | None = None, *,
+                 project: bool = True) -> int | None:
     """The year of the next edition when the data knows it, else None.
 
     An upcoming date gives its year; "2027: TBD" gives 2027 once that is the
-    season. A past or undated edition gives None, so callers print no year
-    rather than a stale one.
+    season; a past edition gives its ``estimate_next`` year (unless
+    ``project`` is False: the race is not running). Otherwise None, so
+    callers print no year rather than a stale one.
     """
     on = on or today()
     ed = parse_edition(date_specific)
     state = ed.state(on)
     if state == UPCOMING:
         return ed.year
+    if state == PAST:
+        est = estimate_next(ed, on) if project else None
+        return est.year if est else None
     if state == UNDATED and ed.year and ed.year >= season_year(on):
         return ed.year
     return None
 
 
-def edition_display(date_specific, on: date | None = None) -> str | None:
+def edition_display(date_specific, on: date | None = None, *,
+                    project: bool = True) -> str | None:
     """Honest short text for a race page's date, or None to show it as stored.
 
     - upcoming and confirmed: None (the stored date is accurate)
     - upcoming but estimated: "Jun 5, 2027 (estimate)"
-    - past: "2027 date not announced · last ran Sep 19, 2026"
+    - past, projectable: "Sep 18, 2027 (estimate)" (see ``estimate_next``;
+      ``project=False`` for races marked not running)
+    - past otherwise: "2027 date not announced · last ran Sep 19, 2026"
     - undated or a status note: None (the stored text already says why)
     """
     on = on or today()
@@ -242,6 +307,9 @@ def edition_display(date_specific, on: date | None = None) -> str | None:
     if state == UPCOMING:
         return f"{_when(ed)} (estimate)" if ed.estimated else None
     if state == PAST:
+        est = estimate_next(ed, on) if project else None
+        if est:
+            return f"{_when(est)} (estimate)"
         nxt = max(season_year(on), ed.year + 1)
         return f"{nxt} date not announced \u00b7 last ran {_when(ed)}"
     return None
@@ -249,13 +317,4 @@ def edition_display(date_specific, on: date | None = None) -> str | None:
 
 def canonical(ed: Edition) -> str | None:
     """``ed`` in the stored form ("2027: June 5", "2027: June 30 - July 2")."""
-    start = ed.date
-    if not start:
-        return None
-    text = f"{start.year}: {start:%B} {start.day}"
-    end = ed.end_date
-    if end and end.month == start.month:
-        text += f"-{end.day}"
-    elif end:
-        text += f" - {end:%B} {end.day}"
-    return text
+    return _stored(ed.date, ed.end_date) if ed.date else None

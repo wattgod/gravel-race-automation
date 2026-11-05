@@ -55,7 +55,7 @@ from season import today as season_today
 from generate_race_recap import has_results, newest_results_year
 
 sys.path.append(str(Path(__file__).resolve().parent.parent / "scripts"))
-from race_facts import edition_event_status, organizer_type  # noqa: E402
+from race_facts import edition_event_status, may_estimate, organizer_type  # noqa: E402
 
 # ── Constants ──────────────────────────────────────────────────
 
@@ -369,8 +369,8 @@ def build_seo_title(rd: dict) -> str:
 
     name = rd['name']
     location = rd['vitals'].get('location', '') or ''
-    # The next edition's year when the data knows it; never a past year.
-    year = edition_year(rd['vitals'].get('date_specific'))
+    # The next edition's year (stored or estimated); never a past year.
+    year = edition_year(rd['vitals'].get('date_specific'), project=may_estimate(rd))
     review = f"{name} Review {year}" if year else f"{name} Review"
     # Just state/country from "Emporia, Kansas"; commas inside parentheses
     # ("Global (HQ: Girona, Spain)") do not split.
@@ -941,7 +941,8 @@ def normalize_race_data(data: dict) -> dict:
     elif source_blocked:
         short_date = vitals.get('date', '')
     # Past or estimated editions say so instead of passing as confirmed.
-    edition_note = edition_display(date_specific) if date_specific else None
+    edition_note = (edition_display(date_specific, project=may_estimate(race))
+                    if date_specific else None)
     if edition_note:
         short_date = edition_note
 

@@ -93,6 +93,19 @@ def needs_date_check(race: dict, on=None) -> bool:
     return needs_date_refresh((race.get("vitals") or {}).get("date_specific"), on)
 
 
+def may_estimate(race: dict) -> bool:
+    """True when a past edition may be projected forward (``estimate_next``).
+
+    A race with no announced date is assumed to be running again, unless it
+    is marked not running or its source is blocked. Every caller that shows
+    an estimated date checks this first.
+    """
+    vitals = race.get("vitals") or {}
+    return (race_status(race)["status"] == "active"
+            and not date_says_inactive(race)
+            and vitals.get("course_status") != "source_blocked")
+
+
 SCHEMA_EVENT = "https://schema.org/"
 
 

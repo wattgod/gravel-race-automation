@@ -1,28 +1,18 @@
 {
   "slug": "tour-of-thekkady",
   "race_name": "Tour of Thekkady \u2014 Kerala Gran Fondo",
-  "distance_mi": 90.0,
+  "distance_mi": 103.8,
   "demands": {
-    "durability": 4,
+    "durability": 6,
     "climbing": 8,
     "vo2_power": 4,
     "threshold": 8,
     "technical": 6,
-    "heat_resilience": 6,
+    "heat_resilience": 0,
     "altitude": 6,
     "race_specificity": 8
   },
   "top_categories": [
-    {
-      "category": "Durability",
-      "score": 100,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 90, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
     {
       "category": "TT_Threshold",
       "score": 100,
@@ -31,7 +21,7 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "109ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "94ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Gravel_Specific",
@@ -40,7 +30,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Tour of Thekkady \u2014 Kerala Gran Fondo's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 90 miles."
+      "workout_context": "Tour of Thekkady \u2014 Kerala Gran Fondo's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 103 miles."
     },
     {
       "category": "Race_Simulation",
@@ -60,6 +50,16 @@
         "Ladder Over-Unders"
       ],
       "workout_context": "At Tour of Thekkady \u2014 Kerala Gran Fondo, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Durability",
+      "score": 83,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 103, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "G_Spot",
@@ -82,15 +82,6 @@
       "workout_context": "9,800ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
-      "category": "Endurance",
-      "score": 72,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 90 miles, base fitness is the difference between racing and surviving."
-    },
-    {
       "category": "Mixed_Climbing",
       "score": 67,
       "workouts": [
@@ -98,6 +89,15 @@
         "Variable Grade Simulation"
       ],
       "workout_context": "9,800ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Endurance",
+      "score": 58,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 103 miles, base fitness is the difference between racing and surviving."
     },
     {
       "category": "Critical_Power",
@@ -109,14 +109,13 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Tour of Thekkady \u2014 Kerala Gran Fondo, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "HVLI_Extended",
-      "score": 44,
+      "category": "Blended",
+      "score": 47,
       "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
       ],
-      "workout_context": "The aerobic base that lets you ride mixed terrain at tempo for 90 miles without cracking. No shortcuts."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 9,800ft of climbing on mixed terrain does to your power file on race day."
     },
     {
       "category": "SFR_Muscle_Force",
@@ -129,11 +128,10 @@
     }
   ],
   "race_overlay": {
-    "heat": "March in Kottayam to Thekkady, Kerala, India can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Tour of Thekkady \u2014 Kerala Gran Fondo. Increase sodium intake 48 hours before race day.",
-    "nutrition": "Target 60\u201380g carbs/hour for Tour of Thekkady \u2014 Kerala Gran Fondo\u2019s 90 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "nutrition": "Target 60\u201380g carbs/hour for Tour of Thekkady \u2014 Kerala Gran Fondo\u2019s 103 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "altitude": "Moderate altitude at Tour of Thekkady \u2014 Kerala Gran Fondo. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
     "terrain": "Mixed terrain at Tour of Thekkady \u2014 Kerala Gran Fondo requires surface adaptability. Include weekly rides on mixed terrain to build confidence."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 90 miles of mixed terrain in Kottayam to Thekkady, Kerala, India.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 103 miles of mixed terrain in Kottayam to Thekkady, Kerala, India.",
+  "generated_at": "2026-11-05"
 }

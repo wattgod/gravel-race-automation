@@ -37,6 +37,8 @@ except ImportError:
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
+sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+from race_facts import needs_date_check  # noqa: E402
 
 MONTHS = [
     "January", "February", "March", "April", "May", "June",
@@ -404,7 +406,7 @@ def _extract_month_from_date_specific(ds):
 
 
 def load_stale_races(tier_filters=None, slug_filter=None):
-    """Load races with stale (pre-2026) dates."""
+    """Load active races whose edition already ran or has no usable date."""
     stale = []
     for f in sorted(RACE_DATA_DIR.glob("*.json")):
         slug = f.stem
@@ -415,10 +417,7 @@ def load_stale_races(tier_filters=None, slug_filter=None):
         race = data.get("race", data)
         ds = race.get("vitals", {}).get("date_specific", "")
 
-        if not ds:
-            continue
-        m = re.match(r"(\d{4})", str(ds))
-        if not m or int(m.group(1)) >= 2026:
+        if not needs_date_check(race):
             continue
 
         tier = race.get("gravel_god_rating", {}).get("tier") or \
@@ -443,7 +442,8 @@ def scraper_fallback_date(race, slug, verbose=False):
 
     # Step 1: Check cached extract from scrape_official_sites.py
     extract = load_extract(slug)
-    if extract and extract.get("date_2026"):
+    # Only old extracts carry a 2026-keyed date; this fallback parses 2026 text.
+    if extract and extract.get("date_2026") and not extract.get("next_edition_date"):
         date_str = str(extract["date_2026"])
         if verbose:
             print(f"  SCRAPER FALLBACK: cached extract has date_2026={date_str}")

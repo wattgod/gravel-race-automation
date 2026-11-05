@@ -83,3 +83,69 @@ def test_estimates_are_marked():
 def test_lowercase_may_in_notes_is_not_a_month():
     e = parse_edition("2027: TBD (organizers may announce in spring)")
     assert (e.year, e.month) == (2027, None)
+
+
+# ── Ranges, ISO, stored form ─────────────────────────────────────────────
+
+from season import canonical, edition_display, edition_year  # noqa: E402
+
+
+@pytest.mark.parametrize("raw,end", [
+    ("2026: August 19-23", date(2026, 8, 23)),
+    ("2026: June 30 - July 2", date(2026, 7, 2)),
+    ("2027: April 30 (Fri) - May 2 (Sun) Traka", date(2027, 5, 2)),
+    ("2026: Dec 30 - Jan 2", date(2027, 1, 2)),
+    ("May 17-18, 2027", date(2027, 5, 18)),
+    ("2027: June 5", None),
+])
+def test_end_date_of_multi_day_edition(raw, end):
+    assert parse_edition(raw).end_date == end
+
+
+def test_iso_date_parses():
+    assert parse_edition("2027-06-05").date == date(2027, 6, 5)
+
+
+@pytest.mark.parametrize("raw,stored", [
+    ("2027-06-05", "2027: June 5"),
+    ("June 5, 2027", "2027: June 5"),
+    ("2026: August 19-23", "2026: August 19-23"),
+    ("2026: June 30 - July 2", "2026: June 30 - July 2"),
+    ("2027: TBD", None),
+])
+def test_canonical_is_the_stored_form(raw, stored):
+    assert canonical(parse_edition(raw)) == stored
+
+
+# ── What a race page says about its edition ──────────────────────────────
+
+@pytest.mark.parametrize("raw,shown", [
+    ("2027: June 5", None),
+    ("2027: June 5 (Saturday pattern; 2026 ran Jun 6)", "Jun 5, 2027 (estimate)"),
+    ("2026: September 19", "2027 date not announced · last ran Sep 19, 2026"),
+    ("2026: Sept TBD", "2027 date not announced · last ran Sep 2026"),
+    ("2025: August 3", "2027 date not announced · last ran Aug 3, 2025"),
+    ("2027: TBD", None),
+    ("Status: DROPPED — last held October 11, 2025", None),
+    ("", None),
+])
+def test_edition_display(raw, shown):
+    assert edition_display(raw, NOV_5) == shown
+
+
+def test_past_display_names_the_year_after_the_last_edition():
+    """In May 2026 a March 2026 edition's next one is 2027, not 2026."""
+    shown = edition_display("2026: March 28", date(2026, 5, 1))
+    assert shown.startswith("2027 date not announced")
+
+
+@pytest.mark.parametrize("raw,year", [
+    ("2027: June 5", 2027),
+    ("2027: TBD", 2027),
+    ("2026: August 30", None),
+    ("2026: Spring TBD", None),
+    ("Status: CANCELLED for 2026", None),
+    ("", None),
+])
+def test_edition_year_never_stale(raw, year):
+    assert edition_year(raw, NOV_5) == year

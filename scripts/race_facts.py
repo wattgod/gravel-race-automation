@@ -17,7 +17,14 @@ Import from here; do not re-implement.
 from __future__ import annotations
 
 import re
+import sys
+from pathlib import Path
 from typing import Optional
+
+_WORDPRESS = str(Path(__file__).resolve().parent.parent / "wordpress")
+if _WORDPRESS not in sys.path:
+    sys.path.append(_WORDPRESS)
+from season import UPCOMING, edition_state, needs_date_refresh  # noqa: E402
 
 DISCIPLINE_ALIASES = {
     "mountain_bike": "mtb",
@@ -72,6 +79,67 @@ def date_says_inactive(race: dict) -> bool:
     ds = str((race.get("vitals") or {}).get("date_specific") or "")
     return bool(INACTIVE_DATE_RE.match(ds))
 
+
+def needs_date_check(race: dict, on=None) -> bool:
+    """True when an active race's stored edition has passed or has no date.
+
+    Races marked not running (``taking_a_break`` or a not-running
+    ``date_specific`` status) are excluded: their page already says so, and
+    a human flips them back. Date-refresh queues (scrapers, searches, audits)
+    use this instead of comparing years.
+    """
+    if race_status(race)["status"] == "inactive" or date_says_inactive(race):
+        return False
+    return needs_date_refresh((race.get("vitals") or {}).get("date_specific"), on)
+
+
+SCHEMA_EVENT = "https://schema.org/"
+
+
+def edition_event_status(race: dict, on=None) -> Optional[str]:
+    """schema.org eventStatus for the race's stored edition, or None.
+
+    Cancelled/postponed when the data says so; EventScheduled only for an
+    upcoming edition. A past edition gets no status: it is history, not a
+    scheduled event.
+    """
+    ds = str((race.get("vitals") or {}).get("date_specific") or "")
+    note = race.get("taking_a_break") or {}
+    if "cancel" in f"{ds} {note.get('label', '')}".lower() and (
+            note or date_says_inactive(race)):
+        return SCHEMA_EVENT + "EventCancelled"
+    if note or date_says_inactive(race):
+        return SCHEMA_EVENT + "EventPostponed"
+    if edition_state(ds, on) == UPCOMING:
+        return SCHEMA_EVENT + "EventScheduled"
+    return None
+
+
+# ── Organizer ─────────────────────────────────────────────────────────────
+# ``history.founder`` holds either a person ("Jim Cummins") or a body
+# ("Local Girona cycling community", "Mike Ripley and Mudslinger Events").
+# Structured data must not call a community a Person.
+
+_ORG_WORDS = re.compile(
+    r"(&|\b(?:and|community|club|events?|productions?|racing|promotions?|"
+    r"association|foundation|federation|council|city|county|town|village|"
+    r"inc|llc|ltd|gmbh|company|group|team|series|cycling|cyclists|bikes?|"
+    r"bicycles?|sports?|outdoors?|adventures?|collective|society|alliance|"
+    r"league|organi[sz]ations?|organi[sz]ers|committee|volunteers|friends|"
+    r"partners|media|chamber|tourism|trust|department|university|college|"
+    r"school|rotary|nonprofit|brewing|brewery|shop|local)\b)",
+    re.IGNORECASE,
+)
+
+
+def organizer_type(name: str) -> str:
+    """schema.org ``@type`` for a founder/organizer name."""
+    words = str(name or "").split()
+    if _ORG_WORDS.search(str(name or "")) or not 2 <= len(words) <= 4:
+        return "Organization"
+    if all(w[:1].isupper() for w in words):
+        return "Person"
+    return "Organization"
 
 # ── Country ───────────────────────────────────────────────────────────────
 

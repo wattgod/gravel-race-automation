@@ -161,7 +161,8 @@ def bds(monkeypatch):
     fake = types.ModuleType("ddgs")
     fake.DDGS = object
     monkeypatch.setitem(sys.modules, "ddgs", fake)
-    sys.modules.pop("batch_date_search", None)
+    # delitem (not pop) so teardown restores the module other tests imported.
+    monkeypatch.delitem(sys.modules, "batch_date_search", raising=False)
     return importlib.import_module("batch_date_search")
 
 

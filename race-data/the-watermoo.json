@@ -5,7 +5,7 @@
     "display_name": "The Watermoo",
     "tagline": "Southeast Michigan gravel in Dexter near Ann Arbor.",
     "vitals": {
-      "distance_mi": 62,
+      "distance_mi": 111,
       "elevation_ft": 3000,
       "location": "Dexter, Michigan",
       "location_badge": "DEXTER, MICHIGAN",
@@ -49,11 +49,11 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 44,
-      "tier": 4,
-      "tier_label": "TIER 4",
+      "overall_score": 46,
+      "tier": 3,
+      "tier_label": "TIER 3",
       "logistics": 3,
-      "length": 3,
+      "length": 4,
       "technicality": 2,
       "elevation": 2,
       "climate": 2,
@@ -68,7 +68,8 @@
       "expenses": 3,
       "score_note": "Small grassroots southeast Michigan event. Near Ann Arbor but limited infrastructure.",
       "discipline": "gravel",
-      "display_tier": 4
+      "display_tier": 3,
+      "display_tier_label": "TIER 3"
     },
     "biased_opinion": {
       "verdict": "Ann Arbor Area Grassroots Ride",
@@ -89,7 +90,7 @@
       "bottom_line": "A small local gravel race in southeast Michigan. Perfect for locals or Ann Arbor area cyclists who want an affordable summer ride. Not worth traveling far for."
     },
     "final_verdict": {
-      "score": "44 / 100",
+      "score": "46 / 100",
       "one_liner": "Small grassroots southeast Michigan ride near Ann Arbor.",
       "should_you_race": "Only if you're in southeast Michigan or the Ann Arbor area and want an affordable gravel ride. Not worth traveling for.",
       "alternatives": "For better Michigan events: Barry-Roubaix, Lumberjack 100. For similar grassroots vibes: other regional Midwest events.",
@@ -143,7 +144,7 @@
     },
     "guide_variables": {
       "race_name": "The Watermoo",
-      "race_distance": "62 miles",
+      "race_distance": "111 miles",
       "race_elevation": "3,000 feet",
       "race_date": "Summer",
       "race_location": "Dexter, Michigan",
@@ -242,7 +243,7 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "The Watermoo",
-        "race_hook": "62 miles of southeast Michigan gravel near Ann Arbor.",
+        "race_hook": "111 miles of southeast Michigan gravel near Ann Arbor.",
         "race_hook_detail": "Small grassroots event in Dexter.",
         "distance": "62",
         "dark_mile": "40",
@@ -258,8 +259,8 @@
         "explanation": "The race offers two wave starts (6:11am for riders averaging 14mph or less, 7:11am for faster riders) allowing self-seeding by pace. Ken Lemieux found the aid station at mile 72 well-stocked with water and snacks when he needed recovery. The start location at 2319 Bishop Cir E in Dexter provides organized staging with post-race festivities at Jolly Pumpkin."
       },
       "length": {
-        "score": 3,
-        "explanation": "111 miles is a century-plus distance that requires real preparation and commitment. It's long enough to hurt but not so long that it becomes a sufferfest for its own sake. The research shows a discrepancy with the listed 62 miles, but 111 miles is what's consistently reported across sources and represents solid gravel race distance. Similar distance to Crusher in the Tushar. As Ken Lemieux puts it: \"Before the Watermoo race, I had only done two rides that were 100 miles long, and my longest race was 35 miles.\""
+        "score": 4,
+        "explanation": "111 miles is a century-plus distance that requires real preparation and commitment. It's long enough to hurt but not so long that it becomes a sufferfest for its own sake. Similar distance to Crusher in the Tushar. As Ken Lemieux puts it: \"Before the Watermoo race, I had only done two rides that were 100 miles long, and my longest race was 35 miles.\" The organizer lists 111 miles, which falls in the 100 to 149 mile band and scores 4."
       },
       "technicality": {
         "score": 2,
@@ -345,6 +346,12 @@
         "url": "https://www.granfondoguide.com/Events/Index/9373/the-watermoo",
         "category": "other",
         "label": "Granfondoguide"
+      },
+      {
+        "url": "https://thewatermoo.com/",
+        "category": "official",
+        "label": "THE WATERMOO official site — a 111-mile gravel race",
+        "accessed": "2026-11-05"
       }
     ],
     "tire_recommendations": {

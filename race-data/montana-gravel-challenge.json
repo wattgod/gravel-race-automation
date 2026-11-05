@@ -3,9 +3,9 @@
     "name": "Montana Gravel Challenge",
     "slug": "montana-gravel-challenge",
     "display_name": "Montana Gravel Challenge",
-    "tagline": "Montana Gravel Challenge. 65 miles of gravel through Huson.",
+    "tagline": "Montana Gravel Challenge. 112 miles of gravel over three stages around Huson.",
     "vitals": {
-      "distance_mi": 65,
+      "distance_mi": 112,
       "elevation_ft": 4800,
       "location": "Huson, MT",
       "location_badge": "HUSON, MT",
@@ -45,16 +45,16 @@
         "Significant mountainous (4800 feet)",
         "High altitude",
         "Montana mountains scenery",
-        "65-mile distance",
+        "112-mile three-stage distance",
         "Regional field"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 47,
+      "overall_score": 49,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 2,
-      "length": 3,
+      "length": 4,
       "technicality": 3,
       "elevation": 3,
       "climate": 2,
@@ -91,7 +91,7 @@
       "bottom_line": "A solid regional MT mountain gravel race. Worth it for MT/Mountain West riders. Not worth traveling far for."
     },
     "final_verdict": {
-      "score": "47 / 100",
+      "score": "49 / 100",
       "one_liner": "Montana mountain gravel challenge.",
       "should_you_race": "If you're local to MT—yes, it's solid. If you're traveling—skip it.",
       "alternatives": "For better MT races: Big Sky Gravel, Dusty Bandita.",
@@ -147,7 +147,7 @@
     },
     "guide_variables": {
       "race_name": "Montana Gravel Challenge",
-      "race_distance": "65 miles",
+      "race_distance": "112 miles",
       "race_elevation": "4,800 feet",
       "race_date": "Summer",
       "race_location": "Huson, MT",
@@ -271,8 +271,8 @@
         "explanation": "The race operates from Big Sky Brewery owner Bjorn's private property with onsite camping and bike wash stations. Peter L notes \"The guy who hosts the race had bike wash stations in his yard so after every stage I hosed off my bike.\" Registration happens on-site each morning with coffee and treats, though poor cell connectivity delays results posting until end of day."
       },
       "length": {
-        "score": 3,
-        "explanation": "The three-stage format totals around 110 miles over the weekend - 11-mile Friday TT, 56-mile Saturday road stage, and 45-mile Sunday circuit race. Peter L's power data shows the TT takes ~20 minutes while Saturday requires 2+ hours of sustained effort. The format allows single-stage entries for riders not wanting the full omnium commitment. Similar distance to Crusher in the Tushar."
+        "score": 4,
+        "explanation": "The three-stage format totals around 110 miles over the weekend - 11-mile Friday TT, 56-mile Saturday road stage, and 45-mile Sunday circuit race. Peter L's power data shows the TT takes ~20 minutes while Saturday requires 2+ hours of sustained effort. The format allows single-stage entries for riders not wanting the full omnium commitment. Similar distance to Crusher in the Tushar. The 112-mile three-stage total falls in the 100 to 149 mile band, which scores 4."
       },
       "technicality": {
         "score": 3,
@@ -358,6 +358,12 @@
         "url": "https://www.bikesignup.com/Race/MT/Huson/MontanaHellRide",
         "category": "community",
         "label": "bikesignup.com: Montanahellride"
+      },
+      {
+        "url": "https://www.bikesignup.com/montanagravelchallenge",
+        "category": "official",
+        "label": "Montana Gravel Challenge (organizer registration page) — three stages: ~11 mi TT, 56 mi, 45 mi",
+        "accessed": "2026-11-05"
       }
     ],
     "tire_recommendations": {

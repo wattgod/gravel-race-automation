@@ -2814,6 +2814,30 @@ def season_calendar_redirect_rule() -> str:
 
 SEASON_CALENDAR_REDIRECT_RULE = season_calendar_redirect_rule()
 
+# First season wordpress/generate_power_rankings.py built a page for.
+FIRST_POWER_RANKINGS_YEAR = 2026
+
+
+def season_power_rankings_redirect_rules() -> str:
+    """Past seasons' /race/power-rankings-{year}/ → this season's page (301:
+    a past season's page never comes back). Bare /race/power-rankings/ → this
+    season (302, same reason as the calendar: the target moves every season).
+    """
+    wordpress_dir = str(Path(__file__).resolve().parent.parent / "wordpress")
+    if wordpress_dir not in sys.path:
+        sys.path.insert(0, wordpress_dir)
+    from season import season_year
+
+    season = season_year()
+    target = f"/race/power-rankings-{season}/"
+    rules = [f"RewriteRule ^race/power-rankings/?$ {target} [R=302,L]"]
+    rules += [f"RewriteRule ^race/power-rankings-{year}/?$ {target} [R=301,L]"
+              for year in range(FIRST_POWER_RANKINGS_YEAR, season)]
+    return "\n".join(rules)
+
+
+SEASON_POWER_RANKINGS_REDIRECT_RULES = season_power_rankings_redirect_rules()
+
 
 REDIRECT_BLOCK = """\
 # BEGIN Gravel God Redirects
@@ -2937,6 +2961,9 @@ RewriteRule ^race/tires/?$ /tire/ [R=301,L]
 # Bare calendar → the season riders are planning (computed at deploy time).
 """ + SEASON_CALENDAR_REDIRECT_RULE + """
 
+# Power rankings build to /race/power-rankings-{season}/ (computed at deploy time).
+""" + SEASON_POWER_RANKINGS_REDIRECT_RULES + """
+
 # Fabricated race pages removed (SITE-SYNC S3, 2026-07) → state/region best-of hubs
 RewriteRule ^race/black-forest-gravel/?$ /race/best-gravel-races-germany/ [R=301,L]
 RewriteRule ^race/ozark-gravel/?$ /race/best-gravel-races-arkansas/ [R=301,L]
@@ -3043,6 +3070,15 @@ RewriteRule ^race/bwr-utah-vs-[a-z0-9-]+/?$ /race/bwr-cedar-city/ [R=301,L]
 RewriteRule ^race/[a-z0-9-]+-vs-bwr-utah/?$ /race/bwr-cedar-city/ [R=301,L]
 RewriteRule ^race/bwr-asheville-vs-[a-z0-9-]+/?$ /race/bwr-north-carolina/ [R=301,L]
 RewriteRule ^race/[a-z0-9-]+-vs-bwr-asheville/?$ /race/bwr-north-carolina/ [R=301,L]
+# Gravel Earth Series ended after 2026 (The Traka World Series replaced it).
+# The /race/gravel-earth/ profile reviewed the series itself; its sub-pages
+# (tires, training plan, prep kit), .md and head-to-head pages go to the series
+# history page. Profile in race-data-archived/ended-series/.
+RewriteRule ^race/gravel-earth/?$ /race/series/gravel-earth-series/ [R=301,L]
+RewriteRule ^race/gravel-earth\\.md$ /race/series/gravel-earth-series/ [R=301,L]
+RewriteRule ^race/gravel-earth/(.*)$ /race/series/gravel-earth-series/ [R=301,L]
+RewriteRule ^race/gravel-earth-vs-[a-z0-9-]+/?$ /race/series/gravel-earth-series/ [R=301,L]
+RewriteRule ^race/[a-z0-9-]+-vs-gravel-earth/?$ /race/series/gravel-earth-series/ [R=301,L]
 # No organizer or official event exists under the name Gravel des Flandres.
 # The retired page mixed unsupported facts with the old Flanders Gravel Series.
 RewriteRule ^race/gravel-des-flandres/?$ /race/calendar/ [R=301,L]
@@ -3121,7 +3157,7 @@ RewriteRule ^blog/crusher-in-the-tushar-recap/?$ /race/crusher-in-the-tushar/ [R
 RewriteRule ^blog/galactic-grinder-recap/?$ /race/galactic-grinder/ [R=301,L]
 RewriteRule ^blog/grasshopper-series-recap/?$ /race/grasshopper-series/ [R=301,L]
 RewriteRule ^blog/grassroots-gravel-recap/?$ /race/grassroots-gravel/ [R=301,L]
-RewriteRule ^blog/gravel-earth-recap/?$ /race/gravel-earth/ [R=301,L]
+RewriteRule ^blog/gravel-earth-recap/?$ /race/series/gravel-earth-series/ [R=301,L]
 RewriteRule ^blog/gravel-revival-recap/?$ /race/gravel-revival/ [R=301,L]
 RewriteRule ^blog/gravel-roll-pecan-shaker-recap/?$ /race/gravel-roll-pecan-shaker/ [R=301,L]
 RewriteRule ^blog/grinduro-recap/?$ /race/grinduro/ [R=301,L]

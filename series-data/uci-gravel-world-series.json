@@ -1,0 +1,109 @@
+{
+  "series": {
+    "name": "UCI Gravel World Series",
+    "slug": "uci-gravel-world-series",
+    "display_name": "UCI Gravel World Series",
+    "tagline": "The UCI's qualifying series for the Gravel World Championships.",
+    "organizer": "UCI",
+    "title_sponsor": "Panaracer GravelKing (2026-2028)",
+    "founded": 2022,
+    "headquarters": "Aigle, Switzerland",
+    "website": "https://ucigravelworldseries.com/en/",
+    "status": "active",
+    "season": 2027,
+    "championship": {
+      "name": "2027 UCI Gravel World Championships",
+      "location": "Châtel, Haute-Savoie, France",
+      "date": "2027-08-26",
+      "date_text": "August 26-27, 2027 (provisional)"
+    },
+    "description": "The UCI Gravel World Series is the qualifying circuit for the UCI Gravel World Championships. Rounds in the 2027 season qualify age-group riders for the 2027 Worlds in Châtel, Haute-Savoie, France, provisionally set for August 26-27, 2027. Six qualifiers are on the published 2027 calendar, from Leuven in October 2026 to Marathon in Greece in November; Gravel Chile is postponed.",
+    "history": "The UCI launched the series in 2022. Panaracer's GravelKing brand holds the title sponsorship from 2026 through 2028. The 2026 season ran 45 rounds in 31 countries before the World Championships in Nannup, Western Australia, on October 10-11, 2026.",
+    "format_overview": "Each round is a one-day race run by a local organizer under a UCI license, usually with a long and a short course. Age-group riders earn a place at that season's World Championships through their result at a round. The event list below is the 2027 qualifying calendar as published.",
+    "events": [
+      {
+        "round": 1,
+        "name": "Leuven Legacy Gravel",
+        "slug": "flanders-legacy-gravel",
+        "location": "Leuven, Belgium",
+        "country": "Belgium",
+        "month": "October",
+        "date": "2026-10-18",
+        "date_text": "October 18, 2026",
+        "has_profile": true
+      },
+      {
+        "round": 2,
+        "name": "Gravelista",
+        "slug": "gravelista",
+        "location": "Seymour, Victoria, Australia",
+        "country": "Australia",
+        "month": "October",
+        "date": "2026-10-25",
+        "date_text": "October 25, 2026",
+        "has_profile": true
+      },
+      {
+        "round": 3,
+        "name": "Alentejo Gravel",
+        "slug": "alentejo-gravel",
+        "location": "Ourique, Portugal",
+        "country": "Portugal",
+        "month": "October",
+        "date": "2026-10-25",
+        "date_text": "October 25, 2026",
+        "has_profile": true
+      },
+      {
+        "round": 4,
+        "name": "Dustman",
+        "slug": "uci-gravel-dustman",
+        "location": "Kanchanaburi, Thailand",
+        "country": "Thailand",
+        "month": "November",
+        "date": "2026-11-14",
+        "date_text": "November 14, 2026",
+        "has_profile": true
+      },
+      {
+        "round": 5,
+        "name": "The Gravel of Marathon",
+        "slug": "gravel-of-marathon",
+        "location": "Marathon, Attica, Greece",
+        "country": "Greece",
+        "month": "November",
+        "date": "2026-11-15",
+        "date_text": "November 15, 2026",
+        "has_profile": true
+      },
+      {
+        "round": 6,
+        "name": "Gravel Chile",
+        "slug": "gravel-chile",
+        "location": "Lago Ranco, Los Ríos, Chile",
+        "country": "Chile",
+        "month": null,
+        "date": null,
+        "date_text": "Postponed",
+        "has_profile": true
+      }
+    ],
+    "key_stats": {
+      "total_events": 6,
+      "countries": 6,
+      "oldest_event_year": 2022
+    },
+    "citations": [
+      {
+        "url": "https://ucigravelworldseries.com/en/calendar/",
+        "category": "official",
+        "label": "UCI Gravel World Series: calendar"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/",
+        "category": "official",
+        "label": "Panaracer Gravelking UCI Gravel World Series"
+      }
+    ]
+  }
+}

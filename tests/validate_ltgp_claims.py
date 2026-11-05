@@ -49,7 +49,6 @@ NEVER_LTGP_SLUGS = {
 # Events that legitimately compare themselves to LTGP (not claiming to BE LTGP)
 # These files mention LTGP in comparison/contrast context, which is allowed
 COMPARISON_OK_SLUGS = {
-    "gravel-earth",         # Compares GES to LTGP as alternative series
     "colorado-trail-race",  # Mentions LTGP production quality for contrast
     "jeroboam",             # States no LTGP affiliation
     "pirinexus-360",        # States no LTGP field depth

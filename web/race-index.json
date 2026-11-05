@@ -570,48 +570,6 @@
     "thumb": "/race-photos/big-sugar/big-sugar-video-1.jpg"
   },
   {
-    "name": "Gravel Earth Series",
-    "slug": "gravel-earth",
-    "location": "Global (HQ: Girona, Spain)",
-    "region": "Europe",
-    "month": "February",
-    "year": 2026,
-    "distance_mi": 208,
-    "elevation_ft": 12139,
-    "tier": 1,
-    "overall_score": 86,
-    "scores": {
-      "logistics": 4,
-      "length": 5,
-      "technicality": 4,
-      "elevation": 4,
-      "climate": 4,
-      "altitude": 3,
-      "adventure": 5,
-      "prestige": 4,
-      "race_quality": 4,
-      "experience": 5,
-      "community": 5,
-      "field_depth": 4,
-      "value": 3,
-      "expenses": 2,
-      "cultural_impact": 4
-    },
-    "difficulty_composite": 4.2,
-    "tagline": "Europe's premier gravel circuit. From Girona to Kenya to Iceland, the alternative to Life Time's American hegemony.",
-    "has_profile": true,
-    "profile_url": "/race/gravel-earth/",
-    "discipline": "gravel",
-    "has_tire_guide": true,
-    "status": "active",
-    "lat": 41.9794,
-    "lng": 2.8214,
-    "series_id": "gravel-earth-series",
-    "series_name": "Gravel Earth Series",
-    "st": "Riders describe extremely challenging terrain conditions with chunky gravel featuring massive rocks that cause destructive impacts over 200-mile distances. The North Course is particularly punchy and chunky, creating high speeds and chaos in the field. Weather conditions significantly impact racing with muddy terrain from winter rain and wind, temperatures around 8-14 Celsius, and riders getting covered in mud. The races feature rocks flying everywhere, frequent crashes, and high mechanical risk from flat tires and equipment failures. Competition levels are described as through the roof with fields of 20+ potential winners and over 100 strong riders including Olympians, pro triathletes, and world cup winners. Racing is very aggressive, dynamic, and technical. The sport has evolved from casual friends riding together to highly professional events with team tactics, sponsors demanding results, and significant preparation required. Early season races in February present unique challenges as all riders are fresh and injury-free, making competition particularly intense.",
-    "thumb": "/race-photos/gravel-earth/gravel-earth-video-1.jpg"
-  },
-  {
     "name": "SBT GRVL",
     "slug": "steamboat-gravel",
     "location": "Steamboat Springs, Colorado",
@@ -7155,7 +7113,9 @@
     "has_tire_guide": false,
     "status": "active",
     "lat": 38.153,
-    "lng": 23.963
+    "lng": 23.963,
+    "series_id": "uci-gravel-world-series",
+    "series_name": "UCI Gravel World Series"
   },
   {
     "name": "Iceman Cometh",
@@ -8053,7 +8013,9 @@
     "has_tire_guide": false,
     "status": "active",
     "lat": -40.32,
-    "lng": -72.48
+    "lng": -72.48,
+    "series_id": "uci-gravel-world-series",
+    "series_name": "UCI Gravel World Series"
   },
   {
     "name": "Oregon Coast Gravel Epic",
@@ -9775,6 +9737,8 @@
     "lat": 14.02,
     "lng": 99.53,
     "rwgps_id": "53184604",
+    "series_id": "uci-gravel-world-series",
+    "series_name": "UCI Gravel World Series",
     "st": "The UCI Gravel Dustman in Kanchanaburi, Thailand presents extreme muddy conditions due to heavy rainfall, earning it the nickname 'mud man' from participants. The 81-mile course features more than 10 river crossings combined with extensive muddy terrain that forces riders to dismount and push their bikes, particularly in the final 4 kilometers. One experienced rider described it as the hardest gravel race they had participated in. The thick mud becomes especially challenging after 85 kilometers when riders report their legs and arms being completely exhausted from the conditions. The race takes place at the Eva Hotel with registration expo the day before. Despite the brutal conditions that leave riders physically drained, participants describe the experience as very fun and rewarding, though the muddy terrain dominates the racing experience throughout the course.",
     "thumb": "/race-photos/uci-gravel-dustman/uci-gravel-dustman-video-1.jpg"
   },
@@ -9894,6 +9858,8 @@
     "lat": 38.0551,
     "lng": -7.8606,
     "rwgps_id": "53243412",
+    "series_id": "uci-gravel-world-series",
+    "series_name": "UCI Gravel World Series",
     "thumb": "/race-photos/alentejo-gravel/alentejo-gravel-video-1.jpg"
   },
   {
@@ -10129,6 +10095,8 @@
     "status": "active",
     "lat": 51.0378,
     "lng": 4.2406,
+    "series_id": "uci-gravel-world-series",
+    "series_name": "UCI Gravel World Series",
     "st": "The available rider-video transcript for the prior Flanders Legacy Gravel edition is too limited and fragmented to support course-specific advice for the renamed 2026 Leuven Legacy Gravel. Use the organizer's final 2026 route and GPX for exact terrain, turns, distance, and climbing.",
     "thumb": "/race-photos/flanders-legacy-gravel/flanders-legacy-gravel-video-1.jpg"
   },
@@ -11030,6 +10998,8 @@
     "lat": -36.5986,
     "lng": 144.678,
     "rwgps_id": "53482061",
+    "series_id": "uci-gravel-world-series",
+    "series_name": "UCI Gravel World Series",
     "st": "Gravelista takes place in the small farming town of Seymour, Victoria, starting and finishing at Seymour Race Course. The course features one major climb called Wickets Hill, located at the start of the main loop. The 136k riders complete the loop twice while 95k riders do it once. Key challenges include a creek crossing 500 meters into the gravel section where line choice matters, and a sketchy bridge crossing that narrows significantly as riders enter the main loop. The terrain mixes tarmac and gravel with big muddy puddles that can catch riders off guard. Early positioning is crucial as stronger riders make moves on Wickets Hill. The race starts neutralized on tarmac before hitting gravel where attacks begin. The course offers stunning scenery through farming countryside. Elite competition is fierce with the 2024 men's race decided by just 3 seconds between defending champion Brendan Johnston and Mark O'Brien.",
     "thumb": "/race-photos/gravelista/gravelista-video-1.jpg"
   },

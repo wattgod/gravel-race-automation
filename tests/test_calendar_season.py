@@ -93,6 +93,29 @@ class TestCalendarPages:
         assert not (tmp_path / "calendar" / "index.html").exists()
 
 
+class TestPowerRankingsUrl:
+    def test_past_seasons_and_bare_url_redirect_to_the_season(self):
+        import push_wordpress as pw
+
+        target = f"/race/power-rankings-{SEASON}/"
+        assert f"RewriteRule ^race/power-rankings/?$ {target} [R=302,L]" in pw.REDIRECT_BLOCK
+        for year in range(pw.FIRST_POWER_RANKINGS_YEAR, SEASON):
+            rule = f"RewriteRule ^race/power-rankings-{year}/?$ {target} [R=301,L]"
+            assert rule in pw.REDIRECT_BLOCK
+        assert f"^race/power-rankings-{SEASON}/" not in pw.REDIRECT_BLOCK
+
+    def test_sitemap_lists_only_this_season(self, tmp_path):
+        import generate_sitemap as gs
+
+        out = tmp_path / "wordpress" / "output"
+        for year in (SEASON - 1, SEASON):
+            (out / f"power-rankings-{year}").mkdir(parents=True)
+            (out / f"power-rankings-{year}" / "index.html").write_text("x")
+        slugs = gs.load_special_pages(tmp_path)
+        assert f"power-rankings-{SEASON}" in slugs
+        assert f"power-rankings-{SEASON - 1}" not in slugs
+
+
 class TestEvergreenCalendarUrl:
     def test_bare_calendar_redirects_to_the_season(self):
         import push_wordpress as pw

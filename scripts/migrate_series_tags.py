@@ -113,7 +113,6 @@ def migrate_tags(series_list: list, dry_run: bool = False) -> dict:
 
     # Also tag the parent profile for series that have one
     parent_map = {
-        "gravel-earth-series": "gravel-earth",
         "grasshopper-adventure-series": "grasshopper-series",
         "grinduro": "grinduro",
     }

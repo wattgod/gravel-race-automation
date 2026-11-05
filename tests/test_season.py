@@ -122,9 +122,9 @@ def test_canonical_is_the_stored_form(raw, stored):
 @pytest.mark.parametrize("raw,shown", [
     ("2027: June 5", None),
     ("2027: June 5 (Saturday pattern; 2026 ran Jun 6)", "Jun 5, 2027 (estimate)"),
-    ("2026: September 19", "2027 date not announced · last ran Sep 19, 2026"),
-    ("2026: Sept TBD", "2027 date not announced · last ran Sep 2026"),
-    ("2025: August 3", "2027 date not announced · last ran Aug 3, 2025"),
+    ("2026: September 19", "Sep 18, 2027 (estimate)"),     # 3rd Saturday
+    ("2026: Sept TBD", "Sep 2027 (estimate)"),
+    ("2025: August 3", "2027 date not announced · last ran Aug 3, 2025"),  # skipped 2026
     ("2027: TBD", None),
     ("Status: DROPPED — last held October 11, 2025", None),
     ("", None),
@@ -135,17 +135,66 @@ def test_edition_display(raw, shown):
 
 def test_past_display_names_the_year_after_the_last_edition():
     """In May 2026 a March 2026 edition's next one is 2027, not 2026."""
-    shown = edition_display("2026: March 28", date(2026, 5, 1))
+    assert edition_display("2026: March 28", date(2026, 5, 1)) == "Mar 27, 2027 (estimate)"
+    shown = edition_display("2026: March 28", date(2026, 5, 1), project=False)
     assert shown.startswith("2027 date not announced")
+
+
+def test_not_running_race_is_never_projected():
+    shown = edition_display("2026: September 19", NOV_5, project=False)
+    assert shown == "2027 date not announced · last ran Sep 19, 2026"
+    assert edition_year("2026: September 19", NOV_5, project=False) is None
 
 
 @pytest.mark.parametrize("raw,year", [
     ("2027: June 5", 2027),
     ("2027: TBD", 2027),
-    ("2026: August 30", None),
+    ("2026: August 30", 2027),            # estimated next edition
+    ("2025: August 3", None),             # skipped 2026: no estimate
     ("2026: Spring TBD", None),
     ("Status: CANCELLED for 2026", None),
     ("", None),
 ])
 def test_edition_year_never_stale(raw, year):
     assert edition_year(raw, NOV_5) == year
+
+
+# ── Estimating the next edition of a race that has not announced it ──────
+
+from season import estimate_next  # noqa: E402
+
+
+@pytest.mark.parametrize("raw,start,end", [
+    ("2026: September 19", date(2027, 9, 18), None),             # 3rd Saturday
+    ("2026: March 29", date(2027, 3, 28), None),                 # 5th Sunday -> last
+    ("2026: May 30", date(2027, 5, 29), None),                   # 5th Saturday -> last
+    ("2026: August 29-30", date(2027, 8, 28), date(2027, 8, 29)),
+    ("2026: June 30 - July 2", date(2027, 6, 29), date(2027, 7, 1)),
+    ("2025: December 30 - January 2", date(2026, 12, 29), date(2027, 1, 1)),
+    ("2025: November 22", date(2026, 11, 28), None),             # still upcoming
+])
+def test_estimate_keeps_the_weekday_and_length(raw, start, end):
+    est = estimate_next(raw, NOV_5)
+    assert est.estimated
+    assert (est.date, est.end_date) == (start, end)
+    assert est.date.weekday() == parse_edition(raw).date.weekday()
+    assert est.state(NOV_5) == UPCOMING
+
+
+def test_month_only_edition_estimates_the_month():
+    est = estimate_next("2026: July TBD", NOV_5)
+    assert (est.year, est.month, est.day, est.estimated) == (2027, 7, None, True)
+
+
+@pytest.mark.parametrize("raw", [
+    "2025: August 3",        # projection (Aug 2026) has passed: skipped a season
+    "2027: June 5",          # not past
+    "2026: December 12",     # not past
+    "2025: TBD",             # no month
+    "2026: Spring TBD",
+    "Status: DROPPED — last held October 11, 2025",
+    "",
+    None,
+])
+def test_no_estimate(raw):
+    assert estimate_next(raw, NOV_5) is None

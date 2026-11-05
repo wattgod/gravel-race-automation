@@ -51,6 +51,8 @@ from pricing import MIN_WEEKS, PRICE_PER_WEEK
 from page_dates import race_updated_date
 from fact_consistency import check_race
 from season import UPCOMING, edition_display, edition_state, edition_year, parse_edition
+from season import today as season_today
+from generate_race_recap import has_results, newest_results_year
 
 sys.path.append(str(Path(__file__).resolve().parent.parent / "scripts"))
 from race_facts import edition_event_status, organizer_type  # noqa: E402
@@ -978,6 +980,7 @@ def normalize_race_data(data: dict) -> dict:
 
     return {
         'taking_a_break': race.get('taking_a_break'),
+        'results': race.get('results') or {},
         'race_plan_eligible': eligibility.get('race_plan_eligible', True),
         'eligibility': eligibility,
         'name': race.get('display_name') or race.get('name', 'Unknown Race'),
@@ -2824,6 +2827,20 @@ def build_faq_jsonld(rd: dict) -> Optional[dict]:
 
 # ── Phase 3: Section Builders ─────────────────────────────────
 
+def upcoming_race_start(date_specific) -> str | None:
+    """ISO start date of the next edition, or None when it has passed or is undated.
+
+    The one gate for anything that counts down to race day: countdowns,
+    weeks-to-race, plan start dates, reminders. A past edition never drives one.
+    """
+    if not date_specific or edition_state(date_specific) != UPCOMING:
+        return None
+    start, _end = parse_event_dates(date_specific)
+    if not start or start < season_today().isoformat():
+        return None
+    return start
+
+
 def build_hero(rd: dict) -> str:
     """Build clean editorial hero — race name + score masthead."""
     score = rd['overall_score']
@@ -2932,6 +2949,7 @@ def build_toc(active_sections=None) -> str:
     all_links = [
         ('course', '01 Course Overview'),
         ('history', '02 Facts &amp; History'),
+        ('results', 'Results'),
         ('route', '03 The Course'),
         ('from-the-field', '04 From the Field'),
         ('ratings', '05 The Ratings'),
@@ -3045,7 +3063,8 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
     # Calendar export — Google Calendar link + .ics download
     cal_html = ''
     date_specific = v.get('date_specific', '')
-    cal_start, cal_end = parse_event_dates(date_specific)
+    cal_start, cal_end = (parse_event_dates(date_specific)
+                          if upcoming_race_start(date_specific) else (None, None))
 
     if cal_start:
         iso_date = cal_start.replace('-', '')
@@ -3141,6 +3160,62 @@ def build_history(rd: dict) -> str:
       <summary>Facts &amp; History</summary>
       <div class="gg-history-body">{body}</div>
     </details>'''
+
+
+def _results_cell(name, time) -> str:
+    """One winner cell: name, then time when known. Empty values stay empty."""
+    if name is None or str(name).strip() == '':
+        return '<td>&mdash;</td>'
+    time_html = ''
+    if time is not None and str(time).strip() != '':
+        time_html = f'<span class="gg-results-time">{esc(time)}</span>'
+    return f'<td><span class="gg-results-name">{esc(name)}</span>{time_html}</td>'
+
+
+def build_results(rd: dict) -> str:
+    """Build the Results section: one row per year with winners, newest first.
+
+    Renders nothing when no year has a winner (no empty heading).
+    """
+    if newest_results_year(rd) is None:
+        return ''
+    results = rd.get('results') or {}
+    years = results.get('years') or {}
+    by_year = {int(str(y).strip()): data for y, data in years.items()
+               if str(y).strip().isdigit()}
+    rows = []
+    for year in sorted(by_year, reverse=True):
+        if not has_results(rd, year):
+            continue
+        data = by_year[year] or {}
+        label = data.get('race')
+        label_html = ''
+        if label is not None and str(label).strip() != '':
+            label_html = f'<span class="gg-results-race">{esc(label)}</span>'
+        rows.append(
+            f'<tr><th scope="row" class="gg-results-year">{year}{label_html}</th>'
+            f'{_results_cell(data.get("winner_female"), data.get("winning_time_female"))}'
+            f'{_results_cell(data.get("winner_male"), data.get("winning_time_male"))}</tr>'
+        )
+    note = results.get('note')
+    note_html = ''
+    if note is not None and str(note).strip() != '':
+        note_html = f'<p class="gg-results-note">{esc(note)}</p>'
+    body = '\n        '.join(rows)
+    return f'''<section id="results" class="gg-section gg-fade-section">
+    <div class="gg-section-header">
+      <h2 class="gg-section-title">Results</h2>
+    </div>
+    <div class="gg-section-body">
+      <table class="gg-results-table">
+        <thead><tr><th scope="col">Year</th><th scope="col">Women</th><th scope="col">Men</th></tr></thead>
+        <tbody>
+        {body}
+        </tbody>
+      </table>
+      {note_html}
+    </div>
+  </section>'''
 
 
 def _build_riders_report(groups: list[tuple[list[dict], str]]) -> str:
@@ -3735,8 +3810,8 @@ def build_training(rd: dict) -> str:
     # Race date countdown — parsed from date_specific
     countdown_html = ''
     date_specific = rd['vitals'].get('date_specific', '')
-    cd_start, _cd_end = parse_event_dates(date_specific)
-    if cd_start and edition_state(date_specific) == UPCOMING:
+    cd_start = upcoming_race_start(date_specific)
+    if cd_start:
         # Reconstruct display date from ISO for no-JS/crawlers
         parts = cd_start.split('-')
         month_names = {v: k.capitalize() for k, v in MONTH_NUMBERS.items()}
@@ -4135,7 +4210,7 @@ def build_training_intelligence(rd: dict) -> str:
     race_name = rd['name']
     countdown_html = ''
     date_specific = rd['vitals'].get('date_specific', '')
-    cd_start, _cd_end = parse_event_dates(date_specific)
+    cd_start = upcoming_race_start(date_specific)
     if cd_start:
         parts = cd_start.split('-')
         month_names = {v: k.capitalize() for k, v in MONTH_NUMBERS.items()}
@@ -5273,7 +5348,7 @@ def build_prep_strip(rd: dict) -> str:
         f' <strong>{esc(v)}/10</strong></span>'
         for k, v in top3)
 
-    cd_start, _ = parse_event_dates(rd['vitals'].get('date_specific', ''))
+    cd_start = upcoming_race_start(rd['vitals'].get('date_specific', ''))
     date_attr = f' data-race-date="{esc(cd_start)}"' if cd_start else ''
 
     plan_url = f"{TRAINING_PLANS_URL}?race={esc(slug)}"
@@ -5491,7 +5566,8 @@ def build_train_for_race(
     race_data_js = {
         'slug': slug,
         'race_name': race_name,
-        'date_specific': rd['vitals'].get('date_specific', ''),
+        'date_specific': (rd['vitals'].get('date_specific', '')
+                          if upcoming_race_start(rd['vitals'].get('date_specific', '')) else ''),
         'distance_mi': distance_mi,
     }
     race_data_json = _safe_json_for_script(race_data_js, ensure_ascii=False, separators=(',', ':'))
@@ -5977,7 +6053,7 @@ def build_email_capture(rd: dict) -> str:
     """Build email capture section — prep kit CTA + Substack subscribe."""
     slug = esc(rd["slug"])
     name = esc(rd["name"])
-    race_date, _ = parse_event_dates(rd['vitals'].get('date_specific', ''))
+    race_date = upcoming_race_start(rd['vitals'].get('date_specific', ''))
     reminder_opt_in = ''
     if race_date:
         reminder_opt_in = f'''<button type="button" class="gg-date-reminder-opt-in" id="gg-date-reminder-opt-in"
@@ -6010,7 +6086,7 @@ def build_email_capture(rd: dict) -> str:
 def build_date_reminder(rd: dict) -> str:
     """Build race date reminder capture — drives return visits 12 weeks before race."""
     date_specific = rd['vitals'].get('date_specific', '')
-    cd_start, _ = parse_event_dates(date_specific)
+    cd_start = upcoming_race_start(date_specific)
     if not cd_start:
         return ''
 
@@ -7076,6 +7152,14 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-logistics-item {{ border: var(--gg-border-subtle); padding: 12px; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-logistics-item-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-bottom: var(--gg-spacing-2xs); }}
 .gg-neo-brutalist-page .gg-logistics-item-value {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-dark-brown); line-height: 1.5; }}
+.gg-neo-brutalist-page .gg-results-table {{ width: 100%; border-collapse: collapse; border: var(--gg-border-standard); }}
+.gg-neo-brutalist-page .gg-results-table th, .gg-neo-brutalist-page .gg-results-table td {{ padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-results-table thead th {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); background: var(--gg-color-warm-paper); border-bottom: var(--gg-border-standard); }}
+.gg-neo-brutalist-page .gg-results-year {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; color: var(--gg-color-dark-brown); white-space: nowrap; }}
+.gg-neo-brutalist-page .gg-results-race {{ display: block; font-size: var(--gg-font-size-2xs); font-weight: 400; color: var(--gg-color-secondary-brown); white-space: normal; }}
+.gg-neo-brutalist-page .gg-results-name {{ display: block; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-results-time {{ display: block; font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-variant-numeric: tabular-nums; color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-results-note {{ margin-top: var(--gg-spacing-sm); font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); line-height: 1.5; }}
 
 /* Riders Report callout */
 .gg-neo-brutalist-page .gg-riders-report {{ border-left: 3px solid var(--gg-color-teal); padding: var(--gg-spacing-md) var(--gg-spacing-lg); margin-top: var(--gg-spacing-lg); background: var(--gg-color-warm-paper); }}
@@ -7297,6 +7381,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: repeat(2, 1fr); }}
   .gg-neo-brutalist-page .gg-verdict-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-logistics-grid {{ grid-template-columns: 1fr; }}
+  .gg-neo-brutalist-page .gg-results-table th, .gg-neo-brutalist-page .gg-results-table td {{ padding: 8px; }}
+  .gg-neo-brutalist-page .gg-results-year {{ white-space: normal; }}
   .gg-neo-brutalist-page .gg-rating-panel {{ grid-template-columns: 1fr; grid-template-areas: 'summary' 'radar' 'tiles' 'detail'; }}
   .gg-neo-brutalist-page .gg-training-secondary {{ flex-direction: column; text-align: center; }}
   .gg-neo-brutalist-page .gg-pack-demand-label {{ font-size: 11px; }}
@@ -7534,6 +7620,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     hero = build_hero(rd)
     course_overview = build_course_overview(rd, race_index)
     history = build_history(rd)
+    results_sec = build_results(rd)
     course_route = build_course_route(rd)
     from_the_field = build_from_the_field(rd)
     ratings = build_ratings(rd)
@@ -7566,6 +7653,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         active.add('training')
     if history:
         active.add('history')
+    if results_sec:
+        active.add('results')
     if course_route:
         active.add('route')
     if from_the_field:
@@ -7604,7 +7693,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     spine = '\n\n  '.join(section for section in spine_sections if section)
 
     deep_sections = []
-    for section in [course_overview, history, course_route, from_the_field,
+    for section in [course_overview, history, results_sec, course_route, from_the_field,
                     racer_reviews, training, train_for_race, logistics_sec,
                     tire_picks, news, similar, visible_faq, citations_sec]:
         if section:

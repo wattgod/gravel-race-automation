@@ -5,6 +5,7 @@
   "description": "Winter gravel in the ancient Uwharries \u2014 NC Gravel Series opener country.",
   "sport": "Gravel Cycling",
   "startDate": "2027-02-21",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Troy, North Carolina (Badin Lake, Uwharrie National Forest)",
@@ -16,7 +17,7 @@
   },
   "url": "https://trans-sylvaniaproductions.com/ufgg",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Trans-Sylvania Productions",
     "url": "https://trans-sylvaniaproductions.com/ufgg"
   }

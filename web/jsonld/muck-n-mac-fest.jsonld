@@ -5,6 +5,8 @@
   "description": "Two days of Scottish Borders gravel, timed enduro stages, and festival recovery at Traquair House.",
   "sport": "Gravel Cycling",
   "startDate": "2027-05-01",
+  "endDate": "2027-05-02",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Traquair House, Scotland, UK",
@@ -16,7 +18,7 @@
   },
   "url": "https://outsiderevents.eventrac.co.uk/e/muck-n-mac-fest-13569",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Outsider Events",
     "url": "https://outsiderevents.eventrac.co.uk/e/muck-n-mac-fest-13569"
   }

@@ -21,7 +21,11 @@ from pathlib import Path
 from typing import Optional
 
 sys.path.insert(0, str(Path(__file__).parent))
-from race_facts import location_region, race_discipline, race_status  # noqa: E402
+from race_facts import (  # noqa: E402
+    edition_event_status, location_region, organizer_type, race_discipline,
+    race_status,
+)
+from season import parse_edition  # noqa: E402
 
 
 RACE_DATA = Path(__file__).parent.parent / "race-data"
@@ -412,13 +416,16 @@ def generate_jsonld(entry: dict, profile_data: dict = None) -> dict:
 
     if iso_date:
         jsonld["startDate"] = iso_date
+        end = parse_edition(date_specific).end_date
+        if end:
+            jsonld["endDate"] = end.isoformat()
 
-    break_note = race.get("taking_a_break") or {}
-    status_text = f'{date_specific} {break_note.get("label", "")}'.lower()
-    if "cancel" in status_text:
-        jsonld["eventStatus"] = "https://schema.org/EventCancelled"
-    elif break_note:
-        jsonld["eventStatus"] = "https://schema.org/EventPostponed"
+    # Cancelled/postponed when the data says so; EventScheduled only for an
+    # upcoming edition (a past startDate stays, truthfully, with no status).
+    status = edition_event_status(
+        {**race, "vitals": {**vitals, "date_specific": date_specific}})
+    if status:
+        jsonld["eventStatus"] = status
 
     if entry.get("location"):
         loc = entry["location"]
@@ -458,7 +465,7 @@ def generate_jsonld(entry: dict, profile_data: dict = None) -> dict:
     # Organizer from history.founder — skip generic placeholders
     founder = race.get("history", {}).get("founder", "")
     if founder and not founder.endswith("organizers") and founder != "Unknown":
-        org = {"@type": "Person", "name": founder}
+        org = {"@type": organizer_type(founder), "name": founder}
         if official_site and official_site.startswith("http"):
             org["url"] = official_site
         jsonld["organizer"] = org

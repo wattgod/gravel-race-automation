@@ -50,6 +50,10 @@ from shared_header import get_site_header_css, get_site_header_html, get_site_he
 from pricing import MIN_WEEKS, PRICE_PER_WEEK
 from page_dates import race_updated_date
 from fact_consistency import check_race
+from season import UPCOMING, edition_display, edition_state, edition_year, parse_edition
+
+sys.path.append(str(Path(__file__).resolve().parent.parent / "scripts"))
+from race_facts import edition_event_status, organizer_type  # noqa: E402
 
 # ── Constants ──────────────────────────────────────────────────
 
@@ -337,6 +341,20 @@ def _validated_seo_override(rd: dict, field: str, max_chars: int) -> str:
     return value
 
 
+def _location_tail(location: str) -> str:
+    """Last comma-separated part of ``location`` outside any parentheses."""
+    parts, depth, current = [], 0, ''
+    for ch in str(location or ''):
+        depth += (ch == '(') - (ch == ')' and depth > 0)
+        if ch == ',' and depth == 0:
+            parts.append(current)
+            current = ''
+        else:
+            current += ch
+    parts.append(current)
+    return parts[-1].strip()
+
+
 def build_seo_title(rd: dict) -> str:
     """Build an SEO-optimized <title> tag.
 
@@ -349,22 +367,20 @@ def build_seo_title(rd: dict) -> str:
 
     name = rd['name']
     location = rd['vitals'].get('location', '') or ''
-    date_text = ' '.join(
-        str(rd['vitals'].get(field, '') or '')
-        for field in ('date_specific', 'date')
-    )
-    year_match = re.search(r'\b(20\d{2})\b', date_text)
-    review_year = year_match.group(1) if year_match else CURRENT_YEAR
-    # Extract just state/country from full location like "Emporia, Kansas"
-    loc_short = location.split(',')[-1].strip() if ',' in location else location
+    # The next edition's year when the data knows it; never a past year.
+    year = edition_year(rd['vitals'].get('date_specific'))
+    review = f"{name} Review {year}" if year else f"{name} Review"
+    # Just state/country from "Emporia, Kansas"; commas inside parentheses
+    # ("Global (HQ: Girona, Spain)") do not split.
+    loc_short = _location_tail(location)
 
     # Try full format first
-    full = f"{name} Review {review_year} | {loc_short} | Gravel God"
-    if len(full) <= SEO_TITLE_MAX_CHARS:
+    full = f"{review} | {loc_short} | Gravel God"
+    if loc_short and len(full) <= SEO_TITLE_MAX_CHARS:
         return full
 
     # Drop location if too long
-    medium = f"{name} Review {review_year} | Gravel God"
+    medium = f"{review} | Gravel God"
     if len(medium) <= SEO_TITLE_MAX_CHARS:
         return medium
 
@@ -922,6 +938,10 @@ def normalize_race_data(data: dict) -> dict:
         short_date = f"{date_part}, {year}"
     elif source_blocked:
         short_date = vitals.get('date', '')
+    # Past or estimated editions say so instead of passing as confirmed.
+    edition_note = edition_display(date_specific) if date_specific else None
+    if edition_note:
+        short_date = edition_note
 
     # Parse entry cost from registration string, then fallback to rating explanations
     reg = vitals.get('registration', '')
@@ -993,6 +1013,7 @@ def normalize_race_data(data: dict) -> dict:
             'location_badge': vitals.get('location_badge', vitals.get('location', '--')),
             'date': short_date or vitals.get('date', '--'),
             'date_specific': date_specific,
+            'edition_note': edition_note or '',
             'field_size': field_size_short,
             'field_size_raw': field_size_raw,
             'entry_cost': entry_cost,
@@ -2638,6 +2659,10 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
     # No parseable date → skip SportsEvent entirely
     if not start_date:
         return None
+    # Ranges with weekday notes ("April 30 (Fri) - May 2 (Sun)")
+    edition_end = parse_edition(date_specific).end_date
+    if edition_end and edition_end.isoformat() > end_date:
+        end_date = edition_end.isoformat()
 
     jsonld = {
         "@context": "https://schema.org",
@@ -2648,12 +2673,15 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
             rd.get("discipline", "gravel"),
             "Gravel Cycling",
         ),
-        "eventStatus": ("https://schema.org/EventPostponed"
-                        if rd.get('taking_a_break') else "https://schema.org/EventScheduled"),
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "startDate": start_date,
         "endDate": end_date,
     }
+
+    # Scheduled only for an upcoming edition; a past one is history.
+    status = edition_event_status(rd)
+    if status:
+        jsonld["eventStatus"] = status
 
     # Location with PostalAddress — detect country from location string
     location = rd['vitals'].get('location', '')
@@ -2689,7 +2717,7 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
     founder = rd.get('history', {}).get('founder', '')
     official_site = rd['logistics'].get('official_site', '')
     if founder and not founder.endswith('organizers') and founder != 'Unknown':
-        org = {"@type": "Person", "name": founder}
+        org = {"@type": organizer_type(founder), "name": founder}
         if official_site and official_site.startswith('http'):
             org["url"] = official_site
         jsonld["organizer"] = org
@@ -2823,7 +2851,7 @@ def build_hero(rd: dict) -> str:
     month = vitals.get('month', '')
     date_specific = vitals.get('date_specific', '')
     if date_specific:
-        parts.append(esc(date_specific))
+        parts.append(esc(vitals.get('edition_note') or date_specific))
     elif month:
         parts.append(esc(month))
     vitals_line = " &middot; ".join(parts)
@@ -3708,7 +3736,7 @@ def build_training(rd: dict) -> str:
     countdown_html = ''
     date_specific = rd['vitals'].get('date_specific', '')
     cd_start, _cd_end = parse_event_dates(date_specific)
-    if cd_start:
+    if cd_start and edition_state(date_specific) == UPCOMING:
         # Reconstruct display date from ISO for no-JS/crawlers
         parts = cd_start.split('-')
         month_names = {v: k.capitalize() for k, v in MONTH_NUMBERS.items()}

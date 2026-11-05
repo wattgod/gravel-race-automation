@@ -5,6 +5,7 @@
   "description": "The only mountain bike race crossing Kenya's Great Rift Valley to Maasai Mara.",
   "sport": "Mountain Biking",
   "startDate": "2026-09-21",
+  "endDate": "2026-09-25",
   "location": {
     "@type": "Place",
     "name": "Kiambu County to Maasai Mara, Kenya",
@@ -16,7 +17,7 @@
   },
   "url": "https://www.riftvalleyodyssey.com",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "RVO Cycling (Nairobi, Kenya); contact: Eric Nesbitt",
     "url": "https://www.riftvalleyodyssey.com"
   }

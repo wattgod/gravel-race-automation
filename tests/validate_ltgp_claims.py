@@ -12,7 +12,7 @@ import json
 import re
 from pathlib import Path
 
-# Official LTGP events for 2025/2026 (current seasons)
+# Official LTGP events for 2026/2027 (current seasons)
 CURRENT_LTGP_SLUGS = {
     "sea-otter-gravel",
     "fuego-mtb",
@@ -20,13 +20,13 @@ CURRENT_LTGP_SLUGS = {
     "leadville-100",
     "chequamegon-mtb",
     "little-sugar-mtb",
-    "big-sugar"
+    "big-sugar",
+    "the-rad",  # back on the 2027 calendar
 }
 
 # Former LTGP events (should say "former" not current)
 FORMER_LTGP_SLUGS = {
     "crusher-in-the-tushar",  # Was LTGP 2024 only
-    "rad-dirt-fest"           # Was LTGP 2024 only
 }
 
 # Events that should NEVER claim LTGP (but comparisons are OK)

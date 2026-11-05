@@ -130,11 +130,11 @@ def build_race_calculator(rd):
         choice = '<label for="gg-calculator-distance">Distance</label><select id="gg-calculator-distance" name="distance">' + choices + '</select>'
     else:
         choice = '<p class="gg-race-calculator-unknown">Choose your distance in Endure Labs.</p>'
-    note = ("Confirm this race's edition and course file in Endure Labs." if context.get("source_blocked")
-            else "Choose the edition and course file in Endure Labs.")
+    note = ("Confirm this race's edition and course availability in Endure Labs." if context.get("source_blocked")
+            else "Confirm course availability for your selected edition in Endure Labs.")
     return '''<section id="race-calculator" class="gg-race-calculator" aria-labelledby="gg-calculator-title" data-measure-section="race-calculator">
   <div class="gg-race-calculator-heading"><span class="gg-race-calculator-kicker">Endure Labs</span><h2 id="gg-calculator-title">Race calculator</h2></div>
-  <p class="gg-race-calculator-intro">Explore power and weather choices for ''' + esc(str(rd.get("name") or "this race")) + '''.</p>
+  <p class="gg-race-calculator-intro">For ''' + esc(str(rd.get("name") or "this race")) + ''', start with your training history in Endure Labs. Then choose conditions and practical race scenarios for a ballpark finish estimate.</p>
   <form action="''' + ENDURE_CALCULATOR_URL + '''" method="get" class="gg-race-calculator-form">
     ''' + fields + choice + '''
     <button type="submit" class="gg-race-calculator-button" data-cta="race_calculator_open">Open in Endure Labs <span aria-hidden="true">↗</span></button>

@@ -98,7 +98,7 @@ def test_source_blocked_profile_does_not_handoff_its_historical_edition_or_dista
     data["race"]["vitals"]["course_status"] = "source_blocked"
     fragment = calculator(page(data))
     assert handoff(page(data))[1] == {"source": "gravel", "race": "barry-roubaix"}
-    assert "Confirm this race&#x27;s edition and course file" in fragment
+    assert "Confirm this race&#x27;s edition and course availability" in fragment
 
 
 def test_card_exists_without_a_race_pack():
@@ -251,6 +251,33 @@ def test_calculator_copy_has_no_fake_result_or_slop():
     fragment = calculator(page())
     assert not check_text(fragment)
     assert "Open in Endure Labs" in fragment
-    assert "Choose the edition and course file in Endure Labs." in fragment
+    assert "Confirm course availability for your selected edition in Endure Labs." in fragment
     assert "finish-range" not in fragment
     assert "confidence" not in fragment
+
+
+def test_athlete_first_handoff_describes_history_before_scenarios_and_estimate():
+    fragment = calculator(page())
+    assert "start with your training history in Endure Labs." in fragment
+    assert 'class="gg-race-calculator-intro">For ' in fragment
+    assert fragment.index("training history") < fragment.index("choose conditions") < fragment.index("ballpark finish estimate")
+    assert "practical race scenarios" in fragment
+    assert "power and weather choices" not in fragment
+    # This is still a public identity handoff: no athlete or physics controls.
+    tags = Tags(fragment)
+    assert {x["name"] for x in tags.matching("input")} == {"source", "race", "edition"}
+    assert [x["name"] for x in tags.matching("select")] == ["distance"]
+
+
+def test_unbound_current_edition_is_not_replaced_by_historical_pilot_route():
+    data = json.loads((ROOT / "race-data" / "unbound-200.json").read_text())
+    data["race"]["vitals"]["date_specific"] = "2027: May 29"
+    data["race"]["edition_year"] = 2027
+    data["race"]["vitals"].pop("course_status", None)
+    assert handoff(page(data))[1]["edition"] == "2027"
+    data["race"]["vitals"]["course_status"] = "source_blocked"
+    fragment = calculator(page(data))
+    assert handoff(fragment)[1] == {"source": "gravel", "race": "unbound-200"}
+    assert "Confirm this race&#x27;s edition and course availability" in fragment
+    assert "2026" not in fragment
+    assert "verified course" not in fragment.lower()

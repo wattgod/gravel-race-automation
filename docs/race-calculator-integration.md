@@ -8,6 +8,28 @@ source-blocked, paused and ineligible profiles so the utility remains available.
 It does not use the retired, unmounted preparation strip and does not require
 a race-pack preview. The locked first-pass page spine is unchanged.
 
+## Athlete-first handoff
+
+The entry now describes the intended sequence: selected race → the athlete's
+own training history in Endure Labs → conditions and practical race scenarios
+→ a ballpark finish estimate. It does not invite the rider to configure power
+or physics parameters. This remains the existing native form, with no new
+calculator or personal inputs on GGC.
+
+The selected edition and distance are identity, not proof of route coverage.
+Endure Labs must retain them through authentication and resolve the athlete's
+own history only after authentication. If that exact edition has no usable
+course, it must explain the gap before estimating. In particular, the public
+2026 Unbound 200 pilot route must never be relabelled as a 2027 course.
+Source-blocked GGC profiles continue to omit edition and distance rather than
+asserting unavailable current-course metadata. The public note asks the rider
+to confirm edition-specific course availability.
+
+This handoff copy describes the flow being implemented, not evidence of a
+completed hosted release. Publish it only with the matching authenticated
+athlete-first destination. It claims no verified route, group prediction,
+forecast availability, or validated finish-time accuracy.
+
 ## Browser contract
 
 The native GET form targets:

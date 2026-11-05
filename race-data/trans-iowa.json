@@ -10,8 +10,8 @@
       "location": "Checkpoint, Iowa",
       "location_badge": "CHECKPOINT, IA",
       "county": "Central Iowa",
-      "date": "Mid-April annually",
-      "date_specific": "2025: April 19-20",
+      "date": "Mid-April (final edition 2018)",
+      "date_specific": "Dropped — Trans Iowa ended after v14; no further editions",
       "terrain_types": [
         "Iowa farmland",
         "Rolling gravel",
@@ -405,6 +405,12 @@
         "url": "https://www.salsacycles.com/blogs/articles/trans-iowa-v12-the-big-easy",
         "category": "other",
         "label": "Salsacycles"
+      },
+      {
+        "url": "https://transiowa.blogspot.com/",
+        "category": "official",
+        "label": "Trans Iowa blog — 5/5/18: Trans Iowa will not happen again",
+        "accessed": "2026-11-05"
       }
     ],
     "tire_recommendations": {
@@ -724,6 +730,10 @@
         "credit": "YouTube / VC Adventures",
         "gif": true
       }
-    ]
+    ],
+    "taking_a_break": {
+      "label": "NO EDITION SINCE 2018",
+      "line": "Trans Iowa ended with v14 in April 2018. The organizer has confirmed there will be no v15."
+    }
   }
 }

@@ -5,8 +5,10 @@ Generate a standalone race calendar page for SEO.
 Creates /race/calendar/{season}/index.html for the season riders are planning
 (season.season_year()) plus an archive page for every earlier season since
 FIRST_CALENDAR_YEAR. On the season page each race sits in the month of its
-next edition: the confirmed date when the profile has one, otherwise the
-month it last ran, marked "{season} date TBA". /race/calendar/ itself is a
+next edition: the stored date when the profile has one, otherwise the date
+projected from the last edition (season.estimate_next), marked "Est.". Only
+when nothing can be projected does it sit in the month it last ran, marked
+"{season} date TBA". /race/calendar/ itself is a
 302 to the season page (scripts/push_wordpress.py REDIRECT_BLOCK).
 Targets queries like "gravel race calendar 2026", "gravel racing schedule",
 "gravel events this month".
@@ -32,8 +34,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 sys.path.append(str(Path(__file__).parent.parent / "scripts"))
-from race_facts import is_ranked  # noqa: E402
-from season import parse_edition, season_year  # noqa: E402
+from race_facts import is_ranked, may_estimate  # noqa: E402
+from season import PAST, estimate_next, parse_edition, season_year  # noqa: E402
 from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, get_ga4_head_snippet, get_tokens_css, SITE_BASE_URL
 from shared_header import get_site_header_css, get_site_header_html
 from cookie_consent import get_consent_banner_html
@@ -64,9 +66,13 @@ def esc(text) -> str:
     return html_mod.escape(str(text)) if text else ""
 
 
-def load_editions(slugs) -> dict:
-    """slug -> race.vitals.date_specific from race-data/ (missing files skipped)."""
-    editions = {}
+def load_editions(slugs) -> tuple[dict, frozenset]:
+    """(slug -> race.vitals.date_specific, slugs never to estimate) from race-data/.
+
+    Missing files are skipped. The second item lists races that
+    ``race_facts.may_estimate`` rules out (not running, source blocked).
+    """
+    editions, fixed = {}, set()
     for slug in slugs:
         path = PROJECT_ROOT / "race-data" / f"{slug}.json"
         try:
@@ -75,20 +81,29 @@ def load_editions(slugs) -> dict:
             continue
         race = data.get("race", data)
         editions[slug] = (race.get("vitals") or {}).get("date_specific")
-    return editions
+        if not may_estimate(race):
+            fixed.add(slug)
+    return editions, frozenset(fixed)
 
 
-def place_race(race: dict, year: int, date_specific, season: int = None):
+def place_race(race: dict, year: int, date_specific, season: int = None, *,
+               project: bool = True, on=None):
     """Where a race sits on the ``year`` calendar.
 
     Returns (month name or "TBD", kind, label, day) or None when the race's
-    next edition is after ``year``. kind is "confirmed", "estimated", "tba"
-    (season page, date not announced: placed in the month it last ran) or
-    "archived" (earlier season).
+    next edition is after ``year``. kind is "confirmed", "estimated" (stored
+    as an estimate, or projected from a past edition when ``project``),
+    "tba" (season page, nothing to project: placed in the month it last ran)
+    or "archived" (earlier season).
     """
     season = SEASON_YEAR if season is None else season
     ed = parse_edition(date_specific)
     fallback = race.get("month") if race.get("month") in MONTHS else "TBD"
+    if (year >= season and project and is_ranked(race)
+            and ed.state(on) == PAST):
+        est = estimate_next(ed, on)
+        if est and est.year == year:
+            ed = est
     if ed.year == year and ed.month:
         month = MONTHS[ed.month - 1]
         when = f"{month[:3]} {ed.day}" if ed.day else month[:3]
@@ -105,8 +120,12 @@ def place_race(race: dict, year: int, date_specific, season: int = None):
     return month, "tba", f"{year} date TBA", 99
 
 
-def build_calendar_page(races: list, year: int = None, editions: dict = None) -> str:
-    """Generate the calendar page for ``year`` (default: the current season)."""
+def build_calendar_page(races: list, year: int = None, editions: dict = None,
+                        fixed: frozenset = frozenset()) -> str:
+    """Generate the calendar page for ``year`` (default: the current season).
+
+    ``fixed``: slugs whose past edition is never projected (``load_editions``).
+    """
     year = SEASON_YEAR if year is None else year
     archive = year < SEASON_YEAR
     editions = editions or {}
@@ -116,7 +135,8 @@ def build_calendar_page(races: list, year: int = None, editions: dict = None) ->
     for r in races:
         if not is_ranked(r):
             continue
-        spot = place_race(r, year, editions.get(r.get("slug")))
+        spot = place_race(r, year, editions.get(r.get("slug")),
+                          project=r.get("slug") not in fixed)
         if spot is None:
             continue
         month, kind, label, day = spot
@@ -569,11 +589,11 @@ def main():
         all_races = json.load(f)
     print(f"Loaded {len(all_races)} races")
 
-    editions = load_editions(r.get("slug") for r in all_races)
+    editions, fixed = load_editions(r.get("slug") for r in all_races)
     for year in range(FIRST_CALENDAR_YEAR, SEASON_YEAR + 1):
         page_dir = output_dir / "calendar" / str(year)
         page_dir.mkdir(parents=True, exist_ok=True)
-        page_html = build_calendar_page(all_races, year, editions)
+        page_html = build_calendar_page(all_races, year, editions, fixed)
         (page_dir / "index.html").write_text(page_html, encoding="utf-8")
         label = "season" if year == SEASON_YEAR else "archive"
         print(f"Generated calendar/{year}/index.html ({label})")

@@ -1,12 +1,17 @@
 """Season calendar: races sit in the month of their next edition.
 
-/race/calendar/{season}/ places each race by its confirmed upcoming date or,
-until one is announced, in the month it last ran marked "{season} date TBA".
+/race/calendar/{season}/ places each race by its stored upcoming date or,
+until one is announced, on the date projected from its last edition marked
+"Est.". Only a race with nothing to project (not running, skipped a season,
+no month) sits in the month it last ran marked "{season} date TBA".
 Earlier seasons stay generated as archives that link to the season page.
 """
 
 import sys
+from datetime import date
 from pathlib import Path
+
+import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "wordpress"))
@@ -15,6 +20,12 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import generate_calendar as gc  # noqa: E402
 
 SEASON = gc.SEASON_YEAR
+ON = date(SEASON - 1, 11, 5)  # autumn before the season: last year's editions have run
+
+
+@pytest.fixture(autouse=True)
+def autumn(monkeypatch):
+    monkeypatch.setenv("GG_TODAY", ON.isoformat())
 
 
 def _race(slug, month="June", status="active", tier=2, score=70):
@@ -39,9 +50,25 @@ class TestPlaceRace:
         assert (month, kind) == ("May", "estimated")
         assert label.startswith("Est.")
 
-    def test_past_edition_falls_back_to_the_month_it_last_ran(self):
-        month, kind, label, _ = gc.place_race(
+    def test_past_edition_is_placed_on_its_estimate(self):
+        last = date(SEASON - 1, 9, 20)
+        month, kind, label, day = gc.place_race(
             _race("a", month="August"), SEASON, f"{SEASON - 1}: September 20")
+        assert (month, kind) == ("September", "estimated")
+        assert label == f"Est. Sep {day}"
+        assert date(SEASON, 9, day).weekday() == last.weekday()
+
+    def test_past_month_only_edition_is_estimated_without_a_day(self):
+        spot = gc.place_race(_race("a"), SEASON, f"{SEASON - 1}: July TBD")
+        assert spot == ("July", "estimated", "Est. Jul", 99)
+
+    @pytest.mark.parametrize("race,ds,project", [
+        (_race("a", month="August"), f"{SEASON - 1}: September 20", False),
+        (_race("a", status="inactive"), f"{SEASON - 1}: September 20", True),
+        (_race("a", month="August"), f"{SEASON - 2}: September 20", True),  # skipped
+    ])
+    def test_nothing_to_project_falls_back_to_the_month_it_last_ran(self, race, ds, project):
+        month, kind, label, _ = gc.place_race(race, SEASON, ds, project=project)
         assert (month, kind, label) == ("September", "tba", f"{SEASON} date TBA")
 
     def test_undated_race_uses_the_index_month(self):
@@ -62,13 +89,17 @@ class TestPlaceRace:
 class TestCalendarPages:
     RACES = [
         _race("confirmed-race", month="June"),
+        _race("estimated-race", month="June"),
         _race("tba-race", month="August"),
         _race("gone-race", status="inactive"),
     ]
-    EDITIONS = {"confirmed-race": f"{SEASON}: April 18", "tba-race": f"{SEASON - 1}: August 2"}
+    EDITIONS = {"confirmed-race": f"{SEASON}: April 18",
+                "estimated-race": f"{SEASON - 1}: September 12",
+                "tba-race": f"{SEASON - 1}: August 2"}
+    FIXED = frozenset({"tba-race"})  # e.g. source blocked: never projected
 
     def test_season_page(self):
-        html = gc.build_calendar_page(self.RACES, SEASON, self.EDITIONS)
+        html = gc.build_calendar_page(self.RACES, SEASON, self.EDITIONS, self.FIXED)
         assert f'<link rel="canonical" href="https://gravelgodcycling.com/race/calendar/{SEASON}/">' in html
         assert f"<h1>{SEASON} Gravel Race Calendar</h1>" in html
         assert "1 dates confirmed" in html
@@ -76,14 +107,16 @@ class TestCalendarPages:
         assert "/race/confirmed-race/" in april and "Apr 18" in april
         august = html.split('id="month-august"')[1].split("</section>")[0]
         assert "/race/tba-race/" in august and f"{SEASON} date TBA" in august
+        september = html.split('id="month-september"')[1].split("</section>")[0]
+        assert "/race/estimated-race/" in september and "Est. Sep " in september
         assert "/race/gone-race/" not in html  # not running stays off
         assert gc.get_ga4_head_snippet() in html
 
     def test_archive_links_to_the_season(self):
-        html = gc.build_calendar_page(self.RACES, SEASON - 1, self.EDITIONS)
+        html = gc.build_calendar_page(self.RACES, SEASON - 1, self.EDITIONS, self.FIXED)
         assert f'/race/calendar/{SEASON - 1}/">' in html  # canonical stays put
         assert f'<a href="/race/calendar/{SEASON}/">{SEASON} calendar' in html
-        assert "date TBA" not in html
+        assert "date TBA" not in html and "Est. " not in html
 
     def test_generates_every_season_from_the_first(self, tmp_path, monkeypatch):
         monkeypatch.setattr(sys, "argv", ["generate_calendar.py", "--output-dir", str(tmp_path)])

@@ -331,8 +331,14 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         SubElement(url, 'changefreq').text = 'monthly'
         SubElement(url, 'priority').text = '0.6'
 
-    # Per-tire review pages
+    # Tires index + per-tire review pages
     tire_page_slugs = load_tire_page_slugs(output_path.parent.parent)
+    if tire_page_slugs or tire_slugs:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/tire/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'weekly'
+        SubElement(url, 'priority').text = '0.7'
     for slug in tire_page_slugs:
         url = SubElement(urlset, 'url')
         SubElement(url, 'loc').text = f"{SITE_BASE_URL}/tire/{slug}/"

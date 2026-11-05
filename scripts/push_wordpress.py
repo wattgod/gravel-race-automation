@@ -2930,6 +2930,10 @@ RewriteRule ^training-plans/?$ /products/training-plans/ [R=301,L]
 # Broken URL from GSC → parent page (404 fix)
 RewriteRule ^training-plans-faq/gravelgodcoaching@gmail\\.com$ /training-plans-faq/ [R=301,L]
 
+# Tires index lives at /tire/ (breadcrumb parent of /tire/{slug}/ reviews).
+RewriteRule ^tires/?$ /tire/ [R=301,L]
+RewriteRule ^race/tires/?$ /tire/ [R=301,L]
+
 # Bare calendar → the season riders are planning (computed at deploy time).
 """ + SEASON_CALENDAR_REDIRECT_RULE + """
 
@@ -4201,7 +4205,8 @@ def sync_tire_pages(tire_pages_dir: str):
 
     print(f"  Uploading {len(dirs)} /tire/ pages via tar+ssh...")
     try:
-        tar_cmd = ["tar", "-cf", "-", "-C", str(src)] + dirs
+        root_files = ["index.html"] if (src / "index.html").exists() else []  # /tire/ index
+        tar_cmd = ["tar", "-cf", "-", "-C", str(src)] + dirs + root_files
         ssh_cmd = ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
                    f"mkdir -p {remote_base} && tar -xf - -C {remote_base}"]
         tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)

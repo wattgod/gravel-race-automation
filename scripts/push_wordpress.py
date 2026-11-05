@@ -2814,6 +2814,30 @@ def season_calendar_redirect_rule() -> str:
 
 SEASON_CALENDAR_REDIRECT_RULE = season_calendar_redirect_rule()
 
+# First season wordpress/generate_power_rankings.py built a page for.
+FIRST_POWER_RANKINGS_YEAR = 2026
+
+
+def season_power_rankings_redirect_rules() -> str:
+    """Past seasons' /race/power-rankings-{year}/ → this season's page (301:
+    a past season's page never comes back). Bare /race/power-rankings/ → this
+    season (302, same reason as the calendar: the target moves every season).
+    """
+    wordpress_dir = str(Path(__file__).resolve().parent.parent / "wordpress")
+    if wordpress_dir not in sys.path:
+        sys.path.insert(0, wordpress_dir)
+    from season import season_year
+
+    season = season_year()
+    target = f"/race/power-rankings-{season}/"
+    rules = [f"RewriteRule ^race/power-rankings/?$ {target} [R=302,L]"]
+    rules += [f"RewriteRule ^race/power-rankings-{year}/?$ {target} [R=301,L]"
+              for year in range(FIRST_POWER_RANKINGS_YEAR, season)]
+    return "\n".join(rules)
+
+
+SEASON_POWER_RANKINGS_REDIRECT_RULES = season_power_rankings_redirect_rules()
+
 
 REDIRECT_BLOCK = """\
 # BEGIN Gravel God Redirects
@@ -2936,6 +2960,9 @@ RewriteRule ^race/tires/?$ /tire/ [R=301,L]
 
 # Bare calendar → the season riders are planning (computed at deploy time).
 """ + SEASON_CALENDAR_REDIRECT_RULE + """
+
+# Power rankings build to /race/power-rankings-{season}/ (computed at deploy time).
+""" + SEASON_POWER_RANKINGS_REDIRECT_RULES + """
 
 # Fabricated race pages removed (SITE-SYNC S3, 2026-07) → state/region best-of hubs
 RewriteRule ^race/black-forest-gravel/?$ /race/best-gravel-races-germany/ [R=301,L]

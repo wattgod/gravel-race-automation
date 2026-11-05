@@ -166,7 +166,8 @@ def load_special_pages(project_root: Path) -> list:
     """Load calendar/power-rankings/quiz page slugs."""
     output_dir = project_root / "wordpress" / "output"
     slugs = []
-    for pattern in ["calendar", "power-rankings-*", "quiz"]:
+    # Only this season's power rankings: past seasons 301 to it (push_wordpress.py).
+    for pattern in ["calendar", f"power-rankings-{season_year()}", "quiz"]:
         import glob as glob_mod
         for path in sorted(output_dir.glob(pattern)):
             if path.is_dir():

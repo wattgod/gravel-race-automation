@@ -2795,6 +2795,26 @@ ROAD_MIGRATION_REDIRECT_SECTION = generate_road_migration_redirect_section(
 )
 
 
+def season_calendar_redirect_rule() -> str:
+    """/race/calendar/ → /race/calendar/{season}/ for the season riders plan.
+
+    The evergreen URL is a redirect, not a copy of the season page, so there
+    is one calendar page per season and no canonical to juggle. 302 because
+    the target moves every September (wordpress/season.py); a cached 301 would
+    pin browsers to last season.
+    """
+    wordpress_dir = str(Path(__file__).resolve().parent.parent / "wordpress")
+    if wordpress_dir not in sys.path:
+        sys.path.insert(0, wordpress_dir)
+    from season import season_year
+
+    return (f"RewriteRule ^race/calendar/?$ /race/calendar/{season_year()}/ "
+            "[R=302,L]")
+
+
+SEASON_CALENDAR_REDIRECT_RULE = season_calendar_redirect_rule()
+
+
 REDIRECT_BLOCK = """\
 # BEGIN Gravel God Redirects
 <IfModule mod_rewrite.c>
@@ -2910,28 +2930,27 @@ RewriteRule ^training-plans/?$ /products/training-plans/ [R=301,L]
 # Broken URL from GSC → parent page (404 fix)
 RewriteRule ^training-plans-faq/gravelgodcoaching@gmail\\.com$ /training-plans-faq/ [R=301,L]
 
-# Bare calendar has no index page — send to the current-year calendar
-# (update the year segment at each season rollover).
-RewriteRule ^race/calendar/?$ /race/calendar/2026/ [R=301,L]
+# Bare calendar → the season riders are planning (computed at deploy time).
+""" + SEASON_CALENDAR_REDIRECT_RULE + """
 
 # Fabricated race pages removed (SITE-SYNC S3, 2026-07) → state/region best-of hubs
 RewriteRule ^race/black-forest-gravel/?$ /race/best-gravel-races-germany/ [R=301,L]
 RewriteRule ^race/ozark-gravel/?$ /race/best-gravel-races-arkansas/ [R=301,L]
 RewriteRule ^race/pirate-cycling-league-gravel/?$ /race/best-gravel-races-california/ [R=301,L]
 RewriteRule ^race/grasslands-100/?$ /race/best-gravel-races-texas/ [R=301,L]
-RewriteRule ^race/balkan-gravel/?$ /race/calendar/2026/ [R=301,L]
+RewriteRule ^race/balkan-gravel/?$ /race/calendar/ [R=301,L]
 # greek-gravel: /race/best-gravel-races-greece/ no longer generates — removing
 # greek-gravel drops Greece to 2 real races, below the state-hub MIN_RACES=3
 # floor (wordpress/generate_state_hubs.py) — fall back to calendar instead.
-RewriteRule ^race/greek-gravel/?$ /race/calendar/2026/ [R=301,L]
+RewriteRule ^race/greek-gravel/?$ /race/calendar/ [R=301,L]
 RewriteRule ^race/natchez-trace-gran-fondo/?$ /race/best-gravel-races-tennessee/ [R=301,L]
 RewriteRule ^race/walburg-dirty-30/?$ /race/best-gravel-races-texas/ [R=301,L]
 RewriteRule ^race/flint-hills-death-ride/?$ /race/best-gravel-races-kansas/ [R=301,L]
 RewriteRule ^race/kal-tour-dirty-100/?$ /race/best-gravel-races-michigan/ [R=301,L]
 # chiang-mai-gran-fondo: fabricated-as-named (2026-07-23 audit — GFNY never ran
 # Chiang Mai; all references were circular self-sourcing). Subpaths covered.
-RewriteRule ^race/chiang-mai-gran-fondo/?$ /race/calendar/2026/ [R=301,L]
-RewriteRule ^race/chiang-mai-gran-fondo/(.*)$ /race/calendar/2026/ [R=301,L]
+RewriteRule ^race/chiang-mai-gran-fondo/?$ /race/calendar/ [R=301,L]
+RewriteRule ^race/chiang-mai-gran-fondo/(.*)$ /race/calendar/ [R=301,L]
 # polish-gravel: the prior generic Krakow identity had no supporting organizer
 # or event. Redirect the page and any old product subpaths to the verified
 # Niepolomice race from the same region.
@@ -3022,8 +3041,8 @@ RewriteRule ^race/bwr-asheville-vs-[a-z0-9-]+/?$ /race/bwr-north-carolina/ [R=30
 RewriteRule ^race/[a-z0-9-]+-vs-bwr-asheville/?$ /race/bwr-north-carolina/ [R=301,L]
 # No organizer or official event exists under the name Gravel des Flandres.
 # The retired page mixed unsupported facts with the old Flanders Gravel Series.
-RewriteRule ^race/gravel-des-flandres/?$ /race/calendar/2026/ [R=301,L]
-RewriteRule ^race/gravel-des-flandres/(.*)$ /race/calendar/2026/ [R=301,L]
+RewriteRule ^race/gravel-des-flandres/?$ /race/calendar/ [R=301,L]
+RewriteRule ^race/gravel-des-flandres/(.*)$ /race/calendar/ [R=301,L]
 # 66 South Pyrénées was an alternate name for the same Font-Romeu UCI race
 # now tracked from current organizer facts as Pyrénées Catalanes Gravel Tour.
 RewriteRule ^race/66-south-pyrenees/?$ /race/pyrenees-catalanes-gravel-tour/ [R=301,L]
@@ -3123,7 +3142,7 @@ RewriteRule ^blog/colorado-trail-race-recap/?$ /race/colorado-trail-race/ [R=301
 RewriteRule ^blog/uci-gravel-worlds-recap/?$ /race/uci-gravel-worlds/ [R=301,L]
 RewriteRule ^blog/turnhout-gravel-recap/?$ /race/turnhout-gravel/ [R=301,L]
 RewriteRule ^blog/gravel-del-fuego-recap/?$ /race/gravel-del-fuego/ [R=301,L]
-RewriteRule ^blog/gravel-des-flandres-recap/?$ /race/calendar/2026/ [R=301,L]
+RewriteRule ^blog/gravel-des-flandres-recap/?$ /race/calendar/ [R=301,L]
 RewriteRule ^blog/rad-dirt-fest-recap/?$ /race/the-rad/ [R=301,L]
 RewriteRule ^blog/iron-horse-bicycle-classic-recap/?$ https://roadielabs.com/race/iron-horse-bicycle-classic/ [R=301,L]
 RewriteRule ^blog/lotoja-classic-recap/?$ https://roadielabs.com/race/lotoja-classic/ [R=301,L]

@@ -20,6 +20,7 @@ from xml.dom.minidom import parseString
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
 from page_dates import race_updated_date  # noqa: E402
+from season import season_year  # noqa: E402
 
 SITE_BASE_URL = "https://gravelgodcycling.com"
 
@@ -172,7 +173,13 @@ def load_special_pages(project_root: Path) -> list:
                 # May be nested (calendar/2026)
                 for sub in sorted(path.rglob("index.html")):
                     rel = sub.parent.relative_to(output_dir)
-                    slugs.append(str(rel))
+                    if rel != Path("calendar"):  # /race/calendar/ is a redirect
+                        slugs.append(str(rel))
+    # The season calendar is listed even before a local build has made it:
+    # /race/calendar/ redirects there.
+    season_calendar = f"calendar/{season_year()}"
+    if season_calendar not in slugs:
+        slugs.insert(0, season_calendar)
     return slugs
 
 

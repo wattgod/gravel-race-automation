@@ -164,8 +164,25 @@ def parse_sequences(seq_file: Path):
             if "steps" not in vkeys:
                 continue
             for el in steps_elts(vnode.values[vkeys.index("steps")]):
-                if isinstance(el, ast.Dict):
-                    email = _email_from_dict(el)
+                if not isinstance(el, ast.Dict):
+                    continue
+                parent = _email_from_dict(el)
+                candidates = [parent]
+                # A step's source_overrides ({source: {template, subject}})
+                # is a separate email some enrollments get instead of the
+                # parent (sequence_engine._resolve_step); judge it too, at
+                # the parent's delay.
+                ekeys = [_const(k) for k in el.keys]
+                if "source_overrides" in ekeys:
+                    ov = el.values[ekeys.index("source_overrides")]
+                    if isinstance(ov, ast.Dict):
+                        for onode in ov.values:
+                            if isinstance(onode, ast.Dict):
+                                o = _email_from_dict(onode)
+                                if o and parent and "delay_days" in parent:
+                                    o.setdefault("delay_days", parent["delay_days"])
+                                candidates.append(o)
+                for email in candidates:
                     if email:
                         key = (email["template"], email["subject"],
                                email.get("delay_days"))

@@ -226,6 +226,37 @@ def _load_db_fallback(brand: str) -> None:
         logger.warning("race-dates DB fallback failed for %s: %s", brand, e)
 
 
+def published_race_date(brand: str, slug) -> tuple[date | None, str]:
+    """A race's currently published date, for the engine's send-time
+    freshness check (sequence_engine._race_premise_failure), and why not
+    when there is none.
+
+    Reads the same race-dates.json maps the countdown and debrief jobs enroll
+    from: this process's last-good copy, else the gg_settings copy that every
+    successful fetch writes. It never fetches, because it runs inside the
+    send loop; the startup probe and the daily jobs keep both copies fresh.
+    """
+    slug = str(slug or "").strip().lower()
+    if not slug:
+        return None, "the enrollment has no race_slug"
+    dates = _dates_cache.get(brand)
+    if not dates:
+        try:
+            raw = db.get_setting(f"race_dates_{brand}")
+            dates = (json.loads(raw).get("dates") or {}) if raw else {}
+        except Exception as e:
+            return None, f"{brand} race dates could not be read ({e!r})"
+    if not dates or not isinstance(dates, dict):
+        return None, f"no {brand} race dates are loaded"
+    raw_date = dates.get(slug)
+    if not raw_date:
+        return None, f"{brand}/{slug} has no published date"
+    parsed = parse_race_date(raw_date)
+    if parsed is None:
+        return None, f"{brand}/{slug} date {str(raw_date)[:40]!r} is not a date"
+    return parsed, ""
+
+
 def probe_race_dates() -> str:
     """One fetch pass, summarized for the audit log. Called at app startup
     (see app.py lifespan) so every deploy immediately records whether the

@@ -1,7 +1,7 @@
 {
   "slug": "gravelista",
   "race_name": "Gravelista",
-  "distance_mi": 80.0,
+  "distance_mi": 86.0,
   "demands": {
     "durability": 4,
     "climbing": 4,
@@ -21,7 +21,7 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "62ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "67ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Gravel_Specific",
@@ -30,7 +30,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Gravelista's Victorian rolling, Australian gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 80 miles."
+      "workout_context": "Gravelista's Victorian rolling, Australian gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 86 miles."
     },
     {
       "category": "Race_Simulation",
@@ -60,7 +60,7 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "At mile 60 of 80, glycogen is gone. This workout teaches your body to produce watts on fumes."
+      "workout_context": "At mile 60 of 86, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "Over_Under",
@@ -79,7 +79,7 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "5,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "5,740ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Critical_Power",
@@ -97,7 +97,7 @@
         "Norwegian 4x8 Classic",
         "Double Threshold"
       ],
-      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 80 miles, sustainable FTP gains matter more than peak power."
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 86 miles, sustainable FTP gains matter more than peak power."
     },
     {
       "category": "Blended",
@@ -106,7 +106,7 @@
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 5,000ft of climbing on victorian rolling gravel does to your power file on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 5,740ft of climbing on victorian rolling gravel does to your power file on race day."
     },
     {
       "category": "Mixed_Climbing",
@@ -115,7 +115,7 @@
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "5,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "5,740ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "Anaerobic_Capacity",
@@ -128,9 +128,9 @@
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Gravelista\u2019s 80 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "nutrition": "Target 60\u201380g carbs/hour for Gravelista\u2019s 86 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Gravelista requires surface adaptability. Include weekly rides on victorian rolling gravel to build confidence. Expect: victorian rolling, australian gravel, regional event."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 80 miles of victorian rolling gravel in Victoria, Australia.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 86 miles of victorian rolling gravel in Victoria, Australia.",
+  "generated_at": "2026-10-25"
 }

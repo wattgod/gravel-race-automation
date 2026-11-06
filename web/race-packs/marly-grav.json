@@ -1,12 +1,12 @@
 {
   "slug": "marly-grav",
   "race_name": "Marly Grav",
-  "distance_mi": 65.0,
+  "distance_mi": 93.0,
   "demands": {
-    "durability": 2,
-    "climbing": 2,
+    "durability": 4,
+    "climbing": 5,
     "vo2_power": 4,
-    "threshold": 5,
+    "threshold": 8,
     "technical": 4,
     "heat_resilience": 0,
     "altitude": 2,
@@ -14,57 +14,18 @@
   },
   "top_categories": [
     {
-      "category": "Gravel_Specific",
-      "score": 100,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Marly Grav's Dutch countryside, Flat to rolling gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 65 miles."
-    },
-    {
-      "category": "Race_Simulation",
-      "score": 100,
-      "workouts": [
-        "Breakaway Simulation",
-        "Variable Pace Chaos",
-        "Sector Simulation"
-      ],
-      "workout_context": "Race-pace efforts that mimic Marly Grav's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
-    },
-    {
       "category": "TT_Threshold",
-      "score": 75,
+      "score": 100,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "Marly Grav's dutch flat to rolling gravel rewards steady threshold power. Surging and recovering costs more watts than just holding."
-    },
-    {
-      "category": "VO2max",
-      "score": 71,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "When someone attacks on dutch flat to rolling gravel, you have 10 seconds to respond or you're off the back. This builds that response."
-    },
-    {
-      "category": "Durability",
-      "score": 62,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "65 miles on dutch flat to rolling gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "53ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "G_Spot",
-      "score": 60,
+      "score": 79,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -73,17 +34,8 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Marly Grav. Train it until it feels boring."
     },
     {
-      "category": "Critical_Power",
-      "score": 58,
-      "workouts": [
-        "Above CP Repeats",
-        "W-Prime Depletion"
-      ],
-      "workout_context": "How long can you hold 105% FTP before you blow? At Marly Grav, that number decides whether you bridge or get dropped."
-    },
-    {
       "category": "Over_Under",
-      "score": 52,
+      "score": 78,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -91,22 +43,70 @@
       "workout_context": "At Marly Grav, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "Anaerobic_Capacity",
-      "score": 50,
+      "category": "Gravel_Specific",
+      "score": 76,
       "workouts": [
-        "2min Killers",
-        "90sec Repeats"
+        "Surge and Settle",
+        "Terrain Microbursts"
       ],
-      "workout_context": "2-minute all-out efforts on dutch flat to rolling gravel. Closing gaps, responding to attacks, sprinting for position. Train the burn."
+      "workout_context": "Marly Grav's South Limburg hills, Marly gravel and hollow roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 93 miles."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 76,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Marly Grav's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
+    },
+    {
+      "category": "Durability",
+      "score": 67,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 93, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "VO2max",
+      "score": 54,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on short, steep South Limburg gravel loops, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
       "category": "Norwegian_Double",
-      "score": 42,
+      "score": 51,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
       ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 93 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 48,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on short, steep South Limburg gravel loops demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 44,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Marly Grav, that number decides whether you bridge or get dropped."
     },
     {
       "category": "Blended",
@@ -115,22 +115,22 @@
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Long rides with hard efforts mixed in. Simulates what Marly Grav's dutch flat to rolling gravel actually does to you."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 4,890ft of climbing on short, steep South Limburg gravel loops does to your power file on race day."
     },
     {
-      "category": "Cadence_Work",
-      "score": 33,
+      "category": "Tempo",
+      "score": 38,
       "workouts": [
-        "High Cadence Drills",
-        "Cadence Pyramids"
+        "Tempo Blocks",
+        "Extended Tempo"
       ],
-      "workout_context": "Smooth pedaling at 65 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+      "workout_context": "Tempo is Marly Grav's race pace. The wattage you'll hold for 93 miles on short, steep South Limburg gravel loops. Train it until it's automatic."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Marly Grav\u2019s 65 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
-    "terrain": "Mixed terrain at Marly Grav requires surface adaptability. Include weekly rides on dutch flat to rolling gravel to build confidence. Expect: dutch countryside, flat to rolling gravel, regional event."
+    "nutrition": "Target 60\u201380g carbs/hour for Marly Grav\u2019s 93 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "terrain": "Mixed terrain at Marly Grav requires surface adaptability. Include weekly rides on short, steep south limburg gravel loops to build confidence. Expect: south limburg hills, marly gravel and hollow roads, steep climbs and fast descents."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 65 miles of dutch flat to rolling gravel in Netherlands.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, G Spot, and Over Under to prepare you for 93 miles of short, steep south limburg gravel loops in Valkenburg, South Limburg, Netherlands.",
+  "generated_at": "2026-10-25"
 }

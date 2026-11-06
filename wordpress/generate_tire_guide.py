@@ -38,6 +38,7 @@ from brand_tokens import (
     get_ab_head_snippet,
     get_ga4_head_snippet,
 )
+from season import season_year
 from cookie_consent import get_consent_banner_html
 
 # ── Constants ──────────────────────────────────────────────────
@@ -45,7 +46,7 @@ from cookie_consent import get_consent_banner_html
 TIRE_DIR = Path(__file__).parent.parent / "data" / "tires"
 WEATHER_DIR = Path(__file__).parent.parent / "data" / "weather"
 OUTPUT_DIR = Path(__file__).parent / "output" / "tires"
-CURRENT_YEAR = str(datetime.now().year)
+SEASON_YEAR = str(season_year())
 
 # Negation phrases — catch "no mud", "without mud", "minimal mud", "little to no mud"
 # Longer phrases listed first so regex alternation matches them before shorter "no".
@@ -1357,7 +1358,7 @@ def build_header(rd: dict) -> str:
       <a href="/">Gravel God</a> / <a href="/race/{esc(rd['slug'])}/">{esc(rd['name'])}</a> / Tire Guide
     </div>
     <span class="tg-badge">TIRE GUIDE</span>
-    <h1>Best Tires for {esc(rd['name'])} {CURRENT_YEAR}</h1>
+    <h1>Best Tires for {esc(rd['name'])} {SEASON_YEAR}</h1>
     <p class="tg-header-sub">Top 3 picks + pressure guide + setup strategy</p>
     <div class="tg-vitals">
       <div class="tg-vital"><strong>{esc(v['distance'])}</strong>Distance</div>
@@ -1803,7 +1804,7 @@ def build_json_ld(rd: dict, top_picks: list) -> str:
     article = {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": f"Best Tires for {name} {CURRENT_YEAR}: Top 3 Picks + Pressure Guide",
+        "headline": f"Best Tires for {name} {SEASON_YEAR}: Top 3 Picks + Pressure Guide",
         "url": url,
         "author": {"@type": "Organization", "name": "Gravel God"},
         "publisher": {
@@ -1914,7 +1915,7 @@ def generate_tire_guide_page(rd: dict, raw_race: dict, weather: dict,
 
     # Page title and meta
     tire_names = ", ".join(p["tire"]["name"] for p in top_picks)
-    title = f"Best Tires for {esc(rd['name'])} {CURRENT_YEAR}: Top 3 Picks + Pressure Guide | Gravel God"
+    title = f"Best Tires for {esc(rd['name'])} {SEASON_YEAR}: Top 3 Picks + Pressure Guide | Gravel God"
     meta_desc = f"Top 3 tire recommendations for {rd['name']}: {tire_names}. Pressure chart, tubeless setup guide."
 
     canonical = f"{SITE_BASE_URL}/race/{rd['slug']}/tires/"

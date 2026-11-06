@@ -37,7 +37,8 @@
       "cultural_impact": 2,
       "overall_score": 69,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -162,6 +163,37 @@
       "founded": 2014,
       "notable_facts": "Inaugural five-stage event across Kunming, Yuxi, Chuxiong revolutionized Chinese amateur cycling. Expanded to new cities like Mangshi and Ruili in 2018. Grew to 2100 riders by 2025, selling out in 45 minutes despite COVID single-stage in 2020."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-10-31",
+        "end_date": "2025-11-08",
+        "edition": 12,
+        "source": "https://yunnan.granfondochina.com/"
+      },
+      {
+        "year": 2024,
+        "edition": 11,
+        "note": "Returned to a five-stage week with new host cities Fengqing, Pu'Er and Xishuangbanna.",
+        "source": "https://www.granfondoyunnan.com/results-2"
+      },
+      {
+        "year": 2023,
+        "edition": 10,
+        "source": "https://www.granfondoyunnan.com/results-2"
+      },
+      {
+        "year": 2022,
+        "note": "Four-day event in November after the 2021 edition was cancelled.",
+        "source": "https://www.granfondoyunnan.com/about"
+      },
+      {
+        "year": 2021,
+        "status": "cancelled",
+        "note": "Covid-19.",
+        "source": "https://www.granfondoyunnan.com/about"
+      }
+    ],
     "final_verdict": {
       "one_liner": "China’s premier amateur stage race blends epic Yunnan climbs with cultural immersion.",
       "who_should_ride": "Strong amateurs seeking multi-day road challenges amid tea hills and villages. Ideal for those craving Asian adventure with 2000-rider energy.",
@@ -188,6 +220,23 @@
         "category": "official",
         "label": "Official Website"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "5 stages, 650 km",
+          "winner_female": "Li Si",
+          "winner_male": "Chen Hao",
+          "source": "https://www.granfondoyunnan.com/news"
+        },
+        "2024": {
+          "race": "5 stages",
+          "winner_female": "Li Si",
+          "winner_male": "Chen Hao",
+          "source": "https://www.granfondoyunnan.com/news"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

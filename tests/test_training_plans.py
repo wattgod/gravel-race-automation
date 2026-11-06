@@ -21,7 +21,6 @@ from generate_training_plans import (
     COACHING_URL,
     DELIVERABLES,
     FAQ_ITEMS,
-    PRICE_CAP,
     PRICE_PER_WEEK,
     QUESTIONNAIRE_URL,
     REALITY_CHECKS,
@@ -346,9 +345,11 @@ class TestPricing:
         section = build_pricing()
         assert PRICE_PER_WEEK in section
 
-    def test_price_cap(self):
+    def test_no_price_cap(self):
+        """The $249 cap was retired 2026-10-23: no cap copy on the page."""
         section = build_pricing()
-        assert PRICE_CAP in section
+        assert "capped" not in section.lower()
+        assert "$249" not in section
 
     def test_one_payment_no_subscription(self):
         section = build_pricing()
@@ -585,18 +586,13 @@ class TestStripePricingParity:
             pytest.skip("stripe-products.json not found")
         return json.loads(stripe_path.read_text())
 
-    def test_cap_matches_stripe(self, stripe_data):
-        """PRICE_CAP must match the 17+ week plan in Stripe."""
-        cap_price = None
-        for price in stripe_data["prices"]:
-            if "17+" in price.get("nickname", ""):
-                cap_price = price["amount"]
-                break
-        assert cap_price is not None, "17+ week plan not found in Stripe data"
-        cap_dollars = int(PRICE_CAP.replace("$", ""))
-        assert cap_price == cap_dollars * 100, (
-            f"PRICE_CAP {PRICE_CAP} doesn't match Stripe amount {cap_price}"
-        )
+    def test_no_capped_price_is_offered(self):
+        """The checkout charges price_data ($15 x weeks, no cap). The old
+        "17+" $249 Stripe price may linger in the cached catalog for past
+        orders, but no page may quote it (see test_no_price_cap)."""
+        from pricing import compute_race_plan_price_cents
+        assert compute_race_plan_price_cents(17) == 17 * 1500
+        assert compute_race_plan_price_cents(40) == 40 * 1500
 
     def test_weekly_rate_matches_stripe(self, stripe_data):
         """$15/week should match the per-week price from Stripe data."""
@@ -610,15 +606,11 @@ class TestStripePricingParity:
         per_week = int(PRICE_PER_WEEK.replace("$", ""))
         assert eight_week == 8 * per_week * 100
 
-    def test_jsonld_price_matches_stripe(self, stripe_data):
-        """JSON-LD highPrice should match Stripe cap."""
+    def test_jsonld_has_no_capped_high_price(self, stripe_data):
+        """No cap means no highPrice: JSON-LD must not advertise $249."""
         jsonld = build_jsonld()
-        cap_price = None
-        for price in stripe_data["prices"]:
-            if "17+" in price.get("nickname", ""):
-                cap_price = price["amount"] // 100
-                break
-        assert str(cap_price) in jsonld
+        assert "highPrice" not in jsonld
+        assert '"249"' not in jsonld
 
 
 # ── 14. JSON-LD ──────────────────────────────────────────────
@@ -637,9 +629,10 @@ class TestJsonLd:
         jsonld = build_jsonld()
         assert '"lowPrice": "60"' in jsonld
 
-    def test_high_price(self):
+    def test_no_high_price(self):
+        """No cap, so no fixed highest price to advertise."""
         jsonld = build_jsonld()
-        assert f'"highPrice": "249"' in jsonld
+        assert '"highPrice"' not in jsonld
 
     def test_url(self):
         jsonld = build_jsonld()

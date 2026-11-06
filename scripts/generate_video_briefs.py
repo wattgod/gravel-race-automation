@@ -47,6 +47,9 @@ from generate_neo_brutalist import (
 
 # Import script generators for narration text
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+from race_facts import catalog_race_count  # noqa: E402
+
+RACE_COUNT = catalog_race_count()
 from generate_video_scripts import (
     analyze_hooks,
     to_spoken,
@@ -525,7 +528,7 @@ def detect_tropes(rd):
                     "tension": (
                         f"{name}: perfect 5/5 for {label}. "
                         f"The highest possible rating. "
-                        f"Out of 328 races, how many hit that?"
+                        f"Out of {RACE_COUNT} races, how many hit that?"
                     ),
                     "mechanism": "Curiosity gap (specific) — knowing a perfect score exists "
                                  "but not why triggers dopamine anticipation.",
@@ -573,11 +576,11 @@ def detect_tropes(rd):
     tropes.append({
         "name": "tier_reveal",
         "tension": (
-            f"We rated 328 gravel races on 15 dimensions. "
+            f"We rated {RACE_COUNT} races on 14 criteria. "
             f"{name}: {tier_name}. {score}/100."
         ),
         "mechanism": "Countdown / ranking — inherent escalation and social comparison.",
-        "hook_text": f"328 races. 15 dimensions. Where does {name} land?",
+        "hook_text": f"{RACE_COUNT} races. 14 criteria. Where does {name} land?",
         "engagement_q": f"Where would YOU rank {name}? Drop your tier.",
         "strength": 4,
     })
@@ -999,7 +1002,7 @@ def brief_roast(rd):
             "label": "CTA",
             "time_range": "3:30-3:45",
             "duration_sec": 15,
-            "narration": f"Full breakdown. All 15 dimensions. Free prep kit. Link in bio.",
+            "narration": f"Full breakdown. All 14 criteria. Free prep kit. Link in bio.",
             "text_on_screen": f"gravelgodcycling.com/race/{slug}",
             "visual": "URL overlay + engagement question",
             "avatar_pose": "pointing",
@@ -1070,7 +1073,7 @@ def brief_should_you_race(rd):
             "duration_sec": 15,
             "narration": (
                 f"Should you race {name}? "
-                f"I rated 328 gravel races on 15 dimensions. "
+                f"I rated {RACE_COUNT} races on 14 criteria. "
                 f"{name} scored {score} out of 100. {tier_name} tier. "
                 f"Here's what that actually means for your season."
             ),
@@ -1082,7 +1085,7 @@ def brief_should_you_race(rd):
             "volume_db": VOLUME_DB["narration"],
             "cut_frequency_sec": (10, 15),
             "editing_note": "STATE THE PREMISE IN 8 SECONDS. "
-                           "Clear value prop: 'I rated 328 races. Here's where this one lands.' "
+                           f"Clear value prop: 'I rated {RACE_COUNT} races. Here's where this one lands.' "
                            "This is the 8-second decision window. "
                            "Viewers who stay past 15s are 58% more likely to finish.",
             "psych_mechanism": "Curiosity gap (specific) + IKEA effect "

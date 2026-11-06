@@ -6,9 +6,38 @@ voice is not a device kit, it is a register. Canonical copy:
 `docs/specs/friend-register-copy.md`. Governing spec:
 `docs/specs/friend-first-sequences.md`.
 
+## Matti's rules (Oct 23 2026, his words; these win over anything below)
+
+> "The key thing is that I 1. keep track of everyone 2. don't accidentally
+> send an old email or out of date email that obviously doesn't make sense
+> 3. an email that doesn't sound like me and is too long winded 4. an email
+> that dances around things too much forever 5. I want to speak to ther
+> person succinctly and offer interest in them and value in my services and
+> I need a process to do it"
+
+> "Yeah, but it can go early be even shorter than 100 words in a lot of
+> cases. It's almost like I'm texting a friend."
+
+What that means for every lead and buyer email, broadcast or drafted:
+
+- **Texting a friend.** Aim for 25 to 70 words, not counting greeting and
+  sign-off. Never over 100. Shorter wins when it still says the thing.
+- **Open on them.** The first line is about the person: what they grabbed,
+  bought, said, or where they are with their race.
+- **One plain line on how Matti can help.** Say it straight ("reply and I'll
+  fix it", "that's what my coaching is"). No hinting, no build-up.
+- **One question,** easy to answer, at the end.
+- **No dancing around.** If the email exists to offer something, say the
+  offer in one sentence. No warm-up paragraph, no recap, no apology.
+- **Nothing that can be out of date when it lands.** Don't state a week
+  count, a race date, a plan stage or "you haven't replied" unless it was
+  checked against the latest thread and the race's current date right
+  before the draft or send. A draft that sat in Gmail for days gets checked
+  again or deleted.
+
 ## The register — three tests, every sentence
 
-1. **Is it simple?** A few short sentences. One idea per email.
+1. **Is it simple?** A few short sentences, 25 to 70 words. One idea per email.
 2. **Is it about THEM?** Their race, their training, their week. ZERO
    sentences about us, the site, the database, or the emails themselves.
    No self-description, no meta ("as promised", "the sales email"), no
@@ -18,8 +47,9 @@ voice is not a device kit, it is a register. Canonical copy:
 
 ## Structural rules
 
-- **No broadcast ever pitches.** Countdown emails open the money
-  conversation ("tell me your week and I'll tell you what I'd do with the
+- **No broadcast hard-sells.** One plain line on how Matti can help is
+  expected (rules above); prices and links wait for the reply. Countdown
+  emails open the money conversation ("tell me your week and I'll tell you what I'd do with the
   time left"); the plan is offered in Matti's REPLY
   (`scripts/draft_race_reply.py`). Replies are the conversion engine.
 - **Premise first.** The first line names why this email exists for THIS

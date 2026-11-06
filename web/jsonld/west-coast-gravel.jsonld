@@ -5,6 +5,7 @@
   "description": "A steep Sunday run from the Pacific into Siuslaw National Forest.",
   "sport": "Gravel Cycling",
   "startDate": "2027-04-25",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Yachats, Oregon",
@@ -22,7 +23,7 @@
   },
   "url": "https://www.mudslingerevents.com/west-coast-gravel",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Mudslinger Events",
     "url": "https://www.mudslingerevents.com/west-coast-gravel"
   }

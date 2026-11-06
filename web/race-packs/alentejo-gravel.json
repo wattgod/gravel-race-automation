@@ -1,12 +1,12 @@
 {
   "slug": "alentejo-gravel",
   "race_name": "Alentejo Gravel",
-  "distance_mi": 80.0,
+  "distance_mi": 74.0,
   "demands": {
-    "durability": 4,
-    "climbing": 4,
+    "durability": 2,
+    "climbing": 6,
     "vo2_power": 4,
-    "threshold": 7,
+    "threshold": 6,
     "technical": 4,
     "heat_resilience": 0,
     "altitude": 2,
@@ -21,7 +21,16 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "56ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "78ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Over_Under",
+      "score": 89,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Alentejo Gravel, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "Gravel_Specific",
@@ -30,7 +39,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Alentejo Gravel's Alentejo rolling, Portuguese gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 80 miles."
+      "workout_context": "Alentejo Gravel's Alentejo golden plains, Cork-oak montado gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 74 miles."
     },
     {
       "category": "Race_Simulation",
@@ -44,7 +53,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 80,
+      "score": 78,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -53,23 +62,13 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Alentejo Gravel. Train it until it feels boring."
     },
     {
-      "category": "Durability",
-      "score": 78,
+      "category": "Mixed_Climbing",
+      "score": 67,
       "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
       ],
-      "workout_context": "At mile 60 of 80, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
-    {
-      "category": "Over_Under",
-      "score": 76,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Alentejo Gravel, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+      "workout_context": "5,741ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "VO2max",
@@ -79,7 +78,17 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "When someone attacks on alentejo rolling gravel, you have 10 seconds to respond or you're off the back. This builds that response."
+      "workout_context": "5,741ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Durability",
+      "score": 56,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "74 miles on alentejo rolling gravel burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "Critical_Power",
@@ -91,31 +100,13 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Alentejo Gravel, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Norwegian_Double",
-      "score": 52,
-      "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
-      ],
-      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 80 miles, sustainable FTP gains matter more than peak power."
-    },
-    {
-      "category": "Blended",
+      "category": "SFR_Muscle_Force",
       "score": 44,
       "workouts": [
-        "Z2 + VO2 Combo",
-        "Endurance with Spikes"
+        "SFR Low Cadence",
+        "Force Repeats"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 4,500ft of climbing on alentejo rolling gravel does to your power file on race day."
-    },
-    {
-      "category": "Mixed_Climbing",
-      "score": 44,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "Varied gradients on alentejo rolling gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+      "workout_context": "Low-cadence force work for 5,741ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
       "category": "Anaerobic_Capacity",
@@ -125,12 +116,21 @@
         "90sec Repeats"
       ],
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on alentejo rolling gravel. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 44,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Alentejo Gravel\u2019s 80 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
-    "terrain": "Mixed terrain at Alentejo Gravel requires surface adaptability. Include weekly rides on alentejo rolling gravel to build confidence. Expect: alentejo rolling, portuguese gravel, regional event."
+    "nutrition": "Target 40\u201360g carbs/hour for Alentejo Gravel\u2019s 74 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
+    "terrain": "Mixed terrain at Alentejo Gravel requires surface adaptability. Include weekly rides on alentejo rolling gravel to build confidence. Expect: alentejo golden plains, cork-oak montado gravel, uci gravel world series."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Race Simulation to prepare you for 80 miles of alentejo rolling gravel in Alentejo, Portugal.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and Gravel Specific to prepare you for 74 miles of alentejo rolling gravel in Ourique, Alentejo, Portugal.",
+  "generated_at": "2026-10-25"
 }

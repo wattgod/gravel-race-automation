@@ -190,7 +190,9 @@ def test_comments_archive(pid):
     if pid == 3594:
         assert len(comments) == 1
         assert 'id="comments"' in page and "Comments are closed." in page
-        assert "<strong>Jim Wilson</strong>" in page and "<form" not in page
+        assert "<strong>Jim Wilson</strong>" in page
+        archive = page.split('id="comments"', 1)[1].split("</section>", 1)[0]
+        assert "<form" not in archive
     else:
         assert comments == [] and 'id="comments"' not in page
 

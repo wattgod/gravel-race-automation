@@ -2,7 +2,7 @@
 Create Stripe products and prices for Gravel God Cycling.
 
 Products:
-  1. Custom Training Plan — 14 one-time prices ($60–$249, $15/week increments)
+  1. Custom Training Plan — product only; checkout prices it per order ($15/week, 4-week minimum)
   2. Coaching Min — $199/month subscription
   3. Coaching Mid — $299/month subscription
   4. Coaching Max — $1,200/month subscription
@@ -33,7 +33,6 @@ except ImportError:
     sys.exit(1)
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
-from pricing import MIN_WEEKS, PRICE_CAP_CENTS, PRICE_PER_WEEK_CENTS  # data/pricing.json (D18)
 
 
 # =============================================================================
@@ -46,25 +45,11 @@ TRAINING_PLAN_PRODUCT = {
     "metadata": {"category": "training_plan"},
 }
 
-# Weekly rate, minimum weeks, and cap all come from data/pricing.json (D18).
-# Below the cap: one price per week. At/above the cap: a single "N+" price.
-_LAST_UNCAPPED_WEEK = (PRICE_CAP_CENTS - 1) // PRICE_PER_WEEK_CENTS
-TRAINING_PLAN_PRICES = []
-for weeks in range(MIN_WEEKS, _LAST_UNCAPPED_WEEK + 1):
-    amount_cents = weeks * PRICE_PER_WEEK_CENTS
-    TRAINING_PLAN_PRICES.append({
-        "unit_amount": amount_cents,
-        "currency": "usd",
-        "nickname": f"{weeks}-week plan (${amount_cents // 100})",
-        "metadata": {"weeks": str(weeks), "type": "training_plan"},
-    })
-# Cap price: applies from (_LAST_UNCAPPED_WEEK + 1) weeks onward.
-TRAINING_PLAN_PRICES.append({
-    "unit_amount": PRICE_CAP_CENTS,
-    "currency": "usd",
-    "nickname": f"{_LAST_UNCAPPED_WEEK + 1}+ week plan (${PRICE_CAP_CENTS // 100} cap)",
-    "metadata": {"weeks": f"{_LAST_UNCAPPED_WEEK + 1}+", "type": "training_plan"},
-})
+# No pre-made plan prices (2026-10-23): the checkout server charges the exact
+# amount with Stripe price_data ($15 x weeks, 4-week minimum, no cap), so a
+# fixed price table can only drift from the formula. The old 4-16 week prices
+# and the $249 "17+" price stay in Stripe, archived, for past orders only.
+TRAINING_PLAN_PRICES: list[dict] = []
 
 
 COACHING_PRODUCTS = [

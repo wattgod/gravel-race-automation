@@ -200,10 +200,27 @@ class TestOneVoice:
         for field in ("hours_next", "constraints", "next_season_plan", "coach_notes"):
             assert f'name="{field}"' not in core, field
 
+    def test_lead_form_asks_what_would_help_most(self):
+        # Matti, Oct 30 2026: one optional tap so his reply pitches the right
+        # thing. Mission Control's alert labels these values (its own test
+        # checks the two stay in step).
+        core = core_form("goal_2027")
+        values = re.findall(r'name="help_most" value="([a-z_]+)"([^>]*)>', core)
+        assert [v for v, _ in values] == ["plan", "coaching", "tips"]
+        assert not any("required" in attrs for _, attrs in values)
+        for label in ("A plan", "Coaching", "Just tips"):
+            assert f">{label}</div>" in core, label
+
+    def test_help_question_is_lead_form_only(self):
+        for slug in ALL:
+            if slug != "goal_2027":
+                assert 'name="help_most"' not in page(slug), slug
+
     def test_lead_form_stays_a_fifteen_minute_job(self):
         names = set(re.findall(r'name="([a-z_0-9]+)"', core_form("goal_2027"))) - {"website"}
         names = {n for n in names if not re.fullmatch(r"why_[2-5]", n)}
-        assert len(names) <= 25, sorted(names)
+        # 25 typed answers plus the one optional "what would help most" tap.
+        assert len(names) <= 26, sorted(names)
 
 
 class TestGoalsPage:
@@ -409,27 +426,22 @@ class TestGoalsPage:
         assert 'if (planType === "season" && POSTER_TOKEN)' in js
         assert 'ctaUrl.searchParams.set("t", POSTER_TOKEN)' in js
 
-    def test_season_plan_cta_goes_to_its_own_page_not_the_questionnaire(self):
-        # Matti ruling (2026-09-23): the Season Plan no longer goes through
-        # the race-plan questionnaire (whose Elementor widget drifts from
-        # this repo) — it has its own generated page, /season-plan/.
+    def test_only_the_custom_plan_is_offered(self):
+        # Matti ruling (2026-10-23): one product. The Season Plan offer is
+        # retired; the goals results offer only the custom plan.
+        from pricing import PRICE_PER_WEEK
         plans = VARIANTS["goal_2027"]["offer"]["plans"]
-        keys = [p["key"] for p in plans]
-        assert keys == ["race", "season"]
-        race, season = plans
-        assert "priced by the week from your race date" in race["price"]
-        assert "$" not in race["price"]  # no literal dollar figure duplicated here
-        assert "$499" in season["price"]
-        assert "the whole year" in season["price"]
-        assert season["cta_href"].startswith("/season-plan/")
-        assert "plan=season" not in season["cta_href"]
-        assert race["cta_href"] == "/questionnaire/?src=goals"
+        assert [p["key"] for p in plans] == ["race"]
+        (race,) = plans
+        assert f"{PRICE_PER_WEEK} a week until your race, paid once" in race["price"]
+        assert race["cta_href"] == "/training-plans/start/?src=goals"
 
-    def test_offer_html_renders_both_plan_ctas(self):
+    def test_offer_html_renders_only_the_plan_cta(self):
         html = page("goal_2027")
         assert 'data-plan-type="race"' in html
-        assert 'data-plan-type="season"' in html
-        assert html.count('class="gg-sr-offer-plan"') == 6  # 3 offer variants x 2 plans
+        assert 'data-plan-type="season"' not in html
+        assert "/season-plan/" not in html.split("<script", 1)[0]
+        assert html.count('class="gg-sr-offer-plan"') == 3  # 3 offer variants x 1 plan
 
 
 class TestWalkthroughMode:

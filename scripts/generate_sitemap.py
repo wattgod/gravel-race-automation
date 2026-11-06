@@ -18,6 +18,10 @@ from pathlib import Path
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom.minidom import parseString
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
+from page_dates import race_updated_date  # noqa: E402
+from season import season_year  # noqa: E402
+
 SITE_BASE_URL = "https://gravelgodcycling.com"
 
 # Only these blog categories are indexable — unknown categories excluded by default (safe)
@@ -162,14 +166,21 @@ def load_special_pages(project_root: Path) -> list:
     """Load calendar/power-rankings/quiz page slugs."""
     output_dir = project_root / "wordpress" / "output"
     slugs = []
-    for pattern in ["calendar", "power-rankings-*", "quiz"]:
+    # Only this season's power rankings: past seasons 301 to it (push_wordpress.py).
+    for pattern in ["calendar", f"power-rankings-{season_year()}", "quiz"]:
         import glob as glob_mod
         for path in sorted(output_dir.glob(pattern)):
             if path.is_dir():
                 # May be nested (calendar/2026)
                 for sub in sorted(path.rglob("index.html")):
                     rel = sub.parent.relative_to(output_dir)
-                    slugs.append(str(rel))
+                    if rel != Path("calendar"):  # /race/calendar/ is a redirect
+                        slugs.append(str(rel))
+    # The season calendar is listed even before a local build has made it:
+    # /race/calendar/ redirects there.
+    season_calendar = f"calendar/{season_year()}"
+    if season_calendar not in slugs:
+        slugs.insert(0, season_calendar)
     return slugs
 
 
@@ -254,7 +265,13 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         SubElement(url, 'changefreq').text = 'weekly'
         SubElement(url, 'priority').text = '0.8'
 
-    # Series hub pages
+    # Series index + hub pages
+    if series_slugs:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/series/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'monthly'
+        SubElement(url, 'priority').text = '0.7'
     for slug in (series_slugs or []):
         url = SubElement(urlset, 'url')
         SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/series/{slug}/"
@@ -315,8 +332,14 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         SubElement(url, 'changefreq').text = 'monthly'
         SubElement(url, 'priority').text = '0.6'
 
-    # Per-tire review pages
+    # Tires index + per-tire review pages
     tire_page_slugs = load_tire_page_slugs(output_path.parent.parent)
+    if tire_page_slugs or tire_slugs:
+        url = SubElement(urlset, 'url')
+        SubElement(url, 'loc').text = f"{SITE_BASE_URL}/tire/"
+        SubElement(url, 'lastmod').text = today
+        SubElement(url, 'changefreq').text = 'weekly'
+        SubElement(url, 'priority').text = '0.7'
     for slug in tire_page_slugs:
         url = SubElement(urlset, 'url')
         SubElement(url, 'loc').text = f"{SITE_BASE_URL}/tire/{slug}/"
@@ -388,13 +411,18 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         tier = race.get('tier', 4)
         priority = {1: '0.9', 2: '0.8', 3: '0.6', 4: '0.5'}.get(tier, '0.5')
 
-        # Use file mtime if data_dir provided
+        # Same updated date the race page shows in its byline and JSON-LD
+        # (wordpress/page_dates.py), so the sitemap never contradicts the page.
         lastmod = today
         if data_dir:
             data_file = data_dir / f"{slug}.json"
             if data_file.exists():
-                mtime = os.path.getmtime(data_file)
-                lastmod = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+                try:
+                    race = json.loads(data_file.read_text(encoding="utf-8"))
+                    race = race.get("race", race)
+                except (json.JSONDecodeError, OSError):
+                    race = {}
+                lastmod = race_updated_date(race, data_file)
 
         url = SubElement(urlset, 'url')
         SubElement(url, 'loc').text = f"{SITE_BASE_URL}/race/{slug}/"
@@ -517,7 +545,7 @@ def main():
     course_slugs = load_course_slugs(project_root)
     course_url_count = (1 + len(course_slugs)) if course_slugs else 0
     guide_cluster_count = 10  # pillar + 8 chapters + configurator
-    total_urls = (7 + len(INDEXABLE_WORDPRESS_PAGES) + guide_cluster_count + len(series_slugs) + len(vs_slugs) + len(state_slugs)
+    total_urls = (7 + bool(series_slugs) + len(INDEXABLE_WORDPRESS_PAGES) + guide_cluster_count + len(series_slugs) + len(vs_slugs) + len(state_slugs)
                   + len(special_slugs) + len(plan_slugs) + len(tire_slugs)
                   + len(tire_page_slugs) + len(tire_vs_slugs) + course_url_count + len(race_index))
     print(f"Generated sitemap: {output_path} ({total_urls} URLs)")

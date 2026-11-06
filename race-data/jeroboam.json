@@ -293,6 +293,21 @@
       },
       "founder": "REVERB CYCLING in collaboration with 3T Cycling Srl"
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-07-10",
+        "note": "Renamed from Jeroboam Franciacorta; first year with the 600 km Mathusalem route",
+        "source": "https://www.spinningthewheel.it/jeroboam-italy-2025/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-10-18",
+        "end_date": "2024-10-20",
+        "note": "Held in Franciacorta in October as Jeroboam Franciacorta",
+        "source": "https://www.cycloworld.cc/en/gran-fondo/italy/jeroboam-franciacorta/31396"
+      }
+    ],
     "lastUpdated": "2026-01-13",
     "dataQuality": "Comprehensive - verified against official sources and rider reports",
     "research_sources": [
@@ -309,7 +324,7 @@
       "alternatives": "If you want the European gravel experience without the night riding punishment, try Gravel One Fifty in the Dolomites or L'Eroica for vintage charm. SBT GRVL gives you similar distance and elevation but trades Italian romance for Colorado's reliable weather and better logistics.",
       "alternative_slugs": [
         "gravel-one-fifty",
-        "sbt-grvl"
+        "steamboat-gravel"
       ]
     },
     "course_description": {
@@ -418,8 +433,7 @@
     },
     "results": {
       "years": {
-        "2024": {
-        }
+        "2024": {}
       },
       "latest_year": "2024"
     },

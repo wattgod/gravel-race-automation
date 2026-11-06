@@ -76,6 +76,15 @@ class TestRetiredJsContract:
 
 
 class TestDateDegradation:
+    @pytest.fixture(autouse=True)
+    def before_race(self, monkeypatch):
+        monkeypatch.setenv("GG_TODAY", "2026-05-01")
+
+    def test_past_date_omits_attr(self, packed_slug, monkeypatch):
+        monkeypatch.setenv("GG_TODAY", "2026-11-05")
+        html = build_prep_strip(_rd(slug=packed_slug, date_specific="2026: May 30"))
+        assert "data-race-date" not in html
+
     def test_valid_date_emits_attr(self, packed_slug):
         html = build_prep_strip(_rd(slug=packed_slug,
                                     date_specific="2026: May 30"))
@@ -100,7 +109,7 @@ class TestSafety:
     def test_cta_links(self, packed_slug):
         html = build_prep_strip(_rd(slug=packed_slug))
         assert 'href="#train-for-race"' in html
-        assert f"questionnaire/?race={packed_slug}" in html
+        assert f"training-plans/start/?race={packed_slug}" in html
 
     def test_prep_kit_gate_link(self, packed_slug):
         """P1.3: the strip funnels non-buyers to the email-gated prep kit."""

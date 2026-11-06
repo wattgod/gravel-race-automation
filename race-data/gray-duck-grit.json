@@ -4,6 +4,10 @@
     "slug": "gray-duck-grit",
     "display_name": "Gray Duck Grit",
     "tagline": "Southeast Minnesota gravel in Cannon Falls near Twin Cities.",
+    "seo": {
+      "title": "Gray Duck Grit (Grey Duck Grit) {year}: Course & Review",
+      "description": "Gray Duck Grit, aka Grey Duck Grit: Cannon Falls, MN gravel with 50- to 333-mile options through the Driftless. Course, tires & rating."
+    },
     "vitals": {
       "distance_mi": 62,
       "elevation_ft": 3600,
@@ -94,7 +98,7 @@
       "should_you_race": "Only if you're in Minnesota or the Twin Cities area and want an affordable gravel ride. Not worth traveling for.",
       "alternatives": "For better Minnesota events: Almanzo 100, Dirty Benjamin. For similar grassroots vibes: other regional Midwest events.",
       "alternative_slugs": [
-        "almanzo-100"
+        "spring-valley-100"
       ]
     },
     "logistics": {
@@ -103,7 +107,7 @@
       "food": "Small city with dining options. Stock race nutrition beforehand.",
       "packet_pickup": "Race morning typically",
       "parking": "At start/finish",
-      "official_site": "Check Minnesota cycling calendars",
+      "official_site": "",
       "camping": "camping options, parking details, and parking strategy are **not provided in the search results**"
     },
     "history": {
@@ -113,6 +117,32 @@
       "notable_moments": [],
       "reputation": "Small regional Minnesota event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 5,
+        "source": "https://www.mtecresults.com/event/show/6676/2026_Gray_Duck_Grit_V"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-31",
+        "edition": 4,
+        "source": "https://www.endurancepromotions.com/ResultDetails.aspx?id=1702"
+      },
+      {
+        "year": 2024,
+        "date": "2024-08-31",
+        "edition": 3,
+        "source": "https://www.gravel-results.com/race/19964"
+      },
+      {
+        "year": 2023,
+        "date": "2023-10-06",
+        "edition": 2,
+        "note": "Held in October, starting in Northfield",
+        "source": "https://endurancepromotions.com/ResultDetails.aspx?id=1603"
+      }
+    ],
     "course_description": {
       "character": "Rolling Minnesota gravel through rural areas.",
       "suffering_zones": [
@@ -356,13 +386,39 @@
     "results": {
       "years": {
         "2024": {
+          "race": "69 mi",
           "winner_male": "Marcus Duval",
           "winner_female": "Jennifer Hale",
           "winning_time_male": "3:24:00.2",
-          "winning_time_female": "4:27:35.4"
+          "winning_time_female": "4:27:35.4",
+          "source": "https://www.endurancepromotions.com/ResultDetails.aspx?id=1658"
+        },
+        "2026": {
+          "race": "111 mi",
+          "winner_female": "Lauren Thomas",
+          "winner_male": "Xavier Mansfield",
+          "winning_time_female": "7:16:34",
+          "winning_time_male": "5:50:09",
+          "source": "https://www.mtecresults.com/race/leaderboard/21624/2026_Gray_Duck_Grit_V-The_111"
+        },
+        "2025": {
+          "race": "111 mi",
+          "winner_female": "Alyssa Larish",
+          "winner_male": "Marcus Duval",
+          "winning_time_female": "6:35:16",
+          "winning_time_male": "5:31:45",
+          "source": "https://www.endurancepromotions.com/ResultDetails.aspx?id=1702"
+        },
+        "2023": {
+          "race": "111 mi",
+          "winner_female": "Sarah Pritzker",
+          "winner_male": "Chase Wark",
+          "winning_time_female": "9:22:41",
+          "winning_time_male": "5:47:19",
+          "source": "https://endurancepromotions.com/ResultDetails.aspx?id=1603"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",
@@ -612,10 +668,6 @@
         "additional_quotes": [],
         "search_text": "No race-specific information available for Gray Duck Grit. The provided transcripts do not contain content related to this gravel cycling race in Cannon Falls, Minnesota. Unable to extract course details, terrain conditions, challenges, or rider experiences from the available sources."
       }
-    },
-    "seo": {
-      "title": "Gray Duck Grit (Grey Duck Grit) 2026: Course & Review",
-      "description": "Gray Duck Grit, aka Grey Duck Grit (Sept 5–6, 2026): Cannon Falls, MN gravel with 50- to 333-mile options through the Driftless. Course, tires & rating."
     }
   }
 }

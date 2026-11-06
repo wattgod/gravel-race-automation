@@ -1426,14 +1426,17 @@ class TestChapterHeroImage:
             "hero_image": "ch1-hero",
         }
         html = build_chapter(chapter)
-        assert "gg-guide-plate" in html
+        # Chapters with a painted scene open on it; the survey plate is the fallback.
+        assert 'class="gg-guide-chapter-art"' in html
+        assert "/guide/media/gg-art-01-what-is-gravel-1x.webp" in html
+        assert "gg-guide-plate" not in html
         assert "gg-guide-chapter-title-block" in html
         assert "url(/guide/media/ch1-hero-1x.webp)" not in html
 
     def test_chapter_no_hero_image(self):
-        """Hero div still renders a survey plate when no hero_image is set."""
+        """A chapter without a painted scene still renders a survey plate."""
         chapter = {
-            "number": 1,
+            "number": 9,
             "id": "test-chapter",
             "title": "Test",
             "subtitle": "",
@@ -1442,7 +1445,7 @@ class TestChapterHeroImage:
         }
         html = build_chapter(chapter)
         assert "url(/guide/media/" not in html
-        assert "gg-guide-plate" in html
+        assert "gg-guide-chapter-art" not in html
 
 
 class TestImageCss:
@@ -1757,3 +1760,18 @@ class TestInfographicDispatch:
         """CSS still under 30KB budget after infographic additions."""
         css = build_guide_css()
         assert len(css) < 86000, f"CSS is {len(css)} bytes, exceeds 86KB budget"
+
+
+class TestGuideArt:
+    def test_every_scene_file_is_committed(self):
+        from generate_guide import GUIDE_ART
+        art = Path(__file__).resolve().parent.parent / "guide" / "art"
+        for slug in GUIDE_ART.values():
+            for tag in ("1x", "2x"):
+                assert (art / f"gg-art-{slug}-{tag}.webp").is_file(), slug
+
+    def test_cover_opens_on_the_painted_scene(self):
+        from generate_guide import build_hero
+        html = build_hero({"title": "T", "subtitle": "S", "chapters": [{}] * 8})
+        assert "gg-art-00-cover-1x.webp" in html and 'fetchpriority="high"' in html
+        assert "8 CHAPTERS" in html

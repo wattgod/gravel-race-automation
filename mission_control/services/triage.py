@@ -303,6 +303,9 @@ def get_expanded_health() -> dict:
     # Resend connectivity
     checks.append(_check_resend_connectivity())
 
+    # Per-brand open/click tracking (blind-tracking detector)
+    checks.extend(_check_brand_engagement_tracking())
+
     ok = sum(1 for c in checks if c["status"] == "ok")
     warn = sum(1 for c in checks if c["status"] == "warning")
     err = sum(1 for c in checks if c["status"] == "error")
@@ -388,6 +391,94 @@ def _check_resend_connectivity() -> dict:
         return {"name": "Resend API", "status": "error", "detail": f"HTTP {resp.status_code}"}
     except Exception as e:
         return {"name": "Resend API", "status": "error", "detail": f"Connection failed: {e}"}
+
+
+# Opens/clicks reach gg_sequence_sends only if Resend tracks them, and Resend
+# open/click tracking is a per-DOMAIN setting (off by default for a new
+# domain). The webhook endpoint and record_event() match every brand the same
+# way, on resend_id, so a brand whose sends never open or click is blind, not
+# unengaged. Gravel God runs ~40-60% opens; 20 sends with zero opens AND zero
+# clicks is not plausible engagement.
+ENGAGEMENT_WINDOW_DAYS = 60
+ENGAGEMENT_MIN_SENDS = 20
+
+
+def summarize_brand_engagement(sends: list[dict], enrollment_brands: dict) -> dict:
+    """Count sends/opens/clicks per brand.
+
+    sends: rows with enrollment_id, opened_at, clicked_at.
+    enrollment_brands: enrollment_id -> brand.
+    """
+    out: dict[str, dict] = {}
+    for s in sends:
+        brand = enrollment_brands.get(s.get("enrollment_id"))
+        if not brand:
+            continue
+        b = out.setdefault(brand, {"sends": 0, "opens": 0, "clicks": 0})
+        b["sends"] += 1
+        if s.get("opened_at"):
+            b["opens"] += 1
+        if s.get("clicked_at"):
+            b["clicks"] += 1
+    return out
+
+
+def brand_tracking_checks(summary: dict, window_days: int = ENGAGEMENT_WINDOW_DAYS,
+                          min_sends: int = ENGAGEMENT_MIN_SENDS) -> list[dict]:
+    """Turn a per-brand summary into health checks, one per sending brand."""
+    from mission_control.config import BRAND_SEQUENCE_SENDERS
+
+    results = []
+    for brand in BRAND_SEQUENCE_SENDERS:
+        stats = summary.get(brand)
+        if not stats or not stats["sends"]:
+            continue
+        domain = BRAND_SEQUENCE_SENDERS[brand]["from_email"].rsplit("@", 1)[-1]
+        n, opens, clicks = stats["sends"], stats["opens"], stats["clicks"]
+        name = f"Email tracking: {domain}"
+        counts = f"{n} sends / {opens} opens / {clicks} clicks in {window_days}d"
+        if opens or clicks:
+            results.append({"name": name, "status": "ok", "detail": counts})
+        elif n < min_sends:
+            results.append({"name": name, "status": "ok",
+                            "detail": f"{counts} (too few sends to judge)"})
+        else:
+            results.append({
+                "name": name,
+                "status": "warning",
+                "detail": (
+                    f"{counts}. Opens and clicks are not being tracked: in "
+                    f"Resend, Domains > {domain} > Configuration > Enable "
+                    "tracking metrics, turn on open and click tracking, and "
+                    "add the tracking CNAME it gives you to DNS."
+                ),
+            })
+    return results
+
+
+def _check_brand_engagement_tracking() -> list[dict]:
+    """Flag a brand whose recent sends show zero opens and zero clicks."""
+    from mission_control.sequences import get_sequence, sequence_brand
+
+    since = (datetime.now(timezone.utc) - timedelta(days=ENGAGEMENT_WINDOW_DAYS)).isoformat()
+    try:
+        sends = (db._table("gg_sequence_sends")
+                 .select("enrollment_id, opened_at, clicked_at")
+                 .gte("sent_at", since).limit(5000).execute().data or [])
+        ids = sorted({s["enrollment_id"] for s in sends if s.get("enrollment_id")})
+        enrollment_brands: dict = {}
+        for i in range(0, len(ids), 200):
+            rows = (db._table("gg_sequence_enrollments")
+                    .select("id, sequence_id").in_("id", ids[i:i + 200])
+                    .execute().data or [])
+            for e in rows:
+                seq = get_sequence(e.get("sequence_id") or "")
+                if seq:
+                    enrollment_brands[e["id"]] = sequence_brand(seq)
+    except Exception as e:
+        return [{"name": "Email tracking", "status": "warning",
+                 "detail": f"Could not read sends: {e}"}]
+    return brand_tracking_checks(summarize_brand_engagement(sends, enrollment_brands))
 
 
 # ---------------------------------------------------------------------------

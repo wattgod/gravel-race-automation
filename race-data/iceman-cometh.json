@@ -106,7 +106,7 @@
       "food": "Moderate dining options. Stock nutrition for 30 miles.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "Check Iceman Cometh website"
+      "official_site": ""
     },
     "history": {
       "founded": null,
@@ -115,6 +115,19 @@
       "notable_moments": [],
       "reputation": "Iconic Michigan mountain bike event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-11-08",
+        "source": "https://www.9and10news.com/2025/11/11/over-6000-cyclists-participate-in-bells-iceman-cometh-challenge/"
+      },
+      {
+        "year": 2024,
+        "edition": 35,
+        "note": "Held weekend of Nov 1; exact day not stated.",
+        "source": "https://michiganpublic.org/arts-life/2024-11-12/thousands-gather-for-35th-iceman-cometh-challenge"
+      }
+    ],
     "course_description": {
       "character": "Technical singletrack mountain bike for 30 miles.",
       "suffering_zones": [
@@ -578,6 +591,17 @@
         "credit": "YouTube / Justin Jewell",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "30 mi Pro",
+          "winner_female": "Laurie Arsenault",
+          "winner_male": "Zorak Paille",
+          "source": "https://www.9and10news.com/2025/11/11/over-6000-cyclists-participate-in-bells-iceman-cometh-challenge/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

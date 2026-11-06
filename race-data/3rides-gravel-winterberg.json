@@ -245,6 +245,15 @@
       ],
       "reputation": "A professionally produced first-year stage race with UCI consequences and a strong elite field, but not yet enough history to prove staying power."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-07-17",
+        "end_date": "2026-07-19",
+        "note": "Moved from Aachen to Winterberg as a three-day gravel stage race; Sunday round is a UCI Gravel World Series stop",
+        "source": "https://www.cyclingnews.com/pro-cycling/racing/uci-gravel-world-series-nele-laing-and-jonas-lindberg-claim-victory-at-3rides-gravel-winterberg/"
+      }
+    ],
     "training_config": {
       "workout_modifications": {
         "multistage_endurance": {
@@ -349,6 +358,19 @@
         "category": "results",
         "label": "Cyclingnews: 2026 race and overall results"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "129 km (UCI race, stage 3)",
+          "winner_female": "Nele Laing",
+          "winner_male": "Jonas Lindberg",
+          "winning_time_female": "4:35:44",
+          "winning_time_male": "3:55:00",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/uci-gravel-world-series-nele-laing-and-jonas-lindberg-claim-victory-at-3rides-gravel-winterberg/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

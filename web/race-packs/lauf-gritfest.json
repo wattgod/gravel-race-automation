@@ -1,12 +1,12 @@
 {
   "slug": "lauf-gritfest",
   "race_name": "Lauf Gritfest",
-  "distance_mi": 65.0,
+  "distance_mi": 79.5,
   "demands": {
-    "durability": 2,
+    "durability": 4,
     "climbing": 7,
     "vo2_power": 4,
-    "threshold": 6,
+    "threshold": 8,
     "technical": 6,
     "heat_resilience": 0,
     "altitude": 2,
@@ -14,37 +14,27 @@
   },
   "top_categories": [
     {
-      "category": "Gravel_Specific",
-      "score": 100,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Lauf Gritfest's Welsh mountains, Mountain gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 65 miles."
-    },
-    {
       "category": "TT_Threshold",
-      "score": 95,
+      "score": 100,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "92ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "75ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
-      "category": "Race_Simulation",
-      "score": 90,
+      "category": "Gravel_Specific",
+      "score": 87,
       "workouts": [
-        "Breakaway Simulation",
-        "Variable Pace Chaos",
-        "Sector Simulation"
+        "Surge and Settle",
+        "Terrain Microbursts"
       ],
-      "workout_context": "Race-pace efforts that mimic Lauf Gritfest's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
+      "workout_context": "Lauf Gritfest's Welsh mountains, Mountain gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 79 miles."
     },
     {
       "category": "Over_Under",
-      "score": 88,
+      "score": 86,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -53,7 +43,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 73,
+      "score": 78,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -62,8 +52,28 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Lauf Gritfest. Train it until it feels boring."
     },
     {
+      "category": "Race_Simulation",
+      "score": 78,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Lauf Gritfest's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
+    },
+    {
+      "category": "Durability",
+      "score": 61,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "79 miles on welsh mountain gravel burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
       "category": "Mixed_Climbing",
-      "score": 70,
+      "score": 61,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
@@ -72,7 +82,7 @@
     },
     {
       "category": "Critical_Power",
-      "score": 60,
+      "score": 52,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -81,7 +91,7 @@
     },
     {
       "category": "VO2max",
-      "score": 57,
+      "score": 49,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
@@ -90,18 +100,17 @@
       "workout_context": "6,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
-      "category": "Durability",
-      "score": 50,
+      "category": "Norwegian_Double",
+      "score": 46,
       "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
       ],
-      "workout_context": "65 miles on welsh mountain gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
     },
     {
       "category": "SFR_Muscle_Force",
-      "score": 47,
+      "score": 41,
       "workouts": [
         "SFR Low Cadence",
         "Force Repeats"
@@ -110,27 +119,18 @@
     },
     {
       "category": "Anaerobic_Capacity",
-      "score": 47,
+      "score": 41,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
       ],
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on welsh mountain gravel. If you haven't trained them, you'll crack."
-    },
-    {
-      "category": "Norwegian_Double",
-      "score": 40,
-      "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
-      ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Lauf Gritfest\u2019s 65 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 40\u201360g carbs/hour for Lauf Gritfest\u2019s 79 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
     "terrain": "Mixed terrain at Lauf Gritfest requires surface adaptability. Include weekly rides on welsh mountain gravel to build confidence. Expect: welsh mountains, mountain gravel, regional event."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 65 miles of welsh mountain gravel in Cambrian Mountains, Wales.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 79 miles of welsh mountain gravel in Cambrian Mountains, Wales.",
+  "generated_at": "2026-10-25"
 }

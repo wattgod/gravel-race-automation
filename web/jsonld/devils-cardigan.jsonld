@@ -5,6 +5,7 @@
   "description": "Tasmanian mountain gravel adventure.",
   "sport": "Gravel Cycling",
   "startDate": "2027-06-19",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Derby, Tasmania",
@@ -22,7 +23,7 @@
   },
   "url": "https://www.devilscardigan.com.au/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Blue Metal Tasmania (gravel guiding) and Tas Gravity Enduro",
     "url": "https://www.devilscardigan.com.au/"
   }

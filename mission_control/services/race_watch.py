@@ -11,6 +11,7 @@ from html import escape
 from pathlib import Path
 
 from mission_control import supabase_client as db
+from mission_control.services.contact_suppression import load_suppressed, normalise
 from mission_control.services.sequence_engine import _inject_unsubscribe, _send_email_sync
 
 logger = logging.getLogger(__name__)
@@ -86,12 +87,16 @@ def _render_update(enrollment: dict, events: list[dict]) -> str:
 
 async def run_race_watch(now: datetime | None = None) -> dict:
     now = now or datetime.now(timezone.utc)
-    summary = {"watchers": 0, "notified": 0, "skipped_baseline": 0, "skipped_rate_cap": 0, "skipped_unsubscribed": 0, "capped": False}
+    summary = {"watchers": 0, "notified": 0, "skipped_baseline": 0, "skipped_rate_cap": 0, "skipped_unsubscribed": 0, "skipped_suppressed": 0, "capped": False}
     intel = await asyncio.to_thread(_fetch_intel_sync)
     if not intel:
         db.log_action("race_watch_aborted", "sequence", "race_watch_v1", f"no race intel available — {_last_error or 'unknown'}"[:500])
         return summary
 
+    suppressed = load_suppressed()
+    if suppressed is None:
+        db.log_action("race_watch_aborted", "sequence", "race_watch_v1", "do-not-email list unreadable; sent nothing")
+        return summary
     rows = db.select("gg_sequence_enrollments", columns="id,sequence_id,contact_email,contact_name,source_data,status,enrolled_at")
     unsubscribed = {row.get("contact_email") for row in rows if row.get("status") == "unsubscribed"}
     watchers = [row for row in rows if row.get("sequence_id") == "race_watch_v1" and row.get("status") in ("active", "completed")]
@@ -103,6 +108,9 @@ async def run_race_watch(now: datetime | None = None) -> dict:
         email = enrollment.get("contact_email")
         if email in unsubscribed:
             summary["skipped_unsubscribed"] += 1
+            continue
+        if normalise(email) in suppressed:
+            summary["skipped_suppressed"] += 1
             continue
         source_data = enrollment.get("source_data") or {}
         events = pending_events(enrollment, intel.get(source_data.get("race_slug"), []))

@@ -5,7 +5,7 @@
     "display_name": "Grassroots Gravel",
     "tagline": "Red-rock canyons and Wet Mountain Range views on Pueblo, Colorado gravel.",
     "vitals": {
-      "distance_mi": 75,
+      "distance_mi": 113,
       "elevation_ft": 3900,
       "location": "Pueblo, Colorado",
       "location_badge": "PUEBLO, CO",
@@ -50,11 +50,11 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 43,
+      "overall_score": 44,
       "tier": 4,
       "tier_label": "TIER 4",
       "logistics": 3,
-      "length": 3,
+      "length": 4,
       "technicality": 2,
       "elevation": 3,
       "climate": 2,
@@ -91,14 +91,14 @@
       "bottom_line": "A solid local Colorado gravel race. Worth it for Colorado/Mountain West riders. Not worth traveling for."
     },
     "final_verdict": {
-      "score": "43 / 100",
+      "score": "44 / 100",
       "one_liner": "Colorado gravel challenge.",
       "should_you_race": "If you're local to Colorado—yes, it's solid. If you're traveling—skip it.",
       "alternatives": "For better Colorado races: Gravel Worlds, SBT GRVL, Leadville.",
       "alternative_slugs": [
-        "garmin-gravel-worlds",
+        "gravel-worlds",
         "leadville-100",
-        "sbt-grvl"
+        "steamboat-gravel"
       ]
     },
     "logistics": {
@@ -110,12 +110,25 @@
       "official_site": "https://www.grassrootsgravel.com/grg-2026"
     },
     "history": {
-      "founded": null,
+      "founded": 2023,
       "founder": "Adam Davidson (founder & promoter)",
       "origin_story": "Local Colorado gravel event.",
       "notable_moments": [],
       "reputation": "Local Colorado event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-10-11",
+        "edition": 3,
+        "source": "https://sites.chronotrack.com/event/85095/results"
+      },
+      {
+        "year": 2024,
+        "date": "2024-10-12",
+        "source": "https://sites.chronotrack.com/event/75175"
+      }
+    ],
     "course_description": {
       "character": "Colorado rolling gravel.",
       "suffering_zones": [
@@ -147,7 +160,7 @@
     },
     "guide_variables": {
       "race_name": "Grassroots Gravel",
-      "race_distance": "75 miles",
+      "race_distance": "113 miles",
       "race_elevation": "approximately 3,900 feet",
       "race_date": "October 10, 2026",
       "race_location": "Pueblo, Colorado",
@@ -271,8 +284,8 @@
         "explanation": "Aaron Sudduth won the 40-mile overall while Boudewijn Van Werven claimed second in a bunch sprint against Subaru-Groove and Cinch Cycling racers, showing the race executes competitive timing and results. Friday expo and Saturday racing keeps it simple, though they're still finalizing lodging partnerships for 2026."
       },
       "length": {
-        "score": 3,
-        "explanation": "Four distances from 15 miles (The Mild, 600ft gain) up to 113 miles (The Whole, 7,900ft gain) with tactical racing possible - Van Werven's bunch sprint finish on the 75-miler proves the courses support pack dynamics, not just solo suffering. Similar distance to Crusher in the Tushar."
+        "score": 4,
+        "explanation": "Scored on The Whole, the 113-mile flagship. Four distances from 15 miles (The Mild, 600ft gain) up to 113 miles (The Whole, 7,900ft gain) with tactical racing possible - Van Werven's bunch sprint finish on the 75-miler proves the courses support pack dynamics, not just solo suffering. Longer than Belgian Waffle Ride San Diego."
       },
       "technicality": {
         "score": 2,
@@ -388,9 +401,21 @@
     "results": {
       "years": {
         "2024": {
+          "race": "110 mi",
+          "winner_male": "Nicholas Tabares",
+          "winning_time_male": "5:00:05",
+          "source": "https://sites.chronotrack.com/event/75175"
+        },
+        "2025": {
+          "race": "113 mi",
+          "winner_female": "Whitney Allison",
+          "winner_male": "Nicholas Tabares",
+          "winning_time_female": "5:16:21",
+          "winning_time_male": "4:47:00",
+          "source": "https://sites.chronotrack.com/event/85095/results"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",
@@ -731,6 +756,12 @@
         "alt": "Course preview from Grassroots Gravel race footage",
         "credit": "YouTube / The Ride with Ben Delaney",
         "gif": true
+      }
+    ],
+    "changelog": [
+      {
+        "date": "2026-10-25",
+        "change": "Distance corrected from 75 to 113 miles to match The Whole, the flagship listed on the official event page. Length score recomputed from the published rubric."
       }
     ]
   }

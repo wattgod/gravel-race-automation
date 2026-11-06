@@ -1,3 +1,5 @@
+import { probePublicPages } from './public-pages.js';
+
 /**
  * Brand-aware coaching intake edge.
  *
@@ -25,6 +27,9 @@ const GA4_SESSION_ID_RE = /^\d+$/;
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === '/__pages') {
+      return handlePublicPages(request, env);
+    }
     if (url.pathname === '/__canary') {
       return handleCanary(request, env);
     }
@@ -143,6 +148,27 @@ export default {
     }, backend.status === 200 ? 200 : 201, origin);
   },
 };
+
+async function handlePublicPages(request, env) {
+  if (request.method !== 'POST') {
+    return jsonResponse({ error: 'Method not allowed' }, 405, '');
+  }
+  if (!env.COACHING_CANARY_SECRET) {
+    return jsonResponse({ error: 'Canary is not configured' }, 503, '');
+  }
+  const supplied = request.headers.get('X-Coaching-Canary-Secret') || '';
+  if (!(await secretsMatch(supplied, env.COACHING_CANARY_SECRET))) {
+    return jsonResponse({ error: 'Unauthorized' }, 401, '');
+  }
+  const result = await probePublicPages();
+  console.log(JSON.stringify({
+    message: 'coaching_public_pages', status: result.status,
+    checked: result.pages.length, failed: result.pages.filter(page => !page.ok).length,
+  }));
+  const response = jsonResponse(result, result.status === 'ok' ? 200 : 503, '');
+  response.headers.set('Cache-Control', 'no-store');
+  return response;
+}
 
 async function handleCanary(request, env) {
   if (request.method !== 'POST') {

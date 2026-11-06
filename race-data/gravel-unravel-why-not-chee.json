@@ -91,7 +91,7 @@
       "bottom_line": "A solid regional WA coastal gravel race. Worth it for WA/Northwest riders. Not worth traveling far for."
     },
     "final_verdict": {
-      "score": "40 / 100",
+      "score": "43 / 100",
       "one_liner": "Washington coastal gravel challenge.",
       "should_you_race": "If you're local to WA—yes, it's good value. If you're traveling—skip it.",
       "alternatives": "For better WA races: Check regional options."
@@ -102,7 +102,7 @@
       "food": "Hoquiam has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Gravel Unravel website",
+      "official_site": "",
       "camping": "Camping Culture:** \"Part of the race fee pays for the organizers to haul in water for the racers"
     },
     "history": {
@@ -112,6 +112,23 @@
       "notable_moments": [],
       "reputation": "Regional WA event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-07-26",
+        "source": "https://www.trinearme.com/race/gravel-unravel-whynotchee-139027"
+      },
+      {
+        "year": 2024,
+        "date": "2024-07-20",
+        "source": "https://www.trinearme.com/race/gravel-unravel-whynotchee-139027"
+      },
+      {
+        "year": 2023,
+        "date": "2023-07-22",
+        "source": "https://www.trinearme.com/race/gravel-unravel-whynotchee-139027"
+      }
+    ],
     "course_description": {
       "character": "Washington coast gravel.",
       "suffering_zones": [
@@ -143,7 +160,7 @@
     },
     "guide_variables": {
       "race_name": "Gravel Unravel - Why-Not-Chee",
-      "race_distance": "50 miles",
+      "race_distance": "69 miles",
       "race_elevation": "3,500 feet",
       "race_date": "Summer",
       "race_location": "Hoquiam, WA",
@@ -440,6 +457,10 @@
       "verified": "2026-10-10",
       "source": "https://peninsulaadventuresports.com/events/gravel-unravel/why-not-chee/",
       "status_note": "The organizer page states: \"THE WHY-NOT-CHEE RACE IS CANCELLED FOR 2026\". No 2027 date is announced."
+    },
+    "taking_a_break": {
+      "label": "2026 CANCELLED",
+      "line": "The organizer cancelled the 2026 Why-Not-Chee race. No 2027 date is announced."
     }
   }
 }

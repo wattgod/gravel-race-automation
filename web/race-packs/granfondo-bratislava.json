@@ -1,31 +1,31 @@
 {
   "slug": "granfondo-bratislava",
   "race_name": "Granfondo Bratislava",
-  "distance_mi": 62.0,
+  "distance_mi": 82.0,
   "demands": {
-    "durability": 2,
+    "durability": 4,
     "climbing": 7,
     "vo2_power": 5,
-    "threshold": 6,
+    "threshold": 8,
     "technical": 4,
-    "heat_resilience": 6,
+    "heat_resilience": 0,
     "altitude": 4,
     "race_specificity": 8
   },
   "top_categories": [
     {
-      "category": "Durability",
+      "category": "TT_Threshold",
       "score": 100,
       "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
       ],
-      "workout_context": "62 miles on mixed terrain burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "Granfondo Bratislava's mixed terrain rewards steady threshold power. Surging and recovering costs more watts than just holding."
     },
     {
       "category": "Race_Simulation",
-      "score": 100,
+      "score": 87,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -34,27 +34,8 @@
       "workout_context": "Race-pace efforts that mimic Granfondo Bratislava's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before August."
     },
     {
-      "category": "TT_Threshold",
-      "score": 95,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "58ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "Gravel_Specific",
-      "score": 93,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Granfondo Bratislava's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
-    },
-    {
       "category": "Over_Under",
-      "score": 88,
+      "score": 86,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -62,18 +43,17 @@
       "workout_context": "At Granfondo Bratislava, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "VO2max",
-      "score": 83,
+      "category": "Gravel_Specific",
+      "score": 81,
       "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
+        "Surge and Settle",
+        "Terrain Microbursts"
       ],
-      "workout_context": "When someone attacks on mixed terrain, you have 10 seconds to respond or you're off the back. This builds that response."
+      "workout_context": "Granfondo Bratislava's mixed terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 82 miles."
     },
     {
       "category": "G_Spot",
-      "score": 73,
+      "score": 78,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -82,8 +62,28 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Granfondo Bratislava. Train it until it feels boring."
     },
     {
-      "category": "Mixed_Climbing",
+      "category": "VO2max",
+      "score": 72,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on mixed terrain, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "Durability",
       "score": 70,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 82, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 61,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
@@ -91,17 +91,17 @@
       "workout_context": "Varied gradients on mixed terrain demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
     },
     {
-      "category": "Endurance",
-      "score": 63,
+      "category": "Norwegian_Double",
+      "score": 46,
       "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
       ],
-      "workout_context": "Base fitness for Granfondo Bratislava. Without this, the hard workouts break you down instead of building you up."
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 82 miles, sustainable FTP gains matter more than peak power."
     },
     {
       "category": "Critical_Power",
-      "score": 52,
+      "score": 45,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -109,30 +109,28 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Granfondo Bratislava, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "SFR_Muscle_Force",
-      "score": 47,
+      "category": "Endurance",
+      "score": 41,
       "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
       ],
-      "workout_context": "Low-cadence force work for 3,600ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 82 miles, base fitness is the difference between racing and surviving."
     },
     {
-      "category": "Anaerobic_Capacity",
-      "score": 47,
+      "category": "Blended",
+      "score": 41,
       "workouts": [
-        "2min Killers",
-        "90sec Repeats"
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
       ],
-      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on mixed terrain. If you haven't trained them, you'll crack."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 3,600ft of climbing on mixed terrain does to your power file on race day."
     }
   ],
   "race_overlay": {
-    "heat": "August in Bratislava, Slovakia can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Granfondo Bratislava. Increase sodium intake 48 hours before race day.",
-    "nutrition": "Target 40\u201360g carbs/hour for Granfondo Bratislava\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
-    "altitude": "Moderate altitude at Granfondo Bratislava. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "nutrition": "Target 60\u201380g carbs/hour for Granfondo Bratislava\u2019s 82 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Granfondo Bratislava requires surface adaptability. Include weekly rides on mixed terrain to build confidence."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, Race Simulation, and TT Threshold to prepare you for 62 miles of mixed terrain in Bratislava, Slovakia.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Race Simulation, and Over Under to prepare you for 82 miles of mixed terrain in Bratislava, Slovakia.",
+  "generated_at": "2026-10-25"
 }

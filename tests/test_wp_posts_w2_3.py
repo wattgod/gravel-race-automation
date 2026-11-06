@@ -203,7 +203,7 @@ def test_comments_archive_only_where_the_post_had_comments(pid):
     html = _page(pid)
     if n:
         assert 'id="comments" data-gg-archive' in html and f"{n} comment from the original post" in html
-        assert "<form" not in html.split('id="comments"', 1)[1]
+        assert "<form" not in html.split('id="comments"', 1)[1].split("</section>", 1)[0]
     else:
         assert 'id="comments"' not in html
 

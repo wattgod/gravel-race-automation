@@ -106,7 +106,7 @@
       "food": "Wine country town with good dining options.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check New York cycling calendars"
+      "official_site": ""
     },
     "history": {
       "founded": null,
@@ -115,6 +115,14 @@
       "notable_moments": [],
       "reputation": "New York State Championship event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-05-25",
+        "note": "Held as the NYS Gravel Championships.",
+        "source": "https://www.webscorer.com/race?raceid=391470"
+      }
+    ],
     "course_description": {
       "character": "Rolling to hilly gravel through Finger Lakes wine country.",
       "suffering_zones": [
@@ -418,6 +426,27 @@
         "200pluslb_mixed": "42-46",
         "200pluslb_wet": "40-44"
       }
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "40 mi",
+          "winner_female": "Ruth Sherman",
+          "winner_male": "Jack Bernhard",
+          "winning_time_female": "2:58:47",
+          "winning_time_male": "2:17:07",
+          "source": "https://www.webscorer.com/race?raceid=391470"
+        },
+        "2026": {
+          "race": "40 mi",
+          "winner_female": "Rachel Williams",
+          "winner_male": "Jack Bernhard",
+          "winning_time_female": "2:44:35",
+          "winning_time_male": "2:17:58",
+          "source": "https://www.webscorer.com/race?raceid=433422"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

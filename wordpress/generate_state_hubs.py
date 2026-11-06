@@ -30,13 +30,16 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+sys.path.append(str(Path(__file__).parent.parent / "scripts"))
+from race_facts import is_ranked  # noqa: E402
 from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, get_ga4_head_snippet, get_tokens_css, RACER_RATING_THRESHOLD, SITE_BASE_URL
+from season import season_year
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
-from pricing import PRICE_CAP, PRICE_PER_WEEK
+from pricing import PRICE_PER_WEEK
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-CURRENT_YEAR = date.today().year
+SEASON_YEAR = season_year()
 MIN_RACES = 3
 
 TIER_NAMES = {1: "Elite", 2: "Contender", 3: "Solid", 4: "Roster"}
@@ -259,6 +262,11 @@ def build_race_cards(races: list) -> str:
         distance = r.get("distance_mi")
         elevation = r.get("elevation_ft")
         month = r.get("month", "")
+        # Listed but marked: a not-running race is never silently ranked.
+        status_badge = (
+            "" if is_ranked(r)
+            else f'<span class="gg-status-badge">{esc(r.get("status_label") or "Not running")}</span>'
+        )
 
         stat_parts = []
         if distance:
@@ -296,7 +304,7 @@ def build_race_cards(races: list) -> str:
   </div>
   <div class="gg-state-card-body">
     <div class="gg-state-card-tier" style="border-color:{tier_color}">T{tier} {esc(TIER_NAMES.get(tier,""))}</div>
-    <div class="gg-state-card-name">{esc(name)}</div>
+    {status_badge}<div class="gg-state-card-name">{esc(name)}</div>
     <div class="gg-state-card-location">{esc(location)}</div>
     <div class="gg-state-card-stats">{esc(stats)}</div>
   </div>
@@ -312,7 +320,9 @@ def build_faq(state: str, races: list, disc_label: str = "Gravel") -> tuple:
     total = len(races)
     t1 = [r for r in races if r.get("tier") == 1]
     t2 = [r for r in races if r.get("tier") == 2]
-    top = races[0] if races else None
+    # Recommend only races that are running; badged not-running cards stay
+    # in the list above but never get the "best race" answer.
+    top = next((r for r in races if is_ranked(r)), None)
     dl = disc_label.lower()
 
     pairs = []
@@ -322,7 +332,7 @@ def build_faq(state: str, races: list, disc_label: str = "Gravel") -> tuple:
         f"How many {dl} races are in {state}?",
         f"We track {total} {dl} races in {state}, including "
         f"{len(t1)} Elite (Tier 1) and {len(t2)} Contender (Tier 2) events. "
-        f"See the full list above, ranked by our 15-dimension Gravel God Rating."
+        f"See the full list above, ranked by our 14-criteria Gravel God Rating."
     ))
 
     # Q2: What is the best race in {state}?
@@ -484,7 +494,7 @@ def build_state_page(state: str, races: list, total_races: int) -> str:
     t2_count = sum(1 for r in races if r.get("tier") == 2)
 
     disc_label = _discipline_label(races)
-    title = f"Best {disc_label} Races in {state} ({CURRENT_YEAR}) | Gravel God"
+    title = f"Best {disc_label} Races in {state} ({SEASON_YEAR}) | Gravel God"
     # Keep meta description under 160 chars
     tier_note = ""
     if t1_count:
@@ -558,7 +568,7 @@ def build_state_page(state: str, races: list, total_races: int) -> str:
         intro = (
             f"{state} has {len(races)} {disc_lower} races in our database, from grassroots events "
             f"to regional favorites. Explore the full list below, ranked by our "
-            f"15-dimension Gravel God Rating."
+            f"14-criteria Gravel God Rating."
         )
 
     map_section = f'''<div class="gg-state-map">{map_svg}</div>''' if map_svg else ""
@@ -733,6 +743,18 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   text-transform: uppercase;
   padding: 1px 6px;
   border: 1px solid;
+  margin-bottom: 4px;
+}}
+.gg-status-badge {{
+  display: inline-block;
+  font-family: var(--gg-font-data);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gg-color-error);
+  border: 2px solid var(--gg-color-error);
+  padding: 1px 6px;
   margin-bottom: 4px;
 }}
 .gg-state-card-name {{
@@ -995,8 +1017,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   <section class="gg-state-cta">
     <h2>Racing in {esc(state)}?</h2>
     <p>Get a personalized training plan for any {esc(state)} gravel race — tailored to your fitness, schedule, and goals.</p>
-    <a href="/questionnaire/" class="gg-state-cta-btn" data-cta="build_my_plan">Build My Plan</a>
-    <p style="font-size:11px;color:var(--gg-color-tan);margin-top:8px">{PRICE_PER_WEEK}/week, capped at {PRICE_CAP}. One-time payment.</p>
+    <a href="/training-plans/start/" class="gg-state-cta-btn" data-cta="build_my_plan">Build My Plan</a>
+    <p style="font-size:11px;color:var(--gg-color-tan);margin-top:8px">{PRICE_PER_WEEK}/week until your race. One-time payment.</p>
   </section>
 
   <footer class="gg-state-footer">
@@ -1020,7 +1042,7 @@ document.querySelectorAll('[data-cta]').forEach(function(el) {
 });
 ''' + '</script>' + '''
 
-{get_consent_banner_html()}
+''' + get_consent_banner_html() + '''
 </body>
 </html>'''
 

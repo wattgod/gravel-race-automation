@@ -1,12 +1,12 @@
 {
   "slug": "maap-beechworth-granite-classic",
   "race_name": "MAAP Beechworth Granite Classic",
-  "distance_mi": 93.0,
+  "distance_mi": 71.0,
   "demands": {
-    "durability": 4,
-    "climbing": 8,
+    "durability": 2,
+    "climbing": 7,
     "vo2_power": 5,
-    "threshold": 8,
+    "threshold": 6,
     "technical": 6,
     "heat_resilience": 3,
     "altitude": 4,
@@ -14,36 +14,17 @@
   },
   "top_categories": [
     {
-      "category": "TT_Threshold",
-      "score": 100,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "86ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "Over_Under",
-      "score": 89,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At MAAP Beechworth Granite Classic, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
       "category": "Gravel_Specific",
-      "score": 89,
+      "score": 100,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "MAAP Beechworth Granite Classic's Gravel roads, Forest tracks forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 93 miles."
+      "workout_context": "MAAP Beechworth Granite Classic's Gravel roads, Forest tracks forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 71 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 83,
+      "score": 94,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -52,18 +33,47 @@
       "workout_context": "Race-pace efforts that mimic MAAP Beechworth Granite Classic's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before April."
     },
     {
+      "category": "TT_Threshold",
+      "score": 89,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "65ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Over_Under",
+      "score": 83,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At MAAP Beechworth Granite Classic, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "VO2max",
+      "score": 78,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on high country gravel and forest tracks, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
       "category": "Durability",
-      "score": 79,
+      "score": 70,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "At mile 60 of 93, glycogen is gone. This workout teaches your body to produce watts on fumes."
+      "workout_context": "71 miles on high country gravel and forest tracks burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "G_Spot",
-      "score": 78,
+      "score": 69,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -72,27 +82,17 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of MAAP Beechworth Granite Classic. Train it until it feels boring."
     },
     {
-      "category": "VO2max",
-      "score": 69,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "8,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
-    },
-    {
       "category": "Mixed_Climbing",
-      "score": 67,
+      "score": 66,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "8,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "Varied gradients on high country gravel and forest tracks demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
     },
     {
       "category": "Critical_Power",
-      "score": 54,
+      "score": 61,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -100,13 +100,22 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At MAAP Beechworth Granite Classic, that number decides whether you bridge or get dropped."
     },
     {
+      "category": "Anaerobic_Capacity",
+      "score": 50,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on high country gravel and forest tracks. If you haven't trained them, you'll crack."
+    },
+    {
       "category": "Endurance",
-      "score": 51,
+      "score": 45,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 93 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "Base fitness for MAAP Beechworth Granite Classic. Without this, the hard workouts break you down instead of building you up."
     },
     {
       "category": "SFR_Muscle_Force",
@@ -115,23 +124,13 @@
         "SFR Low Cadence",
         "Force Repeats"
       ],
-      "workout_context": "Low-cadence force work for 8,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
-    },
-    {
-      "category": "Anaerobic_Capacity",
-      "score": 44,
-      "workouts": [
-        "2min Killers",
-        "90sec Repeats"
-      ],
-      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on high country gravel and forest tracks. If you haven't trained them, you'll crack."
+      "workout_context": "Low-cadence force work for 4,600ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for MAAP Beechworth Granite Classic\u2019s 93 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
-    "altitude": "Moderate altitude at MAAP Beechworth Granite Classic. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "nutrition": "Target 40\u201360g carbs/hour for MAAP Beechworth Granite Classic\u2019s 71 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
     "terrain": "Mixed terrain at MAAP Beechworth Granite Classic requires surface adaptability. Include weekly rides on high country gravel and forest tracks to build confidence. Expect: gravel roads, forest tracks, high country terrain."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and Gravel Specific to prepare you for 93 miles of high country gravel and forest tracks in Beechworth, Victoria.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 71 miles of high country gravel and forest tracks in Beechworth, Victoria.",
+  "generated_at": "2026-10-25"
 }

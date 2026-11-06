@@ -51,6 +51,10 @@ is trusted HTML the caller already escaped. Its contract:
   Wrap a figure in `<div class="slot" data-slot="name">` to get the mono
   figure type and a scroll target.
 
+`offer_html`: an optional pre-rendered contextual resource appended outside the
+authored sections. Article adapters disable the universal ladder when using it.
+The native newsletter signup lives once in the shared footer.
+
 `in_short`: a sequence of Claim(text_html, href, link_label, section). The
 dot next to a claim fills once the reader has passed h2 number `section`
 (0-based). `ladder`: True = default lead line, a str = custom lead (plain
@@ -61,7 +65,7 @@ MIN_CONTENTS_HEADINGS (2) contents headings; `contents=False` hides it
 regardless. On wide screens only one margin rail shows at a time: with "In
 short" beside the opening, the contents rail appears once it has scrolled
 past (SHELL_JS; without JS both show). Ladder buttons carry
-data-cta="custom_plan|season_plan|coaching", so a page that also includes
+data-cta="custom_plan|coaching", so a page that also includes
 blog_tracking.get_plan_intent_tracking_script() (pass it in extra_body_end)
 gets the canonical cta_click for them.
 
@@ -161,6 +165,7 @@ from html.parser import HTMLParser
 from typing import Literal, Sequence
 
 import pricing
+from blog_tracking import get_plan_intent_tracking_script
 from brand_tokens import (
     get_favicon_head_snippet,
     get_font_face_css,
@@ -181,7 +186,6 @@ DEFAULT_LADDER_LEAD = (
 
 # Ladder destinations (fixed by Matt, 2026-10-08).
 CUSTOM_PLAN_URL = "/products/training-plans/"
-SEASON_PLAN_URL = "/season-plan/"
 COACHING_URL = "/coaching/"
 
 
@@ -454,11 +458,6 @@ def mark_dash_rules(body_html: str) -> str:
     return _DASH_RULE_RE.sub(add, body_html)
 
 
-def _number_word(n: int) -> str:
-    words = ("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten")
-    return words[n] if 0 <= n < len(words) else str(n)
-
-
 def _cta_attrs(label: str) -> str:
     return f' data-event="article_cta_click" data-label="{esc(label)}"'
 
@@ -498,34 +497,22 @@ def render_in_short(claims: Sequence[Claim]) -> str:
 
 
 def ladder_offers() -> list[dict]:
-    """The three ladder rungs, every number read from data/pricing.json."""
+    """The ladder rungs, every number read from data/pricing.json. The
+    Season Plan rung was retired 2026-10-23 (Matti: one product)."""
     race = pricing.RACE_PLAN
-    season = pricing.SEASON_PLAN
     coaching = pricing.PRICING["products"]["coaching"]
     return [
         {
             "key": "custom_plan",
             "kicker": "One race",
             "name": race["name"],
-            "price": f'{race["weekly_rate_display"]}/week · capped at {race["cap_display"]}',
+            "price": f'{race["weekly_rate_display"]}/week · paid once',
             "desc": (
                 "One race, periodised to your date, in your TrainingPeaks calendar "
                 f'within {race["delivery_hours"]} hours. {race["refund_window_days"]}-day refund.'
             ),
             "href": CUSTOM_PLAN_URL,
             "button": "Get a custom plan",
-        },
-        {
-            "key": "season_plan",
-            "kicker": "Whole year",
-            "name": season["name"],
-            "price": season["price_display"],
-            "desc": (
-                f'Every A/B/C race of the year, up to {season["max_weeks"]} weeks, '
-                f'{_number_word(season["scheduled_rebuilds"])} scheduled rebuilds.'
-            ),
-            "href": SEASON_PLAN_URL,
-            "button": "See the season plan",
         },
         {
             "key": "coaching",
@@ -573,7 +560,7 @@ def render_subscribe_callout(text_html: str, link_text: str, sub_name_html: str,
     return (
         '<div class="gg-subscribe-callout">\n'
         f"  <p>{text_html}</p>\n"
-        f'  <a href="{SUBSTACK_URL}" target="_blank" rel="noopener"{_cta_attrs(label)}>{esc(link_text)} &rarr;</a>\n'
+        f'  <a href="#newsletter-signup"{_cta_attrs(label)}>{esc(link_text)} &rarr;</a>\n'
         f'  <p class="gg-sub-name">{sub_name_html}</p>\n'
         "</div>"
     )
@@ -596,7 +583,7 @@ def render_header(active: str | None = "articles") -> str:
             "update editorial_shell._HEADER_SUBSCRIBE_ANCHOR so the Subscribe button still renders"
         )
     sub = (
-        f'<a class="btn gg-hdr-sub" href="{SUBSTACK_URL}"{_cta_attrs("substack_header")}>Subscribe '
+        f'<a class="btn gg-hdr-sub" href="#newsletter-signup"{_cta_attrs("substack_header")}>Subscribe '
         '<span class="chev" aria-hidden="true">&rsaquo;</span></a>\n    '
     )
     return header.replace(_HEADER_SUBSCRIBE_ANCHOR, sub + _HEADER_SUBSCRIBE_ANCHOR, 1)
@@ -654,12 +641,17 @@ def render_footer() -> str:
     nav = "".join(f'<a href="{esc(href)}">{esc(label.title())}</a>' for href, label in header_nav_links())
     return f"""<footer class="foot">
   <div class="in">
-    <div>
+    <section class="newsletter-signup" id="newsletter-signup" aria-label="Slow, Mid, 38s newsletter">
       <h3>Slow, Mid, 38s</h3>
-      <p class="pitch">More like this every week. Training science without the marketing. Race intel without the fluff.</p>
-      <a class="btn" href="{SUBSTACK_URL}" target="_blank" rel="noopener"{_cta_attrs("substack_bottom")}>Subscribe to Slow, Mid, 38s <span class="chev" aria-hidden="true">&rsaquo;</span></a>
-      <p class="fine">Free &mdash; Unsubscribe anytime</p>
-    </div>
+      <p class="pitch">For cyclists with more passion than talent.</p>
+      <form data-newsletter-signup action="https://newsletter-attribution.gravelgodcoaching.workers.dev/capture" method="post">
+        <label for="newsletter-email">Email</label>
+        <input id="newsletter-email" type="email" name="email" autocomplete="email" required>
+        <input type="hidden" name="article" value="">
+        <div class="newsletter-honeypot" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button class="btn" type="submit"{_cta_attrs("substack_bottom")}>Continue on Substack</button>
+      </form>
+    </section>
     <nav aria-label="Footer">{nav}<a href="{SUBSTACK_URL}">Substack</a></nav>
   </div>
   <div class="base"><span>&copy; Gravel God Cycling</span></div>
@@ -802,7 +794,7 @@ def render_article_events_js(slug: str) -> str:
               'depth_threshold': depths[i]
             }});
             // Fire separate deep-read event at 75%+ for funnel tracking
-            if (depths[i] >= 75) {{
+            if (depths[i] === 75) {{
               gtag('event', 'article_deep_read', {{
                 'article_slug': {s},
                 'depth_threshold': depths[i]
@@ -845,6 +837,9 @@ MINI_DOTS_MAX = 10
 # visible and every link works without it.
 SHELL_JS = """<script>
 (function(){
+  document.querySelectorAll('form[data-newsletter-signup]').forEach(function(form){
+    if(form.elements && form.elements.article) form.elements.article.value=window.location.pathname;
+  });
   var heads=[].slice.call(document.querySelectorAll('#article h2[data-toc]'));
   var lists=[].slice.call(document.querySelectorAll('ol.toc')).map(function(ol){return [].slice.call(ol.children);});
   var claims=[].slice.call(document.querySelectorAll('.inshort li'));
@@ -1648,6 +1643,7 @@ def render_editorial_page(
     extra_css: str = "",
     extra_body_end: str = "",
     figures: Sequence[Figure] = (),
+    offer_html: str = "",
     in_short_on_phone: InShortOnPhone = "first",
 ) -> str:
     """Render a full editorial page. See the module docstring for the contract."""
@@ -1678,6 +1674,8 @@ def render_editorial_page(
         body = _place(body, LADDER_MARKER, render_ladder(lead), default="refs")
     else:
         body = body.replace(LADDER_MARKER, "")
+    if offer_html:
+        body += "\n" + offer_html
     body, toc = add_heading_ids(body)
     body = mark_dash_rules(body)
 
@@ -1699,6 +1697,11 @@ def render_editorial_page(
     else:
         toc_bar = rail = ""
 
+    # Commercial offers must reach the canonical plan-intent report too.
+    if offer_html:
+        tracker = get_plan_intent_tracking_script()
+        if tracker not in extra_body_end:
+            extra_body_end += "\n" + tracker
     events = render_article_events_js(meta.slug) if meta.tracks_article_events else ""
     if uses_essay:
         extra_css = ESSAY_CSS + "\n" + extra_css
@@ -1896,7 +1899,7 @@ sup a:hover{text-decoration:underline}
 .inshort .ev{font:700 13px/1.4 var(--mono);color:var(--cobalt-deep);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
 .inshort .ev:hover{color:var(--ink)}
 
-/* ladder: custom plan leads, then season, then coaching */
+/* ladder: custom plan leads, then coaching */
 .slot-ladder{margin:56px 0 10px}
 .article .ladder .lead{font:600 25px/1.3 var(--serif);margin:0 0 20px}
 .rung{color:var(--ink)}
@@ -1910,7 +1913,7 @@ sup a:hover{text-decoration:underline}
 .rung.main .d{margin:0;max-width:30em}
 .rung.main .btn{background:var(--paper);color:var(--ink)}
 .rung.main .btn:hover{background:#fff}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.pair{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:6px;margin-top:6px}
 .pair .rung{background:var(--sand);padding:22px;display:flex;flex-direction:column}
 .pair .rung .d{flex:1}
 .pair .btn{background:var(--ink);align-self:flex-start}
@@ -1923,6 +1926,19 @@ sup a:hover{text-decoration:underline}
 .foot .pitch{font:400 19px/1.45 var(--serif);color:var(--paper);margin:0 0 18px;max-width:34em}
 .foot .fine{font:700 13px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:#e2d6c7;margin:14px 0 0}
 .foot .btn{background:var(--teal)}
+.newsletter-signup{width:100%;max-width:480px}
+.newsletter-signup{scroll-margin-top:100px}
+.newsletter-signup form{display:grid;gap:12px}
+.newsletter-signup label{font:700 13px var(--mono)}
+.newsletter-signup input[type=email]{width:100%;box-sizing:border-box;border:2px solid var(--paper);background:var(--paper);color:var(--ink);padding:14px 12px;font:400 17px var(--serif);border-radius:0}
+.newsletter-signup .btn{justify-self:start;border:0;cursor:pointer}
+.newsletter-honeypot{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.newsletter-fallback{display:inline-block;margin-top:14px;font:500 13px var(--mono);text-underline-offset:4px}
+.article-offer{border-top:1px solid var(--sand2);margin-top:56px;padding:28px 0;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.article .article-offer h2{font:700 25px/1.2 var(--serif);margin:0}
+.article .article-offer-detail{font:500 13px/1.5 var(--mono);margin:10px 0 0;color:var(--ink2)}
+.article-offer .btn{flex-shrink:0;background:var(--teal);color:var(--paper)}
+@media(max-width:640px){.article-offer{align-items:flex-start;flex-direction:column;gap:18px}}
 .foot nav{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;align-content:start}
 .foot nav a{font:700 14px var(--mono);text-transform:uppercase;text-decoration:none;padding:6px 0}
 .foot .base{max-width:1296px;margin:0 auto;padding:0 32px 28px;font:700 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#d9cbbb}
@@ -1982,7 +1998,7 @@ sup a:hover{text-decoration:underline}
   .rung.main{grid-template-columns:1fr;padding:22px 18px}
   .rung.main strong{font-size:28px}
   .rung.main .d{margin-bottom:16px}
-  .pair{grid-template-columns:1fr}
+  .pair{grid-auto-flow:row}
   .foot .in{grid-template-columns:1fr;padding:34px 16px 24px}
   .foot .base{padding:0 16px 24px}
   .gg-subscribe-callout{padding:22px 18px}

@@ -11,7 +11,7 @@
       "location_badge": "OVANDO, MT",
       "county": "Powell County",
       "date": "Early June annually",
-      "date_specific": "2026: June 6",
+      "date_specific": "2027: June 5 (Saturday, CONFIRMED — thedustybandita.com)",
       "terrain_types": [
         "Montana mountains",
         "Local event",
@@ -76,7 +76,7 @@
     },
     "biased_opinion": {
       "verdict": "Montana Mountain Gravel",
-      "summary": "Dusty Bandita is a local event in Montana—mountain terrain with significant elevation at altitude. The Montana mountains are scenic, but the very small field, remote location, and limited organization keep it in Tier 4.",
+      "summary": "Dusty Bandita is a local event in Montana—mountain terrain with significant elevation at altitude. The Montana mountains are scenic, but the very small field, remote location, and limited organization keep it in Tier 3.",
       "strengths": [
         "Montana mountain scenery",
         "Altitude training",
@@ -94,12 +94,12 @@
       "bottom_line": "A solid local Montana mountain gravel race. Worth it for Montana/Mountain West riders. Not worth traveling for."
     },
     "final_verdict": {
-      "score": "46 / 100",
+      "score": "47 / 100",
       "one_liner": "Montana mountain gravel challenge.",
       "should_you_race": "If you're local to Montana—yes, it's solid. If you're traveling—skip it.",
       "alternatives": "For better Montana races: Gravel Worlds, Rebecca's Private Idaho.",
       "alternative_slugs": [
-        "garmin-gravel-worlds",
+        "gravel-worlds",
         "rebeccas-private-idaho"
       ]
     },
@@ -109,7 +109,7 @@
       "food": "Ovando has very limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Dusty Bandita website",
+      "official_site": "",
       "camping": "camping (bear aware due to 2021 grizzly incident)"
     },
     "history": {
@@ -119,6 +119,20 @@
       "notable_moments": [],
       "reputation": "Local Montana event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-06-07",
+        "edition": 3,
+        "source": "https://www.seeleylake.com/story/2025/06/19/sports/dusty-banditas-bike-race-swarms-ovando-for-the-third-time/11143.html"
+      },
+      {
+        "year": 2024,
+        "date": "2024-06-01",
+        "edition": 2,
+        "source": "https://www.seeleylake.com/story/2024/06/13/news/the-dusty-banditas-ride-again/10381.html"
+      }
+    ],
     "course_description": {
       "character": "Montana mountain gravel.",
       "suffering_zones": [
@@ -150,7 +164,7 @@
     },
     "guide_variables": {
       "race_name": "Dusty Bandita",
-      "race_distance": "65 miles",
+      "race_distance": "85 miles",
       "race_elevation": "4,500 feet",
       "race_date": "Summer",
       "race_location": "Ovando, Montana",
@@ -328,6 +342,12 @@
     },
     "citations": [
       {
+        "url": "https://www.thedustybandita.com/",
+        "category": "official",
+        "label": "The Dusty Bandita: 2027 edition June 5",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://ridewithgps.com/routes/51122695",
         "category": "route",
         "label": "RideWithGPS: 2025 Dusty Bandita (80)"
@@ -445,6 +465,17 @@
         "200pluslb_mixed": "38-42",
         "200pluslb_wet": "36-40"
       }
+    },
+    "results": {
+      "years": {
+        "2024": {
+          "race": "80-ish mi",
+          "winner_female": "Stella Hobbs",
+          "winning_time_female": "4:23:48",
+          "source": "https://www.seeleylake.com/story/2024/06/13/news/the-dusty-banditas-ride-again/10381.html"
+        }
+      },
+      "latest_year": "2024"
     }
   }
 }

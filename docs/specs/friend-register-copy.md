@@ -1,7 +1,8 @@
 # The friend-register set — GG, complete
 # Rules: every sentence about them. 2–4 short sentences. End on a real question
 # we actually want answered. Pitch lives in replies, never broadcasts.
-# Sober variant B keeps existing copy as the A/B control — none of these touch it.
+# Sober variant B keeps existing copy — none of these touch it. (Was the A/B
+# control at 50/50; retired to weight 0 Oct 2026, copy kept for in-flight B rows.)
 
 ### welcome · day 0 · welcome_value
 SUBJECT: getting ready for one of these?
@@ -114,6 +115,51 @@ BODY:
 {greeting} got your questionnaire. I'm building around your course, your FTP, and the hours you actually have. You'll have it inside 24 hours.
 
 One thing: if anything about your life changes — schedule, knee, race date — just reply. The plan bends.
+
+— Matti
+
+### post_purchase · day 0 · tp_purchase_welcome   (source trainingpeaks_store only; replaces purchase_welcome for TP store buyers)
+SUBJECT: did the plan land on your calendar?
+BODY:
+{greeting} saw you picked up {{#plan_name}}{plan_name}{{/plan_name}}{{^plan_name}}the plan{{/plan_name}} on TrainingPeaks. If your week doesn't look like what the plan assumes, reply and tell me what it does look like, and I'll tell you what I'd change. Easier to fix in week one than week six.
+
+{{#race_name}}Did you set the start date so it ends on race day?{{/race_name}}{{^race_name}}When are you starting it?{{/race_name}}
+
+— Matti
+
+### post_purchase · day 3 · tp_week1_check   (trainingpeaks_store only; TP buyers pick their own start date, so nothing assumes the plan has begun)
+SUBJECT: started yet?
+BODY:
+{greeting} once the plan starts, week 1 should feel too easy. That's calibration, so don't add extra. If something in it looks off, reply and I'll take a look.
+
+Has it started yet, or is it still sitting on the calendar?
+
+— Matti
+
+### post_purchase · day 10 · tp_checkin   (trainingpeaks_store only)
+SUBJECT: is the schedule surviving your week?
+BODY:
+{greeting} once the plan is running, what I care about is whether the schedule survives your actual week. If Tuesday keeps not happening, Tuesday is wrong, not you, and I can tell you what to move.
+
+Which day is giving you trouble?
+
+— Matti
+
+### post_purchase · day 21 · tp_progress   (trainingpeaks_store only)
+SUBJECT: the easy weeks
+BODY:
+{greeting} the recovery weeks in {{#plan_name}}{plan_name}{{/plan_name}}{{^plan_name}}the plan{{/plan_name}} will feel too easy. Let them be easy, because that's where the fitness shows up. Tell me where you're at and I'll tell you what's coming.
+
+How far in are you now?
+
+— Matti
+
+### post_purchase · end · tp_nps   (trainingpeaks_store only; base plans have no race, and without plan_weeks this falls back to day 42, so the copy works mid-plan or after)
+SUBJECT: how's the plan treating you?
+BODY:
+{greeting} I want the honest version of how {{#plan_name}}{plan_name}{{/plan_name}}{{^plan_name}}the plan{{/plan_name}} is going, where it helps and where it doesn't. If you want the next block built around you week by week, that's what my coaching is.
+
+What would you change about it?
 
 — Matti
 

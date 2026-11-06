@@ -201,6 +201,13 @@ class TestSeoMetadata:
 
 # ── Fixtures ──────────────────────────────────────────────────
 
+@pytest.fixture(autouse=True)
+def _before_sample_edition(monkeypatch):
+    """The sample race runs 2026-06-15; pin "today" before it so these tests
+    see an upcoming edition (past editions: tests/test_edition_honesty.py)."""
+    monkeypatch.setenv("GG_TODAY", "2026-01-15")
+
+
 @pytest.fixture
 def sample_race_data():
     """Minimal but complete race data for testing."""
@@ -857,9 +864,9 @@ class TestParseEventDates:
 # ── Sections ──────────────────────────────────────────────────
 
 class TestSections:
-    def test_toc_has_11_links(self):
+    def test_toc_has_13_links(self):
         html = build_toc()
-        assert html.count("<a ") == 11
+        assert html.count("<a ") == 13
 
     def test_course_overview_has_map(self, normalized_data):
         html = build_course_overview(normalized_data)
@@ -1887,7 +1894,7 @@ class TestFunnelAttribution:
         from wordpress.generate_neo_brutalist import build_custom_plan_offer
         rd = normalize_race_data(sample_race_data)
         html = build_custom_plan_offer(rd)
-        assert "questionnaire/?race=test-gravel-100&amp;src=race_profile" in html  # esc() encodes the ampersand
+        assert "training-plans/start/?race=test-gravel-100&amp;src=race_profile" in html  # esc() encodes the ampersand
 
     def test_cta_section_prefers_measured_section_name(self):
         src = (Path(__file__).parent.parent / "wordpress" / "generate_neo_brutalist.py").read_text()

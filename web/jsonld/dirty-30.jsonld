@@ -5,6 +5,7 @@
   "description": "Early season Michigan gravel with cold starts, mud risk, and MGRS community.",
   "sport": "Gravel Cycling",
   "startDate": "2027-03-27",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Saranac, Michigan",
@@ -22,7 +23,7 @@
   },
   "url": "https://dirtythirtygravelgrinder.com",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Michigan Gravel Race Series",
     "url": "https://dirtythirtygravelgrinder.com"
   }

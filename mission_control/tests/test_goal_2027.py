@@ -75,6 +75,12 @@ class TestWebhook:
         assert sd["goal_answers"]["outcome_goal"] == ANSWERS["outcome_goal"]
         assert sd["offer_variant"] == "B"
 
+    def test_help_most_answer_is_stored_with_the_rest(self, client, fake_db):
+        _post(client, {"email": "help@example.com", "source": "goal_2027",
+                       "goal_answers": {**ANSWERS, "help_most": "coaching"}})
+        sd = _enrollment(fake_db, "help@example.com")["source_data"]
+        assert sd["goal_answers"]["help_most"] == "coaching"
+
     def test_xcskilabs_lead_enrolls_the_xc_sequence_not_gravelgods(self, client, fake_db):
         _post(client, {"email": "xcgoal@example.com", "name": "Ada Skier",
                        "source": "goal_2027", "goal_answers": ANSWERS,

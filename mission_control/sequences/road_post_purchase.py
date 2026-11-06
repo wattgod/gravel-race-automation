@@ -5,6 +5,10 @@ enrollment call site for road buyers to land here (the subscriber webhook
 is brand-routed; verify the purchase-trigger path also carries brand).
 
 ACTIVE — roadielabs.com verified in Resend Jul 2026.
+
+road_nps_request carries race_premise "passed": skipped at send time, with
+an audit-log entry, unless the race has happened
+(sequence_engine._race_premise_failure).
 """
 
 SEQUENCE = {
@@ -23,7 +27,7 @@ SEQUENCE = {
                 {"delay_days": 3, "template": "road_week1", "subject": "how did the first rides feel?"},
                 {"delay_days": 10, "template": "road_checkin_week2", "subject": "two weeks in"},
                 {"delay_days": 21, "template": "road_progress_update", "subject": "the middle weeks"},
-                {"delay_days": 42, "template": "road_nps_request", "subject": "did {race_name} happen?"},
+                {"delay_days": 42, "template": "road_nps_request", "subject": "did {race_name} happen?", "race_premise": "passed"},
             ],
         },
     },

@@ -22,8 +22,15 @@
 <div class="mc-page-header">
     <span class="mc-page-header__kicker">Conversion / Editor Queue</span>
     <h1 class="mc-page-header__title">Lead Replies</h1>
-    <p class="mc-page-header__desc">Reflect one detail. Give one useful thing when grounded. Ask one easy question. Approval creates a Gmail draft; it never sends.</p>
+    <p class="mc-page-header__desc">Reflect one detail. Give one useful thing when grounded. Ask one easy question. {% if drafts_enabled %}Approval creates an unsent Gmail draft; it never sends.{% else %}Edit, approve, then paste the text into your Gmail reply and send it yourself.{% endif %}</p>
 </div>
+
+{% if not sync_enabled %}
+<div class="gg-alert gg-alert--warning mc-mb-lg">
+    <span class="gg-alert__label">Gmail sync off</span>
+    <span class="gg-alert__message">LEAD_REPLY_SYNC_ENABLED is not set, so no new lead replies arrive here. Existing items stay editable.</span>
+</div>
+{% endif %}
 
 <div class="gg-stat-grid mc-mb-lg">
     <div class="gg-stat-card"><div class="gg-stat-card__label">90d replies</div><div class="gg-stat-card__value">{{ metrics.replies }}</div></div>
@@ -87,7 +94,7 @@
                 <form hx-post="/lead-replies/{{ item.id }}/approve" hx-target="#result-{{ item.id }}" hx-swap="innerHTML">
                     <textarea class="mc-textarea lead-reply-editor" name="draft_text">{{ item.draft_text }}</textarea>
                     <div class="lead-reply-actions">
-                        <button type="submit" class="gg-btn gg-btn--primary">Approve Gmail Draft</button>
+                        <button type="submit" class="gg-btn gg-btn--primary">{% if drafts_enabled %}Approve Gmail Draft{% else %}Approve{% endif %}</button>
                         <button type="button" class="gg-btn gg-btn--ghost"
                                 hx-post="/lead-replies/{{ item.id }}/dismiss"
                                 hx-target="#reply-{{ item.id }}" hx-swap="outerHTML"
@@ -102,7 +109,7 @@
         {% else %}
         <div class="gg-empty-state">
             <h3 class="gg-empty-state__title">No lead replies need editing</h3>
-            <p class="gg-empty-state__text">New replies appear after the Gmail relay syncs them.</p>
+            <p class="gg-empty-state__text">{% if sync_enabled %}New replies appear after the Gmail relay syncs them.{% else %}Gmail sync is off. Set LEAD_REPLY_SYNC_ENABLED to start capturing replies.{% endif %}</p>
         </div>
         {% endif %}
     </section>

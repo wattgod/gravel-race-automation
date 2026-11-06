@@ -18,6 +18,8 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+sys.path.append(str(Path(__file__).parent.parent / "scripts"))
+from race_facts import catalog_race_count  # noqa: E402
 from brand_tokens import get_ga4_head_snippet
 from cookie_consent import get_consent_banner_html
 
@@ -95,6 +97,7 @@ def generate_blog_index_page(output_dir=None):
         },
     }, separators=(",", ":"))
 
+    race_count = catalog_race_count()
     page_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,9 +105,9 @@ def generate_blog_index_page(output_dir=None):
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gravel God Blog — Race Previews, Roundups &amp; Recaps</title>
 {get_ga4_head_snippet()}
-  <meta name="description" content="Race previews, season roundups, and race recaps from the Gravel God gravel race database. 328 races rated and ranked.">
+  <meta name="description" content="Race previews, season roundups, and race recaps from the Gravel God gravel race database. {race_count} races rated and ranked.">
   <meta property="og:title" content="Gravel God Blog — Race Previews, Roundups &amp; Recaps">
-  <meta property="og:description" content="Race previews, season roundups, and race recaps. 328 gravel races rated and ranked.">
+  <meta property="og:description" content="Race previews, season roundups, and race recaps. {race_count} races rated and ranked.">
   <meta property="og:url" content="{SITE_URL}/blog/">
   <link rel="canonical" href="{SITE_URL}/blog/">
   <script type="application/ld+json">{jsonld}</script>

@@ -1,6 +1,7 @@
 # Gmail Lead Reply Loop — implementation and voice audit
 
-**Status:** built on `codex/gmail-lead-reply-loop`; not deployed.
+**Status:** merged to `main` (Mission Control side). Off until the flags in the
+switch-on runbook below are set and the Gmail bridge is installed.
 **Date:** 2026-08-21
 **System of record:** Mission Control/Supabase for operational state; Gmail for
 the original communication; Endure receives the relationship only after a lead
@@ -164,6 +165,80 @@ sound like engagement bait.
 7. Approve one test suggestion and verify one unsent Gmail draft appears.
 8. Run `scripts/lead_nurture_report.py`; verify no active-after-reply leaks.
 9. Only then enable the five-minute trigger for normal operation.
+
+## Switch-on runbook
+
+What was missing (2026-10-23): the Mission Control routes, editor queue,
+migration and tables were already live. Nothing fills the tables because the
+Apps Script bridge in `integrations/gmail-lead-bridge/` was never installed in
+the coaching Gmail account, and there was no off switch on the server side.
+Mission Control never calls Gmail itself and holds no Gmail OAuth credentials;
+the bridge's five-minute trigger is the scheduler.
+
+### Flags (Mission Control environment)
+
+Both default off. Only `1`, `true`, `yes` or `on` turn one on.
+
+| Name | Effect when on | When off |
+|---|---|---|
+| `LEAD_REPLY_SYNC_ENABLED` | Bridge gets the known-lead list; posted threads are stored, matched to the lead, marketing enrollments pause, a suggestion is written. | Bridge gets an empty list and returns before searching Gmail; anything posted is dropped unstored. |
+| `LEAD_REPLY_GMAIL_DRAFTS_ENABLED` | Approved suggestions are handed to the bridge, which makes one unsent Gmail reply draft per thread. Needs the sync flag too. | Bridge gets no drafts. Matti copies the approved text into Gmail and sends it himself. |
+
+No flag sends mail. The bridge has no send, reply, forward, trash, archive or
+label call (`TestNeverSends` in `mission_control/tests/test_lead_nurture.py`
+enforces it), and the server-side loop does not import the Resend sender.
+
+### Other names involved (all already used elsewhere unless noted)
+
+- Mission Control: `WEBHOOK_SECRET` (bridge auth), `MISSION_CONTROL_SECRET`
+  (admin login for the editor), `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`.
+- Reply-to addresses must stay on `gmail.com` for the `+lead.<token>` tag:
+  `REPLY_TO_EMAIL`, `RL_REPLY_TO_EMAIL`, `XC_REPLY_TO_EMAIL` (defaults are the
+  coaching Gmail address). A non-Gmail reply-to gets no token, and matching
+  falls back to email address plus time.
+- `TYPESAFE_API_KEY`: when set, each captured reply's text is also sent to
+  TypeSafe for an advisory intent check (`jev_intent_signal`; the answer is not
+  stored). Leave it unset on Mission Control while the sync flag is on until a
+  retention policy covers that provider (see Privacy below).
+- Apps Script Script Properties (in the Apps Script project, not Railway):
+  `MISSION_CONTROL_URL`, `WEBHOOK_SECRET`, `ACCOUNT_EMAIL`.
+
+### Gmail scopes (from `integrations/gmail-lead-bridge/appsscript.json`)
+
+- `https://mail.google.com/` (GmailApp read and `createDraftReply`)
+- `https://www.googleapis.com/auth/userinfo.email` (account check)
+- `https://www.googleapis.com/auth/script.external_request` (calls to Mission Control)
+- `https://www.googleapis.com/auth/script.scriptapp` (the five-minute trigger)
+
+### Switch on
+
+1. Confirm `20260822000001_gmail_lead_reply_loop.sql` is applied: the three
+   `gg_lead_*` tables and the new `gg_sequence_sends` columns (`reply_token`,
+   `question_type`, `reply_count`, `first_reply_at`, `complained_at`). No new
+   migration is needed for the flags.
+2. Set `LEAD_REPLY_SYNC_ENABLED=true` on Mission Control. Leave
+   `LEAD_REPLY_GMAIL_DRAFTS_ENABLED` unset. Redeploy so the env is read.
+3. Install the bridge per `integrations/gmail-lead-bridge/README.md`, signed in
+   as the coaching account. `installLeadBridge()` creates the trigger and runs
+   one sync; then run `backfillLeadThreads()` once.
+4. Open **Mission Control → Lead Replies** (`/lead-replies`). Waiting replies
+   show as cards with the lead's message, recent thread context and an
+   editable draft. The "Gmail sync off" banner should be gone.
+5. Edit the draft, press **Approve**, paste it into the Gmail thread and send
+   it from Gmail. The next sync sees the sent reply and clears the card.
+6. Run `scripts/lead_nurture_report.py`; check active-after-reply is 0.
+7. Optional, later: set `LEAD_REPLY_GMAIL_DRAFTS_ENABLED=true` to have approvals
+   appear as unsent Gmail drafts instead of copy-paste. Any suggestion already
+   approved and not yet answered in Gmail becomes a draft on the next run.
+
+### Switch off
+
+- Unset `LEAD_REPLY_SYNC_ENABLED` (or set it to anything else) and redeploy.
+  The bridge keeps firing but reads no lead threads and stores nothing; drafts
+  stop too. Existing rows stay in Supabase and the editor stays readable.
+- To stop only drafts, unset `LEAD_REPLY_GMAIL_DRAFTS_ENABLED`.
+- To stop the bridge itself, delete its trigger in the Apps Script project
+  (Triggers → `runLeadBridge`).
 
 ## Privacy and retention
 

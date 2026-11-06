@@ -69,7 +69,7 @@ LTGP_RACES = {
 # Races that were on LTGP but dropped - must use past tense
 FORMER_LTGP_RACES = {
     "crusher-in-the-tushar",  # 2024 only
-    "the-rad",                # 2024 only
+    # the-rad: 2024 only, back on the 2027 calendar (current again)
 }
 
 # Current LTGP races (2025+)

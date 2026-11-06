@@ -6,12 +6,23 @@ The bridge is intentionally conservative:
 - A real reply pauses marketing sequences immediately.
 - Suggestions are editable and never send email.
 - Only suggestions explicitly approved by Matti may become Gmail drafts.
+
+Two environment flags gate the loop; both are off unless set to 1/true/yes/on:
+- LEAD_REPLY_SYNC_ENABLED: the Gmail bridge receives lead candidates and
+  Mission Control stores the threads it posts. Off -> the bridge is handed an
+  empty candidate list (so it reads no lead threads) and posted threads are
+  dropped unstored.
+- LEAD_REPLY_GMAIL_DRAFTS_ENABLED: approved suggestions are handed to the
+  bridge to become unsent Gmail drafts. Requires the sync flag. Off -> Matti
+  copies the approved text into Gmail and sends it himself.
+Nothing in this loop sends email under any flag.
 """
 
 from __future__ import annotations
 
 import hashlib
 import html
+import os
 import re
 import statistics
 from difflib import SequenceMatcher
@@ -26,6 +37,23 @@ try:
     from scripts import jev_client
 except ImportError:  # pragma: no cover - scripts/ not on sys.path in some deployments
     jev_client = None
+
+
+_TRUE_VALUES = {"1", "true", "yes", "on"}
+
+
+def _env_flag(name: str) -> bool:
+    return os.environ.get(name, "").strip().lower() in _TRUE_VALUES
+
+
+def reply_sync_enabled() -> bool:
+    """LEAD_REPLY_SYNC_ENABLED: read known-lead Gmail threads. Default off."""
+    return _env_flag("LEAD_REPLY_SYNC_ENABLED")
+
+
+def gmail_drafts_enabled() -> bool:
+    """LEAD_REPLY_GMAIL_DRAFTS_ENABLED (plus the sync flag): create unsent drafts."""
+    return reply_sync_enabled() and _env_flag("LEAD_REPLY_GMAIL_DRAFTS_ENABLED")
 
 
 MAX_BODY_CHARS = 30_000

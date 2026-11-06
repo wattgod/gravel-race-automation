@@ -5,7 +5,7 @@
     "display_name": "Serenissima Gravel",
     "tagline": "Italian flat to rolling gravel near Venice.",
     "vitals": {
-      "distance_mi": 47,
+      "distance_mi": 72,
       "elevation_ft": 2000,
       "location": "Venice, Italy",
       "location_badge": "VENICE, ITALY",
@@ -108,12 +108,41 @@
       "official_site": "https://www.serenissimagravel.com/"
     },
     "history": {
-      "founded": null,
+      "founded": 2021,
       "founder": "Filippo Pozzato",
       "origin_story": "Regional Italian gravel event.",
       "notable_moments": [],
       "reputation": "Regional Italian event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-10-16",
+        "source": "https://ppsportevents.com/blogs/comunicati-stampa/serenissima-gravel-2026-vincono-mattia-de-marchi-e-giorgia-marchet"
+      },
+      {
+        "year": 2025,
+        "edition": 4,
+        "source": "https://www.idlprocycling.com/cycling/alpecin-deceuninck-says-goodbye-to-team-legend-with-win-on-italian-gravel-del-grosso-joins-world-champion-on-the-podium"
+      },
+      {
+        "year": 2024,
+        "status": "not_held",
+        "source": "https://www.serenissimagravel.com/professionisti/albo-d-oro"
+      },
+      {
+        "year": 2022,
+        "date": "2022-10-14",
+        "note": "Start moved from Jesolo to Porto Barricata; course about 195 km, 80% off-road.",
+        "source": "https://www.cyclingnews.com/races/serenissima-gravel-2022/serenissima-gravel-2022/results/"
+      },
+      {
+        "year": 2021,
+        "edition": 1,
+        "note": "Inaugural edition, Lido di Jesolo to Piazzola sul Brenta, 132 km.",
+        "source": "https://www.cyclingnews.com/races/serenissima-gravel-2021/serenissima-gravel-2021/results/"
+      }
+    ],
     "course_description": {
       "character": "Italian flat to rolling gravel.",
       "suffering_zones": [
@@ -145,7 +174,7 @@
     },
     "guide_variables": {
       "race_name": "Serenissima Gravel",
-      "race_distance": "65 miles",
+      "race_distance": "72 miles",
       "race_elevation": "2,000 feet",
       "race_date": "Spring/Fall",
       "race_location": "Venice, Italy",
@@ -270,7 +299,7 @@
       },
       "length": {
         "score": 3,
-        "explanation": "Lutsenko's winning solo attack came with 80km remaining, sustaining \"3.5 hours of 100 percent full gas\" through the 132km parcours. The distance allows for tactical racing as Robin Froidevaux demonstrated in 2022, attacking 10km from home: \"I knew if I stayed with the group, it would be hard technically against the best on the last lap.\" Similar distance to Crusher in the Tushar."
+        "explanation": "The current pro race is four laps of a 28.9 km circuit, 115.6 km in all. Lutsenko's winning solo attack came with 80km remaining, sustaining \"3.5 hours of 100 percent full gas\" through the 132km parcours. The distance allows for tactical racing as Robin Froidevaux demonstrated in 2022, attacking 10km from home: \"I knew if I stayed with the group, it would be hard technically against the best on the last lap.\" Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
@@ -700,6 +729,46 @@
         "credit": "YouTube / Non solo GravelAndre",
         "gif": true
       }
-    ]
+    ],
+    "changelog": [
+      {
+        "date": "2026-10-25",
+        "change": "Distance corrected from 47 to 72 miles to match the 115.6 km pro race, the flagship listed on the official event page. Length score recomputed from the published rubric."
+      }
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "115.6 km",
+          "winner_female": "Giorgia Marchet",
+          "winner_male": "Mattia De Marchi",
+          "winning_time_female": "1:53:31",
+          "winning_time_male": "3:25:58",
+          "source": "https://ppsportevents.com/blogs/comunicati-stampa/serenissima-gravel-2026-vincono-mattia-de-marchi-e-giorgia-marchet"
+        },
+        "2025": {
+          "race": "151 km",
+          "winner_male": "Quinten Hermans",
+          "winning_time_male": "3:58:47",
+          "source": "https://cyclingpro.net/spaziociclismo/sintesi-gare/serenissima-gravel-2025-quinten-hermans-batte-il-neo-campione-del-mondo-florian-vermeersch/"
+        },
+        "2023": {
+          "winner_male": "Florian Vermeersch",
+          "source": "https://www.serenissimagravel.com/professionisti/albo-d-oro"
+        },
+        "2022": {
+          "race": "195 km",
+          "winner_male": "Robin Froidevaux",
+          "source": "https://www.cyclingnews.com/races/serenissima-gravel-2022/serenissima-gravel-2022/results/"
+        },
+        "2021": {
+          "race": "132 km",
+          "winner_male": "Alexey Lutsenko",
+          "winning_time_male": "3:24:14",
+          "source": "https://www.cyclingnews.com/races/serenissima-gravel-2021/serenissima-gravel-2021/results/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

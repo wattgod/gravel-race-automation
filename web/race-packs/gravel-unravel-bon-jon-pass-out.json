@@ -1,12 +1,12 @@
 {
   "slug": "gravel-unravel-bon-jon-pass-out",
   "race_name": "Gravel Unravel - Bon Jon Pass Out",
-  "distance_mi": 60.0,
+  "distance_mi": 80.0,
   "demands": {
-    "durability": 2,
+    "durability": 4,
     "climbing": 6,
     "vo2_power": 2,
-    "threshold": 6,
+    "threshold": 8,
     "technical": 6,
     "heat_resilience": 0,
     "altitude": 2,
@@ -21,11 +21,11 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "83ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "62ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
-      "score": 89,
+      "score": 82,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -33,17 +33,8 @@
       "workout_context": "At Gravel Unravel - Bon Jon Pass Out, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "Gravel_Specific",
-      "score": 89,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Gravel Unravel - Bon Jon Pass Out's Olympic Peninsula, Mountain gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 60 miles."
-    },
-    {
       "category": "G_Spot",
-      "score": 78,
+      "score": 79,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -52,8 +43,17 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Gravel Unravel - Bon Jon Pass Out. Train it until it feels boring."
     },
     {
+      "category": "Gravel_Specific",
+      "score": 73,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Gravel Unravel - Bon Jon Pass Out's Olympic Peninsula, Mountain gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 80 miles."
+    },
+    {
       "category": "Mixed_Climbing",
-      "score": 67,
+      "score": 55,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
@@ -62,7 +62,7 @@
     },
     {
       "category": "Race_Simulation",
-      "score": 67,
+      "score": 55,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -71,8 +71,27 @@
       "workout_context": "Race-pace efforts that mimic Gravel Unravel - Bon Jon Pass Out's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
     },
     {
+      "category": "Durability",
+      "score": 50,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 80, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 48,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 80 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
       "category": "Critical_Power",
-      "score": 56,
+      "score": 45,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -80,8 +99,17 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Gravel Unravel - Bon Jon Pass Out, that number decides whether you bridge or get dropped."
     },
     {
+      "category": "Tempo",
+      "score": 36,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is Gravel Unravel - Bon Jon Pass Out's race pace. The wattage you'll hold for 80 miles on olympic Peninsula gravel. Train it until it's automatic."
+    },
+    {
       "category": "SFR_Muscle_Force",
-      "score": 44,
+      "score": 36,
       "workouts": [
         "SFR Low Cadence",
         "Force Repeats"
@@ -89,48 +117,19 @@
       "workout_context": "Low-cadence force work for 5,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
-      "category": "Norwegian_Double",
-      "score": 44,
-      "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
-      ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
-    },
-    {
       "category": "Cadence_Work",
-      "score": 44,
+      "score": 36,
       "workouts": [
         "High Cadence Drills",
         "Cadence Pyramids"
       ],
-      "workout_context": "Smooth pedaling at 60 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
-    },
-    {
-      "category": "VO2max",
-      "score": 41,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "5,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
-    },
-    {
-      "category": "Durability",
-      "score": 39,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "60 miles on olympic Peninsula gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "Smooth pedaling at 80 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Gravel Unravel - Bon Jon Pass Out\u2019s 60 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 60\u201380g carbs/hour for Gravel Unravel - Bon Jon Pass Out\u2019s 80 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Gravel Unravel - Bon Jon Pass Out requires surface adaptability. Include weekly rides on olympic peninsula gravel to build confidence. Expect: olympic peninsula, mountain gravel, pacific northwest."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and Gravel Specific to prepare you for 60 miles of olympic peninsula gravel in Quilcene, WA.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and G Spot to prepare you for 80 miles of olympic peninsula gravel in Quilcene, WA.",
+  "generated_at": "2026-10-25"
 }

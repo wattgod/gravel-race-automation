@@ -1,7 +1,7 @@
 {
   "slug": "sasquatch-duro",
   "race_name": "Sasquatch Duro",
-  "distance_mi": 62.0,
+  "distance_mi": 67.0,
   "demands": {
     "durability": 2,
     "climbing": 7,
@@ -20,7 +20,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Sasquatch Duro's Mountain gravel, Coast Range forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
+      "workout_context": "Sasquatch Duro's Mountain gravel, Coast Range forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 67 miles."
     },
     {
       "category": "TT_Threshold",
@@ -30,7 +30,7 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "81ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "74ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Race_Simulation",
@@ -69,7 +69,7 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "5,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "When someone attacks on coast Range mountain gravel, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
       "category": "Mixed_Climbing",
@@ -78,7 +78,7 @@
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "5,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "Varied gradients on coast Range mountain gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
     },
     {
       "category": "Critical_Power",
@@ -97,7 +97,7 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "62 miles on coast Range mountain gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "67 miles on coast Range mountain gravel burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "SFR_Muscle_Force",
@@ -106,7 +106,7 @@
         "SFR Low Cadence",
         "Force Repeats"
       ],
-      "workout_context": "Low-cadence force work for 5,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "Low-cadence force work for 4,976ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
       "category": "Anaerobic_Capacity",
@@ -128,10 +128,9 @@
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Sasquatch Duro\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
-    "altitude": "Moderate altitude at Sasquatch Duro. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
+    "nutrition": "Target 40\u201360g carbs/hour for Sasquatch Duro\u2019s 67 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
     "terrain": "Mixed terrain at Sasquatch Duro requires surface adaptability. Include weekly rides on coast range mountain gravel to build confidence. Expect: mountain gravel, coast range, forest roads."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 62 miles of coast range mountain gravel in Carlton, Oregon.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 67 miles of coast range mountain gravel in Carlton, Oregon.",
+  "generated_at": "2026-10-25"
 }

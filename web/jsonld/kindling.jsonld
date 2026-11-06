@@ -5,6 +5,8 @@
   "description": "Three Karoo gravel stages from Graaff-Reinet to Blaauwater Burn Camp and back.",
   "sport": "Gravel Cycling",
   "startDate": "2027-04-24",
+  "endDate": "2027-04-26",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Graaff-Reinet, Eastern Cape, South Africa",
@@ -16,7 +18,7 @@
   },
   "url": "https://kindling-gravel.com/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Gravel Burn / ChemChamp",
     "url": "https://kindling-gravel.com/"
   }

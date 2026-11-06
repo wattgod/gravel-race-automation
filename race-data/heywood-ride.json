@@ -11,7 +11,7 @@
       "location_badge": "NORTHFIELD, MN",
       "county": "Rice County",
       "date": "Mid-May annually",
-      "date_specific": "2026: May 16",
+      "date_specific": "2027: May 15 (Saturday, CONFIRMED — theheywoodride.com)",
       "terrain_types": [
         "Minnesota rolling",
         "Local event",
@@ -96,7 +96,7 @@
       "should_you_race": "If you're local to Minnesota—yes, it's good value. If you're traveling—skip it.",
       "alternatives": "For better Minnesota races: Almanzo, Dirty Benjamin.",
       "alternative_slugs": [
-        "almanzo-100"
+        "spring-valley-100"
       ]
     },
     "logistics": {
@@ -105,16 +105,40 @@
       "food": "Northfield has full dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Heywood Ride website",
+      "official_site": "",
       "camping": "camping available at Sechler Park (no facilities, no big rigs/trailers)"
     },
     "history": {
-      "founded": null,
+      "founded": 2022,
       "founder": "Heath Creek Productions LLC",
       "origin_story": "Local Minnesota gravel event.",
       "notable_moments": [],
       "reputation": "Local Minnesota event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-05-16",
+        "source": "https://www.bikemn.org/events/the-heywood-2026/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-17",
+        "note": "Music and food trucks added at the finish.",
+        "source": "https://www.thenxrth.com/post/no-sponsors-no-podium-the-heywood-ride-at-the-heart-of-grassroots-community-gravel"
+      },
+      {
+        "year": 2023,
+        "date": "2023-05-20",
+        "source": "https://g-tedproductions.blogspot.com/2022/11/gravel-amplifier-heywood-ride-winston.html"
+      },
+      {
+        "year": 2022,
+        "date": "2022-05-21",
+        "note": "First edition as The Heywood, successor to the Almanzo 100 in Northfield.",
+        "source": "https://www.thenxrth.com/post/meet-the-heywood-your-new-favorite-pay-what-you-want-gravel-event"
+      }
+    ],
     "course_description": {
       "character": "Minnesota rolling gravel.",
       "suffering_zones": [
@@ -323,6 +347,12 @@
       }
     },
     "citations": [
+      {
+        "url": "https://theheywoodride.com",
+        "category": "official",
+        "label": "Heywood Ride — 2027 date",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://atsukos.day/2025/06/13/2025-heywood-ride-report/",
         "category": "other",

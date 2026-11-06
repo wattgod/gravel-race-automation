@@ -123,9 +123,9 @@ class TestMegaFooterHTML:
         assert '<footer class="gg-mega-footer">' in self.html
         assert "</footer>" in self.html
 
-    def test_six_columns(self):
+    def test_seven_columns(self):
         cols = self.html.count("gg-mega-footer-col")
-        assert cols == 6, f"Expected 6 columns, got {cols}"
+        assert cols == 7, f"Expected 7 columns, got {cols}"
 
 
 class TestMegaFooterCSS:

@@ -26,6 +26,7 @@ from brand_tokens import (
     get_tokens_css,
     get_ga4_head_snippet,
 )
+from season import season_year
 from cookie_consent import get_consent_banner_html
 
 from generate_tire_guide import load_tire_database
@@ -33,7 +34,7 @@ from generate_tire_guide import load_tire_database
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output" / "tire"
-CURRENT_YEAR = date.today().year
+SEASON_YEAR = season_year()
 
 
 def esc(text) -> str:
@@ -659,7 +660,7 @@ def build_header(tire: dict) -> str:
     return f'''<header class="tp-header">
   <div class="tp-container">
     <div class="tp-breadcrumb">
-      <a href="/">Gravel God</a> / <a href="/gravel-races/">Races</a> / Tire Review
+      <a href="/">Gravel God</a> / <a href="/tire/">Tires</a> / Tire Review
     </div>
     <span class="tp-badge">TIRE REVIEW</span>
     <span class="tp-tread-badge">{esc(tire["tread_type"].upper())} TREAD</span>
@@ -1022,8 +1023,14 @@ def build_email_capture() -> str:
   </div>'''
 
 
-def build_internal_links_section(tire: dict, race_recs: list) -> str:
-    if not race_recs:
+def build_internal_links_section(tire: dict, race_recs: list,
+                                comparisons: list = ()) -> str:
+    """Race tire guides plus this tire's head-to-head pages.
+
+    ``comparisons`` is a list of (vs_slug, other_tire_name). Without these
+    links the /tire/{a}-vs-{b}/ pages had no inbound links at all.
+    """
+    if not race_recs and not comparisons:
         return ""
 
     links = []
@@ -1031,11 +1038,17 @@ def build_internal_links_section(tire: dict, race_recs: list) -> str:
         links.append(
             f'<a href="/race/{esc(rec["slug"])}/tires/" class="tp-internal-link">{esc(rec["name"])} Tires</a>'
         )
+    for vs_slug, other_name in comparisons:
+        links.append(
+            f'<a href="/tire/{esc(vs_slug)}/" class="tp-internal-link">{esc(tire["name"])} vs {esc(other_name)}</a>'
+        )
 
+    heading = ("Race Tire Guides Featuring This Tire" if race_recs
+               else "Compare This Tire")
     return f'''<section class="tp-section">
   <div class="tp-container">
     <span class="tp-section-num">06 / RELATED TIRE GUIDES</span>
-    <h2>Race Tire Guides Featuring This Tire</h2>
+    <h2>{heading}</h2>
     <div class="tp-internal-links">{"".join(links)}</div>
   </div>
 </section>'''
@@ -1269,7 +1282,7 @@ def build_json_ld(tire: dict, race_recs: list) -> str:
 # ── Full Page Assembly ────────────────────────────────────────
 
 
-def generate_tire_page(tire: dict, race_recs: list) -> str:
+def generate_tire_page(tire: dict, race_recs: list, comparisons: list = ()) -> str:
     slug = tire_slug(tire)
     name = tire["name"]
 
@@ -1280,7 +1293,7 @@ def generate_tire_page(tire: dict, race_recs: list) -> str:
     brr = build_brr_section(tire)
     community_reviews = build_community_reviews_section(tire)
     email_capture = build_email_capture()
-    internal_links = build_internal_links_section(tire, race_recs)
+    internal_links = build_internal_links_section(tire, race_recs, comparisons)
     footer = build_footer_cta(tire)
     inline_js = build_inline_js()
     json_ld = build_json_ld(tire, race_recs)
@@ -1365,6 +1378,15 @@ def main():
     print("Scanning race data for tire recommendations...")
     tire_races = scan_race_recommendations(tire_db)
 
+    # Head-to-head pages, paired the same way generate_tire_vs_pages.py does
+    from generate_tire_vs_pages import select_tire_pairs
+    tire_names = {t["id"]: t["name"] for t in tire_db}
+    comparisons = {}
+    for id_a, id_b in select_tire_pairs(tire_db):
+        if id_a in tire_names and id_b in tire_names:
+            comparisons.setdefault(id_a, []).append((f"{id_a}-vs-{id_b}", tire_names[id_b]))
+            comparisons.setdefault(id_b, []).append((f"{id_a}-vs-{id_b}", tire_names[id_a]))
+
     generated = 0
     for tire in tire_db:
         slug = tire_slug(tire)
@@ -1373,10 +1395,13 @@ def main():
         page_dir = output_dir / slug
         page_dir.mkdir(parents=True, exist_ok=True)
 
-        html_content = generate_tire_page(tire, race_recs)
+        html_content = generate_tire_page(tire, race_recs, comparisons.get(tire["id"], []))
         out_path = page_dir / "index.html"
         out_path.write_text(html_content, encoding="utf-8")
         generated += 1
+
+    from generate_tire_index import write_tire_index
+    write_tire_index(output_dir, tire_db)
 
     print(f"\nDone. {generated} tire pages generated in {output_dir}/")
     total_recs = sum(len(v) for v in tire_races.values())

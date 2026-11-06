@@ -5,13 +5,13 @@
     "display_name": "Silver City Century",
     "tagline": "Century ride featuring the Wabash Trace Trail through Silver City, Iowa.",
     "vitals": {
-      "distance_mi": 100,
+      "distance_mi": 62,
       "elevation_ft": 3000,
       "location": "Silver City, Iowa",
       "location_badge": "SILVER CITY, IA",
       "county": "Mills County",
       "date": "Late May annually",
-      "date_specific": "2026: May 24",
+      "date_specific": "2026: May 23 (Saturday; iowagravelseries.com)",
       "terrain_types": [
         "Iowa rolling",
         "Local event",
@@ -45,16 +45,16 @@
         "Moderate rolling (3000 feet)",
         "Iowa countryside scenery",
         "Local community event",
-        "100-mile distance",
+        "100 km distance",
         "Small field"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 41,
+      "overall_score": 40,
       "tier": 4,
       "tier_label": "TIER 4",
       "logistics": 2,
-      "length": 4,
+      "length": 3,
       "technicality": 2,
       "elevation": 2,
       "climate": 2,
@@ -67,16 +67,16 @@
       "field_depth": 1,
       "value": 3,
       "expenses": 3,
-      "score_note": "Local Iowa event. Rolling terrain with remote access, moderate costs, 100-mile distance, and small local field.",
+      "score_note": "Local Iowa event. Rolling terrain with remote access, moderate costs, 100 km distance, and small local field.",
       "discipline": "gravel",
       "display_tier": 4
     },
     "biased_opinion": {
       "verdict": "Iowa Local Century",
-      "summary": "Silver City Century is a local event in Iowa—rolling terrain with moderate elevation over 100 miles. The Iowa countryside is nice and the distance is challenging, but the small local field, remote location, and limited organization keep it in Tier 4.",
+      "summary": "Silver City Century is a local event in Iowa—rolling terrain with moderate elevation over 100 km. The Iowa countryside is nice and the distance is challenging, but the small local field, remote location, and limited organization keep it in Tier 4.",
       "strengths": [
         "Iowa countryside scenery",
-        "100-mile challenge",
+        "100 km challenge",
         "Good value",
         "Moderate costs",
         "Remote experience"
@@ -91,12 +91,12 @@
       "bottom_line": "A solid local Iowa century gravel race. Worth it for Iowa/Midwest riders. Not worth traveling for."
     },
     "final_verdict": {
-      "score": "41 / 100",
+      "score": "40 / 100",
       "one_liner": "Iowa local gravel challenge.",
       "should_you_race": "If you're local to Iowa—yes, it's solid. If you're traveling—skip it.",
       "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI.",
       "alternative_slugs": [
-        "garmin-gravel-worlds"
+        "gravel-worlds"
       ]
     },
     "logistics": {
@@ -105,7 +105,7 @@
       "food": "Silver City has very limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Silver City Century website"
+      "official_site": ""
     },
     "history": {
       "founded": null,
@@ -139,13 +139,13 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Iowa rolling terrain over 100 miles.",
+      "signature_challenge": "Iowa rolling terrain over 100 km.",
       "ridewithgps_id": "46675307",
       "ridewithgps_name": "Dry - 100km - 2024 Silver City Century"
     },
     "guide_variables": {
       "race_name": "Silver City Century",
-      "race_distance": "100 miles",
+      "race_distance": "100 km",
       "race_elevation": "3,000 feet",
       "race_date": "Summer",
       "race_location": "Silver City, Iowa",
@@ -154,7 +154,7 @@
       "race_challenges": [
         "Rolling terrain",
         "Small local field",
-        "100-mile distance",
+        "100 km distance",
         "Remote location",
         "Variable weather"
       ],
@@ -170,7 +170,7 @@
       {
         "requirement": "Century endurance",
         "by_when": "Week 6-8",
-        "why": "100-mile distance requires sustained effort."
+        "why": "100 km distance requires sustained effort."
       },
       {
         "requirement": "Self-sufficiency",
@@ -245,16 +245,16 @@
         "race_specific": true,
         "topics": {
           "pacing": "Century pacing strategy",
-          "fueling": "Nutrition for 100-mile riding",
+          "fueling": "Nutrition for 100 km riding",
           "weather": "Riding in variable Iowa weather",
-          "century": "100-mile endurance strategy"
+          "century": "100 km endurance strategy"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Silver City Century",
         "race_hook": "Iowa local gravel challenge.",
-        "race_hook_detail": "Local event with 100-mile rolling terrain.",
+        "race_hook_detail": "Local event with 100 km rolling terrain.",
         "distance": "100",
         "dark_mile": "50",
         "non_negotiable_1": "Weather preparation",
@@ -269,8 +269,8 @@
         "explanation": "Packet pickup the night before or morning of at the downtown gazebo with basic small-town setup. JewelerDry6222 drove an hour and wished he'd stayed for the festivities - Friday hangout and 10k run plus post-race meal and bar hang."
       },
       "length": {
-        "score": 4,
-        "explanation": "The 100km option at 62 miles with 3,600 feet provides century distance that JewelerDry6222 calls 'literally the perfect trek for a gravel grinder.' Elite rider chose the 50k with newbie friends, noting he 'didn't want to scare them off' with the full distance. Longer than Belgian Waffle Ride San Diego."
+        "score": 3,
+        "explanation": "The 100km option at 62 miles with 3,600 feet provides metric-century distance that JewelerDry6222 calls 'literally the perfect trek for a gravel grinder.' Elite rider chose the 50k with newbie friends, noting he 'didn't want to scare them off' with the full distance. At 62 miles it falls in the 60 to 99 mile band, which scores 3."
       },
       "technicality": {
         "score": 2,
@@ -346,6 +346,12 @@
         "url": "https://www.youtube.com/playlist?list=PLRBU6fQScQ-v9hvU-zZ1gydSsFg6vXSqi",
         "category": "community",
         "label": "youtube.com: Playlist"
+      },
+      {
+        "url": "https://www.iowagravelseries.com/silver-city",
+        "category": "official",
+        "label": "Iowa Gravel Series — Silver City Century, 100 km / 62 mi with about 3,600 ft",
+        "accessed": "2026-11-05"
       }
     ],
     "tire_recommendations": {
@@ -687,6 +693,19 @@
         "credit": "YouTube / Roll n' Rocks",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "100 km",
+          "winner_female": "Nancy Bowery",
+          "winner_male": "Jonathan Wait",
+          "winning_time_female": "5:04:33",
+          "winning_time_male": "3:15:06",
+          "source": "https://www.iowagravelseries.com/silver-city"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

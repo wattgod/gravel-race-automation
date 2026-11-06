@@ -105,7 +105,7 @@
       "food": "Portugal has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check 114 Gravel Race website"
+      "official_site": ""
     },
     "history": {
       "founded": null,
@@ -114,6 +114,13 @@
       "notable_moments": [],
       "reputation": "Regional Portuguese event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "UCI Gravel World Series round; 137 km from Elvas, Portugal, to Badajoz, Spain",
+        "source": "https://114gravelrace.com/wp-content/uploads/2026/03/Clasificacion-General-114-UGWS-2-1.pdf"
+      }
+    ],
     "course_description": {
       "character": "Portuguese rolling gravel.",
       "suffering_zones": [
@@ -145,7 +152,7 @@
     },
     "guide_variables": {
       "race_name": "114 Gravel Race",
-      "race_distance": "70 miles",
+      "race_distance": "85 miles",
       "race_elevation": "4,000 feet",
       "race_date": "Spring",
       "race_location": "Portugal",
@@ -657,6 +664,19 @@
         "credit": "YouTube / Manuel Moreno | CICLEMAN",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "137 km",
+          "winner_male": "Mads Würtz Schmidt",
+          "winning_time_male": "3:31:36",
+          "source": "https://www.cyclingnews.com/pro-cycling/uci-gravel-world-series-nicole-frain-and-mads-wurtz-schmidt-drop-rivals-for-solo-wins-at-114-gravel-race/",
+          "winner_female": "Nicole Frain",
+          "winning_time_female": "4:10:07"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

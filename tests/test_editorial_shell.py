@@ -327,9 +327,9 @@ class TestInShortAndLadder:
         )
         assert links == [
             ("/products/training-plans/", "custom_plan", "custom_plan"),
-            ("/season-plan/", "season_plan", "season_plan"),
             ("/coaching/", "coaching", "coaching"),
         ]
+        assert "/season-plan/" not in ladder  # retired 2026-10-23
 
     def test_plan_intent_script_catches_ladder_buttons(self, page):
         """blog_tracking selects a[data-cta][href*=X]; the plan + coaching rungs must match."""
@@ -342,28 +342,25 @@ class TestInShortAndLadder:
             for href, cta in re.findall(r'<a class="btn" href="([^"]+)"[^>]* data-cta="([^"]+)"', ladder)
             if any(n in href for n in needles)
         }
-        assert caught == {"custom_plan", "season_plan", "coaching"}
-
-    def test_plan_intent_selector_covers_season_plan(self):
-        assert 'a[data-cta][href*="/season-plan"]' in get_plan_intent_tracking_script()
+        assert caught == {"custom_plan", "coaching"}
 
 
 class TestLadderPricing:
     def test_prices_come_from_pricing_json(self, page):
         race, season = pricing.RACE_PLAN, pricing.SEASON_PLAN
         coaching = pricing.PRICING["products"]["coaching"]
-        assert f'{race["weekly_rate_display"]}/week \u00b7 capped at {race["cap_display"]}' in page
-        assert f'<span class="price">{season["price_display"]}</span>' in page
+        assert f'{race["weekly_rate_display"]}/week \u00b7 paid once' in page
+        assert "capped at" not in page
+        assert season["price_display"] not in page  # Season Plan retired
         assert f'From {coaching["from_display"]} every {coaching["interval_weeks"]} weeks' in page
         assert f'within {race["delivery_hours"]} hours. {race["refund_window_days"]}-day refund.' in page
-        assert f'up to {season["max_weeks"]} weeks' in page
 
     def test_ladder_follows_a_price_change(self, monkeypatch):
-        monkeypatch.setitem(pricing.RACE_PLAN, "cap_display", "$999")
-        monkeypatch.setitem(pricing.SEASON_PLAN, "scheduled_rebuilds", 3)
+        monkeypatch.setitem(pricing.RACE_PLAN, "weekly_rate_display", "$99")
+        monkeypatch.setitem(pricing.RACE_PLAN, "refund_window_days", 3)
         html = es.render_ladder()
-        assert "capped at $999" in html
-        assert "three scheduled rebuilds" in html
+        assert "$99/week" in html
+        assert "3-day refund" in html
 
     def test_no_money_literals_in_shell_source(self):
         src = (PROJECT_ROOT / "wordpress" / "editorial_shell.py").read_text()
@@ -389,7 +386,7 @@ class TestAnalyticsAndChrome:
         assert "'article_slug': \"test-article\"" in page
         # Deep read fires only at 75%+ (the funnel metric).
         deep = page.split("'article_deep_read'", 1)[0]
-        assert "if (depths[i] >= 75)" in deep[-400:]
+        assert "if (depths[i] === 75)" in deep[-400:]
 
     def test_events_can_be_off(self):
         html = es.render_editorial_page(_meta(track_article_events=False), BODY)
@@ -444,7 +441,7 @@ class TestAnalyticsAndChrome:
 
     def test_footer_nav_is_the_header_nav(self, page):
         links = es.header_nav_links()
-        assert [label for _, label in links] == ["RACES", "PRODUCTS", "SERVICES", "ARTICLES", "ABOUT"]
+        assert [label for _, label in links] == ["RACES", "PRODUCTS", "SERVICES", "ARTICLES", "RESOURCES", "ABOUT"]
         shared = get_site_header_html(None)
         for href, label in links:
             assert f'<a href="{href}">{label}</a>' in shared
@@ -994,6 +991,10 @@ def test_memes_are_placed_after_their_paragraphs_with_their_files(source):
 def test_committed_article_html_is_fresh(source):
     """Fails after a change to the shell, data/pricing.json, brand_tokens
     snippets, the consent banner or the logo: regenerate and commit."""
+    withdrawn = json.loads((PROJECT_ROOT / "web/withdrawn-articles.json").read_text())
+    if source.SLUG in withdrawn:
+        assert source.SLUG not in {row["slug"] for row in json.loads((PROJECT_ROOT / "web/blog-index.json").read_text())}
+        return  # Withdrawn artifacts stay archived; never regenerate or deploy them.
     assert source.OUTPUT_PATH.read_text(encoding="utf-8") == source.render(), (
         f"stale: run python3 wordpress/article_sources/{Path(source.__file__).name}"
     )
@@ -1016,13 +1017,15 @@ class TestSweetSpotArticle:
     def test_slots_and_figures(self):
         html = SWEET_SPOT_INDEX.read_text(encoding="utf-8")
         slots = re.findall(r'data-slot="([a-z]+)"', html)
-        assert slots == ["summary", "drift", "recovery", "polarized", "ladder"]
+        assert slots == ["summary", "drift", "recovery", "polarized"]
         # Every "In short" link resolves to an anchor on the page.
         for href in re.findall(r'<a class="ev" href="#([^"]+)"', html):
             assert f'id="{href}"' in html, href
-        # Ladder sits right before the G-Spot section.
+        # One relevant offer follows the complete essay and references.
         main = _main(html).split('id="article">', 1)[1]
-        assert main.index("slot-ladder") < main.index("That Said, G-Spot") < main.index("gg-references")
+        assert "slot-ladder" not in main
+        assert main.index("gg-references") < main.index('class="article-offer"')
+        assert main.count('class="article-offer"') == 1
 
     def test_all_images_exist(self):
         html = SWEET_SPOT_INDEX.read_text(encoding="utf-8")

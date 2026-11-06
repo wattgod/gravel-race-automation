@@ -32,7 +32,8 @@
       "cultural_impact": 3,
       "overall_score": 71,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "adventure": {
@@ -145,6 +146,20 @@
       "notable_editions": "11th edition 2026 returns to inaugural-style route; past events hit 4000 riders with Lisbon variants.",
       "growth_trajectory": "Rapid expansion from regional sportive to national highlight, now drawing global peloton."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 12,
+        "note": "Route moved south after winter floods and landslides on the Douro.",
+        "source": "https://bikeservice.pt/en/event/douro-granfondo/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-11",
+        "edition": 10,
+        "source": "https://www.brigantia.pt/noticia/ciclismo-jorge-mariz-vence-em-elites-masculinos-e-fica-em-segundo-da-geral-no-love-tiles"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Scenic Douro masterpiece blending savage climbs with wine country bliss.",
       "best_for": "Scenery chasers seeking cultural road suffering with perfect organization.",
@@ -182,6 +197,19 @@
       }
     ],
     "slug": "granfondo-gf-do-porto",
-    "name": "Granfondo do Porto"
+    "name": "Granfondo do Porto",
+    "results": {
+      "years": {
+        "2025": {
+          "race": "141 km",
+          "winner_female": "Alessia Teixeira",
+          "winner_male": "David Mayo Vivas",
+          "winning_time_female": "4:43:21",
+          "winning_time_male": "3:57:03",
+          "source": "https://bttlobo.com/david-mayo-voltou-a-ser-o-golias-no-douro-granfondo/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

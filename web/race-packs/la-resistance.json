@@ -1,12 +1,12 @@
 {
   "slug": "la-resistance",
   "race_name": "La Resistance",
-  "distance_mi": 65.0,
+  "distance_mi": 81.0,
   "demands": {
-    "durability": 2,
+    "durability": 4,
     "climbing": 7,
     "vo2_power": 4,
-    "threshold": 6,
+    "threshold": 8,
     "technical": 4,
     "heat_resilience": 0,
     "altitude": 6,
@@ -21,21 +21,11 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "85ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "VO2max",
-      "score": 95,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "5,500ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "88ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
-      "score": 93,
+      "score": 86,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -43,27 +33,8 @@
       "workout_context": "At La Resistance, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "Gravel_Specific",
-      "score": 84,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "La Resistance's French Alps, Alpine gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 65 miles."
-    },
-    {
-      "category": "Race_Simulation",
-      "score": 84,
-      "workouts": [
-        "Breakaway Simulation",
-        "Variable Pace Chaos",
-        "Sector Simulation"
-      ],
-      "workout_context": "Race-pace efforts that mimic La Resistance's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before race day."
-    },
-    {
       "category": "G_Spot",
-      "score": 77,
+      "score": 78,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -72,66 +43,95 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of La Resistance. Train it until it feels boring."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 74,
+      "category": "VO2max",
+      "score": 78,
       "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
       ],
-      "workout_context": "5,500ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "7,100ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 70,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "La Resistance's French Alps, Alpine gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 81 miles."
+    },
+    {
+      "category": "Race_Simulation",
+      "score": 70,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic La Resistance's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before September."
     },
     {
       "category": "Durability",
-      "score": 53,
+      "score": 61,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "65 miles on french Alpine gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "At mile 60 of 81, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 61,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "7,100ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Endurance",
+      "score": 49,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 81 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 46,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 81 miles, sustainable FTP gains matter more than peak power."
     },
     {
       "category": "SFR_Muscle_Force",
-      "score": 49,
+      "score": 41,
       "workouts": [
         "SFR Low Cadence",
         "Force Repeats"
       ],
-      "workout_context": "Low-cadence force work for 5,500ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "Low-cadence force work for 7,100ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
       "category": "Critical_Power",
-      "score": 49,
+      "score": 41,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
       ],
       "workout_context": "How long can you hold 105% FTP before you blow? At La Resistance, that number decides whether you bridge or get dropped."
-    },
-    {
-      "category": "Endurance",
-      "score": 46,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Base fitness for La Resistance. Without this, the hard workouts break you down instead of building you up."
-    },
-    {
-      "category": "Anaerobic_Capacity",
-      "score": 42,
-      "workouts": [
-        "2min Killers",
-        "90sec Repeats"
-      ],
-      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on french Alpine gravel. If you haven't trained them, you'll crack."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for La Resistance\u2019s 65 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 60\u201380g carbs/hour for La Resistance\u2019s 81 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "altitude": "Moderate altitude at La Resistance. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
     "terrain": "Mixed terrain at La Resistance requires surface adaptability. Include weekly rides on french alpine gravel to build confidence. Expect: french alps, alpine gravel, regional event."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, VO2max, and Over Under to prepare you for 65 miles of french alpine gravel in French Alps.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and G Spot to prepare you for 81 miles of french alpine gravel in Talloires, France.",
+  "generated_at": "2026-10-25"
 }

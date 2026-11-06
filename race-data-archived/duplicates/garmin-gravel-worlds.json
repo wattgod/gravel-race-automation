@@ -1,0 +1,737 @@
+{
+  "race": {
+    "name": "Garmin Gravel Worlds",
+    "slug": "garmin-gravel-worlds",
+    "display_name": "Garmin Gravel Worlds",
+    "tagline": "Nebraska rolling farmland gravel in Lincoln.",
+    "vitals": {
+      "distance_mi": 150,
+      "elevation_ft": 4800,
+      "location": "Lincoln, Nebraska",
+      "location_badge": "LINCOLN, NE",
+      "county": "Lancaster County",
+      "date": "Mid-August annually",
+      "date_specific": "2026: August 19-23",
+      "terrain_types": [
+        "Nebraska farmland",
+        "Rolling gravel",
+        "Regional event",
+        "Eastern Nebraska"
+      ],
+      "field_size": "200-400 riders",
+      "start_time": "5:55am Elit",
+      "registration": "Online. Cost: ~$60-100",
+      "aid_stations": "Multiple aid stations",
+      "cutoff_time": "Varies",
+      "lat": 40.8089,
+      "lng": -96.7078
+    },
+    "climate": {
+      "primary": "Nebraska summer/fall",
+      "description": "Variable conditions with heat and wind possible.",
+      "challenges": [
+        "Heat possible",
+        "Wind exposure",
+        "Variable weather",
+        "Rolling farmland"
+      ]
+    },
+    "terrain": {
+      "primary": "Nebraska rolling farmland gravel",
+      "surface": "Gravel roads through rolling Nebraska farmland. Moderate elevation with farmland scenery.",
+      "technical_rating": 2,
+      "features": [
+        "Moderate rolling (3000 feet)",
+        "Farmland scenery",
+        "Eastern Nebraska setting",
+        "Multiple distances",
+        "Regional event"
+      ]
+    },
+    "gravel_god_rating": {
+      "overall_score": 51,
+      "tier": 3,
+      "tier_label": "TIER 3",
+      "logistics": 3,
+      "length": 5,
+      "technicality": 2,
+      "elevation": 3,
+      "climate": 2,
+      "altitude": 1,
+      "adventure": 2,
+      "prestige": 2,
+      "race_quality": 2,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 2,
+      "value": 3,
+      "expenses": 3,
+      "score_note": "Regional NE event. Rolling farmland terrain with moderate organization and regional field.",
+      "discipline": "gravel",
+      "display_tier": 3
+    },
+    "biased_opinion": {
+      "verdict": "Nebraska Farmland Rolling Gravel",
+      "summary": "Garmin Gravel Worlds is a regional event in Lincoln, Nebraska (not to be confused with UCI Gravel Worlds). The rolling farmland terrain offers moderate climbing with farmland scenery, but the moderate organization and regional field keep it firmly in Tier 3. Lincoln provides good access. It's a solid regional event for Nebraska cyclists.",
+      "strengths": [
+        "Lincoln (good access)",
+        "Nebraska rolling farmland",
+        "Moderate climbing",
+        "NE cycling community",
+        "Regional pricing"
+      ],
+      "weaknesses": [
+        "Moderate organization",
+        "Regional field only",
+        "Limited national recognition",
+        "Heat/wind concerns",
+        "Farmland terrain (not destination)"
+      ],
+      "bottom_line": "A solid regional Nebraska gravel race with rolling farmland terrain. Worth it for Nebraska cyclists seeking a local event. Not a destination race for out-of-state travelers."
+    },
+    "final_verdict": {
+      "score": "51 / 100",
+      "one_liner": "Nebraska rolling farmland gravel in Lincoln.",
+      "should_you_race": "If you're in Nebraska and want a local rolling farmland event—yes, it's a solid regional race. If you're from out of state—there are better options.",
+      "alternatives": "For better events: Gravel Worlds (UCI), Unbound. For similar regional events: other NE gravel races.",
+      "alternative_slugs": [
+        "unbound-200"
+      ]
+    },
+    "logistics": {
+      "airport": "Lincoln (LNK) 15 minutes or Omaha (OMA) 1 hour",
+      "lodging_strategy": "Lincoln has good lodging options.",
+      "food": "Lincoln has full dining options. Stock nutrition.",
+      "packet_pickup": "Day before typically",
+      "parking": "At start/finish",
+      "official_site": ""
+    },
+    "history": {
+      "founded": null,
+      "founder": "Nebraska organizers",
+      "origin_story": "Regional Nebraska gravel event.",
+      "notable_moments": [],
+      "reputation": "Regional NE event."
+    },
+    "course_description": {
+      "character": "Rolling Nebraska farmland gravel with moderate climbing.",
+      "suffering_zones": [
+        {
+          "mile": 20,
+          "label": "Early Rollers",
+          "desc": "First rolling sections.",
+          "terrain_detail": "Rolling",
+          "named_section": "Early Rollers"
+        },
+        {
+          "mile": 35,
+          "label": "Midpoint",
+          "desc": "Halfway through the course.",
+          "terrain_detail": "Midpoint",
+          "named_section": "Halfway"
+        },
+        {
+          "mile": 55,
+          "label": "Late Rollers",
+          "desc": "Final rolling sections before finish.",
+          "terrain_detail": "Late rolling",
+          "named_section": "Final Push"
+        }
+      ],
+      "signature_challenge": "Nebraska rolling farmland gravel in Lincoln.",
+      "ridewithgps_id": "48087626",
+      "ridewithgps_name": "2024 75 Garmin Gravel Worlds p/b Goodlife Cyclery "
+    },
+    "guide_variables": {
+      "race_name": "Garmin Gravel Worlds",
+      "race_distance": "150 miles",
+      "race_elevation": "3,000 feet",
+      "race_date": "Summer or Fall",
+      "race_location": "Lincoln, Nebraska",
+      "race_terrain": "Nebraska rolling farmland gravel",
+      "race_weather": "NE variability",
+      "race_challenges": [
+        "Rolling farmland",
+        "Heat/wind possible",
+        "Moderate elevation",
+        "Regional field",
+        "Variable conditions"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "non_negotiables": [
+      {
+        "requirement": "Rolling endurance",
+        "by_when": "Week 8-10",
+        "why": "Nebraska rolling farmland requires sustained effort."
+      },
+      {
+        "requirement": "Heat and wind preparation",
+        "by_when": "Week 4-6",
+        "why": "NE summer/fall means heat and wind are likely."
+      },
+      {
+        "requirement": "Pacing discipline",
+        "by_when": "Week 2-4",
+        "why": "Rolling terrain requires pacing discipline."
+      }
+    ],
+    "research_metadata": {
+      "data_confidence": "moderate",
+      "validation_status": "pending",
+      "sources": [
+        "nebraska_cycling_community"
+      ],
+      "migration_notes": [
+        "Generated from regional information"
+      ],
+      "research_strength": {
+        "overall": 91.0,
+        "grade": "A",
+        "weakest": "cross_reference",
+        "has_research_dump": true,
+        "dimensions": {
+          "source_diversity": 100,
+          "citation_density": 100,
+          "temporal_depth": 100,
+          "specificity": 100,
+          "statistical_backing": 100,
+          "voice_authenticity": 70,
+          "completeness": 88,
+          "cross_reference": 15
+        },
+        "scored_at": "2026-02-04"
+      }
+    },
+    "training_config": {
+      "workout_modifications": {
+        "rolling_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "heat_wind_training": {
+          "enabled": true,
+          "weeks": [
+            4,
+            5,
+            6
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
+      },
+      "masterclass_topics": {
+        "priority_order": [
+          "pacing",
+          "fueling",
+          "heat",
+          "wind"
+        ],
+        "race_specific": true,
+        "topics": {
+          "pacing": "Rolling farmland pacing",
+          "fueling": "Nutrition for moderate rolling",
+          "heat": "Racing in NE heat",
+          "wind": "Riding in Nebraska wind"
+        }
+      },
+      "tier_overrides": {},
+      "marketplace_variables": {
+        "race_name": "Garmin Gravel Worlds",
+        "race_hook": "Nebraska rolling farmland gravel in Lincoln.",
+        "race_hook_detail": "Regional event with moderate climbing.",
+        "distance": "65",
+        "dark_mile": "35",
+        "non_negotiable_1": "Rolling endurance",
+        "non_negotiable_2": "Heat and wind preparation",
+        "non_negotiable_3": "Pacing discipline",
+        "trainingpeaks_url": null
+      }
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 3,
+        "explanation": "The fairgrounds venue provides \"a massive structure to house all of the vendors. And plenty of parking,\" according to finisher Mathew Wollmann. The Graduate by Hilton Hotels in Lincoln offers nearby accommodation, with downtown options like Napoli's Haymarket for pre-race carb loading. Staggered start times from 5:55am prevent chaos, though course marking requires GPS backup as signs \"may be altered or stolen.\""
+      },
+      "length": {
+        "score": 5,
+        "explanation": "Scored on the 150-mile GW150, the flagship race. Multiple distance options let riders choose their suffering level - 35 miles with 2,000 feet, 75 miles with 5,000 feet, or the full 150 miles with 10,000+ feet of climbing. Wollmann completed the 300-mile ultra in 21:53, hanging with the front group until mile 12 before \"pretty much solo work with a passer-by to chat with the entire night.\" The 150-mile had a 35% DNF rate in 2024's heat. Among the longest in gravel, comparable to Badlands."
+      },
+      "technicality": {
+        "score": 2,
+        "explanation": "\"The gravel roads were halfway decent, with only a few with big chunky rocks,\" reports koalb. Dbecker27 confirms \"the gravel is not chunky at all and smooth,\" though warns of \"sections of soft gravel which can through you off line\" on descents. The technical challenge comes from managing speed over endless rollers rather than handling skills through rock gardens or technical features. Less technical than The Mid South."
+      },
+      "elevation": {
+        "score": 3,
+        "explanation": "\"It's very up and down and not flat, despite the perception of nebraska being pancake flat,\" explains hubcyclist. The course features \"a lot of punchy little climbs which you then coast down\" according to Dbecker27. koalb describes riding \"the gravel seas\" with constant ups and downs where \"none of the climbs are that big, but there are a ton of them.\" Less climbing than The Mid South."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "2024 delivered brutal heat with temperatures hitting 100°F and heat indexes of 105°F. KCBikeNerd reported \"mile 60-120 right into a furnace headwind\" that \"slaughtered the mid/tail end of the 'party pace' folks.\" Wollmann began \"to stop sweating, developed a headache, and the cramps got worse\" before needing an IV at the finish. The heat forecast caused 250-300 original registrants to drop to shorter distances. More weather exposure than Belgian Waffle Ride San Diego."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Nebraska farmland sits near sea level with no altitude impact on performance or training adaptation. The rolling hills create elevation gain through repetition, not actual altitude that affects oxygen availability or requires acclimatization. Lower altitude than Gravel Worlds — no thin-air concerns."
+      },
+      "adventure": {
+        "score": 2,
+        "explanation": "The 300-mile ultra starts at 5pm Friday for an all-night adventure through Nebraska's \"rolling gravel seas.\" Wollmann describes \"yelling out loud to wake up\" during the dark hours and hiking his bike around a train blocking the road at mile 250. The self-supported format means gas station stops and strategic naps, though the terrain itself offers agricultural grinding rather than wilderness exploration."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "World championship jerseys for the 150-mile winners and 16 years of history give Gravel Worlds regional credibility. The Vegan Cyclist's appearance and \"a lot of familiar faces and names in the ultra community\" suggest growing recognition. However, the field depth remains modest with ~150 starters in the flagship distance, indicating it hasn't reached the status of gravel's premier events."
+      },
+      "race_quality": {
+        "score": 2,
+        "explanation": "Aid stations are \"VERY well stocked\" with \"almost anything you could ask for\" including free hot dogs and brats offered by locals. The fairgrounds venue upgrade shows organizational improvement. However, course marking reliability issues requiring GPS backup and the multi-sport weekend format spreading focus across various disciplines prevent this from reaching elite race standards."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "The multi-day festival atmosphere at the fairgrounds creates a proper gravel celebration. Wollmann describes the pre-race ritual of pasta at Napoli's Haymarket and drinks at Starlite Lounge. The \"First To Last\" philosophy ensures every finisher gets celebrated equally, with medical tents providing free IVs for heat casualties. Three distance options accommodate different ambitions within the same weekend event structure."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "\"Gravel worlds is one of the races that's dedicated to preserving the founding principle of gravel that we celebrate first place to last place equally,\" explains coordinator Hannah Shell. Wollmann notes the \"outpouring of support from everyone\" visible through phone notifications during the race. The event maintains gravel's original \"adventure, not so much a competition\" ethos while building a 16-year community around shared suffering."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The 150-mile distance attracted approximately 150 starters in 2024, with only 97 finishing due to extreme heat. Elite categories exist with dedicated start times, but no notable pro winners are documented. The ultra-distance events draw \"familiar faces and names in the ultra community\" according to Wollmann, suggesting a specialized rather than broadly competitive field. Less competitive depth than Almanzo 100."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Multiple distance options and the multi-day festival format provide flexibility for different rider goals and budgets. Trophy payouts extend to all categories rather than just elite placings. The well-stocked aid stations, free medical support, and \"VERY well stocked aid station\" at mile 270 of the ultra course demonstrate substantial included support services, though specific registration fees weren't available for comparison."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Registration runs $60-100. Lincoln's cost of living keeps accommodation reasonable, with Wollmann staying at the Graduate by Hilton Hotels. The centralized fairgrounds venue eliminates shuttle costs and provides ample parking. Pre-race dining options like Napoli's Haymarket offer standard pricing, and the Nebraska location generally provides manageable travel and lodging expenses compared to destination resort race locations. Similar expense level to Belgian Waffle Ride San Diego."
+      }
+    },
+    "citations": [
+      {
+        "url": "https://ridewithgps.com/routes/48087626",
+        "category": "route",
+        "label": "RideWithGPS: 2024 75 Garmin Gravel Worlds p/b Goodlife Cyclery "
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/garmin-gravel-worlds/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://velo.outsideonline.com/gravel/gravel-racing/power-analysis-lauf-gravel-worlds-2025-in-a-100000-face-off/",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://velo.outsideonline.com/tag/gravel-worlds",
+        "category": "media",
+        "label": "Velo"
+      },
+      {
+        "url": "https://www.cyclingwest.com/racing/gravel-racing/2024-gravel-worlds-champions-announced/",
+        "category": "other",
+        "label": "Cyclingwest"
+      },
+      {
+        "url": "https://www.gravel-results.com/race/19971",
+        "category": "other",
+        "label": "Gravel-Results"
+      },
+      {
+        "url": "https://www.gravelworlds.com/blog/garmin-gravel-worlds-adds-live-event-coverage-bolsters-womens-pro-prize-purse",
+        "category": "other",
+        "label": "Gravelworlds"
+      },
+      {
+        "url": "https://www.mathewwollmann.com/post/garmin-gravel-worlds-300-2024-race-recap",
+        "category": "other",
+        "label": "Mathewwollmann"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/15nxcu5/garmin_gravel_worlds_whos_going/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/wxho8h/183_garmin_gravel_worlds_2022_recap/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.reddit.com/r/gravelcycling/comments/xy0tyc/reminder_sign_up_for_garmin_gravel_worlds_2023/",
+        "category": "community",
+        "label": "Reddit"
+      },
+      {
+        "url": "https://www.trainerroad.com/forum/t/the-nebraska-garmin-gravel-worlds-2024-tell-me-about-it/95329",
+        "category": "community",
+        "label": "TrainerRoad"
+      },
+      {
+        "url": "https://g-tedproductions.blogspot.com/2024/04/gravel-grinder-news-changes-at-gravel.html",
+        "category": "community",
+        "label": "g-tedproductions.blogspot.com: Gravel Grinder News Changes At Gravel.Html"
+      }
+    ],
+    "tire_recommendations": {
+      "generated_at": "2026-02-19",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 38,
+          "msrp_usd": 54.99,
+          "weight_grams": 380,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
+        },
+        "rear": {
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
+      "pressure_psi": {
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
+      }
+    },
+    "youtube_data": {
+      "researched_at": "2026-02-23",
+      "search_query": "Garmin Gravel Worlds gravel race Lincoln",
+      "videos": [
+        {
+          "video_id": "-iVkuhsUlic",
+          "title": "2023 Garmin Gravel Worlds Athlete Video",
+          "channel": "Gravel Worlds",
+          "view_count": 1544,
+          "upload_date": "20230817",
+          "duration_string": "19:36",
+          "description": "Here is your 2023 Garmin Gravel Worlds athlete meeting. We talk about almost everything you need to know to get ready for your experience in Lincoln, Nebraska. If you have any questions, almost everything can be found at www.gravel-worlds.com.",
+          "tags": [],
+          "url": "https://www.youtube.com/watch?v=-iVkuhsUlic",
+          "transcript": "I want to thank the entire Lincoln\ncycling Community for making this event\na great event and all your support over\nthe years thank you so much hey guys\nI want to say thank you to all the\nrunners that are joining us for gravel\nworlds we're excited to cheer you on for\nthat 50k 25k and 10K we will see you\nsoon\nthank you hundreds of gravel worlds\nvolunteers for making event 2023 what it\nis love you thank you God bless\nthank you City of Lincoln for all you've\ndone to help make this an incredible\nevent and welcome the thousands of\npeople here to Lincoln for gravel World\nmake sure you check out all the fun\nthings Lincoln Nebraska has to do\nwhat's up gravel family I just want to\ngive a huge shout out to our sponsors\nthank you so much big and small we are\nso appreciative of you hey everyone we\nwant to thank\nthe communities in Lancaster County the\nsurrounding counties around there and\nKaren\nthank you\nall right what's Up grandma family I'm\nJason I'm going to get into the rider\nvideo but before we get into that the\npeople that were just uh introducing\nthis video that's the entire gravel\nworlds team I know I get a lot of\nattention on social media uh because\nthat's my job but it's an entire team so\nbe sure if you see them uh be sure to\nthank them thank the volunteers uh thank\neverybody that makes this event possible\num and it's not about me it's about the\nwhole team so let's get into the rider\nvideo here and we're just gonna go\nthrough it as quick as we can and this\nshould have all the information that you\nshould need if you're coming to Lincoln\nso let's make this happen uh check in\nhow do we get it checked in so uh\nwhether you're doing the 10k run all the\nway up to the 300 mile race uh bike race\nyou have to check in you have to get a\nnumber plate you have to get uh signed\nin so that you're registered on our\ntiming and you get your swag bag and all\nthat stuff so if you've been to gravel\nworlds before in the last several years\ncheck-in is going to be in a similar\nplace it's not going to be in the church\nlike normal it's but it's in the same\nbuilding on the same side of the\nbuilding too so you'll follow signs on\nthe northwest side of the Schilling\nbridge building and you will see check\nin right there follow the signs\nprimary check-in is Thursday noon to 7\np.m and Friday 10 a.m to 7 P.M so those\nare your primary locations if you at all\ncan make that happen make that possible\nif the only time you can check in is\nearly race day on the run or early race\nday on the bike the sign in early\ncheck-in starts at 4 30 in the morning\nagain we do not have the resources or\nvolunteers to check in hundreds of\npeople on Race morning so make that as a\nlast possible ditch option for you so\nthere you go race day what to expect on\nrace day we recommend you be lined up\nfor your race 30 minutes prior to your\nstart time so 6 a.m for the 150 we\nrecommend you get there about 5 30 and\nbe prepared for traffic we got hundreds\nof people coming in we do try to spread\nyou out all around the neighborhood so\nyou're coming in at different entrances\nso be sure that you follow the\ninstructions on your parking which we'll\ntalk about that earlier\num for the start of the the 150 race\nsimilar to last year we are having the\nelite women at the front uh there will\nbe a break and then a of an ATV that'll\nbe blocking and then they'll be the\nelite men and outside of that we will\nhave uh on the side of the road you'll\nsee uh timing estimates of uh seven\nhours eight hours nine hours ten hours\nand then I think 11 12 plus so please\nline up at your estimated finish time so\nwhat you think about the time that\nyou're going to finish line up at those\ntiming spots on race day for the 75 and\nthe 150. that's very important for\nsafety that makes sure that you're not\nin over your head riding with the pros\nat the front that are going to be going\nway too fast for you also making sure\nyou're not going to get left behind by\npeople that you could be riding with all\nday so please for safety and for a\nbetter experience for yourself don't\nline up too far in the front yeah it\ndefinitely is not going to help you\nthere so\num and then that should be it for race\nday lineup behind the arch and have a\ngood time enjoy the hype and the the\npump up before we get going before the\nquiet of the gravel Seas start all right\nnext up we're going to talk about rules\nwe have very few rules but they're very\nimportant so go ahead and follow along\nrule number one always been the rule of\ngravel worlds be cool uh it's it's\nreally simple but it goes a long way so\nif you kind of have to ask it's probably\nnot cool so basically the Golden Rule be\nkind to other people other people's\nthings and you're going to be good to\nthat so some examples of being not cool\nyelling at volunteers cutting course\ncheating uh walking or riding off of the\npublic roads and onto private Fields\ncussing out a competitor or hiding\nfeedbacks on course all of those are not\ncool they go against all of our rules so\njust be kind to other people you're\ngoing to be fine with us be kind to our\nvolunteers be kind to our promotion\nstaff and we're going to be all good\nrule number two is basically if we've\ndeemed that you're super not cool in the\npast we can reject you being able to be\na part of our event in the current and\nin the future so be careful with that\nrule number three uh you bikes and\nhelmets this is obviously not for our\nRunners you do have to have a bike with\nfunctioning brakes so even if you're\nriding with a fixie you do have to have\nbrakes on you e-bikes are not allowed\nexcept in our 50k category so that's a\nnon-competitive race so you can use an\ne-bike in our 50K\num and then also helmets you have to\nwear a helmet at all times that includes\ngroup rides that includes on the way to\nthe course uh and everywhere you are out\nof course a helmet is required at all\ntimes and that does have to be a modern\nhelmet so no uh like old school 1980s\n1990s pads on on your head has to be a\nmodern helmet rule number four and we\ntake this one very seriously do not\nlitter our roads around here are\nremarkably clean we hope you notice that\nwhen you're here compared to a lot of\nother gravel races you might find a beer\ncan or deer on or two on the course\nyou'll definitely probably see those\nfrom time to time but overall our course\nis clean and litter is how our race is\ngoing to get shut down it's an easy way\nfor locals to say hey look they're\ntrashing our roads because there's 500\ngel packets out here\ntossing bottles no go like you you are\nresponsible for whatever you take out on\ncourse you have to throw away or take\nback with you\num it's easy to take them put them in\nyour pocket we have several places on\ncourse\nthat you can throw away trash so make\nsure you keep that with you rule number\nfive plan your Voyage you are\nresponsible for your Excursion uh this\nis a self-supported race we'll get into\nthat a little bit more but you need to\nhave a plan for your race so uh have a\nbailout option have options for your\nnutrition for that day so you know\nwhat's going on but you are responsible\nfor you all right rule number six do not\nmodify your number plate this has kind\nof become an issue uh more recently\ntrying to save a half a watt do not\nmodify your number plate the biggest\nreason is this actually drastically\naffects our timing which is a way a big\nform of safety we need to know where\npeople are at what times when you cross\nthose timers if you wrap your number\nplate around your head tube those RFID\ntags do not work so it affects the\nquality of our event it affects our\ntiming people that are running around\nall the time trying to track you down to\nfigure out what number plate just\ncrossed a timing plate or a Finish Line\nso do not modify your number plates do\nnot do it rule number seven this is kind\nof also involving equipment bike lights\nare required for the 150 and the 300. no\nno questions about it it's state law it\nwe start the race at night the biggest\nreason we start the race at night is to\nkeep temperatures down there's always a\npotential it could be nearly 100 degrees\nso we start in the dark it's also really\ncool to be starting in the quiet calm of\nthe day in the dark so bike lights are\nrequired for the 150 and 300 front and\nrear uh then Aero bars we do allow Aero\nbars but only if you are at the front of\na group or by yourself if you are in the\nmiddle of a pack with a group of people\nor just two people if you're just\ndrafting one person Aero bars are not\nallowed that's simply for safety uh you\nif you're down in your aerobars you\ncan't react you can't break so Aero bars\nare allowed if you're at the front of a\ngroup or by yourself yeah\nall right rule number eight respect your\nfellow athlete this kind of goes back to\nrule number one you'll notice a lot of\nour rules have just evolved around\nrespect so rule number eight respect\nyour fellow athletes encourage each\nothers help each other out and need\ndisrespect of other athletes through\nharassment or profanities will not be\ntolerated and you will be disqualified\nall right and Rule Number Nine no\noutside support our race is is\nself-supported once you leave the start\nline every single athlete has the same\nopportunity as everybody else everybody\nhas the same checkpoint experience\neverybody has the same gas station stops\nif they need it everybody has the same\nOasis so if you once you leave you that\nyou make sure you have everything you\nneed there's no team Vehicles out on\ncourse there's no uh team members out at\ncheckpoints to hand stuff out to you if\nthere's something specific you need for\nyour adventure you need to bring that\nwith you so if that's a special\nnutrition hydration tools whatever it is\nyou have to bring that with you we will\nhave nutrition options from goo Funk\nbreaker salt stick uh Cliff Bars and as\nwell as basic nutrition and snacks out\nat our checkpoint we have piedmontese\nhot dogs back again we'll have Cokes\nchips cookies things like that but if\nthere's something specific you need and\nyou can't find it at a gas station out\non course you need to bring that with\nyou\num also with self-supported navigation\nis on you this year we are going to be\nmarking the Run courses so run courses\nwill be marked we recommend if you have\nyour Garmin watch to still load your\ncourses on there just to be safe there's\nalways a chance some kids going to be\nmessing around and mess up our signs so\nmake sure if you can we recommend you\nstill have it on there but on the bike\nside you are responsible for for your\nnavigation all the way down to the 50k\nyou are responsible for your navigation\nout on course so make sure you have that\nwith you in some fashion whether that's\nan actual head unit a Garmin head unit\nor you're using Strava or ride with GPS\nor some other third-party turn-by-turn\ndirection you have to have that out\nthere no pre-arranged team support and\nagain I say pre-arranged we understand\nthere are going to be times where\nsomebody's going to be drafting with a\nteammate that's totally okay but no\ndomestics no uh things like that where\nsomebody's riding up ahead to fill up\nbottles none of that it's your race it's\nyour race versus everybody else's race\nno team tactics here but also that also\nmeans no team Vehicles out on course uh\nyou can't have Team Vehicles out on\ncourse we do allow media Vehicles if you\nwant a media pass reach out to us we are\nbeing very strict on that this year of\nwhat that means so if you have a media\npass you cannot interact with any\nathletes out on course so\num yeah no team Vehicles no interaction\nat all out on course with your athletes\nthis also means no driving out on course\nI know we get this question a lot from\nfamily members I know you're really\nexcited to see your your athletes out on\ncourse but just for safety just pure\nsafety uh reasons we cannot have 2 000\nvehicles of family members out on course\ncourses kind of zigzag each other all\nover the place so you might think you're\non one course but you're actually\ndriving up and over a hill onto another\ncourse that you didn't know was there so\nno driving out on course if you are\ninterested in being out on course we\nrecommend you volunteer at our\ncheckpoint every single Rider goes\nthrough our checkpoint so not only do\nyou get to help your Rider and see and\ncheer them on you get a cheer on\neverybody else so no vehicles out on\ncourse what what is required out on\ncourse with self-supported so every\nsingle person is required to go through\nour checkpoint so we have two\ncheckpoints on the 150 one on the 75 and\none on the 50k you are required to go\nthrough those there is a timing mat to\nmake sure that you do go through you are\nnot required to stop so if that is a\nrace strategy that you want to carry 150\nmiles of water and you don't want to\nstop at the checkpoints that's on you\nyou don't have to stop you do have to go\nthrough them there's also no racing\ninside the checkpoint area so when\nyou're on the property of the the\ncheckpoints you're not making moves\nthere that's not where you're going to\nwin or lose a race is actually making a\nmove there so keep your speeds down we\ndo have gravel cross this year at\ncheckpoint one on the 150 so there is a\ncyclocross course that every Rider is\nrequired to go and do it's going to be\nreally fun it's only like 0.4 miles that\nadds on to the course but it'll zigzag\nalong the course there on the farm of\nthe checkpoint\nuh we have several Oasis out on course\nthese are not required to stop at for\nanybody so there'll be several several\nwater stops uh several just Oasis\nsponsored by different businesses so\nthose are not required but if you want\nto uh if you're out of water or need\nsome extra assistance you can do that\nthere are also two gas stations on the\n75 and 150 course those are for you to\nuse as you as you wish so go in there\nget some snacks if you need to use the\nrestroom go in there but go ahead and\ncheck those out and like I said too the\nlast bit is there something specific\nnutritionally that you need uh that you\nneed to bring that with you so if\nthere's a specific goo that you need or\ngel if there's a specific allergy for\nfood you have to carry that with you so\nno drop bags no handouts out at the\ncheckpoints all right next we are going\nto talk about parking so on the Expo day\nand check-in on Thursday and Friday you\ncan park at the Meredith parking lot or\nyou can park on the grassy area behind\nShilling Bridge next to the Expo you'll\nsee signs out for that please park in\nthose areas do not park in the paved\nparking spots on Thursday and Friday\nplease leave those for local businesses\nthey need to be running their businesses\non Thursday and Friday so we have plenty\nof parking for you over at Emeritus and\nin the green grassy area on race day uh\nFriday you will if you're doing the run\nyou can still park over at Emeritus over\nthere or in the grassy area when you\ncheck in for bike racing day you will\nreceive a parking pass when you check in\nof where you should be going for race\nday check-in or for excuse me race day\nparking so follow the instructions the\ninstructions on how to get to those\nparking lots are on the back so don't\ntrust Google necessarily on those we\nhave roads shut down that day so follow\nthe instructions on the back of your\ncheck-in next we are going to talk about\nvolunteers so there's still time to\nvolunteer you can sign up at gravel\ndashworlds.com forward slash volunteer\nso go ahead and get signed up Jamie\ngranquist is our volunteer coordinator\nyou will be in communication with her to\ncheck in for volunteering check in where\neverybody else checks in so there'll be\na volunteer check-in space if there's a\nsuper long line and you're volunteering\nyou can skip ahead just to go to the\nvolunteer check-in area so you're make\nsure you're where you need to be on time\nbut yeah just follow the instructions\nthat Jamie gives you and uh we'll be all\ngood so volunteers get a pair of gooder\nsunglasses pirate cycling League uh\ngooder glasses they get a nice Hoka Tech\nshirt a meal ticket as well as a\ndonation made on behalf of them to the\nRandy Gibson fund and a water bottle too\nso lots of goodies there volunteer was a\ngreat time if again like I said earlier\nif you are interested in seeing your\nathlete out on course we highly\nrecommend you volunteer at one of our\ncheckpoints those are a safe place for\nyou to see your athletes and you also\nget a cheer on everybody else but again\nyou can't be out on course on race day\nall right and last we are talking about\nthe schedule so our full schedule can be\nfound at gravel dashworlds.com schedule\nit's also right there's links right on\nour home page so follow those uh see the\nfull schedule we have activities\nstarting Wednesday night all the way\ninto Sunday morning so it's a full week\nof events Wednesday night we have our\nRider party a rider and Runner route\ndiscussion party at cycle works so come\nthere if you have questions about the\nroute the rules or you just want to hang\nout with us go there we'll have beer\nfrom zipline ready to go for you guys at\nuh at Cycleworks for free so free free\nbeer Wednesday night Thursday we have\nthe Expo starting at noon until 7 PM so\ncome out hang out the Expo we got check\nin we also have Thursday night we have\nthe gooder party so it's kind of the\nkickoff Party come hang out we have a\nreally fun uh like rock Funk hillbilly\nband that's really funky uh band uh\nscheduled for Thursday night so we got\nthree hours of live music Thursday night\nFriday is full of activities so many\nthings we have panels all day we have\ngroup rides we have uh the Expo we have\ncheck-in we have uh the 50k and 25k\nstarting in the morning and then we at\nnight we have the long Voyage send off\nwe have uh at 4 P.M I believe we have a\nnew kids race that we're gonna do\nthrough the Expo go around the\nroundabout and each of the kids get\ntheir Finish Line so if you're\ninterested in helping with that or you\nhave a kid that wants to do it after\nschool on Friday come on down and do our\nkids race bonus points for the best\npirate uh costume for our kids race uh\nand then we have the mayor talking at 4\n30 welcoming everybody five o'clock is\nthe long Voyage send off 5 30 is the\nfirst annual uh gravel world land Ho 10K\nuh to send off and then after that when\nyou get back from the Run we have live\nmusic again with the zipline party on\nFriday night lots of stuff on Friday so\nmuch for you to do Saturday is obviously\nrace day so uh be there early be there\nwith a good attitude it's going to be a\ngreat time hoping for amazing weather\namazing times amazing memories uh so\njust make sure you follow the\ninstructions from before show up 30\nminutes earlier to your race to make\nsure you're there on time and we're\ngonna have live music from noon until uh\n6 p.m I think and then our ceremony at 7\npm at night we're also encouraging you\nto please stay until 10 or 11 p.m when\nwe have our dfl coming through so be\nthere to support everybody so thank you\nso much everybody we appreciate the\nsupport we cannot wait to have you here\nin Lincoln we'll see you\nI got that on video okay\nwait how do I start it",
+          "curated": false
+        },
+        {
+          "video_id": "NEnawUTfx-U",
+          "title": "Garmin Gravel Worlds 2024 - 75 Mile Race - Heat, Hills and a Privateer",
+          "channel": "Jared & Jamil",
+          "view_count": 524,
+          "upload_date": "20240903",
+          "duration_string": "5:33",
+          "description": "Gravel Worlds was hard. First time in a race that I cared less about personal performance and achievements. I just wanted to finish and say I did it. This was the toughest race I’ve ever done. I’ve done Unbound 100 twice, Skinny Tire Festival, Tour De Lakes, and Muleskinner, but for some reason GW - 75 (78 😉) seems a lot difficult. The most I’ve ever climbed in a race. From starting out of the gates hot in the 1st half to bonking during 2nd half, Gravel Worlds threw everything at everyone. That said, what I like about these races is the encouragement from other riders even when they are struggling. It’s truly a big family out there and everyone is there to finish and have fun. So I’ve done the 30 and 75 at Gravel Worlds and will be back again to the 150 next.\n\n- Gravel Wolds Privateer - 75 @gravel_worlds \n- 3,132 Calories burn\n- 5,492 feet of climbing\n- 6 bottles of water and a water pack. Thanks @polarbottle and @camelbak \n- dozen gels\n- One lost bottle\n- 200 potholes\n- 20 miles of bonking\n- Max speed 38 mph\n- 1000s of people cheering 📣 us on\n- dozens of people creating their own mini support stations to help out the riders\n- 3 hours of extreme heat\n- the countless amount of hills. Omg \n- got to say hey 👋 to the podcaster I listen to. @jasonstrohbehn @sofiasedona on @gravelfamilypodcast and got a shoutout from them when I finished!!! \n- got 4 points from @garmin connect for completing Privateer 75\n- photos capture by my iPhone and Insta360 \n- beat the heat\n- Canyon Grail AL 7.0 \n- 3rd longest ride (personal)\n- On to 150 next year \n\nBike & Race Gear: \nCanyon Grail Gravel Bike\nGarmin 830 Computer\nCamelbak\nTopeak Multi-Tool\nTubeless Tires\n12-Speed\nGels\n\nPhotography \n@jrw_shoots \nInsta360X3\niPhone\n\n#gravel #garmin #gravelworlds #lincoln #NEB #NEBRASKA #racing #cycling #canyon #75miles #cyclingclub #green #canyongrailal #rain #weather #Finished #goals #hot #bonking #gravelfamily",
+          "tags": [
+            "#gravel",
+            "#gravelcycling",
+            "#lincolnnebraska",
+            "#racing",
+            "#garmin",
+            "#gravelworlds",
+            "#insta360X3",
+            "#biking",
+            "#gravelbike",
+            "#garmingravelworlds"
+          ],
+          "url": "https://www.youtube.com/watch?v=NEnawUTfx-U",
+          "transcript": "ch\nhere at gravel worlds\nhow you\n[Music]\ndoing Mom quick we're going to be going\nabout 15 18 mil\njust keep coming and coming and coming\nthere's a lot of y'all\ntoday thanks\nmile 20 it's pretty hilly out here we're\non some type of dirt\ngravel mile\n20 out of 75\nthere you go good job\nman cool\ncome all the way in don't be\nshy yeah he\nmust try to give me a look what gravel\nRS is like\nyou have these\nrollers which makes it gravel races\npretty tough and difficult so you have\nto really be good at climbing we're in a\ntown I forgot what it's\ncalled This is a stop on the route um\nit's almost like a secondary stop but uh\nsecondary checkpoint just to fuel up on\nmore water and snacks like\nthat all right I'm at Mile 66 out of\num the heat has been really brutal I'm\nbonking so I'm just trying to complete\nit on my own\npace but this is a very difficult\nride I'm about 3 miles\nout I just need another break underneath\nthis tree it's just it's a tough\ncourse thank you woo\nthank you\na",
+          "curated": true,
+          "curation_reason": "Recent first-person race recap highlighting the challenging heat and climbing conditions specific to Gravel Worlds.",
+          "display_order": 2,
+          "thumbnail_url": "https://i.ytimg.com/vi/NEnawUTfx-U/maxresdefault.jpg",
+          "thumbnail_score": 72.0
+        },
+        {
+          "video_id": "Uy7TuNEJr6E",
+          "title": "Garmin Gravel Worlds 150 - 2022 (Full Course)",
+          "channel": "Mamilian",
+          "view_count": 630,
+          "upload_date": "20220830",
+          "duration_string": "9:13:46",
+          "description": "Fantastic and brutal course. Every corner was a sketchy corner. Recap: https://youtu.be/PwB-9eOUwB0",
+          "tags": [
+            "Garmin Gravel Worlds 150",
+            "Garmin Gravel Worlds",
+            "Gravel Worlds 150",
+            "Garmin Gravel Worlds 2022",
+            "Gravel Worlds 2022"
+          ],
+          "url": "https://www.youtube.com/watch?v=Uy7TuNEJr6E",
+          "curated": false
+        },
+        {
+          "video_id": "QOe0QP-Bc30",
+          "title": "2016 Gravel Worlds: 145+ Miles in Lincoln, Nebraska! Available in 60FPS HD!",
+          "channel": "Gravel Cyclist",
+          "view_count": 13847,
+          "upload_date": "20160831",
+          "duration_string": "8:15",
+          "description": "Saturday, August 20, 2016. JOM, K-Dogg and Mrs K-Dogg of the Gravel Cyclist crew flew 2 x steel Ritchey Breakaways and 1 x titanium Ritchey Breakaway along with tools, clothing, food and other stuff - to race 145+ miles and over 7,500 feet of climbing at the unofficial World Championships of Gravel - Gravel Worlds in Lincoln, Nebraska! Lincoln, Nebraska ain't flat...\n\nJOM's race report: http://wp.me/p4V4se-39z\nJOM's Ritchey Titanium Breakaway CX race bike: http://wp.me/p4V4se-389\n\nGravel Worlds website: http://gravel-worlds.com\n\nWeb: http://GravelCyclist.com\nFacebook: http://facebook.com/GravelCyclist\nInstagram - http://Instagram/GravelCyclist\nTwitter - http://twitter.com/GravelCyclist\nVimeo - http://vimeo.com/GravelCyclist",
+          "tags": [
+            "gravel bicycles",
+            "gravel bikes",
+            "gravel cycling",
+            "gravel cycling calendar",
+            "gravel cyclist",
+            "gravel racing",
+            "gravel grinder",
+            "gravel grinding",
+            "gravel grinder calendar",
+            "gravel grinding calendar",
+            "gravel cyclist calendar",
+            "gravelcyclist.com",
+            "monster cross",
+            "ultra cross",
+            "ultra cx",
+            "riding gravel",
+            "gravel bike",
+            "2016 gravel worlds",
+            "2016 gravel worlds video",
+            "gravel worlds video",
+            "pirate cycling league",
+            "gravel worlds race video",
+            "2016 gravel worlds race video"
+          ],
+          "url": "https://www.youtube.com/watch?v=QOe0QP-Bc30",
+          "curated": true,
+          "curation_reason": "High-quality production from established gravel cycling channel with specific course details including 7,500+ feet of climbing.",
+          "display_order": 3,
+          "thumbnail_url": "https://i.ytimg.com/vi/QOe0QP-Bc30/maxresdefault.jpg",
+          "thumbnail_score": 72.0
+        },
+        {
+          "video_id": "dnqRQjmfrWk",
+          "title": "Gravel Worlds 2025 - RAW HIGHLIGHTS",
+          "channel": "Goettl Media",
+          "view_count": 28977,
+          "upload_date": "20250827",
+          "duration_string": "37:09",
+          "description": "Joe Goettl here for his 2nd run at Gravel World's in Lincoln, NE. Last year the heat would be the story, this year it is the mud! Here are all the best raw moments from inside the race from Joe's point of view!\n\nWe will have a full, more in-depth Race Recap video to come, covering both Joe's race and Kendra's race's as she took on the Half-Double - 25k run and 77 mile bike! \n\n📈 Strava File: https://www.strava.com/activities/15564264842\n_________________________________________\n\nWant to SUPPORT OUR CHANNEL? Here’s How!\n\n✅ Like, subscribe, and share this video to help us grow!\n📸 Follow Joe on Instagram: https://www.instagram.com/jgoettl2.0/?hl=en\n🙌 Join our Patreon crew: https://www.patreon.com/goettlmedia\n\nShop using our links and discount codes below:\n\n💪 PAIN ACADEMY: https://painacademy.net/\n New discount code coming soon! \n\n🟢 GOODLIFE NUTRITION: https://fuelyourgoodlife.com/discount/risestronger20\n Use code risestronger20 for 20% OFF at checkout!\n\n🥩 GOODLIFE BRANDS:  https://goodlifeproteins.com/discount/risestronger20\n Use code risestronger20 for 20% OFF at checkout!\n\n🚴  ENVE Website: https://alnk.to/aLKedAR\nBike - MOG 56cm: https://alnk.to/6IH9gbN\nWheels - SES 4.5's: https://alnk.to/cSJyspQ\nAero Bars - SES AR Road IN-Route Handlebar 42cm: https://alnk.to/6IGNENC\nAero Stem - 110mm: https://alnk.to/eONEMlH\nTires - Pirelli Gravel H 45's \nDrivetrain - Shimano XTR/GRX Di2 mullet setup: 50t chain ring with Dura Ace 165 cranks and a 10/51 XTR cassette.\n\n⌚️ GARMIN: https://bit.ly/4crzklK\nComputer - Edge 1040 Solar: https://bit.ly/4chEctl\nPedals - Rally XC Dual Sided: https://bit.ly/3RzOYSc\n             - Rally RS Dual Sided: https://bit.ly/4lf8IrZ\nTrainer - Neo 2T Smart: https://bit.ly/43CE5GL\nWatch - Fenix 8 AMOLD: https://bit.ly/3FNvtTB\n\n🎽 JAKROO Apparel: https://jakroo.com/store-front?storeId=rkghSruqa \n\"Team Pricing\" is YOUR PRICE! \n\n🎶 H2O Audio: https://h2oaudio.com/risestronger\n Use code risestronger20 for 20% OFF your order!\n\n🎒Pedal Industries: https://pedalindustries.com/\n Use Code JOE-INF for 10% off!\n\n⛓️ Silca: https://silca.cc/\n Use Code Goettlmediagravelnats for 15% off! \n(check our most recent video for a current code if this does not work)\n\n💧Epic Water Filters: www.epicwaterfilters.com\n Use code \"risestronger15\" for 15% off your order.\n\n🪖 Lazer Helmets: https://lazersport.us/GOETTLMEDIA\nUse code \"GOETTLMEDIA\" for 10% off your order.\n__________________________________________\n\nThank's for watching and being part of this journey!\n\n0:00 Intro\n7:30 First MUD section\n8:50 CRASH\n15:25 Second MUD section\n20:55 Chasing with Chad Haga\n23:48 Checkpoint 1\n26:50 Checkpoint 2\n29:45 Battle to the Finish",
+          "tags": [],
+          "url": "https://www.youtube.com/watch?v=dnqRQjmfrWk",
+          "curated": true,
+          "curation_reason": "Recent 2025 first-person race highlights with high view count showing muddy course conditions.",
+          "display_order": 1,
+          "thumbnail_url": "https://i.ytimg.com/vi/dnqRQjmfrWk/maxresdefault.jpg",
+          "thumbnail_score": 68.13
+        }
+      ],
+      "quotes": [
+        {
+          "text": "The heat has been really brutal I'm bonking so I'm just trying to complete it on my own pace but this is a very difficult ride. You have these rollers which makes it gravel races pretty tough and difficult so you have to really be good at climbing.",
+          "source_video_id": "NEnawUTfx-U",
+          "source_channel": "Jared & Jamil",
+          "source_view_count": 524,
+          "category": "course_difficulty",
+          "curated": true
+        }
+      ],
+      "rider_intel": {
+        "extracted_at": "2026-02-23",
+        "key_challenges": [
+          {
+            "name": "Mile 20 hill section",
+            "mile_marker": "20",
+            "description": "Pretty hilly out here on dirt gravel, described as tough and difficult with continuous rollers that make the race challenging.",
+            "source_video_ids": [
+              "NEnawUTfx-U"
+            ]
+          },
+          {
+            "name": "Final miles",
+            "mile_marker": "66",
+            "description": "Heat becomes brutal leading to bonking, described as a very difficult ride requiring multiple breaks.",
+            "source_video_ids": [
+              "NEnawUTfx-U"
+            ]
+          }
+        ],
+        "terrain_notes": [
+          {
+            "text": "Continuous rollers throughout the course that make gravel racing pretty tough and difficult, requiring good climbing ability.",
+            "source_video_ids": [
+              "NEnawUTfx-U"
+            ]
+          },
+          {
+            "text": "Mix of dirt and gravel surfaces with hilly terrain starting around mile 20.",
+            "source_video_ids": [
+              "NEnawUTfx-U"
+            ]
+          }
+        ],
+        "gear_mentions": [],
+        "race_day_tips": [
+          {
+            "text": "Line up 30 minutes prior to your start time and follow estimated finish time markers on the side of the road for safety.",
+            "source_video_ids": [
+              "-iVkuhsUlic"
+            ]
+          },
+          {
+            "text": "Make race day check-in a last resort option - primary check-in is Thursday noon to 7pm and Friday 10am to 7pm.",
+            "source_video_ids": [
+              "-iVkuhsUlic"
+            ]
+          },
+          {
+            "text": "Be prepared for traffic on race morning with hundreds of people coming in at different entrances.",
+            "source_video_ids": [
+              "-iVkuhsUlic"
+            ]
+          },
+          {
+            "text": "Utilize secondary checkpoints in towns along the route to fuel up on water and snacks.",
+            "source_video_ids": [
+              "NEnawUTfx-U"
+            ]
+          }
+        ],
+        "additional_quotes": [
+          {
+            "text": "Check-in is going to be in a similar place, not in the church like normal but in the same building on the northwest side of the Schilling bridge building - follow the signs.",
+            "source_video_id": "-iVkuhsUlic",
+            "source_channel": "Gravel Worlds",
+            "source_view_count": 1544,
+            "category": "logistics",
+            "curated": true
+          },
+          {
+            "text": "We do not have the resources or volunteers to check in hundreds of people on race morning so make that as a last possible ditch option for you.",
+            "source_video_id": "-iVkuhsUlic",
+            "source_channel": "Gravel Worlds",
+            "source_view_count": 1544,
+            "category": "logistics",
+            "curated": true
+          }
+        ],
+        "search_text": "Gravel Worlds in Lincoln, Nebraska features continuous rollers that make the race tough and challenging, requiring good climbing ability throughout the 75-mile course. The terrain includes a mix of dirt and gravel surfaces with significant hills starting around mile 20. Riders report the heat can become brutal in later miles, leading to bonking around mile 66. The course includes secondary checkpoints in towns for refueling with water and snacks. Race logistics require check-in at the Schilling bridge building with primary times Thursday noon-7pm and Friday 10am-7pm. Race morning check-in starts at 4:30am but is discouraged due to limited resources. Riders should arrive 30 minutes before start time and line up according to estimated finish times marked on roadside for safety. Traffic congestion is expected with hundreds of participants using different neighborhood entrances."
+      }
+    },
+    "photos": [
+      {
+        "type": "video-1",
+        "file": "garmin-gravel-worlds-video-1.jpg",
+        "url": "/race-photos/garmin-gravel-worlds/garmin-gravel-worlds-video-1.jpg",
+        "alt": "Small town street view in Roca, Nebraska showing grain elevators and rural buildings along the gravel race route - Garmin Gravel Worlds - Lincoln, Nebraska",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": true,
+        "ai_relevance": 2,
+        "ai_quality": 3,
+        "ai_keywords": [
+          "Roca Nebraska",
+          "grain elevators",
+          "small town",
+          "race route"
+        ]
+      },
+      {
+        "type": "video-2",
+        "file": "garmin-gravel-worlds-video-2.jpg",
+        "url": "/race-photos/garmin-gravel-worlds/garmin-gravel-worlds-video-2.jpg",
+        "alt": "First-person perspective of gravel cyclists riding on dirt road through rolling green countryside at moderate pace - Garmin Gravel Worlds - Lincoln, Nebraska",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 4,
+        "ai_keywords": [
+          "gravel road",
+          "cycling peloton",
+          "dirt road",
+          "rolling hills",
+          "first-person view"
+        ]
+      },
+      {
+        "type": "video-3",
+        "file": "garmin-gravel-worlds-video-3.jpg",
+        "url": "/race-photos/garmin-gravel-worlds/garmin-gravel-worlds-video-3.jpg",
+        "alt": "Gravel cyclist navigating muddy dirt road at sunset through rural farmland with golden sky backdrop - Garmin Gravel Worlds - Lincoln, Nebraska",
+        "credit": "YouTube / Gravel Cyclist",
+        "primary": false,
+        "ai_relevance": 5,
+        "ai_quality": 5,
+        "ai_keywords": [
+          "muddy gravel",
+          "sunset cycling",
+          "rural farmland",
+          "golden hour",
+          "dirt road"
+        ]
+      },
+      {
+        "type": "preview-gif",
+        "file": "garmin-gravel-worlds-preview.gif",
+        "url": "/race-photos/garmin-gravel-worlds/garmin-gravel-worlds-preview.gif",
+        "alt": "Course preview from Garmin Gravel Worlds race footage",
+        "credit": "YouTube / Gravel Cyclist",
+        "gif": true
+      }
+    ],
+    "changelog": [
+      {
+        "date": "2026-10-25",
+        "change": "Distance corrected from 75 to 150 miles to match the GW150, the flagship listed on the official event page. Length score recomputed from the published rubric."
+      }
+    ]
+  }
+}

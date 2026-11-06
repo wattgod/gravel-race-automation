@@ -1,0 +1,37 @@
+{
+  "_comment": "Known page contradictions from wordpress/fact_consistency.py as of 2026-10-25. This list may only shrink: fix a race, then delete its entry. tests/test_fact_consistency.py fails on anything new.",
+  "known": {
+    "berryman-epic": [
+      "distance: vitals say 50 mi, guide_variables.race_distance says 65 mi",
+      "distance: vitals say 50 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug berryman-epic)"
+    ],
+    "cedar-blitz": [
+      "distance: vitals say 50 mi, guide_variables.race_distance says 62 mi",
+      "distance: vitals say 50 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug cedar-blitz)"
+    ],
+    "dirty-pecan": [
+      "distance: vitals say 150 mi, guide_variables.race_distance says 65 mi",
+      "distance: vitals say 150 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug dirty-pecan)"
+    ],
+    "forbidden-gravel": [
+      "distance: vitals say 68.4 mi, workout pack says 55 mi (regenerate: python scripts/generate_race_pack_previews.py --slug forbidden-gravel)"
+    ],
+    "gravel-and-tar-classic": [
+      "distance: vitals say 75 mi, workout pack says 99 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravel-and-tar-classic)"
+    ],
+    "gravel-grit-n-grind": [
+      "distance: vitals say 83 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravel-grit-n-grind)"
+    ],
+    "grusk": [
+      "distance: vitals say 82 mi, guide_variables.race_distance says 65 mi",
+      "distance: vitals say 82 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug grusk)"
+    ],
+    "nicolet-hot-days": [
+      "distance: vitals say 68 mi, guide_variables.race_distance says 50 mi",
+      "distance: vitals say 68 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug nicolet-hot-days)"
+    ],
+    "the-equalizer": [
+      "distance: vitals say 62 mi, workout pack says 100 mi (regenerate: python scripts/generate_race_pack_previews.py --slug the-equalizer)"
+    ]
+  }
+}

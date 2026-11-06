@@ -50,8 +50,12 @@ practical suggestion before asking for more.
   removed Jul 2026, regression-tested).
 - **Seasonal:** `offseason` flag Nov–Jan swaps the anonymous welcome opener;
   `offseason_note` broadcast sends each November (script: build before Nov).
-- **Sober variant B** (welcome) is the A/B control — do not edit it with
-  register changes; it measures the register against the old style.
+- **Sober variant B** (welcome) was the A/B control; retired Oct 2026 to
+  weight 0 (welcome = A 100). Do not edit or delete its copy — contacts
+  already enrolled in B still receive it.
+- **Nurture** (`prep_kit_download`) = kit path C 100 (A and B weight 0, kept
+  for in-flight rows). C pitches by design — see the doctrine exception in
+  `mission_control/sequences/nurture.py`.
 
 ## File map
 

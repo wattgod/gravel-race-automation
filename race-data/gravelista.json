@@ -2,6 +2,10 @@
   "race": {
     "name": "Gravelista",
     "slug": "gravelista",
+    "series": {
+      "id": "uci-gravel-world-series",
+      "name": "UCI Gravel World Series"
+    },
     "display_name": "Gravelista",
     "tagline": "Victorian rolling gravel in Australia.",
     "vitals": {
@@ -114,6 +118,21 @@
       "notable_moments": [],
       "reputation": "Regional Victorian event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-10-26",
+        "edition": 4,
+        "note": "Cold, wet, muddy; 2026 UCI Gravel Worlds qualifier.",
+        "source": "https://raceroster.com/events/2025/101242/gravelista-2025"
+      },
+      {
+        "year": 2024,
+        "date": "2024-10-27",
+        "note": "New course in Seymour; last qualifier of 2024.",
+        "source": "https://raceroster.com/events/2024/65226/gravelista-2024/"
+      }
+    ],
     "course_description": {
       "character": "Victorian rolling gravel.",
       "suffering_zones": [
@@ -145,7 +164,7 @@
     },
     "guide_variables": {
       "race_name": "Gravelista",
-      "race_distance": "80 miles",
+      "race_distance": "86 miles",
       "race_elevation": "5,000 feet",
       "race_date": "Spring",
       "race_location": "Victoria, Australia",
@@ -748,6 +767,25 @@
         "credit": "YouTube / Long and Winding",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "135 km",
+          "winner_female": "Sharlotte Lucas",
+          "winner_male": "Brendan Johnston",
+          "winning_time_female": "4:41:01",
+          "winning_time_male": "3:46:57",
+          "source": "https://granfondodailynews.com/2025/10/28/uci-gravelista-results-brendan-johnston-repeats-down-under"
+        },
+        "2024": {
+          "race": "135 km",
+          "winner_female": "Talia Appleton",
+          "winner_male": "Brendan Johnston",
+          "source": "https://ucigravelworldseries.com/en/brendan-johnston-and-talia-appleton-impressive-in-gravelista/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

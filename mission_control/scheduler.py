@@ -55,3 +55,15 @@ async def race_watch():
         await run_race_watch()
     except Exception as e:
         logger.error("Race watch failed: %s", e)
+
+
+@scheduler.scheduled_job("cron", hour=15, minute=30, id="win_back")
+async def win_back():
+    """Daily cold-lead win-back enrollment (15:30 UTC, after the debrief and
+    race-watch jobs). A no-op unless WIN_BACK_ENABLED is set; capped per run
+    by WIN_BACK_DAILY_CAP. The 15-minute process_sequences job sends."""
+    from mission_control.services.win_back import run_win_back
+    try:
+        await run_win_back()
+    except Exception as e:
+        logger.error("Win-back failed: %s", e)

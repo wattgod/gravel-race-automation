@@ -1,50 +1,30 @@
 {
   "slug": "safari-gravel-race",
   "race_name": "Safari Gravel Race",
-  "distance_mi": 100.0,
+  "distance_mi": 69.0,
   "demands": {
-    "durability": 6,
-    "climbing": 4,
+    "durability": 2,
+    "climbing": 5,
     "vo2_power": 4,
-    "threshold": 7,
+    "threshold": 5,
     "technical": 4,
-    "heat_resilience": 3,
+    "heat_resilience": 2,
     "altitude": 4,
     "race_specificity": 6
   },
   "top_categories": [
     {
-      "category": "Durability",
-      "score": 100,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
-    {
-      "category": "TT_Threshold",
-      "score": 82,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "50ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
       "category": "Gravel_Specific",
-      "score": 73,
+      "score": 100,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Safari Gravel Race's Kenyan safari, Adventure gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
+      "workout_context": "Safari Gravel Race's Rift Valley red-clay gravel, Hell's Gate National Park forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 69 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 73,
+      "score": 100,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -53,27 +33,47 @@
       "workout_context": "Race-pace efforts that mimic Safari Gravel Race's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
     },
     {
-      "category": "Endurance",
-      "score": 68,
+      "category": "TT_Threshold",
+      "score": 94,
       "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "119ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "VO2max",
-      "score": 67,
+      "score": 92,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "5,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "8,202ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Over_Under",
+      "score": 83,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Safari Gravel Race, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
+      "category": "Durability",
+      "score": 79,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "69 miles on rift Valley red-clay gravel through Hell's Gate burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "G_Spot",
-      "score": 65,
+      "score": 73,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -82,36 +82,17 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Safari Gravel Race. Train it until it feels boring."
     },
     {
-      "category": "Over_Under",
+      "category": "Mixed_Climbing",
       "score": 62,
       "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
       ],
-      "workout_context": "At Safari Gravel Race, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
-      "category": "HVLI_Extended",
-      "score": 55,
-      "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
-      ],
-      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
-    },
-    {
-      "category": "Blended",
-      "score": 45,
-      "workouts": [
-        "Z2 + VO2 Combo",
-        "Endurance with Spikes"
-      ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 5,000ft of climbing on kenyan safari gravel does to your power file on race day."
+      "workout_context": "8,202ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "Critical_Power",
-      "score": 42,
+      "score": 58,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -119,20 +100,37 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Safari Gravel Race, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Norwegian_Double",
+      "category": "Endurance",
+      "score": 54,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Base fitness for Safari Gravel Race. Without this, the hard workouts break you down instead of building you up."
+    },
+    {
+      "category": "Anaerobic_Capacity",
+      "score": 50,
+      "workouts": [
+        "2min Killers",
+        "90sec Repeats"
+      ],
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on rift Valley red-clay gravel through Hell's Gate. If you haven't trained them, you'll crack."
+    },
+    {
+      "category": "SFR_Muscle_Force",
       "score": 42,
       "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
+        "SFR Low Cadence",
+        "Force Repeats"
       ],
-      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 100 miles, sustainable FTP gains matter more than peak power."
+      "workout_context": "Low-cadence force work for 8,202ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Safari Gravel Race\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
-    "altitude": "Moderate altitude at Safari Gravel Race. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
-    "terrain": "Mixed terrain at Safari Gravel Race requires surface adaptability. Include weekly rides on kenyan safari gravel to build confidence. Expect: kenyan safari, adventure gravel, regional event."
+    "nutrition": "Target 40\u201360g carbs/hour for Safari Gravel Race\u2019s 69 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
+    "terrain": "Mixed terrain at Safari Gravel Race requires surface adaptability. Include weekly rides on rift valley red-clay gravel through hell's gate national park to build confidence. Expect: rift valley red-clay gravel, hell's gate national park, uci gravel world series."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 100 miles of kenyan safari gravel in Kenya.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 69 miles of rift valley red-clay gravel through hell's gate national park in Sulmac Village, Lake Naivasha, Kenya.",
+  "generated_at": "2026-10-25"
 }

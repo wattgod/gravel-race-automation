@@ -105,15 +105,34 @@
       "food": "Castellon has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Castellon Gravel Race website"
+      "official_site": ""
     },
     "history": {
-      "founded": null,
+      "founded": 2024,
       "founder": "Spanish organizers",
       "origin_story": "Regional Spanish gravel event.",
       "notable_moments": [],
       "reputation": "Regional Spanish event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 3,
+        "source": "https://castellongravelrace.com/2026/02/23/romain-bardet-y-sofia-gomez-se-imponen-en-una-castellon-gravel-race-decisiva-para-el-mundial-y-el-europeo/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-02-15",
+        "note": "Moved from May to February; joined the UCI Gravel World Series",
+        "source": "https://www.cyclingnews.com/news/alejandro-valverde-and-carolin-schiff-ride-to-solo-elite-titles-at-castellon-gravel-race/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-05-11",
+        "edition": 1,
+        "source": "https://www.procyclingstats.com/national-race/castellon-gravel-race/2024/result"
+      }
+    ],
     "course_description": {
       "character": "Spanish rolling gravel.",
       "suffering_zones": [
@@ -151,7 +170,7 @@
     },
     "guide_variables": {
       "race_name": "Castellon Gravel Race",
-      "race_distance": "75 miles",
+      "race_distance": "60 miles",
       "race_elevation": "5,000 feet",
       "race_date": "Spring",
       "race_location": "Castellon, Spain",
@@ -636,6 +655,30 @@
         "credit": "YouTube / Maddy Nutt",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "97 km",
+          "winner_female": "Sofia Gomez Villafane",
+          "winner_male": "Romain Bardet",
+          "source": "https://castellongravelrace.com/2026/02/23/romain-bardet-y-sofia-gomez-se-imponen-en-una-castellon-gravel-race-decisiva-para-el-mundial-y-el-europeo/"
+        },
+        "2025": {
+          "race": "97 km",
+          "winner_female": "Carolin Schiff",
+          "winner_male": "Alejandro Valverde",
+          "source": "https://www.cyclingnews.com/news/alejandro-valverde-and-carolin-schiff-ride-to-solo-elite-titles-at-castellon-gravel-race/"
+        },
+        "2024": {
+          "race": "94 km",
+          "winner_female": "Sofia Rodriguez",
+          "winner_male": "Alejandro Valverde",
+          "winning_time_male": "3:32:16",
+          "source": "https://rfec.com/es/smartweb/seccion/noticia/rfec/Gravel/55276-Alejandro-Valverde-y-Sofia-Rodriguez-triunfan-en-la-Castellon-Gravel-Race"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

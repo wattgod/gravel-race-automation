@@ -1,10 +1,10 @@
 {
   "slug": "trough-creek-gravel-grinder",
   "race_name": "Trough Creek Gravel Grinder",
-  "distance_mi": 50.0,
+  "distance_mi": 71.4,
   "demands": {
     "durability": 2,
-    "climbing": 5,
+    "climbing": 6,
     "vo2_power": 2,
     "threshold": 6,
     "technical": 4,
@@ -21,11 +21,11 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "80ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "87ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
-      "score": 84,
+      "score": 89,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -43,26 +43,26 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Trough Creek Gravel Grinder. Train it until it feels boring."
     },
     {
-      "category": "Gravel_Specific",
-      "score": 71,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Trough Creek Gravel Grinder's Pennsylvania rolling, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 50 miles."
-    },
-    {
       "category": "Mixed_Climbing",
-      "score": 59,
+      "score": 67,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "Varied gradients on Pennsylvania rolling gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+      "workout_context": "6,224ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 67,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Trough Creek Gravel Grinder's Pennsylvania rolling, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 71 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 59,
+      "score": 56,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -72,17 +72,26 @@
     },
     {
       "category": "Durability",
-      "score": 49,
+      "score": 46,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "50 miles on Pennsylvania rolling gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "71 miles on Pennsylvania rolling gravel burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 44,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 6,224ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
       "category": "Norwegian_Double",
-      "score": 47,
+      "score": 44,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
@@ -91,17 +100,17 @@
     },
     {
       "category": "VO2max",
-      "score": 43,
+      "score": 41,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "When someone attacks on Pennsylvania rolling gravel, you have 10 seconds to respond or you're off the back. This builds that response."
+      "workout_context": "6,224ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Critical_Power",
-      "score": 43,
+      "score": 41,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -109,17 +118,8 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Trough Creek Gravel Grinder, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "SFR_Muscle_Force",
-      "score": 39,
-      "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
-      ],
-      "workout_context": "Low-cadence force work for 4,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
-    },
-    {
       "category": "Endurance",
-      "score": 33,
+      "score": 31,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
@@ -128,9 +128,9 @@
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Trough Creek Gravel Grinder\u2019s 50 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 40\u201360g carbs/hour for Trough Creek Gravel Grinder\u2019s 71 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
     "terrain": "Mixed terrain at Trough Creek Gravel Grinder requires surface adaptability. Include weekly rides on pennsylvania rolling gravel to build confidence. Expect: pennsylvania rolling, local event, northeast gravel."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and G Spot to prepare you for 50 miles of pennsylvania rolling gravel in Trough Creek State Park, Pennsylvania.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and G Spot to prepare you for 71 miles of pennsylvania rolling gravel in Trough Creek State Park, Pennsylvania.",
+  "generated_at": "2026-10-25"
 }

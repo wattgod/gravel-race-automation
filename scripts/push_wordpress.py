@@ -412,8 +412,10 @@ def sync_guide(guide_dir: str):
     # Media lives at project_root/guide/media/, not in the output dir
     project_root = Path(__file__).resolve().parent.parent
     media_dir = project_root / "guide" / "media"
-    if media_dir.exists():
-        media_files = [f for f in media_dir.iterdir() if f.suffix in (".webp", ".mp4")]
+    # guide/art/ holds the committed character scenes; they're served from /guide/media/ too.
+    art_dir = project_root / "guide" / "art"
+    if media_dir.exists() or art_dir.exists():
+        media_files = [f for d in (media_dir, art_dir) if d.exists() for f in d.iterdir() if f.suffix in (".webp", ".mp4")]
         if media_files:
             # Create remote media directory
             try:
@@ -433,10 +435,14 @@ def sync_guide(guide_dir: str):
                 return None
 
             # Upload via tar+ssh pipe for efficiency
-            file_list = [f.name for f in media_files]
+            tar_args = []
+            for d in (media_dir, art_dir):
+                names = [f.name for f in media_files if f.parent == d]
+                if names:
+                    tar_args += ["-C", str(d)] + names
             try:
                 tar_cmd = subprocess.Popen(
-                    ["tar", "-cf", "-", "-C", str(media_dir)] + file_list,
+                    ["tar", "-cf", "-"] + tar_args,
                     stdout=subprocess.PIPE,
                 )
                 ssh_cmd = subprocess.run(
@@ -450,8 +456,8 @@ def sync_guide(guide_dir: str):
                     text=True,
                     timeout=120,
                 )
-                tar_cmd.wait()
-                if ssh_cmd.returncode == 0:
+                tar_status = tar_cmd.wait()
+                if ssh_cmd.returncode == 0 and tar_status == 0:
                     print(f"✓ Uploaded {len(media_files)} media files to /guide/media/")
                 else:
                     print(f"✗ Media upload failed: {ssh_cmd.stderr.strip()}")
@@ -537,7 +543,7 @@ def sync_guide_cluster(cluster_dir: str):
         tar_proc.stdout.close()
         stdout, stderr = ssh_proc.communicate(timeout=300)
 
-        if ssh_proc.returncode != 0:
+        if ssh_proc.returncode != 0 or tar_proc.wait() != 0:
             print(f"✗ tar+ssh failed: {stderr.decode().strip()}")
             return None
     except subprocess.TimeoutExpired:
@@ -548,6 +554,22 @@ def sync_guide_cluster(cluster_dir: str):
     except Exception as e:
         print(f"✗ Error uploading guide cluster pages: {e}")
         return None
+
+    # The chapter pages open on the painted scenes, served from /guide/media/.
+    art_dir = Path(__file__).resolve().parent.parent / "guide" / "art"
+    art_files = sorted(f.name for f in art_dir.glob("*.webp")) if art_dir.exists() else []
+    if art_files:
+        art_tar = subprocess.Popen(["tar", "-cf", "-", "-C", str(art_dir)] + art_files, stdout=subprocess.PIPE)
+        art_ssh = subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+             f"mkdir -p {remote_base}/media && tar -xf - -C {remote_base}/media"],
+            stdin=art_tar.stdout, capture_output=True, text=True, timeout=120,
+        )
+        art_tar.stdout.close()
+        if art_ssh.returncode != 0 or art_tar.wait() != 0:
+            print(f"✗ Guide art upload failed: {art_ssh.stderr.strip()}")
+            return None
+        print(f"✓ Uploaded {len(art_files)} guide art files to /guide/media/")
 
     # Fix permissions
     try:
@@ -1411,6 +1433,75 @@ def sync_training_plans(training_plans_file: str):
     return f"{wp_url}/products/training-plans/"
 
 
+def sync_plan_intake():
+    """Upload the two-step questionnaire (2026-10-23) via SSH+SCP:
+
+      wordpress/output/plan-start.html   → /training-plans/start/index.html
+      wordpress/output/plan-details.html → /training-plans/details/index.html
+
+    Both come from wordpress/generate_plan_intake_pages.py, with their JS
+    inlined, plus the shared CSS/JS they reference under /race/assets/.
+    Their slugs are in ROOT_CANONICAL_SLUGS so the generic sync_pages /race/
+    sweep never ships them at /race/plan-start/ (the trap sync_season_plan's
+    docstring describes). /questionnaire/ 302s to the start page once
+    --sync-redirects runs.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    output_dir = Path("wordpress/output")
+    pages = [
+        (output_dir / "plan-start.html", "training-plans/start"),
+        (output_dir / "plan-details.html", "training-plans/details"),
+    ]
+    missing = [str(p) for p, _ in pages if not p.exists()]
+    if missing:
+        print(f"✗ Plan intake HTML not found: {', '.join(missing)}")
+        print("  Run: python3 wordpress/generate_plan_intake_pages.py first")
+        return None
+
+    # Shared CSS/JS first: a page whose stylesheet hasn't landed renders bare.
+    remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in (output_dir / "assets").glob(pattern):
+            try:
+                subprocess.run(
+                    ["scp", "-i", str(SSH_KEY), "-P", port, str(asset),
+                     f"{user}@{host}:{remote_assets}/{asset.name}"],
+                    check=True, capture_output=True, text=True, timeout=30,
+                )
+            except subprocess.CalledProcessError:
+                print(f"  ⚠ Could not upload {asset.name} (non-fatal)")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    urls = []
+    for html_path, remote_rel in pages:
+        remote_base = f"~/www/gravelgodcycling.com/public_html/{remote_rel}"
+        try:
+            subprocess.run(
+                ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+                 f"mkdir -p {remote_base}"],
+                check=True, capture_output=True, text=True, timeout=15,
+            )
+            subprocess.run(
+                ["scp", "-i", str(SSH_KEY), "-P", port, str(html_path),
+                 f"{user}@{host}:{remote_base}/index.html"],
+                check=True, capture_output=True, text=True, timeout=30,
+            )
+        except subprocess.CalledProcessError as e:
+            print(f"✗ Upload failed for /{remote_rel}/: {e.stderr.strip()}")
+            return None
+        except Exception as e:  # noqa: BLE001
+            print(f"✗ Error uploading /{remote_rel}/: {e}")
+            return None
+        url = f"{wp_url}/{remote_rel}/"
+        print(f"✓ Uploaded plan intake page: {url}")
+        urls.append(url)
+    return urls
+
+
 def sync_season_review(variants: str = "athlete"):
     """Upload season review questionnaires to /coaching/season-review/[<slug>/].
 
@@ -1497,7 +1588,11 @@ def sync_season_review(variants: str = "athlete"):
 
 
 def sync_season_plan():
-    """Upload the Season Plan intake to /season-plan/index.html on
+    """RETIRED 2026-10-23: /season-plan/ now 301s to /questionnaire/ (see
+    REDIRECT_BLOCK); there is nothing to upload. Kept so the flag fails loudly
+    instead of shipping a retired product page.
+
+    Was: upload the Season Plan intake to /season-plan/index.html on
     SiteGround via SSH+SCP.
 
     A sol review of D9's build found this page had no deploy path at all:
@@ -1506,6 +1601,9 @@ def sync_season_plan():
     shipped it at /race/season-plan/ instead of /season-plan/. Mirrors
     sync_season_review's single-page upload pattern.
     """
+    print("✗ The Season Plan is retired: /season-plan/ redirects to "
+          "/questionnaire/ (run --sync-redirects). Nothing uploaded.")
+    return None
     ssh = get_ssh_credentials()
     if not ssh:
         return None
@@ -1758,6 +1856,9 @@ ROOT_CANONICAL_SLUGS = frozenset({
     "about", "articles", "athletes", "coaching", "consulting", "cookies", "course",
     "gravel-tv", "gravel-weekly", "guide", "homepage", "insights", "privacy", "terms",
     "training-plans", "season-plan",
+    # Two-step questionnaire (2026-10-23): /training-plans/start/ and
+    # /training-plans/details/, deployed by --sync-plan-intake.
+    "plan-start", "plan-details",
 })
 
 RACE_DATA_DIR = Path(__file__).resolve().parent.parent / "race-data"
@@ -2621,7 +2722,9 @@ def sync_pages(pages_dir: str, dry_run: bool = False, force_unlock: bool = False
     html_files = sorted(f for f in pages_path.glob("*.html")
                         if f.stem not in ROOT_CANONICAL_SLUGS)
     # Also check for pre-built subdirectories (vs pages, state hubs, etc.)
-    SKIP_DIRS = {"assets", "og", "prep-kit", "blog", "race", "athletes"}
+    # tire/ holds the /tire/ review pages (--sync-tire-pages), not race pages;
+    # without the skip a build that includes them would also ship /race/tire/.
+    SKIP_DIRS = {"assets", "og", "prep-kit", "blog", "race", "athletes", "tire"}
     subdirs_with_pages = [
         d for d in sorted(pages_path.iterdir())
         if d.is_dir() and d.name not in SKIP_DIRS
@@ -2692,6 +2795,50 @@ ROAD_MIGRATION_REDIRECT_SECTION = generate_road_migration_redirect_section(
 )
 
 
+def season_calendar_redirect_rule() -> str:
+    """/race/calendar/ → /race/calendar/{season}/ for the season riders plan.
+
+    The evergreen URL is a redirect, not a copy of the season page, so there
+    is one calendar page per season and no canonical to juggle. 302 because
+    the target moves every September (wordpress/season.py); a cached 301 would
+    pin browsers to last season.
+    """
+    wordpress_dir = str(Path(__file__).resolve().parent.parent / "wordpress")
+    if wordpress_dir not in sys.path:
+        sys.path.insert(0, wordpress_dir)
+    from season import season_year
+
+    return (f"RewriteRule ^race/calendar/?$ /race/calendar/{season_year()}/ "
+            "[R=302,L]")
+
+
+SEASON_CALENDAR_REDIRECT_RULE = season_calendar_redirect_rule()
+
+# First season wordpress/generate_power_rankings.py built a page for.
+FIRST_POWER_RANKINGS_YEAR = 2026
+
+
+def season_power_rankings_redirect_rules() -> str:
+    """Past seasons' /race/power-rankings-{year}/ → this season's page (301:
+    a past season's page never comes back). Bare /race/power-rankings/ → this
+    season (302, same reason as the calendar: the target moves every season).
+    """
+    wordpress_dir = str(Path(__file__).resolve().parent.parent / "wordpress")
+    if wordpress_dir not in sys.path:
+        sys.path.insert(0, wordpress_dir)
+    from season import season_year
+
+    season = season_year()
+    target = f"/race/power-rankings-{season}/"
+    rules = [f"RewriteRule ^race/power-rankings/?$ {target} [R=302,L]"]
+    rules += [f"RewriteRule ^race/power-rankings-{year}/?$ {target} [R=301,L]"
+              for year in range(FIRST_POWER_RANKINGS_YEAR, season)]
+    return "\n".join(rules)
+
+
+SEASON_POWER_RANKINGS_REDIRECT_RULES = season_power_rankings_redirect_rules()
+
+
 REDIRECT_BLOCK = """\
 # BEGIN Gravel God Redirects
 <IfModule mod_rewrite.c>
@@ -2716,10 +2863,27 @@ RewriteRule ^llms\\.txt$ /llms-repo.txt [L]
 # the generator no longer produces them. Pages removed from server 2026-07-25.
 RewriteRule ^blog/roundup-december-2026/?$ /blog/ [R=301,L]
 RewriteRule ^blog/roundup-northeast-fall-2026/?$ /blog/ [R=301,L]
+# January 2026 roundup drops below the 3-race floor once not-running races
+# are excluded from roundups (2026-11-01 data-quality pass).
+RewriteRule ^blog/roundup-january-2026/?$ /blog/ [R=301,L]
 
 # Legacy Elementor custom-plan page (old per-week pricing copy, self-canonical,
 # not in any repo) → the current product page. Receipts spec §4 (2026-09-28).
 RewriteRule ^custom-training-plans/?$ /products/training-plans/ [R=301,L]
+
+# Season Plan retired 2026-10-23 (Matti: one product). The intake page stays
+# on disk but every visit, ?t= prefill links included, goes to the custom-plan
+# questionnaire. /season-plan/success/ is untouched (exact match only).
+# Goes straight to the start page (2026-10-31): /questionnaire/ itself
+# redirects there, and a chained 301 -> 302 costs crawlers an extra hop.
+RewriteRule ^season-plan/?$ /training-plans/start/ [R=301,L]
+
+# Two-step switch (2026-10-23): the long one-page questionnaire becomes
+# step 1 (race, date, name, email → checkout) at /training-plans/start/, with
+# the rest of the questions after payment at /training-plans/details/.
+# 302, not 301, so switching back is just deleting this line. The query
+# string (?race=, ?src=, ...) carries over.
+RewriteRule ^questionnaire/?$ /training-plans/start/ [R=302,L]
 
 # /page/N/ → / (homepage pagination is meaningless, prevents noindex gap)
 RewriteRule ^page/\\d+/?$ / [R=301,L]
@@ -2790,28 +2954,34 @@ RewriteRule ^training-plans/?$ /products/training-plans/ [R=301,L]
 # Broken URL from GSC → parent page (404 fix)
 RewriteRule ^training-plans-faq/gravelgodcoaching@gmail\\.com$ /training-plans-faq/ [R=301,L]
 
-# Bare calendar has no index page — send to the current-year calendar
-# (update the year segment at each season rollover).
-RewriteRule ^race/calendar/?$ /race/calendar/2026/ [R=301,L]
+# Tires index lives at /tire/ (breadcrumb parent of /tire/{slug}/ reviews).
+RewriteRule ^tires/?$ /tire/ [R=301,L]
+RewriteRule ^race/tires/?$ /tire/ [R=301,L]
+
+# Bare calendar → the season riders are planning (computed at deploy time).
+""" + SEASON_CALENDAR_REDIRECT_RULE + """
+
+# Power rankings build to /race/power-rankings-{season}/ (computed at deploy time).
+""" + SEASON_POWER_RANKINGS_REDIRECT_RULES + """
 
 # Fabricated race pages removed (SITE-SYNC S3, 2026-07) → state/region best-of hubs
 RewriteRule ^race/black-forest-gravel/?$ /race/best-gravel-races-germany/ [R=301,L]
 RewriteRule ^race/ozark-gravel/?$ /race/best-gravel-races-arkansas/ [R=301,L]
 RewriteRule ^race/pirate-cycling-league-gravel/?$ /race/best-gravel-races-california/ [R=301,L]
 RewriteRule ^race/grasslands-100/?$ /race/best-gravel-races-texas/ [R=301,L]
-RewriteRule ^race/balkan-gravel/?$ /race/calendar/2026/ [R=301,L]
+RewriteRule ^race/balkan-gravel/?$ /race/calendar/ [R=301,L]
 # greek-gravel: /race/best-gravel-races-greece/ no longer generates — removing
 # greek-gravel drops Greece to 2 real races, below the state-hub MIN_RACES=3
 # floor (wordpress/generate_state_hubs.py) — fall back to calendar instead.
-RewriteRule ^race/greek-gravel/?$ /race/calendar/2026/ [R=301,L]
+RewriteRule ^race/greek-gravel/?$ /race/calendar/ [R=301,L]
 RewriteRule ^race/natchez-trace-gran-fondo/?$ /race/best-gravel-races-tennessee/ [R=301,L]
 RewriteRule ^race/walburg-dirty-30/?$ /race/best-gravel-races-texas/ [R=301,L]
 RewriteRule ^race/flint-hills-death-ride/?$ /race/best-gravel-races-kansas/ [R=301,L]
 RewriteRule ^race/kal-tour-dirty-100/?$ /race/best-gravel-races-michigan/ [R=301,L]
 # chiang-mai-gran-fondo: fabricated-as-named (2026-07-23 audit — GFNY never ran
 # Chiang Mai; all references were circular self-sourcing). Subpaths covered.
-RewriteRule ^race/chiang-mai-gran-fondo/?$ /race/calendar/2026/ [R=301,L]
-RewriteRule ^race/chiang-mai-gran-fondo/(.*)$ /race/calendar/2026/ [R=301,L]
+RewriteRule ^race/chiang-mai-gran-fondo/?$ /race/calendar/ [R=301,L]
+RewriteRule ^race/chiang-mai-gran-fondo/(.*)$ /race/calendar/ [R=301,L]
 # polish-gravel: the prior generic Krakow identity had no supporting organizer
 # or event. Redirect the page and any old product subpaths to the verified
 # Niepolomice race from the same region.
@@ -2866,10 +3036,53 @@ RewriteRule ^race/rad-dirt-fest/(.*)$ /race/the-rad/$1 [R=301,L]
 # Winterberg format in 2026. The old profile mixed both locations.
 RewriteRule ^race/3rides-aachen/?$ /race/3rides-gravel-winterberg/ [R=301,L]
 RewriteRule ^race/3rides-aachen/(.*)$ /race/3rides-gravel-winterberg/$1 [R=301,L]
+# Duplicate identities found by the 2026-11-01 data-quality pass. Evidence and
+# scores per pair: data/duplicate-merges.json (tests/test_trust_checks.py keeps
+# this list and that file in step). Profiles in race-data-archived/duplicates/.
+# Gravel Worlds: "Garmin" is the title sponsor; amateurs ride the same 150 mi day.
+RewriteRule ^race/garmin-gravel-worlds/?$ /race/gravel-worlds/ [R=301,L]
+RewriteRule ^race/garmin-gravel-worlds\\.md$ /race/gravel-worlds.md [R=301,L]
+RewriteRule ^race/garmin-gravel-worlds/(.*)$ /race/gravel-worlds/$1 [R=301,L]
+RewriteRule ^race/gravel-worlds-amateur/?$ /race/gravel-worlds/ [R=301,L]
+RewriteRule ^race/gravel-worlds-amateur\\.md$ /race/gravel-worlds.md [R=301,L]
+RewriteRule ^race/gravel-worlds-amateur/(.*)$ /race/gravel-worlds/$1 [R=301,L]
+# The original BWR in Del Mar is bwr-california.
+RewriteRule ^race/bwr-san-diego/?$ /race/bwr-california/ [R=301,L]
+RewriteRule ^race/bwr-san-diego\\.md$ /race/bwr-california.md [R=301,L]
+RewriteRule ^race/bwr-san-diego/(.*)$ /race/bwr-california/$1 [R=301,L]
+# BWR Utah is held in Cedar City; bwr-cedar-city is the richer, newer profile.
+RewriteRule ^race/bwr-utah/?$ /race/bwr-cedar-city/ [R=301,L]
+RewriteRule ^race/bwr-utah\\.md$ /race/bwr-cedar-city.md [R=301,L]
+RewriteRule ^race/bwr-utah/(.*)$ /race/bwr-cedar-city/$1 [R=301,L]
+# One BWR in North Carolina (Hendersonville, near Asheville).
+RewriteRule ^race/bwr-asheville/?$ /race/bwr-north-carolina/ [R=301,L]
+RewriteRule ^race/bwr-asheville\\.md$ /race/bwr-north-carolina.md [R=301,L]
+RewriteRule ^race/bwr-asheville/(.*)$ /race/bwr-north-carolina/$1 [R=301,L]
+# Head-to-head pages that named a retired duplicate (e.g. the self-comparison
+# bwr-california-vs-bwr-san-diego) go to the canonical race page.
+RewriteRule ^race/garmin-gravel-worlds-vs-[a-z0-9-]+/?$ /race/gravel-worlds/ [R=301,L]
+RewriteRule ^race/[a-z0-9-]+-vs-garmin-gravel-worlds/?$ /race/gravel-worlds/ [R=301,L]
+RewriteRule ^race/gravel-worlds-amateur-vs-[a-z0-9-]+/?$ /race/gravel-worlds/ [R=301,L]
+RewriteRule ^race/[a-z0-9-]+-vs-gravel-worlds-amateur/?$ /race/gravel-worlds/ [R=301,L]
+RewriteRule ^race/bwr-san-diego-vs-[a-z0-9-]+/?$ /race/bwr-california/ [R=301,L]
+RewriteRule ^race/[a-z0-9-]+-vs-bwr-san-diego/?$ /race/bwr-california/ [R=301,L]
+RewriteRule ^race/bwr-utah-vs-[a-z0-9-]+/?$ /race/bwr-cedar-city/ [R=301,L]
+RewriteRule ^race/[a-z0-9-]+-vs-bwr-utah/?$ /race/bwr-cedar-city/ [R=301,L]
+RewriteRule ^race/bwr-asheville-vs-[a-z0-9-]+/?$ /race/bwr-north-carolina/ [R=301,L]
+RewriteRule ^race/[a-z0-9-]+-vs-bwr-asheville/?$ /race/bwr-north-carolina/ [R=301,L]
+# Gravel Earth Series ended after 2026 (The Traka World Series replaced it).
+# The /race/gravel-earth/ profile reviewed the series itself; its sub-pages
+# (tires, training plan, prep kit), .md and head-to-head pages go to the series
+# history page. Profile in race-data-archived/ended-series/.
+RewriteRule ^race/gravel-earth/?$ /race/series/gravel-earth-series/ [R=301,L]
+RewriteRule ^race/gravel-earth\\.md$ /race/series/gravel-earth-series/ [R=301,L]
+RewriteRule ^race/gravel-earth/(.*)$ /race/series/gravel-earth-series/ [R=301,L]
+RewriteRule ^race/gravel-earth-vs-[a-z0-9-]+/?$ /race/series/gravel-earth-series/ [R=301,L]
+RewriteRule ^race/[a-z0-9-]+-vs-gravel-earth/?$ /race/series/gravel-earth-series/ [R=301,L]
 # No organizer or official event exists under the name Gravel des Flandres.
 # The retired page mixed unsupported facts with the old Flanders Gravel Series.
-RewriteRule ^race/gravel-des-flandres/?$ /race/calendar/2026/ [R=301,L]
-RewriteRule ^race/gravel-des-flandres/(.*)$ /race/calendar/2026/ [R=301,L]
+RewriteRule ^race/gravel-des-flandres/?$ /race/calendar/ [R=301,L]
+RewriteRule ^race/gravel-des-flandres/(.*)$ /race/calendar/ [R=301,L]
 # 66 South Pyrénées was an alternate name for the same Font-Romeu UCI race
 # now tracked from current organizer facts as Pyrénées Catalanes Gravel Tour.
 RewriteRule ^race/66-south-pyrenees/?$ /race/pyrenees-catalanes-gravel-tour/ [R=301,L]
@@ -2944,7 +3157,7 @@ RewriteRule ^blog/crusher-in-the-tushar-recap/?$ /race/crusher-in-the-tushar/ [R
 RewriteRule ^blog/galactic-grinder-recap/?$ /race/galactic-grinder/ [R=301,L]
 RewriteRule ^blog/grasshopper-series-recap/?$ /race/grasshopper-series/ [R=301,L]
 RewriteRule ^blog/grassroots-gravel-recap/?$ /race/grassroots-gravel/ [R=301,L]
-RewriteRule ^blog/gravel-earth-recap/?$ /race/gravel-earth/ [R=301,L]
+RewriteRule ^blog/gravel-earth-recap/?$ /race/series/gravel-earth-series/ [R=301,L]
 RewriteRule ^blog/gravel-revival-recap/?$ /race/gravel-revival/ [R=301,L]
 RewriteRule ^blog/gravel-roll-pecan-shaker-recap/?$ /race/gravel-roll-pecan-shaker/ [R=301,L]
 RewriteRule ^blog/grinduro-recap/?$ /race/grinduro/ [R=301,L]
@@ -2969,7 +3182,7 @@ RewriteRule ^blog/colorado-trail-race-recap/?$ /race/colorado-trail-race/ [R=301
 RewriteRule ^blog/uci-gravel-worlds-recap/?$ /race/uci-gravel-worlds/ [R=301,L]
 RewriteRule ^blog/turnhout-gravel-recap/?$ /race/turnhout-gravel/ [R=301,L]
 RewriteRule ^blog/gravel-del-fuego-recap/?$ /race/gravel-del-fuego/ [R=301,L]
-RewriteRule ^blog/gravel-des-flandres-recap/?$ /race/calendar/2026/ [R=301,L]
+RewriteRule ^blog/gravel-des-flandres-recap/?$ /race/calendar/ [R=301,L]
 RewriteRule ^blog/rad-dirt-fest-recap/?$ /race/the-rad/ [R=301,L]
 RewriteRule ^blog/iron-horse-bicycle-classic-recap/?$ https://roadielabs.com/race/iron-horse-bicycle-classic/ [R=301,L]
 RewriteRule ^blog/lotoja-classic-recap/?$ https://roadielabs.com/race/lotoja-classic/ [R=301,L]
@@ -3590,6 +3803,30 @@ def sync_training_form():
         return False
 
 
+def sync_newsletter_report():
+    """Deploy the private newsletter report and welcome-link mu-plugin."""
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+    plugin = Path(__file__).resolve().parent.parent / "wordpress/mu-plugins/gg-newsletter-report.php"
+    remote = "~/www/gravelgodcycling.com/public_html/wp-content/mu-plugins"
+    try:
+        subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}", f"mkdir -p {remote}"],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+        subprocess.run(
+            ["scp", "-i", str(SSH_KEY), "-P", port, str(plugin), f"{user}@{host}:{remote}/gg-newsletter-report.php"],
+            capture_output=True, text=True, timeout=15, check=True,
+        )
+        print("✓ Deployed newsletter report mu-plugin")
+        return True
+    except Exception as error:
+        print(f"✗ Failed to deploy newsletter report: {error}")
+        return False
+
+
 def sync_ga4():
     """Deploy the GA4 analytics mu-plugin to WordPress.
 
@@ -4004,7 +4241,8 @@ def sync_tire_pages(tire_pages_dir: str):
 
     print(f"  Uploading {len(dirs)} /tire/ pages via tar+ssh...")
     try:
-        tar_cmd = ["tar", "-cf", "-", "-C", str(src)] + dirs
+        root_files = ["index.html"] if (src / "index.html").exists() else []  # /tire/ index
+        tar_cmd = ["tar", "-cf", "-", "-C", str(src)] + dirs + root_files
         ssh_cmd = ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
                    f"mkdir -p {remote_base} && tar -xf - -C {remote_base}"]
         tar_proc = subprocess.Popen(tar_cmd, stdout=subprocess.PIPE)
@@ -4171,6 +4409,8 @@ def sync_series(series_dir: str):
 
     try:
         items = [d.name for d in series_dirs]
+        if (series_path / "index.html").exists():
+            items.append("index.html")  # /race/series/ index
         tar_cmd = ["tar", "-cf", "-", "-C", str(series_path)] + items
         ssh_cmd = [
             "ssh", "-i", str(SSH_KEY), "-p", port,
@@ -4642,6 +4882,71 @@ def sync_latest(latest_file: str):
     wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
     print(f"✓ Uploaded latest wire bundle: {wp_url}/latest/")
     return f"{wp_url}/latest/"
+
+
+def sync_surge_check(surge_check_dir: str):
+    """Upload the Surge Check page (index.html, its scripts, vendor/) to /surge-check/ on SiteGround via SSH+SCP.
+
+    The page's shared CSS lives under /race/assets/ like the white paper's;
+    those hashed files go up too. Run wordpress/generate_surge_check.py first.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return None
+    host, user, port = ssh
+
+    page_dir = Path(surge_check_dir)
+    if not (page_dir / "index.html").exists():
+        print(f"✗ Surge Check page not found: {page_dir}/index.html")
+        print("  Run: python3 wordpress/generate_surge_check.py first")
+        return None
+
+    remote_base = "~/www/gravelgodcycling.com/public_html/surge-check"
+    try:
+        subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}", f"mkdir -p {remote_base}/vendor"],
+            check=True, capture_output=True, text=True, timeout=15,
+        )
+        files = [f for f in sorted(page_dir.rglob("*")) if f.is_file()]
+        for f in files:
+            rel = f.relative_to(page_dir).as_posix()
+            subprocess.run(
+                ["scp", "-i", str(SSH_KEY), "-P", port, str(f), f"{user}@{host}:{remote_base}/{rel}"],
+                check=True, capture_output=True, text=True, timeout=60,
+            )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Surge Check upload failed: {(e.stderr or '').strip()}")
+        return None
+    except Exception as e:
+        print(f"✗ Error uploading Surge Check page: {e}")
+        return None
+
+    assets_dir = page_dir.parent / "assets"
+    remote_assets = "~/www/gravelgodcycling.com/public_html/race/assets"
+    for pattern in ("gg-styles.*.css", "gg-scripts.*.js"):
+        for asset in assets_dir.glob(pattern):
+            try:
+                subprocess.run(
+                    ["scp", "-i", str(SSH_KEY), "-P", port, str(asset), f"{user}@{host}:{remote_assets}/{asset.name}"],
+                    check=True, capture_output=True, text=True, timeout=30,
+                )
+            except subprocess.CalledProcessError as e:
+                # The page's styles live in these files: without them it renders unstyled, so this fails the deploy.
+                print(f"✗ Shared asset upload failed ({asset.name}): {(e.stderr or '').strip()}")
+                return None
+
+    try:
+        subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+             f"chmod 755 {remote_base} {remote_base}/vendor && find {remote_base} -type f -exec chmod 644 {{}} +"],
+            check=True, capture_output=True, text=True, timeout=15,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"⚠ Permission fix failed: {e}")
+
+    wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
+    print(f"✓ Uploaded Surge Check ({len(files)} files): {wp_url}/surge-check/")
+    return f"{wp_url}/surge-check/"
 
 
 def sync_whitepaper(whitepaper_file: str):
@@ -5194,6 +5499,10 @@ if __name__ == "__main__":
         help="Comma-separated variant slugs to upload (default: athlete; e.g. exit for /coaching/exit/)"
     )
     parser.add_argument(
+        "--sync-plan-intake", action="store_true",
+        help="Upload the two-step questionnaire to /training-plans/start/ and /training-plans/details/ via SCP"
+    )
+    parser.add_argument(
         "--sync-season-plan", action="store_true",
         help="Upload the Season Plan intake to /season-plan/ via SCP"
     )
@@ -5244,6 +5553,14 @@ if __name__ == "__main__":
     parser.add_argument(
         "--latest-file", default="wordpress/output/latest/index.html",
         help="Path to latest page HTML (default: wordpress/output/latest/index.html)"
+    )
+    parser.add_argument(
+        "--sync-surge-check", action="store_true",
+        help="Upload the Surge Check page to /surge-check/ via SCP"
+    )
+    parser.add_argument(
+        "--surge-check-dir", default="wordpress/output/surge-check",
+        help="Path to the generated Surge Check folder (default: wordpress/output/surge-check)"
     )
     parser.add_argument(
         "--sync-whitepaper", action="store_true",
@@ -5312,6 +5629,10 @@ if __name__ == "__main__":
     parser.add_argument(
         "--sync-ga4", action="store_true",
         help="Deploy GA4 analytics mu-plugin to wp-content/mu-plugins/"
+    )
+    parser.add_argument(
+        "--sync-newsletter-report", action="store_true",
+        help="Deploy the private newsletter report and tracked welcome links"
     )
     parser.add_argument(
         "--sync-header", action="store_true",
@@ -5481,6 +5802,9 @@ if __name__ == "__main__":
         args.sync_widget = True
         args.sync_llms_txt = True
         args.sync_markdown = True
+        # preflight --deploy regenerates the sitemap right before this; ship it
+        # (it was --deploy-all only, so the live sitemap went stale).
+        args.sync_sitemap = True
         args.purge_cache = True
     if args.deploy_all:
         args.sync_pages = True
@@ -5505,6 +5829,7 @@ if __name__ == "__main__":
         args.sync_ctas = True
         args.sync_training_form = True
         args.sync_ga4 = True
+        args.sync_newsletter_report = True
         args.sync_prep_kits = True
         args.sync_tire_guides = True
         args.sync_series = True
@@ -5558,16 +5883,16 @@ if __name__ == "__main__":
                       args.sync_guide, args.sync_guide_cluster,
                       args.sync_og, args.sync_tp, args.sync_homepage, args.sync_gravel_weekly, args.sync_about,
                       args.sync_athletes, args.sync_coaching, args.sync_coaching_apply, args.sync_season_review,
-                      args.sync_season_plan,
+                      args.sync_season_plan, args.sync_plan_intake,
                       args.sync_consulting,
                       args.sync_consult_intake,
                       args.sync_training_plans, args.sync_success, args.sync_pages,
                       args.sync_sitemap, args.sync_favicons, args.sync_redirects,
-                      args.sync_noindex, args.sync_headings, args.sync_ctas, args.sync_training_form, args.sync_ga4, args.sync_header, args.sync_prep_kits, args.sync_plan_pages, args.sync_tire_guides,
+                      args.sync_noindex, args.sync_headings, args.sync_ctas, args.sync_training_form, args.sync_ga4, args.sync_newsletter_report, args.sync_header, args.sync_prep_kits, args.sync_plan_pages, args.sync_tire_guides,
                       args.sync_series, args.sync_blog,
                       args.sync_blog_index, args.sync_photos, args.sync_ab, args.sync_courses,
                       args.sync_meta_descriptions, args.sync_mission_control,
-                      args.sync_insights, args.sync_whitepaper, args.sync_embed, args.sync_rss,
+                      args.sync_insights, args.sync_whitepaper, args.sync_surge_check, args.sync_embed, args.sync_rss,
                       args.sync_llms_txt, args.sync_markdown, args.ping_indexnow,
                       args.sync_legal, args.sync_consent, args.sync_tire_pages,
                       args.sync_latest, args.purge_cache])
@@ -5619,6 +5944,8 @@ if __name__ == "__main__":
         _run("sync-season-review", sync_season_review, args.season_review_variants)
     if args.sync_season_plan:
         _run("sync-season-plan", sync_season_plan)
+    if args.sync_plan_intake:
+        _run("sync-plan-intake", sync_plan_intake)
 
     if args.sync_coaching_apply:
         _run("sync-coaching-apply", sync_coaching_apply, args.coaching_apply_file)
@@ -5652,6 +5979,8 @@ if __name__ == "__main__":
         _run("sync-training-form", sync_training_form)
     if args.sync_ga4:
         _run("sync-ga4", sync_ga4)
+    if args.sync_newsletter_report:
+        _run("sync-newsletter-report", sync_newsletter_report)
     if args.sync_header:
         _run("sync-header", sync_header)
     if args.sync_photos:
@@ -5687,6 +6016,8 @@ if __name__ == "__main__":
         _run("sync-latest", sync_latest, args.latest_file)
     if args.sync_whitepaper:
         _run("sync-whitepaper", sync_whitepaper, args.whitepaper_file)
+    if args.sync_surge_check:
+        _run("sync-surge-check", sync_surge_check, args.surge_check_dir)
     if args.sync_embed:
         _run("sync-embed", sync_embed)
     if args.sync_rss:

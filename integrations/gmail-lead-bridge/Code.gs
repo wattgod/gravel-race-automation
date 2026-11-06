@@ -146,6 +146,100 @@ function createApprovedDrafts_() {
 }
 
 
+// ---------------------------------------------------------------------------
+// TrainingPeaks store sales -> Mission Control post_purchase.
+// Separate trigger from the lead bridge so either can run without the other.
+// Mission Control's /webhooks/tp-store-sales/config answers enabled=false
+// until TP_BUYER_INGEST_ENABLED is set there; while it does, this reads no
+// mail and sends nothing. Read-only in Gmail, like everything else here.
+// ---------------------------------------------------------------------------
+
+const TP_SALES_TRIGGER_FUNCTION = 'runTpStoreSalesSync';
+const TP_SALES_LOOKBACK_DAYS = 14;
+const TP_SALES_MAX_THREADS = 50;
+
+
+function installTpStoreSalesSync() {
+  assertCorrectAccount_();
+  ScriptApp.getProjectTriggers()
+    .filter((trigger) => trigger.getHandlerFunction() === TP_SALES_TRIGGER_FUNCTION)
+    .forEach((trigger) => ScriptApp.deleteTrigger(trigger));
+  ScriptApp.newTrigger(TP_SALES_TRIGGER_FUNCTION)
+    .timeBased()
+    .everyMinutes(15)
+    .create();
+  runTpStoreSalesSync();
+}
+
+
+function runTpStoreSalesSync() {
+  const lock = LockService.getScriptLock();
+  if (!lock.tryLock(1000)) return;
+  try {
+    assertCorrectAccount_();
+    syncTpStoreSales_(false);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+
+/** Run manually: Mission Control parses and reports, enrolls and records nothing. */
+function dryRunTpStoreSales() {
+  assertCorrectAccount_();
+  const result = syncTpStoreSales_(true);
+  console.log(JSON.stringify(result && result.counts));
+  return result;
+}
+
+
+function syncTpStoreSales_(dryRun) {
+  const config = missionControlGet_('/webhooks/tp-store-sales/config');
+  if (!dryRun && !config.enabled) return null;
+  const query = [
+    '-in:spam', '-in:trash',
+    `from:${quoteGmail_(config.sender)}`,
+    `subject:${quoteGmail_(config.subject)}`,
+    `newer_than:${TP_SALES_LOOKBACK_DAYS}d`,
+  ].join(' ');
+  const messages = [];
+  GmailApp.search(query, 0, TP_SALES_MAX_THREADS).forEach((thread) => {
+    thread.getMessages().forEach((message) => {
+      if (message.isDraft() || message.isInTrash()) return;
+      messages.push({
+        id: message.getId(),
+        from: message.getFrom(),
+        subject: message.getSubject(),
+        date: message.getDate().toISOString(),
+        auth_results: topAuthenticationResults_(message),
+        body: String(message.getPlainBody() || '').slice(0, MAX_MESSAGE_BODY_CHARS),
+        html_body: String(message.getBody() || '').slice(0, MAX_MESSAGE_BODY_CHARS * 4),
+      });
+    });
+  });
+  if (!messages.length) return {counts: {}};
+  let last = null;
+  chunk_(messages, SYNC_POST_BATCH_SIZE).forEach((batch) => {
+    last = missionControlPost_('/webhooks/tp-store-sales', {messages: batch, dry_run: dryRun === true});
+  });
+  return last;
+}
+
+
+/**
+ * The topmost Authentication-Results header: the one Gmail added on receipt.
+ * A sender can include its own forged copy further down, so only the first
+ * header block counts.
+ */
+function topAuthenticationResults_(message) {
+  const raw = String(message.getRawContent() || '');
+  const headerEnd = raw.search(/\r?\n\r?\n/);
+  const headers = (headerEnd === -1 ? raw : raw.slice(0, headerEnd)).replace(/\r?\n[ \t]+/g, ' ');
+  const match = headers.match(/^Authentication-Results:[^\n]*/im);
+  return match ? match[0].slice(0, 2000) : '';
+}
+
+
 function messagePayload_(message) {
   return {
     id: message.getId(),

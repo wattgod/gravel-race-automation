@@ -5,6 +5,7 @@
   "description": "Britain's gravel qualifier: 111 kilometers, 1,761 meters of climbing, and more than 80 percent gravel through Galloway Forest Park.",
   "sport": "Gravel Cycling",
   "startDate": "2027-05-15",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Gatehouse of Fleet, Dumfries and Galloway, Scotland",
@@ -16,7 +17,7 @@
   },
   "url": "https://www.grallochgravel.com/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "RED:ON Sports",
     "url": "https://www.grallochgravel.com/"
   }

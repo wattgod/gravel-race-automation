@@ -1311,7 +1311,7 @@ def test_template_zones_never_become_claims():
         "The Wall (mile 120): A 2-mile climb at 12% on loose limestone.")
 
 
-@pytest.mark.parametrize("slug", ["gravel-worlds-amateur", "barry-roubaix", "cohutta-gravel-grinder"])
+@pytest.mark.parametrize("slug", ["gravel-worlds", "barry-roubaix", "cohutta-gravel-grinder"])
 def test_real_template_zones_make_no_claim(slug):
     claims = build_in_short(load_race(slug), ALL_SECTIONS) or []
     for c in claims:

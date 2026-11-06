@@ -139,7 +139,7 @@
       }
     },
     "history": {
-      "founded": null,
+      "founded": 2023,
       "founder": "RED:ON Sports",
       "origin_story": "The Gralloch grew into Scotland's gravel festival around a competitive race in Gatehouse of Fleet, later adding a sportive and a separate 323-kilometer Ultra.",
       "notable_moments": [
@@ -148,6 +148,20 @@
       ],
       "reputation": "Britain's flagship competitive gravel race and a qualification pathway to the UCI Gravel World Championships."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-05-17",
+        "edition": 3,
+        "source": "https://www.granfondo.com/events/the-gralloch-2025-trek-uci-gravel-world-series/2025-05-17/6782/cycling"
+      },
+      {
+        "year": 2024,
+        "date": "2024-05-18",
+        "edition": 2,
+        "source": "https://4seasoncollective.prowly.com/318237-thrilling-fast-racing-at-the-gralloch-2024"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "high",
       "validation_status": "official-2027-date-course-verified-2026-08-08",
@@ -677,6 +691,23 @@
         "credit": "YouTube / Glorious Gravel TV",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2023": {
+          "winner_female": "Tiffany Cromwell",
+          "winner_male": "Connor Swift",
+          "source": "https://ucigravelworldseries.com/en/connor-swift-and-tiffany-cromwell-show-their-power-in-the-gralloch/"
+        },
+        "2024": {
+          "winner_female": "Geerike Schreurs",
+          "winner_male": "Matthew Holmes",
+          "winning_time_female": "3:42:29",
+          "winning_time_male": "3:12:47",
+          "source": "https://www.granfondoguide.com/Contents/PopUp/7973/schreurs-and-holmes-fastest-at-uci-the-gralloch-gravel-fondo"
+        }
+      },
+      "latest_year": "2024"
+    }
   }
 }

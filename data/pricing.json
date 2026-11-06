@@ -8,12 +8,10 @@
       "name": "Custom Training Plan",
       "stripe_product_id": "prod_U0yNXPOFJQhe53",
       "reconciliation_label": "training_plan",
-      "pricing_model": "per_week_capped",
+      "pricing_model": "per_week",
       "weekly_rate_cents": 1500,
       "weekly_rate_display": "$15",
       "minimum_weeks": 4,
-      "cap_cents": 24900,
-      "cap_display": "$249",
       "refund_window_days": 7,
       "delivery_hours": 24,
       "inclusions": [
@@ -26,6 +24,8 @@
     "season_plan": {
       "id": "season_plan",
       "name": "Season Plan",
+      "retired": true,
+      "retired_note": "Retired 2026-10-23 (Matti: one product). Not offered anywhere on the site and the checkout server refuses it (410). Kept so past reconciliation labels and the success page still resolve.",
       "reconciliation_label": "season_plan",
       "pricing_model": "flat",
       "price_cents": 49900,

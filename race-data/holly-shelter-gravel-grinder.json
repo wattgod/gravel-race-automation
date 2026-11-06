@@ -96,7 +96,7 @@
       "should_you_race": "If you're in North Carolina and want a flat gravel event—yes, it's a solid regional race. If you're from out of state—there are better options.",
       "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other NC gravel races.",
       "alternative_slugs": [
-        "garmin-gravel-worlds",
+        "gravel-worlds",
         "hot-springs-gravel-gauntlet"
       ]
     },
@@ -106,7 +106,7 @@
       "food": "Moderate dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check North Carolina cycling calendars"
+      "official_site": ""
     },
     "history": {
       "founded": null,
@@ -115,6 +115,18 @@
       "notable_moments": [],
       "reputation": "Regional NC event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-03-23",
+        "source": "https://gravel-results.com/race/20326"
+      },
+      {
+        "year": 2021,
+        "date": "2021-06-12",
+        "source": "https://www.webscorer.com/race?raceid=244174"
+      }
+    ],
     "course_description": {
       "character": "Flat to rolling coastal plain gravel.",
       "suffering_zones": [
@@ -622,6 +634,19 @@
         "credit": "YouTube / Rides with Parker",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2021": {
+          "race": "100 mi",
+          "winner_female": "Robin Norton",
+          "winner_male": "Todd Hancock",
+          "winning_time_female": "6:16:37",
+          "winning_time_male": "5:36:04",
+          "source": "https://www.webscorer.com/race?raceid=244174"
+        }
+      },
+      "latest_year": "2021"
+    }
   }
 }

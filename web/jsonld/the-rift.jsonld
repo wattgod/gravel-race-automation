@@ -4,7 +4,9 @@
   "name": "The Rift",
   "description": "200km across Iceland's volcanic highlands. River crossings, lava fields, and the tectonic rift. Gravel's most otherworldly course.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-07-17",
+  "startDate": "2027-07-23",
+  "endDate": "2027-07-24",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Hvolsv\u00f6llur, Southern Iceland",
@@ -16,7 +18,7 @@
   },
   "url": "https://therift.bike",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Reykjav\u00edk Cycling Club",
     "url": "https://therift.bike"
   }

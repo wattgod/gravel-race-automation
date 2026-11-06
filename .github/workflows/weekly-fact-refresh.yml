@@ -52,7 +52,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python scripts/scrape_official_sites.py --stale-only \
+          python scripts/scrape_official_sites.py --stale-only --limit 50 \
             ${{ inputs.force_all && '--force' || '' }} || true
 
       - name: Apply safe fixes

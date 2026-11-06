@@ -106,7 +106,7 @@
       "food": "BC has full dining options. Stock nutrition.",
       "packet_pickup": "Race morning, 6:55–7:55 AM at Princeton Rodeo Grounds",
       "parking": "At start/finish",
-      "official_site": "kettlemettle.ca"
+      "official_site": "https://kettlemettle.ca"
     },
     "history": {
       "founded": 2014,
@@ -115,6 +115,13 @@
       "notable_moments": [],
       "reputation": "Long-running BC classic — the region's oldest gravel fondo, and a leg of the BC Triple Crown of Gravel series."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-06-28",
+        "source": "https://startlinetiming.com/en/races/2025/kettlemettle/event/Full%20100K"
+      }
+    ],
     "course_description": {
       "character": "Kettle Valley Railway rail-trail gravel out of Princeton — wildflower canyons, historic wooden trestles and decommissioned rail tunnels, with forest-service-road climbing stacked into the 100km flagship (~1,795m). Distances: 25/50/100km, plus a new 130km added for 2027.",
       "suffering_zones": [
@@ -701,6 +708,19 @@
         "credit": "YouTube / Justin Payeur",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "100 km",
+          "winner_female": "Emma Boggio",
+          "winner_male": "Cobus Bester",
+          "winning_time_female": "4:22:01",
+          "winning_time_male": "3:41:48",
+          "source": "https://startlinetiming.com/en/races/2025/kettlemettle/event/Full%20100K"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

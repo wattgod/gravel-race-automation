@@ -111,6 +111,15 @@
       ],
       "reputation": "The gravel Grand Tour. Where one-day races feel limiting."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-06-25",
+        "end_date": "2025-06-29",
+        "note": "Five-stage race, about 360 miles",
+        "source": "https://www.cyclingnews.com/races/gravel-earth-series-2025/oregon-trail-gravel-grinder-20-event-elite-men-women/results/"
+      }
+    ],
     "course_description": {
       "character": "Five distinct stages showcasing Oregon's diversity—high desert, forests, mountains, and everything between.",
       "suffering_zones": [
@@ -631,6 +640,27 @@
         "credit": "YouTube / Path Less Pedaled",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "5-stage GC, 360 mi",
+          "winner_female": "Sofia Gomez Villafañe",
+          "winner_male": "Cameron Jones",
+          "winning_time_female": "20:09:14",
+          "winning_time_male": "17:21:59",
+          "source": "https://www.cyclingnews.com/races/gravel-earth-series-2025/oregon-trail-gravel-grinder-20-event-elite-men-women/results/"
+        },
+        "2024": {
+          "race": "5-stage GC",
+          "winner_female": "Cécile Lejeune",
+          "winner_male": "Hugo Drechou",
+          "winning_time_female": "17:35:54",
+          "winning_time_male": "15:14:13",
+          "source": "https://www.granfondoguide.com/Contents/Index/8067/lejuene-and-drechou-take-victory-at-sold-out-2024-oregon-trail-gravel"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

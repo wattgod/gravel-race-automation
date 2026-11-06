@@ -91,12 +91,11 @@
       "bottom_line": "A solid local Belgian gravel race. Worth it for Belgian/European riders. Not worth traveling for."
     },
     "final_verdict": {
-      "score": "39 / 100",
+      "score": "40 / 100",
       "one_liner": "Belgian local gravel challenge.",
       "should_you_race": "If you're local to Belgium—yes, it's good value. If you're traveling—skip it.",
       "alternatives": "For better Belgian races: Gravel des Flandres, Houffa Gravel.",
       "alternative_slugs": [
-        "gravel-des-flandres",
         "houffa-gravel"
       ]
     },
@@ -106,7 +105,7 @@
       "food": "Cerfontaine has limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Dusty Gravel website"
+      "official_site": ""
     },
     "history": {
       "founded": null,
@@ -115,6 +114,13 @@
       "notable_moments": [],
       "reputation": "Local Belgian event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "note": "Second round of the five-race Dusty Gravel Series; run with Gran Fondo Belgium weekend.",
+        "source": "https://www.vojomag.com/dusty-gravel-2025-cerfontaine-bataille-autour-des-lacs/"
+      }
+    ],
     "course_description": {
       "character": "Belgian rolling gravel.",
       "suffering_zones": [
@@ -431,6 +437,17 @@
         "200pluslb_mixed": "41-45",
         "200pluslb_wet": "39-43"
       }
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "96 km",
+          "winner_female": "Joyce Vanderbeken",
+          "winner_male": "Kamiel Notebaert",
+          "source": "https://www.vojomag.com/dusty-gravel-2025-cerfontaine-bataille-autour-des-lacs/"
+        }
+      },
+      "latest_year": "2025"
     }
   }
 }

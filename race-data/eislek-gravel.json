@@ -11,7 +11,7 @@
       "location_badge": "VIANDEN, LUXEMBOURG",
       "county": "Vianden",
       "date": "Mid-June annually",
-      "date_specific": "2027: June 20 (SUNDAY pattern; 2026 ran Sun Jun 21 — Wiebes/Vandeputte won in 37C heat)",
+      "date_specific": "2027: June 20 (Sunday, CONFIRMED — eislekgravelluxembourg.com)",
       "terrain_types": [
         "Éislek/Our valley lap race",
         "UCI Gravel World Series",
@@ -107,7 +107,7 @@
       "food": "Luxembourg has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "eislekgravelluxembourg.com (UCI Gravel World Series)"
+      "official_site": "https://eislekgravelluxembourg.com"
     },
     "history": {
       "founded": 2025,
@@ -120,6 +120,20 @@
       ],
       "reputation": "A UCI Gravel World Series qualifier known for its repeatable-climb format — the cobbled castle ramp and forest climb return every lap, so the race rewards riders who pace the first ascent knowing it's coming back twice more. A non-qualifying OPEN category shares the day with the UCI-qualifying field."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-21",
+        "note": "Heat around 37C.",
+        "source": "https://ucigravelworldseries.com/en/vianden/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-21",
+        "note": "First edition in Vianden.",
+        "source": "https://chronicle.lu/category/cycling/54593-luxembourgs-1st-uci-eislek-gravel-cycle-competition-to-take-place-in-vianden"
+      }
+    ],
     "course_description": {
       "character": "LetzXplore's UCI GWS round from Vianden: 36.6km loop — full course 3 laps = 109.8km/gain disputed between current official sources (UCI Vianden page: 2,670m; organizer's own race page: ±2,350m) — display Varies, no single figure is safe for most cats; 2 laps = 73.2km/1,780m official for men 60+/women 50+; plus non-qualifying OPEN category. Each lap: cobbled ramp to Vianden Castle, ~10km climb to the 510m high point through forest, descent past the Our valley. 2026+ runs ENTIRELY in Luxembourg (2025 inaugural was cross-border w/ Germany — do not describe as cross-border). RACE DAY SUNDAY. PRIOR 70mi/5,500ft mismatched — corrected 2026-07-14.",
       "suffering_zones": [
@@ -328,6 +342,12 @@
       }
     },
     "citations": [
+      {
+        "url": "https://eislekgravelluxembourg.com",
+        "category": "official",
+        "label": "Eislek Gravel Luxembourg — 2027 date",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://ridewithgps.com/routes/51630014",
         "category": "route",
@@ -577,6 +597,24 @@
         "credit": "YouTube / matthias z",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "111 km",
+          "winner_female": "Lorena Wiebes",
+          "winner_male": "Niels Vandeputte",
+          "source": "https://ucigravelworldseries.com/en/vandeputte-and-wiebes-win-in-extreme-heat-at-eislek-gravel-luxembourg/"
+        },
+        "2025": {
+          "race": "115 km",
+          "winner_female": "Rosa Klöser",
+          "winning_time_female": "3:49:50",
+          "winning_time_male": "3:27:40",
+          "source": "https://granfondodailynews.com/2025/06/27/luxembourg-hosts-uci-gravel-worlds-qualifying-eislek-race-results"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

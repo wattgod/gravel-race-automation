@@ -14,7 +14,7 @@
       "county": "Benton County",
       "country": "United States",
       "date": "May annually",
-      "date_specific": "2027: May 15 (Saturday; festival May 12-16); the organizer releases the new route closer to race day",
+      "date_specific": "2027: May 15 (Saturday; festival May 11-16); the organizer releases the new route closer to race day",
       "terrain_types": [
         "Tarmac",
         "Ozark gravel and technical B-roads",
@@ -145,6 +145,18 @@
       ],
       "reputation": "A hard but intentionally playful Bentonville fixture built around mixed surfaces, equipment choice, and community rather than a conventional gravel-racing template."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-05-17",
+        "source": "https://arkansasoutside.com/event/rule-of-three-4/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-05-18",
+        "source": "https://my.raceresult.com/290578/contact"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "verified with explicit next-edition route limits",
       "validation_status": "source_ready_guarded_for_2027_plan",
@@ -223,7 +235,6 @@
       "should_you_race": "Yes if mixed-surface handling, equipment compromise, and a community-first event appeal to you. The date and stable 115/60/35-mile format are confirmed; treat the annual route, climbing, sector order, aid, cutoff, and start schedule as pending until the 2027 rider bible lands.",
       "alternatives": "Core4 uses a similarly deliberate multi-surface concept, while Big Sugar offers a larger Bentonville gravel race without making singletrack one-third of the identity.",
       "alternative_slugs": [
-        "core4",
         "big-sugar"
       ]
     },

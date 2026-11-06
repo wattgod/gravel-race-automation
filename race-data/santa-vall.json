@@ -1,0 +1,345 @@
+{
+  "race": {
+    "name": "Santa Vall",
+    "slug": "santa-vall",
+    "display_name": "Santa Vall by The Traka",
+    "tagline": "222 km of Girona gravel over two stages from Sant Gregori, opening The Traka World Series.",
+    "series": {
+      "id": "the-traka-world-series",
+      "name": "The Traka World Series"
+    },
+    "vitals": {
+      "distance_mi": 137.9,
+      "elevation_ft": 9514,
+      "location": "Sant Gregori, Spain",
+      "location_badge": "SANT GREGORI, SPAIN",
+      "county": "Gironès, Catalonia",
+      "date": "February annually",
+      "date_specific": "2027: February 5-7 (CONFIRMED — santavall.com)",
+      "course_status": "2027 stage distances, feed zones and cutoffs published; the Stage 1 profile shown is the original 2026 track",
+      "terrain_types": [
+        "Forest tracks",
+        "Loose rocky gravel",
+        "Trails and singletrack",
+        "Paved road sections"
+      ],
+      "field_size": "Nearly 1,000 riders in 2026; 2027 cap not published",
+      "start_time": "Stage 1: Saturday 8:00 (women) and 9:00 (men and Open) from La Pineda, Sant Gregori; Stage 2: Sunday 9:00 and 10:00; Pro time trial Friday 2-5 pm",
+      "registration": "Open: EUR 230 for both stages until December 1, 2026, then EUR 250; Pro entry with the time trial EUR 260, then EUR 280; booking fees extra",
+      "prize_purse": "EUR 8,000 per Traka World Series round",
+      "aid_stations": "Stage 1: water point at km 43 (Presa de Colomers, no assistance) and feed zone at km 90 (El Trust, assistance and mechanical point); Stage 2: feed zone at km 39 (Santa Coloma Residencial); finish feed both days",
+      "cutoff_time": "Stage 1: 5 pm finish, with cutoffs of 11:30 am at km 43 and 2:10 pm at km 90; Stage 2: 3 pm finish, with a 12:30 pm cutoff at km 39",
+      "lat": 41.9908,
+      "lng": 2.7572
+    },
+    "climate": {
+      "primary": "Wet Catalan February",
+      "description": "The 2026 edition ran on wet forest tracks and muddy sectors after a winter of heavy rain and local flooding, and part of Stage 2 was moved to pavement. Sunday started cold after a night of strong winds.",
+      "challenges": [
+        "Mud after winter rain",
+        "Cold morning starts",
+        "Weather reroutes"
+      ]
+    },
+    "terrain": {
+      "primary": "Forest tracks and loose gravel",
+      "surface": "The organizer describes forest tracks, paths, trails and paved road sections, and the Pro time trial is 91% gravel. In 2026 Stage 1 opened with about 10 km of rolling pavement before loose, rocky gravel, and Stage 2 went off-road inside the first kilometre. Stage unpaved percentages and tire recommendations are not published.",
+      "technical_rating": 3,
+      "features": [
+        "2,900 m of climbing over two stages",
+        "13.2 km Pro time trial on Friday",
+        "Feed zone with mechanical point on each stage",
+        "Start and finish at La Pineda, Sant Gregori",
+        "Sunday age-group boxes seeded by Saturday's time"
+      ]
+    },
+    "gravel_god_rating": {
+      "logistics": 2,
+      "length": 4,
+      "technicality": 3,
+      "elevation": 4,
+      "climate": 3,
+      "altitude": 1,
+      "adventure": 3,
+      "prestige": 3,
+      "race_quality": 4,
+      "experience": 3,
+      "community": 3,
+      "field_depth": 4,
+      "value": 3,
+      "expenses": 3,
+      "score_note": "Santa Vall lands in Tier 2 on 2,900 m of climbing across 222 km, professional race support and a pro field that settled 2026 by 13 seconds. It stays below Tier 1 because no single day passes 139 km, its prestige lives mostly inside pro gravel, and February can turn it to mud.",
+      "discipline": "gravel",
+      "cultural_impact": 2,
+      "overall_score": 64,
+      "tier": 2,
+      "tier_label": "TIER 2",
+      "display_tier": 2
+    },
+    "biased_opinion": {
+      "verdict": "The February Test",
+      "summary": "Santa Vall is where the European gravel season starts. Two stages from Sant Gregori add up to 222 km and 2,900 m of climbing, and in 2026 the front of the race finished Mads Würtz Schmidt, Romain Bardet and Matthew Beers within 27 seconds after two days. It opened the Gravel Earth Series in 2024 and 2026 and opens The Traka World Series in 2027. February is the catch: 2026 ran on mud after a wet winter.",
+      "strengths": [
+        "Round 1 of The Traka World Series",
+        "Deep pro field at the front",
+        "Published feed zones, cutoffs and mechanical support",
+        "One base at La Pineda all weekend"
+      ],
+      "weaknesses": [
+        "February weather turned it to mud in 2026",
+        "Stage 1 distance has moved from year to year",
+        "No short-distance option published for 2027",
+        "Booking fees on top of the entry"
+      ],
+      "bottom_line": "Go for an early-season test against pros on Girona gravel. Pack for mud, and race Saturday knowing your Sunday start box depends on it."
+    },
+    "final_verdict": {
+      "score": "64 / 100",
+      "one_liner": "Two February days of Girona gravel where the season's first pro gaps get made.",
+      "should_you_race": "Yes if you want a well-run stage race in February against a real pro field, with a 5 pm Saturday cutoff most riders can make. Wait if you need dry trails or a one-day format.",
+      "alternatives": "For the full Traka experience, race The Traka itself in Girona.",
+      "alternative_slugs": [
+        "the-traka"
+      ]
+    },
+    "logistics": {
+      "airport": "Girona–Costa Brava (GRO) is the nearest airport; Barcelona (BCN) has more international flights.",
+      "lodging_strategy": "Stay in Girona or Sant Gregori; every stage starts and finishes at La Pineda in Sant Gregori.",
+      "food": "Stage 1 has a water point at km 43 and a full feed at El Trust, km 90; Stage 2 has a feed at km 39. Pre-race breakfast and a finish feed both days, with no single-use containers.",
+      "packet_pickup": "Not published for 2027.",
+      "parking": "Car park and motorhome and camper parking are listed among race services.",
+      "official_site": "https://www.santavall.com/",
+      "camping": "Motorhome and camper parking listed; no campground published."
+    },
+    "history": {
+      "founded": null,
+      "founder": null,
+      "origin_story": "Klassmark runs Santa Vall from Sant Gregori in the Vall de Llémena. Its earlier festival format offered 107.75 km and 61.6 km gravel routes plus a 55 km MTB singletrack course, and the official results archive runs back to 2017. It became the Gravel Earth Series opener with a hill-climb prologue and two stages in 2024, and moved to a two-stage weekend with a Pro time trial.",
+      "notable_moments": [
+        "2024: opened the Gravel Earth Series; Petr Vakoc and Ashleigh Moolman Pasio won overall after a hill-climb prologue and two stages",
+        "2025: Annika Langvad and Magnus Bak Klaris controlled both days for the GC wins",
+        "2026: nearly 1,000 riders; Mads Würtz Schmidt beat Romain Bardet by 13 seconds and Sofía Gómez Villafañe won the women's race by 2:24",
+        "2027: round 1 of The Traka World Series"
+      ],
+      "reputation": "Europe's early-season gravel stage race, run by Klassmark under The Traka brand."
+    },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-02-14",
+        "end_date": "2026-02-15",
+        "source": "https://www.procyclingstats.com/national-race/santa-vall/2026/stage-1/startlist/results-v3"
+      }
+    ],
+    "course_description": {
+      "character": "Two stages from La Pineda in Sant Gregori: 139 km with 1,800 m of gain on Saturday, 83 km with 1,100 m on Sunday. Pros add a 13.2 km time trial on Friday that decides who keeps Pro status. The organizer describes forest tracks, trails and paved sections; there are no big mountain passes, just constant up and down.",
+      "suffering_zones": [
+        {
+          "mile": 27,
+          "label": "First Cutoff",
+          "desc": "The Stage 1 water point closes at 11:30 am, and no outside assistance is allowed here.",
+          "terrain_detail": "Stage 1, km 43",
+          "named_section": "Presa de Colomers"
+        },
+        {
+          "mile": 56,
+          "label": "El Trust",
+          "desc": "The only full feed on Saturday, with assistance, an extra bottle and a mechanical point; it closes at 2:10 pm.",
+          "terrain_detail": "Stage 1, km 90",
+          "named_section": "El Trust"
+        },
+        {
+          "mile": 111,
+          "label": "Sunday Feed",
+          "desc": "Stage 2's feed zone closes at 12:30 pm, and the finish closes at 3 pm.",
+          "terrain_detail": "Stage 2, km 39",
+          "named_section": "Santa Coloma Residencial"
+        }
+      ],
+      "signature_challenge": "Racing Saturday's 139 km hard enough to earn a good Sunday start box without leaving nothing for Sunday's 83 km.",
+      "ridewithgps_id": null,
+      "ridewithgps_name": null
+    },
+    "guide_variables": {
+      "race_name": "Santa Vall by The Traka",
+      "race_distance": "222 km / 137.9 miles over two stages (139 km Saturday, 83 km Sunday); Pros add a 13.2 km time trial",
+      "race_elevation": "2,900 m / 9,514 feet (1,800 m Stage 1, 1,100 m Stage 2)",
+      "race_date": "February 5-7, 2027",
+      "race_location": "Sant Gregori, Girona, Spain",
+      "race_terrain": "Forest tracks, loose rocky gravel, trails and paved sections",
+      "race_weather": "February in Catalonia: cold mornings, mud after rain",
+      "race_challenges": [
+        "Back-to-back stages",
+        "Mud after winter rain",
+        "Loose, rocky gravel",
+        "Stage cutoffs"
+      ],
+      "altitude_section": false,
+      "altitude_feet": null
+    },
+    "research_metadata": {
+      "data_confidence": "high for 2027 dates, stage distances and climbing, feed zones and entry prices; medium for Stage 1 distance (the 2027 page shows 139 km labeled as the original 2026 track, while 2026 was raced at about 120 km) and for the timetable, which still references 2025 series rankings; low for field cap and founding year",
+      "validation_status": "verified_with_guard",
+      "sources": [
+        "https://www.santavall.com/",
+        "https://www.santavall.com/pro-category/",
+        "https://www.santavall.com/stage-1/",
+        "https://www.rockthesport.com/en/event/santa-vall-2027",
+        "https://rawcyclingmag.com/the-traka-world-series/",
+        "https://www.granfondoguide.com/Contents/Index/9018/villafane-and-schmidt-take-overall-victory-for-specialized-off-road-racing-team-at-2026-santa-vall-in-girona",
+        "https://escapecollective.com/santa-vall-2026-what-can-you-learn-from-the-pros-tyre-selection/"
+      ],
+      "migration_notes": [
+        "2026-11-05: Added as a new profile after The Traka World Series named Santa Vall round 1 for 2027. The organizer publishes February 5-7, 2027: a Pro-only 13.2 km time trial on Friday, Stage 1 (139 km, +1,800 m) on Saturday and Stage 2 (83 km, +1,100 m) on Sunday. Distance and climbing use the two stages every rider races. Stage 1 numbers conflict across sources: the 2027 page labels its 139 km profile the original 2026 track, Escape Collective previewed 129 km, and 2026 results list 120 km. The Stage 1 water point is km 43 on the Stage 1 page and km 39 on the Pro page. Founding year not verified; the official results archive starts at 2017."
+      ]
+    },
+    "biased_opinion_ratings": {
+      "logistics": {
+        "score": 2,
+        "explanation": "Minor travel. Sant Gregori sits in the Gironès [14], close to Girona [13], and all three days run from La Pineda in Sant Gregori [2]."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "Long on paper, split in two. 139 km on Saturday plus 83 km on Sunday makes 222 km, about 137.9 miles [2], but no single day goes past 87 miles."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Mixed, and it changes with the weather. Loose rocky gravel and fast loose corners in 2026 [10], tight singletrack that split the field in 2024 [11], and paved sections in between [3]."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "2,900 m (9,514 ft) over the weekend: 1,800 m on Stage 1 and 1,100 m on Stage 2 [2]. No major passes, just frequent changes in height [8]."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "February is the gamble. 2026 ran on mud after a winter of heavy rain and flooding, with part of Stage 2 moved to pavement [10], and Sunday started cold after a night of strong winds [8]."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "Irrelevant. The Pro time trial tops out at 180 m [2]; no stage high point is published."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "Memorable, not remote. Forest tracks and trails [3] through the Vall de Llémena [13], looping back to the same base each day [2]."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "Big in pro gravel, small beyond it. It opened the Gravel Earth Series in 2024 and 2026 [11][8] and opens The Traka World Series in 2027 [7], but in 2026 it paid Base-scale series points [8]."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Professional. Feed zones with assistance and mechanical points, intermediate cutoffs, chip timing and live tracking are all published [3][4], and Klassmark reserves the right to run random anti-doping controls [15]."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "Enjoyable, short of mythic. A three-day weekend with a Pro time trial on Friday [2] and two days of Girona gravel [8], but no single day breaks you."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Solid. Nearly 1,000 riders in 2026 [8] across Pro, age-group and Open categories [3], with an official results archive back to 2017 [6]."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "Strong pros. In 2026 Mads Würtz Schmidt beat Romain Bardet by 13 seconds and Matthew Beers by 27, and Sofía Gómez Villafañe won the women's race by 2:24 over Sophie Wright [8][9]."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "Fair. EUR 230 for both stages until December 1, then EUR 250, with booking fees on top [5]; that buys two supported race days with feeds, mechanical help and showers [3]."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Moderate. Entry is EUR 230-250 [5]; three days based near Girona [2] make lodging the bigger cost."
+      }
+    },
+    "citations": [
+      {
+        "url": "https://www.santavall.com/",
+        "category": "official",
+        "label": "Santa Vall by The Traka: February 5-7, 2027 in Sant Gregori; registration open"
+      },
+      {
+        "url": "https://www.santavall.com/pro-category/",
+        "category": "official",
+        "label": "Pro category: 13.2 km time trial, Stage 1 139 km +1,800 m, Stage 2 83 km +1,100 m, start boxes"
+      },
+      {
+        "url": "https://www.santavall.com/stage-1/",
+        "category": "official",
+        "label": "Stage 1: timetable, feed zones, cutoffs, services, terrain"
+      },
+      {
+        "url": "https://www.santavall.com/stage-2/",
+        "category": "official",
+        "label": "Stage 2: feed zone at km 39 with assistance and mechanical point"
+      },
+      {
+        "url": "https://www.rockthesport.com/en/event/santa-vall-2027",
+        "category": "registration",
+        "label": "Rockthesport: 2027 entry prices and registration window"
+      },
+      {
+        "url": "https://www.santavall.com/results/",
+        "category": "results",
+        "label": "Santa Vall: results archive 2017-2026"
+      },
+      {
+        "url": "https://rawcyclingmag.com/the-traka-world-series/",
+        "category": "media",
+        "label": "RAW Cycling Magazine: Santa Vall opens The Traka World Series; EUR 8,000 per round"
+      },
+      {
+        "url": "https://www.granfondoguide.com/Contents/Index/9018/villafane-and-schmidt-take-overall-victory-for-specialized-off-road-racing-team-at-2026-santa-vall-in-girona",
+        "category": "results",
+        "label": "Gran Fondo Guide: 2026 results, stages, conditions, nearly 1,000 riders"
+      },
+      {
+        "url": "https://www.tuttobiciweb.it/article/2026/02/16/1771242315/santa-vall-gravel-earth-series-wurtz-schmidt-villafane?lang=en",
+        "category": "results",
+        "label": "Tuttobiciweb: 2026 overall results and stage distances"
+      },
+      {
+        "url": "https://escapecollective.com/santa-vall-2026-what-can-you-learn-from-the-pros-tyre-selection/",
+        "category": "media",
+        "label": "Escape Collective: 2026 course preview, surfaces, mud and Stage 2 reroute"
+      },
+      {
+        "url": "https://marathonmtb.com/2024/02/25/santa-vall-kickstarting-the-european-gravel-season/",
+        "category": "media",
+        "label": "MarathonMTB: 2024 Gravel Earth Series opener, format, singletrack, winners"
+      },
+      {
+        "url": "https://www.cyclingnews.com/races/gravel-earth-series-2025/santa-vall-10-event-elite-men-women/results",
+        "category": "results",
+        "label": "Cyclingnews: 2025 GC wins for Annika Langvad and Magnus Bak Klaris"
+      },
+      {
+        "url": "https://www.klassmark.com/en/?p=112522",
+        "category": "official",
+        "label": "Klassmark: Vall de Llémena bicycle festival, earlier gravel and MTB routes from Sant Gregori"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Sant_Gregori",
+        "category": "reference",
+        "label": "Wikipedia: Sant Gregori, Gironès, coordinates"
+      },
+      {
+        "url": "https://www.santavall.com/regulations/",
+        "category": "official",
+        "label": "Santa Vall regulations: entry limits, assistance zones, anti-doping"
+      }
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "205 km",
+          "winner_female": "Sofía Gómez Villafañe",
+          "winner_male": "Mads Würtz Schmidt",
+          "winning_time_female": "7:03:00",
+          "winning_time_male": "5:57:01",
+          "source": "https://www.granfondoguide.com/RaceDashboard/GravelEarthSeries/1/9018/villafane-and-schmidt-take-overall-victory-for-specialized-off-road-racing-team-at-2026-santa-vall-in-girona"
+        }
+      },
+      "latest_year": "2026"
+    }
+  }
+}

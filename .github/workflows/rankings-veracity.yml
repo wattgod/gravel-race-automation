@@ -132,7 +132,7 @@ jobs:
           # Commit only source data. Derived web/ files are rebuilt AFTER the
           # rebase, so they can't conflict with whatever landed on main.
           git add race-data/ data/verification/
-          git commit -m "veracity: web-verified rankings fixes ($(date +%Y-%m-%d))"
+          git commit -m "$(python scripts/verify_race_rankings.py --commit-message data/verification/last_run_report.json)"
           git checkout -- web/
           git clean -fdq web/jsonld/
           # main moves constantly (crons, sessions) — rebase-retry the push.
@@ -205,7 +205,7 @@ jobs:
             git config user.name "rankings-veracity-bot"
             git config user.email "veracity@gravelgodcycling.com"
             git add data/verification/
-            git commit -m "veracity: verification state update ($(date +%Y-%m-%d)) — no fixes needed"
+            git commit -m "$(python scripts/verify_race_rankings.py --commit-message data/verification/last_run_report.json)"
             for i in 1 2 3; do
               git pull --rebase origin main && git push && break
               [ "$i" = "3" ] && exit 1

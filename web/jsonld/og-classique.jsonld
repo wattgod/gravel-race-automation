@@ -4,7 +4,8 @@
   "name": "OG Classique",
   "description": "Quebec gravel with a twenty-percent sting, a Paugan Dam crossing, and a finish built for small-group racing.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-06-21",
+  "startDate": "2027-06-19",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Wakefield, Quebec, Canada",
@@ -16,7 +17,7 @@
   },
   "url": "https://ucigravelworldseries.com/en/og-classique/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Official organizer listed by the UCI Gravel World Series",
     "url": "https://ucigravelworldseries.com/en/og-classique/"
   }

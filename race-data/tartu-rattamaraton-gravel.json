@@ -206,6 +206,21 @@
       "notable_moments": [],
       "reputation": "A proven Baltic mass-participation institution adopting an international gravel format."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 29,
+        "note": "Joined the UCI Gravel World Series; courses updated, gravel distance now 123 km.",
+        "source": "https://tartumaraton.ee/en/news"
+      },
+      {
+        "year": 2025,
+        "date": "2025-09-20",
+        "edition": 28,
+        "note": "Added a 126 km gravel distance; first time held on a Saturday.",
+        "source": "https://tartumaraton.ee/en/tartu-rattamaraton-introduces-a-new-distance"
+      }
+    ],
     "guide_variables": {
       "race_name": "Tartu Rattamaraton Gravel",
       "race_distance": "126 km / 78.3 miles",
@@ -352,6 +367,25 @@
       "migration_notes": [
         "New catalog intake from the official 2026 UCI Gravel World Series calendar reconciliation."
       ]
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "126 km",
+          "winner_female": "Karoliina Leinonen",
+          "winner_male": "Eimantas Gudiškis",
+          "winning_time_female": "4:13.34",
+          "winning_time_male": "3:44.50",
+          "source": "https://ejl.ee/uue-distantsiga-tartu-rattamaratoni-voitsid-gudiskis-ja-leinonen/"
+        },
+        "2026": {
+          "race": "123 km",
+          "winner_female": "Tiffany Cromwell",
+          "winner_male": "Lukas Malezsewski",
+          "source": "https://tartumaraton.ee/en/news"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

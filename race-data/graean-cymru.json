@@ -10,7 +10,7 @@
       "location": "Llyn Brenig, North Wales, United Kingdom",
       "location_badge": "LLYN BRENIG, WALES",
       "date": "2026: September 5-6",
-      "date_specific": "2026: September 5-6",
+      "date_specific": "2027: June 5-6 (CONFIRMED — gloriousgravel.com)",
       "distance_mi": 65,
       "elevation_ft": 6795,
       "discipline": "gravel",
@@ -150,6 +150,20 @@
       "notable_editions": "The 2025 edition drew approximately 1,000 riders from 30 countries; the 2026 race returns with separate Saturday and Sunday fields.",
       "growth_trajectory": "The event has quickly become an international Welsh qualifier while retaining a remote forest-race identity."
     },
+    "editions": [
+      {
+        "year": 2027,
+        "note": "Moves from September to June",
+        "source": "https://gloriousgravel.com/product/gravel-race/graean-cymru/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-09-06",
+        "end_date": "2025-09-07",
+        "note": "UCI Gravel World Series round; women raced Saturday, men Sunday",
+        "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/graean-cymru/results/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "A polished UCI race on remote Welsh forest gravel, with enough singletrack and weather risk to punish lazy setup choices.",
       "best_for": "Riders who want competitive depth, high off-road percentage, and a destination weekend without an ultra-distance commitment.",
@@ -162,7 +176,8 @@
         "title": "Graean Cymru - Official Organizer Page",
         "snippet": "The organizer confirms September 5-6, category-specific race days, a current 113 km and 2,071 m course, 99% off-road terrain, limited parking, and remote sections without phone signal.",
         "category": "official",
-        "label": "Official Event Site"
+        "label": "Graean Cymru — 2027 date",
+        "accessed": "2026-11-06"
       },
       {
         "url": "https://ucigravelworldseries.com/en/ruthin/",
@@ -178,6 +193,25 @@
         "category": "official",
         "label": "UCI Event Report"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "105 km",
+          "winner_female": "Noémie Thomson",
+          "winner_male": "Jenson Young",
+          "winning_time_female": "3:45:34",
+          "winning_time_male": "3:11:07",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/graean-cymru/results/"
+        },
+        "2024": {
+          "race": "105 km",
+          "winner_female": "Joscelin Lowden",
+          "winner_male": "Connor Swift",
+          "source": "https://cyclingflash.com/race/uci-gravel-world-series-graean-cymru-2025/winners"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

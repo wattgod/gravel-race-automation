@@ -4,7 +4,8 @@
   "name": "Heywood Ride",
   "description": "Heywood Ride. 50 miles of gravel through Northfield.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-16",
+  "startDate": "2027-05-15",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Northfield, Minnesota",
@@ -21,7 +22,7 @@
     "availability": "https://schema.org/LimitedAvailability"
   },
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Heath Creek Productions LLC"
   }
 }

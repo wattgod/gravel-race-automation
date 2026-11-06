@@ -12,7 +12,7 @@ import json
 import re
 from pathlib import Path
 
-# Official LTGP events for 2025/2026 (current seasons)
+# Official LTGP events for 2026/2027 (current seasons)
 CURRENT_LTGP_SLUGS = {
     "sea-otter-gravel",
     "fuego-mtb",
@@ -20,21 +20,20 @@ CURRENT_LTGP_SLUGS = {
     "leadville-100",
     "chequamegon-mtb",
     "little-sugar-mtb",
-    "big-sugar"
+    "big-sugar",
+    "the-rad",  # back on the 2027 calendar
 }
 
 # Former LTGP events (should say "former" not current)
 FORMER_LTGP_SLUGS = {
     "crusher-in-the-tushar",  # Was LTGP 2024 only
-    "rad-dirt-fest"           # Was LTGP 2024 only
 }
 
 # Events that should NEVER claim LTGP (but comparisons are OK)
 NEVER_LTGP_SLUGS = {
     "steamboat-gravel",  # SBT GRVL - Amy Charity independent
     "mid-south",         # Bobby Wintle independent
-    "bwr-san-diego",     # Belgian Waffle Ride series
-    "bwr-california",
+    "bwr-california",    # Belgian Waffle Ride series
     "bwr-north-carolina",
     "bwr-cedar-city",
     "bwr-arizona",
@@ -50,7 +49,6 @@ NEVER_LTGP_SLUGS = {
 # Events that legitimately compare themselves to LTGP (not claiming to BE LTGP)
 # These files mention LTGP in comparison/contrast context, which is allowed
 COMPARISON_OK_SLUGS = {
-    "gravel-earth",         # Compares GES to LTGP as alternative series
     "colorado-trail-race",  # Mentions LTGP production quality for contrast
     "jeroboam",             # States no LTGP affiliation
     "pirinexus-360",        # States no LTGP field depth

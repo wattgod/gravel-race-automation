@@ -11,7 +11,7 @@
       "location_badge": "MILLAU, FRANCE",
       "county": "Aveyron",
       "date": "Mid-June annually",
-      "date_specific": "2027: June 13 (SUNDAY pattern; 2026 ran Sun Jun 14 — Drechou/Wright won)",
+      "date_specific": "2027: June 12-13 (CONFIRMED — wishonegravelrace.com)",
       "terrain_types": [
         "Grands Causses limestone plateaus",
         "UCI Gravel World Series (sole French round)",
@@ -96,7 +96,7 @@
       "should_you_race": "If you're in France/Europe and want a local event—yes, it's solid. If you're international—there are better options.",
       "alternatives": "For better French events: 66° South Pyrénées. For similar regional events: other French gravel races.",
       "alternative_slugs": [
-        "66-south-pyrenees"
+        "pyrenees-catalanes-gravel-tour"
       ]
     },
     "logistics": {
@@ -118,6 +118,13 @@
       ],
       "reputation": "Sole French round of the UCI Gravel World Series; ~600 riders from 20 nations."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-14",
+        "source": "https://ucigravelworldseries.com/en/drechou-and-wright-conquer-the-grands-causses-at-wish-one-gravel-millau/"
+      }
+    ],
     "course_description": {
       "character": "Wish One's Sunday UCI GWS round from Millau (~1,608ft): UCI 130km/2,500m (81mi/8,200ft) flagship for elite/open ages; UCI 80km/1,500m = official course for women 50+/men 60+; plus non-qualifying Open 40/80km waves (U17/U19). Opens with the Puech d'Agast climb (+450m in the first 8km) onto the Larzac/Grands Causses plateaus — ~40% forest, 40% gravel track, 20% paved — finishing with views of the Millau Viaduct (world's tallest cable-stayed bridge). ~600 riders, 20+ nations. First-ever UCI gravel event on European soil (2022). RACE DAY IS SUNDAY. PRIOR PROFILE 70mi/4,500ft matched nothing — corrected 2026-07-14.",
       "suffering_zones": [
@@ -325,6 +332,12 @@
       }
     },
     "citations": [
+      {
+        "url": "https://wishonegravelrace.com/",
+        "category": "official",
+        "label": "Wish One Gravel Race Millau: 2027 edition June 12-13",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://ridewithgps.com/routes/49327972",
         "category": "route",
@@ -635,6 +648,19 @@
         "credit": "YouTube / Gravel & Bike",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "130 km",
+          "winner_female": "Sophie Wright",
+          "winner_male": "Hugo Drechou",
+          "winning_time_female": "4:35:25",
+          "winning_time_male": "4:00:09",
+          "source": "https://wishonegravelrace.com/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

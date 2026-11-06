@@ -37,7 +37,8 @@
       "cultural_impact": 2,
       "overall_score": 69,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -156,6 +157,28 @@
       "founded": 2011,
       "notable_facts": "Evolved into RAAM qualifier with 2200km full race; Challenge added for Upper Austria focus. Hosted Austrian 4er-Team Championships in 2022, 2024, 2026. Known as Europe's toughest border race."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-08-10",
+        "end_date": "2026-08-16",
+        "edition": 18,
+        "source": "https://www.racearoundaustria.at"
+      },
+      {
+        "year": 2025,
+        "edition": 17,
+        "note": "First time the race hosted the Ultracycling World Championships.",
+        "source": "https://www.tour-magazin.de/en/event/everyman-race/ultracycling-world-championship-2025-steinberger-and-roch-take-victory-in-the-race-around-austria/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-08-13",
+        "edition": 16,
+        "note": "Arlberg Pass blocked by a mudslide; leaders were neutralised and time-adjusted.",
+        "source": "https://www.rv-phoenix.de/2024/08/18/race-around-austria-2024/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Austria's emotional ultra gateway via 560km Upper Austria border grind.",
       "who_should_ride": "Ultra-curious roadies seeking RAAM prep or team adventure. Strong endurance riders ready for 24-hour nonstop.",
@@ -178,6 +201,35 @@
         "category": "official",
         "label": "Official Website"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "2,200 km",
+          "winner_female": "Tina Büttner",
+          "winner_male": "Lukas Kaufmann",
+          "winning_time_female": "4d 10h 30m",
+          "winning_time_male": "3d 8h 8m",
+          "source": "https://race.perfect-tracking.com/race/raa2026/live"
+        },
+        "2025": {
+          "race": "2,200 km",
+          "winner_female": "Elena Roch",
+          "winner_male": "Rainer Steinberger",
+          "winning_time_female": "3d 22h 57m",
+          "winning_time_male": "3d 17h 4m",
+          "source": "https://www.tour-magazin.de/en/event/everyman-race/ultracycling-world-championship-2025-steinberger-and-roch-take-victory-in-the-race-around-austria/"
+        },
+        "2024": {
+          "race": "2,200 km",
+          "winner_female": "Elena Roch",
+          "winner_male": "Sebastian Mayr",
+          "winning_time_female": "4d 2h 0m",
+          "winning_time_male": "4d 3h 58m",
+          "source": "https://race.perfect-tracking.com/race/raa2024/ergebnisse"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

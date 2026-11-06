@@ -6,7 +6,7 @@
       "slug": "granfondo-bratislava",
       "name": "Granfondo Bratislava",
       "date": "2026: August TBD",
-      "date_specific": "2026: August TBD",
+      "date_specific": "Status: ON HIATUS — organizer is taking a break in 2026 (granfondobratislava.sk); no 2027 date announced",
       "distance_mi": 82,
       "elevation_ft": 3600,
       "location": "Bratislava, Slovakia",
@@ -37,7 +37,8 @@
       "cultural_impact": 2,
       "overall_score": 64,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -70,7 +71,7 @@
       },
       "prestige": {
         "score": 2,
-        "explanation": "Slovakia's premier gran fondo draws 1500 regional participants annually. Established since 2016 with consistent August scheduling builds local reputation. Lacks international pro field but strong national appeal."
+        "explanation": "Slovakia's premier gran fondo draws 1500 regional participants annually. Established in 2022 with consistent August scheduling builds local reputation. Lacks international pro field but strong national appeal."
       },
       "race_quality": {
         "score": 3,
@@ -98,7 +99,7 @@
       },
       "cultural_impact": {
         "score": 2,
-        "explanation": "Slovakia's leading gran fondo since 2016 elevates local cycling scene. Promotes Bratislava region tourism through Little Carpathians showcase. Regional significance without broader international draw."
+        "explanation": "Slovakia's leading gran fondo since 2022 elevates local cycling scene. Promotes Bratislava region tourism through Little Carpathians showcase. Regional significance without broader international draw."
       }
     },
     "course_description": {
@@ -153,9 +154,23 @@
       "key_workouts": "3x10min at threshold on 7% gradient mimicking Pezinska Baba. 4-hour endurance ride with 2500ft climbing through rolling terrain. Cadence drills on flats preparing for Bratislava plains sections."
     },
     "history": {
-      "founded": 2016,
+      "founded": 2022,
       "notable_facts": "First major gran fondo in Slovakia establishing August tradition. Grew to 1500 participants showcasing Little Carpathians globally. NAY-sponsored edition elevated production quality."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "status": "not_held",
+        "note": "Organizer took the year off",
+        "source": "https://granfondobratislava.sk/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-03",
+        "edition": 4,
+        "source": "https://www.casta.sk/cestne-cyklisticke-preteky-nay-gran-fondo/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Slovakia's top gran fondo blends Pezinska Baba punch with Bratislava accessibility.",
       "who_should_ride": "Regional roadies seeking hilly 62-mile challenge without Alpine crowds. Europeans wanting Central value and Carpathians scenery.",
@@ -176,8 +191,25 @@
       {
         "url": "https://granfondobratislava.sk",
         "category": "official",
-        "label": "Official Website"
+        "label": "Gran Fondo Bratislava: \"V roku 2026 si dávame pauzu\" (break in 2026)",
+        "accessed": "2026-11-06"
       }
-    ]
+    ],
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "Granfondo Bratislava is taking 2026 off and hasn't announced 2027. This plan still trains you for exactly this kind of day."
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "132 km",
+          "winner_female": "Bianka Babačová",
+          "winner_male": "Federico Pozzetto",
+          "winning_time_male": "3:18:40",
+          "source": "https://granfondobratislava.sk/nay-gran-fondo-bratislava-2025-je-za-nami/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

@@ -33,6 +33,8 @@ import sys
 from pathlib import Path
 
 RACE_DATA_DIR = Path(__file__).parent.parent / "race-data"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from race_facts import needs_date_check  # noqa: E402
 DEFAULT_MAX_RESULTS = 3
 
 
@@ -209,10 +211,8 @@ def get_stale_date_slugs() -> list[str]:
         with open(f) as fh:
             data = json.load(fh)
         r = data.get("race", {})
-        vitals = r.get("vitals", {})
-        date_specific = vitals.get("date_specific", "")
-        # Flag if no specific date, or date mentions 2025 (stale), or TBD
-        if not date_specific or "2025" in str(date_specific) or "TBD" in str(date_specific):
+        # Edition already ran, or no usable date (wordpress/season.py)
+        if needs_date_check(r):
             slugs.append(f.stem)
     return slugs
 

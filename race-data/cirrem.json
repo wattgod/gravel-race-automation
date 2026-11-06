@@ -139,6 +139,12 @@
         "year": 2024,
         "date": "2024-02-24",
         "source": "https://www.webscorer.com/race?pid=1&raceid=343695"
+      },
+      {
+        "year": 2019,
+        "date": "2019-02-23",
+        "note": "Ice and slush; about 17 finishers",
+        "source": "https://www.bikeiowa.com/Event/13119/cirrem"
       }
     ],
     "course_description": {
@@ -372,7 +378,7 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
@@ -387,6 +393,17 @@
         },
         {
           "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
           "tire_id": "vittoria-terreno-mix",
           "name": "Vittoria Terreno Mix",
           "brand": "Vittoria",
@@ -395,17 +412,6 @@
           "weight_grams": 420,
           "crr_watts": 33.5,
           "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
-        },
-        {
-          "rank": 3,
-          "tire_id": "continental-terra-trail",
-          "name": "Continental Terra Trail",
-          "brand": "Continental",
-          "recommended_width_mm": 40,
-          "msrp_usd": 74.99,
-          "weight_grams": 450,
-          "crr_watts": 33.5,
-          "why": "excellent wet grip"
         }
       ],
       "front_rear_split": {
@@ -468,6 +474,120 @@
           "winning_time_female": "3:46:49",
           "winning_time_male": "3:06:38",
           "source": "https://www.webscorer.com/race?pid=1&raceid=343695"
+        },
+        "2019": {
+          "race": "100 km",
+          "winner_female": "Kaiti Muelhaupt",
+          "winner_male": "Brian West",
+          "winning_time_female": "7:54:59",
+          "winning_time_male": "5:02:34",
+          "source": "https://www.cxmagazine.com/gravel-results-2019-cirrem-embrace-suck-february-iowa-icy-roads"
+        },
+        "2018": {
+          "race": "100 km",
+          "winner_female": "Lisa Vetterlein",
+          "winner_male": "Brenden Hardy",
+          "winning_time_female": "4:14:39",
+          "winning_time_male": "3:19:18",
+          "source": "https://cirrem.com/wp-content/uploads/2022/02/CIRREM_2018_results.pdf"
+        },
+        "2015": {
+          "race": "100 km",
+          "winner_female": "Liz Martin",
+          "winner_male": "Joe Petersen",
+          "source": "https://cirrem.com/wp-content/uploads/2022/02/CIRREM_2015_results.pdf"
+        },
+        "2009": {
+          "race": "100 km",
+          "winner_male": "Jared Osterloh",
+          "winning_time_male": "4:31",
+          "source": "https://cirrem.com/wp-content/uploads/2022/02/CIRREM_2009_results.pdf"
+        },
+        "2010": {
+          "race": "100 km",
+          "winner_female": "Maria Ruhtenberg",
+          "winner_male": "Benjamin Doom and Jerome Rewerts and Michael Woell",
+          "winning_time_female": "5:00",
+          "winning_time_male": "3:54",
+          "source": "https://cirrem.com/wp-content/uploads/2022/02/CIRREM_2010_results.pdf"
+        },
+        "2011": {
+          "race": "100 km",
+          "winner_male": "Rich Wince",
+          "winning_time_male": "4:09",
+          "source": "https://cirrem.com/wp-content/uploads/2022/02/CIRREM_2011_results.pdf"
+        },
+        "2012": {
+          "race": "100 km",
+          "winner_female": "Lisa Vetterlein",
+          "winner_male": "Lane Anderson",
+          "winning_time_female": "5:05",
+          "winning_time_male": "3:54",
+          "source": "https://cirrem.com/wp-content/uploads/2022/02/CIRREM_2012_results.pdf"
+        },
+        "2013": {
+          "race": "100 km",
+          "winner_female": "Dee Mable",
+          "winner_male": "Jerome Rewerts",
+          "winning_time_female": "4:19:10",
+          "winning_time_male": "3:34:00",
+          "source": "https://cirrem.com/wp-content/uploads/2022/02/CIRREM_2013_results.pdf"
+        },
+        "2014": {
+          "race": "100 km",
+          "winner_female": "Lisa Vetterlein",
+          "winner_male": "Josh Wandrey",
+          "winning_time_female": "4:54",
+          "winning_time_male": "4:16:30",
+          "source": "https://cirrem.com/wp-content/uploads/2022/02/CIRREM_2014_results.pdf"
+        },
+        "2016": {
+          "race": "100 km",
+          "winner_female": "Liz Van Houweling",
+          "winner_male": "Connor Dilger",
+          "winning_time_female": "3:53",
+          "winning_time_male": "3:26:01",
+          "source": "https://cirrem.com/wp-content/uploads/2022/02/CIRREM_2016_results.pdf"
+        },
+        "2017": {
+          "race": "100 km",
+          "winner_female": "Liz Van Houweling",
+          "winner_male": "Adam Ventling",
+          "winning_time_female": "3:42:47",
+          "winning_time_male": "3:17",
+          "source": "https://cirrem.com/wp-content/uploads/2022/02/CIRREM_2017_results.pdf"
+        },
+        "2020": {
+          "race": "100 km",
+          "winner_female": "Kae Takeshita",
+          "winner_male": "Adam Ventling",
+          "winning_time_female": "3:37:58.4",
+          "winning_time_male": "3:29:00.6",
+          "source": "https://cirrem.com/wp-content/uploads/2022/02/CIRREM_2020_results.pdf"
+        },
+        "2021": {
+          "race": "100 km",
+          "winner_female": "Marisa Boaz",
+          "winner_male": "Matthew Zimmer",
+          "winning_time_female": "3:40:23",
+          "winning_time_male": "3:15:15",
+          "source": "https://cirrem.com/wp-content/uploads/2022/02/CIRREM_2021_results.pdf"
+        },
+        "2022": {
+          "race": "100 km",
+          "winner_female": "Marisa Boaz",
+          "winner_male": "Matt Zimmer",
+          "winning_time_female": "3:40:55.4",
+          "winning_time_male": "3:28:31.2",
+          "source": "https://cirrem.com/wp-content/uploads/2022/03/CIRREM_2022_results.pdf"
+        },
+        "2023": {
+          "race": "100 km",
+          "winner_female": "Marisa Boaz",
+          "winner_male": "Matt Zimmer",
+          "winning_time_female": "3:31:23.2",
+          "winning_time_male": "3:13:29.0",
+          "source": "https://cirrem.com/wp-content/uploads/2023/03/CIRREM_2023_results.pdf"
         }
       },
       "latest_year": "2026"

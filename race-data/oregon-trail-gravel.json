@@ -101,7 +101,7 @@
       "camping": "camping at Dufur City Park (series other event: hookups, heated bathrooms/showers)[2]"
     },
     "history": {
-      "founded": 2015,
+      "founded": 2019,
       "founder": "Breakaway Promotions",
       "origin_story": "Created as America's answer to European multi-day stage races. The format brings Grand Tour vibes to gravel, with towns hosting different stages and riders progressing through Oregon's spectacular landscapes.",
       "notable_moments": [
@@ -118,6 +118,36 @@
         "end_date": "2025-06-29",
         "note": "Five-stage race, about 360 miles",
         "source": "https://www.cyclingnews.com/races/gravel-earth-series-2025/oregon-trail-gravel-grinder-20-event-elite-men-women/results/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-06-26",
+        "end_date": "2024-06-30",
+        "source": "https://www.e8timing.com/results.html"
+      },
+      {
+        "year": 2023,
+        "date": "2023-06-21",
+        "end_date": "2023-06-25",
+        "source": "https://www.e8timing.com/results.html"
+      },
+      {
+        "year": 2022,
+        "date": "2022-06-22",
+        "end_date": "2022-06-26",
+        "source": "https://www.e8timing.com/results.html"
+      },
+      {
+        "year": 2021,
+        "date": "2021-06-23",
+        "end_date": "2021-06-27",
+        "source": "https://www.e8timing.com/results.html"
+      },
+      {
+        "year": 2019,
+        "edition": 1,
+        "note": "First edition of the five-day stage race",
+        "source": "https://www.cxmagazine.com/results-2019-oregon-trail-gravel-grinder-stage-race"
       }
     ],
     "course_description": {
@@ -304,7 +334,7 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
@@ -315,21 +345,10 @@
           "msrp_usd": 54.99,
           "weight_grams": 420,
           "crr_watts": 32.0,
-          "why": "high puncture protection for sharp surfaces"
+          "why": "Tough casing for sharp rock."
         },
         {
           "rank": 2,
-          "tire_id": "continental-terra-trail",
-          "name": "Continental Terra Trail",
-          "brand": "Continental",
-          "recommended_width_mm": 40,
-          "msrp_usd": 74.99,
-          "weight_grams": 450,
-          "crr_watts": 33.5,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
-        },
-        {
-          "rank": 3,
           "tire_id": "pirelli-cinturato-gravel-m",
           "name": "Pirelli Cinturato Gravel M",
           "brand": "Pirelli",
@@ -337,7 +356,18 @@
           "msrp_usd": 73.99,
           "weight_grams": 440,
           "crr_watts": 34.0,
-          "why": "high puncture protection for sharp surfaces"
+          "why": "Tough casing for sharp rock."
+        },
+        {
+          "rank": 3,
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
+          "recommended_width_mm": 40,
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "Tough casing for sharp rock."
         }
       ],
       "front_rear_split": {
@@ -658,6 +688,34 @@
           "winning_time_female": "17:35:54",
           "winning_time_male": "15:14:13",
           "source": "https://www.granfondoguide.com/Contents/Index/8067/lejuene-and-drechou-take-victory-at-sold-out-2024-oregon-trail-gravel"
+        },
+        "2019": {
+          "race": "5-day stage race",
+          "winner_female": "Rebecca Fahringer",
+          "winner_male": "Carl Decker",
+          "source": "https://www.cxmagazine.com/results-2019-oregon-trail-gravel-grinder-stage-race"
+        },
+        "2021": {
+          "race": "5-day stage race",
+          "winner_female": "Sarah Sturm",
+          "winner_male": "Peter Stetina",
+          "winning_time_female": "20:38:18",
+          "winning_time_male": "17:15:22",
+          "source": "https://www.durangoherald.com/articles/professional-sports/sarah-sturm-gets-vengeance-at-oregon-trail/"
+        },
+        "2022": {
+          "race": "5-day stage race",
+          "winner_female": "Sofia Gomez Villafane",
+          "winner_male": "Christopher Blevins",
+          "source": "https://www.cyclingweekly.com/racing/oregon-trail-gravel-grinder-the-pros-attend-a-summer-camp-unlike-any-other"
+        },
+        "2023": {
+          "race": "5-day stage race",
+          "winner_female": "Evelyn Dong",
+          "winner_male": "Michael van den Ham",
+          "winning_time_female": "18:32:45",
+          "winning_time_male": "16:06:49",
+          "source": "https://bendbulletin.com/2023/06/26/five-day-bike-race-takes-gravel-riders-through-the-central-oregon-cascades/"
         }
       },
       "latest_year": "2025"

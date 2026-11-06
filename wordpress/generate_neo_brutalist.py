@@ -5867,25 +5867,27 @@ def build_tire_picks(rd: dict) -> str:
             f'<span class="gg-tire-badge">{esc(surface.upper())}</span>'
         )
 
+    def tire_name_html(tire_id, name):
+        # Every database tire has a /tire/{id}/ page (generate_tire_pages.py).
+        if not tire_id:
+            return esc(name)
+        return f'<a href="/tire/{esc(tire_id)}/" class="gg-tire-link">{esc(name)}</a>'
+
     picks_html = []
     for t in primary[:3]:
         rank = t.get('rank', '')
         name = t.get('name', '')
         w = t.get('recommended_width_mm', '')
         price = t.get('msrp_usd')
-        crr = t.get('crr_watts')
         why = t.get('why', '')
 
-        price_str = f'${price:.0f}' if price else ''
-        crr_str = f'{crr:.0f}W' if crr else ''
-
+        # Rolling resistance stays out of the meta line: a bare "32W" means
+        # nothing here. The why line cites it, with units, when it's the reason.
         meta_parts = []
         if w:
             meta_parts.append(f'{w}mm')
-        if price_str:
-            meta_parts.append(price_str)
-        if crr_str:
-            meta_parts.append(crr_str)
+        if price:
+            meta_parts.append(f'${price:.0f}')
         meta = ' · '.join(meta_parts)
 
         why_html = f'<div class="gg-tire-why">{esc(why)}</div>' if why else ''
@@ -5893,7 +5895,7 @@ def build_tire_picks(rd: dict) -> str:
             f'<div class="gg-tire-pick">'
             f'<div class="gg-tire-rank">{esc(str(rank))}</div>'
             f'<div class="gg-tire-info">'
-            f'<div class="gg-tire-name">{esc(name)}</div>'
+            f'<div class="gg-tire-name">{tire_name_html(t.get("tire_id"), name)}</div>'
             f'<div class="gg-tire-meta">{esc(meta)}</div>'
             f'{why_html}'
             f'</div>'
@@ -5912,9 +5914,11 @@ def build_tire_picks(rd: dict) -> str:
             f'<div class="gg-tire-split">'
             f'<span class="gg-tire-split-label">FRONT/REAR SPLIT</span> '
             f'<span class="gg-tire-split-combo">'
-            f'{esc(front.get("name", ""))} {esc(str(front.get("width_mm", "")))}mm'
+            f'{tire_name_html(front.get("tire_id"), front.get("name", ""))} '
+            f'{esc(str(front.get("width_mm", "")))}mm'
             f' / '
-            f'{esc(rear.get("name", ""))} {esc(str(rear.get("width_mm", "")))}mm'
+            f'{tire_name_html(rear.get("tire_id"), rear.get("name", ""))} '
+            f'{esc(str(rear.get("width_mm", "")))}mm'
             f'</span>'
             f'{rationale_html}'
             f'</div>'
@@ -7034,6 +7038,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-tire-rank {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xl); font-weight: 700; color: var(--gg-color-gold); min-width: 28px; text-align: center; line-height: 1; padding-top: 2px; }}
 .gg-neo-brutalist-page .gg-tire-info {{ flex: 1; }}
 .gg-neo-brutalist-page .gg-tire-name {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-tire-link {{ color: inherit; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }}
+.gg-neo-brutalist-page .gg-tire-link:hover {{ color: var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-tire-meta {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); margin-top: 2px; }}
 .gg-neo-brutalist-page .gg-tire-why {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-primary-brown); margin-top: 4px; line-height: var(--gg-line-height-relaxed); }}
 .gg-neo-brutalist-page .gg-tire-split {{ border: var(--gg-border-subtle); padding: 12px 16px; background: var(--gg-color-warm-paper); margin-top: 16px; }}

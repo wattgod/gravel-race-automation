@@ -164,6 +164,33 @@
         "date": "2024-02-10",
         "edition": 11,
         "source": "https://results.tbgtiming.com/Results.aspx?EId=1&RId=44&c=10&g=1"
+      },
+      {
+        "year": 2023,
+        "date": "2023-02-11",
+        "source": "https://tbgtiming.com/results/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-02-12",
+        "source": "https://tbgtiming.com/results/"
+      },
+      {
+        "year": 2019,
+        "date": "2019-02-09",
+        "source": "https://www.gravelstoke.com/gravel-cycling-gear-blog/2019/2/15/rock-cobbler-2019-photo-gallery"
+      },
+      {
+        "year": 2018,
+        "note": "Pebbler shorter course added",
+        "source": "https://www.bicycling.com/news/a20048087/rock-cobbler-race-goes-through-house/"
+      },
+      {
+        "year": 2014,
+        "date": "2014-02-09",
+        "edition": 1,
+        "note": "First edition, limited to 100 riders",
+        "source": "https://roadbikeaction.com/rockin-the-rock-cobbler-gravel-race-2/"
       }
     ],
     "research_metadata": {
@@ -320,7 +347,7 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
@@ -331,21 +358,10 @@
           "msrp_usd": 54.99,
           "weight_grams": 420,
           "crr_watts": 32.0,
-          "why": "high puncture protection for sharp surfaces"
+          "why": "Tough casing for sharp rock."
         },
         {
           "rank": 2,
-          "tire_id": "continental-terra-trail",
-          "name": "Continental Terra Trail",
-          "brand": "Continental",
-          "recommended_width_mm": 40,
-          "msrp_usd": 74.99,
-          "weight_grams": 450,
-          "crr_watts": 33.5,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
-        },
-        {
-          "rank": 3,
           "tire_id": "pirelli-cinturato-gravel-m",
           "name": "Pirelli Cinturato Gravel M",
           "brand": "Pirelli",
@@ -353,7 +369,18 @@
           "msrp_usd": 73.99,
           "weight_grams": 440,
           "crr_watts": 34.0,
-          "why": "high puncture protection for sharp surfaces"
+          "why": "Tough casing for sharp rock."
+        },
+        {
+          "rank": 3,
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
         }
       ],
       "front_rear_split": {
@@ -745,6 +772,26 @@
           "winner_female": "Ruth Holcomb",
           "winner_male": "Lance Haidet",
           "source": "https://www.cyclingnews.com/news/cowboy-bar-part-of-unique-path-at-rock-cobbler-120-for-wins-by-lance-haidet-ruth-holcomb-gallery/"
+        },
+        "2019": {
+          "race": "86 mi",
+          "winner_female": "Echo Rowe",
+          "winner_male": "Philip Tinstman",
+          "winning_time_female": "6:57:45",
+          "winning_time_male": "5:32:25",
+          "source": "https://www.cxmagazine.com/gravel-results-2019-rock-cobbler-stupidly-hard-ride-bakersfield-california"
+        },
+        "2022": {
+          "winner_male": "Peter Stetina",
+          "source": "https://www.cyclingnews.com/news/blevins-and-yamauchi-master-shenanigans-at-rock-cobbler/"
+        },
+        "2023": {
+          "race": "80 mi",
+          "winner_female": "Anna Yamauchi",
+          "winner_male": "Christopher Blevins",
+          "winning_time_female": "5:18:34",
+          "winning_time_male": "4:32:37",
+          "source": "https://www.cyclingnews.com/news/blevins-and-yamauchi-master-shenanigans-at-rock-cobbler/"
         }
       },
       "latest_year": "2026"

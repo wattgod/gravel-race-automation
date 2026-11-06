@@ -384,38 +384,38 @@
       "facts_scope": "The organizer page is authoritative for the Sunday, April 25, 2027 date; Yachats venue; 53-mile Erik the Red and 32-mile Leif Erikson choices; schedule; pricing; 300-rider limit; remote timing; aid-mile locations; support; and open-road safety rules. Its embedded, organizer-linked RideWithGPS route supports approximately 53 miles and 6,690 feet for the current long-course file. The organizer may update that route before race day, so mile-specific course narrative beyond published aid and timing locations remains labeled as current-route or rider-report evidence. The page's 'first weekend of May' sentence conflicts with its repeated April 25 date and is treated as stale template prose."
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
+          "tire_id": "pirelli-cinturato-gravel-m",
+          "name": "Pirelli Cinturato Gravel M",
+          "brand": "Pirelli",
+          "recommended_width_mm": 45,
+          "msrp_usd": 73.99,
+          "weight_grams": 500,
+          "crr_watts": 34.0,
+          "why": "Mixed-terrain specialist. Balanced grip and speed for variable conditions."
+        },
+        {
+          "rank": 2,
           "tire_id": "specialized-pathfinder-pro",
           "name": "Specialized Pathfinder Pro",
           "brand": "Specialized",
           "recommended_width_mm": 47,
           "msrp_usd": 54.99,
-          "weight_grams": 420,
-          "crr_watts": 32.0,
+          "weight_grams": 480,
+          "crr_watts": 35.0,
           "why": "Fast center, grippy edges. The modern all-rounder benchmark."
-        },
-        {
-          "rank": 2,
-          "tire_id": "irc-boken-double-cross",
-          "name": "IRC Boken Double Cross",
-          "brand": "IRC",
-          "recommended_width_mm": 45,
-          "msrp_usd": 59.99,
-          "weight_grams": 400,
-          "crr_watts": null,
-          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
         },
         {
           "rank": 3,
           "tire_id": "panaracer-gravelking-sk",
           "name": "Panaracer GravelKing SK",
           "brand": "Panaracer",
-          "recommended_width_mm": 45,
+          "recommended_width_mm": 50,
           "msrp_usd": 64.9,
-          "weight_grams": 410,
+          "weight_grams": 480,
           "crr_watts": 32.5,
           "why": "Affordable all-rounder. Light knobs add grip without killing speed."
         }
@@ -423,33 +423,35 @@
       "front_rear_split": {
         "applicable": true,
         "front": {
-          "tire_id": "panaracer-gravelking-tlc",
-          "name": "Panaracer GravelKing TLC",
+          "tire_id": "challenge-getaway-pro",
+          "name": "Challenge Getaway Pro",
           "width_mm": 45
         },
         "rear": {
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "width_mm": 47
+          "tire_id": "pirelli-cinturato-gravel-m",
+          "name": "Pirelli Cinturato Gravel M",
+          "width_mm": 45
         },
         "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
       },
       "race_surface_profile": "mixed",
       "recommended_width_mm": 45,
       "pressure_psi": {
-        "140_160lb_dry": "32-36",
-        "140_160lb_mixed": "30-34",
-        "140_160lb_wet": "28-32",
-        "160_180lb_dry": "36-40",
-        "160_180lb_mixed": "32-36",
-        "160_180lb_wet": "30-34",
-        "180_200lb_dry": "38-42",
-        "180_200lb_mixed": "36-40",
-        "180_200lb_wet": "34-38",
-        "200pluslb_dry": "42-46",
-        "200pluslb_mixed": "38-42",
-        "200pluslb_wet": "36-40"
-      }
+        "140_160lb_dry": "31-35",
+        "140_160lb_mixed": "28-32",
+        "140_160lb_wet": "26-30",
+        "160_180lb_dry": "34-38",
+        "160_180lb_mixed": "31-35",
+        "160_180lb_wet": "29-33",
+        "180_200lb_dry": "37-41",
+        "180_200lb_mixed": "34-38",
+        "180_200lb_wet": "32-36",
+        "200pluslb_dry": "40-44",
+        "200pluslb_mixed": "37-41",
+        "200pluslb_wet": "35-39"
+      },
+      "min_width_mm": 45,
+      "min_width_source": "Organizer recommends 45mm or wider tires (https://www.mudslingerevents.com/west-coast-gravel)"
     },
     "youtube_data": {
       "researched_at": "2026-02-23",

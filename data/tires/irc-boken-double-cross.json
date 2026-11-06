@@ -54,21 +54,9 @@
   "status": "active",
   "race_appearances": {
     "bear-howard-gravel": {
-      "rank": 2,
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "belgian-waffle-ride-kansas": {
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "big-sky-gravel": {
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
       "surface": "mixed"
     },
     "bighorn-gravel": {
@@ -77,16 +65,40 @@
       "position": "rear",
       "surface": "mixed"
     },
-    "clarkes-gambit": {
-      "rank": 2,
+    "canmore-crux": {
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "cheaha-challenge": {
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "clarkes-gambit": {
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "crooked-gravel": {
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "devils-cardigan": {
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
       "surface": "mixed"
     },
     "dusty-bandita": {
-      "rank": 2,
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
       "surface": "mixed"
     },
     "fools-gold-gravel-grinder": {
@@ -96,9 +108,9 @@
       "surface": "mixed"
     },
     "forbidden-gravel": {
-      "rank": 2,
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
       "surface": "mixed"
     },
     "gran-fondo-ozarks": {
@@ -107,16 +119,34 @@
       "position": "rear",
       "surface": "mixed"
     },
+    "gravel-and-granite": {
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
+      "surface": "mixed"
+    },
     "gravel-and-tar-classic": {
-      "rank": 2,
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "gravel-battle-of-sumter-forest": {
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "gravel-grit-n-grind": {
+      "rank": 3,
       "width_mm": 42,
       "position": "primary",
       "surface": "mixed"
     },
-    "gravel-battle-of-sumter-forest": {
-      "rank": 2,
+    "gravel-rocks": {
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
       "surface": "mixed"
     },
     "gravel-unravel-bon-jon-pass-out": {
@@ -126,12 +156,6 @@
       "surface": "mixed"
     },
     "great-otway-gravel-grind": {
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "grinduro-italy": {
       "rank": 1,
       "width_mm": 42,
       "position": "rear",
@@ -144,30 +168,36 @@
       "surface": "mixed"
     },
     "hot-springs-gravel-gauntlet": {
-      "rank": 2,
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
       "surface": "mixed"
     },
     "iron-cross": {
-      "rank": 2,
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
       "surface": "mixed"
     },
     "just-gravel": {
-      "rank": 2,
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
       "surface": "mixed"
     },
-    "kowtown-gravel": {
-      "rank": 2,
+    "kettle-mettle": {
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
       "surface": "mixed"
     },
     "la-dromoise-gravel": {
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "lauf-gritfest": {
       "rank": 1,
       "width_mm": 42,
       "position": "rear",
@@ -186,27 +216,21 @@
       "surface": "mixed"
     },
     "marys-mayhem": {
-      "rank": 2,
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "montana-gravel-challenge": {
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
       "surface": "mixed"
     },
     "ned-gravel": {
-      "rank": 2,
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
       "surface": "mixed"
     },
     "north-wales-gravel-x": {
-      "rank": 2,
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
       "surface": "mixed"
     },
     "nova-eroica": {
@@ -234,27 +258,39 @@
       "surface": "mixed"
     },
     "rad-am-ring-gravel": {
-      "rank": 2,
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "reliance-tennessee-gravel": {
+      "rank": 3,
       "width_mm": 42,
       "position": "primary",
       "surface": "mixed"
     },
-    "reliance-tennessee-gravel": {
-      "rank": 2,
+    "rock-cobbler": {
+      "rank": 3,
       "width_mm": 42,
       "position": "primary",
       "surface": "mixed"
     },
     "rooted-vermont": {
-      "rank": 2,
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
       "surface": "mixed"
     },
     "salida-76": {
-      "rank": 2,
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "santa-fe-century-gravelon": {
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
       "surface": "mixed"
     },
     "sasquatch-duro": {
@@ -276,9 +312,15 @@
       "surface": "mixed"
     },
     "the-mane-event-gravel": {
-      "rank": 2,
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "the-range": {
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
       "surface": "mixed"
     },
     "truckee-tahoe-gravel": {
@@ -287,40 +329,40 @@
       "position": "rear",
       "surface": "mixed"
     },
-    "unravel-gravel-va": {
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "uwharrie-forest-gravel-grinder": {
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "wasatch-all-road": {
+    "uci-gravel-dustman": {
       "rank": 1,
       "width_mm": 42,
       "position": "rear",
       "surface": "mixed"
     },
-    "waucheesi-bike-race": {
+    "unravel-gravel-va": {
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "uwharrie-forest-gravel-grinder": {
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "wasatch-all-road": {
       "rank": 2,
       "width_mm": 42,
       "position": "primary",
       "surface": "mixed"
     },
-    "west-coast-gravel": {
-      "rank": 2,
-      "width_mm": 45,
-      "position": "primary",
+    "waucheesi-bike-race": {
+      "rank": 1,
+      "width_mm": 42,
+      "position": "rear",
       "surface": "mixed"
     },
     "worthersee-gravel-race": {
-      "rank": 2,
+      "rank": 1,
       "width_mm": 42,
-      "position": "primary",
+      "position": "rear",
       "surface": "mixed"
     }
   },
@@ -333,7 +375,6 @@
     "maxxis-rambler",
     "panaracer-gravelking-sk",
     "pirelli-cinturato-gravel-m",
-    "specialized-pathfinder-pro-47",
     "specialized-pathfinder-pro",
     "teravail-cannonball",
     "vittoria-terreno-mix"

@@ -154,7 +154,7 @@
       "key_workouts": "4x20min at 6-8% gradient in zone 4; 5hr endurance ride with 3,000ft gain; 3x10min HC efforts above 10% simulating Guryongryeong."
     },
     "history": {
-      "founded": 2015,
+      "founded": 2010,
       "notable_facts": "Evolved from 2010 informal 265km ride by 10 locals from Baekbokryeong to Sokcho. Gained fame as Korea's 'F' grade toughest with UCI climbs. Partners with Gran Fondo World Tour and Visit Korea for global draw."
     },
     "editions": [
@@ -178,6 +178,24 @@
         "year": 2023,
         "date": "2023-05-20",
         "source": "https://granfondo.co.kr/info14"
+      },
+      {
+        "year": 2021,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://www.granfondoguide.com/Contents/Index/6971/seorak-gran-fondo-giant-south-korea-will-host-the-gran-fondo-world-championship--2023"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://www.granfondoguide.com/Contents/Index/6971/seorak-gran-fondo-giant-south-korea-will-host-the-gran-fondo-world-championship--2023"
+      },
+      {
+        "year": 2018,
+        "date": "2018-05-12",
+        "note": "First year in the Gran Fondo World Tour; cold driving rain",
+        "source": "https://endurance.biz/2018/industry-news/rain-and-cold-weather-make-for-a-challenging-giant-seorak-gran-fondo/"
       }
     ],
     "final_verdict": {
@@ -202,6 +220,23 @@
         "category": "official",
         "label": "Official Website"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2018": {
+          "race": "208 km",
+          "winner_female": "Song Jumi",
+          "winner_male": "Choe Geeniyong",
+          "source": "https://endurance.biz/2018/industry-news/rain-and-cold-weather-make-for-a-challenging-giant-seorak-gran-fondo/"
+        },
+        "2019": {
+          "race": "208 km",
+          "winner_female": "Song Jumi",
+          "winner_male": "Cheon Sosan",
+          "source": "https://www.granfondoguide.com/Contents/Index/5570/10th-edition-of-giant-seorak-gran-fondo-on-course-for-september-19th"
+        }
+      },
+      "latest_year": "2019"
+    }
   }
 }

@@ -226,6 +226,79 @@
         "date": "2025-04-25",
         "end_date": "2025-04-27",
         "source": "https://veloptimum.net/courses/epreuves/25/4avr/WhiskeyOffRoad.htm"
+      },
+      {
+        "year": 2023,
+        "date": "2023-04-28",
+        "end_date": "2023-04-30",
+        "edition": 18,
+        "source": "https://prescott-now.com/keegan-swenson-sofia-gomez-villafane-take-double-wins-in-whiskey-off-road/"
+      },
+      {
+        "year": 2022,
+        "note": "Returned after two years; Crooks wildfire threatened the event",
+        "source": "https://www.theproscloset.com/blogs/news/despite-pandemic-wildfire-whiskey-off-road-bounced-back"
+      },
+      {
+        "year": 2021,
+        "date": "2021-04-23",
+        "end_date": "2021-04-25",
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://www.bicycleretailer.com/announcements/2021/01/28/epic-rides-announces-2021-event-cancellations"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://prescottenews.com/2021/01/31/whiskey-off-road-organizer-announces-2021-event-cancellation/"
+      },
+      {
+        "year": 2019,
+        "date": "2019-04-26",
+        "end_date": "2019-04-28",
+        "source": "https://www.maxxis.com/us/news/whiskey-off-road-swenson-courtney-win-maxxis-sweeps-top-10-womens/"
+      },
+      {
+        "year": 2018,
+        "date": "2018-04-29",
+        "source": "https://cyclingmagazine.ca/mtb/whiskey-off-road-2018/"
+      },
+      {
+        "year": 2017,
+        "edition": 14,
+        "source": "https://www.mountainflyermagazine.com/view.php/whiskey-offroad-2017.html"
+      },
+      {
+        "year": 2015,
+        "edition": 12,
+        "source": "https://www.cyclingnews.com/races/whiskey-off-road-2015/elite-men-and-women-whiskey-50/results/"
+      },
+      {
+        "year": 2013,
+        "edition": 10,
+        "source": "https://www.cyclingnews.com/races/whiskey-off-road-2013/elite-men-and-women-whiskey-50/results/"
+      },
+      {
+        "year": 2011,
+        "note": "Pro race on the 47.6 mile 50 Proof course",
+        "source": "https://www.mountainflyermagazine.com/view.php/whiskey-off-road-2011.html"
+      },
+      {
+        "year": 2009,
+        "edition": 6,
+        "source": "https://mbaction.com/whiskey-off-road-results-and-race-photo-links/"
+      },
+      {
+        "year": 2008,
+        "edition": 5,
+        "source": "https://addictedtobicycles.blogspot.com/2008/04/from-daily-courier-in-prescott-ariz.html"
+      },
+      {
+        "year": 2007,
+        "date": "2007-05-19",
+        "edition": 4,
+        "source": "https://www.cyclingnews.com/news/whiskey-off-road-returns-to-arizona/"
       }
     ],
     "course_description": {
@@ -357,7 +430,7 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
@@ -368,7 +441,7 @@
           "msrp_usd": 69.9,
           "weight_grams": 480,
           "crr_watts": 38.0,
-          "why": "high puncture protection for sharp surfaces"
+          "why": "Tough casing for sharp rock."
         },
         {
           "rank": 2,
@@ -379,7 +452,7 @@
           "msrp_usd": 79.99,
           "weight_grams": 460,
           "crr_watts": 35.0,
-          "why": "high puncture protection for sharp surfaces"
+          "why": "Tough casing for sharp rock."
         },
         {
           "rank": 3,
@@ -390,7 +463,7 @@
           "msrp_usd": 64.95,
           "weight_grams": 460,
           "crr_watts": 36.5,
-          "why": "high puncture protection for sharp surfaces"
+          "why": "Tough casing for sharp rock."
         }
       ],
       "front_rear_split": {
@@ -826,6 +899,117 @@
           "winning_time_female": "3:40:26",
           "winning_time_male": "3:05:17",
           "source": "https://results.epicrides.com/liveresults/webresults/default.aspx?ProOnly=true&event=WOR-2025"
+        },
+        "2006": {
+          "race": "50 mi",
+          "winner_male": "Adam Hoppe",
+          "winning_time_male": "3:29:33",
+          "source": "https://epicrides.com/wp-content/results/worresults/wor-06-results.htm"
+        },
+        "2010": {
+          "race": "50 mi",
+          "winner_female": "Gretchen Reeves",
+          "winner_male": "Andy Schultz",
+          "winning_time_female": "3:51:41",
+          "winning_time_male": "3:17:50",
+          "source": "https://www.cyclingnews.com/races/whiskey-off-road-ne/results/"
+        },
+        "2011": {
+          "race": "47.6 mi",
+          "winner_female": "Pua Mata",
+          "winner_male": "Chris Sheppard",
+          "winning_time_female": "3:30:11",
+          "winning_time_male": "3:05:06",
+          "source": "https://www.mountainflyermagazine.com/view.php/whiskey-off-road-2011.html"
+        },
+        "2012": {
+          "race": "50 mi",
+          "winner_female": "Pua Mata",
+          "winner_male": "Geoff Kabush",
+          "winning_time_female": "3:21:34",
+          "winning_time_male": "2:54:59",
+          "source": "https://www.mountainflyermagazine.com/view.php/kabush-and-mata-win-whiskey-off-road-pro-race.html"
+        },
+        "2013": {
+          "race": "50 mi",
+          "winner_female": "Lesley Paterson",
+          "winner_male": "Geoff Kabush",
+          "winning_time_female": "3:31:21",
+          "winning_time_male": "2:57:37",
+          "source": "https://www.cyclingnews.com/races/whiskey-off-road-2013/elite-men-and-women-whiskey-50/results/"
+        },
+        "2014": {
+          "race": "50 mi",
+          "winner_female": "Chloe Woodruff",
+          "winner_male": "Christoph Sauser",
+          "winning_time_female": "3:37:14",
+          "winning_time_male": "2:58:35",
+          "source": "https://www.cyclingnews.com/races/whiskey-off-road-2014/elite-men-and-women-whiskey-50/results/"
+        },
+        "2015": {
+          "race": "50 mi",
+          "winner_female": "Chloe Woodruff",
+          "winner_male": "Howard Grotts",
+          "winning_time_male": "3:04:25",
+          "source": "https://www.cyclingnews.com/races/whiskey-off-road-2015/elite-men-and-women-whiskey-50/results/"
+        },
+        "2017": {
+          "race": "50 mi",
+          "winner_female": "Kate Courtney",
+          "winner_male": "Sam Gaze",
+          "winning_time_female": "3:41:19",
+          "winning_time_male": "3:07:17",
+          "source": "https://www.mountainflyermagazine.com/view.php/whiskey-offroad-2017.html"
+        },
+        "2018": {
+          "race": "50 mi",
+          "winner_female": "Annika Langvad",
+          "winner_male": "Keegan Swenson",
+          "winning_time_female": "3:27:25",
+          "winning_time_male": "2:59:16",
+          "source": "https://cyclingmagazine.ca/mtb/whiskey-off-road-2018/"
+        },
+        "2019": {
+          "race": "48 mi",
+          "winner_female": "Kate Courtney",
+          "winner_male": "Keegan Swenson",
+          "winning_time_female": "3:46:44",
+          "winning_time_male": "3:12:29",
+          "source": "https://stans.com/blogs/stories/race-report-epic-rides-whiskey-off-road-photos-and-results"
+        },
+        "2022": {
+          "race": "50 mi",
+          "winner_female": "Alexis Skarda",
+          "winner_male": "Keegan Swenson",
+          "winning_time_female": "3:55:01",
+          "winning_time_male": "3:15:14",
+          "source": "https://canadiancyclist.com/dailynews.php?id=37091&title=Whiskey+Off-Road%3A+Backcountry+Race+results"
+        },
+        "2023": {
+          "race": "50 mi",
+          "winner_female": "Sofia Gomez Villafane",
+          "winner_male": "Keegan Swenson",
+          "source": "https://prescott-now.com/keegan-swenson-sofia-gomez-villafane-take-double-wins-in-whiskey-off-road/"
+        },
+        "2024": {
+          "race": "50 mi",
+          "winner_female": "Alexis Skarda",
+          "winner_male": "Keegan Swenson",
+          "winning_time_male": "3:06:45",
+          "source": "https://blog.scottbideauphotography.com/2024-whiskey-off-road/"
+        },
+        "2007": {
+          "race": "50 mi",
+          "winner_male": "Mike Janelle",
+          "source": "https://addictedtobicycles.blogspot.com/2008/04/from-daily-courier-in-prescott-ariz.html"
+        },
+        "2009": {
+          "race": "50 mi",
+          "winner_female": "Lynda Wallenfels",
+          "winner_male": "Jay Henry",
+          "winning_time_female": "3:54:29",
+          "winning_time_male": "3:18:56",
+          "source": "https://mountainbikeattractions.blogspot.com/2009/04/results-whiskey-off-road-50-mile.html"
         }
       },
       "latest_year": "2025"

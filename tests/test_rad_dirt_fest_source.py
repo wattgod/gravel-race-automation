@@ -34,7 +34,7 @@ def test_rad_is_the_current_trinidad_long_course():
 
     assert race["slug"] == "the-rad"
     assert vitals["location"] == "Trinidad, Colorado"
-    assert vitals["date_specific"] == "2026: September 26"
+    assert vitals["date_specific"].startswith("2027: September 25")
     assert vitals["distance_mi"] == 113
     assert vitals["elevation_ft"] == 10613
     assert vitals["start_time"] == "9:30 a.m. for the 110-mile course"

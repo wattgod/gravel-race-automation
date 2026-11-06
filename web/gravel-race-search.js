@@ -861,6 +861,13 @@
       discBadge = '<span class="gg-discipline-badge">' + discLabel + '</span>';
     }
 
+    // Not-running races stay findable but say so (index status from
+    // race-data taking_a_break). Label is data: escaped like every field.
+    var statusBadge = '';
+    if (race.status === 'inactive') {
+      statusBadge = '<span class="gg-discipline-badge gg-status-badge">' + escHtml(race.status_label || 'Not running') + '</span>';
+    }
+
     var seriesBadge = '';
     if (race.series_name) {
       seriesBadge = '<a href="/race/series/' + escHtml(race.series_id) + '/" class="gg-series-badge">' + escHtml(race.series_name) + '</a>';
@@ -887,6 +894,7 @@
           matchBadge +
           distBadge +
           seriesBadge +
+          statusBadge +
           discBadge +
           '<span class="gg-tier-badge gg-tier-' + race.tier + '">' + 'TIER ' + race.tier + '</span>' +
         '</div>' +

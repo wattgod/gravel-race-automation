@@ -11,7 +11,7 @@
       "location_badge": "CAMBRIDGE, NY",
       "county": "Washington County",
       "date": "Early May annually",
-      "date_specific": "2026: May 9",
+      "date_specific": "2027: May 22 (Saturday, CONFIRMED — anthemsportstours.com)",
       "terrain_types": [
         "New York rolling hills",
         "Rural gravel",
@@ -115,6 +115,20 @@
       "notable_moments": [],
       "reputation": "Northeast regional event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-05-09",
+        "note": "Second year of the revived Battenkill, run by Anthem Sports.",
+        "source": "https://anthemsportstours.com/battenkill"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-10",
+        "note": "Battenkill returned after the Tour of the Battenkill ended in 2017; courses mix paved and gravel roads.",
+        "source": "https://veloptimum.net/courses/epreuves/25/5mai/Battenkill.htm"
+      }
+    ],
     "course_description": {
       "character": "Rolling hills gravel for 60+ miles.",
       "suffering_zones": [
@@ -333,8 +347,9 @@
       },
       {
         "url": "https://anthemsportstours.com/battenkill",
-        "category": "other",
-        "label": "Anthemsportstours"
+        "category": "official",
+        "label": "Battenkill — 2027 date",
+        "accessed": "2026-11-06"
       },
       {
         "url": "https://en.wikipedia.org/wiki/Tour_of_the_Battenkill",
@@ -753,6 +768,19 @@
         "credit": "YouTube / Wayward Cyclist",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "180 km",
+          "winner_female": "Katherine Rusch",
+          "winner_male": "Ben Oliver",
+          "winning_time_female": "3:48:54",
+          "winning_time_male": "4:13:38",
+          "source": "https://results.bikereg.com/race/20747"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

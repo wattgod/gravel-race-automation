@@ -5,8 +5,8 @@
     "display_name": "Rebecca's Private Idaho",
     "tagline": "Idaho's most beautiful gravel race. 100 miles through the Pioneer Mountains. Not made to be easy.",
     "seo": {
-      "title": "Rebecca's Private Idaho 2026: 104-Mile Course & Review",
-      "description": "Rebecca's Private Idaho (Sept 12, 2026, Ketchum): 104 miles, 6,860 ft & the new Corral Creek climb. What it's really like, tires, altitude & our 80/100."
+      "title": "Rebecca's Private Idaho {year}: 104-Mile Course & Review",
+      "description": "Rebecca's Private Idaho {year} in Ketchum: 104 miles, 6,860 ft & the Corral Creek climb. What it's really like, tires, altitude & our {score}/100."
     },
     "vitals": {
       "distance_mi": 104,
@@ -161,7 +161,7 @@
       "should_you_race": "Yes—if you can afford the trip and want to experience gravel at its most soulful. This isn't just a race; it's a community gathering hosted by royalty.",
       "alternatives": "If you want Idaho scenery without the cost: check out smaller Idaho events. If you want a large-field gravel event: SBT GRVL has similar vibes, closer to Denver.",
       "alternative_slugs": [
-        "sbt-grvl"
+        "steamboat-gravel"
       ]
     },
     "logistics": {
@@ -185,6 +185,19 @@
       ],
       "reputation": "Where gravel royalty meets grassroots community. The event Rebecca built in her backyard."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 14,
+        "note": "Last edition under this name; Rebecca Rusch steps away after 2026",
+        "source": "https://www.cyclingwest.com/news/rebecca-rusch-to-step-away-from-rebeccas-private-idaho-after-2026-event/"
+      },
+      {
+        "year": 2023,
+        "edition": 11,
+        "source": "https://www.cyclingwest.com/racing/gravel-racing/rebeccas-private-idaho-qsr-race-winners-crowned/"
+      }
+    ],
     "course_description": {
       "character": "104 miles and 6,860 feet of climbing on a redesigned gravel route with a sustained 2,500-foot climb over Corral Creek Summit.",
       "suffering_zones": [
@@ -338,6 +351,12 @@
           "winner_female": "Eden Nykamp",
           "winning_time_male": "5:09:20.8",
           "winning_time_female": "6:11:17.0"
+        },
+        "2023": {
+          "race": "Queen's Stage Race overall",
+          "winner_female": "Sarah Max",
+          "winner_male": "Griffin Easter",
+          "source": "https://www.cyclingwest.com/racing/gravel-racing/rebeccas-private-idaho-qsr-race-winners-crowned/"
         }
       },
       "latest_year": "2024"

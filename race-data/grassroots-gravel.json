@@ -91,14 +91,14 @@
       "bottom_line": "A solid local Colorado gravel race. Worth it for Colorado/Mountain West riders. Not worth traveling for."
     },
     "final_verdict": {
-      "score": "43 / 100",
+      "score": "44 / 100",
       "one_liner": "Colorado gravel challenge.",
       "should_you_race": "If you're local to Colorado—yes, it's solid. If you're traveling—skip it.",
       "alternatives": "For better Colorado races: Gravel Worlds, SBT GRVL, Leadville.",
       "alternative_slugs": [
-        "garmin-gravel-worlds",
+        "gravel-worlds",
         "leadville-100",
-        "sbt-grvl"
+        "steamboat-gravel"
       ]
     },
     "logistics": {
@@ -110,12 +110,25 @@
       "official_site": "https://www.grassrootsgravel.com/grg-2026"
     },
     "history": {
-      "founded": null,
+      "founded": 2023,
       "founder": "Adam Davidson (founder & promoter)",
       "origin_story": "Local Colorado gravel event.",
       "notable_moments": [],
       "reputation": "Local Colorado event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-10-11",
+        "edition": 3,
+        "source": "https://sites.chronotrack.com/event/85095/results"
+      },
+      {
+        "year": 2024,
+        "date": "2024-10-12",
+        "source": "https://sites.chronotrack.com/event/75175"
+      }
+    ],
     "course_description": {
       "character": "Colorado rolling gravel.",
       "suffering_zones": [
@@ -387,9 +400,22 @@
     ],
     "results": {
       "years": {
-        "2024": {}
+        "2024": {
+          "race": "110 mi",
+          "winner_male": "Nicholas Tabares",
+          "winning_time_male": "5:00:05",
+          "source": "https://sites.chronotrack.com/event/75175"
+        },
+        "2025": {
+          "race": "113 mi",
+          "winner_female": "Whitney Allison",
+          "winner_male": "Nicholas Tabares",
+          "winning_time_female": "5:16:21",
+          "winning_time_male": "4:47:00",
+          "source": "https://sites.chronotrack.com/event/85095/results"
+        }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

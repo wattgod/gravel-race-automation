@@ -4,7 +4,9 @@
   "name": "BWR Montana",
   "description": "Montana Rockies adventure\u2014AKA 'Hell of the Bozone': mountain gravel around Bozeman, waffles at the finish.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-06-19",
+  "startDate": "2027-09-17",
+  "endDate": "2027-09-18",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Bozeman, Montana",
@@ -22,7 +24,7 @@
   },
   "url": "https://www.belgianwaffleride.bike/pages/belgian-waffle-ride-montana",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Belgian Waffle Ride series",
     "url": "https://www.belgianwaffleride.bike/pages/belgian-waffle-ride-montana"
   }

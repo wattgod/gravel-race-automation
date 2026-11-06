@@ -12,7 +12,7 @@
       "location": "Northern California",
       "location_badge": "NORCAL",
       "date": "January through May annually",
-      "date_specific": "2026: Jan 25, Feb 28, Mar 28, Apr 25, May 24",
+      "date_specific": "2027: Jan 31, Feb 28, Mar 20, Apr 10, May 23 (CONFIRMED — grasshopperadventureseries.com)",
       "series_events": [
         {
           "name": "Low Gap",
@@ -275,6 +275,12 @@
     },
     "citations": [
       {
+        "url": "https://www.grasshopperadventureseries.com/",
+        "category": "official",
+        "label": "Grasshopper Adventure Series — 2027 dates",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://velo.outsideonline.com/tag/grasshopper-adventure-series",
         "category": "media",
         "label": "Velo"
@@ -283,11 +289,6 @@
         "url": "https://www.outsideonline.com/outdoor-adventure/biking/discover-grasshopper-adventure-series/",
         "category": "media",
         "label": "Outside"
-      },
-      {
-        "url": "https://www.reddit.com/r/bicycling/comments/5r3m1v/12817_grasshopper_adventure_series_kicked_off/",
-        "category": "community",
-        "label": "Reddit"
       },
       {
         "url": "https://velo.outsideonline.com/gravel/katerina-nash-ian-lopez-de-san-roman-win-mud-caked-huffmaster-hopper/",
@@ -376,17 +377,33 @@
       }
     ],
     "history": {
-      "founder": "Miguel Crawford"
+      "founder": "Miguel Crawford",
+      "founded": 1998
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-01-26",
+        "end_date": "2025-05-10",
+        "note": "Five rounds, Low Gap to King Ridge",
+        "source": "https://www.cyclingnews.com/races/grasshopper-adventure-series-2025/king-ridge-hopper-5/results/"
+      }
+    ],
     "results": {
       "years": {
         "2024": {
           "key_takeaways": [
             "2024: Brennan Wertz broke the course record"
           ]
+        },
+        "2025": {
+          "race": "Series overall (5 rounds)",
+          "winner_female": "Jen Tavé",
+          "winner_male": "Taj Krieger",
+          "source": "https://www.cyclingnews.com/races/grasshopper-adventure-series-2025/king-ridge-hopper-5/results/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "series": {
       "id": "grasshopper-adventure-series",

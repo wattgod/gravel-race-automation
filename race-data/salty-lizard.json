@@ -5,13 +5,13 @@
     "display_name": "Salty Lizard",
     "tagline": "Moondust and volcanic terrain through the Silver Island Mountains near Wendover, Utah.",
     "vitals": {
-      "distance_mi": 50,
-      "elevation_ft": 2800,
+      "distance_mi": 97.4,
+      "elevation_ft": 3571,
       "location": "Wendover, UT",
       "location_badge": "WENDOVER, UT",
       "county": "Tooele County",
       "date": "Early April annually",
-      "date_specific": "2026: April 4",
+      "date_specific": "2027: April 3 (Saturday, CONFIRMED — utahgravelseries.com)",
       "terrain_types": [
         "Utah desert",
         "Desert gravel",
@@ -42,19 +42,19 @@
       "surface": "Gravel roads through Utah desert. Moderate elevation with desert scenery.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (2800 feet)",
+        "Moderate rolling (3571 feet)",
         "High altitude",
         "Utah desert scenery",
-        "50-mile distance",
+        "97-mile distance",
         "Small field"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 41,
+      "overall_score": 43,
       "tier": 4,
       "tier_label": "TIER 4",
       "logistics": 2,
-      "length": 2,
+      "length": 3,
       "technicality": 2,
       "elevation": 2,
       "climate": 2,
@@ -91,7 +91,7 @@
       "bottom_line": "A solid regional UT desert gravel race. Worth it for UT/Mountain West riders seeking desert experience. Not worth traveling far for."
     },
     "final_verdict": {
-      "score": "41 / 100",
+      "score": "43 / 100",
       "one_liner": "Utah desert gravel challenge.",
       "should_you_race": "If you're local to UT and want desert experience—yes. If you're traveling—skip it.",
       "alternatives": "For better UT races: Wasatch All-Road, Dirty Dino.",
@@ -106,7 +106,7 @@
       "food": "Wendover has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Salty Lizard website",
+      "official_site": "",
       "camping": "camping experience for vans and tents"
     },
     "history": {
@@ -116,6 +116,13 @@
       "notable_moments": [],
       "reputation": "Regional UT event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-04",
+        "source": "https://www.webscorer.com/race?live=1&raceid=426881"
+      }
+    ],
     "course_description": {
       "character": "Utah desert gravel.",
       "suffering_zones": [
@@ -147,8 +154,8 @@
     },
     "guide_variables": {
       "race_name": "Salty Lizard",
-      "race_distance": "50 miles",
-      "race_elevation": "2,800 feet",
+      "race_distance": "97.4 miles",
+      "race_elevation": "3,571 feet",
       "race_date": "Spring/Fall",
       "race_location": "Wendover, UT",
       "race_terrain": "Utah desert gravel",
@@ -268,11 +275,11 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 2,
-        "explanation": "Start atmosphere at Historic Wendover Airfield Museum includes 'the smell of bacon hung in the air over the camping area and the soft hiss of aerosol lubricants' creating race-day buzz. Course distances remain inconsistent between editions—husterk raced 104 miles with 4300ft in 2022 versus current 50-mile listings. BikeReg registration available but production inconsistencies persist despite race director offering guest rooms to visiting riders. As Pre-Race Atmosphere [COMPETITIVE source] puts it: \"The Historic Wendover Airfield Museum buzzed as riders bombed down from hotels and emptied out of cars newly arrived from the Wasatch Front.\""
+        "explanation": "Start atmosphere at Historic Wendover Airfield Museum includes 'the smell of bacon hung in the air over the camping area and the soft hiss of aerosol lubricants' creating race-day buzz. husterk raced 104 miles with 4300ft in 2022; the current El Lagarto course is 97.4 miles with 3,571 ft. BikeReg registration available but production inconsistencies persist despite race director offering guest rooms to visiting riders. As Pre-Race Atmosphere [COMPETITIVE source] puts it: \"The Historic Wendover Airfield Museum buzzed as riders bombed down from hotels and emptied out of cars newly arrived from the Wasatch Front.\""
       },
       "length": {
-        "score": 2,
-        "explanation": "Husterk felt 'great at the 50-mile mark' but warned 'it's one thing to feel great at the 50-mile mark. It is an entirely different thing to still feel that well after 100+ miles.' Course distance confusion continues with his 2022 edition measuring 104 miles while current listings show 50 miles, suggesting significant route changes that complicate training preparation. More compact than Grinduro."
+        "score": 3,
+        "explanation": "Husterk felt 'great at the 50-mile mark' but warned 'it's one thing to feel great at the 50-mile mark. It is an entirely different thing to still feel that well after 100+ miles.' His 2022 edition measured 104 miles; the current El Lagarto course is 97.4 miles. At 97.4 miles it falls in the 60 to 99 mile band, which scores 3."
       },
       "technicality": {
         "score": 2,
@@ -332,7 +339,8 @@
       {
         "url": "https://utahgravelseries.com/saltylizard",
         "category": "other",
-        "label": "Utahgravelseries"
+        "label": "Utahgravelseries; 2027 date",
+        "accessed": "2026-11-06"
       },
       {
         "url": "https://www.cyclingnews.com/news/winning-trajectory-for-unbound-brendan-johnston-opens-third-us-gravel-season-with-salty-lizard-win/",
@@ -357,9 +365,17 @@
     ],
     "results": {
       "years": {
-        "2024": {}
+        "2024": {},
+        "2026": {
+          "race": "97 mi",
+          "winner_female": "Alexis Skarda",
+          "winner_male": "Brendan Johnston",
+          "winning_time_female": "4:34:17",
+          "winning_time_male": "4:17:30",
+          "source": "https://www.webscorer.com/race?live=1&raceid=426881"
+        }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

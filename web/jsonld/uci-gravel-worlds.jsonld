@@ -4,7 +4,9 @@
   "name": "UCI Gravel World Championships",
   "description": "The rainbow-jersey race comes to Nannup: steep, closely spaced climbs on Western Australia's Blackwood Valley gravel.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-10-10",
+  "startDate": "2027-08-26",
+  "endDate": "2027-08-27",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Nannup, Western Australia, Australia",
@@ -16,7 +18,7 @@
   },
   "url": "https://gravelchampswesternaustralia.com/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "UCI",
     "url": "https://gravelchampswesternaustralia.com/"
   }

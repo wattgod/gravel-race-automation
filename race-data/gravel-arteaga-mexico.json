@@ -189,7 +189,7 @@
         "Current public facts remain edition-specific",
         "Entry price not preserved in the cited source"
       ],
-      "bottom_line": "A 64/100 Tier 2 race on the published Gravel God rubric; worth cataloging now, with future plan publication gated on an eligible official date."
+      "bottom_line": "A 66/100 Tier 2 race on the published Gravel God rubric; worth cataloging now, with future plan publication gated on an eligible official date."
     },
     "logistics": {
       "airport": "Monterrey International Airport (MTY), followed by roughly an hour of ground travel",
@@ -207,6 +207,14 @@
       "notable_moments": [],
       "reputation": "A high-altitude debut with strong terrain and no race-day record yet."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 1,
+        "note": "First UCI Gravel World Series round in Mexico; also the Mexican Gravel National Championships",
+        "source": "https://www.granfondoguide.com/RaceDashboard/UCIGravelWorldSeries/1/9359/2026-uci-gravel-arteaga-mexico-results-esparza-and-castillo-soto-take-victory"
+      }
+    ],
     "guide_variables": {
       "race_name": "Gravel Arteaga Mexico",
       "race_distance": "133 km / 82.6 miles",
@@ -302,7 +310,7 @@
       }
     ],
     "final_verdict": {
-      "score": "64 / 100",
+      "score": "66 / 100",
       "one_liner": "Mexico's first UCI gravel qualifier starts high, climbs for forty kilometres, and stays in the Sierra Madre.",
       "should_you_race": "Race Gravel Arteaga Mexico if its verified terrain and UCI stakes match your goal; wait for the organizer's next-edition package before buying travel around an unconfirmed date.",
       "alternatives": "Use the Gravel God race directory to compare another verified UCI qualifier with a confirmed future edition."
@@ -347,6 +355,19 @@
       "migration_notes": [
         "New catalog intake from the official 2026 UCI Gravel World Series calendar reconciliation."
       ]
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "132 km",
+          "winner_female": "Anet Barrera Esparza",
+          "winner_male": "Ulises Alfredo Castillo Soto",
+          "winning_time_female": "5:08:01",
+          "winning_time_male": "4:16:15",
+          "source": "https://www.granfondoguide.com/RaceDashboard/UCIGravelWorldSeries/1/9359/2026-uci-gravel-arteaga-mexico-results-esparza-and-castillo-soto-take-victory"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

@@ -5,6 +5,7 @@
   "description": "Minnesota's North Shore gravel classic at Lake Superior\u2014110 miles through Northwoods and Gunflint Trail terrain.",
   "sport": "Gravel Cycling",
   "startDate": "2027-05-22",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Grand Marais, Minnesota",
@@ -22,7 +23,7 @@
   },
   "url": "https://www.legranddunord.com",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Heck of the North Productions",
     "url": "https://www.legranddunord.com"
   }

@@ -201,6 +201,13 @@ class TestSeoMetadata:
 
 # ── Fixtures ──────────────────────────────────────────────────
 
+@pytest.fixture(autouse=True)
+def _before_sample_edition(monkeypatch):
+    """The sample race runs 2026-06-15; pin "today" before it so these tests
+    see an upcoming edition (past editions: tests/test_edition_honesty.py)."""
+    monkeypatch.setenv("GG_TODAY", "2026-01-15")
+
+
 @pytest.fixture
 def sample_race_data():
     """Minimal but complete race data for testing."""
@@ -857,9 +864,9 @@ class TestParseEventDates:
 # ── Sections ──────────────────────────────────────────────────
 
 class TestSections:
-    def test_toc_has_12_links_including_race_calculator(self):
+    def test_toc_has_14_links_including_race_calculator(self):
         html = build_toc()
-        assert html.count("<a ") == 12
+        assert html.count("<a ") == 14
         assert 'href="#race-calculator" data-toc-target="race-calculator">08a Race Calculator</a>' in html
 
     def test_course_overview_has_map(self, normalized_data):

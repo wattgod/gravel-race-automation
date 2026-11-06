@@ -16,7 +16,7 @@ Classifications:
   CONFIRM    — scraped value matches profile within tolerance
   MISMATCH   — scraped value differs beyond tolerance (manual review)
   ENRICHABLE — profile field is empty, scraped value available
-  STALE_DATE — profile date is pre-2026, scraped date is 2026
+  STALE_DATE — profile edition already ran (or has no date), scraped date is upcoming
 
 Output: data/fact-check-report.json (and .html with --report)
 """
@@ -30,8 +30,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
+from season import UPCOMING, canonical, needs_date_refresh, parse_edition  # noqa: E402
+from race_editions import set_date_specific  # noqa: E402
 from scrape_utils import (
     load_extract,
+    next_edition_date,
     load_official_sites,
     RACE_DATA_DIR,
     SCRAPE_EXTRACTS_DIR,
@@ -123,38 +127,36 @@ def _month_distance(m1: int | None, m2: int | None) -> int:
     return min(diff, 12 - diff)
 
 
-def compare_date(profile_date_specific: str, scraped_date: str) -> tuple:
-    """Compare date values. Returns (classification, detail)."""
+def compare_date(profile_date_specific: str, scraped_date: str, on=None) -> tuple:
+    """Compare date values. Returns (classification, detail).
+
+    Staleness is by date, not year (wordpress/season.py): a profile whose
+    edition already ran is STALE_DATE when the site shows an upcoming one.
+    """
     if not scraped_date:
         return None, None
 
     profile_ds = str(profile_date_specific) if profile_date_specific else ""
-
-    # Check if profile date is stale (pre-2026)
-    profile_year_match = re.match(r"(\d{4})", profile_ds)
-    profile_year = int(profile_year_match.group(1)) if profile_year_match else None
-
-    # Check if scraped date mentions 2026
-    has_2026 = "2026" in str(scraped_date)
+    scraped_upcoming = parse_edition(scraped_date).state(on) == UPCOMING
 
     if not profile_ds:
-        if has_2026:
+        if scraped_upcoming:
             return "ENRICHABLE", f"scraped={scraped_date}"
         return None, None
 
-    if profile_year and profile_year < 2026 and has_2026:
+    if not scraped_upcoming:
+        return None, None
+
+    if needs_date_refresh(profile_ds, on):
         return "STALE_DATE", f"profile={profile_ds}, scraped={scraped_date}"
 
-    if profile_year and profile_year >= 2026 and has_2026:
-        # Both have 2026 dates — check if they match
-        p_month = _extract_month_num(profile_ds)
-        s_month = _extract_month_num(scraped_date)
-        shift = _month_distance(p_month, s_month)
-        if shift <= 1:
-            return "CONFIRM", f"profile={profile_ds}, scraped={scraped_date}"
-        return "MISMATCH", f"profile={profile_ds}, scraped={scraped_date}, month_shift={shift}"
-
-    return None, None
+    # Both are upcoming editions — check if they match
+    p_month = _extract_month_num(profile_ds)
+    s_month = _extract_month_num(scraped_date)
+    shift = _month_distance(p_month, s_month)
+    if shift <= 1:
+        return "CONFIRM", f"profile={profile_ds}, scraped={scraped_date}"
+    return "MISMATCH", f"profile={profile_ds}, scraped={scraped_date}, month_shift={shift}"
 
 
 def compare_race(slug: str) -> dict | None:
@@ -191,11 +193,11 @@ def compare_race(slug: str) -> dict | None:
                                              "scraped": extract.get("elevation_ft")}
 
     # Date
-    cls, detail = compare_date(vitals.get("date_specific"), extract.get("date_2026"))
+    cls, detail = compare_date(vitals.get("date_specific"), next_edition_date(extract))
     if cls:
         result["fields"]["date_specific"] = {"classification": cls, "detail": detail,
                                               "profile": vitals.get("date_specific"),
-                                              "scraped": extract.get("date_2026")}
+                                              "scraped": next_edition_date(extract)}
 
     # Enrichable fields (only if profile is empty and scraped has data)
     for field, extract_key in [
@@ -268,9 +270,13 @@ def auto_fix_race(slug: str, comparison: dict, dry_run: bool = False) -> list:
                 fixes.append(f"SKIPPED {field}: month shift {shift} too large")
                 continue
 
-            fix_desc = f"date_specific: {info['profile']!r} -> {scraped!r}"
+            new_ds = canonical(parse_edition(scraped))
+            if not new_ds:
+                fixes.append(f"SKIPPED {field}: {scraped!r} is not a full date")
+                continue
+            fix_desc = f"date_specific: {info['profile']!r} -> {new_ds!r}"
             if not dry_run:
-                vitals["date_specific"] = str(scraped)
+                set_date_specific(race, new_ds)
                 modified = True
             fixes.append(fix_desc)
 

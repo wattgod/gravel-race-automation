@@ -5,6 +5,7 @@
   "description": "New Zealand countryside gravel, January summer warmth \u2014 the UCI 'Classic' is elite-only; amateurs enter the companion 'Slicks and Stones Gravel Assault' instead.",
   "sport": "Gravel Cycling",
   "startDate": "2027-01-24",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Manawat\u016b-Whanganui, New Zealand",
@@ -22,7 +23,7 @@
   },
   "url": "https://gravelandtar.com/classicuci",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Steve Stannard / Greasy Chain Charitable Trust",
     "url": "https://gravelandtar.com/classicuci"
   }

@@ -11,7 +11,7 @@
       "location_badge": "WHITMIRE, SC",
       "county": "Newberry County",
       "date": "Mid-March annually",
-      "date_specific": "2026: March 14",
+      "date_specific": "2027: March 13 (Saturday, CONFIRMED — southeastgravel.com)",
       "terrain_types": [
         "Sumter National Forest gravel",
         "Southeast Gravel series",
@@ -97,9 +97,7 @@
       "one_liner": "South Carolina Sumter Forest gravel in Whitmire.",
       "should_you_race": "If you're in South Carolina and want a forest event—yes, it's solid. If you're from out of state—there are better options.",
       "alternatives": "For better SC events: Gran Fondo Hincapie. For similar forest events: other SC gravel races.",
-      "alternative_slugs": [
-        "gran-fondo-hincapie"
-      ]
+      "alternative_slugs": []
     },
     "logistics": {
       "airport": "Columbia (CAE) 1 hour or Greenville (GSP) 1 hour",
@@ -117,6 +115,14 @@
       "notable_moments": [],
       "reputation": "Regional SC event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-03-14",
+        "note": "New start and finish in downtown Whitmire",
+        "source": "https://www.southeastgravel.com/gravel-battle-of-sumter-forest"
+      }
+    ],
     "course_description": {
       "character": "Southeast Gravel race from downtown Whitmire: the 2026 long course is 73 miles with 4,481 feet of gain on the organizer-linked route. The course crosses the river in both directions and uses the tunnels under I-26. Long-course aid stations are at miles 21, 40, and 63.",
       "suffering_zones": [
@@ -380,7 +386,8 @@
       {
         "url": "https://www.southeastgravel.com/gravel-battle-of-sumter-forest",
         "category": "other",
-        "label": "Southeastgravel"
+        "label": "Gravel Battle of Sumter Forest — 2027 date",
+        "accessed": "2026-11-06"
       },
       {
         "url": "https://www.trimarnicoach.com/trimarniblog/2021/03/gravel-battle-of-sumter-forest-race.html",
@@ -767,6 +774,19 @@
         "credit": "YouTube / Alex Runge",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "73 mi",
+          "winner_female": "Colleen Maher Larocca",
+          "winner_male": "Johnny Mitchell",
+          "winning_time_female": "3:34:51",
+          "winning_time_male": "3:13:48",
+          "source": "https://www.webscorer.com/race?raceid=424372"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

@@ -5,6 +5,8 @@
   "description": "Two scored gravel stages and an optional criterium on Puerto Rico's hot southern coast.",
   "sport": "Gravel Cycling",
   "startDate": "2027-03-26",
+  "endDate": "2027-03-28",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Ponce, Puerto Rico",
@@ -22,7 +24,7 @@
   },
   "url": "https://laepica.org/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Caribbean Sports Organization",
     "url": "https://laepica.org/"
   }

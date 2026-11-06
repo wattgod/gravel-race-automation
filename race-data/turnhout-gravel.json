@@ -105,15 +105,23 @@
       "food": "Turnhout has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Turnhout Gravel website"
+      "official_site": ""
     },
     "history": {
-      "founded": null,
+      "founded": 2025,
       "founder": "Belgian organizers",
       "origin_story": "Regional Belgian gravel event.",
       "notable_moments": [],
       "reputation": "Regional Belgian event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "edition": 1,
+        "note": "First edition; UCI Gravel World Series round, sold out with 2,534 riders",
+        "source": "https://ucigravelworldseries.com/en/wurtz-schmidt-and-schreurs-victorious-in-fast-bolero-turnhout-gravel/"
+      }
+    ],
     "course_description": {
       "character": "Belgian rolling gravel.",
       "suffering_zones": [
@@ -376,9 +384,16 @@
     ],
     "results": {
       "years": {
-        "2024": {}
+        "2025": {
+          "race": "144 km",
+          "winner_female": "Geerike Schreurs",
+          "winner_male": "Mads Würtz Schmidt",
+          "winning_time_female": "4:12:09",
+          "winning_time_male": "3:35:24",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/turnhout-gravel/results/"
+        }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

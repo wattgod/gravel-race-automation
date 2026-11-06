@@ -106,7 +106,7 @@
       "food": "Gardners has limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Camp Michaux Gravel Grinder website"
+      "official_site": ""
     },
     "history": {
       "founded": null,
@@ -115,6 +115,13 @@
       "notable_moments": [],
       "reputation": "Local Pennsylvania event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-06-29",
+        "source": "https://results.raceroster.com/v3/events/ks6729pfv99j4gd6/race/all/awards?filter_search="
+      }
+    ],
     "course_description": {
       "character": "Pennsylvania rolling gravel.",
       "suffering_zones": [
@@ -376,10 +383,17 @@
     ],
     "results": {
       "years": {
-        "2024": {
+        "2024": {},
+        "2025": {
+          "race": "64 mi",
+          "winner_female": "Erin Gordon",
+          "winner_male": "Benjamin Wright",
+          "winning_time_female": "4:48:29",
+          "winning_time_male": "3:31:18",
+          "source": "https://results.raceroster.com/v3/events/ks6729pfv99j4gd6/race/all/awards?filter_search="
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

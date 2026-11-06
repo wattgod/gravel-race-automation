@@ -11,7 +11,7 @@
       "location_badge": "VERNAL, UT",
       "county": "Uintah County",
       "date": "Late June annually",
-      "date_specific": "2026: June 28",
+      "date_specific": "2027: June 12 (Saturday, CONFIRMED — utahgravelseries.com)",
       "terrain_types": [
         "Utah desert",
         "Local event",
@@ -91,7 +91,7 @@
       "bottom_line": "A solid local Utah desert gravel race. Worth it for Utah/Mountain West riders. Not worth traveling for."
     },
     "final_verdict": {
-      "score": "41 / 100",
+      "score": "43 / 100",
       "one_liner": "Utah desert gravel challenge.",
       "should_you_race": "If you're local to Utah—yes, it's good value. If you're traveling—skip it.",
       "alternatives": "For better Utah races: Wasatch All-Road, Crusher in the Tushar.",
@@ -106,7 +106,7 @@
       "food": "Vernal has limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Dirty Dino website",
+      "official_site": "",
       "camping": "camping spots, dining in Vernal (Dinosaurland)"
     },
     "history": {
@@ -116,6 +116,18 @@
       "notable_moments": [],
       "reputation": "Local Utah event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-13",
+        "source": "https://www.webscorer.com/race?raceid=436157"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-14",
+        "source": "https://www.webscorer.com/race?raceid=394366"
+      }
+    ],
     "course_description": {
       "character": "Utah desert gravel.",
       "suffering_zones": [
@@ -325,6 +337,12 @@
     },
     "citations": [
       {
+        "url": "https://utahgravelseries.com/dirtydino",
+        "category": "official",
+        "label": "Utah Gravel Series: Dirty Dino 2027, June 12",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://ridewithgps.com/routes/47123599",
         "category": "route",
         "label": "RideWithGPS: 2026 Dirty Dino - Stegosaurus 60"
@@ -371,9 +389,25 @@
           "key_takeaways": [
             "Race history: New event starting June 18, 2022 per Gran Fondo Guide; part of Utah Gravel Series (second race in 2024 series); now Stop 5 in USA Cycling Junior Gravel National Series."
           ]
+        },
+        "2026": {
+          "race": "98 mi",
+          "winner_female": "Mackenzie Lemieux",
+          "winner_male": "Truman Glasgow",
+          "winning_time_female": "5:48:36.2",
+          "winning_time_male": "5:09:26.1",
+          "source": "https://www.webscorer.com/race?raceid=436157"
+        },
+        "2025": {
+          "race": "98 mi",
+          "winner_female": "Flavia Oliveira Parks",
+          "winner_male": "Nathan Spratt",
+          "winning_time_female": "6:05:57.7",
+          "winning_time_male": "5:12:23.8",
+          "source": "https://www.webscorer.com/race?raceid=394366"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

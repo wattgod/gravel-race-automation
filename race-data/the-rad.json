@@ -4,6 +4,10 @@
     "slug": "the-rad",
     "display_name": "The Rad Dirt Fest",
     "tagline": "113 miles through Trinidad's high desert and Spanish Peaks—long climbing, thin air, and a 31-mile unsupported stretch.",
+    "seo": {
+      "title": "The Rad Gravel Race {year} (Rad Dirt Fest): 113-Mile Guide",
+      "description": "The Rad Dirt Fest {year} in Trinidad, CO: 113 miles, 10,613 ft & a 31-mile unsupported gap. Course, cutoffs, tires & our {score}/100 rating."
+    },
     "vitals": {
       "distance_mi": 113,
       "elevation_ft": 10613,
@@ -11,7 +15,7 @@
       "location_badge": "TRINIDAD, COLORADO",
       "county": "Las Animas County",
       "date": "Late September annually",
-      "date_specific": "2026: September 26",
+      "date_specific": "2027: September 25 (Saturday, CONFIRMED — theraddirt.com); Life Time Grand Prix round",
       "terrain_types": [
         "Maintained high-desert gravel (more than 90%)",
         "Mostly rolling open roads",
@@ -125,6 +129,34 @@
       ],
       "reputation": "High-desert Colorado climbing race with stunning Spanish Peaks scenery. Long sustained climbs at altitude define the challenge."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-09-26",
+        "source": "https://sites.chronotrack.com/event/93518"
+      },
+      {
+        "year": 2025,
+        "date": "2025-09-27",
+        "source": "https://sites.chronotrack.com/event/84514"
+      },
+      {
+        "year": 2024,
+        "date": "2024-09-28",
+        "source": "https://www.cyclingwest.com/racing/gravel-racing/swenson-de-crescenzo-dominate-the-2024-rad-dirt-fest/"
+      },
+      {
+        "year": 2023,
+        "date": "2023-09-30",
+        "source": "https://sites.chronotrack.com/event/71971/results"
+      },
+      {
+        "year": 2022,
+        "edition": 2,
+        "note": "Second edition; flagship course was 165 miles.",
+        "source": "https://themtblab.com/2022/10/therad-dirt-fest-results.html"
+      }
+    ],
     "course_description": {
       "character": "A 113-mile altitude race on mostly maintained high-desert gravel. The organizer advertises 10,613 feet of gain and an 8,921-foot high point; its linked route file currently reports about 8,274 feet of gain.",
       "suffering_zones": [
@@ -376,6 +408,16 @@
         "url": "https://www.elevationoutdoors.com/go-outside/why-the-rad-dirt-fest-is-rad-and-the-gear-that-helped-get-the-job-done/",
         "category": "other",
         "label": "Elevationoutdoors"
+      },
+      {
+        "url": "https://theraddirt.com/",
+        "category": "official",
+        "label": "The Rad Dirt Fest: 2027 date"
+      },
+      {
+        "url": "https://endurance.biz/2026/industry-news/life-time-grand-prix-unveils-2027-qualification-format-and-calendar/",
+        "category": "media",
+        "label": "endurance.biz: 2027 Life Time Grand Prix calendar"
       }
     ],
     "tire_recommendations": {
@@ -762,9 +804,52 @@
         "gif": true
       }
     ],
-    "seo": {
-      "title": "The Rad Gravel Race 2026 (Rad Dirt Fest): 113-Mile Guide",
-      "description": "The Rad Dirt Fest is Sat, Sept 26, 2026 in Trinidad, CO: 113 miles, 10,613 ft & a 31-mile unsupported gap. Course, cutoffs, tires & our 69/100 rating."
+    "series": {
+      "id": "life-time-grand-prix",
+      "name": "Life Time Grand Prix"
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "110 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "Torbjørn Røed",
+          "winning_time_female": "6:09:58",
+          "winning_time_male": "5:03:06",
+          "source": "https://sites.chronotrack.com/event/93518"
+        },
+        "2025": {
+          "race": "110 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "Cole Davis",
+          "winning_time_female": "6:01:45",
+          "winning_time_male": "5:24:53",
+          "source": "https://www.cyclingnews.com/news/lauren-de-crescenzo-wins-fourth-rad-dirt-fest-while-cole-davis-takes-surprise-victory-unbound-gravel-lottery-and-bwr-registrations-open-soon/"
+        },
+        "2024": {
+          "race": "110 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "Keegan Swenson",
+          "source": "https://www.cyclingwest.com/racing/gravel-racing/swenson-de-crescenzo-dominate-the-2024-rad-dirt-fest/"
+        },
+        "2023": {
+          "race": "112 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "Alexey Vermeulen",
+          "winning_time_female": "5:52:17",
+          "winning_time_male": "5:05:29",
+          "source": "https://sites.chronotrack.com/event/71971/results"
+        },
+        "2022": {
+          "race": "165 mi",
+          "winner_female": "Emma Grant",
+          "winner_male": "John Keller",
+          "winning_time_female": "9:10:16",
+          "winning_time_male": "8:05:15",
+          "source": "https://themtblab.com/2022/10/therad-dirt-fest-results.html"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

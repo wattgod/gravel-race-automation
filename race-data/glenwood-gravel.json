@@ -11,7 +11,7 @@
       "location_badge": "GLENWOOD, IA",
       "county": "Mills County",
       "date": "Early August annually",
-      "date_specific": "2026: August 10",
+      "date_specific": "2026: August 8 (Saturday; iowagravelseries.com)",
       "terrain_types": [
         "Iowa rolling",
         "Local event",
@@ -106,15 +106,23 @@
       "food": "Glenwood has limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Glenwood Gravel website"
+      "official_site": ""
     },
     "history": {
-      "founded": null,
+      "founded": 2020,
       "founder": "Local Iowa organizers",
       "origin_story": "Local Iowa gravel event.",
       "notable_moments": [],
       "reputation": "Local Iowa event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-08-09",
+        "note": "Moved from September to August",
+        "source": "https://www.movemint.cc/events/glenwood_gravel_2025"
+      }
+    ],
     "course_description": {
       "character": "Iowa rolling gravel.",
       "suffering_zones": [
@@ -707,6 +715,19 @@
         "credit": "YouTube / Iowa Gravel Series",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "100 km",
+          "winner_female": "Karmen Woelber",
+          "winner_male": "Jonathan Wait",
+          "winning_time_female": "3:19:00",
+          "winning_time_male": "2:58:46",
+          "source": "https://iowagravelseries.com/glenwood/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

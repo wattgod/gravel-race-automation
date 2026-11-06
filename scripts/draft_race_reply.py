@@ -34,6 +34,9 @@ ROAD_ROOT = GRAVEL_ROOT.parent / "road-race-automation"
 
 sys.path.insert(0, str(GRAVEL_ROOT / "scripts"))
 from generate_race_dates import parse_date_specific  # noqa: E402
+sys.path.append(str(GRAVEL_ROOT / "wordpress"))
+from season import edition_year, season_year  # noqa: E402
+from season import today as season_today  # noqa: E402
 
 BRANDS = {
     "gravel": {"root": GRAVEL_ROOT, "site": "https://gravelgodcycling.com",
@@ -102,7 +105,7 @@ def race_facts(path: Path, site: str) -> dict:
     iso = parse_date_specific(vitals.get("date_specific"))
     weeks = None
     if iso:
-        weeks = (date.fromisoformat(iso) - date.today()).days / 7
+        weeks = (date.fromisoformat(iso) - season_today()).days / 7
     return {
         "name": d.get("name", path.stem),
         "slug": path.stem,
@@ -110,6 +113,8 @@ def race_facts(path: Path, site: str) -> dict:
         "date_iso": iso,
         "date_text": vitals.get("date_specific") or vitals.get("date") or "date TBD",
         "weeks_out": weeks,
+        # The race's next edition year: stored when known, else the season.
+        "next_year": edition_year(vitals.get("date_specific")) or season_year(),
         "distance": vitals.get("distance_mi"),
         "elevation": vitals.get("elevation_ft"),
         "score": rating.get("overall_score"),
@@ -132,7 +137,7 @@ def draft(f: dict, first_name: str, plans_url: str) -> str:
         body = f"""Good choice digging into {f['name']} — the full profile is here:
 {f['url']}
 
-I don't have a confirmed {date.today().year} date for it yet, so the honest runway math
+I don't have a confirmed {f.get('next_year') or season_year()} date for it yet, so the honest runway math
 will have to wait until the organizers commit. Reply once you're registered and I'll
 tell you exactly what your weeks are best spent on."""
     elif w < 0:

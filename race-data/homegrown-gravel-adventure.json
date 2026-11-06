@@ -96,7 +96,7 @@
       "should_you_race": "Race it if you want a demanding early-season century with real climbing, mixed surfaces, and a grassroots finish-line culture. Skip it if you need a finalized route months in advance or want big-city logistics at the start line.",
       "alternatives": "For better Southeast events: Gravel Worlds, Pisgah Monster-Cross, Hot Springs Gravel Gauntlet. For similar regional events: other Georgia gravel races.",
       "alternative_slugs": [
-        "garmin-gravel-worlds",
+        "gravel-worlds",
         "hot-springs-gravel-gauntlet"
       ]
     },
@@ -116,6 +116,14 @@
       "notable_moments": [],
       "reputation": "Regional Georgia event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-02-28",
+        "note": "Opening 1.5 miles of gravel rerouted after Chattahoochee River flooding.",
+        "source": "https://www.inkl.com/news/bounced-off-barbed-wire-lauren-de-crescenzo-escapes-serious-injury-but-goes-runner-up-to-emily-newsom-at-homegrown-gravel-in-georgia"
+      }
+    ],
     "course_description": {
       "character": "A 100-mile border-country course with 8,500 feet of climbing and roughly 40 gravel segments spanning pavé, gravel, dirt, sand, and streams. The organizer has not yet published the final 2027 route, so exact segment locations and mile markers remain unclaimed.",
       "suffering_zones": [],
@@ -706,6 +714,17 @@
         "credit": "YouTube / Michael Lambert",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "100 mi",
+          "winner_female": "Emily Newsom",
+          "winning_time_female": "5:34:10",
+          "source": "https://www.inkl.com/news/bounced-off-barbed-wire-lauren-de-crescenzo-escapes-serious-injury-but-goes-runner-up-to-emily-newsom-at-homegrown-gravel-in-georgia"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

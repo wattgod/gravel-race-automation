@@ -51,6 +51,13 @@ from pricing import MIN_WEEKS, PRICE_PER_WEEK
 from page_dates import race_updated_date
 from fact_consistency import check_race
 from race_calculator import build_race_calculator, get_race_calculator_css, race_calculator_context
+from season import UPCOMING, edition_display, edition_state, edition_year, parse_edition
+from season import today as season_today
+from generate_race_recap import has_results, newest_results_year
+
+sys.path.append(str(Path(__file__).resolve().parent.parent / "scripts"))
+from race_facts import edition_event_status, may_estimate, organizer_type  # noqa: E402
+from race_editions import STATUSES as EDITION_STATUSES, ordinal, rows as edition_rows  # noqa: E402
 
 # ── Constants ──────────────────────────────────────────────────
 
@@ -326,16 +333,50 @@ SEO_TITLE_MAX_CHARS = 60
 SEO_DESCRIPTION_MAX_CHARS = 155
 
 
+def _fill_seo_placeholders(text: str, rd: dict) -> str:
+    """Resolve ``{year}`` and ``{score}`` in a per-race SEO override.
+
+    ``{year}`` is the next edition's year, as in the default title; when it
+    is unknown the token and the space before it are dropped
+    ("Salida 76 {year}: Course" -> "Salida 76: Course"). ``{score}`` is the
+    current overall score. Overrides use these instead of literal years and
+    scores, which go stale (tests/test_seo_overrides.py).
+    """
+    if "{year}" in text:
+        year = edition_year(rd.get('vitals', {}).get('date_specific'),
+                            project=may_estimate(rd))
+        text = (text.replace("{year}", str(year)) if year
+                else re.sub(r"\s*\{year\}", "", text))
+    if "{score}" in text:
+        text = text.replace("{score}", str(rd.get('overall_score', '')))
+    return text
+
+
 def _validated_seo_override(rd: dict, field: str, max_chars: int) -> str:
     """Return a per-race SEO override, enforcing the search-snippet charter."""
     raw_value = rd.get("seo", {}).get(field, "")
     value = "" if raw_value is None else str(raw_value).strip()
+    value = _fill_seo_placeholders(value, rd) if value else value
     if value and len(value) > max_chars:
         raise ValueError(
             f"{rd.get('slug', 'unknown')}: seo.{field} is {len(value)} chars "
             f"(maximum {max_chars})"
         )
     return value
+
+
+def _location_tail(location: str) -> str:
+    """Last comma-separated part of ``location`` outside any parentheses."""
+    parts, depth, current = [], 0, ''
+    for ch in str(location or ''):
+        depth += (ch == '(') - (ch == ')' and depth > 0)
+        if ch == ',' and depth == 0:
+            parts.append(current)
+            current = ''
+        else:
+            current += ch
+    parts.append(current)
+    return parts[-1].strip()
 
 
 def build_seo_title(rd: dict) -> str:
@@ -350,22 +391,20 @@ def build_seo_title(rd: dict) -> str:
 
     name = rd['name']
     location = rd['vitals'].get('location', '') or ''
-    date_text = ' '.join(
-        str(rd['vitals'].get(field, '') or '')
-        for field in ('date_specific', 'date')
-    )
-    year_match = re.search(r'\b(20\d{2})\b', date_text)
-    review_year = year_match.group(1) if year_match else CURRENT_YEAR
-    # Extract just state/country from full location like "Emporia, Kansas"
-    loc_short = location.split(',')[-1].strip() if ',' in location else location
+    # The next edition's year (stored or estimated); never a past year.
+    year = edition_year(rd['vitals'].get('date_specific'), project=may_estimate(rd))
+    review = f"{name} Review {year}" if year else f"{name} Review"
+    # Just state/country from "Emporia, Kansas"; commas inside parentheses
+    # ("Global (HQ: Girona, Spain)") do not split.
+    loc_short = _location_tail(location)
 
     # Try full format first
-    full = f"{name} Review {review_year} | {loc_short} | Gravel God"
-    if len(full) <= SEO_TITLE_MAX_CHARS:
+    full = f"{review} | {loc_short} | Gravel God"
+    if loc_short and len(full) <= SEO_TITLE_MAX_CHARS:
         return full
 
     # Drop location if too long
-    medium = f"{name} Review {review_year} | Gravel God"
+    medium = f"{review} | Gravel God"
     if len(medium) <= SEO_TITLE_MAX_CHARS:
         return medium
 
@@ -426,8 +465,9 @@ def build_seo_description(rd: dict) -> str:
         if clause_break <= 30 and truncated:
             words = truncated.split()
             dangling = {
-                'a', 'an', 'and', 'at', 'but', 'for', 'has', 'in', 'no', 'of',
-                'on', 'or', 'the', 'to', 'with',
+                'a', 'across', 'an', 'and', 'at', 'but', 'by', 'for', 'from',
+                'has', 'in', 'into', 'no', 'of', 'on', 'or', 'the', 'through',
+                'to', 'with',
             }
             while len(words) > 1 and words[-1].lower() in dangling:
                 words.pop()
@@ -923,6 +963,11 @@ def normalize_race_data(data: dict) -> dict:
         short_date = f"{date_part}, {year}"
     elif source_blocked:
         short_date = vitals.get('date', '')
+    # Past or estimated editions say so instead of passing as confirmed.
+    edition_note = (edition_display(date_specific, project=may_estimate(race))
+                    if date_specific else None)
+    if edition_note:
+        short_date = edition_note
 
     # Parse entry cost from registration string, then fallback to rating explanations
     reg = vitals.get('registration', '')
@@ -960,6 +1005,8 @@ def normalize_race_data(data: dict) -> dict:
     return {
         'taking_a_break': race.get('taking_a_break'),
         'calculator': race_calculator_context(race),
+        'results': race.get('results') or {},
+        'editions': race.get('editions') or [],
         'race_plan_eligible': eligibility.get('race_plan_eligible', True),
         'eligibility': eligibility,
         'name': race.get('display_name') or race.get('name', 'Unknown Race'),
@@ -986,7 +1033,8 @@ def normalize_race_data(data: dict) -> dict:
         'vitals': {
             'distance': f"{vitals.get('distance_mi', '--')} mi" if vitals.get('distance_mi') else '--',
             'distance_mi': vitals.get('distance_mi', 0),
-            'elevation': f"{vitals.get('elevation_ft'):,} ft" if isinstance(vitals.get('elevation_ft'), (int, float)) else '--',
+            # 0 ft is "unknown" in the data, never a real climbing total.
+            'elevation': f"{vitals.get('elevation_ft'):,} ft" if isinstance(vitals.get('elevation_ft'), (int, float)) and vitals.get('elevation_ft') > 0 else '--',
             'course_status': vitals.get('course_status', ''),
             'course_status_label': vitals.get('course_status_label', ''),
             'course_status_reason': vitals.get('course_status_reason', ''),
@@ -994,6 +1042,7 @@ def normalize_race_data(data: dict) -> dict:
             'location_badge': vitals.get('location_badge', vitals.get('location', '--')),
             'date': short_date or vitals.get('date', '--'),
             'date_specific': date_specific,
+            'edition_note': edition_note or '',
             'field_size': field_size_short,
             'field_size_raw': field_size_raw,
             'entry_cost': entry_cost,
@@ -2639,6 +2688,10 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
     # No parseable date → skip SportsEvent entirely
     if not start_date:
         return None
+    # Ranges with weekday notes ("April 30 (Fri) - May 2 (Sun)")
+    edition_end = parse_edition(date_specific).end_date
+    if edition_end and edition_end.isoformat() > end_date:
+        end_date = edition_end.isoformat()
 
     jsonld = {
         "@context": "https://schema.org",
@@ -2649,12 +2702,15 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
             rd.get("discipline", "gravel"),
             "Gravel Cycling",
         ),
-        "eventStatus": ("https://schema.org/EventPostponed"
-                        if rd.get('taking_a_break') else "https://schema.org/EventScheduled"),
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "startDate": start_date,
         "endDate": end_date,
     }
+
+    # Scheduled only for an upcoming edition; a past one is history.
+    status = edition_event_status(rd)
+    if status:
+        jsonld["eventStatus"] = status
 
     # Location with PostalAddress — detect country from location string
     location = rd['vitals'].get('location', '')
@@ -2690,7 +2746,7 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
     founder = rd.get('history', {}).get('founder', '')
     official_site = rd['logistics'].get('official_site', '')
     if founder and not founder.endswith('organizers') and founder != 'Unknown':
-        org = {"@type": "Person", "name": founder}
+        org = {"@type": organizer_type(founder), "name": founder}
         if official_site and official_site.startswith('http'):
             org["url"] = official_site
         jsonld["organizer"] = org
@@ -2797,6 +2853,20 @@ def build_faq_jsonld(rd: dict) -> Optional[dict]:
 
 # ── Phase 3: Section Builders ─────────────────────────────────
 
+def upcoming_race_start(date_specific) -> str | None:
+    """ISO start date of the next edition, or None when it has passed or is undated.
+
+    The one gate for anything that counts down to race day: countdowns,
+    weeks-to-race, plan start dates, reminders. A past edition never drives one.
+    """
+    if not date_specific or edition_state(date_specific) != UPCOMING:
+        return None
+    start, _end = parse_event_dates(date_specific)
+    if not start or start < season_today().isoformat():
+        return None
+    return start
+
+
 def build_hero(rd: dict) -> str:
     """Build clean editorial hero — race name + score masthead."""
     score = rd['overall_score']
@@ -2824,7 +2894,7 @@ def build_hero(rd: dict) -> str:
     month = vitals.get('month', '')
     date_specific = vitals.get('date_specific', '')
     if date_specific:
-        parts.append(esc(date_specific))
+        parts.append(esc(vitals.get('edition_note') or date_specific))
     elif month:
         parts.append(esc(month))
     vitals_line = " &middot; ".join(parts)
@@ -2905,6 +2975,8 @@ def build_toc(active_sections=None) -> str:
     all_links = [
         ('course', '01 Course Overview'),
         ('history', '02 Facts &amp; History'),
+        ('editions', 'Editions'),
+        ('results', 'Results'),
         ('route', '03 The Course'),
         ('from-the-field', '04 From the Field'),
         ('ratings', '05 The Ratings'),
@@ -3019,7 +3091,8 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
     # Calendar export — Google Calendar link + .ics download
     cal_html = ''
     date_specific = v.get('date_specific', '')
-    cal_start, cal_end = parse_event_dates(date_specific)
+    cal_start, cal_end = (parse_event_dates(date_specific)
+                          if upcoming_race_start(date_specific) else (None, None))
 
     if cal_start:
         iso_date = cal_start.replace('-', '')
@@ -3085,7 +3158,10 @@ def build_history(rd: dict) -> str:
     origin = h.get('origin_story', '').strip()
     is_stub_origin = len(origin) < 60 and origin.endswith(('event.', 'race.', 'community.'))
     if origin and not is_stub_origin:
-        founded = f" Founded in {h['founded']}." if h.get('founded') else ''
+        # Only a stated year ("2016", "2016 (UCI status since 2018)"), never
+        # a placeholder like "DATA NOT FOUND" or a guess like "~2019".
+        founded_raw = str(h.get('founded') or '').strip()
+        founded = f" Founded in {founded_raw}." if re.match(r'(19|20)\d{2}\b', founded_raw) else ''
         # Suppress generic "X organizers" founder text
         founder_text = h.get('founder', '')
         founder = f" By {founder_text}." if founder_text and founder_text != 'Unknown' and not founder_text.endswith('organizers') else ''
@@ -3115,6 +3191,139 @@ def build_history(rd: dict) -> str:
       <summary>Facts &amp; History</summary>
       <div class="gg-history-body">{body}</div>
     </details>'''
+
+
+def _edition_dates(entry: dict) -> str:
+    """'Sep 12', 'Sep 12–13' or 'Jun 30 – Jul 2' (the year has its own column)."""
+    start = date.fromisoformat(entry['date'])
+    text = f"{start:%b} {start.day}"
+    if entry.get('end_date'):
+        end = date.fromisoformat(entry['end_date'])
+        text += f"\u2013{end.day}" if end.month == start.month else f" \u2013 {end:%b} {end.day}"
+    return text
+
+
+RECENT_TABLE_ROWS = 10
+
+
+def _table_with_earlier(table_class: str, head: str, rows: list[str], years: list[int],
+                        what: str) -> str:
+    """The newest RECENT_TABLE_ROWS rows in the table; older ones in a disclosure below it.
+
+    ``rows`` and ``years`` run newest first. A native <details> needs no JS.
+    """
+    def table(part):
+        body = '\n        '.join(part)
+        return (f'<table class="{table_class}">\n        <thead><tr>{head}</tr></thead>\n'
+                f'        <tbody>\n        {body}\n        </tbody>\n      </table>')
+    html = table(rows[:RECENT_TABLE_ROWS])
+    older = years[RECENT_TABLE_ROWS:]
+    if older:
+        html += (f'\n      <details class="gg-earlier-rows">\n'
+                 f'        <summary>Earlier {what}: {older[-1]}&ndash;{older[0]}</summary>\n'
+                 f'      {table(rows[RECENT_TABLE_ROWS:])}\n      </details>')
+    return html
+
+
+def build_editions(rd: dict) -> str:
+    """Build the Editions section: every edition on record, newest first.
+
+    Rows come from ``race.editions`` plus what ``date_specific`` confirms.
+    Estimates never appear. Renders nothing with fewer than two rows.
+    """
+    rows = edition_rows({'vitals': {'date_specific': rd['vitals'].get('date_specific')},
+                         'editions': rd.get('editions') or []})
+    if len(rows) < 2:
+        return ''
+    show_notes = any(r.get('note') or r.get('edition') for r in rows)
+    body = []
+    for r in rows:
+        if r.get('status'):
+            when = f'<span class="gg-editions-status">{esc(EDITION_STATUSES[r["status"]])}</span>'
+        elif r.get('date'):
+            when = esc(_edition_dates(r))
+        else:
+            when = '&mdash;'
+        if r.get('source'):
+            when = f'<a href="{esc(r["source"])}" target="_blank" rel="noopener">{when}</a>'
+        cells = f'<th scope="row" class="gg-results-year">{r["year"]}</th><td class="gg-editions-date">{when}</td>'
+        if show_notes:
+            parts = []
+            if r.get('edition'):
+                parts.append(f"{ordinal(r['edition'])} edition")
+            if r.get('note'):
+                parts.append(r['note'])
+            cells += f'<td>{esc(" · ".join(parts))}</td>'
+        body.append(f'<tr>{cells}</tr>')
+    note_head = '<th scope="col">Notes</th>' if show_notes else ''
+    tables = _table_with_earlier(
+        'gg-results-table gg-editions-table',
+        f'<th scope="col">Year</th><th scope="col">Date</th>{note_head}',
+        body, [r['year'] for r in rows], 'editions')
+    return f'''<section id="editions" class="gg-section gg-fade-section">
+    <div class="gg-section-header">
+      <h2 class="gg-section-title">Editions</h2>
+    </div>
+    <div class="gg-section-body">
+      {tables}
+    </div>
+  </section>'''
+
+
+def _results_cell(name, time) -> str:
+    """One winner cell: name, then time when known. Empty values stay empty."""
+    if name is None or str(name).strip() == '':
+        return '<td>&mdash;</td>'
+    time_html = ''
+    if time is not None and str(time).strip() != '':
+        time_html = f'<span class="gg-results-time">{esc(time)}</span>'
+    return f'<td><span class="gg-results-name">{esc(name)}</span>{time_html}</td>'
+
+
+def build_results(rd: dict) -> str:
+    """Build the Results section: one row per year with winners, newest first.
+
+    Renders nothing when no year has a winner (no empty heading).
+    """
+    if newest_results_year(rd) is None:
+        return ''
+    results = rd.get('results') or {}
+    years = results.get('years') or {}
+    by_year = {int(str(y).strip()): data for y, data in years.items()
+               if str(y).strip().isdigit()}
+    rows = []
+    row_years = []
+    for year in sorted(by_year, reverse=True):
+        if not has_results(rd, year):
+            continue
+        row_years.append(year)
+        data = by_year[year] or {}
+        label = data.get('race')
+        label_html = ''
+        if label is not None and str(label).strip() != '':
+            label_html = f'<span class="gg-results-race">{esc(label)}</span>'
+        rows.append(
+            f'<tr><th scope="row" class="gg-results-year">{year}{label_html}</th>'
+            f'{_results_cell(data.get("winner_female"), data.get("winning_time_female"))}'
+            f'{_results_cell(data.get("winner_male"), data.get("winning_time_male"))}</tr>'
+        )
+    note = results.get('note')
+    note_html = ''
+    if note is not None and str(note).strip() != '':
+        note_html = f'<p class="gg-results-note">{esc(note)}</p>'
+    tables = _table_with_earlier(
+        'gg-results-table',
+        '<th scope="col">Year</th><th scope="col">Women</th><th scope="col">Men</th>',
+        rows, row_years, 'results')
+    return f'''<section id="results" class="gg-section gg-fade-section">
+    <div class="gg-section-header">
+      <h2 class="gg-section-title">Results</h2>
+    </div>
+    <div class="gg-section-body">
+      {tables}
+      {note_html}
+    </div>
+  </section>'''
 
 
 def _build_riders_report(groups: list[tuple[list[dict], str]]) -> str:
@@ -3709,7 +3918,7 @@ def build_training(rd: dict) -> str:
     # Race date countdown — parsed from date_specific
     countdown_html = ''
     date_specific = rd['vitals'].get('date_specific', '')
-    cd_start, _cd_end = parse_event_dates(date_specific)
+    cd_start = upcoming_race_start(date_specific)
     if cd_start:
         # Reconstruct display date from ISO for no-JS/crawlers
         parts = cd_start.split('-')
@@ -3742,7 +3951,7 @@ def build_training(rd: dict) -> str:
         official_link = (
             f'<a href="{esc(official_site)}" class="gg-btn gg-btn--outline" '
             f'target="_blank" rel="noopener">CHECK OFFICIAL UPDATES</a>'
-            if official_site else ''
+            if str(official_site).startswith('http') else ''
         )
         return f'''<section id="training" class="gg-section gg-fade-section">
     <div class="gg-section-header">
@@ -4109,7 +4318,7 @@ def build_training_intelligence(rd: dict) -> str:
     race_name = rd['name']
     countdown_html = ''
     date_specific = rd['vitals'].get('date_specific', '')
-    cd_start, _cd_end = parse_event_dates(date_specific)
+    cd_start = upcoming_race_start(date_specific)
     if cd_start:
         parts = cd_start.split('-')
         month_names = {v: k.capitalize() for k, v in MONTH_NUMBERS.items()}
@@ -5247,7 +5456,7 @@ def build_prep_strip(rd: dict) -> str:
         f' <strong>{esc(v)}/10</strong></span>'
         for k, v in top3)
 
-    cd_start, _ = parse_event_dates(rd['vitals'].get('date_specific', ''))
+    cd_start = upcoming_race_start(rd['vitals'].get('date_specific', ''))
     date_attr = f' data-race-date="{esc(cd_start)}"' if cd_start else ''
 
     plan_url = f"{TRAINING_PLANS_URL}?race={esc(slug)}"
@@ -5465,7 +5674,8 @@ def build_train_for_race(
     race_data_js = {
         'slug': slug,
         'race_name': race_name,
-        'date_specific': rd['vitals'].get('date_specific', ''),
+        'date_specific': (rd['vitals'].get('date_specific', '')
+                          if upcoming_race_start(rd['vitals'].get('date_specific', '')) else ''),
         'distance_mi': distance_mi,
     }
     race_data_json = _safe_json_for_script(race_data_js, ensure_ascii=False, separators=(',', ':'))
@@ -5951,7 +6161,7 @@ def build_email_capture(rd: dict) -> str:
     """Build email capture section — prep kit CTA + Substack subscribe."""
     slug = esc(rd["slug"])
     name = esc(rd["name"])
-    race_date, _ = parse_event_dates(rd['vitals'].get('date_specific', ''))
+    race_date = upcoming_race_start(rd['vitals'].get('date_specific', ''))
     reminder_opt_in = ''
     if race_date:
         reminder_opt_in = f'''<button type="button" class="gg-date-reminder-opt-in" id="gg-date-reminder-opt-in"
@@ -5984,7 +6194,7 @@ def build_email_capture(rd: dict) -> str:
 def build_date_reminder(rd: dict) -> str:
     """Build race date reminder capture — drives return visits 12 weeks before race."""
     date_specific = rd['vitals'].get('date_specific', '')
-    cd_start, _ = parse_event_dates(date_specific)
+    cd_start = upcoming_race_start(date_specific)
     if not cd_start:
         return ''
 
@@ -7051,6 +7261,19 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-logistics-item {{ border: var(--gg-border-subtle); padding: 12px; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-logistics-item-label {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); margin-bottom: var(--gg-spacing-2xs); }}
 .gg-neo-brutalist-page .gg-logistics-item-value {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-dark-brown); line-height: 1.5; }}
+.gg-neo-brutalist-page .gg-results-table {{ width: 100%; border-collapse: collapse; border: var(--gg-border-standard); }}
+.gg-neo-brutalist-page .gg-results-table th, .gg-neo-brutalist-page .gg-results-table td {{ padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-results-table thead th {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); background: var(--gg-color-warm-paper); border-bottom: var(--gg-border-standard); }}
+.gg-neo-brutalist-page .gg-results-year {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; color: var(--gg-color-dark-brown); white-space: nowrap; }}
+.gg-neo-brutalist-page .gg-results-race {{ display: block; font-size: var(--gg-font-size-2xs); font-weight: 400; color: var(--gg-color-secondary-brown); white-space: normal; }}
+.gg-neo-brutalist-page .gg-results-name {{ display: block; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-results-time {{ display: block; font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-variant-numeric: tabular-nums; color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-editions-date {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-variant-numeric: tabular-nums; color: var(--gg-color-dark-brown); white-space: nowrap; }}
+.gg-neo-brutalist-page .gg-editions-date a {{ color: inherit; }}
+.gg-neo-brutalist-page .gg-earlier-rows {{ margin-top: 12px; }}
+.gg-neo-brutalist-page .gg-earlier-rows summary {{ padding: 12px 0; cursor: pointer; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-editions-status {{ font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-results-note {{ margin-top: var(--gg-spacing-sm); font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); line-height: 1.5; }}
 
 /* Riders Report callout */
 .gg-neo-brutalist-page .gg-riders-report {{ border-left: 3px solid var(--gg-color-teal); padding: var(--gg-spacing-md) var(--gg-spacing-lg); margin-top: var(--gg-spacing-lg); background: var(--gg-color-warm-paper); }}
@@ -7272,6 +7495,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-neo-brutalist-page .gg-stat-grid {{ grid-template-columns: repeat(2, 1fr); }}
   .gg-neo-brutalist-page .gg-verdict-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-logistics-grid {{ grid-template-columns: 1fr; }}
+  .gg-neo-brutalist-page .gg-results-table th, .gg-neo-brutalist-page .gg-results-table td {{ padding: 8px; }}
+  .gg-neo-brutalist-page .gg-results-year {{ white-space: normal; }}
   .gg-neo-brutalist-page .gg-rating-panel {{ grid-template-columns: 1fr; grid-template-areas: 'summary' 'radar' 'tiles' 'detail'; }}
   .gg-neo-brutalist-page .gg-training-secondary {{ flex-direction: column; text-align: center; }}
   .gg-neo-brutalist-page .gg-pack-demand-label {{ font-size: 11px; }}
@@ -7514,6 +7739,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     hero = build_hero(rd)
     course_overview = build_course_overview(rd, race_index)
     history = build_history(rd)
+    editions_sec = build_editions(rd)
+    results_sec = build_results(rd)
     course_route = build_course_route(rd)
     from_the_field = build_from_the_field(rd)
     ratings = build_ratings(rd)
@@ -7547,6 +7774,10 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         active.add('training')
     if history:
         active.add('history')
+    if editions_sec:
+        active.add('editions')
+    if results_sec:
+        active.add('results')
     if course_route:
         active.add('route')
     if from_the_field:
@@ -7587,7 +7818,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     spine = '\n\n  '.join(section for section in spine_sections if section)
 
     deep_sections = []
-    for section in [course_overview, history, course_route, from_the_field,
+    for section in [course_overview, history, editions_sec, results_sec, course_route, from_the_field,
                     racer_reviews, training, train_for_race, race_calculator, logistics_sec,
                     tire_picks, news, similar, visible_faq, citations_sec]:
         if section:

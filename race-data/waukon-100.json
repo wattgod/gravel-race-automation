@@ -96,7 +96,7 @@
       "should_you_race": "If you're local to Iowa—yes, it's solid. If you're traveling—skip it.",
       "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI.",
       "alternative_slugs": [
-        "garmin-gravel-worlds"
+        "gravel-worlds"
       ]
     },
     "logistics": {
@@ -105,7 +105,7 @@
       "food": "Waukon has limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Waukon 100 website"
+      "official_site": ""
     },
     "history": {
       "founded": null,
@@ -114,6 +114,13 @@
       "notable_moments": [],
       "reputation": "Local Iowa event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-06-21",
+        "source": "https://www.movemint.cc/series/iowa_gravel_series_2025"
+      }
+    ],
     "course_description": {
       "character": "Iowa rolling gravel.",
       "suffering_zones": [
@@ -680,6 +687,19 @@
         "credit": "YouTube / Iowa Gravel Series",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "100 km",
+          "winner_female": "Maggie Fournier",
+          "winner_male": "Mitch Brekke",
+          "winning_time_female": "4:00:16",
+          "winning_time_male": "3:08:57",
+          "source": "https://iowagravelseries.com/waukon-100/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

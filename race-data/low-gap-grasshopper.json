@@ -169,6 +169,24 @@
         "Alex Wild and Jen Tavé won the 2026 elite races."
       ]
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-01-25",
+        "note": "Added a short course; start moved to Masonite Road.",
+        "source": "https://www.grasshopperadventureseries.com/low-gap"
+      },
+      {
+        "year": 2025,
+        "date": "2025-01-26",
+        "source": "https://www.cyclingnews.com/news/harsh-weather-accompanies-us-gravel-season-openers-at-low-gap-and-old-man-winter-gallery/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-01-27",
+        "source": "https://www.cyclingnews.com/races/grasshopper-adventure-series-2024/low-gap-hopper-1/results/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "A short-on-paper, hard-in-practice private-road opener with enough climbing and winter uncertainty to expose lazy preparation.",
       "who_is_it_for": "Gravel racers who want dense climbing, fast dirt handling, and a strong Northern California competitive field without committing to an ultra-distance event.",
@@ -225,6 +243,43 @@
       "sources": [
         "https://www.grasshopperadventureseries.com/low-gap"
       ]
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "59 mi",
+          "winner_female": "Jen Tave",
+          "winner_male": "Alex Wild",
+          "winning_time_female": "3:36:42",
+          "winning_time_male": "3:13:47",
+          "source": "https://granfondodailynews.com/2026/02/01/low-gap-gravel-results-alex-wild-cleans-up-at-mucky-california-grasshopper-series/"
+        },
+        "2025": {
+          "race": "47 mi",
+          "winner_female": "Kate Courtney",
+          "winner_male": "Peter Stetina",
+          "winning_time_female": "2:49:36",
+          "winning_time_male": "2:33:00",
+          "source": "https://www.cyclingnews.com/news/harsh-weather-accompanies-us-gravel-season-openers-at-low-gap-and-old-man-winter-gallery/"
+        },
+        "2024": {
+          "race": "48 mi",
+          "winner_female": "Kate Courtney",
+          "winner_male": "Christopher Blevins",
+          "winning_time_female": "2:52:02",
+          "winning_time_male": "2:28:40",
+          "source": "https://www.cyclingnews.com/races/grasshopper-adventure-series-2024/low-gap-hopper-1/results/"
+        },
+        "2023": {
+          "race": "44 mi",
+          "winner_female": "Kate Courtney",
+          "winner_male": "Peter Stetina",
+          "winning_time_female": "2:49:07",
+          "winning_time_male": "2:20:36",
+          "source": "https://www.cyclingnews.com/news/stetina-opens-gravel-season-with-victory-at-grasshopper-adventure-first-stop/"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

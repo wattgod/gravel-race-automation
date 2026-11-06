@@ -5,6 +5,7 @@
   "description": "Western Canada's oldest gravel fondo on the Kettle Valley Rail Trail.",
   "sport": "Gravel Cycling",
   "startDate": "2027-06-19",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Princeton, British Columbia, Canada",
@@ -20,8 +21,10 @@
     "priceCurrency": "USD",
     "availability": "https://schema.org/LimitedAvailability"
   },
+  "url": "https://kettlemettle.ca",
   "organizer": {
-    "@type": "Person",
-    "name": "Tri 1 Events"
+    "@type": "Organization",
+    "name": "Tri 1 Events",
+    "url": "https://kettlemettle.ca"
   }
 }

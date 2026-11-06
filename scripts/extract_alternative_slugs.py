@@ -38,7 +38,7 @@ ALIASES = {
     'leadville 100': 'leadville-100',
     'sbt grvl': 'sbt-grvl',
     'tour divide': 'tour-divide',
-    'gravel worlds': 'garmin-gravel-worlds',
+    'gravel worlds': 'gravel-worlds',
     'barry-roubaix': 'barry-roubaix',
     'crusher in the tushar': 'crusher-in-the-tushar',
 }

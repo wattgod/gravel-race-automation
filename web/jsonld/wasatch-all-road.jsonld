@@ -4,7 +4,8 @@
   "name": "Wasatch All-Road",
   "description": "Northern Utah mountain gravel in Wasatch Range near Park City.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-08-29",
+  "startDate": "2027-09-11",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Heber City, Utah",
@@ -22,7 +23,7 @@
   },
   "url": "https://utahgravelseries.com/wasatchallroad",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Jeff Louder (retired pro, 2008 Tour of Utah winner); revived and now run under the Utah Gravel Series (co-founded by Breanne Nalder Harward), which launched in 2022",
     "url": "https://utahgravelseries.com/wasatchallroad"
   }

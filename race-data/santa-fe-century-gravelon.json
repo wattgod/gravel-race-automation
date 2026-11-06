@@ -112,6 +112,14 @@
       "notable_moments": [],
       "reputation": "Regional NM event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-05-17",
+        "note": "Gravelon added in 2022 as a gravel alternative to routes along Interstate 25",
+        "source": "https://fltresults.com/event-summary/343"
+      }
+    ],
     "course_description": {
       "character": "Gravelón is a 54-mile timed loop from Rowe Mesa using rough dirt, pavement, rolling gravel, forest doubletrack, and dirt roads. The organizer's gain field is malformed as 2,85000 feet, and wet conditions can force an alternate route, so 2,850 feet is retained as a numeric best value with a Varies display.",
       "suffering_zones": [
@@ -427,6 +435,19 @@
         }
       ],
       "quotes": []
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "55 mi",
+          "winner_female": "Cecily Decker",
+          "winner_male": "Keaton Verswijver",
+          "winning_time_female": "2:44:44",
+          "winning_time_male": "2:38:08",
+          "source": "https://fltresults.com/event-summary/343"
+        }
+      },
+      "latest_year": "2025"
     }
   }
 }

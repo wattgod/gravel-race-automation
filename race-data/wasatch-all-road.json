@@ -4,6 +4,10 @@
     "slug": "wasatch-all-road",
     "display_name": "Wasatch All-Road",
     "tagline": "Northern Utah mountain gravel in Wasatch Range near Park City.",
+    "seo": {
+      "title": "Wasatch All-Road {year}: 82 mi, 10,560 ft of Utah Gravel",
+      "description": "Wasatch All-Road {year} in Heber City, UT: the 82-mile Bigfoot climbs 10,560 ft on 77% gravel. The toughest gravel race you've never heard of."
+    },
     "vitals": {
       "distance_mi": 82,
       "elevation_ft": 10560,
@@ -11,7 +15,7 @@
       "location_badge": "HEBER CITY, UT",
       "county": "Summit County",
       "date": "Late August annually",
-      "date_specific": "2026: August 29",
+      "date_specific": "2027: September 11 (Saturday, CONFIRMED — utahgravelseries.com)",
       "terrain_types": [
         "Mountain gravel",
         "High altitude",
@@ -117,6 +121,24 @@
       "notable_moments": [],
       "reputation": "Growing regional Utah mountain event; Velo has called it 'the toughest gravel race you've never heard of.'"
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-08-29",
+        "source": "https://utahcycling.com/event/wasatch-all-road/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-09-27",
+        "source": "https://www.webscorer.com/race?raceid=407664"
+      },
+      {
+        "year": 2024,
+        "status": "not_held",
+        "note": "One-year pause; group ride held in place of the race",
+        "source": "https://ventumracing.com/alt-road/"
+      }
+    ],
     "course_description": {
       "character": "The organizer-published Bigfoot flagship is 82 miles with 10,560 feet of gain and 77% gravel on the western slope of the Uinta Range.",
       "suffering_zones": [
@@ -358,7 +380,8 @@
       {
         "url": "https://utahgravelseries.com/wasatchallroad",
         "category": "community",
-        "label": "utahgravelseries.com: Wasatchallroad"
+        "label": "Utah Gravel Series: Wasatch All Road (2027 date)",
+        "accessed": "2026-11-05"
       }
     ],
     "tire_recommendations": {
@@ -697,9 +720,18 @@
         "gif": true
       }
     ],
-    "seo": {
-      "title": "Wasatch All-Road 2026: 82 mi, 10,560 ft of Utah Gravel",
-      "description": "Wasatch All-Road (Aug 29, 2026, Heber City, UT): the 82-mile Bigfoot climbs 10,560 ft on 77% gravel. The toughest gravel race you've never heard of."
+    "results": {
+      "years": {
+        "2025": {
+          "race": "Bigfoot",
+          "winner_female": "Melissa Aitken",
+          "winner_male": "Zach Calton",
+          "winning_time_female": "6:09:05.7",
+          "winning_time_male": "5:07:19.1",
+          "source": "https://www.webscorer.com/race?raceid=407664"
+        }
+      },
+      "latest_year": "2025"
     }
   }
 }

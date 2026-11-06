@@ -11,7 +11,7 @@
       "location_badge": "LINCOLN, NEBRASKA",
       "county": "Lancaster County",
       "date": "Mid-August annually",
-      "date_specific": "2026: Aug 19-23 (festival week — running/triathlon/shorter distances spread across the week); flagship GW150 race day is Saturday, August 22, CONFIRMED (gravelworlds.com/race-day)",
+      "date_specific": "2027: August 28 (Saturday, CONFIRMED — gravelworlds.com; Lauf Gravel Worlds festival August 25-29)",
       "terrain_types": [
         "Nebraska farm gravel",
         "Minimum maintenance roads",
@@ -150,7 +150,7 @@
       "bottom_line": "If you want to experience what gravel racing meant before it went mainstream, Gravel Worlds is your pilgrimage. Harder than it looks, more meaningful than its name suggests."
     },
     "final_verdict": {
-      "score": "79 / 100",
+      "score": "84 / 100",
       "one_liner": "The OG grassroots gravel race—where the spirit of the sport lives on in Nebraska summer heat.",
       "should_you_race": "Yes if you value authenticity, community, and genuine challenge over polish. Yes if you can handle August Midwest heat. Not if you need corporate production value.",
       "alternatives": "If you want heat without the distance: Unbound 100. If you want distance without the heat: fall ultra events. If you want grassroots elsewhere: local favorites.",
@@ -179,6 +179,30 @@
       ],
       "reputation": "The OG grassroots race. Where the gravel movement's spirit lives on."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-08-21",
+        "end_date": "2026-08-22",
+        "note": "$150,000 pro prize purse; USA Triathlon Gravel National Championships held alongside.",
+        "source": "https://www.gravelworlds.com/the-long-voyage"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-22",
+        "end_date": "2025-08-23",
+        "edition": 16,
+        "note": "Returned to Sandhills Global Event Center; new 150-mile course east of Lincoln.",
+        "source": "https://granfondodailynews.com/2025/09/04/the-100000-gravel-worlds-the-uci-does-not-want-you-to-know-about-results/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-08-22",
+        "end_date": "2024-08-24",
+        "edition": 15,
+        "source": "https://www.gravelworlds.com/history"
+      }
+    ],
     "course_description": {
       "character": "Long, hot, and humbling. NOT flat—'hill after hill after hill' averaging 4-5% grade either up or down for roughly 150 miles through iconic cornfields. The official 2026 route measured 151.7 miles with 10,100+ feet of climbing, but overnight storms forced organizers onto a 148-mile wet course with fewer minimum-maintenance-road sections. The suffering zones below describe the heat/fatigue progression riders consistently report, not fixed annual landmarks.",
       "suffering_zones": [
@@ -322,11 +346,6 @@
         "label": "Reddit"
       },
       {
-        "url": "https://www.reddit.com/r/gravelcycling/comments/wty6ku/got_11th_place_at_gravel_worlds_300_yesterday/",
-        "category": "community",
-        "label": "Reddit"
-      },
-      {
         "url": "https://www.slowtwitch.com/gravel/rosa-kloser-wins-gravel-worlds-after-epic-breakaway-with-geerike-schreurs/",
         "category": "other",
         "label": "Slowtwitch"
@@ -335,6 +354,11 @@
         "url": "https://www.gravelworlds.com/race-day",
         "category": "other",
         "label": "Gravelworlds: Race Day (official schedule/date)"
+      },
+      {
+        "url": "https://www.gravelworlds.com/",
+        "category": "official",
+        "label": "Lauf Gravel Worlds: 2027 dates"
       }
     ],
     "results": {
@@ -355,7 +379,7 @@
         },
         "2024": {
           "winning_time_male": "6:48:46",
-          "winning_time_female": "6:48:46",
+          "winning_time_female": "7:57:46",
           "conditions": "If a rider cannot maintain the pace (e.g. struggling with heat or mechanicals), organizers will pull them from the course after cutoff.",
           "field_size_actual": 150,
           "dnf_rate_pct": 20,
@@ -365,7 +389,35 @@
             "The TrainerRoad forum (a popular cycling training community) has a dedicated thread discussing “The Nebraska Garmin Gravel Worlds 2024” which provides some valuable first-hand reports and preparation tips.",
             "TrainerRoad folks seemed confident that with its organization and unique vibe, Gravel Worlds would continue to attract a solid field (especially with the new pro prize purse drawing elites).",
             "Winners and Records: Gravel Worlds keeps a “History/Results” archive of champions"
-          ]
+          ],
+          "race": "150 mi",
+          "winner_female": "Lauren Stephens",
+          "winner_male": "Simen Nordahl Svendsen",
+          "source": "https://www.gravelworlds.com/history"
+        },
+        "2025": {
+          "race": "150 mi",
+          "winner_female": "Rosa Kloser",
+          "winner_male": "Matthew Beers",
+          "winning_time_female": "7:57:07",
+          "winning_time_male": "6:58:40",
+          "source": "https://www.gravelworlds.com/history"
+        },
+        "2023": {
+          "race": "150 mi",
+          "winner_female": "Lauren Stephens",
+          "winner_male": "John Borstelmann",
+          "winning_time_female": "9:15:28",
+          "winning_time_male": "8:00:10",
+          "source": "https://www.gravelworlds.com/history"
+        },
+        "2022": {
+          "race": "150 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "Adam Roberge",
+          "winning_time_female": "7:33:03",
+          "winning_time_male": "6:59:44",
+          "source": "https://www.gravelworlds.com/history"
         }
       },
       "latest_year": "2026"

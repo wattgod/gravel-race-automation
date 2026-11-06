@@ -14,7 +14,7 @@
       "county": "South West Region",
       "country": "Australia",
       "date": "October annually",
-      "date_specific": "2026: October 10-11; elite men and men 19-49 race Sunday, October 11",
+      "date_specific": "2027: August 26-27 in Châtel, Haute-Savoie, France (PROVISIONAL — Haute-Savoie Mont-Blanc tourism board); 2026: October 10-11 in Nannup; elite men and men 19-49 race Sunday, October 11",
       "terrain_types": [
         "Minimum 80% gravel",
         "Blackwood Valley forest and farm roads",
@@ -162,6 +162,38 @@
       ],
       "reputation": "UCI World Championship. Fastest field in gravel. Rainbow jersey. Elite + age group. Rotating international locations."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 5,
+        "note": "First Gravel Worlds outside Europe, held in Nannup, Western Australia",
+        "source": "https://www.finishers.com/en/articles/2026-gravel-world-championships"
+      },
+      {
+        "year": 2025,
+        "date": "2025-10-11",
+        "end_date": "2025-10-12",
+        "edition": 4,
+        "note": "Held in South Limburg, Netherlands, from Beek to Maastricht",
+        "source": "https://www.uci.org/article/2025-bolero-uci-gravel-world-championships-wiebes-leads-a-dutch-triumph/3kxIChQmv2vaMtZVVa0csD"
+      },
+      {
+        "year": 2024,
+        "date": "2024-10-05",
+        "end_date": "2024-10-06",
+        "edition": 3,
+        "note": "Held in Flemish Brabant, Belgium, from Halle to Leuven",
+        "source": "https://www.cyclingnews.com/races/uci-gravel-world-championships-2024/"
+      },
+      {
+        "year": 2023,
+        "date": "2023-10-07",
+        "end_date": "2023-10-08",
+        "edition": 2,
+        "note": "Held in Veneto, Italy, with a hillier course than 2022",
+        "source": "https://www.uci.org/article/uci-gravel-world-championships-niewiadoma-and-mohoric-claim-the-rainbow/2GcrMNspMDxwpRTcsOTG1y"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "high for dates, category schedule, provisional distances, climbing, surface share, course character, and travel; final GPX, aid stations, and cutoffs pending",
       "validation_status": "official-source 2026 refresh complete",
@@ -351,6 +383,11 @@
         "url": "https://www.velouk.net/2024/10/07/report-result-world-gravel-championships/",
         "category": "other",
         "label": "Velouk"
+      },
+      {
+        "url": "https://hautesavoiemontblanc-tourisme.com/en/offers/gravel-chatel-2027-uci-cycling-world-championships-haute-savoie-mont-blanc-chatel-en-6691884/",
+        "category": "reference",
+        "label": "Haute-Savoie Mont-Blanc tourism: Gravel Châtel 2027 UCI Gravel World Championships"
       }
     ],
     "results": {
@@ -375,9 +412,31 @@
           ],
           "winning_time_male": "4:41:23",
           "winning_time_female": "4:01:07"
+        },
+        "2026": {
+          "race": "Elite (men 144 km, women 125.6 km)",
+          "winner_female": "Marianne Vos",
+          "winner_male": "Magnus Bak Klaris",
+          "winning_time_female": "4:30:04",
+          "winning_time_male": "4:09:05",
+          "source": "https://www.finishers.com/en/articles/2026-gravel-world-championships"
+        },
+        "2023": {
+          "race": "Elite (men 169 km, women 140 km)",
+          "winner_female": "Katarzyna Niewiadoma",
+          "winner_male": "Matej Mohorič",
+          "winning_time_female": "4:49:44",
+          "winning_time_male": "4:53:45",
+          "source": "https://en.wikipedia.org/wiki/2023_UCI_Gravel_World_Championships"
+        },
+        "2022": {
+          "race": "Elite (men 194 km, women 140 km)",
+          "winner_female": "Pauline Ferrand-Prévot",
+          "winner_male": "Gianni Vermeersch",
+          "source": "https://en.wikipedia.org/wiki/UCI_Gravel_World_Championships"
         }
       },
-      "latest_year": "2025"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

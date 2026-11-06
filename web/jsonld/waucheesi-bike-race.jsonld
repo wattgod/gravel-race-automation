@@ -5,6 +5,7 @@
   "description": "Southeast Tennessee's grassroots monster in the Cherokee National Forest.",
   "sport": "Gravel Cycling",
   "startDate": "2027-03-28",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Tellico Plains, Tennessee",
@@ -13,5 +14,6 @@
       "addressLocality": "Tellico Plains",
       "addressRegion": "Tennessee"
     }
-  }
+  },
+  "url": "https://rapidexpeditions.com/waucheesi-bike-race.html"
 }

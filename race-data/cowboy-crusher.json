@@ -11,7 +11,7 @@
       "location_badge": "GLENROCK, WY",
       "county": "Converse County",
       "date": "Mid-July annually",
-      "date_specific": "2026: July 11",
+      "date_specific": "Status: CANCELLED for 2026 (cowboycrusher.com: \"2026 Event Cancelled\"); no 2027 date announced",
       "terrain_types": [
         "Wyoming rolling",
         "Local event",
@@ -106,7 +106,7 @@
       "food": "Glenrock has limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Cowboy Crusher website",
+      "official_site": "",
       "camping": "Campground  \n- Spring Canyon Road\n- Ayers Natural Bridge aid stations\n(https://www"
     },
     "history": {
@@ -116,6 +116,23 @@
       "notable_moments": [],
       "reputation": "Local Wyoming event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "status": "cancelled",
+        "source": "https://cowboycrusher.com/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-07-19",
+        "source": "https://www.gravel-results.com/race/21659"
+      },
+      {
+        "year": 2024,
+        "date": "2024-07-13",
+        "source": "https://5kden.itsyourrace.com/Results.aspx?id=16089"
+      }
+    ],
     "course_description": {
       "character": "Wyoming rolling gravel.",
       "suffering_zones": [
@@ -325,6 +342,12 @@
     },
     "citations": [
       {
+        "url": "https://cowboycrusher.com/",
+        "category": "official",
+        "label": "Cowboy Crusher: 2026 event cancelled",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://ridewithgps.com/routes/53566970",
         "category": "route",
         "label": "RideWithGPS: Wrangler 60"
@@ -355,10 +378,20 @@
         "2024": {
           "key_takeaways": [
             "Race history (founded year, founder if known): 2024 edition on July 13, 2024 (per ItsYourRace); grassroots event in Glenrock, historic Oregon Trail area (per official site)."
-          ]
+          ],
+          "race": "121 mi",
+          "winner_male": "Peter Haile",
+          "winning_time_male": "8:04:17",
+          "source": "https://5kden.itsyourrace.com/Results.aspx?id=16089"
+        },
+        "2025": {
+          "race": "121 mi",
+          "winner_female": "Michelle Richardson",
+          "winning_time_female": "11:08:26",
+          "source": "https://www.gravel-results.com/race/21659"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",
@@ -427,6 +460,10 @@
         "200pluslb_mixed": "42-46",
         "200pluslb_wet": "40-44"
       }
+    },
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "Cowboy Crusher cancelled its 2026 edition and hasn't announced 2027. The course's demands haven't changed, so be ready if it comes back."
     }
   }
 }

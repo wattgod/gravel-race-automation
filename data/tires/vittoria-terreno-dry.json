@@ -7,8 +7,10 @@
     40,
     45
   ],
+  "widths_source": "existing",
   "tread_type": "file",
   "tread_description": "File tread with Graphene 2.0 compound for dry conditions",
+  "tagline": "Graphene-powered speed. Purpose-built for dry gravel racing.",
   "best_conditions": [
     "dry",
     "hardpack",
@@ -20,486 +22,73 @@
     "loose"
   ],
   "tubeless_ready": true,
-  "brr_urls_by_width": {
-    "38": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/vittoria-terreno-dry",
-    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/vittoria-terreno-dry",
-    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/vittoria-terreno-dry"
-  },
-  "tagline": "Graphene-powered speed. Purpose-built for dry gravel racing.",
-  "strengths": [
-    "Graphene 2.0 compound",
-    "Very low rolling resistance",
-    "Good dry grip"
-  ],
-  "weaknesses": [
-    "Poor wet traction",
-    "Not for mixed conditions",
-    "Moderate puncture protection"
-  ],
   "msrp_usd": 79.99,
-  "weight_grams": {
-    "38": 340,
-    "40": 370,
-    "45": 420
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 40.0,
+      "year": 2022,
+      "model": "Vittoria Terreno Dry TLR G+ 2.0 40",
+      "rr_watts": 26.6,
+      "test_psi": 33,
+      "puncture_tread": 50.0,
+      "wet_grip": 71.0,
+      "knob_center_mm": 0.5,
+      "knob_edge_mm": 2.3,
+      "weight_g": 460.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/vittoria-terreno-dry-tlr-40"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/vittoria-terreno-dry-tlr-40"
   },
   "crr_watts_at_29kmh": {
-    "40": 29.5
+    "40": 26.6
   },
-  "puncture_resistance": "moderate",
-  "wet_traction": "poor",
+  "weight_grams": {
+    "40": 460
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "fair",
   "mud_clearance": "none",
+  "strengths": [
+    "Tough tread: puncture score 50"
+  ],
+  "weaknesses": [
+    "Slow rolling: 26.6 W at 40mm on BRR's drum"
+  ],
   "recommended_use": [
-    "fast gravel",
-    "dry racing",
-    "smooth hardpack"
+    "sharp rock",
+    "loose corners"
   ],
   "avoid_use": [
-    "wet",
-    "mud",
-    "loose over hard"
+    "fast smooth courses",
+    "mud"
   ],
   "status": "active",
-  "race_appearances": {
-    "ardenne-gravel-stages": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "belgian-waffle-ride-kansas": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "big-sky-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "coast-to-coast": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "cohutta-gravel-grinder": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "croatan-buck-fifty": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "crystal-bear": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "technical"
-    },
-    "d2r2": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "dead-swede-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "dirty-french": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "dirty-pecan": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "dirty-sheets-gravel-grind": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "technical"
-    },
-    "edition-zero": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "filthy-50": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "finnish-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "grassroots-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "gravel-burn": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "gravel-del-fuego": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "gravel-grit-n-grind": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "gravel-locos": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "gravel-roubaix": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "gravel-worlds": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "haute-route-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "hellhole-gravel-grind": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "highlands-gravel-classic": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "homegrown-gravel-adventure": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "hungry-bear-100": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "iowa-wind-and-rock": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "jeroboam": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "king-price-race-to-sun": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "le-grand-du-nord": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "lone-wolf-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "lowell-classic": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "migration-gravel-race": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "montana-gravel-challenge": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "old-fashioned-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "opelika-okey-dokey": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "oregon-trail-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "pickerel-buck40": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "pirinexus-360": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "technical"
-    },
-    "pony-express-120": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "pony-xpress": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "radl-grvl": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "rebeccas-private-idaho": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "technical"
-    },
-    "red-granite-grinder": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "reliance-tennessee-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "rock-cobbler": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "sea-otter-europe-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "spirit-world-100": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "spotted-horse-ultra": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "spring-valley-100": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "standard-deluxe-dirt-road-century": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "steamboat-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "swamp-fox-gravel-fondo": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "switchgrass": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "texas-hell-week": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "the-rad": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "the-watermoo": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "tor-divide": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "total-tomahawk-terrain": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "tour-de-nebraska": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "trans-iowa": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "trans-sylvania-epic": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "transrockies-gravel-royale": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "unbound-100": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "unbound-200": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "usa-cycling-gravel-nationals": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "vapor-trail-125": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "waukon-100": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "whiskey-off-road": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "technical"
-    },
-    "wish-one-millau": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "wyo-131": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    }
-  },
+  "race_appearances": {},
   "community_reviews": [],
   "comparable_tires": [
     "challenge-getaway-pro",
+    "continental-dubnital",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
     "continental-terra-speed-40",
+    "hutchinson-caracal-race",
+    "michelin-power-gravel",
     "panaracer-gravelking-tlc",
+    "panaracer-gravelking-zx-r",
+    "pirelli-cinturato-gravel-rh",
     "rene-herse-snoqualmie-pass",
-    "schwalbe-g-one-rs"
+    "schwalbe-g-one-rs-pro",
+    "schwalbe-g-one-rs",
+    "silca-protocol-rcg-1",
+    "specialized-pathfinder",
+    "ultradynamico-cava-race",
+    "vittoria-terreno-pro-t30",
+    "wtb-vulpine-s"
   ],
   "versions": [],
   "last_enriched": null

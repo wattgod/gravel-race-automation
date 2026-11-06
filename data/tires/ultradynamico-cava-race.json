@@ -1,0 +1,76 @@
+{
+  "id": "ultradynamico-cava-race",
+  "name": "Ultradynamico Cava Race",
+  "brand": "Ultradynamico",
+  "widths_mm": [
+    39,
+    42
+  ],
+  "widths_source": "https://ultradynamico.com/products/cava-race",
+  "tread_type": "file",
+  "tubeless_ready": true,
+  "msrp_usd": 95.0,
+  "msrp_source": "https://ultradynamico.com/products/cava-race",
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 42,
+      "measured_width_mm": 40.0,
+      "year": 2023,
+      "model": "Ultradynamico Cava Race  42",
+      "rr_watts": 18.9,
+      "test_psi": 33,
+      "puncture_tread": 46.0,
+      "wet_grip": 68.0,
+      "knob_center_mm": 0.2,
+      "knob_edge_mm": 1.5,
+      "weight_g": 434.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/ultradynamico-cava-race-42"
+    }
+  ],
+  "brr_urls_by_width": {
+    "42": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/ultradynamico-cava-race-42"
+  },
+  "crr_watts_at_29kmh": {
+    "42": 18.9
+  },
+  "weight_grams": {
+    "42": 434
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "fair",
+  "mud_clearance": "none",
+  "strengths": [
+    "Tough tread: puncture score 46"
+  ],
+  "weaknesses": [],
+  "recommended_use": [
+    "sharp rock"
+  ],
+  "avoid_use": [
+    "mud"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "challenge-getaway-pro",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
+    "continental-terra-speed-40",
+    "hutchinson-caracal-race",
+    "panaracer-gravelking-tlc",
+    "panaracer-gravelking-zx-r",
+    "pirelli-cinturato-gravel-rh",
+    "rene-herse-snoqualmie-pass",
+    "schwalbe-g-one-rs-pro",
+    "schwalbe-g-one-rs",
+    "silca-protocol-rcg-1",
+    "specialized-pathfinder",
+    "vittoria-terreno-dry",
+    "vittoria-terreno-pro-t30",
+    "wtb-vulpine-s"
+  ],
+  "versions": []
+}

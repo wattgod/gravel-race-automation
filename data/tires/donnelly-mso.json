@@ -7,8 +7,10 @@
     40,
     50
   ],
+  "widths_source": "existing",
   "tread_type": "knobby",
   "tread_description": "Multi-Surface Optimization tread with 120tpi casing",
+  "tagline": "Original gravel tire. MSO pattern pioneered the mixed-surface category.",
   "best_conditions": [
     "mixed",
     "hardpack",
@@ -19,12 +21,15 @@
     "sharp rocks"
   ],
   "tubeless_ready": true,
-  "brr_urls_by_width": {
-    "36": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/donnelly-xplor-mso",
-    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/donnelly-xplor-mso-40",
-    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/donnelly-xplor-mso-40"
-  },
-  "tagline": "Original gravel tire. MSO pattern pioneered the mixed-surface category.",
+  "msrp_usd": 69.95,
+  "lab_tested": false,
+  "brr_tests": [],
+  "brr_urls_by_width": {},
+  "crr_watts_at_29kmh": {},
+  "weight_grams": {},
+  "puncture_resistance": "moderate",
+  "wet_traction": "fair",
+  "mud_clearance": "low",
   "strengths": [
     "Proven tread pattern",
     "Good in variable conditions",
@@ -35,18 +40,6 @@
     "Not the fastest",
     "Can wear quickly"
   ],
-  "msrp_usd": 69.95,
-  "weight_grams": {
-    "36": 360,
-    "40": 410,
-    "50": 500
-  },
-  "crr_watts_at_29kmh": {
-    "40": 34.0
-  },
-  "puncture_resistance": "moderate",
-  "wet_traction": "fair",
-  "mud_clearance": "low",
   "recommended_use": [
     "mixed gravel",
     "variable conditions",
@@ -63,13 +56,22 @@
   "comparable_tires": [
     "continental-terra-trail",
     "goodyear-connector",
+    "goodyear-xplr-inter",
     "hutchinson-touareg",
     "irc-boken-double-cross",
     "maxxis-rambler",
+    "michelin-power-gravel",
     "panaracer-gravelking-sk",
+    "panaracer-gravelking-x1",
+    "pirelli-cinturato-gravel-h",
     "pirelli-cinturato-gravel-m",
+    "schwalbe-g-one-r-pro",
+    "silca-protocol-rcg-3",
     "specialized-pathfinder-pro",
+    "specialized-tracer",
     "teravail-cannonball",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero",
     "vittoria-terreno-mix"
   ],
   "versions": [],

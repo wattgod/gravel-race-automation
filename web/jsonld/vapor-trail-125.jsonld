@@ -2,16 +2,16 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Vapor Trail 125",
-  "description": "125-mile high-altitude Colorado mountain gravel in Leadville.",
-  "sport": "Gravel Cycling",
+  "description": "125-mile high-altitude Colorado mountain bike race out of Salida.",
+  "sport": "Mountain Biking",
   "startDate": "2026-09-12",
   "endDate": "2026-09-13",
   "location": {
     "@type": "Place",
-    "name": "Leadville, Colorado",
+    "name": "Salida, Colorado",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Leadville",
+      "addressLocality": "Salida",
       "addressRegion": "Colorado"
     }
   },

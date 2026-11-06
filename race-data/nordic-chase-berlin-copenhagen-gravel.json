@@ -5,10 +5,10 @@
     "display_name": "Nordic Chase Berlin to Copenhagen Gravel",
     "tagline": "A self-supported gravel ultra from Berlin to Copenhagen through German forest tracks, Baltic wind, and Danish gravel.",
     "vitals": {
-      "distance_km": 730,
-      "distance_mi": 454,
-      "elevation_m": 4000,
-      "elevation_ft": 13123,
+      "distance_km": 740,
+      "distance_mi": 460,
+      "elevation_m": 3740,
+      "elevation_ft": 12270,
       "course_status": "source_blocked",
       "course_status_label": "2027 ROUTE PENDING",
       "course_status_reason": "The organizer's 2027 calendar confirms the Berlin-to-Copenhagen gravel event window, but the route page still describes the 2026 course and schedule. The final 2027 GPX and exact grand-depart date have not been published.",
@@ -91,7 +91,7 @@
       },
       "length": {
         "score": 5,
-        "explanation": "The latest detailed route is 730 kilometres and requires at least one overnight for nearly everyone."
+        "explanation": "The 2027 route is 740 kilometres and requires at least one overnight for nearly everyone."
       },
       "technicality": {
         "score": 3,
@@ -99,7 +99,7 @@
       },
       "elevation": {
         "score": 5,
-        "explanation": "The latest detailed route carries 4,000 metres, or 13,123 feet, of climbing, above the published 10,000-foot threshold for the maximum score."
+        "explanation": "The 2027 route carries 3,740 metres, or 12,270 feet, of climbing, above the published 10,000-foot threshold for the maximum score."
       },
       "climate": {
         "score": 3,
@@ -198,7 +198,7 @@
       "travel_summary": "Arrive in Berlin, finish in Copenhagen, and depart by air or rail from Copenhagen. Build the trip around two different cities rather than a return to the start.",
       "food_options": "Self-supported resupply from businesses available to every rider.",
       "camping": "Verify the race manual and local rules before planning outdoor sleep",
-      "official_site": "https://nordicchase.com/ber-cph-gravel"
+      "official_site": "https://nordicchase.com/ber-cph"
     },
     "history": {
       "founded": 2026,
@@ -219,7 +219,7 @@
     ],
     "final_verdict": {
       "score": "66 / 100",
-      "one_liner": "Berlin forests, Baltic wind, a ferry, and 454 self-supported miles to Copenhagen.",
+      "one_liner": "Berlin forests, Baltic wind, a ferry, and 460 self-supported miles to Copenhagen.",
       "should_you_race": "Yes if you have overnight gravel experience and want a point-to-point ultra without the extra climbing and distance of the Oslo route. It is still too consequential for an untested lighting, sleep, or resupply system.",
       "alternatives": "Choose Nordic Chase Copenhagen to Oslo Gravel for the bigger three-country challenge, or a supported gravel stage race if independent sleep and resupply are not the experience you want."
     },
@@ -255,7 +255,7 @@
       "data_confidence": "official 2027 event window; latest organizer-reconned course retained only as a guarded planning reference",
       "validation_status": "source_blocked_for_2027_plan",
       "next_edition_status": "waiting_for_final_2027_route",
-      "known_gap": "The route page still carries the 2026 730 km / 4,000 m course and schedule. Do not clone, date, or publish a 2027 TrainingPeaks plan until the organizer confirms the 2027 grand depart and final GPX.",
+      "known_gap": "The route page now carries the 2027 740 km / 3,740 m course but no final GPX. Do not clone, date, or publish a 2027 TrainingPeaks plan until the organizer confirms the 2027 grand depart and final GPX.",
       "sources": [
         "https://nordicchase.com/",
         "https://nordicchase.com/ber-cph-gravel",

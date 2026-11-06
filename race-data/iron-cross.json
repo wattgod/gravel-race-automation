@@ -3,13 +3,13 @@
     "name": "Iron Cross",
     "slug": "iron-cross",
     "display_name": "Iron Cross",
-    "tagline": "Pennsylvania gravel/cyclocross with technical elements.",
+    "tagline": "Williamsport gravel/cyclocross in the Tiadaghton State Forest.",
     "vitals": {
       "distance_mi": 56,
       "elevation_ft": 6400,
-      "location": "Pennsylvania",
-      "location_badge": "PENNSYLVANIA",
-      "county": "Pennsylvania",
+      "location": "Williamsport, Pennsylvania",
+      "location_badge": "WILLIAMSPORT, PA",
+      "county": "Lycoming County",
       "date": "Mid-October annually",
       "date_specific": "2025: October 19",
       "terrain_types": [
@@ -24,8 +24,8 @@
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
-      "lat": 40.97,
-      "lng": -77.7279
+      "lat": 41.2444,
+      "lng": -77.0186
     },
     "climate": {
       "primary": "PA fall",
@@ -39,12 +39,12 @@
     },
     "terrain": {
       "primary": "PA hilly gravel with cyclocross elements",
-      "surface": "Gravel roads with cyclocross obstacles. Significant elevation with PA scenery.",
+      "surface": "Gravel roads with cyclocross obstacles in the Tiadaghton State Forest outside Williamsport. Significant elevation with fall forest scenery.",
       "technical_rating": 3,
       "features": [
         "Significant hilly (4500 feet)",
         "Cyclocross barriers/obstacles",
-        "PA setting",
+        "Tiadaghton State Forest setting",
         "~60-mile distance",
         "Regional event"
       ]
@@ -72,14 +72,14 @@
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "PA Gravel/Cyclocross",
-      "summary": "Iron Cross is a regional event in Pennsylvania—hilly terrain with cyclocross obstacles. The cyclocross elements and PA hills are appealing, but the moderate organization and regional field keep it firmly in Tier 3. Pennsylvania provides good access.",
+      "verdict": "Williamsport Gravel/Cyclocross",
+      "summary": "Iron Cross is a regional event out of Williamsport, Pennsylvania, in the Tiadaghton State Forest—hilly terrain with cyclocross obstacles. The cyclocross elements and forest hills are appealing, but the moderate organization and regional field keep it firmly in Tier 3. Williamsport has full services, but no major airport is close.",
       "strengths": [
         "Cyclocross obstacles",
-        "PA hill scenery",
+        "Tiadaghton State Forest scenery",
         "PA cycling community",
         "PA fall mild/cool weather",
-        "Good PA access"
+        "Williamsport base with full services"
       ],
       "weaknesses": [
         "Moderate organization",
@@ -92,7 +92,7 @@
     },
     "final_verdict": {
       "score": "51 / 100",
-      "one_liner": "Pennsylvania gravel/cyclocross with technical elements.",
+      "one_liner": "Williamsport gravel/cyclocross in the Tiadaghton State Forest.",
       "should_you_race": "If you're in PA/Northeast and want a cyclocross-style gravel race—yes, it's solid. If you're from out of region—there are better options.",
       "alternatives": "For better PA events: Trans-Sylvania Epic. For similar cyclocross gravel events: other regional cyclocross races.",
       "alternative_slugs": [
@@ -100,9 +100,9 @@
       ]
     },
     "logistics": {
-      "airport": "Varies by location in PA",
-      "lodging_strategy": "PA has moderate lodging options.",
-      "food": "PA has full dining options. Stock nutrition.",
+      "airport": "No major airport close by. Plan to drive into Williamsport.",
+      "lodging_strategy": "Stay in Williamsport. The organizers suggest making a weekend of it.",
+      "food": "Williamsport has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
       "official_site": ""
@@ -123,7 +123,7 @@
       }
     ],
     "course_description": {
-      "character": "PA hilly gravel with cyclocross obstacles.",
+      "character": "Hilly Tiadaghton State Forest gravel with cyclocross obstacles.",
       "suffering_zones": [
         {
           "mile": 20,
@@ -147,7 +147,7 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "PA hills with cyclocross obstacles.",
+      "signature_challenge": "Tiadaghton State Forest climbs with cyclocross obstacles.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
@@ -156,7 +156,7 @@
       "race_distance": "56 miles",
       "race_elevation": "4,500 feet",
       "race_date": "Fall",
-      "race_location": "Pennsylvania",
+      "race_location": "Williamsport, Pennsylvania",
       "race_terrain": "PA hilly gravel with cyclocross elements",
       "race_weather": "PA fall mild/cool",
       "race_challenges": [
@@ -261,7 +261,7 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Iron Cross",
-        "race_hook": "Pennsylvania gravel/cyclocross with technical elements.",
+        "race_hook": "Williamsport gravel/cyclocross in the Tiadaghton State Forest.",
         "race_hook_detail": "Regional event with hilly terrain and cyclocross obstacles.",
         "distance": "60",
         "dark_mile": "30",
@@ -330,6 +330,11 @@
       }
     },
     "citations": [
+      {
+        "url": "https://www.ironcrossgravel.com/",
+        "category": "official",
+        "label": "Iron Cross official site (Williamsport, Tiadaghton State Forest)"
+      },
       {
         "url": "https://www.trainerroad.com/forum/t/thoughts-on-singletrack-in-a-gravel-event/19514",
         "category": "community",

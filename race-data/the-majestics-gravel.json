@@ -1,14 +1,14 @@
 {
   "race": {
-    "name": "Gravel Suisse",
-    "slug": "gravel-suisse",
-    "display_name": "Gravel Suisse",
+    "name": "The Majestics Gravel",
+    "slug": "the-majestics-gravel",
+    "display_name": "The Majestics Gravel",
     "tagline": "Wild Alpine gravel from the World Cycling Center in Aigle to the heights of Villars.",
     "vitals": {
       "distance_mi": 65,
       "elevation_ft": 8202,
-      "location": "Aigle, Switzerland",
-      "location_badge": "AIGLE, SWITZERLAND",
+      "location": "Aigle to Villars-sur-Ollon, Switzerland",
+      "location_badge": "AIGLE TO VILLARS, SWITZERLAND",
       "county": "Vaud",
       "date": "Mid-July annually",
       "date_specific": "2027: July 11 (Sunday, CONFIRMED — themajestics.ch)",
@@ -73,7 +73,7 @@
     },
     "biased_opinion": {
       "verdict": "Swiss Alpine Gravel",
-      "summary": "Gravel Suisse is a regional event in Aigle, Switzerland—Alpine terrain with significant elevation. The Swiss Alps scenery is stunning, but the high costs and regional field keep it firmly in Tier 3. Switzerland travel is very expensive.",
+      "summary": "The Majestics Gravel (formerly Gravel Suisse) is a UCI Gravel World Series round that starts at UCI headquarters in Aigle and finishes on the Col de Bretaye above Villars-sur-Ollon—Alpine terrain with significant elevation. The Swiss Alps scenery is stunning, but the high costs and regional field keep it firmly in Tier 3. Switzerland travel is very expensive.",
       "strengths": [
         "Stunning Swiss Alps scenery",
         "Swiss cycling community",
@@ -92,7 +92,7 @@
     },
     "final_verdict": {
       "score": "53 / 100",
-      "one_liner": "Swiss Alpine gravel in Aigle.",
+      "one_liner": "Swiss Alpine gravel from Aigle up to Villars.",
       "should_you_race": "If you're in Europe and have a good budget—yes, the Alps are worth it. If you're international or budget-conscious—there are better options.",
       "alternatives": "For better value: French/Italian Alps races. For similar Alpine terrain: Austrian gravel races."
     },
@@ -102,7 +102,7 @@
       "food": "Aigle has full dining options. Stock nutrition. Switzerland is expensive.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": ""
+      "official_site": "https://themajestics.ch/en/uci-gravel-world-series/"
     },
     "history": {
       "founded": 2024,
@@ -156,16 +156,16 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Swiss Alpine terrain in Aigle.",
+      "signature_challenge": "Swiss Alpine climbing from Aigle to the Col de Bretaye finish above Villars.",
       "ridewithgps_id": "51959894",
       "ridewithgps_name": "UCI Gravel Suisse - The Summit 2025"
     },
     "guide_variables": {
-      "race_name": "Gravel Suisse",
+      "race_name": "The Majestics Gravel",
       "race_distance": "65 miles",
       "race_elevation": "5,500 feet",
       "race_date": "Summer",
-      "race_location": "Aigle, Switzerland",
+      "race_location": "Aigle to Villars-sur-Ollon, Switzerland",
       "race_terrain": "Swiss Alpine gravel",
       "race_weather": "Swiss Alpine summer mild/cool",
       "race_challenges": [
@@ -269,9 +269,9 @@
       },
       "tier_overrides": {},
       "marketplace_variables": {
-        "race_name": "Gravel Suisse",
-        "race_hook": "Swiss Alpine gravel in Aigle.",
-        "race_hook_detail": "Regional event with Alpine terrain.",
+        "race_name": "The Majestics Gravel",
+        "race_hook": "Swiss Alpine gravel from Aigle up to Villars.",
+        "race_hook_detail": "UCI Gravel World Series round with Alpine terrain.",
         "distance": "65",
         "dark_mile": "35",
         "non_negotiable_1": "Alpine endurance",
@@ -339,6 +339,11 @@
       }
     },
     "citations": [
+      {
+        "url": "https://ucigravelworldseries.com/en/uci-gravel-world-series-the-majestics-brings-alpine-gravel-to-switzerland/",
+        "category": "official",
+        "label": "UCI: Gravel Suisse rebranded as The Majestics (Aigle to Villars-sur-Ollon)"
+      },
       {
         "url": "https://themajestics.ch/en/uci-gravel-world-series/",
         "category": "official",
@@ -699,7 +704,7 @@
         "type": "video-1",
         "file": "gravel-suisse-video-1.jpg",
         "url": "/race-photos/gravel-suisse/gravel-suisse-video-1.jpg",
-        "alt": "Indoor interview scene with person wearing patterned shirt and lanyard against wall with framed artwork - Gravel Suisse - Aigle, Switzerland",
+        "alt": "Indoor interview scene with person wearing patterned shirt and lanyard against wall with framed artwork - The Majestics Gravel - Aigle, Switzerland",
         "credit": "YouTube / Ross Howcroft-Jones",
         "primary": true,
         "ai_relevance": 1,
@@ -714,7 +719,7 @@
         "type": "video-2",
         "file": "gravel-suisse-video-2.jpg",
         "url": "/race-photos/gravel-suisse/gravel-suisse-video-2.jpg",
-        "alt": "Motion-blurred view of cyclist descending through dense forest on dirt trail with green canopy overhead - Gravel Suisse - Aigle, Switzerland",
+        "alt": "Motion-blurred view of cyclist descending through dense forest on dirt trail with green canopy overhead - The Majestics Gravel - Aigle, Switzerland",
         "credit": "YouTube / Ross Howcroft-Jones",
         "primary": false,
         "ai_relevance": 4,
@@ -730,7 +735,7 @@
         "type": "preview-gif",
         "file": "gravel-suisse-preview.gif",
         "url": "/race-photos/gravel-suisse/gravel-suisse-preview.gif",
-        "alt": "Course preview from Gravel Suisse race footage",
+        "alt": "Course preview from The Majestics Gravel race footage",
         "credit": "YouTube / Ross Howcroft-Jones",
         "gif": true
       }

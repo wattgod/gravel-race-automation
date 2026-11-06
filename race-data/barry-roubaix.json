@@ -3,10 +3,10 @@
     "name": "Barry-Roubaix Killer Gravel Road Race",
     "slug": "barry-roubaix",
     "display_name": "Barry-Roubaix Killer Gravel Road Race",
-    "tagline": "62-mile Michigan gravel with 1000+ riders in Hastings.",
+    "tagline": "100-mile Michigan gravel with 1000+ riders in Hastings.",
     "vitals": {
-      "distance_mi": 62,
-      "elevation_ft": 4000,
+      "distance_mi": 100,
+      "elevation_ft": 7000,
       "location": "Hastings, Michigan",
       "location_badge": "HASTINGS, MI",
       "county": "Barry County",
@@ -15,7 +15,7 @@
       "terrain_types": [
         "Michigan farmland",
         "Rolling gravel",
-        "62-mile Killer flagship distance",
+        "100-mile Psycho Killer flagship distance",
         "Large field event"
       ],
       "field_size": "1000+ riders",
@@ -39,24 +39,24 @@
     },
     "terrain": {
       "primary": "Michigan rolling farmland gravel",
-      "surface": "Gravel roads through rolling southwest Michigan farmland. Moderate elevation over the 62-mile Killer course.",
+      "surface": "Gravel roads through rolling southwest Michigan farmland. Over 7,000 feet of climbing on the 100-mile Psycho Killer course.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (4,000 feet)",
+        "Relentless rolling (7,000+ feet)",
         "Farmland scenery",
-        "62-mile distance",
+        "100-mile distance",
         "Large field (1000+ riders)",
         "Festival atmosphere"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 51,
+      "overall_score": 56,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 3,
-      "length": 3,
+      "length": 4,
       "technicality": 2,
-      "elevation": 2,
+      "elevation": 4,
       "climate": 2,
       "altitude": 1,
       "adventure": 3,
@@ -67,15 +67,15 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 3,
-      "score_note": "Large field Michigan event. 62 miles of rolling farmland terrain and regional field keeps it in Tier 3.",
+      "score_note": "Large field Michigan event. 100 miles of rolling farmland terrain and regional field keeps it in Tier 3.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "62-Mile Michigan Farmland Festival",
-      "summary": "Barry-Roubaix is a large field gravel race in Hastings, Michigan--1000+ riders tackling the 62-mile Killer course of rolling farmland. The organization is solid, and the festival atmosphere is fun. However, it's rolling farmland terrain with a regional field, keeping it in Tier 3. Hastings provides moderate access and amenities. Spring weather can bring rain and mud.",
+      "verdict": "100-Mile Michigan Farmland Festival",
+      "summary": "Barry-Roubaix is a large field gravel race in Hastings, Michigan--1000+ riders across four distances, topped by the 100-mile Psycho Killer through rolling farmland. The organization is solid, and the festival atmosphere is fun. However, it's rolling farmland terrain with a regional field, keeping it in Tier 3. Hastings provides moderate access and amenities. Spring weather can bring rain and mud.",
       "strengths": [
-        "62-mile distance (solid regional challenge)",
+        "100-mile distance (a real early-season test)",
         "Large field (1000+ riders, festival atmosphere)",
         "Well-organized event",
         "Michigan cycling community",
@@ -88,12 +88,12 @@
         "Limited national recognition",
         "Repetitive scenery"
       ],
-      "bottom_line": "A solid 62-mile gravel challenge with large field and festival atmosphere. Worth it for the distance challenge and event quality. Not a destination race for terrain or field depth, but a fun regional event."
+      "bottom_line": "A solid 100-mile gravel challenge with large field and festival atmosphere. Worth it for the distance challenge and event quality. Not a destination race for terrain or field depth, but a fun regional event."
     },
     "final_verdict": {
-      "score": "51 / 100",
-      "one_liner": "62-mile Michigan farmland gravel with 1000+ riders.",
-      "should_you_race": "If you want a 62-mile challenge with large field and festival atmosphere—yes, it's a fun event. If you want terrain variety or pro field depth—look elsewhere.",
+      "score": "56 / 100",
+      "one_liner": "100-mile Michigan farmland gravel with 1000+ riders.",
+      "should_you_race": "If you want a 100-mile challenge with large field and festival atmosphere—yes, it's a fun event. If you want terrain variety or pro field depth—look elsewhere.",
       "alternatives": "For longer/harder events: Unbound 200, Dirty Kanza. For similar large field events: other Michigan gravel races.",
       "alternative_slugs": [
         "unbound-200"
@@ -102,7 +102,7 @@
     "logistics": {
       "airport": "Grand Rapids (GRR) 45 minutes or Kalamazoo (AZO) 45 minutes",
       "lodging_strategy": "Hastings has moderate lodging options. Grand Rapids has more options.",
-      "food": "Hastings has moderate dining options. Stock nutrition for the 62-mile distance.",
+      "food": "Hastings has moderate dining options. Stock nutrition for the 100-mile distance.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
       "official_site": "https://barry-roubaix.com/",
@@ -136,7 +136,7 @@
       }
     ],
     "course_description": {
-      "character": "Rolling farmland gravel for 62 miles.",
+      "character": "Rolling farmland gravel for 100 miles.",
       "suffering_zones": [
         {
           "label": "First Third",
@@ -146,7 +146,7 @@
         },
         {
           "label": "Halfway",
-          "desc": "Halfway point of the Killer course.",
+          "desc": "Halfway point of the Psycho Killer course.",
           "terrain_detail": "Midpoint",
           "named_section": "Halfway"
         },
@@ -163,33 +163,33 @@
           "named_section": "Homestretch"
         }
       ],
-      "signature_challenge": "62-mile distance through Michigan farmland with spring weather.",
+      "signature_challenge": "100-mile distance through Michigan farmland with spring weather.",
       "ridewithgps_id": "31249124",
       "ridewithgps_name": "Barry-Roubaix Killer Gravel Road Race 62"
     },
     "guide_variables": {
       "race_name": "Barry-Roubaix",
-      "race_distance": "62 miles",
-      "race_elevation": "4,000 feet",
+      "race_distance": "100 miles",
+      "race_elevation": "7,000+ feet",
       "race_date": "Spring",
       "race_location": "Hastings, Michigan",
       "race_terrain": "Michigan farmland gravel",
       "race_weather": "Michigan spring variability",
       "race_challenges": [
-        "62-mile distance",
+        "100-mile distance",
         "Spring cool/rain/mud",
         "Rolling terrain endurance",
         "Large field navigation",
-        "Killer-course pacing"
+        "Psycho Killer pacing"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "62-mile endurance",
+        "requirement": "100-mile endurance",
         "by_when": "Week 8-10",
-        "why": "62 miles of rolling Michigan farmland requires a solid endurance base and pacing discipline."
+        "why": "100 miles and 7,000+ feet of rolling Michigan farmland require a solid endurance base and pacing discipline."
       },
       {
         "requirement": "Spring weather preparation",
@@ -268,8 +268,8 @@
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "62-mile Killer pacing discipline",
-          "fueling": "Nutrition strategy for the 62-mile Killer course",
+          "pacing": "100-mile Psycho Killer pacing discipline",
+          "fueling": "Nutrition strategy for the 100-mile Psycho Killer course",
           "weather": "Racing in Michigan spring weather",
           "navigation": "Large field positioning"
         }
@@ -277,11 +277,11 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Barry-Roubaix",
-        "race_hook": "62 miles of Michigan farmland gravel with 1000+ riders.",
+        "race_hook": "100 miles of Michigan farmland gravel with 1000+ riders.",
         "race_hook_detail": "Large field gravel event in Hastings.",
-        "distance": "62",
+        "distance": "100",
         "dark_mile": 47,
-        "non_negotiable_1": "62-mile endurance",
+        "non_negotiable_1": "100-mile endurance",
         "non_negotiable_2": "Spring weather preparation",
         "non_negotiable_3": "Large field navigation",
         "trainingpeaks_url": null
@@ -317,16 +317,16 @@
         "explanation": "Registration runs $80-120. Hastings, Michigan won't break your budget for hotels and food like a destination race. Registration opens in November and sells out fast, so no last-minute discounts. Factor in cold weather gear because April in Michigan can still hit you with 25°F starts and potential snowstorms like 2013. Similar expense level to Belgian Waffle Ride San Diego."
       },
       "length": {
-        "score": 3,
-        "explanation": "Four distance options from 18 to 100 miles means everyone finds their suffering sweet spot. The 100-mile 'Psycho Killer' with 7,000+ feet of climbing earns its name. Even the 36-mile 'Thriller' packs enough punch to challenge early season fitness coming off winter trainer sessions. Longer than Belgian Waffle Ride San Diego."
+        "score": 4,
+        "explanation": "Four distance options from 18 to 100 miles means everyone finds their suffering sweet spot. The 100-mile 'Psycho Killer' is the real race: 100 miles with 7,000+ feet of climbing in April, and it earns its name. Even the 36-mile 'Thriller' packs enough punch to challenge early season fitness coming off winter trainer sessions. Just shy of Mid South's distance."
       },
       "technicality": {
         "score": 2,
         "explanation": "Mostly fast rolling gravel roads with one mile of rough two-track at Sager Road that everyone talks about afterward. The sandy, rock-strewn Sager section and 'Three Sisters' climbs provide the only real technical challenges. It's 80% gravel county roads that 'ride like road... until they don't.' Less technical than The Mid South. As Anonymous rider puts it: \"The hardest part was navigating other racers and choosing the correct body to get behind on the longer, steeper, wetter climbs.\""
       },
       "elevation": {
-        "score": 2,
-        "explanation": "Rolling hills that never let you rest but never really hurt either - 'one never climbs more than a minute, but you're rarely on flat roads.' The Three Sisters early on can drop you in 5 minutes if conditions turn to 'peanut butter mud,' but max grades only hit 6-8%. It's death by a thousand cuts, not Alpine suffering. Less climbing than The Mid South. As Anonymous rider puts it: \"The hardest part was navigating other racers and choosing the correct body to get behind on the longer, steeper, wetter climbs.\""
+        "score": 4,
+        "explanation": "Rolling hills that never let you rest - 'one never climbs more than a minute, but you're rarely on flat roads.' Stack that across 100 miles of the Psycho Killer and it adds up to 7,000+ feet. The Three Sisters early on can drop you in 5 minutes if conditions turn to 'peanut butter mud,' and max grades only hit 6-8%, so it's death by a thousand cuts, not Alpine suffering. More total climbing than Mid South. As Anonymous rider puts it: \"The hardest part was navigating other racers and choosing the correct body to get behind on the longer, steeper, wetter climbs.\""
       },
       "climate": {
         "score": 2,
@@ -346,6 +346,11 @@
       }
     },
     "citations": [
+      {
+        "url": "https://www.barry-roubaix.com/",
+        "category": "official",
+        "label": "Barry-Roubaix: Panaracer Psycho Killer 100 mi, over 7,000 ft"
+      },
       {
         "url": "https://ridewithgps.com/routes/31249124",
         "category": "route",
@@ -395,11 +400,11 @@
     "results": {
       "years": {
         "2024": {
-          "race": "62 mi",
-          "winner_male": "David Brower",
-          "winner_female": "Devon Clarke",
-          "winning_time_male": "2:52:01",
-          "winning_time_female": "3:06:09",
+          "race": "100 mi",
+          "winner_female": "Erin Omara",
+          "winner_male": "Daxton Mock",
+          "winning_time_female": "5:23:08",
+          "winning_time_male": "4:58:26",
           "source": "https://barry-roubaix.com/results"
         },
         "2026": {

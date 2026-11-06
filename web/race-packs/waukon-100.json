@@ -1,12 +1,12 @@
 {
   "slug": "waukon-100",
   "race_name": "Waukon 100",
-  "distance_mi": 100.0,
+  "distance_mi": 62.0,
   "demands": {
-    "durability": 6,
-    "climbing": 6,
+    "durability": 2,
+    "climbing": 5,
     "vo2_power": 2,
-    "threshold": 8,
+    "threshold": 6,
     "technical": 6,
     "heat_resilience": 1,
     "altitude": 2,
@@ -21,11 +21,20 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "50ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "69ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 94,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Waukon 100's Iowa rolling, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 62 miles."
     },
     {
       "category": "Over_Under",
-      "score": 82,
+      "score": 84,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -34,7 +43,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 79,
+      "score": 78,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -43,36 +52,8 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Waukon 100. Train it until it feels boring."
     },
     {
-      "category": "Durability",
-      "score": 74,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
-    {
-      "category": "Gravel_Specific",
-      "score": 73,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Waukon 100's Iowa rolling, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
-    },
-    {
-      "category": "Mixed_Climbing",
-      "score": 55,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "5,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
-    },
-    {
       "category": "Race_Simulation",
-      "score": 55,
+      "score": 71,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -81,36 +62,17 @@
       "workout_context": "Race-pace efforts that mimic Waukon 100's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
     },
     {
-      "category": "Endurance",
-      "score": 50,
+      "category": "Mixed_Climbing",
+      "score": 59,
       "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
-    },
-    {
-      "category": "HVLI_Extended",
-      "score": 48,
-      "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
-      ],
-      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
-    },
-    {
-      "category": "Norwegian_Double",
-      "score": 48,
-      "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
-      ],
-      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 100 miles, sustainable FTP gains matter more than peak power."
+      "workout_context": "Varied gradients on Iowa rolling gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
     },
     {
       "category": "Critical_Power",
-      "score": 45,
+      "score": 59,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -118,19 +80,57 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Waukon 100, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Tempo",
-      "score": 42,
+      "category": "Durability",
+      "score": 49,
       "workouts": [
-        "Tempo Blocks",
-        "Extended Tempo"
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
       ],
-      "workout_context": "Tempo is Waukon 100's race pace. The wattage you'll hold for 100 miles on Iowa rolling gravel. Train it until it's automatic."
+      "workout_context": "62 miles on Iowa rolling gravel burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 47,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+    },
+    {
+      "category": "Cadence_Work",
+      "score": 47,
+      "workouts": [
+        "High Cadence Drills",
+        "Cadence Pyramids"
+      ],
+      "workout_context": "Smooth pedaling at 62 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+    },
+    {
+      "category": "VO2max",
+      "score": 43,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on Iowa rolling gravel, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 39,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 4,300ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 60\u201380g carbs/hour for Waukon 100\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
+    "nutrition": "Target 40\u201360g carbs/hour for Waukon 100\u2019s 62 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
     "terrain": "Mixed terrain at Waukon 100 requires surface adaptability. Include weekly rides on iowa rolling gravel to build confidence. Expect: iowa rolling, local event, midwest gravel."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and G Spot to prepare you for 100 miles of iowa rolling gravel in Waukon, Iowa.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 62 miles of iowa rolling gravel in Waukon, Iowa.",
+  "generated_at": "2026-11-06"
 }

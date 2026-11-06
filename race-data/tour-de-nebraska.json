@@ -9,14 +9,15 @@
       "distance_note": "250+ miles over 5 days (35-59 mi daily)",
       "elevation_ft": 3500,
       "elevation_note": "Rolling terrain, estimated total across 5 days",
-      "location": "Southwest Nebraska (Curtis, Elwood, Cambridge, McCook)",
-      "location_badge": "SOUTHWEST NEBRASKA",
+      "location": "Bridgeport, Nebraska (2027 loop via Potter, Scottsbluff and Alliance)",
+      "location_badge": "BRIDGEPORT, NE",
       "date": "Late June annually",
       "date_specific": "2027: June 22-27 (CONFIRMED — tourdenebraska.com)",
-      "lat": 40.63,
-      "lng": -100.08,
+      "lat": 41.6642,
+      "lng": -103.0972,
       "registration": "Online. Cost: $100",
-      "start_time": "5:55 AM star"
+      "start_time": "5:55 AM star",
+      "county": "Morrill County"
     },
     "gravel_god_rating": {
       "overall_score": 56,
@@ -47,11 +48,11 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 3,
-        "explanation": "Southwest Nebraska is remote - McCook sits 284 miles from Omaha (4.5 hour drive). However, the tour handles camping, luggage transport between sites, and daily SAG support, reducing individual logistics burden. Sandy H. calls it \"one of the most enjoyable bike tours in the Midwest\" partly due to the seamless organization."
+        "explanation": "Western Nebraska is remote - Bridgeport sits in the Panhandle, the far end of the state from Omaha. However, the tour handles camping, luggage transport between sites, and daily SAG support, reducing individual logistics burden. Sandy H. calls it \"one of the most enjoyable bike tours in the Midwest\" partly due to the seamless organization."
       },
       "length": {
         "score": 2,
-        "explanation": "Daily distances of 35-59 miles are modest by gravel standards. The tour prioritizes accessibility with a \"no schedules, no deadlines\" philosophy and minimum 10 mph pace requirement. While the 5-day total exceeds 250 miles, per-day mileage fits in the recreational range rather than endurance athlete territory. More compact than Grinduro."
+        "explanation": "Fixed-day distances of 39-69 miles are modest by gravel standards, and day three's Scottsbluff loop runs 14, 79 or 108 miles. The tour prioritizes accessibility with a \"no schedules, no deadlines\" philosophy and minimum 10 mph pace requirement. While the 5-day total exceeds 250 miles, per-day mileage fits in the recreational range rather than endurance athlete territory. More compact than Grinduro."
       },
       "technicality": {
         "score": 2,
@@ -63,11 +64,11 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "June brings serious weather challenges in Nebraska. KCBikeNerd reported \"Heat index was 105+. Omg it was so hot\" during a recent event. The 2018 race saw 88°F temperatures with unexpected humidity levels. June is peak thunderstorm season with tornado risk and constant wind exposure on open plains. Similar climate challenges to SBT GRVL."
+        "explanation": "June brings serious weather challenges in Nebraska. KCBikeNerd reported \"Heat index was 105+. Omg it was so hot\" during a recent event. The 2018 tour saw 88°F temperatures with unexpected humidity levels. June is peak thunderstorm season with tornado risk and constant wind exposure on open plains. Similar climate challenges to SBT GRVL."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Southwest Nebraska sits around 2,500-3,000 feet elevation. No altitude acclimatization needed - sea level fitness transfers directly. This is pure Great Plains riding with no high-altitude factors affecting performance or preparation. Lower altitude than Gravel Worlds — no thin-air concerns."
+        "explanation": "The 2027 route runs through the Panhandle, and Scottsbluff sits at 3,888 feet. No altitude acclimatization needed - sea level fitness transfers directly. This is pure Great Plains riding with no high-altitude factors affecting performance or preparation. Higher than Gravel Worlds, still no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -99,12 +100,12 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Registration costs undisclosed but multi-day supported tours typically run $300-500+. Food budget ~$250 additional for 5 days. The 284-mile drive from Omaha adds significant travel cost, though camping reduces lodging expense. Total weekend cost falls in moderate $500-1k range for supported touring. Similar expense level to Belgian Waffle Ride San Diego."
+        "explanation": "Registration costs undisclosed but multi-day supported tours typically run $300-500+. Food budget ~$250 additional for 5 days. The long drive from Omaha out to Bridgeport adds significant travel cost, though camping reduces lodging expense. Total weekend cost falls in moderate $500-1k range for supported touring. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "raceId": "tour-de-nebraska",
     "location": {
-      "city": "Curtis/McCook",
+      "city": "Bridgeport",
       "state": "Nebraska",
       "country": "USA",
       "region": "Great Plains"
@@ -126,13 +127,13 @@
       {
         "name": "5-Day Tour",
         "distance": "250+ miles total",
-        "daily_breakdown": "Day 1: 41mi, Day 2: 35mi, Day 3: 59mi, Day 4: 56mi (optional), Day 5: 40mi",
+        "daily_breakdown": "Day 1: 64mi (Bridgeport to Potter), Day 2: 67mi (Potter to Scottsbluff), Day 3: 14, 79 or 108mi (Scottsbluff loop), Day 4: 69mi (Scottsbluff to Alliance), Day 5: 39mi (Alliance to Bridgeport)",
         "elevationGain": "~3,500 ft total (rolling)",
-        "description": "Multi-day supported tour across Southwest Nebraska with optional gravel adventure component"
+        "description": "Multi-day supported tour across western Nebraska with optional gravel adventure component"
       },
       {
         "name": "Gravel Adventure",
-        "distance": "2-day gravel option (Days 2-3)",
+        "distance": "4-day gravel/road adventure option",
         "capacity": "Limited to 30 spots",
         "description": "Single-lane maintenance roads and fresh gravel sections for gravel enthusiasts"
       }
@@ -171,37 +172,42 @@
       ]
     },
     "course_description": {
-      "character": "Tour de Nebraska is gravel touring disguised as vacation—250 miles of rolling Nebraska farmland where the wind never stops and the hills never quit. Five days of single-lane maintenance roads and well-worn dirt paths that look innocent on paper but grind you down with relentless undulation. The optional gravel adventure component turns those pastoral country roads into proper suffering, especially when fresh gravel meets crosswinds on exposed ridgelines.",
+      "character": "Tour de Nebraska is gravel touring disguised as vacation—250-plus miles of western Nebraska farmland and Panhandle bluffs where the wind never stops and the hills never quit. Five days of single-lane maintenance roads and well-worn dirt paths that look innocent on paper but grind you down with relentless undulation. The optional gravel adventure component turns those pastoral country roads into proper suffering, especially when fresh gravel meets crosswinds on exposed ridgelines.",
       "suffering_zones": [
         {
-          "mile": 41,
-          "label": "Curtis to Elwood Reality Check",
-          "desc": "Day one's 41 miles introduce you to Nebraska's signature lie—there are no flat roads here, just constant rolling resistance. The wind finds every exposed section and reminds you this isn't Kansas."
+          "mile": 64,
+          "label": "Bridgeport to Potter Reality Check",
+          "desc": "Day one's 64 miles through Dalton, Gurley and Sidney introduce you to Nebraska's signature lie—there are no flat roads here, just constant rolling resistance. The wind finds every exposed section and reminds you this isn't Kansas."
         },
         {
-          "mile": 76,
-          "label": "Cambridge Approach Grind",
-          "desc": "Day two's gravel adventure component kicks in with single-lane maintenance roads that look manageable until you hit the sandy sections. Your 35mm tires start feeling optimistic."
+          "mile": 131,
+          "label": "Wildcat Hills Gravel Grind",
+          "desc": "Day two's 67 miles from Potter to Scottsbluff carry the gravel option, past Kimball and the Wildcat Hills State Recreation Area. The gravel looks manageable until it doesn't. Your 35mm tires start feeling optimistic."
         },
         {
-          "mile": 135,
-          "label": "McCook Marathon",
-          "desc": "Day three's 59-mile push to McCook includes the challenging climbs along Middle Creek Road and West Lake Drive. Hill after hill with no recovery, just Nebraska's version of death by a thousand cuts."
+          "mile": 145,
+          "label": "Scottsbluff Loop Gamble",
+          "desc": "Day three loops out of Scottsbluff at 14, 79 or 108 miles, with a stop at Scotts Bluff National Monument. The 14 is a rest day with a view. The 108 separates tourists from masochists, and accumulated fatigue makes it the course's hidden knife."
         },
         {
-          "mile": 191,
-          "label": "Optional Loop Punishment",
-          "desc": "The 56-mile optional loop on day four separates tourists from masochists. Fresh gravel sections combined with accumulated fatigue make this the course's hidden knife."
+          "mile": 214,
+          "label": "Chimney Rock to Carhenge",
+          "desc": "Day four's 69 miles from Scottsbluff to Alliance run past Chimney Rock and through Bayard and Angora. Three days of wind are in your legs now, and the reward is Carhenge and live music downtown."
         },
         {
-          "mile": 231,
-          "label": "Curtis Homecoming Crawl",
-          "desc": "The final 40 miles back to Curtis feel longer than the previous four days combined. Your legs know they're supposed to be done, but Nebraska's rolling terrain has other plans."
+          "mile": 253,
+          "label": "Bridgeport Homecoming Crawl",
+          "desc": "The final 39 miles from Alliance back to Bridgeport feel longer than the previous four days combined. Your legs know they're supposed to be done, but Nebraska's rolling terrain has other plans."
         }
       ],
       "signature_challenge": "The relentless undulation combined with Nebraska's ever-present wind creates a grinding war of attrition that looks deceptively easy on elevation profiles. It's not the climbs that break you—it's the fact that the road never actually flattens, the wind never stops, and over 250 miles those constant rollers compound into serious suffering."
     },
     "citations": [
+      {
+        "url": "https://tourdenebraska.com/route-maps.html",
+        "category": "official",
+        "label": "Tour de Nebraska 2027 route maps"
+      },
       {
         "url": "https://bikepackingroots.org/project/great-plains-gravel-route-nebraska/",
         "category": "other",
@@ -297,11 +303,6 @@
         "url": "https://www.tripadvisor.com/Hotels-g45696-McCook_Nebraska-Hotels.html",
         "category": "other",
         "label": "Tripadvisor"
-      },
-      {
-        "url": "https://velo.outsideonline.com/gravel/gravel-racing/results-matt-beers-and-rosa-kloser-win-lauf-gravel-worlds-2025-in-a-duo-of-two-up-sprints/",
-        "category": "community",
-        "label": "velo.outsideonline.com: Results Matt Beers And Rosa Kloser Win Lauf Gravel Worlds..."
       }
     ],
     "logistics": {
@@ -433,7 +434,7 @@
         "type": "video-1",
         "file": "tour-de-nebraska-video-1.jpg",
         "url": "/race-photos/tour-de-nebraska/tour-de-nebraska-video-1.jpg",
-        "alt": "Blurry black and white image showing damaged metal framework or bridge structure among rocky terrain - Tour de Nebraska - Southwest Nebraska (Curtis, Elwood, Cambridge, McCook)",
+        "alt": "Blurry black and white image showing damaged metal framework or bridge structure among rocky terrain - Tour de Nebraska - western Nebraska",
         "credit": "YouTube / US National Archives",
         "primary": true,
         "ai_relevance": 1,
@@ -449,7 +450,7 @@
         "type": "video-2",
         "file": "tour-de-nebraska-video-2.jpg",
         "url": "/race-photos/tour-de-nebraska/tour-de-nebraska-video-2.jpg",
-        "alt": "Black and white image of vintage military tanks or heavy machinery positioned near rocky cliff formations - Tour de Nebraska - Southwest Nebraska (Curtis, Elwood, Cambridge, McCook)",
+        "alt": "Black and white image of vintage military tanks or heavy machinery positioned near rocky cliff formations - Tour de Nebraska - western Nebraska",
         "credit": "YouTube / US National Archives",
         "primary": false,
         "ai_relevance": 1,
@@ -465,10 +466,17 @@
         "type": "preview-gif",
         "file": "tour-de-nebraska-preview.gif",
         "url": "/race-photos/tour-de-nebraska/tour-de-nebraska-preview.gif",
-        "alt": "Course preview from Tour De Nebraska race footage",
+        "alt": "Course preview from Tour de Nebraska tour footage",
         "credit": "YouTube / US National Archives",
         "gif": true
       }
-    ]
+    ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": false,
+      "verified": "2026-11-06",
+      "source": "https://www.tourdenebraska.com/",
+      "status_note": "A five-day supported tour, not a race: no timing or winners."
+    }
   }
 }

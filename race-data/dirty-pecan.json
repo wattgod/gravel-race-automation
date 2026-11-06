@@ -3,13 +3,13 @@
     "name": "Dirty Pecan",
     "slug": "dirty-pecan",
     "display_name": "Dirty Pecan",
-    "tagline": "Red clay tunnels and pecan orchards through Florida's panhandle backcountry.",
+    "tagline": "Red clay tunnels and pecan orchards through North Florida's Jefferson County backcountry.",
     "vitals": {
       "distance_mi": 150,
       "elevation_ft": 800,
-      "location": "Florida",
-      "location_badge": "FLORIDA",
-      "county": "Florida",
+      "location": "Monticello, Florida",
+      "location_badge": "MONTICELLO, FL",
+      "county": "Jefferson County",
       "date": "Early March annually",
       "date_specific": "2027: March 6 (Saturday, CONFIRMED — bikereg.com/72398)",
       "terrain_types": [
@@ -21,11 +21,11 @@
       "field_size": "200-400 riders",
       "start_time": "Morning start",
       "registration": "Online. Cost: ~$75-125",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Multiple aid stations",
+      "prize_purse": "None (no podium)",
+      "aid_stations": "None (unsupported ride)",
       "cutoff_time": "Varies",
-      "lat": 27.7568,
-      "lng": -81.464
+      "lat": 30.5447,
+      "lng": -83.8672
     },
     "climate": {
       "primary": "FL winter/spring",
@@ -73,7 +73,7 @@
     },
     "biased_opinion": {
       "verdict": "FL Flat Gravel",
-      "summary": "Dirty Pecan is a regional event in Florida—flat terrain with minimal elevation. The FL scenery is nice, but the moderate organization and regional field keep it firmly in Tier 3. Florida provides good access.",
+      "summary": "Dirty Pecan is an unsupported charity ride out of Monticello in North Florida's Jefferson County—flat terrain with minimal elevation, and no podium or trophies. The FL scenery is nice, but the moderate organization and regional field keep it firmly in Tier 3. Tallahassee, about 24 miles away, provides good access.",
       "strengths": [
         "FL scenery",
         "FL cycling community",
@@ -88,11 +88,11 @@
         "Limited national recognition",
         "US travel costs"
       ],
-      "bottom_line": "A solid regional FL gravel race with flat terrain. Worth it for FL/Southeast cyclists. Not a destination race for national travelers."
+      "bottom_line": "A solid regional North Florida gravel ride with flat terrain and no podium. Worth it for FL/Southeast cyclists. Not a destination event for national travelers."
     },
     "final_verdict": {
       "score": "49 / 100",
-      "one_liner": "Florida flat gravel.",
+      "one_liner": "North Florida flat gravel.",
       "should_you_race": "If you're in FL/Southeast and want a local event—yes, it's solid. If you're from out of region—there are better options.",
       "alternatives": "For similar regional events: other FL gravel races. For more elevation: GA/NC gravel races."
     },
@@ -154,7 +154,7 @@
       "race_distance": "65 miles",
       "race_elevation": "800 feet",
       "race_date": "Winter/Spring",
-      "race_location": "Florida",
+      "race_location": "Monticello, Florida",
       "race_terrain": "FL flat gravel",
       "race_weather": "FL winter/spring mild/warm",
       "race_challenges": [
@@ -259,7 +259,7 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Dirty Pecan",
-        "race_hook": "Florida flat gravel.",
+        "race_hook": "North Florida flat gravel.",
         "race_hook_detail": "Regional event with flat terrain.",
         "distance": "65",
         "dark_mile": "35",
@@ -328,6 +328,11 @@
       }
     },
     "citations": [
+      {
+        "url": "https://www.granfondoguide.com/Contents/IndexFull/8822/gear-up-for-2026-gravel-season-at-the-11th-dirty-pecan-in-north-florida",
+        "category": "media",
+        "label": "Gran Fondo Guide: 11th Dirty Pecan, Monticello"
+      },
       {
         "url": "https://www.bikereg.com/72398",
         "category": "registration",
@@ -668,7 +673,7 @@
         "type": "video-1",
         "file": "dirty-pecan-video-1.jpg",
         "url": "/race-photos/dirty-pecan/dirty-pecan-video-1.jpg",
-        "alt": "Gravel cyclist in racing gear riding on paved rural road during golden hour sunset with trees and farmland - Dirty Pecan - Florida",
+        "alt": "Gravel cyclist in racing gear riding on paved rural road during golden hour sunset with trees and farmland - Dirty Pecan - Monticello, Florida",
         "credit": "YouTube / PedalPower Adventures",
         "primary": true,
         "ai_relevance": 4,
@@ -685,7 +690,7 @@
         "type": "video-2",
         "file": "dirty-pecan-video-2.jpg",
         "url": "/race-photos/dirty-pecan/dirty-pecan-video-2.jpg",
-        "alt": "Large peloton of gravel cyclists racing on paved road through wooded area under clear blue sky - Dirty Pecan - Florida",
+        "alt": "Large peloton of gravel cyclists racing on paved road through wooded area under clear blue sky - Dirty Pecan - Monticello, Florida",
         "credit": "YouTube / PedalPower Adventures",
         "primary": false,
         "ai_relevance": 5,
@@ -702,7 +707,7 @@
         "type": "video-3",
         "file": "dirty-pecan-video-3.jpg",
         "url": "/race-photos/dirty-pecan/dirty-pecan-video-3.jpg",
-        "alt": "First-person view of sandy gravel road with tire tracks winding through dense forest under blue sky - Dirty Pecan - Florida",
+        "alt": "First-person view of sandy gravel road with tire tracks winding through dense forest under blue sky - Dirty Pecan - Monticello, Florida",
         "credit": "YouTube / PedalPower Adventures",
         "primary": false,
         "ai_relevance": 5,
@@ -719,10 +724,17 @@
         "type": "preview-gif",
         "file": "dirty-pecan-preview.gif",
         "url": "/race-photos/dirty-pecan/dirty-pecan-preview.gif",
-        "alt": "Course preview from Dirty Pecan race footage",
+        "alt": "Course preview from Dirty Pecan ride footage",
         "credit": "YouTube / PedalPower Adventures",
         "gif": true
       }
-    ]
+    ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": false,
+      "verified": "2026-11-06",
+      "source": "https://www.bikereg.com/72398",
+      "status_note": "An unsupported ride with no podium or results."
+    }
   }
 }

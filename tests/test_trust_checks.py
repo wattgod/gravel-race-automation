@@ -386,12 +386,11 @@ class TestExamples:
 # Each needs a fresh date or a taking_a_break note; shrink this list, never
 # grow it.
 STALE_DATE_BASELINE = {
-    "berryman-epic", "bohemian-border-bash", "burgr-95",
-    "dusty-gravel-lacs-de-leau-dheure", "etape-du-dales", "galactic-grinder",
-    "gran-fondo-argentina", "gran-fondo-hainan", "hardwood-hustle",
-    "iron-cross", "la-vaujany", "nicolet-hot-days",
-    "pickerel-buck40", "rose-city-rampage", "rust-buster-gravel-fondo",
-    "serenissima-gravel", "switchgrass", "trans-iowa", "velothon-berlin",
+    "berryman-epic", "bohemian-border-bash",
+    "dusty-gravel-lacs-de-leau-dheure", "etape-du-dales",
+    "hardwood-hustle", "iron-cross", "la-vaujany",
+    "pickerel-buck40", "rose-city-rampage",
+    "serenissima-gravel", "trans-iowa", "velothon-berlin",
     "veneto-gravel", "wollombi-gravel-fest",
 }
 
@@ -438,6 +437,7 @@ NOT_DUPLICATES = {
     frozenset({"opelika-okey-dokey", "standard-deluxe-dirt-road-century"}): "different dates (flagged for review)",
     frozenset({"nordic-chase-berlin-copenhagen-gravel", "velothon-berlin"}): "bikepacking route vs road sportive",
     frozenset({"forbidden-gravel", "unravel-gravel-va"}): "Cumberland, BC vs Cumberland, VA",
+    frozenset({"salida-76", "vapor-trail-125"}): "gravel race vs mountain bike race, both from Salida",
 }
 
 _MONTH_RE = re.compile(r"(January|February|March|April|May|June|July|August|"

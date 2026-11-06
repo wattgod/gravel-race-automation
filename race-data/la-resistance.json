@@ -98,7 +98,7 @@
       "alternatives": "For better value: 66° South Pyrénées. For similar Alpine terrain: Gravel Suisse.",
       "alternative_slugs": [
         "pyrenees-catalanes-gravel-tour",
-        "gravel-suisse"
+        "the-majestics-gravel"
       ]
     },
     "logistics": {
@@ -688,6 +688,13 @@
         "credit": "YouTube / Cycling in the Alps",
         "gif": true
       }
-    ]
+    ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": false,
+      "verified": "2026-11-06",
+      "source": "https://www.freewheelingfrance.com/blog/la-resistance.html",
+      "status_note": "A challenge ride, not a race: no winners."
+    }
   }
 }

@@ -3,20 +3,20 @@
     "name": "Tour de Gap",
     "slug": "tour-de-gap",
     "display_name": "Tour de Gap",
-    "tagline": "Mississippi rolling hills gravel in Fulton.",
+    "tagline": "Hill ride over the Callahan Divide from Buffalo Gap, south of Abilene.",
     "vitals": {
       "distance_mi": 65,
       "elevation_ft": 3000,
-      "location": "Fulton, Mississippi",
-      "location_badge": "FULTON, MS",
-      "county": "Itawamba County",
+      "location": "Buffalo Gap, Texas",
+      "location_badge": "BUFFALO GAP, TX",
+      "county": "Taylor County",
       "date": "Late July annually",
       "date_specific": "2026: July 25",
       "terrain_types": [
-        "Mississippi rolling hills",
-        "Rural gravel",
+        "County roads",
+        "Callahan Divide hills",
         "Regional event",
-        "Northeast Mississippi"
+        "Taylor County, Texas"
       ],
       "field_size": "200-400 riders",
       "start_time": "7:30 a.m.",
@@ -24,27 +24,27 @@
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
-      "lat": 34.274,
-      "lng": -88.4092
+      "lat": 32.2833,
+      "lng": -99.8333
     },
     "climate": {
-      "primary": "Mississippi spring/fall",
-      "description": "Variable conditions with heat and humidity possible.",
+      "primary": "Texas summer (late July)",
+      "description": "Late-July heat. The 100K starts at 7:30 a.m. and the course closes at 1:00 p.m., so slower riders finish in the midday heat.",
       "challenges": [
         "Heat possible",
-        "Humidity",
+        "Midday finish",
         "Variable weather",
-        "Rolling hills"
+        "Callahan Divide hills"
       ]
     },
     "terrain": {
-      "primary": "Mississippi rolling hills gravel",
-      "surface": "Gravel roads through rolling northeast Mississippi hills. Moderate elevation with rural scenery.",
+      "primary": "Callahan Divide hills on Taylor County backroads",
+      "surface": "County roads through the hills of the Callahan Divide south of Abilene. Moderate climbing with rural scenery.",
       "technical_rating": 2,
       "features": [
         "Moderate rolling (3000 feet)",
         "Rural scenery",
-        "Northeast Mississippi setting",
+        "Callahan Divide setting",
         "Multiple distances",
         "Regional event"
       ]
@@ -72,33 +72,33 @@
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Northeast Mississippi Rolling Hills Gravel",
-      "summary": "Tour de Gap is a regional event in Fulton, northeast Mississippi. The rolling hills terrain offers moderate climbing with rural scenery, but the moderate organization and regional field keep it firmly in Tier 3. Fulton provides moderate access. It's a solid regional event for Mississippi cyclists.",
+      "verdict": "Callahan Divide Hill Ride South of Abilene",
+      "summary": "Tour de Gap is a regional event out of Buffalo Gap, Texas, about 13 miles south of Abilene. The hills of the Callahan Divide offer moderate climbing with rural scenery, but the moderate organization and regional field keep it firmly in Tier 3. Buffalo Gap is tiny; Abilene has the hotels. It's a solid regional event for Texas cyclists.",
       "strengths": [
-        "Mississippi rolling hills",
-        "Northeast MS location",
+        "Callahan Divide hills",
+        "43rd edition in 2026",
         "Moderate climbing",
         "Rural scenery",
-        "MS cycling community"
+        "Abilene-area cycling community"
       ],
       "weaknesses": [
-        "Northeast MS access (moderate)",
+        "Small-town base; lodging is in Abilene",
         "Moderate organization",
         "Regional field only",
         "Limited national recognition",
-        "Heat/humidity concerns"
+        "Late-July heat"
       ],
-      "bottom_line": "A solid regional Mississippi gravel race with rolling hills terrain. Worth it for Mississippi cyclists seeking a local event. Not a destination race for out-of-state travelers."
+      "bottom_line": "A solid regional Texas ride with hilly terrain. Worth it for Texas cyclists seeking a local summer event. Not a destination race for out-of-state travelers."
     },
     "final_verdict": {
       "score": "46 / 100",
-      "one_liner": "Mississippi rolling hills gravel in Fulton.",
-      "should_you_race": "If you're in Mississippi and want a local rolling hills event—yes, it's a solid regional race. If you're from out of state—there are better options.",
-      "alternatives": "For better Southeast events: Cohutta, Southern Cross. For similar regional events: other MS gravel races."
+      "one_liner": "Hill ride over the Callahan Divide from Buffalo Gap, south of Abilene.",
+      "should_you_race": "If you're in Texas and want a local summer hill ride—yes, it's a solid regional event. If you're from out of state—there are better options.",
+      "alternatives": "For a bigger Texas gravel event: Gravel Locos. For similar regional events: other Texas rides."
     },
     "logistics": {
-      "airport": "Tupelo (TUP) 30 minutes or Memphis (MEM) 2 hours",
-      "lodging_strategy": "Fulton has limited lodging. Tupelo has more options.",
+      "airport": "Abilene (ABI) is the closest commercial airport; Buffalo Gap sits about 13 miles south of Abilene on FM 89.",
+      "lodging_strategy": "Buffalo Gap has little lodging. Stay in Abilene.",
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
@@ -119,7 +119,7 @@
       }
     ],
     "course_description": {
-      "character": "Rolling Mississippi hills gravel with moderate climbing.",
+      "character": "Hills of the Callahan Divide on South Taylor County backroads, with moderate climbing.",
       "suffering_zones": [
         {
           "mile": 20,
@@ -143,7 +143,7 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Mississippi rolling hills gravel in Fulton.",
+      "signature_challenge": "The Callahan Divide hills, plus a 10:45 a.m. cutoff at the 100K's 40-mile checkpoint.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
@@ -151,13 +151,13 @@
       "race_name": "Tour de Gap",
       "race_distance": "65 miles",
       "race_elevation": "3,000 feet",
-      "race_date": "Spring or Fall",
-      "race_location": "Fulton, Mississippi",
-      "race_terrain": "Mississippi rolling hills gravel",
-      "race_weather": "MS variability",
+      "race_date": "Late July",
+      "race_location": "Buffalo Gap, Texas",
+      "race_terrain": "Callahan Divide hills on county roads",
+      "race_weather": "Late-July Texas heat",
       "race_challenges": [
-        "Rolling hills",
-        "Heat/humidity possible",
+        "Callahan Divide hills",
+        "Late-July heat",
         "Moderate elevation",
         "Regional field",
         "Variable conditions"
@@ -169,12 +169,12 @@
       {
         "requirement": "Rolling endurance",
         "by_when": "Week 8-10",
-        "why": "Mississippi rolling hills require sustained effort."
+        "why": "The Callahan Divide hills require sustained effort."
       },
       {
-        "requirement": "Heat and humidity preparation",
+        "requirement": "Heat preparation",
         "by_when": "Week 4-6",
-        "why": "MS spring/fall means heat and humidity are likely."
+        "why": "Late July in Texas means heat, and the course stays open until 1:00 p.m."
       },
       {
         "requirement": "Pacing discipline",
@@ -250,19 +250,19 @@
         "topics": {
           "pacing": "Rolling terrain pacing",
           "fueling": "Nutrition for moderate rolling",
-          "heat": "Racing in MS heat and humidity",
+          "heat": "Riding in late-July Texas heat",
           "rolling": "Sustained rolling strategy"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Tour de Gap",
-        "race_hook": "Mississippi rolling hills gravel in Fulton.",
+        "race_hook": "Hill ride over the Callahan Divide from Buffalo Gap, south of Abilene.",
         "race_hook_detail": "Regional event with moderate climbing.",
         "distance": "65",
         "dark_mile": "35",
         "non_negotiable_1": "Rolling endurance",
-        "non_negotiable_2": "Heat and humidity preparation",
+        "non_negotiable_2": "Heat preparation",
         "non_negotiable_3": "Pacing discipline",
         "trainingpeaks_url": null
       }
@@ -596,7 +596,7 @@
         "type": "video-1",
         "file": "tour-de-gap-video-1.jpg",
         "url": "/race-photos/tour-de-gap/tour-de-gap-video-1.jpg",
-        "alt": "Three cyclists in red and black team jerseys racing on gravel road through mountainous terrain with rocky outcrops and green vegetation - Tour de Gap - Fulton, Mississippi",
+        "alt": "Three cyclists in red and black team jerseys racing on gravel road through mountainous terrain with rocky outcrops and green vegetation - Tour de Gap - Buffalo Gap, Texas",
         "credit": "YouTube / Global Cycling Network",
         "primary": true,
         "ai_relevance": 5,
@@ -613,7 +613,7 @@
         "type": "video-2",
         "file": "tour-de-gap-video-2.jpg",
         "url": "/race-photos/tour-de-gap/tour-de-gap-video-2.jpg",
-        "alt": "Aerial view of cyclists on paved road through rural countryside with speed markers showing 12 K/H and 25 K/H overlaid on image - Tour de Gap - Fulton, Mississippi",
+        "alt": "Aerial view of cyclists on paved road through rural countryside with speed markers showing 12 K/H and 25 K/H overlaid on image - Tour de Gap - Buffalo Gap, Texas",
         "credit": "YouTube / Global Cycling Network",
         "primary": false,
         "ai_relevance": 3,
@@ -630,7 +630,7 @@
         "type": "video-3",
         "file": "tour-de-gap-video-3.jpg",
         "url": "/race-photos/tour-de-gap/tour-de-gap-video-3.jpg",
-        "alt": "Motion-blurred view from moving vehicle showing highway guardrail and agricultural fields with rolling hills in background - Tour de Gap - Fulton, Mississippi",
+        "alt": "Motion-blurred view from moving vehicle showing highway guardrail and agricultural fields with rolling hills in background - Tour de Gap - Buffalo Gap, Texas",
         "credit": "YouTube / Global Cycling Network",
         "primary": false,
         "ai_relevance": 2,

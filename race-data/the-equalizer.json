@@ -5,8 +5,8 @@
     "display_name": "The Equalizer - Missouri State Championship",
     "tagline": "Missouri State Gravel Championship through wine country — now raced in late-October cold.",
     "vitals": {
-      "distance_mi": 62,
-      "elevation_ft": 3786,
+      "distance_mi": 49,
+      "elevation_ft": null,
       "location": "Marthasville, Missouri",
       "location_badge": "MARTHASVILLE, MISSOURI",
       "county": "Warren County",
@@ -50,11 +50,11 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 60,
-      "tier": 2,
-      "tier_label": "TIER 2",
+      "overall_score": 57,
+      "tier": 3,
+      "tier_label": "TIER 3",
       "logistics": 4,
-      "length": 4,
+      "length": 2,
       "technicality": 2,
       "elevation": 3,
       "climate": 2,
@@ -68,11 +68,11 @@
       "value": 4,
       "expenses": 4,
       "discipline": "gravel",
-      "display_tier": 2
+      "display_tier": 3
     },
     "biased_opinion": {
       "verdict": "The October State-Title Scrap",
-      "summary": "THE EQUALIZER is Missouri's state gravel championship--62 miles through wine country in late October. The course is rolling but not brutal (3,786 ft, constant ups and downs, no mountain climbs). The challenge is cold-start pacing and late-season fitness, not heat: mornings are cold, daylight is short, and most of the field hasn't raced hard since summer. The wine country setting is scenic, and Missouri gravel is smooth compared to mountain states. State championship brings some fast racers, but the field is mostly recreational (200-300 riders). St. Louis airport is about an hour away, making travel easy. Marthasville is small, but nearby St. Charles has lodging. This is an emerging Midwest gravel scene event--not iconic, but solid.",
+      "summary": "THE EQUALIZER is Missouri's state gravel championship--the 49-mile 49'r through wine country in late October. The course is rolling but not brutal (constant ups and downs, no mountain climbs; climbing for the 49-mile course isn't published). The challenge is cold-start pacing and late-season fitness, not heat: mornings are cold, daylight is short, and most of the field hasn't raced hard since summer. The wine country setting is scenic, and Missouri gravel is smooth compared to mountain states. State championship brings some fast racers, but the field is mostly recreational (200-300 riders). St. Louis airport is about an hour away, making travel easy. Marthasville is small, but nearby St. Charles has lodging. This is an emerging Midwest gravel scene event--not iconic, but solid.",
       "strengths": [
         "Missouri State Championship—USAC recognition",
         "Accessible—St. Louis airport 1 hour away",
@@ -101,7 +101,7 @@
       "official_site": "https://www.theequalizermostatechampionship.com"
     },
     "course_description": {
-      "character": "Rolling Missouri River Valley terrain. Roughly 3,800 ft over 62 miles = constant ups and downs, no sustained climbs. Mix of smooth gravel county roads (85%) and paved connectors (15%). Terrain is rolling but not extreme. Cold November mornings and late-season fitness are the defining challenge.",
+      "character": "Rolling Missouri River Valley terrain: 49 miles of constant ups and downs, no sustained climbs. Climbing for the 49-mile course isn't published (the old 100K ran 3,786 ft over 62 miles). Mix of smooth gravel county roads (85%) and paved connectors (15%). Terrain is rolling but not extreme. Cold November mornings and late-season fitness are the defining challenge.",
       "suffering_zones": [
         {
           "name": "Constant Rollers",
@@ -110,7 +110,7 @@
           "survival_strategy": "Never flat. Power surges on the rollers. Mentally exhausting--there is no rest section on this loop."
         }
       ],
-      "signature_challenge": "The constant rollers, not one single climb. 3,800 feet arrives in dozens of short punches with no flat mile to recover on, and by late October most of the field is riding on fading late-season fitness."
+      "signature_challenge": "The constant rollers, not one single climb. The climbing arrives in dozens of short punches with no flat mile to recover on, and by late October most of the field is riding on fading late-season fitness."
     },
     "history": {
       "founded": null,
@@ -171,8 +171,8 @@
         "explanation": "Marthasville Community Center provides solid race HQ with parking and packet pickup both day-before and race morning. Free onsite camping at Wessel Park with showers across the street, plus STL airport just an hour drive. The course is well marked with orange arrows and roadside directional stakes, backed by corner marshals and roaming sag support."
       },
       "length": {
-        "score": 4,
-        "explanation": "The 100K (62 miles) hits the gravel sweet spot with aid stations providing water and sports drink twice for 100K riders. Sag bag service at aid stations plus trailing support keeps mechanicals from ending your day. The distance respects your weekend while demanding proper pacing through Warren County's rolling hills. Longer than Belgian Waffle Ride San Diego."
+        "score": 2,
+        "explanation": "The 49-mile '49'r' is now the long course, and it doubles as the Missouri Gravel State Championship. That's compact by gravel standards: a championship decided over a distance most riders can race flat-out instead of survive. Aid stations with water and sports drink, sag bag service and trailing support keep mechanicals from ending your day. The distance respects your weekend while demanding proper pacing through Warren County's rolling hills. Less than half of Mid South's distance."
       },
       "technicality": {
         "score": 2,
@@ -180,7 +180,7 @@
       },
       "elevation": {
         "score": 3,
-        "explanation": "Rolling gain over the 100K (62 miles) through Warren County's hills means constant ups and downs with no recovery sections. Named climbs like The Big Watts Big Rocks Segment and Kersten Krusher provide KOM/QOM opportunities. The relentless rollers grind you down by mile 80 without offering sustained climbing drama. Similar elevation profile to Gravel Worlds."
+        "explanation": "Climbing for the 49-mile course isn't published, so this score reflects the old 100K's 3,786 feet through Warren County's hills: constant ups and downs with no recovery sections. Named climbs like The Big Watts Big Rocks Segment and Kersten Krusher provide KOM/QOM opportunities. The relentless rollers grind you down in the late miles without offering sustained climbing drama."
       },
       "climate": {
         "score": 2,
@@ -224,9 +224,9 @@
       }
     },
     "final_verdict": {
-      "score": "60 / 100",
+      "score": "57 / 100",
       "one_liner": "Missouri's state championship is a cold-morning rollers grind through wine country that finds out whose fitness survived the fall.",
-      "should_you_race": "If you can handle 95°F with 80% humidity while grinding constant rollers for six hours, this is solid Midwest racing. The course won't break you—smooth gravel, manageable elevation—but November cold will punish anyone who shows up dressed for September. Perfect for riders wanting state championship bragging rights without the technical demands of mountain races.",
+      "should_you_race": "If you can handle a cold start while grinding constant rollers for 49 miles, this is solid Midwest racing. The course won't break you—smooth gravel, manageable elevation—but November cold will punish anyone who shows up dressed for September. Perfect for riders wanting state championship bragging rights without the technical demands of mountain races.",
       "alternatives": "Gravel Worlds in Nebraska offers similar Midwest terrain with bigger fields and better logistics. If you want actual challenging terrain instead of just challenging weather, hit up Rebecca's Private Idaho or the Crusher in the Tushar where the mountains do the work instead of the thermometer.",
       "alternative_slugs": [
         "crusher-in-the-tushar",

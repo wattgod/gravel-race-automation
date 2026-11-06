@@ -4,7 +4,7 @@
   "distance_mi": 95.0,
   "demands": {
     "durability": 4,
-    "climbing": 4,
+    "climbing": 8,
     "vo2_power": 2,
     "threshold": 8,
     "technical": 4,
@@ -21,21 +21,20 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "Wild Horse Gravel's private-ranch high desert gravel rewards steady threshold power. Surging and recovering costs more watts than just holding."
+      "workout_context": "84ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
-      "category": "Durability",
-      "score": 85,
+      "category": "Over_Under",
+      "score": 89,
       "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
       ],
-      "workout_context": "At mile 60 of 95, glycogen is gone. This workout teaches your body to produce watts on fumes."
+      "workout_context": "At Wild Horse Gravel, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "G_Spot",
-      "score": 80,
+      "score": 78,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -44,17 +43,27 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Wild Horse Gravel. Train it until it feels boring."
     },
     {
-      "category": "Over_Under",
-      "score": 73,
+      "category": "Durability",
+      "score": 71,
       "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
       ],
-      "workout_context": "At Wild Horse Gravel, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+      "workout_context": "At mile 60 of 95, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 67,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "8,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "Gravel_Specific",
-      "score": 73,
+      "score": 61,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
@@ -63,7 +72,7 @@
     },
     {
       "category": "Endurance",
-      "score": 72,
+      "score": 60,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
@@ -72,17 +81,17 @@
     },
     {
       "category": "VO2max",
-      "score": 70,
+      "score": 58,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "When someone attacks on private-ranch high desert gravel, you have 10 seconds to respond or you're off the back. This builds that response."
+      "workout_context": "8,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Race_Simulation",
-      "score": 70,
+      "score": 58,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -91,8 +100,17 @@
       "workout_context": "Race-pace efforts that mimic Wild Horse Gravel's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
     },
     {
+      "category": "SFR_Muscle_Force",
+      "score": 44,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 8,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
       "category": "Norwegian_Double",
-      "score": 53,
+      "score": 44,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
@@ -101,31 +119,13 @@
     },
     {
       "category": "HVLI_Extended",
-      "score": 43,
+      "score": 36,
       "workouts": [
         "HVLI Extended Z2",
         "Multi-Hour Z2",
         "Back-to-Back Long"
       ],
       "workout_context": "The aerobic base that lets you ride private-ranch high desert gravel at tempo for 95 miles without cracking. No shortcuts."
-    },
-    {
-      "category": "Tempo",
-      "score": 40,
-      "workouts": [
-        "Tempo Blocks",
-        "Extended Tempo"
-      ],
-      "workout_context": "Tempo is Wild Horse Gravel's race pace. The wattage you'll hold for 95 miles on private-ranch high desert gravel. Train it until it's automatic."
-    },
-    {
-      "category": "Mixed_Climbing",
-      "score": 40,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "Varied gradients on private-ranch high desert gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
     }
   ],
   "race_overlay": {
@@ -133,6 +133,6 @@
     "altitude": "Moderate altitude at Wild Horse Gravel. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
     "terrain": "Mixed terrain at Wild Horse Gravel requires surface adaptability. Include weekly rides on private-ranch high desert gravel to build confidence. Expect: book cliffs high desert, private-ranch gravel, canyon corridors and mesas."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and G Spot to prepare you for 95 miles of private-ranch high desert gravel in De Beque, Colorado (High Lonesome Ranch Basecamp).",
-  "generated_at": "2026-10-25"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and G Spot to prepare you for 95 miles of private-ranch high desert gravel in De Beque, Colorado (High Lonesome Ranch Basecamp).",
+  "generated_at": "2026-11-06"
 }

@@ -3,10 +3,10 @@
     "name": "Waukon 100",
     "slug": "waukon-100",
     "display_name": "Waukon 100",
-    "tagline": "100 miles through Iowa's Driftless region with 5,000 feet of climbing and river valley gravel.",
+    "tagline": "100 kilometres (62 miles) through Iowa's Driftless region with about 4,300 feet of climbing and river valley gravel.",
     "vitals": {
-      "distance_mi": 100,
-      "elevation_ft": 5000,
+      "distance_mi": 62,
+      "elevation_ft": 4300,
       "location": "Waukon, Iowa",
       "location_badge": "WAUKON, IA",
       "county": "Allamakee County",
@@ -42,19 +42,19 @@
       "surface": "Gravel roads through Iowa countryside. Significant elevation with rolling scenery.",
       "technical_rating": 3,
       "features": [
-        "Significant rolling (5000 feet)",
+        "Significant rolling (about 4,300 feet)",
         "Iowa countryside scenery",
         "Local community event",
-        "100-mile distance",
+        "100 km (62-mile) distance",
         "Small field"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 44,
+      "overall_score": 43,
       "tier": 4,
       "tier_label": "TIER 4",
       "logistics": 2,
-      "length": 4,
+      "length": 3,
       "technicality": 3,
       "elevation": 3,
       "climate": 2,
@@ -67,16 +67,16 @@
       "field_depth": 1,
       "value": 3,
       "expenses": 3,
-      "score_note": "Local Iowa event. Rolling terrain with remote access, moderate costs, 100-mile distance, significant elevation, and small local field.",
+      "score_note": "Local Iowa event. Rolling terrain with remote access, moderate costs, 100 km (62-mile) distance, moderate elevation, and small local field.",
       "discipline": "gravel",
       "display_tier": 4
     },
     "biased_opinion": {
-      "verdict": "Iowa Local Century",
-      "summary": "Waukon 100 is a local event in Iowa—rolling terrain with significant elevation over 100 miles. The Iowa countryside is nice and the distance/elevation are challenging, but the small local field, remote location, and limited organization keep it in Tier 4.",
+      "verdict": "Iowa Local 100K",
+      "summary": "Waukon 100 is a local event in Iowa—rolling terrain with significant elevation over 100 kilometres (62 miles). The Iowa countryside is nice and the distance/elevation are challenging, but the small local field, remote location, and limited organization keep it in Tier 4.",
       "strengths": [
         "Iowa countryside scenery",
-        "100-mile challenge",
+        "100 km challenge",
         "Significant elevation",
         "Good value",
         "Remote experience"
@@ -88,10 +88,10 @@
         "Variable weather",
         "No national draw"
       ],
-      "bottom_line": "A solid local Iowa century gravel race. Worth it for Iowa/Midwest riders. Not worth traveling for."
+      "bottom_line": "A solid local Iowa 100K gravel race. Worth it for Iowa/Midwest riders. Not worth traveling for."
     },
     "final_verdict": {
-      "score": "44 / 100",
+      "score": "43 / 100",
       "one_liner": "Iowa local gravel challenge.",
       "should_you_race": "If you're local to Iowa—yes, it's solid. If you're traveling—skip it.",
       "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI.",
@@ -125,35 +125,32 @@
       "character": "Iowa rolling gravel.",
       "suffering_zones": [
         {
-          "mile": 30,
           "label": "Early Rolling",
           "desc": "First rolling sections.",
           "terrain_detail": "Rolling",
           "named_section": "Early Rolling"
         },
         {
-          "mile": 50,
           "label": "Midpoint",
           "desc": "Halfway through the course.",
           "terrain_detail": "Midpoint",
           "named_section": "Halfway"
         },
         {
-          "mile": 80,
           "label": "Late Rolling",
           "desc": "Final rolling sections before finish.",
           "terrain_detail": "Late rolling",
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Iowa rolling terrain over 100 miles with significant elevation.",
+      "signature_challenge": "Iowa rolling terrain over 100 km (62 miles) with significant elevation.",
       "ridewithgps_id": "51103873",
       "ridewithgps_name": "Waukon 100 Training ride (casey)"
     },
     "guide_variables": {
       "race_name": "Waukon 100",
-      "race_distance": "100 miles",
-      "race_elevation": "5,000 feet",
+      "race_distance": "62 miles (100 km)",
+      "race_elevation": "4,300 feet",
       "race_date": "Summer",
       "race_location": "Waukon, Iowa",
       "race_terrain": "Iowa rolling gravel",
@@ -161,7 +158,7 @@
       "race_challenges": [
         "Rolling terrain",
         "Small local field",
-        "100-mile distance",
+        "100 km (62-mile) distance",
         "Significant elevation",
         "Remote location"
       ],
@@ -175,9 +172,9 @@
         "why": "Iowa summer weather is variable."
       },
       {
-        "requirement": "Century endurance",
+        "requirement": "100K endurance",
         "by_when": "Week 6-8",
-        "why": "100-mile distance with significant elevation requires sustained effort."
+        "why": "62 miles (100 km) with about 4,300 feet of climbing requires sustained effort."
       },
       {
         "requirement": "Self-sufficiency",
@@ -247,25 +244,25 @@
           "pacing",
           "fueling",
           "weather",
-          "century"
+          "distance"
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Century pacing strategy with elevation",
-          "fueling": "Nutrition for 100-mile riding",
+          "pacing": "100K pacing strategy with elevation",
+          "fueling": "Nutrition for 62 miles (100 km) of riding",
           "weather": "Riding in variable Iowa weather",
-          "century": "100-mile endurance strategy"
+          "distance": "100K endurance strategy"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Waukon 100",
         "race_hook": "Iowa local gravel challenge.",
-        "race_hook_detail": "Local event with 100-mile rolling terrain and significant elevation.",
-        "distance": "100",
+        "race_hook_detail": "Local event with 100 km of rolling terrain and significant elevation.",
+        "distance": "62",
         "dark_mile": "50",
         "non_negotiable_1": "Weather preparation",
-        "non_negotiable_2": "Century endurance",
+        "non_negotiable_2": "100K endurance",
         "non_negotiable_3": "Self-sufficiency",
         "trainingpeaks_url": null
       }
@@ -276,8 +273,8 @@
         "explanation": "Church basement packet pickup and 6:00AM race day check-in covers the basics without sophistication. The sweep ending at 2:00PM creates a hard cutoff that could strand unprepared riders miles from anywhere in rural Waukon."
       },
       "length": {
-        "score": 4,
-        "explanation": "100 miles with 5000 feet of climbing hits the century distance sweet spot for serious gravel challenge. The route explores the driftless region's \"long valleys and steep ridges\" north of Waukon, delivering substantial distance with meaningful terrain variety. Longer than Belgian Waffle Ride San Diego."
+        "score": 3,
+        "explanation": "100 kilometres (62 miles) with about 4,300 feet of climbing sits in gravel's middle distance - long enough to test you, short enough to race hard from the gun. The route explores the driftless region's \"long valleys and steep ridges\" north of Waukon, delivering meaningful terrain variety. There's a 50 km option for anyone not ready for the full 100. A bit shorter than Crusher in the Tushar."
       },
       "technicality": {
         "score": 3,
@@ -293,7 +290,7 @@
       },
       "altitude": {
         "score": 1,
-        "explanation": "This is Iowa with zero altitude considerations for performance or acclimatization. The only elevation that matters is the 5000 feet you'll climb during the race through the Upper Iowa River bottoms and surrounding ridges. Lower altitude than Gravel Worlds — no thin-air concerns."
+        "explanation": "This is Iowa with zero altitude considerations for performance or acclimatization. The only elevation that matters is the roughly 4,300 feet you'll climb during the race through the Upper Iowa River bottoms and surrounding ridges. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 2,
@@ -321,7 +318,7 @@
       },
       "value": {
         "score": 3,
-        "explanation": "The race delivers 100 miles through Iowa's most varied terrain with \"chip timing, marked course, pro photography and aid stations.\" Tiered registration options including lunch and shirt packages suggest reasonable pricing for the distance and support provided in the driftless region."
+        "explanation": "The race delivers 100 kilometres through Iowa's most varied terrain with \"chip timing, marked course, pro photography and aid stations.\" Tiered registration options including lunch and shirt packages suggest reasonable pricing for the distance and support provided in the driftless region."
       },
       "expenses": {
         "score": 3,
@@ -329,6 +326,11 @@
       }
     },
     "citations": [
+      {
+        "url": "https://iowagravelseries.com/waukon-100/",
+        "category": "official",
+        "label": "Waukon 100: 100 km / 62 mi, about 4,300 ft"
+      },
       {
         "url": "https://ridewithgps.com/routes/51103873",
         "category": "route",

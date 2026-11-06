@@ -177,7 +177,7 @@ class TestSafety:
         assert load_pack("no-such-slug-xyz") == {}
 
     def test_plan_slug_alias_uses_exact_race_suite(self):
-        sku = load_sku_link("gravel-suisse")
+        sku = load_sku_link("the-majestics-gravel")
         assert sku["mode"] == "race"
         assert [plan["planId"] for plan in sku["links"]] == [
             659126, 659127, 659130, 659131, 659128, 659129, 659132,

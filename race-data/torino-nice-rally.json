@@ -247,6 +247,11 @@
     },
     "citations": [
       {
+        "url": "https://torino-nice.weebly.com/faqs.html",
+        "category": "official",
+        "label": "Torino Nice Rally: not a timed race"
+      },
+      {
         "url": "https://ridewithgps.com/routes/53387121",
         "category": "route",
         "label": "RideWithGPS: Torino-Nice Rally"
@@ -340,11 +345,6 @@
         "url": "https://joshibbett.substack.com/p/bikepacking-the-torino-nice-rally",
         "category": "other",
         "label": "Joshibbett"
-      },
-      {
-        "url": "https://masoncycles.cc/blog/fastfar-torino-nice-rally-robert-krugel",
-        "category": "other",
-        "label": "Masoncycles"
       }
     ],
     "results": {
@@ -809,6 +809,13 @@
         "credit": "YouTube / Keith & Lindsay - Bikepacking Scotland",
         "gif": true
       }
-    ]
+    ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": false,
+      "verified": "2026-11-06",
+      "source": "https://torino-nice.weebly.com/faqs.html",
+      "status_note": "Organizer FAQ: no timing, no winners and no course record. It is a self-supported route, not a race."
+    }
   }
 }

@@ -116,6 +116,13 @@
       "notable_moments": [],
       "reputation": "Regional UT event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-04",
+        "source": "https://www.webscorer.com/race?live=1&raceid=426881"
+      }
+    ],
     "course_description": {
       "character": "Utah desert gravel.",
       "suffering_zones": [
@@ -358,9 +365,17 @@
     ],
     "results": {
       "years": {
-        "2024": {}
+        "2024": {},
+        "2026": {
+          "race": "97 mi",
+          "winner_female": "Alexis Skarda",
+          "winner_male": "Brendan Johnston",
+          "winning_time_female": "4:34:17",
+          "winning_time_male": "4:17:30",
+          "source": "https://www.webscorer.com/race?live=1&raceid=426881"
+        }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

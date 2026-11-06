@@ -111,12 +111,32 @@
       "official_site": ""
     },
     "history": {
-      "founded": null,
+      "founded": 2024,
       "founder": "Belgian organizers",
       "origin_story": "Regional Belgian gravel event.",
       "notable_moments": [],
       "reputation": "Regional Belgian event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 3,
+        "source": "https://granfondodailynews.com/2026/08/12/soete-and-frain-bound-for-unbound-after-winning-belgiums-heathland-gravel/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-10",
+        "edition": 2,
+        "source": "https://www.granfondoguide.com/Contents/Index/8669/50-participants-qualify-for-2026-unbound-at-2nd-edition-of-heathland-gravel"
+      },
+      {
+        "year": 2024,
+        "date": "2024-08-11",
+        "edition": 1,
+        "note": "First edition; European qualifier for Unbound Gravel",
+        "source": "https://www.procyclingstats.com/national-race/heathland-gravel-unbound-gualifier92/2024/result"
+      }
+    ],
     "course_description": {
       "character": "Belgian heathland gravel.",
       "suffering_zones": [
@@ -410,10 +430,30 @@
           "key_takeaways": [
             "Heathland Gravel is a three-day event in Maasmechelen, Belgium, with the main raceday on Sunday, August 9, 2026 (third edition); prior editions were in 2024 (first) and 2025 (second, with raceday August 10).",
             "Race history: Founded 2024 as first European Unbound Gravel Qualifier by Flanders Classics and partners (Belgium/USA collaboration); second edition 2025; third in 2026 with Shimano as title partner."
-          ]
+          ],
+          "race": "160 km",
+          "winner_female": "Fleur Moors",
+          "winner_male": "Jasper Ockeloen",
+          "source": "https://www.flandersclassics.be/en/news/heathland-gravel-opens-registrations-for-its-second-edition"
+        },
+        "2026": {
+          "race": "160 km",
+          "winner_female": "Nicole Frain",
+          "winner_male": "Daan Soete",
+          "winning_time_female": "3:40:33",
+          "winning_time_male": "3:24:57",
+          "source": "https://www.granfondoguide.com/RaceDashboard/UCIGravelWorldSeries/1/9321/soete-and-frain-are-the-winners-of-the-third-edition-of-heathland-gravel"
+        },
+        "2025": {
+          "race": "160 km",
+          "winner_female": "Lucia Gonzalez Blanco",
+          "winner_male": "Jasper Ockeloen",
+          "winning_time_female": "4:17:27",
+          "winning_time_male": "3:50:44",
+          "source": "https://www.granfondoguide.com/Contents/Index/8669/50-participants-qualify-for-2026-unbound-at-2nd-edition-of-heathland-gravel"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

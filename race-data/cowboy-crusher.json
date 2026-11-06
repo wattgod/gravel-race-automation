@@ -121,6 +121,16 @@
         "year": 2026,
         "status": "cancelled",
         "source": "https://cowboycrusher.com/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-07-19",
+        "source": "https://www.gravel-results.com/race/21659"
+      },
+      {
+        "year": 2024,
+        "date": "2024-07-13",
+        "source": "https://5kden.itsyourrace.com/Results.aspx?id=16089"
       }
     ],
     "course_description": {
@@ -368,10 +378,20 @@
         "2024": {
           "key_takeaways": [
             "Race history (founded year, founder if known): 2024 edition on July 13, 2024 (per ItsYourRace); grassroots event in Glenrock, historic Oregon Trail area (per official site)."
-          ]
+          ],
+          "race": "121 mi",
+          "winner_male": "Peter Haile",
+          "winning_time_male": "8:04:17",
+          "source": "https://5kden.itsyourrace.com/Results.aspx?id=16089"
+        },
+        "2025": {
+          "race": "121 mi",
+          "winner_female": "Michelle Richardson",
+          "winning_time_female": "11:08:26",
+          "source": "https://www.gravel-results.com/race/21659"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

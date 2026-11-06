@@ -115,6 +115,18 @@
       "notable_moments": [],
       "reputation": "Regional OR event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-27",
+        "source": "https://www.takelmagravelgrinder.com/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-28",
+        "source": "https://www.webscorer.com/race?lang=en&raceid=396003"
+      }
+    ],
     "course_description": {
       "character": "Oregon Cascades mountain gravel.",
       "suffering_zones": [
@@ -721,6 +733,19 @@
         "credit": "YouTube / Seven Feathers Casino Resort",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "55 mi",
+          "winner_female": "Amy VanTassel",
+          "winner_male": "Felipe Nystrom",
+          "winning_time_female": "3:41:11",
+          "winning_time_male": "2:48:39",
+          "source": "https://www.granfondoguide.com/series/oregon-triple-crown/9255/amy-vantassel-and-felipe-nystrom-fastest-at-2026-takelma-gravel-grinder-"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

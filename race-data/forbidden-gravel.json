@@ -11,7 +11,7 @@
       "location_badge": "CUMBERLAND, BC",
       "county": "British Columbia",
       "date": "September 20, 2026",
-      "date_specific": "2026: September 20",
+      "date_specific": "2027: September 19 (Sunday, CONFIRMED — bcgravelseries.com)",
       "terrain_types": [
         "BC coastal mountains",
         "Local event",
@@ -116,6 +116,13 @@
       "notable_moments": [],
       "reputation": "Local Canadian event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Expanded route along the Puntledge River with a climb up Forbidden Plateau Road.",
+        "source": "https://www.webscorer.com/race?raceid=448549"
+      }
+    ],
     "course_description": {
       "character": "A redesigned 2026 Cumberland gravel course following the Puntledge River and climbing Forbidden Plateau Road. The organizer has announced the corridor and approximate distance, but not the final GPX or elevation total.",
       "suffering_zones": [],
@@ -707,6 +714,19 @@
         "credit": "YouTube / Heyjude's Adventures",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "Esperto (~110 km)",
+          "winner_female": "Jade Blouin-Comeau",
+          "winner_male": "Cody Scott",
+          "winning_time_female": "3:21:47",
+          "winning_time_male": "2:51:14",
+          "source": "https://www.webscorer.com/race?raceid=448549"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

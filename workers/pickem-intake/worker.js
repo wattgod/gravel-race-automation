@@ -81,7 +81,8 @@ export default {
       // The full record rides in metadata when it fits (KV caps metadata at
       // 1024 bytes) so /export reads it from list() without one get per entry.
       const value = JSON.stringify(record);
-      const metadata = value.length <= 1000 ? record : { submitted_at: now };
+      // Byte length, not string length: accented names take 2+ bytes each.
+      const metadata = new TextEncoder().encode(value).length <= 1000 ? record : { submitted_at: now };
       await env.PICKEM.put(key, value, { metadata });
     } catch (kvError) {
       console.error('KV write failed:', kvError);

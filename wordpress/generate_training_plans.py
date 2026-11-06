@@ -324,10 +324,10 @@ def build_pricing() -> str:
   <div class="gg-tp-pricing-wrap">
     <div class="gg-tp-pricing-card">
       <div class="gg-tp-pricing-header">Custom Training Plan</div>
-      <div class="gg-tp-price">{PRICE_PER_WEEK}<span> / week of training</span></div>
+      <div class="gg-tp-price">{PRICE_PER_WEEK}<span> / week until your race</span></div>
       <ul class="gg-tp-pricing-list">
-        <li>Computed from your race date &mdash; pay for exactly what you need</li>
-        <li>6-week plan = {SIX_WEEK_PRICE}. 12-week plan = {TWELVE_WEEK_PRICE}. 16-week plan = {format_cents(compute_race_plan_price_cents(16))}</li>
+        <li>Weeks until your race, rounded up. Four-week minimum</li>
+        <li>Race 6 weeks away = {SIX_WEEK_PRICE}. 12 weeks = {TWELVE_WEEK_PRICE}. 16 weeks = {format_cents(compute_race_plan_price_cents(16))}</li>
         <li>Paid once. No subscription, no renewal</li>
         <li>Structured .zwo workouts for Zwift/TrainingPeaks/Wahoo</li>
         <li>30+ page custom training guide</li>
@@ -364,7 +364,7 @@ FAQ_ITEMS = [
     ),
     (
         "How is the price calculated?",
-        f"{PRICE_PER_WEEK} per week of training, computed from your race date. A 6-week plan is {SIX_WEEK_PRICE}. A 12-week plan is {TWELVE_WEEK_PRICE}. A 20-week plan is {format_cents(compute_race_plan_price_cents(20))}. You pay for exactly what you need &mdash; no more.",
+        f"{PRICE_PER_WEEK} for every week until your race, rounded up to whole weeks, with a four-week minimum. A race 6 weeks away is {SIX_WEEK_PRICE}. 12 weeks away is {TWELVE_WEEK_PRICE}. 20 weeks away is {format_cents(compute_race_plan_price_cents(20))}.",
     ),
     (
         "Is this coaching?",

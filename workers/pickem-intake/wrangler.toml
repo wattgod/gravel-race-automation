@@ -1,0 +1,15 @@
+name = "pickem-intake"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://gravelgodcycling.com,https://www.gravelgodcycling.com"
+
+# Create once with: npx wrangler kv namespace create PICKEM
+# then paste the printed id below.
+[[kv_namespaces]]
+binding = "PICKEM"
+id = "REPLACE_WITH_PICKEM_KV_ID"
+
+# Secrets (set via: wrangler secret put SECRET_NAME)
+# EXPORT_TOKEN — bearer token for GET /export (entries for scoring + opt-in list)

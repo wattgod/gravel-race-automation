@@ -1,0 +1,51 @@
+{
+  "game": "unbound-200-2027",
+  "race_slug": "unbound-200",
+  "race_name": "Unbound Gravel 200",
+  "edition": 2027,
+  "path": "/race/pickem/unbound-200-2027/",
+  "lock_utc": "2027-06-05T11:00:00Z",
+  "worker_url": "https://pickem-intake.gravelgodcoaching.workers.dev",
+  "riders": {
+    "women": [
+      {"list": "Unbound 200 podium 2026", "sources": ["https://socalcycling.com/?p=85083"],
+       "riders": ["Sofía Gómez Villafañe", "Geerike Schreurs", "Cecily Decker"]},
+      {"list": "Unbound 200 podium 2025", "sources": ["https://socalcycling.com/?p=82874"],
+       "riders": ["Karolina Migoń", "Cecily Decker", "Sofía Gómez Villafañe"]},
+      {"list": "Unbound 200 podium 2024", "sources": ["https://escapecollective.com/lachlan-morton-sprints-to-first-unbound-gravel-victory/"],
+       "riders": ["Rosa Klöser", "Geerike Schreurs", "Paige Onweller"]},
+      {"list": "Unbound 200 podium 2023", "sources": ["https://socalcycling.com/?p=77560"],
+       "riders": ["Carolin Schiff", "Sofía Gómez Villafañe", "Sarah Sturm"]},
+      {"list": "Unbound 200 podium 2022", "sources": ["https://www.unboundgravel.com/?p=23493"],
+       "riders": ["Sofía Gómez Villafañe", "Lauren De Crescenzo", "Emily Newsom"]},
+      {"list": "Unbound 200 podium 2021", "sources": ["https://roadbikeaction.com/2021-unbound-gravel-results"],
+       "riders": ["Lauren De Crescenzo", "Amity Rockwell", "Emily Newsom"]},
+      {"list": "2026 Life Time Grand Prix field (22 initial selections; wild cards not included)",
+       "sources": ["https://www.granfondoguide.com/Contents/IndexFull/8793/life-time-announces-world-class-roster-for-2026-life-time-grand-prix"],
+       "riders": ["Morgan Aguirre", "Lauren De Crescenzo", "Cecily Decker", "Maude Farrell", "Sofía Gómez Villafañe",
+                  "Stella Hobbs", "Ruth Holcomb", "Rosa Klöser", "Sarah Lange", "Emma Langley", "Cecile Lejeune",
+                  "Karolina Migoń", "Paige Onweller", "Hannah Otto", "Hayley Preen", "Melisa Rollins", "Ruby Ryan",
+                  "Samara Sheppard", "Courtney Sherwell", "Alexis Skarda", "Lauren Stephens", "Sarah Sturm"]}
+    ],
+    "men": [
+      {"list": "Unbound 200 podium 2026", "sources": ["https://socalcycling.com/?p=85083"],
+       "riders": ["Mads Würtz Schmidt", "Matthew Beers", "Tobias Kongstad"]},
+      {"list": "Unbound 200 podium 2025", "sources": ["https://socalcycling.com/?p=82874", "https://en.wikipedia.org/wiki/Unbound_Gravel"],
+       "riders": ["Cameron Jones", "Simon Pellaud", "Torbjørn Andre Røed"]},
+      {"list": "Unbound 200 podium 2024", "sources": ["https://escapecollective.com/lachlan-morton-sprints-to-first-unbound-gravel-victory/"],
+       "riders": ["Lachlan Morton", "Chad Haga", "Tobias Kongstad"]},
+      {"list": "Unbound 200 podium 2023", "sources": ["https://socalcycling.com/?p=77560"],
+       "riders": ["Keegan Swenson", "Petr Vakoc", "Lachlan Morton"]},
+      {"list": "Unbound 200 podium 2022", "sources": ["https://www.unboundgravel.com/?p=23493"],
+       "riders": ["Ivar Slik", "Keegan Swenson", "Ian Boswell"]},
+      {"list": "Unbound 200 podium 2021", "sources": ["https://roadbikeaction.com/2021-unbound-gravel-results"],
+       "riders": ["Ian Boswell", "Laurens ten Dam", "Peter Stetina"]},
+      {"list": "2026 Life Time Grand Prix field (22 initial selections; wild cards not included)",
+       "sources": ["https://www.granfondoguide.com/Contents/IndexFull/8793/life-time-announces-world-class-roster-for-2026-life-time-grand-prix"],
+       "riders": ["Matthew Beers", "Zach Calton", "Cobe Freeburn", "Griffin Hoppin", "Brendan Johnston", "Cameron Jones",
+                  "Andrew L'Esperance", "Bradyn Lange", "Payson McElveen", "Simen Nordahl Svendsen", "Kyan Olshove",
+                  "Cole Paton", "Simon Pellaud", "Marc Pritzen", "Torbjørn Andre Røed", "Andreas Seewald", "Felix Stehli",
+                  "Anton Stensby", "Jan Stöckli", "Caleb Swartz", "Keegan Swenson", "Alexey Vermeulen"]}
+    ]
+  }
+}

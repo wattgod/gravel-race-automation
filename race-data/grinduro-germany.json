@@ -153,6 +153,13 @@
         "year": 2025,
         "date": "2025-05-23",
         "end_date": "2025-05-25"
+      },
+      {
+        "year": 2024,
+        "date": "2024-05-24",
+        "end_date": "2024-05-26",
+        "note": "Third Grinduro in Hellenthal; Stage 1 results voided after a timing gate fault",
+        "source": "https://gravel.shimano.com/fr/stories/grinduro-2024-preview"
       }
     ],
     "research_metadata": {
@@ -311,7 +318,11 @@
         "2024": {
           "conditions": "2024: Dry, perfect conditions (60-68°F)",
           "dnf_rate_pct": 5,
-          "key_takeaways": []
+          "key_takeaways": [],
+          "race": "104 km",
+          "winner_female": "Terry Fremineur",
+          "winner_male": "Sebastian Mordmüller",
+          "source": "https://gravelunion.cc/article/turning-the-forest-purple-at-grinduro-germany"
         }
       },
       "latest_year": "2024"

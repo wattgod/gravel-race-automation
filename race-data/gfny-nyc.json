@@ -163,6 +163,22 @@
       "founded": 2011,
       "notable_facts": "Inaugural race held May 8, 2011, by founders Lidia and Uli Fluhme, launching the global GFNY series now over 30 events. Pioneered mass-pro racing with Gran Premio NYC, UCI pros starting 10min ahead on same course. Evolved into world's largest cycling marathon brand with 90+ nations at NYC flagship."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-05-18",
+        "edition": 13,
+        "note": "Run alongside the second Gran Premio New York City UCI pro race",
+        "source": "https://gfny.com/us-win-at-2nd-gp-new-york-city/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-05-19",
+        "edition": 12,
+        "note": "Gran Premio New York City, a UCI 1.2 pro race, debuted on the same course",
+        "source": "https://gfny.com/new-york-city-tibor-del-grosso-alpecin-deceuninck-wins-the-gp-caddeo-and-beccaria-the-gfny/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "GFNY NYC delivers epic bridge start and global vibes on a climber's 100-miler.",
       "who_should_ride": "Ambitious amateurs seeking international prestige and NYC iconography with solid century base. Qualifiers chasing GFNY World Championship glory.",
@@ -190,6 +206,24 @@
         "label": "GFNY NYC — 2027 date",
         "accessed": "2026-11-06"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "84 mi",
+          "winner_female": "Saure Tyffen",
+          "winner_male": "Matteo Raimondi",
+          "winning_time_female": "3:48:48",
+          "source": "https://www.granfondoguide.com/Contents/IndexFull/8537/raimondi-and-tyffen-claim-titles-at-2025-gfny-world-championship-"
+        },
+        "2024": {
+          "race": "84 mi",
+          "winner_female": "Lorenza Beccaria",
+          "winner_male": "Manuele Caddeo",
+          "source": "https://gfny.com/new-york-city-tibor-del-grosso-alpecin-deceuninck-wins-the-gp-caddeo-and-beccaria-the-gfny/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

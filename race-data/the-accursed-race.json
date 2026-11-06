@@ -113,6 +113,46 @@
         "category": "official",
         "label": "Lost Dot — inaugural Accursed Race edition"
       }
-    ]
+    ],
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Not held in 2026; the race takes a break and returns in 2027",
+        "source": "https://www.lostdot.cc/results/tarno2"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-13",
+        "edition": 2,
+        "source": "https://bikepacking.com/news/justinas-leveika-wins-the-accursed-race-2025/"
+      },
+      {
+        "year": 2024,
+        "edition": 1,
+        "note": "First edition, 1,600 km from Shkoder, Albania",
+        "source": "https://www.lostdot.cc/blog/tarno1-day-11-fin"
+      }
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "1,600 km",
+          "winner_male": "Justinas Leveika",
+          "winning_time_male": "5d 13h 45m",
+          "source": "https://dotwatcher.cc/results/2025/the-accursed-race-2025"
+        },
+        "2024": {
+          "race": "1,600 km",
+          "winner_female": "Weronika Szalas",
+          "winner_male": "Alexander Kopp",
+          "winning_time_male": "6d 1h 45m",
+          "source": "https://www.lostdot.cc/blog/tarno1-day-11-fin"
+        }
+      },
+      "latest_year": "2025"
+    },
+    "history": {
+      "founded": 2024
+    }
   }
 }

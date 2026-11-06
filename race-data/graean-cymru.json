@@ -155,6 +155,13 @@
         "year": 2027,
         "note": "Moves from September to June",
         "source": "https://gloriousgravel.com/product/gravel-race/graean-cymru/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-09-06",
+        "end_date": "2025-09-07",
+        "note": "UCI Gravel World Series round; women raced Saturday, men Sunday",
+        "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/graean-cymru/results/"
       }
     ],
     "final_verdict": {
@@ -186,6 +193,25 @@
         "category": "official",
         "label": "UCI Event Report"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "105 km",
+          "winner_female": "Noémie Thomson",
+          "winner_male": "Jenson Young",
+          "winning_time_female": "3:45:34",
+          "winning_time_male": "3:11:07",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/graean-cymru/results/"
+        },
+        "2024": {
+          "race": "105 km",
+          "winner_female": "Joscelin Lowden",
+          "winner_male": "Connor Swift",
+          "source": "https://cyclingflash.com/race/uci-gravel-world-series-graean-cymru-2025/winners"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

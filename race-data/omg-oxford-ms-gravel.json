@@ -102,7 +102,7 @@
       "food": "Oxford has excellent dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check OMG website"
+      "official_site": ""
     },
     "history": {
       "founded": null,
@@ -111,6 +111,29 @@
       "notable_moments": [],
       "reputation": "Regional MS event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-01-18",
+        "note": "Run as Mississippi Gravel Cup #1 - OMG",
+        "source": "https://www.webscorer.com/race?raceid=377672"
+      },
+      {
+        "year": 2024,
+        "date": "2024-01-06",
+        "source": "https://www.webscorer.com/race?raceid=339078"
+      },
+      {
+        "year": 2022,
+        "date": "2022-01-08",
+        "source": "https://www.lambra.org/results/2022/MSGC-OMG-2022_r.html"
+      },
+      {
+        "year": 2021,
+        "date": "2021-01-09",
+        "source": "https://neworleansbicycleclub.org/2021/MSGC-OMG-2021_r.html"
+      }
+    ],
     "course_description": {
       "character": "Mississippi hills gravel.",
       "suffering_zones": [
@@ -669,6 +692,27 @@
         "credit": "YouTube / BPC Performance Coaching",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "100 mi",
+          "winner_female": "Roxanne Smith",
+          "winner_male": "Scott Kuppersmith",
+          "winning_time_female": "7:13:38",
+          "winning_time_male": "5:24:37",
+          "source": "https://www.webscorer.com/race?raceid=377672"
+        },
+        "2024": {
+          "race": "100 mi",
+          "winner_female": "Laureen Coffelt",
+          "winner_male": "Kristian Haikala",
+          "winning_time_female": "7:07:29",
+          "winning_time_male": "5:30:36",
+          "source": "https://www.webscorer.com/race?raceid=339078"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

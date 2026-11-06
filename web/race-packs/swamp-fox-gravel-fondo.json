@@ -1,30 +1,31 @@
 {
   "slug": "swamp-fox-gravel-fondo",
   "race_name": "Swamp Fox Gravel Fondo",
-  "distance_mi": 65.0,
+  "distance_mi": 100.0,
   "demands": {
-    "durability": 2,
+    "durability": 6,
     "climbing": 2,
     "vo2_power": 4,
-    "threshold": 5,
+    "threshold": 7,
     "technical": 4,
     "heat_resilience": 1,
     "altitude": 2,
-    "race_specificity": 4
+    "race_specificity": 6
   },
   "top_categories": [
     {
-      "category": "Gravel_Specific",
+      "category": "Durability",
       "score": 100,
       "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
       ],
-      "workout_context": "Swamp Fox Gravel Fondo's South Carolina coastal forest, Forest gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 65 miles."
+      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "TT_Threshold",
-      "score": 90,
+      "score": 83,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
@@ -33,8 +34,17 @@
       "workout_context": "Swamp Fox Gravel Fondo's South Carolina coastal forest gravel rewards steady threshold power. Surging and recovering costs more watts than just holding."
     },
     {
+      "category": "Gravel_Specific",
+      "score": 83,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Swamp Fox Gravel Fondo's South Carolina coastal forest, Forest gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
+    },
+    {
       "category": "Race_Simulation",
-      "score": 90,
+      "score": 83,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -43,18 +53,8 @@
       "workout_context": "Race-pace efforts that mimic Swamp Fox Gravel Fondo's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before March."
     },
     {
-      "category": "VO2max",
-      "score": 85,
-      "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
-      ],
-      "workout_context": "When someone attacks on South Carolina coastal forest gravel, you have 10 seconds to respond or you're off the back. This builds that response."
-    },
-    {
       "category": "G_Spot",
-      "score": 72,
+      "score": 67,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -63,27 +63,37 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Swamp Fox Gravel Fondo. Train it until it feels boring."
     },
     {
-      "category": "Durability",
-      "score": 70,
+      "category": "VO2max",
+      "score": 59,
       "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
       ],
-      "workout_context": "65 miles on South Carolina coastal forest gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "When someone attacks on South Carolina coastal forest gravel, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
-      "category": "Critical_Power",
-      "score": 70,
+      "category": "Endurance",
+      "score": 57,
       "workouts": [
-        "Above CP Repeats",
-        "W-Prime Depletion"
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
       ],
-      "workout_context": "How long can you hold 105% FTP before you blow? At Swamp Fox Gravel Fondo, that number decides whether you bridge or get dropped."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 55,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
     },
     {
       "category": "Over_Under",
-      "score": 62,
+      "score": 53,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -91,46 +101,37 @@
       "workout_context": "At Swamp Fox Gravel Fondo, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "Anaerobic_Capacity",
-      "score": 60,
+      "category": "Blended",
+      "score": 52,
       "workouts": [
-        "2min Killers",
-        "90sec Repeats"
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
       ],
-      "workout_context": "2-minute all-out efforts on South Carolina coastal forest gravel. Closing gaps, responding to attacks, sprinting for position. Train the burn."
+      "workout_context": "Long rides with hard efforts mixed in. Simulates what Swamp Fox Gravel Fondo's South Carolina coastal forest gravel actually does to you."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 48,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At Swamp Fox Gravel Fondo, that number decides whether you bridge or get dropped."
     },
     {
       "category": "Norwegian_Double",
-      "score": 50,
+      "score": 48,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
       ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
-    },
-    {
-      "category": "Endurance",
-      "score": 42,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Base fitness for Swamp Fox Gravel Fondo. Without this, the hard workouts break you down instead of building you up."
-    },
-    {
-      "category": "Cadence_Work",
-      "score": 40,
-      "workouts": [
-        "High Cadence Drills",
-        "Cadence Pyramids"
-      ],
-      "workout_context": "Smooth pedaling at 65 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 100 miles, sustainable FTP gains matter more than peak power."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Swamp Fox Gravel Fondo\u2019s 65 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
+    "nutrition": "Target 60\u201380g carbs/hour for Swamp Fox Gravel Fondo\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Swamp Fox Gravel Fondo requires surface adaptability. Include weekly rides on south carolina coastal forest gravel to build confidence. Expect: south carolina coastal forest, forest gravel, regional event."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 65 miles of south carolina coastal forest gravel in Francis Marion National Forest, South Carolina.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 100 miles of south carolina coastal forest gravel in Francis Marion National Forest, South Carolina.",
+  "generated_at": "2026-11-05"
 }

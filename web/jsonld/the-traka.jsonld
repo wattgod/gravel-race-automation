@@ -5,6 +5,8 @@
   "description": "Europe's Unbound, one-day distance. 202km through Catalonia's Empord\u00e0 plains and Gavarres massif, out and back to Girona in a day.",
   "sport": "Gravel Cycling",
   "startDate": "2027-04-30",
+  "endDate": "2027-05-02",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Girona, Catalonia, Spain",
@@ -16,7 +18,7 @@
   },
   "url": "https://thetraka.com/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Local Girona cycling community",
     "url": "https://thetraka.com/"
   }

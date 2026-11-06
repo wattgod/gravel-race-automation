@@ -147,10 +147,25 @@
     },
     "history": {
       "overview": "Gravel events have run around Yakurai since 2021, with Hayasaka Cycle organizing Gravel Classic Yakurai from 2023 and the race joining the UCI Gravel World Series in 2026.",
-      "founded": 2021,
+      "founded": 2023,
       "notable_editions": "2026 is the first UCI Gravel World Series edition.",
       "growth_trajectory": "A local gravel weekend has expanded into a 700-rider UCI qualifier backed by Kami Town, Panaracer, and Hayasaka Cycle."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "First UCI Gravel World Series round in Japan",
+        "source": "https://ucigravelworldseries.com/en/yakurai/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-30",
+        "end_date": "2025-08-31",
+        "edition": 3,
+        "note": "First timed gravel race; group ride on day two",
+        "source": "https://www.cyclesports.jp/news/race/143994/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "A real mountain-gravel test whose climbing density matters more than its 66-mile headline.",
       "best_for": "Strong climbers seeking an internationally sanctioned gravel race in a distinctive Japanese destination.",
@@ -179,6 +194,27 @@
         "category": "official",
         "label": "UCI World Series"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "107 km",
+          "winner_female": "Shu-Wei Hsu",
+          "winner_male": "Toki Sawada",
+          "winning_time_female": "5:36:57",
+          "winning_time_male": "4:12:58",
+          "source": "https://www.granfondoguide.com/Events/Index/13801/hysk-gravel-classic-yakurai"
+        },
+        "2025": {
+          "race": "100 km",
+          "winner_female": "渡部 春雅",
+          "winner_male": "沢田 時",
+          "winning_time_female": "4:28:28",
+          "winning_time_male": "3:29:42",
+          "source": "https://www.cyclesports.jp/news/race/143994/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

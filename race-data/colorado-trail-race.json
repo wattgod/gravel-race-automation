@@ -329,14 +329,77 @@
     "history": {
       "founder": "Stefan Griebel (Boulder, CO)"
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Ran Denver to Durango. Wildfire smoke and heat; Willow Fire detour.",
+        "source": "https://bikepacking.com/tracker/2026-ctr-tracker/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-10",
+        "note": "Ran Durango to Denver. Wildfire smoke on the route.",
+        "source": "https://dotwatcher.cc/race/colorado-trail-race-2025"
+      },
+      {
+        "year": 2024,
+        "date": "2024-08-11",
+        "note": "Ran Denver to Durango.",
+        "source": "https://bikepacking.com/tracker/2024ctr/"
+      },
+      {
+        "year": 2023,
+        "date": "2023-08-13",
+        "note": "Ran Durango to Denver.",
+        "source": "https://bikepacking.com/tracker/2023ctr/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-08-14",
+        "note": "Ran Denver to Durango.",
+        "source": "https://bikepacking.com/tracker/2022ctr/"
+      }
+    ],
     "results": {
       "years": {
         "2024": {
           "winner_female": "Nicolette Jones",
           "winner_male": "Xavier Chiriboga"
+        },
+        "2026": {
+          "race": "515 mi",
+          "winner_female": "Nicolette Jones",
+          "winner_male": "Alex McCormack",
+          "winning_time_female": "4d 21h 45m",
+          "winning_time_male": "4d 02h 49m",
+          "source": "https://bikepacking.com/tracker/2026-ctr-tracker/"
+        },
+        "2025": {
+          "race": "540 mi",
+          "winner_female": "Nicolette Jones",
+          "winner_male": "Nolan Van Harte",
+          "winning_time_female": "4d 23h 35m",
+          "winning_time_male": "4d 11h 24m",
+          "source": "https://bikepacking.com/news/nicolette-jones-womens-colorado-trail-race-record/"
+        },
+        "2023": {
+          "race": "527 mi",
+          "winner_female": "Katya Rakhmatulina",
+          "winner_male": "Miron Golfman",
+          "winning_time_female": "5d 01h 53m",
+          "winning_time_male": "4d 16h 51m",
+          "source": "https://bikepacking.com/tracker/2023ctr/"
+        },
+        "2022": {
+          "race": "Denver to Durango",
+          "winner_female": "Alexandera Houchin",
+          "winner_male": "Will Bodewes",
+          "winning_time_female": "6d 02h 33m",
+          "winning_time_male": "4d 18h 36m",
+          "source": "https://bikepacking.com/tracker/2022ctr/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

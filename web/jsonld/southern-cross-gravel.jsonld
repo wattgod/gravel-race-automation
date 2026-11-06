@@ -4,6 +4,8 @@
   "name": "Southern Cross Gravel",
   "description": "Punchy Georgia mountain gravel with a winery finish and the best post-race party in the Southeast.",
   "sport": "Gravel Cycling",
+  "startDate": "2027-03-06",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Dahlonega, Georgia",
@@ -21,7 +23,7 @@
   },
   "url": "https://mountaingoatadventures.com/southernx",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Mountain Goat Adventures",
     "url": "https://mountaingoatadventures.com/southernx"
   }

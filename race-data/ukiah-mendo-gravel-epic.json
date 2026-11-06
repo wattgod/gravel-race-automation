@@ -169,6 +169,20 @@
         "Jen Tavé and Cassius Anderson secured the 2026 overall Grasshopper titles at the finish."
       ]
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-05-24",
+        "note": "New course with two major climbs; final round of the Grasshopper Adventure Series",
+        "source": "https://www.cyclingnews.com/pro-cycling/racing/grasshopper-adventure-series-samara-sheppard-and-cole-davis-win-debuts-at-ukiah-mendo-gravel-epic-ahead-of-unbound-gravel/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-04-27",
+        "note": "Muddy conditions; fourth round of the Grasshopper Adventure Series",
+        "source": "https://www.procyclingstats.com/national-race/mendo-hopper/2025/result"
+      }
+    ],
     "final_verdict": {
       "one_liner": "A genuine series finale: long enough to matter, steep enough to expose you, and tactical after the gravel appears to be over.",
       "who_is_it_for": "Gravel racers who can climb for hours, work in a group on pavement, manage puncture risk, and still descend aggressively late in the day.",
@@ -225,6 +239,27 @@
       "sources": [
         "https://www.grasshopperadventureseries.com/ukiah-mendo-gravel-epic"
       ]
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "76 mi",
+          "winner_female": "Samara Sheppard",
+          "winner_male": "Cole Davis",
+          "winning_time_female": "4:25:54",
+          "winning_time_male": "3:50:34",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/grasshopper-adventure-series-samara-sheppard-and-cole-davis-win-debuts-at-ukiah-mendo-gravel-epic-ahead-of-unbound-gravel/"
+        },
+        "2025": {
+          "race": "76 mi",
+          "winner_female": "Jen Tave",
+          "winner_male": "Justin Peck",
+          "winning_time_female": "4:45:33",
+          "winning_time_male": "4:00:07",
+          "source": "https://www.cyclingnews.com/races/grasshopper-adventure-series-2025/ukiah-mendo-gravel-epic-hopper-4/results/"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

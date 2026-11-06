@@ -20,6 +20,10 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+from race_facts import date_says_inactive, race_status  # noqa: E402
+from season import PAST, UNDATED, edition_state  # noqa: E402
+
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 CURRENT_YEAR = date.today().year
 
@@ -47,8 +51,10 @@ def parse_year_from_date(date_str):
     return int(match.group(1)) if match else None
 
 
-def check_stale_dates(race):
-    """Check if race has stale or missing date."""
+def check_stale_dates(race, on=None):
+    """Flag a missing, undated or already-run edition (not a year compare:
+    "2026: August 30" is stale on 2026-11-05). Not-running races are skipped;
+    their page already says so."""
     issues = []
     date_str = race.get("vitals", {}).get("date_specific", "")
     if not date_str:
@@ -58,15 +64,14 @@ def check_stale_dates(race):
         issues.append("No date field")
         return issues
 
-    date_lower = str(date_str).lower()
-    if "tbd" in date_lower or "check official" in date_lower:
-        issues.append(f"TBD date: {date_str}")
+    if race_status(race)["status"] == "inactive" or date_says_inactive(race):
         return issues
 
-    year = parse_year_from_date(date_str)
-    if year and year < CURRENT_YEAR:
-        age = CURRENT_YEAR - year
-        issues.append(f"Stale date ({age}yr old): {date_str}")
+    state = edition_state(date_str, on)
+    if state == UNDATED:
+        issues.append(f"TBD date: {date_str}")
+    elif state == PAST:
+        issues.append(f"Stale date (already ran): {date_str}")
 
     return issues
 

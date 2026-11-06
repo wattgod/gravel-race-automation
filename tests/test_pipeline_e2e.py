@@ -426,17 +426,16 @@ class TestCrossReferenceRaceDate:
     """Cross-reference intake dates against race-data/ database."""
 
     def test_big_sugar_date_match(self):
-        """Big Sugar 2026 is October 17 (Saturday) — cross-ref should confirm.
-        (Anchored on a confirmed future edition; the old SBT anchor went stale
-        when the 2026 edition ran and 2027 moved to TBD.)"""
-        result = cross_reference_race_date("Big Sugar", "2026-10-17", BASE_DIR)
+        """Big Sugar 2027 is October 16 (Saturday) — cross-ref should confirm.
+        (Anchored on the confirmed next edition; re-anchor when it runs.)"""
+        result = cross_reference_race_date("Big Sugar", "2027-10-16", BASE_DIR)
         assert result["matched"] is True
         assert result["date_match"] is True
         assert result["day_of_week"] == "Saturday"
 
     def test_big_sugar_wrong_date(self):
-        """If intake says October 16, cross-ref should flag mismatch."""
-        result = cross_reference_race_date("Big Sugar", "2026-10-16", BASE_DIR)
+        """If intake says October 15, cross-ref should flag mismatch."""
+        result = cross_reference_race_date("Big Sugar", "2027-10-15", BASE_DIR)
         assert result["matched"] is True
         assert result["date_match"] is False
         assert result["warning"] is not None

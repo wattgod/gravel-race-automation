@@ -10,7 +10,7 @@
       "location": "Windhoek to Gross Barmen, Namibia",
       "location_badge": "WINDHOEK, NAMIBIA",
       "date": "2026: August 22",
-      "date_specific": "2026: August 22",
+      "date_specific": "2027: March 6 (Saturday, CONFIRMED — khomas100.com.na)",
       "distance_mi": 88.9,
       "elevation_ft": 7546,
       "discipline": "gravel",
@@ -150,6 +150,24 @@
       "notable_editions": "2026 combines the Khomas100 title, African Continental Championship, and UCI World Series qualification in one race.",
       "growth_trajectory": "A national endurance event is developing into one of Africa's internationally sanctioned gravel races."
     },
+    "editions": [
+      {
+        "year": 2027,
+        "note": "Moves from August to March",
+        "source": "https://khomas100.com.na/"
+      },
+      {
+        "year": 2026,
+        "date": "2026-08-22",
+        "source": "https://ucigravelworldseries.com/en/miller-and-preen-crowned-african-gravel-champions-at-khomas100/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-23",
+        "note": "First year as a UCI Gravel World Series race and CAC African Continental Gravel Championship.",
+        "source": "https://khomas100.com.na/wp-content/uploads/2025/08/Rider-Guide-Khomas100-2025-6.pdf"
+      }
+    ],
     "final_verdict": {
       "one_liner": "A fast-looking course whose remoteness, climbing, and Namibian exposure make it anything but easy.",
       "best_for": "Self-sufficient riders who want championship stakes and an uncommon gravel destination.",
@@ -162,7 +180,8 @@
         "title": "Khomas100 - Official Event Site",
         "snippet": "The organizer confirms August 22, 2026, a 143 km full-distance race, African Continental Championship and UCI qualifier status, entry fees, water points, and cutoffs.",
         "category": "official",
-        "label": "Official Event Site"
+        "label": "Khomas100 — 2027 date",
+        "accessed": "2026-11-06"
       },
       {
         "url": "https://khomas100.com.na/routes/",
@@ -178,6 +197,25 @@
         "category": "official",
         "label": "UCI World Series"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "140 km",
+          "winner_female": "Hayley Preen",
+          "winner_male": "Alexander Miller",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/hayley-preen-and-alex-miller-claim-uci-gravel-world-series-wins-and-african-titles-at-khomas100-for-second-year/"
+        },
+        "2025": {
+          "race": "155 km",
+          "winner_female": "Hayley Preen",
+          "winner_male": "Alex Miller",
+          "winning_time_female": "5:36:32",
+          "winning_time_male": "4:39:15",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/khomas100/results/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

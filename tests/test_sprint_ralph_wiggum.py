@@ -296,6 +296,15 @@ class TestBuildCoachingTeaser:
 class TestBuildDateReminder:
     """Tests for the race date reminder email capture."""
 
+    @pytest.fixture(autouse=True)
+    def before_race(self, monkeypatch):
+        # minimal_race_data races 2026-08-15; pin today before it.
+        monkeypatch.setenv("GG_TODAY", "2026-06-01")
+
+    def test_returns_empty_when_race_has_passed(self, minimal_race_data, monkeypatch):
+        monkeypatch.setenv("GG_TODAY", "2026-11-05")
+        assert build_date_reminder(minimal_race_data) == ""
+
     def test_returns_empty_when_date_is_tbd(self, race_tbd_date):
         html = build_date_reminder(race_tbd_date)
         assert html == ""

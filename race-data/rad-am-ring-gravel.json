@@ -115,6 +115,14 @@
       "notable_moments": [],
       "reputation": "Regional Germany event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-07-25",
+        "note": "Hosted the German Gravel Championships (4th edition of the national title).",
+        "source": "https://www.rad-net.de/ajax.aspx/content/c1011386-906d-43f7-a29f-7aa92cc9a1a6.html"
+      }
+    ],
     "course_description": {
       "character": "A repeated mixed-surface circuit that starts on the Grand Prix track, drops on gravel toward Breidscheid, rejoins the Nordschleife, climbs roughly 300 meters in 5.5 kilometers toward Hohe Acht, and returns through trails, forest roads, and circuit asphalt.",
       "suffering_zones": [
@@ -557,6 +565,19 @@
         "additional_quotes": [],
         "search_text": "No actionable race intelligence could be extracted from the available transcript. The transcript appears to contain primarily music lyrics or unclear audio rather than race-specific information about the Rad am Ring Gravel event in Nürburg, Germany. Riders seeking course details, terrain conditions, gear recommendations, or race strategy information will need to reference additional sources."
       }
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "125 km men / 100 km women",
+          "winner_female": "Ronja Eibl",
+          "winner_male": "Emil Herzog",
+          "winning_time_female": "3:36:29",
+          "winning_time_male": "3:53:15",
+          "source": "https://www.traunsteiner-tagblatt.de/sport/sport-aus-der-region_artikel,-starkes-rennen-von-mckenzie-_arid,1010200.html"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

@@ -279,7 +279,7 @@ class TestBuildExtractionPrompt:
         """Prompt asks for JSON output."""
         prompt = _build_extraction_prompt("<html>test</html>", "Test Race", {})
         assert "JSON" in prompt
-        assert "date_2026" in prompt
+        assert "next_edition_date" in prompt
         assert "distance_mi" in prompt
 
 

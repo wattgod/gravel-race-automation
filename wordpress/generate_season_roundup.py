@@ -27,6 +27,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import TIER_NAMES
 from blog_tracking import get_plan_intent_tracking_script
+from season import season_year
 from editorial_shell import ArticleMeta, Claim, render_editorial_page
 
 # Roundups indexable only via the owner-approved allowlist (WS5 Option A).
@@ -536,7 +537,7 @@ def generate_tier_roundup(races, tier, year, output_dir):
     intro = (
         f"Every Tier {tier} ({tier_name}) gravel race in the Gravel God database for {year}. "
         f"These {len(filtered)} races earned their {tier_name} rating through our "
-        f"15-criteria scoring system covering logistics, terrain, prestige, and more."
+        f"14-criteria scoring system covering logistics, terrain, prestige, and more."
     )
 
     # Publish date: Jan 1 of the year, capped at today
@@ -648,7 +649,10 @@ def main():
                         help="Path to race-index.json")
     args = parser.parse_args()
 
-    races = load_race_index(Path(args.index_file))
+    # Roundups list races "happening" in a window; a race that is not
+    # running (index status "inactive") must never be recommended there.
+    races = [r for r in load_race_index(Path(args.index_file))
+             if r.get("status") != "inactive"]
     out_dir = Path(args.output_dir)
 
     if args.monthly:
@@ -691,7 +695,7 @@ def main():
         return
 
     if args.all:
-        year = date.today().year
+        year = season_year()
         if args.dry_run:
             generate_all(races, year, out_dir, dry_run=True)
         else:

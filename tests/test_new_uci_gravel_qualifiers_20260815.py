@@ -12,14 +12,14 @@ SLUGS = {
         "official": "https://gravelclassic.com/course/",
     },
     "khomas100": {
-        "date": "2026: August 22",
+        "date": "2027: March 6 (Saturday, CONFIRMED — khomas100.com.na)",
         "distance_mi": 88.9,
         "elevation_ft": 7546,
         "score": 71,
         "official": "https://khomas100.com.na/routes/",
     },
     "graean-cymru": {
-        "date": "2026: September 5-6",
+        "date": "2027: June 5-6 (CONFIRMED — gloriousgravel.com)",
         "distance_mi": 65,
         "elevation_ft": 6795,
         "score": 76,

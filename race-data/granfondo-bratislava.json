@@ -6,7 +6,7 @@
       "slug": "granfondo-bratislava",
       "name": "Granfondo Bratislava",
       "date": "2026: August TBD",
-      "date_specific": "2026: August TBD",
+      "date_specific": "Status: ON HIATUS — organizer is taking a break in 2026 (granfondobratislava.sk); no 2027 date announced",
       "distance_mi": 82,
       "elevation_ft": 3600,
       "location": "Bratislava, Slovakia",
@@ -177,8 +177,13 @@
       {
         "url": "https://granfondobratislava.sk",
         "category": "official",
-        "label": "Official Website"
+        "label": "Gran Fondo Bratislava: \"V roku 2026 si dávame pauzu\" (break in 2026)",
+        "accessed": "2026-11-06"
       }
-    ]
+    ],
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "Granfondo Bratislava is taking 2026 off and hasn't announced 2027. This plan still trains you for exactly this kind of day."
+    }
   }
 }

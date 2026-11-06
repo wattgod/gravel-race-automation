@@ -5,7 +5,7 @@
       "name": "Velothon Berlin",
       "location": "Berlin, Germany",
       "date": "2024: July 28",
-      "date_specific": "2024: July 28",
+      "date_specific": "Status: ON HIATUS — organizer suspended the event (now VeloCity Berlin) for 2025 and 2026; no 2027 date announced; last held July 28, 2024 (velocity.berlin)",
       "distance_mi": 99,
       "elevation_ft": 2000,
       "discipline": "road",
@@ -162,6 +162,12 @@
     },
     "citations": [
       {
+        "url": "https://velocity.berlin/",
+        "category": "official",
+        "label": "VeloCity Berlin: event suspended for 2025 and 2026",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://northsouth.live/event/velothon-berlin",
         "title": "Velothon Berlin | Raceatlas - NORTHSOUTH Live",
         "snippet": "180km / 120km / 60km; 13,000 participants; completely closed roads past world-famous sites.",
@@ -191,6 +197,10 @@
       }
     ],
     "slug": "velothon-berlin",
-    "name": "Velothon Berlin"
+    "name": "Velothon Berlin",
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "The organizer suspended Velothon Berlin, now VeloCity Berlin, for 2025 and 2026 and hasn't announced 2027. This plan still trains you for exactly this kind of day."
+    }
   }
 }

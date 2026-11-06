@@ -146,6 +146,22 @@
       "notable_editions": "2018 edition saw snow at 2100m finish; 2025 introduced more circular two-day epic route.",
       "growth_trajectory": "Steadily growing as must-do national challenge with international buzz via new routes and organization."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-05-23",
+        "end_date": "2026-05-24",
+        "note": "New format: controlled-pace ride, then a 15 km timed climb decides the result. Veleta climb on Sunday.",
+        "source": "https://sierranevada.es/es/verano/eventos/deportivos-culturales/sierra-nevada-limite/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-07-12",
+        "end_date": "2025-07-13",
+        "note": "Held in July; the 2024 edition ran in spring. Veleta climb on Sunday.",
+        "source": "https://sierranevadalimite.com/fernando-romera-y-esther-maqueda-los-mas-rapidos-de-la-snl-gran-fondo-2025-la-gran-cita-del-cicloturismo-del-sur-de-espana/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Ultimate Spanish climbing crucible for masochists who crave thin air and endless VAM.",
       "best_for": "Climbing specialists, altitude junkies, and endurance roadies seeking iconic Euro suffering.",
@@ -190,6 +206,27 @@
       }
     ],
     "slug": "sierra-nevada-limite",
-    "name": "Sierra Nevada Límite Gran Fondo"
+    "name": "Sierra Nevada Límite Gran Fondo",
+    "results": {
+      "years": {
+        "2026": {
+          "race": "120 km (timed climb decides)",
+          "winner_female": "Beatriz Lopes",
+          "winner_male": "Fernando Romera",
+          "winning_time_female": "1:18:35 (timed climb)",
+          "winning_time_male": "49:37 (timed climb)",
+          "source": "https://www.todomountainbike.net/competicion/sierra-nevada-limite-2026-estrena-formato-victorias-fernando-romera-beatriz-lopes-victor-fernandez-nadezhda-pavlova"
+        },
+        "2025": {
+          "race": "146 km",
+          "winner_female": "Esther Maqueda Pérez",
+          "winner_male": "Fernando Romera",
+          "winning_time_female": "5:56:53",
+          "winning_time_male": "4:56:28",
+          "source": "https://sierranevadalimite.com/fernando-romera-y-esther-maqueda-los-mas-rapidos-de-la-snl-gran-fondo-2025-la-gran-cita-del-cicloturismo-del-sur-de-espana/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

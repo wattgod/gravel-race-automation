@@ -111,12 +111,24 @@
       "camping": "camping available at venue (bring family, camp)"
     },
     "history": {
-      "founded": null,
+      "founded": 2020,
       "founder": "Rattler Racing",
       "origin_story": "Regional CO plains gravel event.",
       "notable_moments": [],
       "reputation": "Regional CO event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-05-25",
+        "source": "https://results.bikereg.com/race/21449"
+      },
+      {
+        "year": 2023,
+        "date": "2023-05-29",
+        "source": "https://results.bikereg.com/race/16014"
+      }
+    ],
     "course_description": {
       "character": "Colorado plains gravel.",
       "suffering_zones": [

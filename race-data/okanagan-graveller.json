@@ -14,7 +14,7 @@
       "location_badge": "WEST KELOWNA, BC",
       "county": "Central Okanagan",
       "date": "June 27, 2027",
-      "date_specific": "2027: June 27",
+      "date_specific": "2027: June 26-27 (Saturday-Sunday, CONFIRMED — okanagangraveller.com)",
       "course_status": "2027 date, venue, distance, and demands confirmed; final map and exact gain pending",
       "pack_status": "pending",
       "course_status_label": "2027 CORE VERIFIED",
@@ -130,12 +130,38 @@
       ],
       "reputation": "An emerging regional race with a welcoming field and increasingly ambitious mountain courses."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-28",
+        "note": "Held at Oyama, BC; the event moves to Telemark Nordic Club in West Kelowna for 2027.",
+        "source": "https://cyclingbc.net/event/okanagan-graveller-2026/"
+      }
+    ],
     "course_description": {
       "character": "A mountainous forest-service-road race from Telemark Nordic Club with a climbing-heavy flagship distance and fast backcountry descents.",
       "suffering_zones": [
-        {"mile": 0, "label": "Telemark Launch", "desc": "The new venue puts riders into mountain roads quickly, making start restraint important before the sustained climbing begins.", "terrain_detail": "Forest service roads", "named_section": "Telemark Nordic Club"},
-        {"mile": 35, "label": "Backcountry Middle", "desc": "The official description promises long sustained climbs and rugged roads deep in the Telemark backcountry.", "terrain_detail": "Rugged mountain gravel", "named_section": "Telemark backcountry"},
-        {"mile": 62, "label": "Descent Discipline", "desc": "Late fast gravel descents reward riders who still have handling precision after hours of climbing.", "terrain_detail": "Fast gravel descent", "named_section": "Final mountain return"}
+        {
+          "mile": 0,
+          "label": "Telemark Launch",
+          "desc": "The new venue puts riders into mountain roads quickly, making start restraint important before the sustained climbing begins.",
+          "terrain_detail": "Forest service roads",
+          "named_section": "Telemark Nordic Club"
+        },
+        {
+          "mile": 35,
+          "label": "Backcountry Middle",
+          "desc": "The official description promises long sustained climbs and rugged roads deep in the Telemark backcountry.",
+          "terrain_detail": "Rugged mountain gravel",
+          "named_section": "Telemark backcountry"
+        },
+        {
+          "mile": 62,
+          "label": "Descent Discipline",
+          "desc": "Late fast gravel descents reward riders who still have handling precision after hours of climbing.",
+          "terrain_detail": "Fast gravel descent",
+          "named_section": "Final mountain return"
+        }
       ],
       "signature_challenge": "Pacing a climbing-heavy 120 km mountain route without a finalized profile yet.",
       "ridewithgps_id": null,
@@ -159,9 +185,21 @@
       "altitude_feet": null
     },
     "non_negotiables": [
-      {"requirement": "Sustained climbing durability", "by_when": "Week 8", "why": "Both published Boulder descriptions identify long mountain climbing as the defining load."},
-      {"requirement": "Backcountry fueling rehearsal", "by_when": "Week 9", "why": "The 120 km course reaches deep into a forest-road network and aid details are not yet published."},
-      {"requirement": "Loose-descent control", "by_when": "Week 10", "why": "The organizer explicitly advertises fast gravel descents after sustained climbing."}
+      {
+        "requirement": "Sustained climbing durability",
+        "by_when": "Week 8",
+        "why": "Both published Boulder descriptions identify long mountain climbing as the defining load."
+      },
+      {
+        "requirement": "Backcountry fueling rehearsal",
+        "by_when": "Week 9",
+        "why": "The 120 km course reaches deep into a forest-road network and aid details are not yet published."
+      },
+      {
+        "requirement": "Loose-descent control",
+        "by_when": "Week 10",
+        "why": "The organizer explicitly advertises fast gravel descents after sustained climbing."
+      }
     ],
     "research_metadata": {
       "data_confidence": "medium",
@@ -176,29 +214,94 @@
       ]
     },
     "biased_opinion_ratings": {
-      "logistics": {"score": 3, "explanation": "Kelowna has a commercial airport and the venue is near West Kelowna, though final weekend logistics remain unpublished."},
-      "length": {"score": 3, "explanation": "The flagship is 120 km, a serious endurance day without crossing into ultra-distance."},
-      "technicality": {"score": 3, "explanation": "Telemark Nordic Club's rugged forest roads and fast gravel descents require competence, but no singletrack or extreme feature is published."},
-      "elevation": {"score": 4, "explanation": "Either official Boulder claim, 2,000 m or 2,400 m, represents substantial climbing; the exact grade remains unverified."},
-      "climate": {"score": 3, "explanation": "The June 27 Interior British Columbia date brings summer heat and mountain exposure without evidence of routinely extreme weather."},
-      "altitude": {"score": 2, "explanation": "The 120 km Boulder climbs in a mountain setting, but the organizer has not published elevations that demand altitude acclimation."},
-      "adventure": {"score": 4, "explanation": "Telemark Nordic Club forest roads and deep Okanagan backcountry give the race a strong destination identity."},
-      "prestige": {"score": 2, "explanation": "The 2027 race is only the third Okanagan Graveller edition, not yet a nationally deep field."},
-      "race_quality": {"score": 3, "explanation": "Timing, categories, podiums, 3 distances, and an expo are concrete; the final 2027 route and operations pack are not."},
-      "experience": {"score": 4, "explanation": "A Telemark Nordic Club basecamp, event village, camping, and 3 routes make a compelling weekend."},
-      "community": {"score": 4, "explanation": "The Okanagan organizer foregrounds grassroots participation, 3 inclusive distances, local sponsors, and spirit awards."},
-      "field_depth": {"score": 2, "explanation": "It is a real race with overall and age-group awards, but no 2027 field or elite depth is published."},
-      "value": {"score": 3, "explanation": "The 3-distance event offering looks solid, but the current 2027 registration price was not exposed in the verified source."},
-      "expenses": {"score": 2, "explanation": "Destination travel to British Columbia and summer lodging can be costly despite the airport access."}
+      "logistics": {
+        "score": 3,
+        "explanation": "Kelowna has a commercial airport and the venue is near West Kelowna, though final weekend logistics remain unpublished."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The flagship is 120 km, a serious endurance day without crossing into ultra-distance."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Telemark Nordic Club's rugged forest roads and fast gravel descents require competence, but no singletrack or extreme feature is published."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "Either official Boulder claim, 2,000 m or 2,400 m, represents substantial climbing; the exact grade remains unverified."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "The June 27 Interior British Columbia date brings summer heat and mountain exposure without evidence of routinely extreme weather."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The 120 km Boulder climbs in a mountain setting, but the organizer has not published elevations that demand altitude acclimation."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Telemark Nordic Club forest roads and deep Okanagan backcountry give the race a strong destination identity."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "The 2027 race is only the third Okanagan Graveller edition, not yet a nationally deep field."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "Timing, categories, podiums, 3 distances, and an expo are concrete; the final 2027 route and operations pack are not."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "A Telemark Nordic Club basecamp, event village, camping, and 3 routes make a compelling weekend."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The Okanagan organizer foregrounds grassroots participation, 3 inclusive distances, local sponsors, and spirit awards."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "It is a real race with overall and age-group awards, but no 2027 field or elite depth is published."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The 3-distance event offering looks solid, but the current 2027 registration price was not exposed in the verified source."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Destination travel to British Columbia and summer lodging can be costly despite the airport access."
+      }
     },
     "training_config": {
       "workout_modifications": {
-        "sustained_climbing": {"enabled": true, "weeks": [7, 8, 9, 10]},
-        "gravel_descending": {"enabled": true, "weeks": [8, 9, 10]},
-        "dress_rehearsal": {"enabled": true, "reason": "Rehearse the confirmed 120 km climbing, backcountry fueling, variable mountain weather, and loose-descending demands; use the final route map for turn-by-turn specificity"}
+        "sustained_climbing": {
+          "enabled": true,
+          "weeks": [
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "gravel_descending": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "reason": "Rehearse the confirmed 120 km climbing, backcountry fueling, variable mountain weather, and loose-descending demands; use the final route map for turn-by-turn specificity"
+        }
       },
       "masterclass_topics": {
-        "priority_order": ["climbing", "fueling", "handling", "pacing"],
+        "priority_order": [
+          "climbing",
+          "fueling",
+          "handling",
+          "pacing"
+        ],
         "race_specific": true,
         "topics": {
           "climbing": "Sustained Telemark forest-road climbing",
@@ -221,7 +324,11 @@
       }
     },
     "citations": [
-      {"url": "https://okanagangraveller.com/", "category": "official", "label": "Official 2027 date, venue, distances, course descriptions, and route-pending notice"}
+      {
+        "url": "https://okanagangraveller.com/",
+        "category": "official",
+        "label": "Official 2027 date, venue, distances, course descriptions, and route-pending notice"
+      }
     ]
   }
 }

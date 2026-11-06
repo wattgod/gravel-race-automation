@@ -163,6 +163,21 @@
       "founded": 2021,
       "notable_facts": "The Gran Fondo Curacavi emerged as an independent Chilean gran fondo outside major international networks like GFNY, establishing itself as a regional cycling tradition. The event's routing through Casablanca wine country connects cycling culture with Chile's renowned viticulture, creating a unique blend of sport and gastronomy. Organized by Epic Rides Chile, the event emphasizes family participation and community engagement rather than elite competition."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-19",
+        "edition": 5,
+        "note": "Start and finish moved to Fundo El Molino in Curacaví.",
+        "source": "https://www.ridechile.cl/2026/04/extraordinaria-5a-edicion-del-gran-fondo-curacavi/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-04-13",
+        "edition": 4,
+        "source": "https://www.ridechile.cl/2025/04/decar-y-cortes-se-llevan-el-gran-fondo-curacavi-2025/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "A solid regional gran fondo offering pleasant wine country scenery and moderate climbing for recreational Chilean cyclists seeking community-focused riding.",
       "who_should_ride": "Recreational cyclists based in central Chile or visiting the Valparaiso Region who enjoy moderate distances with scenic wine country landscapes. Riders seeking a family-friendly atmosphere and cultural immersion in Chilean cycling culture will appreciate the event's emphasis on 'sana competencia.'",
@@ -190,6 +205,27 @@
         "label": "Gran Fondo Curacavi — 2027 date",
         "accessed": "2026-11-06"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "130 km",
+          "winner_female": "Karla Vallejos",
+          "winner_male": "Tomás Quiroz",
+          "winning_time_female": "3:34:56",
+          "winning_time_male": "3:15:53",
+          "source": "https://www.ridechile.cl/2026/04/extraordinaria-5a-edicion-del-gran-fondo-curacavi/"
+        },
+        "2025": {
+          "race": "120 km",
+          "winner_female": "Scarlet Cortés",
+          "winner_male": "Jacob Decar",
+          "winning_time_female": "3:18:46",
+          "winning_time_male": "2:59:33",
+          "source": "https://www.ridechile.cl/2025/04/decar-y-cortes-se-llevan-el-gran-fondo-curacavi-2025/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

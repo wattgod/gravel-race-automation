@@ -115,6 +115,33 @@
       "notable_moments": [],
       "reputation": "Regional SC event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-03-21",
+        "source": "https://www.webscorer.com/mpvelo"
+      },
+      {
+        "year": 2025,
+        "date": "2025-03-15",
+        "source": "https://www.webscorer.com/mpvelo"
+      },
+      {
+        "year": 2024,
+        "date": "2024-03-16",
+        "source": "https://www.webscorer.com/mpvelo"
+      },
+      {
+        "year": 2023,
+        "date": "2023-03-18",
+        "source": "https://www.webscorer.com/mpvelo"
+      },
+      {
+        "year": 2022,
+        "date": "2022-03-19",
+        "source": "https://www.webscorer.com/mpvelo"
+      }
+    ],
     "course_description": {
       "character": "Flat coastal forest gravel with minimal elevation.",
       "suffering_zones": [
@@ -688,6 +715,19 @@
         "credit": "YouTube / Nankman Cycling Adventures",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "100 mi",
+          "winner_female": "Colleen Maher Larocca",
+          "winner_male": "Tallon Flynn",
+          "winning_time_female": "4:58:04",
+          "winning_time_male": "4:30:47",
+          "source": "https://www.webscorer.com/race?raceid=425214"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

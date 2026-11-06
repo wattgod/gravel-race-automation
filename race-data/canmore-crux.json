@@ -115,6 +115,18 @@
       "notable_moments": [],
       "reputation": "Local Canadian event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "New four-hour multi-lap format replaced the fixed 85K and 32K distances.",
+        "source": "https://www.rmoutlook.com/local-sports/canmore-crux-gravel-race-debuts-new-four-hour-format-riders-face-challenging-conditions-12392920"
+      },
+      {
+        "year": 2025,
+        "date": "2025-07-12",
+        "source": "https://zone4.ca/event/2025/gYV3YK/"
+      }
+    ],
     "course_description": {
       "character": "Canadian Rockies gravel.",
       "suffering_zones": [
@@ -585,6 +597,17 @@
         "credit": "YouTube / RIDE NI DINGDONG, MASARAP MALUTONG!",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "4-hour laps",
+          "winner_female": "Francesca Seal",
+          "winner_male": "Colton Zabolotney",
+          "source": "https://www.rmoutlook.com/local-sports/canmore-crux-gravel-race-debuts-new-four-hour-format-riders-face-challenging-conditions-12392920"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

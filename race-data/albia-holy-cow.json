@@ -116,6 +116,13 @@
       "notable_moments": [],
       "reputation": "Local Iowa event."
     },
+    "editions": [
+      {
+        "year": 2023,
+        "date": "2023-07-15",
+        "source": "https://www.traveliowa.com/calendar/albia-holy-cow---gravel-bicycle-race/1648743/"
+      }
+    ],
     "course_description": {
       "character": "Iowa rolling gravel.",
       "suffering_zones": [
@@ -672,6 +679,19 @@
         "credit": "YouTube / Casey Ralston",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "100 km",
+          "winner_female": "Jennifer Sheffield",
+          "winner_male": "Christopher Jensen",
+          "winning_time_female": "5:21:21",
+          "winning_time_male": "3:44:11",
+          "source": "https://iowagravelseries.com/albia/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

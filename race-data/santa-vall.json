@@ -123,6 +123,14 @@
       ],
       "reputation": "Europe's early-season gravel stage race, run by Klassmark under The Traka brand."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-02-14",
+        "end_date": "2026-02-15",
+        "source": "https://www.procyclingstats.com/national-race/santa-vall/2026/stage-1/startlist/results-v3"
+      }
+    ],
     "course_description": {
       "character": "Two stages from La Pineda in Sant Gregori: 139 km with 1,800 m of gain on Saturday, 83 km with 1,100 m on Sunday. Pros add a 13.2 km time trial on Friday that decides who keeps Pro status. The organizer describes forest tracks, trails and paved sections; there are no big mountain passes, just constant up and down.",
       "suffering_zones": [
@@ -319,6 +327,19 @@
         "category": "official",
         "label": "Santa Vall regulations: entry limits, assistance zones, anti-doping"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "205 km",
+          "winner_female": "Sofía Gómez Villafañe",
+          "winner_male": "Mads Würtz Schmidt",
+          "winning_time_female": "7:03:00",
+          "winning_time_male": "5:57:01",
+          "source": "https://www.granfondoguide.com/RaceDashboard/GravelEarthSeries/1/9018/villafane-and-schmidt-take-overall-victory-for-specialized-off-road-racing-team-at-2026-santa-vall-in-girona"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

@@ -115,6 +115,18 @@
       "notable_moments": [],
       "reputation": "Local Pennsylvania event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-08-03",
+        "source": "https://results.raceroster.com/v3/events/vr6tdpbfsy79a4et/race/236276?filter_search="
+      },
+      {
+        "year": 2024,
+        "date": "2024-08-03",
+        "source": "https://results.raceroster.com/v3/events/5auwjf9q9ad5d6cx/race/207478"
+      }
+    ],
     "course_description": {
       "character": "Pennsylvania rolling gravel.",
       "suffering_zones": [
@@ -710,6 +722,19 @@
         "date": "2026-10-25",
         "change": "Distance corrected from 47 to 69 miles to match the Full Series route, the flagship listed on the official event page. Length score recomputed from the published rubric."
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "69 mi",
+          "winner_female": "Erin Gordon",
+          "winner_male": "Christopher Bunero",
+          "winning_time_female": "4:07:49",
+          "winning_time_male": "3:27:31",
+          "source": "https://results.raceroster.com/v3/events/vr6tdpbfsy79a4et/race/236276?filter_search="
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

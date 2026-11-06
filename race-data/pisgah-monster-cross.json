@@ -119,6 +119,24 @@
       ],
       "reputation": "Southeast gravel classic. Technical Pisgah terrain. 15-20% DNF."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-09-12",
+        "source": "https://pisgahproductions.com/events/pisgah-monster-cross-challenge/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-09-06",
+        "note": "Course updated: up Joel Branch and down into the hatchery on 475C.",
+        "source": "https://www.bikereg.com/pisgah-monster-cross-challenge-2024?nc=1"
+      },
+      {
+        "year": 2024,
+        "date": "2024-09-07",
+        "source": "https://results.bikereg.com/race/19691"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -641,6 +659,35 @@
         "credit": "YouTube / Gravel Cyclist",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "69 mi",
+          "winner_female": "Olivia Pantano",
+          "winner_male": "Nick Bragg",
+          "winning_time_female": "4:59:13",
+          "winning_time_male": "4:20:35",
+          "source": "https://www.pisgahproductions.com/results/2026-pisgah-monster-cross-challenge-results/"
+        },
+        "2025": {
+          "race": "69 mi",
+          "winner_female": "Sierra Sims",
+          "winner_male": "Oakely Griffin",
+          "winning_time_female": "5:11:05",
+          "winning_time_male": "4:05:33",
+          "source": "https://www.pisgahproductions.com/results/2025-pisgah-monster-cross-challenge-results/"
+        },
+        "2024": {
+          "race": "69 mi",
+          "winner_female": "Amy Phillips",
+          "winner_male": "Manolo Wrolich",
+          "winning_time_female": "5:08:50",
+          "winning_time_male": "4:25:14",
+          "source": "https://results.bikereg.com/race/19691"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

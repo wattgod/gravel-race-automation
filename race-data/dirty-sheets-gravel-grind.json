@@ -124,6 +124,23 @@
       ],
       "reputation": "A community-built Atlanta-area gravel race known for punchy terrain, hand-made trophies, and an unusually complete race-weekend experience."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-10-11",
+        "source": "https://dirtysheetsgravel.com/results"
+      },
+      {
+        "year": 2024,
+        "date": "2024-10-12",
+        "source": "https://dirtysheetsgravel.com/results"
+      },
+      {
+        "year": 2023,
+        "date": "2023-10-14",
+        "source": "https://dirtysheetsgravel.com/results"
+      }
+    ],
     "course_description": {
       "character": "A punchy 100-mile mixed-surface course with 6,815 feet of repeated climbing, moving among pavement, gravel, singletrack, and doubletrack.",
       "suffering_zones": [
@@ -639,6 +656,19 @@
         "credit": "YouTube / s y n t h b e n t",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "102 mi",
+          "winner_female": "Alice Perryman",
+          "winner_male": "Maxwell Abner",
+          "winning_time_female": "5:41:40",
+          "winning_time_male": "5:00:40",
+          "source": "https://dirtysheetsgravel.com/2026_results/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

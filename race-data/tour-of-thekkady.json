@@ -146,6 +146,34 @@
       "notable_editions": "5th edition in 2026; annual success building global recognition with Spinneys Dubai 92 partnerships.",
       "growth_trajectory": "From debut to established staple, expanding fields and aiming for thousands of international participants."
     },
+    "editions": [
+      {
+        "year": 2027,
+        "edition": 6,
+        "note": "Moves from March to January",
+        "source": "https://www.tourofthekkady.com/"
+      },
+      {
+        "year": 2026,
+        "date": "2026-03-14",
+        "edition": 5,
+        "note": "First timed race categories.",
+        "source": "https://www.onmanorama.com/travel/travel-news/2026/03/16/tour-of-thekkady-2026-winners.html"
+      },
+      {
+        "year": 2025,
+        "date": "2025-03-08",
+        "edition": 4,
+        "source": "https://www.mangalorean.com/tour-of-thekkady-2025-a-crucible-of-endurance-excellence-and-ecstasy/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-04-30",
+        "edition": 1,
+        "note": "First edition.",
+        "source": "https://www.tourofthekkady.com/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "India's must-do Gran Fondo: TdF climbs meet Kerala paradise.",
       "best_for": "Endurance climbers seeking value-packed scenic challenges and cultural immersion.",
@@ -191,6 +219,26 @@
       }
     ],
     "slug": "tour-of-thekkady",
-    "name": "Tour of Thekkady — Kerala Gran Fondo"
+    "name": "Tour of Thekkady — Kerala Gran Fondo",
+    "results": {
+      "years": {
+        "2026": {
+          "race": "152 km",
+          "winner_female": "Su Yin Ong",
+          "winner_male": "Sreenath Lakshmikanth",
+          "winning_time_female": "6:49",
+          "winning_time_male": "5:03",
+          "source": "https://www.onmanorama.com/travel/travel-news/2026/03/16/tour-of-thekkady-2026-winners.html"
+        },
+        "2025": {
+          "race": "145 km",
+          "winner_female": "Gleonna Angel D'souza",
+          "winner_male": "Sreenath Lakshmikanth",
+          "winning_time_male": "4:48",
+          "source": "https://www.onmanorama.com/travel/kerala/2025/03/10/tour-of-thekkady-race-kottayam-keg-bikers.html"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

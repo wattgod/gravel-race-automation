@@ -144,6 +144,13 @@
       ],
       "reputation": "Brazilian gravel scene. Coastal mountains. Beach town. International destination."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-03-09",
+        "source": "https://www.procyclingstats.com/national-race/uci-gravel-world-series-me-we/2025/result"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -588,6 +595,19 @@
         "credit": "YouTube / Léco Ribas MTB",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "113 km",
+          "winner_female": "Ana Luisa Korc Panini",
+          "winner_male": "Henrique Avancini",
+          "winning_time_female": "4:25:10",
+          "winning_time_male": "3:27:21",
+          "source": "https://www.nsctotal.com.br/noticias/conheca-os-vencedores-do-uci-gravel-world-series-2026-em-camboriu"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

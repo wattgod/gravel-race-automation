@@ -23,6 +23,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 from season import PAST, edition_state  # noqa: E402
+from race_editions import set_date_specific  # noqa: E402
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 RESEARCH_DIR = PROJECT_ROOT / "research-dumps"
 
@@ -329,7 +330,7 @@ def main():
         old_ds = vitals.get("date_specific", "")
         old_date = vitals.get("date", "")
 
-        vitals["date_specific"] = date_spec
+        set_date_specific(race, date_spec)
         if date_general:
             vitals["date"] = date_general
 

@@ -109,12 +109,32 @@
       "camping": "Campground not specified[2]"
     },
     "history": {
-      "founded": null,
+      "founded": 2014,
       "founder": "Local organizers",
       "origin_story": "Grassroots gravel event in Upper Peninsula wilderness.",
       "notable_moments": [],
       "reputation": "Small regional Upper Peninsula event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-07-18",
+        "end_date": "2026-07-19",
+        "source": "https://906adventureteam.com/mountain-bike-events/the-crusher/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-07-19",
+        "end_date": "2025-07-20",
+        "note": "Moved to Copper Harbor in the Keweenaw; new routes.",
+        "source": "https://906adventureteam.com/crusher-2025/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-07-20",
+        "source": "https://906adventureteam.com/crusher-2025/"
+      }
+    ],
     "course_description": {
       "character": "Rolling to hilly Upper Peninsula wilderness gravel.",
       "suffering_zones": [

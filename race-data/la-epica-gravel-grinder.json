@@ -160,6 +160,14 @@
       ],
       "reputation": "A young destination stage race with a serious competitive format and a strong Puerto Rico identity."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-03-27",
+        "end_date": "2026-03-29",
+        "source": "https://img1.wsimg.com/blobby/go/a31fc8d2-9f77-4656-8b14-acde1ecddbef/LA%20EPICA%202026%20-%20EVENT%20GUIDE%20(8.5%20x%2011%20in).pdf"
+      }
+    ],
     "course_description": {
       "character": "Back-to-back gravel stage racing from a Ponce resort base through coastal flats, riverside and canal paths, farms, mixed backroads, and short rougher sectors. The 2027 route geometry is not yet public.",
       "suffering_zones": [
@@ -408,6 +416,17 @@
         "category": "weather",
         "label": "NOAA 1991-2020 Ponce 4 E March climate normals"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "Open Gravel",
+          "winner_female": "Ileana Martínez",
+          "winner_male": "Jorden Wakeley",
+          "source": "https://laepica.org/la-epica-march-2026"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

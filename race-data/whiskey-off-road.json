@@ -220,6 +220,14 @@
       ],
       "reputation": "The original Epic Rides model—proof that 20 years of iteration creates exceptional events."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-04-25",
+        "end_date": "2025-04-27",
+        "source": "https://veloptimum.net/courses/epreuves/25/4avr/WhiskeyOffRoad.htm"
+      }
+    ],
     "course_description": {
       "character": "A greatest-hits tour of Prescott National Forest combining technical singletrack, flowing trails, exposed fire road grinding, and tactical racing. You start on historic Whiskey Row, climb through granite formations, suffer through Skull Valley, flow through Spence Basin, and navigate technical descents when your legs are cooked. Every type of MTB terrain represented.",
       "suffering_zones": [
@@ -808,7 +816,20 @@
         "credit": "YouTube / MTB Rad Dad",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "50 mi Pro Backcountry",
+          "winner_female": "Savilia Blunk",
+          "winner_male": "Riley Amos",
+          "winning_time_female": "3:40:26",
+          "winning_time_male": "3:05:17",
+          "source": "https://results.epicrides.com/liveresults/webresults/default.aspx?ProOnly=true&event=WOR-2025"
+        }
+      },
+      "latest_year": "2025"
+    }
   },
   "dataQuality": "High"
 }

@@ -182,6 +182,30 @@
       ],
       "reputation": "'Go ride this race.' Free, community-driven, pro-heavy. The anti-corporate gravel race with legendary Texas hospitality and BBQ."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-05-24",
+        "note": "Elite race run on the 110-mile La Gran Piedra route (118 mi)",
+        "source": "https://www.gravellocos.bike"
+      },
+      {
+        "year": 2024,
+        "date": "2024-05-18",
+        "source": "https://sites.chronotrack.com/event/75453"
+      },
+      {
+        "year": 2023,
+        "date": "2023-05-20",
+        "source": "https://www.gravellocos.bike/hico/results"
+      },
+      {
+        "year": 2022,
+        "date": "2022-05-14",
+        "edition": 2,
+        "source": "https://velo.outsideonline.com/gallery/gravel-locos-a-race-a-ride-a-rememberance/?scope=anon"
+      }
+    ],
     "course_description": {
       "character": "The organizer still publishes only the completed 2025 routes. That year's flagship was 118 miles with approximately 6,000 feet of climbing on open roads with water crossings and a flood backup route.",
       "suffering_zones": [
@@ -690,6 +714,47 @@
     "taking_a_break": {
       "label": "NO 2026 EDITION",
       "line": "The organizer still lists only the May 24, 2025 edition. No current course or registration is published."
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "118 mi",
+          "winner_female": "Karolina Migoń",
+          "winner_male": "Ramon Sinkeldam",
+          "winning_time_female": "5:53:29",
+          "winning_time_male": "5:13:46",
+          "source": "https://www.cyclingnews.com/races/gravel-locos-2025/gl-110-elite-women-and-men/results/"
+        },
+        "2024": {
+          "race": "147 mi",
+          "winner_female": "Justine Barrow",
+          "winner_male": "Julien Gagne",
+          "winning_time_female": "7:30:06",
+          "winning_time_male": "6:34:22",
+          "source": "https://www.cyclingnews.com/news/justine-barrow-and-julien-gagne-fly-the-coop-to-claim-victory-at-gravel-locos/"
+        },
+        "2023": {
+          "race": "157 mi",
+          "winner_female": "Carolin Schiff",
+          "winner_male": "Adam Roberge",
+          "winning_time_female": "7:54:07",
+          "winning_time_male": "7:12:11",
+          "source": "https://www.cyclingnews.com/news/schiff-and-roberge-win-gravel-locos-150/"
+        },
+        "2022": {
+          "race": "150 mi",
+          "winner_female": "Marisa Boaz",
+          "winner_male": "Jasper Ockeloen",
+          "winning_time_female": "8:27:17",
+          "source": "https://results.bikereg.com/race/20890"
+        },
+        "2021": {
+          "winner_female": "Emily Newsom",
+          "winner_male": "Laurens ten Dam",
+          "source": "https://velo.outsideonline.com/gravel/gravel-locos-is-this-weekends-pre-unbound-showdown/?scope=anon"
+        }
+      },
+      "latest_year": "2025"
     }
   }
 }

@@ -31,7 +31,11 @@
     "climate": {
       "primary": "Tropical heat and humidity",
       "description": "Mid-November in Kanchanaburi falls in the post-monsoon shoulder season: average highs around 87°F, lows near 73°F, and roughly a coin-flip chance of rain on any given day. The 840 metres of climbing rarely define the race — the heat and humidity, sustained across four-plus hours, do.",
-      "challenges": ["Tropical heat", "High humidity", "Dust that turns to mud if it rains"]
+      "challenges": [
+        "Tropical heat",
+        "High humidity",
+        "Dust that turns to mud if it rains"
+      ]
     },
     "terrain": {
       "primary": "Mixed gravel",
@@ -180,6 +184,14 @@
     "history": {
       "founder": "Bike Zone Events"
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-11-01",
+        "note": "First UCI Gravel World Series round in Thailand.",
+        "source": "https://granfondodailynews.com/2025/11/02/uci-dustman-gravel-worlds-qualifying-results-sawada-livesey-win-in-thailand"
+      }
+    ],
     "tire_recommendations": {
       "generated_at": "2026-02-19",
       "primary": [
@@ -517,6 +529,19 @@
         "credit": "YouTube / Christopher Kröner",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "130 km",
+          "winner_female": "Caroline Livesey",
+          "winner_male": "Toki Sawada",
+          "winning_time_female": "4:50:32",
+          "winning_time_male": "4:07:52",
+          "source": "https://granfondodailynews.com/2025/11/02/uci-dustman-gravel-worlds-qualifying-results-sawada-livesey-win-in-thailand"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

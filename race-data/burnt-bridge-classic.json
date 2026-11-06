@@ -114,6 +114,18 @@
       "notable_moments": [],
       "reputation": "Small regional event with scenic setting."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Hosts the Canadian Gravel Championships; new venue at Cowichan Camp",
+        "source": "https://cyclingbc.net/event/burnt-bridge-classic-2026-canadian-gravel-championships/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-18",
+        "source": "https://www.webscorer.com/race?raceid=390636"
+      }
+    ],
     "course_description": {
       "character": "Rolling wine country roads with mix of gravel and pavement.",
       "suffering_zones": [
@@ -740,6 +752,19 @@
         "credit": "YouTube / PIQUE PICTURES",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "120 km",
+          "winner_female": "Chancie Knights",
+          "winner_male": "Robert Britton",
+          "winning_time_female": "5:11:01",
+          "winning_time_male": "3:54:27",
+          "source": "https://www.webscorer.com/race?raceid=390636"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

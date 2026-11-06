@@ -126,7 +126,7 @@
       "signature_challenge": "Steep, scenic climb with Lake Superior views. Pack may still be together here—surges happen."
     },
     "history": {
-      "founded": "DATA NOT FOUND",
+      "founded": null,
       "founder": "Heck of the North Productions",
       "origin_story": "Large field (2,000+ riders) organized by Heck of the North Productions (same organizer as Heck of the North). Not a UCI Gravel World Series event.",
       "notable_moments": [
@@ -135,6 +135,23 @@
       ],
       "reputation": ""
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-05-23",
+        "source": "https://runsignup.com/Race/Events/MN/GrandMarais/LeGrandDuNordGravelClassic"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-24",
+        "source": "https://www.mtecresults.com/race/leaderboard/18777/2025_Le_Grand_du_Nord-110_Miles"
+      },
+      {
+        "year": 2024,
+        "date": "2024-05-25",
+        "source": "https://www.mtecresults.com/race/leaderboard/17116/2024_Le_Grand_du_Nord-110_Miles"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -306,10 +323,24 @@
         "2024": {
           "conditions": "2024: Dry, cool (48-62°F), perfect conditions",
           "dnf_rate_pct": 5,
-          "key_takeaways": []
+          "key_takeaways": [],
+          "race": "110 mi",
+          "winner_female": "Shanie Joynes",
+          "winner_male": "Sean Topel",
+          "winning_time_female": "7:07:48",
+          "winning_time_male": "5:37:09",
+          "source": "https://www.mtecresults.com/race/leaderboard/17116/2024_Le_Grand_du_Nord-110_Miles"
+        },
+        "2025": {
+          "race": "110 mi",
+          "winner_female": "Kayla Kjellman",
+          "winner_male": "Nick Nygaard",
+          "winning_time_female": "6:32:08",
+          "winning_time_male": "5:36:21",
+          "source": "https://www.mtecresults.com/race/leaderboard/18777/2025_Le_Grand_du_Nord-110_Miles"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

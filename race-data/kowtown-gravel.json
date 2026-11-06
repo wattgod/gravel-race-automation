@@ -121,12 +121,19 @@
       "camping": "On-site camping is advertised for the event weekend; final 2027 reservation and check-in details are pending"
     },
     "history": {
-      "founded": null,
+      "founded": 2023,
       "founder": "Local CO organizers",
       "origin_story": "Regional CO mountain gravel event.",
       "notable_moments": [],
       "reputation": "Regional CO event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-07-05",
+        "source": "https://www.bikereg.com/results/rr/22803/kowtown-gravel"
+      }
+    ],
     "course_description": {
       "character": "High-country Colorado gravel across exposed ranchland, hard-packed county roads, doubletrack, punchy climbs, and technical descents.",
       "suffering_zones": [],
@@ -708,6 +715,17 @@
         "credit": "YouTube / The Ride with Ben Delaney",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "100 mi",
+          "winner_male": "Elliott Baring",
+          "winning_time_male": "5:22:24",
+          "source": "https://www.bikereg.com/results/rr/22803/kowtown-gravel"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

@@ -132,9 +132,27 @@
     "course_description": {
       "character": "A short but varied back-country race linking snowmobile trail, Musky Mountain singletrack, logging road, gravel, creek crossings, and brief pavement.",
       "suffering_zones": [
-        {"mile": 0, "label": "Snowmobile-Trail Start", "desc": "The race leaves Sayner on snowmobile trail, forcing early position decisions on variable ground.", "terrain_detail": "Snowmobile trail", "named_section": "Sayner trail approach"},
-        {"mile": 8, "label": "Musky Mountain", "desc": "Singletrack adds handling load and makes passing more expensive than on the surrounding roads.", "terrain_detail": "Singletrack", "named_section": "Musky Mountain bike trails"},
-        {"mile": 20, "label": "Cutoff Decision", "desc": "The organizer uses a cutoff with an alternate return route; late-race pace must stay deliberate even on a short course.", "terrain_detail": "Backroad and snowmobile-trail return", "named_section": "Return to Sayner"}
+        {
+          "mile": 0,
+          "label": "Snowmobile-Trail Start",
+          "desc": "The race leaves Sayner on snowmobile trail, forcing early position decisions on variable ground.",
+          "terrain_detail": "Snowmobile trail",
+          "named_section": "Sayner trail approach"
+        },
+        {
+          "mile": 8,
+          "label": "Musky Mountain",
+          "desc": "Singletrack adds handling load and makes passing more expensive than on the surrounding roads.",
+          "terrain_detail": "Singletrack",
+          "named_section": "Musky Mountain bike trails"
+        },
+        {
+          "mile": 20,
+          "label": "Cutoff Decision",
+          "desc": "The organizer uses a cutoff with an alternate return route; late-race pace must stay deliberate even on a short course.",
+          "terrain_detail": "Backroad and snowmobile-trail return",
+          "named_section": "Return to Sayner"
+        }
       ],
       "signature_challenge": "Changing from fast backroad power to controlled singletrack handling without ever settling into one rhythm.",
       "ridewithgps_id": null,
@@ -159,9 +177,21 @@
       "altitude_feet": null
     },
     "non_negotiables": [
-      {"requirement": "Singletrack handling", "by_when": "Week 8", "why": "The official course uses Musky Mountain singletrack."},
-      {"requirement": "Short-race repeatability", "by_when": "Week 9", "why": "Twenty-five miles rewards repeated hard accelerations rather than ultra-endurance pacing."},
-      {"requirement": "Mixed-surface rehearsal", "by_when": "Week 10", "why": "The course switches between trail, logging road, gravel, and pavement."}
+      {
+        "requirement": "Singletrack handling",
+        "by_when": "Week 8",
+        "why": "The official course uses Musky Mountain singletrack."
+      },
+      {
+        "requirement": "Short-race repeatability",
+        "by_when": "Week 9",
+        "why": "Twenty-five miles rewards repeated hard accelerations rather than ultra-endurance pacing."
+      },
+      {
+        "requirement": "Mixed-surface rehearsal",
+        "by_when": "Week 10",
+        "why": "The course switches between trail, logging road, gravel, and pavement."
+      }
     ],
     "research_metadata": {
       "data_confidence": "high",
@@ -177,29 +207,101 @@
       ]
     },
     "biased_opinion_ratings": {
-      "logistics": {"score": 3, "explanation": "Sayner requires a drive into northern Wisconsin, but the community-building start and compact race-day schedule are straightforward once you are there."},
-      "length": {"score": 1, "explanation": "The signature race is officially 25 miles, below the rubric's 40-mile threshold."},
-      "technicality": {"score": 4, "explanation": "Snowmobile trail, Musky Mountain singletrack, logging roads, gravel, and creek crossings force repeated handling changes."},
-      "elevation": {"score": 1, "explanation": "The organizer publishes no gain figure; the prior 2,500-foot claim was unsupported, so the grade remains conservative until a GPX exists."},
-      "climate": {"score": 2, "explanation": "Northern Wisconsin can be wet and humid in June, but there is no organizer evidence of routinely extreme conditions."},
-      "altitude": {"score": 1, "explanation": "The Sayner, Wisconsin course is low enough that altitude is not a training constraint."},
-      "adventure": {"score": 3, "explanation": "A true back-country mix through state forest and Musky Mountain is memorable despite the short distance."},
-      "prestige": {"score": 2, "explanation": "The InSayner has Northern Wisconsin recognition and a distinctive identity, but remains a regional race rather than a national one."},
-      "race_quality": {"score": 3, "explanation": "The 2026 schedule covered 3 events, a cutoff, awards, and registration; aid and field details remain thin."},
-      "experience": {"score": 3, "explanation": "The Musky Mountain terrain mix and playful organization make the day enjoyable, though it is not a destination-scale production."},
-      "community": {"score": 4, "explanation": "Entry funds LAMBO trail building and the event includes a free 3.5-mile family ride."},
-      "field_depth": {"score": 2, "explanation": "It is a timed race, but no entrant count, elite field, or deep results evidence is published for 2026."},
-      "value": {"score": 5, "explanation": "$45 for a timed signature race that funds local trails is exceptional value."},
-      "expenses": {"score": 4, "explanation": "The low fee and regional drive model keep total costs reasonable for Midwest riders."}
+      "logistics": {
+        "score": 3,
+        "explanation": "Sayner requires a drive into northern Wisconsin, but the community-building start and compact race-day schedule are straightforward once you are there."
+      },
+      "length": {
+        "score": 1,
+        "explanation": "The signature race is officially 25 miles, below the rubric's 40-mile threshold."
+      },
+      "technicality": {
+        "score": 4,
+        "explanation": "Snowmobile trail, Musky Mountain singletrack, logging roads, gravel, and creek crossings force repeated handling changes."
+      },
+      "elevation": {
+        "score": 1,
+        "explanation": "The organizer publishes no gain figure; the prior 2,500-foot claim was unsupported, so the grade remains conservative until a GPX exists."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "Northern Wisconsin can be wet and humid in June, but there is no organizer evidence of routinely extreme conditions."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The Sayner, Wisconsin course is low enough that altitude is not a training constraint."
+      },
+      "adventure": {
+        "score": 3,
+        "explanation": "A true back-country mix through state forest and Musky Mountain is memorable despite the short distance."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "The InSayner has Northern Wisconsin recognition and a distinctive identity, but remains a regional race rather than a national one."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "The 2026 schedule covered 3 events, a cutoff, awards, and registration; aid and field details remain thin."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "The Musky Mountain terrain mix and playful organization make the day enjoyable, though it is not a destination-scale production."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Entry funds LAMBO trail building and the event includes a free 3.5-mile family ride."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "It is a timed race, but no entrant count, elite field, or deep results evidence is published for 2026."
+      },
+      "value": {
+        "score": 5,
+        "explanation": "$45 for a timed signature race that funds local trails is exceptional value."
+      },
+      "expenses": {
+        "score": 4,
+        "explanation": "The low fee and regional drive model keep total costs reasonable for Midwest riders."
+      }
     },
     "training_config": {
       "workout_modifications": {
-        "technical_repeatability": {"enabled": true, "weeks": [7, 8, 9, 10]},
-        "short_race_surges": {"enabled": true, "weeks": [8, 9, 10]},
-        "dress_rehearsal": {"enabled": true, "week": 10, "day": "Saturday", "duration_hours": {"ayahuasca": 2, "finisher": 3, "compete": 4, "podium": 4}}
+        "technical_repeatability": {
+          "enabled": true,
+          "weeks": [
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "short_race_surges": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 2,
+            "finisher": 3,
+            "compete": 4,
+            "podium": 4
+          }
+        }
       },
       "masterclass_topics": {
-        "priority_order": ["handling", "positioning", "pacing", "equipment"],
+        "priority_order": [
+          "handling",
+          "positioning",
+          "pacing",
+          "equipment"
+        ],
         "race_specific": true,
         "topics": {
           "handling": "Moving between snowmobile trail and singletrack",
@@ -222,8 +324,29 @@
       }
     },
     "citations": [
-      {"url": "https://www.bikesignup.com/Race/WI/Sayner/2023InSaynerMountainBikeRace", "category": "official", "label": "Official 2026 registration and race description"},
-      {"url": "https://lamboriders.org/events/insayner", "category": "official", "label": "LAMBO event page"}
-    ]
+      {
+        "url": "https://www.bikesignup.com/Race/WI/Sayner/2023InSaynerMountainBikeRace",
+        "category": "official",
+        "label": "Official 2026 registration and race description"
+      },
+      {
+        "url": "https://lamboriders.org/events/insayner",
+        "category": "official",
+        "label": "LAMBO event page"
+      }
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "25 mi",
+          "winner_female": "Candace Schotz",
+          "winner_male": "Lucas Daniels",
+          "winning_time_female": "2:09:41",
+          "winning_time_male": "1:52:58",
+          "source": "https://www.webscorer.com/race?raceid=436149"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

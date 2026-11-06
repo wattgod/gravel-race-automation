@@ -109,12 +109,25 @@
       "camping": "camping slots available at sign-on"
     },
     "history": {
-      "founded": null,
+      "founded": 2025,
       "founder": "Focal Events (Dirty Reiver organisers)",
       "origin_story": "Regional UK North York Moors gravel event.",
       "notable_moments": [],
       "reputation": "Regional UK event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 2,
+        "source": "https://news.paceupmedia.com/honor-elliott-and-damien-clayton-winners-of-the-second-edition-of-dalby-grit"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-28",
+        "edition": 1,
+        "source": "https://www.rootsandrain.com/event14572/2025-jun-28-focal-events-dalby-grit-dalby-forest/results/"
+      }
+    ],
     "course_description": {
       "character": "UK North York Moors gravel.",
       "suffering_zones": [
@@ -741,6 +754,19 @@
         "credit": "YouTube / The Coeliac Cyclist",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "115 km",
+          "winner_female": "Honor Elliott",
+          "winner_male": "Damien Clayton",
+          "winning_time_female": "4:14:05",
+          "winning_time_male": "3:20:14",
+          "source": "https://granfondodailynews.com/2026/06/25/former-pro-clayton-goes-back-to-back-wins-second-dalby-grit-gravel-title/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

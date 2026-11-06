@@ -194,6 +194,16 @@
       ],
       "reputation": "BWR California remains the flagship event of the series, with the $50,000+ prize purse being the largest in one-day gravel racing. The 40% DNF rate is nearly double Unbound's attrition. This isn't accidental. Marckx designed the course to expose riders who 'do the group rides that never do any work and then all of a sudden, they're there for the sprint.' BWR rewards those who can actually ride bikes, not just pedal them."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-04-25",
+        "end_date": "2025-04-27",
+        "edition": 14,
+        "note": "Start moved from North County San Diego to the Del Mar Polo Fields.",
+        "source": "https://socalcycling.com/?p=82006"
+      }
+    ],
     "course_description": {
       "character": "The 2026 Waffle starts and finishes at the Del Mar Polo Fields and covers 107 miles with 7,367 feet of climbing. Its 30 unroad sectors make up 53% of the route and mix gravel, deep sand, rocks, doubletrack, decomposed granite, dirt, and singletrack. The former Double Peak summit finish is not part of the Del Mar course; Zick-Zack and Saint Lusardi are among the closing sectors.",
       "suffering_zones": [],
@@ -665,6 +675,19 @@
         "credit": "YouTube / Kyle on Wheels",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "106 mi",
+          "winner_female": "Sofia Gomez Villafañe",
+          "winner_male": "Matthew Beers",
+          "winning_time_female": "5:43:22",
+          "winning_time_male": "4:57:08",
+          "source": "https://www.granfondoguide.com/Contents/PopUp/8498/defending-champions-villafa%C3%B1e-and-beers-dominate-at-2025-bwr-california"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

@@ -72,7 +72,7 @@
     },
     "biased_opinion": {
       "verdict": "Collegiate National Championship",
-      "summary": "Collegiate Gravel Nationals is USA Cycling National Championship—100 km, 1,500 m elevation. Founded ~2019. 80% gravel, 20% dirt. Texas Panhandle—rolling plains, red dirt. 200-400 collegiate riders. Turkey, TX (remote). April spring conditions (15-25°C, wind). Affordable entry ($50-$75). If you're collegiate and want National Championship, this is it. If you're not collegiate, you can't race. National Championship prestige.",
+      "summary": "Collegiate Gravel Nationals is USA Cycling National Championship—100 km, 1,500 m elevation. First held in 2026. 80% gravel, 20% dirt. Texas Panhandle—rolling plains, red dirt. 200-400 collegiate riders. Turkey, TX (remote). April spring conditions (15-25°C, wind). Affordable entry ($50-$75). If you're collegiate and want National Championship, this is it. If you're not collegiate, you can't race. National Championship prestige.",
       "strengths": [
         "USA Cycling National Championship (prestige 5)",
         "Affordable entry ($50-$75)",
@@ -121,15 +121,24 @@
       "signature_challenge": "100 km + Texas Panhandle wind + rolling plains. National Championship competitive field."
     },
     "history": {
-      "founded": "~2019",
+      "founded": 2026,
       "founder": "USA Cycling",
-      "origin_story": "Collegiate Gravel Nationals founded ~2019. USA Cycling National Championship. 100 km, 200-400 collegiate riders. Turkey, TX. Texas Panhandle.",
+      "origin_story": "Collegiate Gravel Nationals first held in 2026. USA Cycling National Championship. 100 km, 200-400 collegiate riders. Turkey, TX. Texas Panhandle.",
       "notable_moments": [
         "2023: Warm, windy (18-25°C, 30 km/h wind)",
         "2024: Variable, some rain (15-22°C)"
       ],
       "reputation": "USA Cycling National Championship. Collegiate only. Competitive field. Remote Texas Panhandle."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-03-07",
+        "edition": 1,
+        "note": "First USA Cycling Collegiate Gravel National Championships, held with Valley of Tears.",
+        "source": "https://usacycling.org/article/fort-lewis-college-wins-team-omnium-title-at-the-inaugural-usa-cycling-collegiate-gravel-national-championships"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -224,6 +233,12 @@
       ]
     },
     "citations": [
+      {
+        "url": "https://usacycling.org/article/fort-lewis-college-wins-team-omnium-title-at-the-inaugural-usa-cycling-collegiate-gravel-national-championships",
+        "category": "official",
+        "label": "USA Cycling: inaugural Collegiate Gravel Nationals (March 7, 2026)",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://www.valleyoftearsgravel.com/2026-collegiate-gravel-national-championships",
         "category": "other",
@@ -538,6 +553,19 @@
         "credit": "YouTube / Skyler Mackey",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "49.5 mi",
+          "winner_female": "Emma Kasza-James",
+          "winner_male": "Nate Meister",
+          "winning_time_female": "2:49:09",
+          "winning_time_male": "2:20:18",
+          "source": "https://www.durangoherald.com/articles/college-sports/fort-lewis-college-dominates-inaugural-collegiate-gravel-national-championships/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

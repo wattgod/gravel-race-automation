@@ -115,15 +115,36 @@
     "history": {
       "founded": 2024,
       "founder": "Asociación Espacio 108; organized by Klassmark since 2026",
-      "origin_story": "Gravel Desert began as an 'edición cero' from Huesca on October 19, 2024, run by Asociación Espacio 108 with a 200 km route past Santa Quiteria and Sariñena. The 2025 Gravel Earth Series calendar listed a July 26 Monegros round as 'Monegros Desert Festival'. In 2026 it ran from Grañén on April 11 as Gravel Desert by The Traka, and for 2027 it moves to March 13.",
+      "origin_story": "Gravel Desert began as an 'edición cero' from Huesca on October 19, 2024, run by Asociación Espacio 108 with a 200 km route past Santa Quiteria and Sariñena. The first full edition ran from Grañén on September 13, 2025, won by Esmée Peperkamp and Tim Wollenberg. In 2026 it ran from Grañén on April 11 as Gravel Desert by The Traka, and for 2027 it moves to March 13.",
       "notable_moments": [
         "2024: 'edición cero' from Huesca, 200 km with 2,153 m of gain, run by Asociación Espacio 108",
-        "2025: on the Gravel Earth Series calendar for July 26 as 'Monegros Desert Festival'",
+        "2025: first full edition on September 13 from Grañén; Tim Wollenberg won the sprint, Esmée Peperkamp the women's race",
         "2026: April 11 in Grañén as Gravel Desert by The Traka, a Gravel Earth Series round; Geerike Schreurs and Mads Würtz Schmidt both won solo",
         "2027: round 2 of The Traka World Series, March 13"
       ],
       "reputation": "A young, fast Monegros race with Klassmark production and a calendar slot that keeps moving."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-11",
+        "note": "Ran as Gravel Desert by The Traka, moved to April",
+        "source": "https://www.cyclingnews.com/pro-cycling/racing/geerike-schreurs-and-mads-wurtz-schmidt-solo-to-victory-at-the-gravel-desert-in-spain/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-09-13",
+        "edition": 1,
+        "note": "First full edition, from Grañén",
+        "source": "https://www.sportaragon.com/ciclismo/tim-wollenberg-se-lleva-al-sprint-la-primera-edicion-de-la-gravel-desert-en-granen/20250913230342137208.html"
+      },
+      {
+        "year": 2024,
+        "date": "2024-10-19",
+        "note": "'Edición cero' from Huesca, 200 km, run by Asociación Espacio 108",
+        "source": "https://www.sportaragon.com/la-gravel-coge-sitio-en-el-alto-aragon"
+      }
+    ],
     "course_description": {
       "character": "The 2027 167 km track starts and finishes in Grañén with 1,500 m of gain. It links Tardienta, Robres, Alcubierre, Lanaja, Albalatillo, Sariñena and San Lorenzo del Flumen on hardpack farm tracks, long straights and dusty corners, with Santa Quiteria as the climb to gear for.",
       "suffering_zones": [
@@ -185,7 +206,8 @@
         "https://www.sportaragon.com/la-gravel-coge-sitio-en-el-alto-aragon"
       ],
       "migration_notes": [
-        "2026-11-05: Added as a new profile after The Traka World Series named Gravel Desert round 2 for 2027. Organizer publishes March 13, 2027 with 167 km / 1,500 m and 85 km / 900 m tracks; prices and field cap are not published. The program lists an 18:00 finish cutoff for the 167 km and the track page 19:50; vitals carry both until the organizer settles it. History links the 2024 Espacio 108 'edición cero' to the Klassmark race through the shared name, the graveldesert.com site and route towns (Santa Quiteria, Sariñena). The 2025 Gravel Earth Series calendar listed the round as 'Monegros Desert Festival' on July 26; no 2025 result was verified. Cyclingnews' 2026 report was readable only to its headline, so 2026 podium places below the winners are not recorded."
+        "2026-11-05: Added as a new profile after The Traka World Series named Gravel Desert round 2 for 2027. Organizer publishes March 13, 2027 with 167 km / 1,500 m and 85 km / 900 m tracks; prices and field cap are not published. The program lists an 18:00 finish cutoff for the 167 km and the track page 19:50; vitals carry both until the organizer settles it. History links the 2024 Espacio 108 'edición cero' to the Klassmark race through the shared name, the graveldesert.com site and route towns (Santa Quiteria, Sariñena). The 2025 Gravel Earth Series calendar listed the round as 'Monegros Desert Festival' on July 26; no 2025 result was verified. Cyclingnews' 2026 report was readable only to its headline, so 2026 podium places below the winners are not recorded.",
+        "2026-11-06: Sport Aragón reports the first full edition ran from Grañén on September 13, 2025 (157 km; Esmée Peperkamp, Tim Wollenberg); the 2024 Huesca ride stays as the 'edición cero'. Editions table now lists 2024, 2025 and 2026."
       ]
     },
     "biased_opinion_ratings": {
@@ -317,6 +339,25 @@
         "category": "reference",
         "label": "Wikipedia: Grañén coordinates and Monegros plain setting"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "157 km",
+          "winner_female": "Esmée Peperkamp",
+          "winner_male": "Tim Wollenberg",
+          "winning_time_female": "5:14:52",
+          "winning_time_male": "4:38:10",
+          "source": "https://www.sportaragon.com/ciclismo/tim-wollenberg-se-lleva-al-sprint-la-primera-edicion-de-la-gravel-desert-en-granen/20250913230342137208.html"
+        },
+        "2026": {
+          "race": "167 km",
+          "winner_female": "Geerike Schreurs",
+          "winner_male": "Mads Würtz Schmidt",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/geerike-schreurs-and-mads-wurtz-schmidt-solo-to-victory-at-the-gravel-desert-in-spain/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

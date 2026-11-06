@@ -114,6 +114,28 @@
       "notable_moments": [],
       "reputation": "Regional UK event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-04-13",
+        "source": "https://www.webscorer.com/race?raceid=386389"
+      },
+      {
+        "year": 2024,
+        "date": "2024-04-14",
+        "source": "https://www.webscorer.com/race?raceid=348627"
+      },
+      {
+        "year": 2023,
+        "date": "2023-04-16",
+        "source": "https://www.webscorer.com/race?raceid=311644"
+      },
+      {
+        "year": 2022,
+        "date": "2022-04-10",
+        "source": "https://www.webscorer.com/race?raceid=273002"
+      }
+    ],
     "course_description": {
       "character": "UK Devon forest gravel.",
       "suffering_zones": [
@@ -760,6 +782,43 @@
         ],
         "search_text": "The Haldon Heroic takes riders through Haldon Forest and surrounding Devon countryside on a challenging 85k course with 1282 meters of elevation. The terrain features thick, treacherous mud that riders describe as like cycling through treacle, with bridleways so muddy that many participants walk sections. Key challenges include an extremely steep climb that scatters the field and muddy bog sections that follow tarmac portions. The course offers a mix of forest trails, gravel roads, and racecourse sections, but lacks the fast-flowing gravel roads found in other regions. Navigation can be tricky with missed turns and unclear signage. Gravel bikes struggle in the thick mud conditions where debris gets packed between wheels and frames. Feed stations offer bacon and egg rolls. The forest park allows free riding access for cyclists, with only parking fees for drivers. Riders should expect significantly longer completion times than typical gravel events due to the challenging English terrain and muddy conditions."
       }
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "Mega",
+          "winner_female": "Clare Capper",
+          "winner_male": "Mackenzie Mellish",
+          "winning_time_female": "5:09:08",
+          "winning_time_male": "3:29:20",
+          "source": "https://www.webscorer.com/race?raceid=427686"
+        },
+        "2025": {
+          "race": "Mega",
+          "winner_female": "Adele Martin",
+          "winner_male": "Mackenzie Mellish",
+          "winning_time_female": "4:07:38",
+          "winning_time_male": "3:26:17",
+          "source": "https://www.webscorer.com/race?raceid=386389"
+        },
+        "2024": {
+          "race": "Mega",
+          "winner_female": "Angie Simpson",
+          "winner_male": "Mack Mellish",
+          "winning_time_female": "5:00:08",
+          "winning_time_male": "3:30:51",
+          "source": "https://www.webscorer.com/race?raceid=348627"
+        },
+        "2023": {
+          "race": "Mega",
+          "winner_female": "Sue Williams",
+          "winner_male": "Ben Savage",
+          "winning_time_female": "4:50:40",
+          "winning_time_male": "3:53:48",
+          "source": "https://www.webscorer.com/race?raceid=311644"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

@@ -122,6 +122,13 @@
       "notable_moments": [],
       "reputation": "Community nonprofit race anchoring the Salida Bike Fest weekend."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-09-13",
+        "source": "https://www.themountainmail.com/news/salida-76-mud-jams-race/article_c38f859e-265a-45ca-8b4b-a38d03aea0ba.html"
+      }
+    ],
     "course_description": {
       "character": "Shift Events' single-day race from Riverside Park, downtown Salida (~7,080ft ASL): 76-mile 'Banquet' with 7,000ft of climbing, 76-KILOMETER 'Lite' (47.2mi/4,800ft), plus Fri+Sat Double combo options; Sunday's Banana Belt MTB race is a separate event in the same Bike Fest weekend. ALTITUDE RACE.",
       "suffering_zones": [
@@ -698,6 +705,19 @@
         "credit": "YouTube / Back of the Gravel Pack",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "76 mi",
+          "winner_female": "Lindsey Herman",
+          "winner_male": "Alex Marr",
+          "winning_time_female": "4:37:09",
+          "winning_time_male": "3:57:35",
+          "source": "https://www.themountainmail.com/news/salida-76-mud-jams-race/article_c38f859e-265a-45ca-8b4b-a38d03aea0ba.html"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

@@ -11,7 +11,7 @@
       "location_badge": "MILTON, FL",
       "county": "Santa Rosa County",
       "date": "Late March annually",
-      "date_specific": "2026: March 21",
+      "date_specific": "2027: April 10 (Saturday, CONFIRMED — scratchanklegravel.com)",
       "terrain_types": [
         "Florida panhandle",
         "Southern gravel",
@@ -114,6 +114,22 @@
       "notable_moments": [],
       "reputation": "Regional FL event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-03-21"
+      },
+      {
+        "year": 2025,
+        "date": "2025-03-08",
+        "source": "https://www.scratchanklegravel.com/results"
+      },
+      {
+        "year": 2024,
+        "date": "2024-03-16",
+        "source": "https://gravel-results.com/race/20096"
+      }
+    ],
     "course_description": {
       "character": "Florida panhandle gravel.",
       "suffering_zones": [
@@ -322,6 +338,12 @@
       }
     },
     "citations": [
+      {
+        "url": "https://www.scratchanklegravel.com/",
+        "category": "official",
+        "label": "Scratch Ankle Gravel: 2027 edition April 10",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://elitewheels.com/events/scratch-ankle-gravel/",
         "category": "other",
@@ -680,6 +702,27 @@
         "credit": "YouTube / Troy and Andrea's Little Adventures",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "100 mi",
+          "winner_female": "Marisa Terry",
+          "winner_male": "Luis Berrios",
+          "winning_time_female": "6:42:41",
+          "winning_time_male": "5:04:18",
+          "source": "https://www.scratchanklegravel.com/post/scratch-ankle-gravel-2026-results-are-live"
+        },
+        "2024": {
+          "race": "100 mi",
+          "winner_female": "Lauren Baker",
+          "winner_male": "Eric Nelson",
+          "winning_time_female": "5:45:42",
+          "winning_time_male": "5:21:29",
+          "source": "https://gravel-results.com/race/20096"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

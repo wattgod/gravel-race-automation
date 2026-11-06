@@ -117,6 +117,30 @@
       "notable_moments": [],
       "reputation": "Young regional NC Gravel Series event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-02-22",
+        "source": "https://www.trans-sylvaniaproductions.com/_files/ugd/2ebc47_b2dcca76d84944e1b7beb487e9d41466.pdf"
+      },
+      {
+        "year": 2025,
+        "date": "2025-02-23",
+        "note": "Moved to late February; 2024 ran March 30 and 2023 April 29.",
+        "source": "https://www.trans-sylvaniaproductions.com/_files/ugd/2ebc47_6494f3750de0410a842bafe5b8da6a65.pdf"
+      },
+      {
+        "year": 2024,
+        "date": "2024-03-30",
+        "source": "https://www.trans-sylvaniaproductions.com/_files/ugd/2ebc47_01de969d287940d7a97be2977ac874bc.pdf"
+      },
+      {
+        "year": 2023,
+        "date": "2023-04-29",
+        "note": "Race 1 of the 2023 NC Gravel Series.",
+        "source": "https://www.trans-sylvaniaproductions.com/_files/ugd/2ebc47_fd3c2ebef8674713ade7396fd60f7ffd.pdf"
+      }
+    ],
     "course_description": {
       "character": "Trans-Sylvania Productions' chip-timed mass-start race from Kings Mountain Point (Badin Lake Rec Area, ~550ft): Long 54.7mi/4,292ft, Short 29.1mi/2,291ft — mostly Uwharrie NF dirt/gravel doubletrack with paved connectors, rolling with short steep hills, signature mid-loop 'Jeep Climb'. 200-rider cap, post-race meal, NC Gravel Series. Late-Feb Piedmont weather 30s-50s°F with real winter-mud risk. PRIOR 75mi figure traced to a defunct 2022 Asheboro-era 82mi option — corrected 2026-07-13. RACE DAY IS SUNDAY.",
       "suffering_zones": [
@@ -740,6 +764,41 @@
         "credit": "YouTube / James Pearl",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "55 mi",
+          "winner_female": "Jen Cortesi",
+          "winner_male": "Gabriel Anthony",
+          "winning_time_female": "03:39:31.32",
+          "winning_time_male": "02:52:18.08",
+          "source": "https://www.trans-sylvaniaproductions.com/_files/ugd/2ebc47_b2dcca76d84944e1b7beb487e9d41466.pdf"
+        },
+        "2025": {
+          "race": "55 mi",
+          "winner_female": "Andrea Buttine",
+          "winner_male": "Gabriel Anthony",
+          "winning_time_female": "03:12:02.36",
+          "winning_time_male": "02:48:37.01",
+          "source": "https://www.trans-sylvaniaproductions.com/_files/ugd/2ebc47_6494f3750de0410a842bafe5b8da6a65.pdf"
+        },
+        "2024": {
+          "race": "55 mi",
+          "winner_male": "Abraham Close",
+          "winning_time_female": "03:29:55",
+          "winning_time_male": "02:41:53",
+          "source": "https://www.trans-sylvaniaproductions.com/_files/ugd/2ebc47_01de969d287940d7a97be2977ac874bc.pdf"
+        },
+        "2023": {
+          "race": "55 mi",
+          "winner_male": "John Paul Amalong",
+          "winning_time_female": "3:12:43.61",
+          "winning_time_male": "2:42:18.74",
+          "source": "https://www.trans-sylvaniaproductions.com/_files/ugd/2ebc47_fd3c2ebef8674713ade7396fd60f7ffd.pdf"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

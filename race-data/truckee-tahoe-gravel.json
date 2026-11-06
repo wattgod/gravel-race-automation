@@ -114,12 +114,34 @@
       "official_site": "https://www.truckeegravel.com/"
     },
     "history": {
-      "founded": null,
+      "founded": 2018,
       "founder": "Peter Sagan",
       "origin_story": "Founded 2018 as Peter Sagan's Sagan Dirt Fondo. Renamed Truckee Dirt Fondo in 2019, and is now branded Truckee Gravel (truckeegravel.com, Bike Monkey) -- Sagan still attends. GG catalog renamed to Truckee Tahoe Gravel 2026-07-16 (Matti-approved); old sagan-fondo URLs 301 here.",
       "notable_moments": [],
       "reputation": "Regional CA event racing as Truckee Tahoe Gravel (truckeegravel.com, Bike Monkey); Sagan Fondo is its founding-era identity."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-27",
+        "source": "https://bikerumor.com/long-live-local-races-truckee-tahoe-gravel/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-28",
+        "source": "https://biketahoe.org/event/truckee-tahoe-gravel-race/"
+      },
+      {
+        "year": 2024,
+        "note": "Debuted new short, medium and long courses",
+        "source": "https://bikerumor.com/long-live-local-races-truckee-tahoe-gravel/"
+      },
+      {
+        "year": 2022,
+        "note": "Returned after two years off and renamed Truckee Tahoe Gravel",
+        "source": "https://bikerumor.com/long-live-local-races-truckee-tahoe-gravel/"
+      }
+    ],
     "course_description": {
       "character": "The current medium course is 66.2 miles, 84% gravel and 16% paved, with organizer-published aid stations at miles 17, 25, 32, 45, and 55.",
       "suffering_zones": [
@@ -721,6 +743,29 @@
       "Sagan Dirt Fondo",
       "Truckee Dirt Fondo",
       "Truckee Gravel"
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "102 mi",
+          "winner_female": "Jen Tavé",
+          "winner_male": "Alex Wild",
+          "winning_time_female": "6:03:31",
+          "source": "https://bikerumor.com/long-live-local-races-truckee-tahoe-gravel/"
+        },
+        "2025": {
+          "race": "100 mi",
+          "winner_male": "Alex Wild",
+          "source": "https://bikerumor.com/long-live-local-races-truckee-tahoe-gravel/"
+        },
+        "2024": {
+          "race": "Long",
+          "winner_female": "Jen Tavé",
+          "winner_male": "Alex Wild",
+          "source": "https://www.truckeegravel.com/dispatches/2024-event-wrap"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

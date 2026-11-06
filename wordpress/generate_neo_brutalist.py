@@ -56,6 +56,7 @@ from generate_race_recap import has_results, newest_results_year
 
 sys.path.append(str(Path(__file__).resolve().parent.parent / "scripts"))
 from race_facts import edition_event_status, may_estimate, organizer_type  # noqa: E402
+from race_editions import STATUSES as EDITION_STATUSES, ordinal, rows as edition_rows  # noqa: E402
 
 # ── Constants ──────────────────────────────────────────────────
 
@@ -1003,6 +1004,7 @@ def normalize_race_data(data: dict) -> dict:
     return {
         'taking_a_break': race.get('taking_a_break'),
         'results': race.get('results') or {},
+        'editions': race.get('editions') or [],
         'race_plan_eligible': eligibility.get('race_plan_eligible', True),
         'eligibility': eligibility,
         'name': race.get('display_name') or race.get('name', 'Unknown Race'),
@@ -2971,6 +2973,7 @@ def build_toc(active_sections=None) -> str:
     all_links = [
         ('course', '01 Course Overview'),
         ('history', '02 Facts &amp; History'),
+        ('editions', 'Editions'),
         ('results', 'Results'),
         ('route', '03 The Course'),
         ('from-the-field', '04 From the Field'),
@@ -3152,7 +3155,10 @@ def build_history(rd: dict) -> str:
     origin = h.get('origin_story', '').strip()
     is_stub_origin = len(origin) < 60 and origin.endswith(('event.', 'race.', 'community.'))
     if origin and not is_stub_origin:
-        founded = f" Founded in {h['founded']}." if h.get('founded') else ''
+        # Only a stated year ("2016", "2016 (UCI status since 2018)"), never
+        # a placeholder like "DATA NOT FOUND" or a guess like "~2019".
+        founded_raw = str(h.get('founded') or '').strip()
+        founded = f" Founded in {founded_raw}." if re.match(r'(19|20)\d{2}\b', founded_raw) else ''
         # Suppress generic "X organizers" founder text
         founder_text = h.get('founder', '')
         founder = f" By {founder_text}." if founder_text and founder_text != 'Unknown' and not founder_text.endswith('organizers') else ''
@@ -3182,6 +3188,63 @@ def build_history(rd: dict) -> str:
       <summary>Facts &amp; History</summary>
       <div class="gg-history-body">{body}</div>
     </details>'''
+
+
+def _edition_dates(entry: dict) -> str:
+    """'Sep 12', 'Sep 12–13' or 'Jun 30 – Jul 2' (the year has its own column)."""
+    start = date.fromisoformat(entry['date'])
+    text = f"{start:%b} {start.day}"
+    if entry.get('end_date'):
+        end = date.fromisoformat(entry['end_date'])
+        text += f"\u2013{end.day}" if end.month == start.month else f" \u2013 {end:%b} {end.day}"
+    return text
+
+
+def build_editions(rd: dict) -> str:
+    """Build the Editions section: every edition on record, newest first.
+
+    Rows come from ``race.editions`` plus what ``date_specific`` confirms.
+    Estimates never appear. Renders nothing with fewer than two rows.
+    """
+    rows = edition_rows({'vitals': {'date_specific': rd['vitals'].get('date_specific')},
+                         'editions': rd.get('editions') or []})
+    if len(rows) < 2:
+        return ''
+    show_notes = any(r.get('note') or r.get('edition') for r in rows)
+    body = []
+    for r in rows:
+        if r.get('status'):
+            when = f'<span class="gg-editions-status">{esc(EDITION_STATUSES[r["status"]])}</span>'
+        elif r.get('date'):
+            when = esc(_edition_dates(r))
+        else:
+            when = '&mdash;'
+        if r.get('source'):
+            when = f'<a href="{esc(r["source"])}" target="_blank" rel="noopener">{when}</a>'
+        cells = f'<th scope="row" class="gg-results-year">{r["year"]}</th><td class="gg-editions-date">{when}</td>'
+        if show_notes:
+            parts = []
+            if r.get('edition'):
+                parts.append(f"{ordinal(r['edition'])} edition")
+            if r.get('note'):
+                parts.append(r['note'])
+            cells += f'<td>{esc(" · ".join(parts))}</td>'
+        body.append(f'<tr>{cells}</tr>')
+    note_head = '<th scope="col">Notes</th>' if show_notes else ''
+    rows_html = '\n        '.join(body)
+    return f'''<section id="editions" class="gg-section gg-fade-section">
+    <div class="gg-section-header">
+      <h2 class="gg-section-title">Editions</h2>
+    </div>
+    <div class="gg-section-body">
+      <table class="gg-results-table gg-editions-table">
+        <thead><tr><th scope="col">Year</th><th scope="col">Date</th>{note_head}</tr></thead>
+        <tbody>
+        {rows_html}
+        </tbody>
+      </table>
+    </div>
+  </section>'''
 
 
 def _results_cell(name, time) -> str:
@@ -7181,6 +7244,9 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-results-race {{ display: block; font-size: var(--gg-font-size-2xs); font-weight: 400; color: var(--gg-color-secondary-brown); white-space: normal; }}
 .gg-neo-brutalist-page .gg-results-name {{ display: block; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-results-time {{ display: block; font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-variant-numeric: tabular-nums; color: var(--gg-color-teal); }}
+.gg-neo-brutalist-page .gg-editions-date {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-variant-numeric: tabular-nums; color: var(--gg-color-dark-brown); white-space: nowrap; }}
+.gg-neo-brutalist-page .gg-editions-date a {{ color: inherit; }}
+.gg-neo-brutalist-page .gg-editions-status {{ font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
 .gg-neo-brutalist-page .gg-results-note {{ margin-top: var(--gg-spacing-sm); font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); line-height: 1.5; }}
 
 /* Riders Report callout */
@@ -7642,6 +7708,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     hero = build_hero(rd)
     course_overview = build_course_overview(rd, race_index)
     history = build_history(rd)
+    editions_sec = build_editions(rd)
     results_sec = build_results(rd)
     course_route = build_course_route(rd)
     from_the_field = build_from_the_field(rd)
@@ -7675,6 +7742,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         active.add('training')
     if history:
         active.add('history')
+    if editions_sec:
+        active.add('editions')
     if results_sec:
         active.add('results')
     if course_route:
@@ -7715,7 +7784,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     spine = '\n\n  '.join(section for section in spine_sections if section)
 
     deep_sections = []
-    for section in [course_overview, history, results_sec, course_route, from_the_field,
+    for section in [course_overview, history, editions_sec, results_sec, course_route, from_the_field,
                     racer_reviews, training, train_for_race, logistics_sec,
                     tire_picks, news, similar, visible_faq, citations_sec]:
         if section:

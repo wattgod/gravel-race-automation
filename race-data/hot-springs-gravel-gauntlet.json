@@ -117,6 +117,19 @@
       "notable_moments": [],
       "reputation": "Regional NC event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-05-16",
+        "source": "https://www.southeastgravel.com/hot-springs-gravel-gauntlet"
+      },
+      {
+        "year": 2025,
+        "date": "2025-03-29",
+        "note": "Held in March; the 2026 edition moved to May 16",
+        "source": "https://www.webscorer.com/race?raceid=384812"
+      }
+    ],
     "course_description": {
       "character": "Southeast Gravel race from Hot Springs Resort & Spa: the 2026 long course is 61 miles with 6,616 feet of gain on the organizer-linked route. The organizer describes one flat stretch along the river and sustained climbing across the remainder of its hilliest course yet. Long-course aid stations are at miles 11.5, 45, and 53.5.",
       "suffering_zones": [
@@ -727,6 +740,19 @@
         "credit": "YouTube / Alex Runge",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "Long course",
+          "winner_female": "Madison Maloney",
+          "winner_male": "Dylan Johnson",
+          "winning_time_female": "3:53:18",
+          "winning_time_male": "3:11:42",
+          "source": "https://www.webscorer.com/race?raceid=384812"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

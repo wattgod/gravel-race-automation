@@ -117,6 +117,21 @@
       "notable_moments": [],
       "reputation": "An emerging international ultra with a small field and an unusually ambitious route."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-11",
+        "note": "Added the 1,050 km Hain distance; 80 starters across 170, 250 and 1,050 km.",
+        "source": "https://tusdesafios.com/news/gravel-del-fuego-2026-la-carrera-mas-austral-del-ultraciclismo-ya-tiene-a-sus-campeones"
+      },
+      {
+        "year": 2025,
+        "date": "2025-04-12",
+        "edition": 2,
+        "note": "250 km Puerto Natales to Torres del Paine and back; Hain 1,050 km not run.",
+        "source": "https://www.ridechile.cl/2025/04/la-patagonia-chilena-recibio-la-gravel-del-fuego-2025/"
+      }
+    ],
     "course_description": {
       "character": "A non-stop, single-stage Patagonian crossing with mandatory controls, organizer aid, no private outside assistance, and open-road exposure.",
       "suffering_zones": [],
@@ -358,8 +373,25 @@
       }
     ],
     "results": {
-      "years": {},
-      "latest_year": null
+      "years": {
+        "2025": {
+          "race": "250 km",
+          "winner_female": "Carola Fresno",
+          "winner_male": "Felipe Covarrubias",
+          "winning_time_female": "16:03",
+          "winning_time_male": "11:14",
+          "source": "https://www.ridechile.cl/2025/04/la-patagonia-chilena-recibio-la-gravel-del-fuego-2025/"
+        },
+        "2026": {
+          "race": "1,050 km",
+          "winner_female": "Francia Durán",
+          "winner_male": "Jaime Navarro",
+          "winning_time_female": "110:02:00",
+          "winning_time_male": "78:04:00",
+          "source": "https://tusdesafios.com/news/gravel-del-fuego-2026-la-carrera-mas-austral-del-ultraciclismo-ya-tiene-a-sus-campeones"
+        }
+      },
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

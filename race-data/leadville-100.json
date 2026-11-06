@@ -181,6 +181,34 @@
       ],
       "reputation": "The original 'Race Across the Sky.' The bucket-list race that started the endurance mountain bike movement."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-08-15",
+        "note": "Revised course, about 102 miles.",
+        "source": "https://www.cyclingnews.com/pro-cycling/racing/leadville-trail-100-mtb-keegan-swenson-outsprints-matt-wilson-to-win-record-tying-sixth-elite-mens-race/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-09",
+        "edition": 31,
+        "note": "Women's course record broken (6:48:55).",
+        "source": "https://www.endurancesportswire.com/kate-courtney-and-keegan-swenson-claim-victory-at-31st-life-time-leadville-trail-100-mtb-presented-by-kenetik/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-08-10",
+        "edition": 30,
+        "note": "30th anniversary; first winners John Stamstad and Laurie Brandt attended.",
+        "source": "https://www.endurancesportswire.com/melisa-rollins-and-keegan-swenson-claim-victory-at-30th-annual-life-time-leadville-trail-100-mtb-presented-by-kenetik/"
+      },
+      {
+        "year": 2023,
+        "date": "2023-08-12",
+        "note": "Men's course record set (5:43:31).",
+        "source": "https://www.cyclingwest.com/racing/mountain-bike-racing/keegan-swenson-smashes-leadville-trail-100-mtb-record/"
+      }
+    ],
     "course_description": {
       "character": "Out-and-back with one massive climb (Columbine) and relentless terrain. The altitude is the course.",
       "suffering_zones": [
@@ -348,9 +376,33 @@
             "Finishers under 9:00:00 earn the big buckle"
           ],
           "winning_time_female": "7:10:10"
+        },
+        "2026": {
+          "race": "102 mi",
+          "winner_female": "Melisa Rollins",
+          "winner_male": "Keegan Swenson",
+          "winning_time_female": "5:58:43",
+          "winning_time_male": "5:20:26",
+          "source": "https://www.pinkbike.com/news/results-2026-leadville-trail-100-mtb.html"
+        },
+        "2025": {
+          "race": "100 mi",
+          "winner_female": "Kate Courtney",
+          "winner_male": "Keegan Swenson",
+          "winning_time_female": "6:48:55",
+          "winning_time_male": "5:45:35",
+          "source": "https://www.endurancesportswire.com/kate-courtney-and-keegan-swenson-claim-victory-at-31st-life-time-leadville-trail-100-mtb-presented-by-kenetik/"
+        },
+        "2023": {
+          "race": "105 mi",
+          "winner_female": "Sofia Gomez Villafane",
+          "winner_male": "Keegan Swenson",
+          "winning_time_female": "7:09:48",
+          "winning_time_male": "5:43:31",
+          "source": "https://www.cyclingwest.com/racing/mountain-bike-racing/keegan-swenson-smashes-leadville-trail-100-mtb-record/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "series": {
       "id": "life-time-grand-prix",

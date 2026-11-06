@@ -196,6 +196,34 @@
       ],
       "reputation": "The perfect entry point to Unbound—all the suffering you can handle before graduating to the 200."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-05-30",
+        "source": "https://www.emporiagazette.com/free/article_7d3ddc99-c73b-42d7-8051-cce4570c4031.html"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-31",
+        "source": "https://www.cyclingnews.com/races/unbound-gravel-2025/unbound-100-elite-women-and-men/results/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-06-01",
+        "source": "https://www.cyclingnews.com/races/unbound-gravel-2024/unbound-100-pro-women-and-men/results/"
+      },
+      {
+        "year": 2023,
+        "date": "2023-06-03",
+        "source": "https://kvoe.com/2023/06/03/221921/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-06-04",
+        "note": "New southbound course",
+        "source": "https://www.cyclingnews.com/races/unbound-gravel-2022/unbound-100/results/"
+      }
+    ],
     "course_description": {
       "character": "A ~100-mile test through the Kansas Flint Hills. The exact route is redrawn most years (Life Time has combined and reshuffled 'north'/'south' course features in recent editions), but the character holds: it leaves Emporia through Wabaunsee and Morris Counties, passes a checkpoint at Council Grove (a stable landmark, historically ~mile 50), and shares its brutal flint rock roads, rolling terrain, and open-prairie exposure with the 200—just compressed into a faster, more intense package.",
       "suffering_zones": [
@@ -328,10 +356,52 @@
       "years": {
         "2024": {
           "winning_time_male": "4:56:30",
-          "winning_time_female": "5:06:40"
+          "winning_time_female": "5:06:40",
+          "race": "100 mi",
+          "winner_female": "Lauren Stephens",
+          "winner_male": "Elliott Baring",
+          "source": "https://www.cyclingnews.com/races/unbound-gravel-2024/unbound-100-pro-women-and-men/results/"
+        },
+        "2026": {
+          "race": "100 mi",
+          "winner_female": "Kylee Hanel",
+          "winner_male": "Robert Oehler",
+          "winning_time_female": "5:36:38",
+          "winning_time_male": "5:04:39",
+          "source": "https://www.emporiagazette.com/free/article_7d3ddc99-c73b-42d7-8051-cce4570c4031.html"
+        },
+        "2025": {
+          "race": "100 mi",
+          "winner_female": "Tiffany Cromwell",
+          "winner_male": "Hayden Christian",
+          "winning_time_female": "4:59:13",
+          "winning_time_male": "4:40:12",
+          "source": "https://www.cyclingnews.com/races/unbound-gravel-2025/unbound-100-elite-women-and-men/results/"
+        },
+        "2023": {
+          "race": "100 mi",
+          "winner_female": "Tiffany Cromwell",
+          "winner_male": "David Brower",
+          "winning_time_female": "6:13:54",
+          "winning_time_male": "5:49:57",
+          "source": "https://www.cyclingnews.com/races/unbound-gravel-2023/unbound-100/results/"
+        },
+        "2022": {
+          "race": "100 mi",
+          "winner_female": "Marisa Boaz",
+          "winner_male": "Ethan Overson",
+          "winning_time_female": "5:23:16",
+          "winning_time_male": "5:01:01",
+          "source": "https://www.unboundgravel.com/race-recap/"
+        },
+        "2021": {
+          "race": "100 mi",
+          "winner_female": "Lauren Stephens",
+          "winner_male": "Stephen Hyde",
+          "source": "https://en.wikipedia.org/wiki/Unbound_Gravel"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

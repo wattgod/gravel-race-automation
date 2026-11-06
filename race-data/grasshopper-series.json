@@ -377,17 +377,33 @@
       }
     ],
     "history": {
-      "founder": "Miguel Crawford"
+      "founder": "Miguel Crawford",
+      "founded": 1998
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-01-26",
+        "end_date": "2025-05-10",
+        "note": "Five rounds, Low Gap to King Ridge",
+        "source": "https://www.cyclingnews.com/races/grasshopper-adventure-series-2025/king-ridge-hopper-5/results/"
+      }
+    ],
     "results": {
       "years": {
         "2024": {
           "key_takeaways": [
             "2024: Brennan Wertz broke the course record"
           ]
+        },
+        "2025": {
+          "race": "Series overall (5 rounds)",
+          "winner_female": "Jen Tavé",
+          "winner_male": "Taj Krieger",
+          "source": "https://www.cyclingnews.com/races/grasshopper-adventure-series-2025/king-ridge-hopper-5/results/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "series": {
       "id": "grasshopper-adventure-series",

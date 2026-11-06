@@ -14,7 +14,7 @@
       "location_badge": "BENTONVILLE, ARKANSAS",
       "county": "Benton County / McDonald County (crosses into Missouri)",
       "date": "Mid-October annually",
-      "date_specific": "2026: October 17 (SATURDAY, CONFIRMED — bigsugarclassic.com/gravel/; 2027 not yet announced)",
+      "date_specific": "2027: October 16 (Saturday, CONFIRMED — bigsugarclassic.com)",
       "terrain_types": [
         "Ozark gravel",
         "Punchy climbs",
@@ -182,6 +182,18 @@
       ],
       "reputation": "The fall classic. Where the Grand Prix battles play out in the Ozark Mountains."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-10-17"
+      },
+      {
+        "year": 2025,
+        "date": "2025-10-18",
+        "note": "100-mile course cut to 50 miles because of forecast storms.",
+        "source": "https://www.endurancesportswire.com/sofia-gomez-villafane-and-matthew-beers-claim-victory-at-life-time-big-sugar-gravel-presented-by-kenetik/"
+      }
+    ],
     "course_description": {
       "character": "The current flagship is 99.6 miles with approximately 6,200 feet of gain on rarely maintained Ozark roads with loose rocky gravel, limited pavement, water crossings, and bridges.",
       "suffering_zones": [
@@ -231,6 +243,12 @@
       }
     },
     "citations": [
+      {
+        "url": "https://www.bigsugarclassic.com/",
+        "category": "official",
+        "label": "Life Time Big Sugar Classic — 2027 date",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://ridewithgps.com/routes/52306059",
         "category": "route",
@@ -325,11 +343,6 @@
         "url": "https://granfondodailynews.com/2025/10/19/big-sugar-gravel-and-mud-results-sweet-victory-for-villafane-beers/",
         "category": "other",
         "label": "Granfondodailynews"
-      },
-      {
-        "url": "https://ir.lifetime.life/news-events/press-releases/detail/1099/life-time-announces-prize-purses-for-the-2025-editions-of-unbound-gravel-200-leadville-trail-100-mtb-and-big-sugar-gravel",
-        "category": "other",
-        "label": "Ir"
       }
     ],
     "results": {
@@ -339,9 +352,23 @@
           "key_takeaways": [
             "2024 Traffic: Record 2"
           ]
+        },
+        "2026": {
+          "race": "102 mi (elite)",
+          "winner_female": "Stella Hobbs",
+          "winner_male": "Tobias Mørch Kongstad",
+          "winning_time_female": "5:10:34",
+          "winning_time_male": "4:36:02",
+          "source": "https://www.granfondoguide.com/Contents/IndexFull/9407/2026-big-sugar-gravel-results-stella-hobbs-solos-as-tobias-kongstad-wins-big-sprint"
+        },
+        "2025": {
+          "race": "50 mi (shortened)",
+          "winner_female": "Sofía Gómez Villafañe",
+          "winner_male": "Matthew Beers",
+          "source": "https://www.endurancesportswire.com/sofia-gomez-villafane-and-matthew-beers-claim-victory-at-life-time-big-sugar-gravel-presented-by-kenetik/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "series": {
       "id": "life-time-grand-prix",

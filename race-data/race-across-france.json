@@ -146,6 +146,35 @@
       "notable_editions": "2023: Le Touquet to Mandelieu (2480km, 40k m elev); 2025: Dinan to Mandelieu (2607km, 250 riders record).",
       "growth_trajectory": "Explosive rise from niche to 250+ entrants by 2025, now Europe's leading ultra-road series with festival integration."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-18",
+        "end_date": "2026-06-28",
+        "note": "Started in Hendaye. Heatwave halted the 2,500 km in central France; riders restarted from Albertville.",
+        "source": "https://endurance.biz/2026/featured-news/ultra-cycling-keeps-up-momentum-as-race-across-france-adapts-to-extreme-heatwave/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-11",
+        "end_date": "2025-06-22",
+        "note": "Started in Dinan, Brittany; about 2,600 km to Mandelieu-la-Napoule.",
+        "source": "https://my.raceresult.com/344698/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-06-20",
+        "end_date": "2024-06-29",
+        "edition": 7,
+        "note": "Started in Lille.",
+        "source": "https://france3-regions.franceinfo.fr/provence-alpes-cote-d-azur/alpes-maritimes/cannes/j-ai-bien-appuye-sur-les-pedales-il-boucle-2-588-km-de-course-cycliste-en-5-jours-18-heures-et-10-minutes-2994785.html"
+      },
+      {
+        "year": 2023,
+        "note": "Started in Le Touquet; 2,480 km to Mandelieu-la-Napoule.",
+        "source": "https://jonas.verest.ch/stories/2025-race-across-france-en"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Ultimate French ultra-road odyssey: suffer the miles, conquer the cols, celebrate on the Riviera.",
       "best_for": "Hardcore ultra-endurance riders seeking epic distance, massive vert, and cultural immersion.",
@@ -183,6 +212,30 @@
       }
     ],
     "slug": "race-across-france",
-    "name": "Race Across France"
+    "name": "Race Across France",
+    "results": {
+      "years": {
+        "2026": {
+          "race": "2,500 km",
+          "winner_female": "Pauline Gaidet",
+          "winner_male": "Stéphane Lombard",
+          "winning_time_male": "134:04:54",
+          "source": "https://fr.linkedin.com/posts/acrossandbeyondendurance_raf-2026-finishers-2500-km-activity-7478477672860332032-ZqR_"
+        },
+        "2025": {
+          "race": "2,500 km",
+          "winner_male": "Jonas Verest",
+          "winning_time_male": "5d 13h 23m",
+          "source": "https://cyclismepourtous.com/race-across-france-2025-les-arrivees-se-succedent-a-mandelieu-jonas-verest-remporte-le-2500/"
+        },
+        "2024": {
+          "race": "2,500 km",
+          "winner_male": "Lucas Becker",
+          "winning_time_male": "5d 18h 10m",
+          "source": "https://www.3bikes.fr/en/2024/06/26/lucas-becker-winner-of-the-race-across-france-covering-2588-km-by-bike-in-5-days-18-hours-and-10-minutes/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

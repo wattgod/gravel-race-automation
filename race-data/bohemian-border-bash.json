@@ -108,12 +108,31 @@
       "official_site": "https://www.borderbash.cc/"
     },
     "history": {
-      "founded": null,
+      "founded": 2022,
       "founder": "Czech organizers",
       "origin_story": "Regional Czech gravel event.",
       "notable_moments": [],
       "reputation": "Regional Czech event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "edition": 5,
+        "source": "https://dotwatcher.cc/race/bohemian-border-bash-race-2025"
+      },
+      {
+        "year": 2024,
+        "date": "2024-08-31",
+        "edition": 4,
+        "source": "https://dotwatcher.cc/race/bohemian-border-bash-race-2024"
+      },
+      {
+        "year": 2023,
+        "date": "2023-09-02",
+        "edition": 3,
+        "source": "https://dotwatcher.cc/race/bohemian-border-bash-race-2023"
+      }
+    ],
     "course_description": {
       "character": "Czech rolling to hilly gravel.",
       "suffering_zones": [
@@ -753,6 +772,33 @@
         "credit": "YouTube / Juliet Elliott",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "1,400 km",
+          "winner_female": "Verena Walter",
+          "winner_male": "Tomas Rybar",
+          "source": "https://dotwatcher.cc/race/bohemian-border-bash-race-2025"
+        },
+        "2024": {
+          "race": "1,400 km",
+          "winner_female": "Bettina Bögl",
+          "winner_male": "Rasmus Bozyk",
+          "winning_time_female": "6d 18h 30m",
+          "winning_time_male": "5d 6h 16m",
+          "source": "https://dotwatcher.cc/results/2024/bohemian-border-bash-race-2024"
+        },
+        "2023": {
+          "race": "1,300 km",
+          "winner_female": "Sherry Cardona",
+          "winner_male": "Rick Steffen",
+          "winning_time_female": "5d 4h 58m",
+          "winning_time_male": "4d 1h 50m",
+          "source": "https://dotwatcher.cc/results/2023/bohemian-border-bash-race-2023"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

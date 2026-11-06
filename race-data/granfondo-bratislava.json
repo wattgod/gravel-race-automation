@@ -71,7 +71,7 @@
       },
       "prestige": {
         "score": 2,
-        "explanation": "Slovakia's premier gran fondo draws 1500 regional participants annually. Established since 2016 with consistent August scheduling builds local reputation. Lacks international pro field but strong national appeal."
+        "explanation": "Slovakia's premier gran fondo draws 1500 regional participants annually. Established in 2022 with consistent August scheduling builds local reputation. Lacks international pro field but strong national appeal."
       },
       "race_quality": {
         "score": 3,
@@ -99,7 +99,7 @@
       },
       "cultural_impact": {
         "score": 2,
-        "explanation": "Slovakia's leading gran fondo since 2016 elevates local cycling scene. Promotes Bratislava region tourism through Little Carpathians showcase. Regional significance without broader international draw."
+        "explanation": "Slovakia's leading gran fondo since 2022 elevates local cycling scene. Promotes Bratislava region tourism through Little Carpathians showcase. Regional significance without broader international draw."
       }
     },
     "course_description": {
@@ -154,9 +154,23 @@
       "key_workouts": "3x10min at threshold on 7% gradient mimicking Pezinska Baba. 4-hour endurance ride with 2500ft climbing through rolling terrain. Cadence drills on flats preparing for Bratislava plains sections."
     },
     "history": {
-      "founded": 2016,
+      "founded": 2022,
       "notable_facts": "First major gran fondo in Slovakia establishing August tradition. Grew to 1500 participants showcasing Little Carpathians globally. NAY-sponsored edition elevated production quality."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "status": "not_held",
+        "note": "Organizer took the year off",
+        "source": "https://granfondobratislava.sk/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-03",
+        "edition": 4,
+        "source": "https://www.casta.sk/cestne-cyklisticke-preteky-nay-gran-fondo/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Slovakia's top gran fondo blends Pezinska Baba punch with Bratislava accessibility.",
       "who_should_ride": "Regional roadies seeking hilly 62-mile challenge without Alpine crowds. Europeans wanting Central value and Carpathians scenery.",
@@ -184,6 +198,18 @@
     "taking_a_break": {
       "label": "TAKING A BREAK",
       "line": "Granfondo Bratislava is taking 2026 off and hasn't announced 2027. This plan still trains you for exactly this kind of day."
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "132 km",
+          "winner_female": "Bianka Babačová",
+          "winner_male": "Federico Pozzetto",
+          "winning_time_male": "3:18:40",
+          "source": "https://granfondobratislava.sk/nay-gran-fondo-bratislava-2025-je-za-nami/"
+        }
+      },
+      "latest_year": "2025"
     }
   }
 }

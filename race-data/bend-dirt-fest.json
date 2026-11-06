@@ -163,6 +163,20 @@
       ],
       "reputation": "A young but quickly growing Central Oregon regional race backed by an experienced local endurance-event organizer."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-07-11",
+        "edition": 2,
+        "source": "https://www.granfondoguide.com/series/oregon-triple-crown/9256/registration-still-open-for-the-2026-bend-dirt-fest-gravel-in-oregon"
+      },
+      {
+        "year": 2025,
+        "edition": 1,
+        "note": "Inaugural edition",
+        "source": "https://www.granfondoguide.com/series/oregon-triple-crown/9256/registration-still-open-for-the-2026-bend-dirt-fest-gravel-in-oregon"
+      }
+    ],
     "course_description": {
       "character": "A paved rollout from Bend feeds a long forest-road climb toward Wanoga, followed by a fast and sometimes very loose descent, smaller rough-road hazards, and a controlled return to the Athletic Club of Bend.",
       "suffering_zones": [
@@ -458,6 +472,19 @@
         "category": "official",
         "label": "Redmond Airport's official 15-mile distance from Bend"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "54 mi",
+          "winner_female": "Kristina Gray",
+          "winner_male": "Matthew Bird",
+          "winning_time_female": "3:16:24.2",
+          "winning_time_male": "2:35:08.4",
+          "source": "https://www.granfondoguide.com/series/oregon-triple-crown/9256/registration-still-open-for-the-2026-bend-dirt-fest-gravel-in-oregon"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

@@ -191,6 +191,14 @@
       ],
       "reputation": "The Nordic entry point to premium international gravel racing. F1 glamour meets Finnish hospitality."
     },
+    "editions": [
+      {
+        "year": 2024,
+        "date": "2024-06-15",
+        "edition": 2,
+        "source": "https://www.cyclingweekly.com/racing/valterri-bottas-gravel-race-gears-up-for-a-second-edition-in-lathi-finland-in-june-2024"
+      }
+    ],
     "course_description": {
       "character": "Fast, flowing Finnish gravel through UNESCO Geopark terrain. Well-maintained gravel roads, lakeside routes, and Nordic ski paths create a high-speed experience rather than a technical challenge. The continuous undulations and steep kickers separate riders, but this is racing, not survival. Riders average 35 kph on the twisting ski path sections.",
       "suffering_zones": [
@@ -311,7 +319,13 @@
       "years": {
         "2024": {
           "field_size_actual": 700,
-          "key_takeaways": []
+          "key_takeaways": [],
+          "race": "177 km",
+          "winner_female": "Tiffany Cromwell",
+          "winner_male": "Markus Pajur",
+          "winning_time_female": "05:25:30",
+          "winning_time_male": "04:51:43",
+          "source": "https://www.cyclingnews.com/races/fnld-grvl-2024/pro-men-and-women-s-race/results/"
         }
       },
       "latest_year": "2024"

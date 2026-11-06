@@ -114,6 +114,18 @@
       "notable_moments": [],
       "reputation": "Regional SC event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-25",
+        "source": "https://www.southeastgravel.com/race-to-valhalla"
+      },
+      {
+        "year": 2025,
+        "date": "2025-04-26",
+        "source": "https://www.webscorer.com/race?raceid=387568"
+      }
+    ],
     "course_description": {
       "character": "Southeast Gravel's hardest course: Long 72mi/~7,300ft (RideWithGPS official route 73.0mi/+7,231ft), Short 48mi/4,700ft, Fun 20mi. Start/finish on Walhalla Main St (~1,025ft), traffic-free gravel, signature ~30-minute climb up Winding Stairs Rd from Lake Cherokee, scenic Chattooga River stretch. Staggered starts by distance (Long 9:00). Aid at mile 19.3. PRIOR PROFILE 65mi/5,500ft matched no real option — corrected 2026-07-13.",
       "suffering_zones": [
@@ -604,6 +616,19 @@
         "credit": "YouTube / Alex Runge",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "Long course",
+          "winner_female": "Kathleen M Mitchell",
+          "winner_male": "Johnny Mitchell",
+          "winning_time_female": "4:43:51",
+          "winning_time_male": "3:45:51",
+          "source": "https://www.webscorer.com/race?raceid=387568"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

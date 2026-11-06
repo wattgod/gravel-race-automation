@@ -105,6 +105,56 @@
         "category": "official",
         "label": "Official Website"
       }
-    ]
+    ],
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-02-01",
+        "source": "https://dotwatcher.cc/race/race-around-rwanda-2026"
+      },
+      {
+        "year": 2025,
+        "note": "Route amended because of conflict at the DRC/Rwanda border.",
+        "source": "https://dotwatcher.cc/results/2025/race-around-rwanda-2025"
+      },
+      {
+        "year": 2020,
+        "date": "2020-02-02",
+        "end_date": "2020-02-07",
+        "edition": 1,
+        "note": "Inaugural edition.",
+        "source": "https://racearoundrwanda.com/category/results/"
+      }
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "1000 km",
+          "winner_female": "Hannah Ghazi",
+          "winner_male": "Benedek Borsos",
+          "source": "https://dotwatcher.cc/race/race-around-rwanda-2026"
+        },
+        "2025": {
+          "race": "1000 km",
+          "winner_female": "Nicole Van Batenburg",
+          "winner_male": "Ted King",
+          "winning_time_female": "82:45",
+          "winning_time_male": "57:50",
+          "source": "https://bikepacking.com/news/ted-king-2025-race-around-rwanda/"
+        },
+        "2024": {
+          "race": "1000 km",
+          "winner_female": "Ariane Richter",
+          "winner_male": "Vincent Chege",
+          "winning_time_female": "4d 1h 14m",
+          "winning_time_male": "2d 19h 39m",
+          "source": "https://dotwatcher.cc/results/2024/race-around-rwanda-2024"
+        }
+      },
+      "latest_year": "2026"
+    },
+    "history": {
+      "founded": 2020
+    }
   }
 }

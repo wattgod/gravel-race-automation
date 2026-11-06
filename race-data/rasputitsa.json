@@ -146,6 +146,19 @@
       ],
       "reputation": "Vermont hardcore mud fest. Self-supported. Grassroots. STATUS: race is currently on hiatus/not being organized — do not market as an active, registerable event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "status": "not_held"
+      },
+      {
+        "year": 2024,
+        "date": "2024-04-20",
+        "edition": 10,
+        "note": "Moved back to Jay Peak Resort from Burke",
+        "source": "https://www.wcax.com/2023/10/24/rasputitsa-gravel-race-return-jay-peak-resort/"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -359,7 +372,12 @@
     ],
     "results": {
       "years": {
-        "2024": {
+        "2024": {},
+        "2022": {
+          "race": "Gravel race (distance not stated)",
+          "winner_female": "Lea Davison",
+          "winner_male": "Ian Boswell",
+          "source": "https://cxhairs.substack.com/p/freeroading-report-belgian-waffle"
         }
       },
       "latest_year": "2024"

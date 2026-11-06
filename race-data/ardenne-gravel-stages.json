@@ -111,12 +111,22 @@
       "camping": "camping access, Sunday pasta party"
     },
     "history": {
-      "founded": null,
+      "founded": 2025,
       "founder": "Belgian organizers",
       "origin_story": "Regional Belgian multi-stage gravel event.",
       "notable_moments": [],
       "reputation": "Regional Belgian multi-stage event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-09-26",
+        "end_date": "2025-09-28",
+        "edition": 1,
+        "note": "Inaugural three-stage edition: Vielsalm, Engreux, Baraque de Fraiture.",
+        "source": "https://www.procyclingstats.com/national-race/ardenne-gravel-stages/2025/stage-3/startlist/results-v3"
+      }
+    ],
     "course_description": {
       "character": "Belgian Ardennes multi-stage gravel.",
       "suffering_zones": [
@@ -423,6 +433,16 @@
         "200pluslb_mixed": "41-45",
         "200pluslb_wet": "39-43"
       }
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "3 stages",
+          "winner_female": "Mariëlle Trouwborst",
+          "source": "https://mountainbiketeam.com/en/marielle-trouwborst-wins-3-day-ardenne-gravel-stages/"
+        }
+      },
+      "latest_year": "2025"
     }
   }
 }

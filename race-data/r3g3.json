@@ -131,12 +131,37 @@
       ],
       "reputation": "A long-delayed gravel concept whose first real course immediately established serious physical demands."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "First running; planned for 2020 but postponed by the pandemic.",
+        "source": "https://gravelcup.com/gravel-cup-events/r3g3-gravel-epic"
+      }
+    ],
     "course_description": {
       "character": "A 167.7 km self-navigated Epic with approximately 8,909 ft of climbing across remote forest-access trails and gravel roads in Renfrew County.",
       "suffering_zones": [
-        {"mile": 0, "label": "Six A.M. Rollout", "desc": "The Epic begins three hours before the shorter routes, demanding an early fueling and clothing plan before the field reaches the remote roads.", "terrain_detail": "Cool early forest roads", "named_section": "Griffith start"},
-        {"mile": 45, "label": "Opeongo Volume", "desc": "Climbing accumulates without one headline pass; the official GPX reaches nearly 8,900 feet of total gain.", "terrain_detail": "Forest-access climbs", "named_section": "Opeongo Mountains"},
-        {"mile": 80, "label": "Navigation Debt", "desc": "Late in the Epic, riders still own their navigation and must clear the course cutoff without relying on Petit or Medio signage.", "terrain_detail": "Remote gravel and access trails", "named_section": "R3G3 Epic return"}
+        {
+          "mile": 0,
+          "label": "Six A.M. Rollout",
+          "desc": "The Epic begins three hours before the shorter routes, demanding an early fueling and clothing plan before the field reaches the remote roads.",
+          "terrain_detail": "Cool early forest roads",
+          "named_section": "Griffith start"
+        },
+        {
+          "mile": 45,
+          "label": "Opeongo Volume",
+          "desc": "Climbing accumulates without one headline pass; the official GPX reaches nearly 8,900 feet of total gain.",
+          "terrain_detail": "Forest-access climbs",
+          "named_section": "Opeongo Mountains"
+        },
+        {
+          "mile": 80,
+          "label": "Navigation Debt",
+          "desc": "Late in the Epic, riders still own their navigation and must clear the course cutoff without relying on Petit or Medio signage.",
+          "terrain_detail": "Remote gravel and access trails",
+          "named_section": "R3G3 Epic return"
+        }
       ],
       "signature_challenge": "Combining 100-mile climbing endurance with full navigation and self-management in a 50-rider remote field.",
       "ridewithgps_id": 54058663,
@@ -161,9 +186,21 @@
       "altitude_feet": null
     },
     "non_negotiables": [
-      {"requirement": "Official next-edition date", "by_when": "Before building plans", "why": "The 2026 event is complete and no future date is official."},
-      {"requirement": "Six-hour-plus climbing rehearsal", "by_when": "Week 9", "why": "The Epic combines 104 miles with approximately 8,909 ft climbing."},
-      {"requirement": "Full-navigation dress rehearsal", "by_when": "Week 10", "why": "The organizer requires Epic riders to navigate the entire route themselves."}
+      {
+        "requirement": "Official next-edition date",
+        "by_when": "Before building plans",
+        "why": "The 2026 event is complete and no future date is official."
+      },
+      {
+        "requirement": "Six-hour-plus climbing rehearsal",
+        "by_when": "Week 9",
+        "why": "The Epic combines 104 miles with approximately 8,909 ft climbing."
+      },
+      {
+        "requirement": "Full-navigation dress rehearsal",
+        "by_when": "Week 10",
+        "why": "The organizer requires Epic riders to navigate the entire route themselves."
+      }
     ],
     "research_metadata": {
       "data_confidence": "high",
@@ -182,30 +219,108 @@
       ]
     },
     "biased_opinion_ratings": {
-      "logistics": {"score": 4, "explanation": "Griffith is remote, the Epic starts at 6:00 AM, and the organizer lists dispersed lodging options rather than one easy host-town hotel block."},
-      "length": {"score": 4, "explanation": "The official Epic is 167.7 km, or 104.2 miles, inside the rubric's 100-150-mile band."},
-      "technicality": {"score": 3, "explanation": "Forest-access trails, self-navigation, and a 40 mm minimum recommendation create mixed terrain without confirmed extreme singletrack."},
-      "elevation": {"score": 4, "explanation": "The official GPX accumulates approximately 8,909 feet, inside the rubric's 6,000-10,000-foot band."},
-      "climate": {"score": 2, "explanation": "The May 30 start at 6:00 AM can be cold, but the organizer publishes no evidence of routinely extreme weather."},
-      "altitude": {"score": 1, "explanation": "The GPX stays below roughly 445 m above sea level, so altitude is not a performance constraint."},
-      "adventure": {"score": 4, "explanation": "A self-navigated 100-mile forest course in the Opeongo region with a 50-rider cap is remote and memorable."},
-      "prestige": {"score": 2, "explanation": "Gravel Cup has regional credibility, but R3G3 has only one completed edition after its abandoned 2020 launch."},
-      "race_quality": {"score": 3, "explanation": "The 2026 edition had timing, aid, ATV support, a post-race meal, GPX files, and a technical guide; one edition cannot prove consistency."},
-      "experience": {"score": 3, "explanation": "The Opeongo forest course and champion belt buckles create character, though the operation remains young and sparse."},
-      "community": {"score": 3, "explanation": "Gravel Cup has an Ottawa Valley base and returning sponsors, but the Epic is intentionally capped at 50 riders."},
-      "field_depth": {"score": 2, "explanation": "A 50-rider Epic cap creates intimacy, not evidence of a deep elite field."},
-      "value": {"score": 3, "explanation": "The 2026 package included timing, support, aid, and a meal, but the archived page does not preserve a verifiable final price."},
-      "expenses": {"score": 3, "explanation": "Camping can control cost, while the drive to Griffith and scattered Ottawa Valley lodging can make the trip moderate rather than cheap."}
+      "logistics": {
+        "score": 4,
+        "explanation": "Griffith is remote, the Epic starts at 6:00 AM, and the organizer lists dispersed lodging options rather than one easy host-town hotel block."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The official Epic is 167.7 km, or 104.2 miles, inside the rubric's 100-150-mile band."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Forest-access trails, self-navigation, and a 40 mm minimum recommendation create mixed terrain without confirmed extreme singletrack."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The official GPX accumulates approximately 8,909 feet, inside the rubric's 6,000-10,000-foot band."
+      },
+      "climate": {
+        "score": 2,
+        "explanation": "The May 30 start at 6:00 AM can be cold, but the organizer publishes no evidence of routinely extreme weather."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The GPX stays below roughly 445 m above sea level, so altitude is not a performance constraint."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "A self-navigated 100-mile forest course in the Opeongo region with a 50-rider cap is remote and memorable."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "Gravel Cup has regional credibility, but R3G3 has only one completed edition after its abandoned 2020 launch."
+      },
+      "race_quality": {
+        "score": 3,
+        "explanation": "The 2026 edition had timing, aid, ATV support, a post-race meal, GPX files, and a technical guide; one edition cannot prove consistency."
+      },
+      "experience": {
+        "score": 3,
+        "explanation": "The Opeongo forest course and champion belt buckles create character, though the operation remains young and sparse."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "Gravel Cup has an Ottawa Valley base and returning sponsors, but the Epic is intentionally capped at 50 riders."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "A 50-rider Epic cap creates intimacy, not evidence of a deep elite field."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The 2026 package included timing, support, aid, and a meal, but the archived page does not preserve a verifiable final price."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Camping can control cost, while the drive to Griffith and scattered Ottawa Valley lodging can make the trip moderate rather than cheap."
+      }
     },
     "training_config": {
       "workout_modifications": {
-        "climbing_endurance": {"enabled": true, "weeks": [7, 8, 9, 10]},
-        "navigation_self_support": {"enabled": true, "weeks": [8, 9, 10]},
-        "early_start_rehearsal": {"enabled": true, "weeks": [9, 10]},
-        "dress_rehearsal": {"enabled": true, "week": 10, "day": "Saturday", "duration_hours": {"ayahuasca": 4, "finisher": 5, "compete": 6, "podium": 7}}
+        "climbing_endurance": {
+          "enabled": true,
+          "weeks": [
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "navigation_self_support": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "early_start_rehearsal": {
+          "enabled": true,
+          "weeks": [
+            9,
+            10
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Saturday",
+          "duration_hours": {
+            "ayahuasca": 4,
+            "finisher": 5,
+            "compete": 6,
+            "podium": 7
+          }
+        }
       },
       "masterclass_topics": {
-        "priority_order": ["climbing", "navigation", "fueling", "cutoff"],
+        "priority_order": [
+          "climbing",
+          "navigation",
+          "fueling",
+          "cutoff"
+        ],
         "race_specific": true,
         "topics": {
           "climbing": "Pacing 8,900 feet across 104 miles",
@@ -228,10 +343,26 @@
       }
     },
     "citations": [
-      {"url": "https://gravelcup.com/gravel-cup-events/r3g3-gravel-epic", "category": "official", "label": "Official 2026 event page"},
-      {"url": "https://gravelcup.com/s/R3G3-EPIC.gpx", "category": "route", "label": "Official 2026 Epic GPX"},
-      {"url": "https://ridewithgps.com/routes/54058663", "category": "route", "label": "Official linked R3G3 Epic route"},
-      {"url": "https://gravelcup.com/contact", "category": "official", "label": "Official 2026 one-event statement"}
+      {
+        "url": "https://gravelcup.com/gravel-cup-events/r3g3-gravel-epic",
+        "category": "official",
+        "label": "Official 2026 event page"
+      },
+      {
+        "url": "https://gravelcup.com/s/R3G3-EPIC.gpx",
+        "category": "route",
+        "label": "Official 2026 Epic GPX"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/54058663",
+        "category": "route",
+        "label": "Official linked R3G3 Epic route"
+      },
+      {
+        "url": "https://gravelcup.com/contact",
+        "category": "official",
+        "label": "Official 2026 one-event statement"
+      }
     ]
   }
 }

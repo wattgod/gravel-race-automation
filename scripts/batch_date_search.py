@@ -42,6 +42,7 @@ RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 from race_facts import needs_date_check  # noqa: E402
 from season import season_year  # noqa: E402  (race_facts puts wordpress/ on the path)
+from race_editions import set_date_specific  # noqa: E402
 
 
 def next_edition_year() -> int:
@@ -572,7 +573,7 @@ def main():
                     print(f"  WOULD UPDATE date: {old_ds!r} -> {date_spec!r}")
                     print(f"                     {old_date!r} -> {date_general!r}")
                 else:
-                    race["vitals"]["date_specific"] = date_spec
+                    set_date_specific(race, date_spec)
                     if date_general:
                         race["vitals"]["date"] = date_general
         else:
@@ -603,7 +604,7 @@ def main():
                             if date_general:
                                 print(f"                               -> {date_general!r}")
                         else:
-                            race["vitals"]["date_specific"] = date_spec
+                            set_date_specific(race, date_spec)
                             if date_general:
                                 race["vitals"]["date"] = date_general
                 else:

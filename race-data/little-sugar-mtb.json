@@ -128,7 +128,7 @@
       "ridewithgps_name": "Little Sugar 50k MTB 2025 traced "
     },
     "history": {
-      "founded": "2025",
+      "founded": 2023,
       "founder": "Life Time Grand Prix",
       "origin_story": "Little Sugar MTB founded 2025 as new Life Time Grand Prix race. Pairs with Big Sugar Gravel (same weekend). Bentonville MTB mecca. 30 miles, 1,000+ riders. Technical Ozarks singletrack. Slaughter Pen trails.",
       "notable_moments": [
@@ -136,6 +136,30 @@
       ],
       "reputation": "New LTGP race. Bentonville MTB mecca. Technical Ozarks singletrack. Pro field."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Race 5 of 6 in the Life Time Grand Prix; 100 km course.",
+        "source": "https://www.lifetimegrandprix.com/events/little-sugar-mtb/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-10-12",
+        "note": "First year as a Life Time Grand Prix round.",
+        "source": "https://www.endurancesportswire.com/sofia-gomez-villafane-and-cameron-jones-take-first-at-sold-out-life-time-little-sugar-mtb/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-10-13",
+        "source": "https://www.pinkbike.com/news/sofia-gomez-villafae-and-christopher-blevins-win-little-sugar-mtb-in-bentonville.html"
+      },
+      {
+        "year": 2023,
+        "date": "2023-10-15",
+        "note": "Inaugural race, produced by Life Time.",
+        "source": "https://bvwv.nwaonline.com/news/2023/oct/18/cycling-swenson-batten-victorious-at-little-sugar/"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -231,6 +255,12 @@
     },
     "citations": [
       {
+        "url": "https://www.endurancesportswire.com/haley-batten-and-keegan-swenson-win-inaugural-life-time-little-sugar-mtb-race-to-kick-off-big-sugar-classic-week/",
+        "category": "media",
+        "label": "Life Time: inaugural Little Sugar MTB (Oct 15, 2023)",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://ridewithgps.com/routes/53139731",
         "category": "route",
         "label": "RideWithGPS: Little Sugar 50k MTB 2025 traced "
@@ -324,21 +354,46 @@
         "url": "https://www.bigsugarclassic.com/visit/bentonville-area-lodging/",
         "category": "other",
         "label": "Bigsugarclassic"
-      },
-      {
-        "url": "https://endurance.biz/2026/industry-news/life-time-grand-prix-unveils-2027-qualification-format-and-calendar/",
-        "category": "media",
-        "label": "endurance.biz: 2027 Life Time Grand Prix calendar"
       }
     ],
     "results": {
       "years": {
         "2024": {
           "conditions": "Can be extremely loose and dusty (October 2024)",
-          "key_takeaways": []
+          "key_takeaways": [],
+          "race": "100 km",
+          "winner_female": "Sofia Gomez Villafane",
+          "winner_male": "Christopher Blevins",
+          "winning_time_female": "4:52:51",
+          "winning_time_male": "4:13:24",
+          "source": "https://www.endurancesportswire.com/sofia-gomez-villafane-and-christopher-blevins-take-first-at-sold-out-life-time-little-sugar-mtb/"
+        },
+        "2026": {
+          "race": "100 km",
+          "winner_female": "Candice Lill",
+          "winner_male": "Cole Paton",
+          "winning_time_female": "4:54:47",
+          "winning_time_male": "4:06:38",
+          "source": "https://mbaction.com/candice-lill-and-cole-paton-win-the-life-time-little-sugar-mtb/"
+        },
+        "2025": {
+          "race": "100 km",
+          "winner_female": "Sofia Gomez Villafane",
+          "winner_male": "Cameron Jones",
+          "winning_time_female": "5:08:32",
+          "winning_time_male": "4:17:00",
+          "source": "https://www.endurancesportswire.com/sofia-gomez-villafane-and-cameron-jones-take-first-at-sold-out-life-time-little-sugar-mtb/"
+        },
+        "2023": {
+          "race": "100 km",
+          "winner_female": "Haley Batten",
+          "winner_male": "Keegan Swenson",
+          "winning_time_female": "4:53:22",
+          "winning_time_male": "4:25:16",
+          "source": "https://www.pinkbike.com/news/results-little-sugar-mtb-race.html"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

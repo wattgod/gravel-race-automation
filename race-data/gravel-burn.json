@@ -138,6 +138,23 @@
       ],
       "reputation": "A young but high-budget international stage race with a major Pro field, full-service camps, and destination-level ambition."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-10-25",
+        "end_date": "2026-10-31",
+        "edition": 2,
+        "source": "https://gravel-burn.com/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-10-26",
+        "end_date": "2025-11-01",
+        "edition": 1,
+        "note": "Inaugural seven-day stage race from Knysna to Shamwari Private Game Reserve; stage 6 neutralised for weather",
+        "source": "https://www.gravel-burn.com/race/results/2025/"
+      }
+    ],
     "training_config": {
       "workout_modifications": {
         "stage_block": {
@@ -716,6 +733,19 @@
         "credit": "YouTube / Lawrence Carpenter",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "7-day stage race, general classification",
+          "winner_female": "Axelle Dubau-Prevot",
+          "winner_male": "Matthew Beers",
+          "winning_time_female": "23:40:55",
+          "winning_time_male": "19:01:03",
+          "source": "https://www.gravel-burn.com/race/results/2025/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

@@ -112,6 +112,18 @@
       "notable_moments": [],
       "reputation": "Regional WA event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Maximus course shortened to 60 miles from 70",
+        "source": "https://www.webscorer.com/race?raceid=440420"
+      },
+      {
+        "year": 2025,
+        "date": "2025-07-19",
+        "source": "https://www.webscorer.com/race?raceid=398365"
+      }
+    ],
     "course_description": {
       "character": "Washington Cascades mountain gravel.",
       "suffering_zones": [
@@ -627,6 +639,27 @@
         "credit": "YouTube / PNW eBike",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "60 mi",
+          "winner_female": "Sabrina Hirsch",
+          "winner_male": "Nick McLean",
+          "winning_time_female": "4:43:09.7",
+          "winning_time_male": "3:50:45.6",
+          "source": "https://www.webscorer.com/race?raceid=440420"
+        },
+        "2025": {
+          "race": "70 mi",
+          "winner_female": "Becca Book",
+          "winner_male": "Austen Davis",
+          "winning_time_female": "4:54:26.3",
+          "winning_time_male": "3:53:53.2",
+          "source": "https://www.webscorer.com/race?raceid=398365"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

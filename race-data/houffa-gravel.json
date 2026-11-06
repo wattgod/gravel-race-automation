@@ -119,6 +119,23 @@
       ],
       "reputation": "A UCI Gravel World Series qualifier known for its repeatable-punch format — the Saint Roch wall returns every lap, so the race rewards riders who pace the first ascent knowing it's coming back."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "note": "New 47 km lap course, ridden 2 or 3 times depending on category.",
+        "source": "https://ucigravelworldseries.com/en/houffa-gravel-for-wurtz-schmid-and-frain/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-08-24",
+        "source": "https://cyclingflash.com/race/houffa-gravel-2024/winners"
+      },
+      {
+        "year": 2023,
+        "date": "2023-08-26",
+        "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-2023/world-series-15-houffa-gravel/results/"
+      }
+    ],
     "course_description": {
       "character": "The 2026 UEC Gravel European Championships use a 46-kilometre Ardennes lap. Elite riders and the main age groups cover three laps for 138 kilometres and approximately 2,190 metres of gain. Approximately 70 percent is off-road, and each lap opens with the Côte de Saint Roch, one kilometre at 11.2 percent with a 16-percent maximum.",
       "suffering_zones": [
@@ -649,6 +666,33 @@
         "credit": "YouTube / Luis Marrafa",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "Elite",
+          "winner_female": "Nicole Louise Frain",
+          "winner_male": "Mads Würtz Schmidt",
+          "source": "https://ucigravelworldseries.com/en/houffa-gravel-for-wurtz-schmid-and-frain/"
+        },
+        "2024": {
+          "race": "110 km",
+          "winner_female": "Romy Kasper",
+          "winner_male": "Sebastian Schönberger",
+          "winning_time_female": "4:00:48",
+          "winning_time_male": "3:22:52",
+          "source": "https://www.cyclingnews.com/news/houffa-gravel-romy-kasper-sebastian-schonberger-take-top-steps-at-uci-world-series-round-in-belgium/"
+        },
+        "2023": {
+          "race": "110 km",
+          "winner_female": "Pauliena Rooijakkers",
+          "winner_male": "Wout van Aert",
+          "winning_time_female": "4:04:36",
+          "winning_time_male": "3:20:47",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-2023/world-series-15-houffa-gravel/results/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

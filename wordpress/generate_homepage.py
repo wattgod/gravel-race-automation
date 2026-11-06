@@ -69,18 +69,18 @@ TOP_RATED_COUNT = 5
 RANKINGS_URL = f"{SITE_BASE_URL}/race/power-rankings-{SEASON_YEAR}/"
 GOAL_LEAD_URL = f"{SITE_BASE_URL}/goals/"
 
-# The four doors. Art is the Handbook's v6 character scenes (guide/art/),
+# The four doors. Art is the Handbook's v6.7 character scenes (guide/art/),
 # already served from /guide/media/ by push_wordpress.py --sync-guide.
 # Each entry: (key, title, button label, href, art slug, GA label)
 DOORS = [
     ("handbook", "Gravel Handbook", "READ IT FREE", f"{SITE_BASE_URL}/guide/",
-     "02-race-selection", "door_handbook"),
+     "v67-02-race-selection", "door_handbook"),
     ("surge", "Surge Check", "CHECK A RIDE", f"{SITE_BASE_URL}/surge-check/",
-     "04-workout-execution", "door_surge_check"),
+     "v67-04-workout-execution", "door_surge_check"),
     ("plan", "Custom Training Plan", "BUILD MY PLAN", TRAINING_PLANS_URL,
-     "03-training-fundamentals", "door_plan"),
+     "v67-03-training-fundamentals", "door_plan"),
     ("coaching", "Coaching", "GET ME IN YOUR CORNER", f"{SITE_BASE_URL}/coaching/",
-     "08-post-race", "door_coaching"),
+     "v67-08-post-race", "door_coaching"),
 ]
 
 

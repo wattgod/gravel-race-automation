@@ -10,8 +10,8 @@
       "location": "GA/AL border",
       "location_badge": "GA/AL BORDER",
       "county": "GA/AL",
-      "date": "Spring/Fall annually",
-      "date_specific": "2026: Spring/Fall TBD",
+      "date": "2027: February 27",
+      "date_specific": "2027: February 27 (Saturday, CONFIRMED — homegrowngravel.com)",
       "terrain_types": [
         "GA/AL countryside",
         "Rolling gravel",
@@ -112,6 +112,26 @@
       "notable_moments": [],
       "reputation": "Regional Southeast event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-02-28",
+        "note": "Ran as Homegrown Gravel Adventure",
+        "source": "https://www.inkl.com/news/bounced-off-barbed-wire-lauren-de-crescenzo-escapes-serious-injury-but-goes-runner-up-to-emily-newsom-at-homegrown-gravel-in-georgia"
+      },
+      {
+        "year": 2025,
+        "date": "2025-02-22",
+        "note": "Renamed from Border Wars Gravel Adventure to Homegrown Gravel Adventure",
+        "source": "https://www.gravel-results.com/race/20191"
+      },
+      {
+        "year": 2024,
+        "date": "2024-02-24",
+        "note": "New course and new venue in downtown Franklin, Georgia",
+        "source": "https://jaylocycling.com/2024-border-wars-gravel-race-report/"
+      }
+    ],
     "course_description": {
       "character": "GA/AL rolling gravel.",
       "suffering_zones": [
@@ -321,6 +341,12 @@
     },
     "citations": [
       {
+        "url": "https://homegrowngravel.com/pro-gravel-100/",
+        "category": "official",
+        "label": "Homegrown Gravel: Pro Gravel 100, 2027 edition February 27",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://ridewithgps.com/routes/49741722",
         "category": "route",
         "label": "RideWithGPS: BORDER WARS 2025"
@@ -364,13 +390,21 @@
     "results": {
       "years": {
         "2024": {
-          "winner_male": "Matt Ithurburn",
-          "winner_female": "Tracie Fernandez",
-          "winning_time_male": "3:17:29",
-          "winning_time_female": "4:04:51"
+          "race": "100 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "Michael Garrison",
+          "source": "https://homegrowngravel.com/2024-results/"
+        },
+        "2025": {
+          "race": "100 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "Michael Garrison",
+          "winning_time_female": "5:28:54",
+          "winning_time_male": "4:53:58",
+          "source": "https://www.cyclingnews.com/news/michael-garrison-lauren-de-crescenzo-repeat-as-winners-of-homegrown-gravel/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

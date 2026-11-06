@@ -3200,6 +3200,28 @@ def _edition_dates(entry: dict) -> str:
     return text
 
 
+RECENT_TABLE_ROWS = 10
+
+
+def _table_with_earlier(table_class: str, head: str, rows: list[str], years: list[int],
+                        what: str) -> str:
+    """The newest RECENT_TABLE_ROWS rows in the table; older ones in a disclosure below it.
+
+    ``rows`` and ``years`` run newest first. A native <details> needs no JS.
+    """
+    def table(part):
+        body = '\n        '.join(part)
+        return (f'<table class="{table_class}">\n        <thead><tr>{head}</tr></thead>\n'
+                f'        <tbody>\n        {body}\n        </tbody>\n      </table>')
+    html = table(rows[:RECENT_TABLE_ROWS])
+    older = years[RECENT_TABLE_ROWS:]
+    if older:
+        html += (f'\n      <details class="gg-earlier-rows">\n'
+                 f'        <summary>Earlier {what}: {older[-1]}&ndash;{older[0]}</summary>\n'
+                 f'      {table(rows[RECENT_TABLE_ROWS:])}\n      </details>')
+    return html
+
+
 def build_editions(rd: dict) -> str:
     """Build the Editions section: every edition on record, newest first.
 
@@ -3231,18 +3253,16 @@ def build_editions(rd: dict) -> str:
             cells += f'<td>{esc(" · ".join(parts))}</td>'
         body.append(f'<tr>{cells}</tr>')
     note_head = '<th scope="col">Notes</th>' if show_notes else ''
-    rows_html = '\n        '.join(body)
+    tables = _table_with_earlier(
+        'gg-results-table gg-editions-table',
+        f'<th scope="col">Year</th><th scope="col">Date</th>{note_head}',
+        body, [r['year'] for r in rows], 'editions')
     return f'''<section id="editions" class="gg-section gg-fade-section">
     <div class="gg-section-header">
       <h2 class="gg-section-title">Editions</h2>
     </div>
     <div class="gg-section-body">
-      <table class="gg-results-table gg-editions-table">
-        <thead><tr><th scope="col">Year</th><th scope="col">Date</th>{note_head}</tr></thead>
-        <tbody>
-        {rows_html}
-        </tbody>
-      </table>
+      {tables}
     </div>
   </section>'''
 
@@ -3269,9 +3289,11 @@ def build_results(rd: dict) -> str:
     by_year = {int(str(y).strip()): data for y, data in years.items()
                if str(y).strip().isdigit()}
     rows = []
+    row_years = []
     for year in sorted(by_year, reverse=True):
         if not has_results(rd, year):
             continue
+        row_years.append(year)
         data = by_year[year] or {}
         label = data.get('race')
         label_html = ''
@@ -3286,18 +3308,16 @@ def build_results(rd: dict) -> str:
     note_html = ''
     if note is not None and str(note).strip() != '':
         note_html = f'<p class="gg-results-note">{esc(note)}</p>'
-    body = '\n        '.join(rows)
+    tables = _table_with_earlier(
+        'gg-results-table',
+        '<th scope="col">Year</th><th scope="col">Women</th><th scope="col">Men</th>',
+        rows, row_years, 'results')
     return f'''<section id="results" class="gg-section gg-fade-section">
     <div class="gg-section-header">
       <h2 class="gg-section-title">Results</h2>
     </div>
     <div class="gg-section-body">
-      <table class="gg-results-table">
-        <thead><tr><th scope="col">Year</th><th scope="col">Women</th><th scope="col">Men</th></tr></thead>
-        <tbody>
-        {body}
-        </tbody>
-      </table>
+      {tables}
       {note_html}
     </div>
   </section>'''
@@ -7246,6 +7266,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-results-time {{ display: block; font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-variant-numeric: tabular-nums; color: var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-editions-date {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-variant-numeric: tabular-nums; color: var(--gg-color-dark-brown); white-space: nowrap; }}
 .gg-neo-brutalist-page .gg-editions-date a {{ color: inherit; }}
+.gg-neo-brutalist-page .gg-earlier-rows {{ margin-top: 12px; }}
+.gg-neo-brutalist-page .gg-earlier-rows summary {{ padding: 12px 0; cursor: pointer; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-editions-status {{ font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
 .gg-neo-brutalist-page .gg-results-note {{ margin-top: var(--gg-spacing-sm); font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); line-height: 1.5; }}
 

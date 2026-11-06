@@ -234,3 +234,39 @@ def test_correction_keeps_nothing_from_the_wrong_value():
     assert set_date_specific(race, "Status: DROPPED — last held October 14, 2023",
                              on=NOV_5, correction=True) == []
     assert "editions" not in race
+
+
+def test_long_history_keeps_the_newest_ten_rows_in_view():
+    editions = [{"year": y, "date": f"{y}-06-01"} for y in range(2026, 2005, -1)]
+    html = build_editions(_rd("2027: June 5 (CONFIRMED)", editions))
+    table, earlier = html.split('<details class="gg-earlier-rows">')
+    assert table.count("<tr><th scope=\"row\"") == 10
+    assert ">2027<" in table and ">2018<" in table and ">2017<" not in table
+    assert "Earlier editions: 2006&ndash;2017" in earlier
+    assert earlier.count("<tr><th scope=\"row\"") == 12
+
+
+def test_short_history_has_no_disclosure():
+    html = build_editions(_rd("2027: June 5", [{"year": y, "date": f"{y}-06-01"} for y in range(2026, 2018, -1)]))
+    assert "gg-earlier-rows" not in html
+
+
+def test_results_older_than_ten_years_fold_away():
+    from generate_neo_brutalist import build_results
+    data = copy.deepcopy(_profile())
+    data["race"]["results"] = {"years": {str(y): {"winner_male": f"M{y}", "winner_female": f"F{y}"}
+                                         for y in range(2006, 2027)}}
+    html = build_results(normalize_race_data(data))
+    table, earlier = html.split('<details class="gg-earlier-rows">')
+    assert "M2026" in table and "M2017" in table and "M2016" not in table
+    assert "Earlier results: 2006&ndash;2016" in earlier and "M2006" in earlier
+
+
+def test_unbound_200_carries_its_full_history():
+    race = _profile("unbound-200")["race"]
+    years = {e["year"] for e in race["editions"]}
+    assert set(range(2006, 2027)) <= years
+    assert next(e for e in race["editions"] if e["year"] == 2020)["status"] == "cancelled"
+    winners = race["results"]["years"]
+    assert winners["2006"]["winner_male"] == "Dan Hughes"
+    assert all(str(y) in winners for y in range(2006, 2027) if y != 2020)

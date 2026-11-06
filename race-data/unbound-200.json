@@ -172,12 +172,15 @@
     },
     "history": {
       "founded": 2006,
-      "founder": "Jim Cummins",
+      "founder": "Jim Cummins and Joel Dyke",
       "origin_story": "Started as 'Dirty Kanza 200' with 34 riders exploring Flint Hills gravel. Grew from underground cult race to North America's most prestigious gravel event.",
       "notable_moments": [
-        "2019: Renamed 'Unbound Gravel' to reflect evolution",
-        "2021: Prize purse equality ($100K split)",
-        "Record field: 4,000+ across all distances"
+        "2006: Dan Hughes wins the first Dirty Kanza 200; 15 of 34 starters finish",
+        "2012: Dan Hughes and Rusty Folger tie for the win in a course-record 11:56",
+        "2018: The 350-mile XL debuts; Life Time buys the event",
+        "2019: Colin Strickland is the first to break 10 hours (9:58:49)",
+        "2020: Cancelled by the pandemic; renamed Unbound Gravel on October 29",
+        "2025: Cameron Jones sets the 200-mile record, 8:37"
       ],
       "reputation": "The Ironman of gravel. Finishing earns respect. Winning earns legend status."
     },
@@ -210,7 +213,92 @@
       {
         "year": 2021,
         "date": "2021-06-05",
-        "source": "https://www.cyclingnews.com/races/unbound-gravel-2021/"
+        "source": "https://www.cyclingnews.com/races/unbound-gravel-2021/",
+        "edition": 15,
+        "note": "First edition as Unbound Gravel, renamed from Dirty Kanza in October 2020"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic, after a postponement to September",
+        "source": "https://www.unboundgravel.com/2020-event-status-update/"
+      },
+      {
+        "year": 2019,
+        "date": "2019-06-01",
+        "note": "First edition under Life Time ownership",
+        "source": "https://www.gravelcyclist.com/race-reports/2019-dirty-kanza-200-race-report-the-perfect-storm-but-without-the-rain/"
+      },
+      {
+        "year": 2018,
+        "date": "2018-06-02",
+        "note": "350-mile XL added",
+        "source": "https://www.athlinks.com/event/174195"
+      },
+      {
+        "year": 2017,
+        "date": "2017-06-03",
+        "source": "https://www.athlinks.com/event/174195"
+      },
+      {
+        "year": 2016,
+        "date": "2016-06-04",
+        "source": "https://www.athlinks.com/event/174195"
+      },
+      {
+        "year": 2015,
+        "date": "2015-05-30",
+        "source": "https://www.athlinks.com/event/174195"
+      },
+      {
+        "year": 2014,
+        "date": "2014-05-31",
+        "source": "https://www.athlinks.com/event/174195"
+      },
+      {
+        "year": 2013,
+        "date": "2013-06-01",
+        "source": "https://www.emporiagazette.com/latest_news_and_features/article_dccf9c44-cab9-11e2-968e-0019bb30f31a.html"
+      },
+      {
+        "year": 2012,
+        "note": "Dan Hughes and Rusty Folger tied for the win in a course-record 11:56",
+        "source": "https://www.emporiagazette.com/sports/article_9faf6dcd-4122-5e12-aded-940191f6edb3.html"
+      },
+      {
+        "year": 2011,
+        "date": "2011-06-04",
+        "note": "Storms and hail: 65 of 300-plus starters finished; a tandem was fastest overall",
+        "source": "https://www.kansascyclist.com/news/2011/06/2011-dirty-kanza-200-in-their-own-words/"
+      },
+      {
+        "year": 2010,
+        "date": "2010-06-05",
+        "note": "Start and finish moved downtown to the Granada Theatre",
+        "source": "https://g-tedproductions.blogspot.com/2009/12/gravel-grinder-news.html"
+      },
+      {
+        "year": 2009,
+        "date": "2009-05-30",
+        "edition": 4,
+        "note": "Heat and 25-30 mph winds: 15 of 85 starters finished",
+        "source": "https://www.mtbr.com/threads/dirty-kanza-200-2009-edition.482825/page-8"
+      },
+      {
+        "year": 2008,
+        "date": "2008-05-31",
+        "source": "https://flinthillsofkansas.blogspot.com/2008/03/dirty-kanza-200-may-31-2008.html"
+      },
+      {
+        "year": 2007,
+        "edition": 2,
+        "source": "https://www.mtbr.com/threads/dirty-kanza-200-results.193814/"
+      },
+      {
+        "year": 2006,
+        "edition": 1,
+        "note": "First edition: 34 starters, 15 finishers, finish line in a motel parking lot",
+        "source": "https://www.mtbr.com/threads/dirty-kanza-200-results.193814/"
       }
     ],
     "course_description": {
@@ -591,11 +679,6 @@
         "label": "Obedbikes"
       },
       {
-        "url": "https://obedbikes.com/blogs/stories/10-tips-to-finish-the-unbound-gravel-200-or-any-long-gravel-race",
-        "category": "other",
-        "label": "Obedbikes"
-      },
-      {
         "url": "https://silca.cc/blogs/silca/2024unboundgravel200",
         "category": "other",
         "label": "Silca"
@@ -654,6 +737,30 @@
         "url": "https://www.unboundgravel.com/",
         "category": "official",
         "label": "UNBOUND Gravel: 2027 dates"
+      },
+      {
+        "url": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200",
+        "category": "media",
+        "label": "Cyclocross Magazine: Unbound / Dirty Kanza 200 past winners, 2006-2021",
+        "accessed": "2026-11-06"
+      },
+      {
+        "url": "https://www.cyclingnews.com/news/dirty-kanza-renamed-unbound-gravel-after-complaints-term-insulted-native-americans/",
+        "category": "media",
+        "label": "Cyclingnews: Dirty Kanza renamed Unbound Gravel (October 29, 2020)",
+        "accessed": "2026-11-06"
+      },
+      {
+        "url": "https://g-tedproductions.blogspot.com/2010/06/hot-dry-and-nasty-dirty-kanza-200.html",
+        "category": "media",
+        "label": "Guitar Ted: 2010 Dirty Kanza 200 report (start moved to the Granada Theatre)",
+        "accessed": "2026-11-06"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Unbound_Gravel",
+        "category": "other",
+        "label": "Wikipedia: Unbound Gravel history and winners",
+        "accessed": "2026-11-06"
       }
     ],
     "eligibility": {
@@ -703,7 +810,116 @@
           "race": "200 mi",
           "winner_female": "Lauren De Crescenzo",
           "winner_male": "Ian Boswell",
-          "source": "https://en.wikipedia.org/wiki/Unbound_Gravel"
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200",
+          "winning_time_female": "12:06:49",
+          "winning_time_male": "10:17:24"
+        },
+        "2019": {
+          "race": "200 mi",
+          "winner_female": "Amity Rockwell",
+          "winning_time_female": "11:59:53",
+          "winner_male": "Colin Strickland",
+          "winning_time_male": "9:58:49",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
+        },
+        "2018": {
+          "race": "200 mi",
+          "winner_female": "Kaitie Keough",
+          "winning_time_female": "12:09:27",
+          "winner_male": "Ted King",
+          "winning_time_male": "10:44:22",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
+        },
+        "2017": {
+          "race": "200 mi",
+          "winner_female": "Alison Tetrick",
+          "winning_time_female": "11:41:40",
+          "winner_male": "Mat Stephens",
+          "winning_time_male": "10:49:08",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
+        },
+        "2016": {
+          "race": "200 mi",
+          "winner_female": "Amanda Nauman",
+          "winning_time_female": "13:11:13",
+          "winner_male": "Ted King",
+          "winning_time_male": "11:50:13",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
+        },
+        "2015": {
+          "race": "200 mi",
+          "winner_female": "Amanda Nauman",
+          "winning_time_female": "14:08:18",
+          "winner_male": "Yuri Hauswald",
+          "winning_time_male": "13:01:17",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
+        },
+        "2014": {
+          "race": "200 mi",
+          "winner_female": "Rebecca Rusch",
+          "winning_time_female": "12:11:15",
+          "winner_male": "Brian Jensen",
+          "winning_time_male": "10:42:49",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
+        },
+        "2013": {
+          "race": "200 mi",
+          "winner_female": "Rebecca Rusch",
+          "winning_time_female": "12:51:04",
+          "winner_male": "Dan Hughes",
+          "winning_time_male": "12:03:39",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
+        },
+        "2012": {
+          "race": "200 mi",
+          "winner_female": "Rebecca Rusch",
+          "winning_time_female": "12:02:00",
+          "winner_male": "Dan Hughes and Rusty Folger",
+          "winning_time_male": "11:56:01",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
+        },
+        "2011": {
+          "race": "200 mi",
+          "winner_female": "Betsy Shogren",
+          "winning_time_female": "14:49:00",
+          "winner_male": "Dan Hughes",
+          "winning_time_male": "13:09:00",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
+        },
+        "2010": {
+          "race": "200 mi",
+          "winner_female": "Emily Brock",
+          "winning_time_female": "17:04:00",
+          "winner_male": "Corey Godfrey",
+          "winning_time_male": "13:38:00",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
+        },
+        "2009": {
+          "race": "200 mi",
+          "winner_male": "Michael Marchand",
+          "winning_time_male": "14:23:00",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
+        },
+        "2008": {
+          "race": "200 mi",
+          "winner_female": "Kristen High",
+          "winning_time_female": "16:09:24",
+          "winner_male": "Cameron Chambers",
+          "winning_time_male": "11:58:32",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
+        },
+        "2007": {
+          "race": "200 mi",
+          "winner_female": "Leslie Hiemenz",
+          "winner_male": "Steve Guetzelman",
+          "winning_time_male": "13:57:22",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
+        },
+        "2006": {
+          "race": "200 mi",
+          "winner_male": "Dan Hughes",
+          "winning_time_male": "12:58:00",
+          "source": "https://www.cxmagazine.com/past-winners-unbound-gravel-race-dirty-kanza-dk200"
         }
       },
       "latest_year": "2026"

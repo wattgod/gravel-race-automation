@@ -5,6 +5,7 @@
   "description": "Austria's UCI Gravel World Series race on the shores of the W\u00f6rthersee.",
   "sport": "Gravel Cycling",
   "startDate": "2027-04-18",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Velden am W\u00f6rthersee, Austria",
@@ -16,7 +17,7 @@
   },
   "url": "https://www.woerthersee-gravel.com/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "W\u00f6rthersee-Rosental region organizers (race director Julius Rupitsch)",
     "url": "https://www.woerthersee-gravel.com/"
   }

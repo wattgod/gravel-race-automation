@@ -3,15 +3,15 @@
     "name": "Prairie Burn 100",
     "slug": "prairie-burn-100",
     "display_name": "Prairie Burn 100",
-    "tagline": "Prairie Burn 100. 100 miles of gravel through Grinnell.",
+    "tagline": "Prairie Burn 100. 100 km of gravel through Grinnell.",
     "vitals": {
-      "distance_mi": 100,
+      "distance_mi": 62.1,
       "elevation_ft": 3500,
       "location": "Grinnell, Iowa",
       "location_badge": "GRINNELL, IA",
       "county": "Poweshiek County",
       "date": "Early June annually",
-      "date_specific": "2026: June 6",
+      "date_specific": "2027: June 12 (Saturday, CONFIRMED — prairieburn100.com)",
       "terrain_types": [
         "Iowa rolling",
         "Local event",
@@ -45,16 +45,16 @@
         "Moderate rolling (3500 feet)",
         "Iowa countryside scenery",
         "Local community event",
-        "100-mile distance",
+        "100 km distance",
         "Small field"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 43,
+      "overall_score": 41,
       "tier": 4,
       "tier_label": "TIER 4",
       "logistics": 3,
-      "length": 4,
+      "length": 3,
       "technicality": 2,
       "elevation": 2,
       "climate": 2,
@@ -67,16 +67,16 @@
       "field_depth": 1,
       "value": 3,
       "expenses": 3,
-      "score_note": "Local Iowa event. Rolling terrain with good access, moderate costs, 100-mile distance, and small local field.",
+      "score_note": "Local Iowa event. Rolling terrain with good access, moderate costs, 100 km distance, and small local field.",
       "discipline": "gravel",
       "display_tier": 4
     },
     "biased_opinion": {
       "verdict": "Iowa Local Century",
-      "summary": "Prairie Burn 100 is a local event in Iowa—rolling terrain with moderate elevation over 100 miles. The Iowa countryside is nice and the distance is challenging, but the small local field and limited organization keep it in Tier 4.",
+      "summary": "Prairie Burn 100 is a local event in Iowa—rolling terrain with moderate elevation over 100 km. The Iowa countryside is nice and the distance is challenging, but the small local field and limited organization keep it in Tier 4.",
       "strengths": [
         "Iowa countryside scenery",
-        "100-mile challenge",
+        "100 km challenge",
         "Good value",
         "Grinnell access",
         "Moderate costs"
@@ -91,12 +91,12 @@
       "bottom_line": "A solid local Iowa century gravel race. Worth it for Iowa/Midwest riders. Not worth traveling for."
     },
     "final_verdict": {
-      "score": "43 / 100",
+      "score": "41 / 100",
       "one_liner": "Iowa local gravel challenge.",
       "should_you_race": "If you're local to Iowa—yes, it's solid. If you're traveling—skip it.",
       "alternatives": "For better Iowa races: Gravel Worlds, RAGBRAI.",
       "alternative_slugs": [
-        "garmin-gravel-worlds"
+        "gravel-worlds"
       ]
     },
     "logistics": {
@@ -105,7 +105,7 @@
       "food": "Grinnell has full dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Prairie Burn 100 website"
+      "official_site": ""
     },
     "history": {
       "founded": null,
@@ -114,6 +114,26 @@
       "notable_moments": [],
       "reputation": "Local Iowa event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-06",
+        "note": "Switched from miles to kilometers: new 100K, 50K and 25K routes.",
+        "source": "https://www.bikeiowa.com/Event/16462/prairie-burn-100-gravel-bike-ride-and-fun-run"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-14",
+        "edition": 6,
+        "source": "https://ahrensfamilyfoundation.org/prairie-burners-enjoy-riding-running-summer-fun-outside/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-06-08",
+        "note": "Chip timing added; new routes and a race for the 100-mile riders.",
+        "source": "https://www.bikeiowa.com/Event/15784/prairie-burn-100"
+      }
+    ],
     "course_description": {
       "character": "Iowa rolling gravel.",
       "suffering_zones": [
@@ -139,13 +159,13 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Iowa rolling terrain over 100 miles.",
+      "signature_challenge": "Iowa rolling terrain over 100 km.",
       "ridewithgps_id": "30208684",
       "ridewithgps_name": "Prairie Burn 100 - 2019"
     },
     "guide_variables": {
       "race_name": "Prairie Burn 100",
-      "race_distance": "100 miles",
+      "race_distance": "100 km",
       "race_elevation": "3,500 feet",
       "race_date": "Summer",
       "race_location": "Grinnell, Iowa",
@@ -154,7 +174,7 @@
       "race_challenges": [
         "Rolling terrain",
         "Small local field",
-        "100-mile distance",
+        "100 km distance",
         "Limited organization",
         "Variable weather"
       ],
@@ -170,7 +190,7 @@
       {
         "requirement": "Century endurance",
         "by_when": "Week 6-8",
-        "why": "100-mile distance requires sustained effort."
+        "why": "100 km distance requires sustained effort."
       },
       {
         "requirement": "Self-sufficiency",
@@ -245,16 +265,16 @@
         "race_specific": true,
         "topics": {
           "pacing": "Century pacing strategy",
-          "fueling": "Nutrition for 100-mile riding",
+          "fueling": "Nutrition for 100 km riding",
           "weather": "Riding in variable Iowa weather",
-          "century": "100-mile endurance strategy"
+          "century": "100 km endurance strategy"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Prairie Burn 100",
         "race_hook": "Iowa local gravel challenge.",
-        "race_hook_detail": "Local event with 100-mile rolling terrain.",
+        "race_hook_detail": "Local event with 100 km rolling terrain.",
         "distance": "100",
         "dark_mile": "50",
         "non_negotiable_1": "Weather preparation",
@@ -269,8 +289,8 @@
         "explanation": "Aid stations every 10-25 miles with Central Park serving as the hub for 25 and 50-mile route returns. Official timing ends at 3:30 PM with bailout support until 5:00 PM, though the race director warns riders to 'know how to fix a flat' as pickup support is limited."
       },
       "length": {
-        "score": 4,
-        "explanation": "One hundred miles is proper century distance that demands respect and preparation. The 3500 feet of elevation gain over that distance creates endurance challenge without being punitive. Multiple options at 25, 50, and 100 miles let riders choose their suffering level, but the full distance delivers real gravel credibility. Longer than Belgian Waffle Ride San Diego."
+        "score": 3,
+        "explanation": "One hundred kilometers (62 miles) is a metric century that rewards steady pacing. The 3500 feet of elevation gain over that distance creates endurance challenge without being punitive. Multiple options at 25, 50, and 100 km let riders choose their suffering level, but the full distance delivers real gravel credibility. At 62 miles it falls in the 60 to 99 mile band, which scores 3."
       },
       "technicality": {
         "score": 2,
@@ -397,6 +417,12 @@
         "url": "https://www.youtube.com/@prairieburn100",
         "category": "video",
         "label": "YouTube"
+      },
+      {
+        "url": "https://www.prairieburn100.com/event-info",
+        "category": "official",
+        "label": "Prairie Burn 100 event info — routes of 25, 50 and 100 kilometers; 2027 date",
+        "accessed": "2026-11-06"
       }
     ],
     "tire_recommendations": {
@@ -645,6 +671,17 @@
         "credit": "YouTube / We Are Iowa Local 5 News",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "100 mi",
+          "winner_female": "Kristin Hansen",
+          "winner_male": "Ben Anderson",
+          "source": "https://ahrensfamilyfoundation.org/prairie-burners-enjoy-riding-running-summer-fun-outside/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

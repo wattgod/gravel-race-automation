@@ -207,6 +207,15 @@
       "notable_moments": [],
       "reputation": "A sold-out community-first festival with unusually transparent operations."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-08-08",
+        "end_date": "2025-08-10",
+        "note": "Gravel Earth Series event; event centre moved to Šlokenbeka Manor.",
+        "source": "https://sports.tukums.lv/aizvaditas-jaudigas-gravel-weekend-velo-sacensibas-tukuma-apkaime/"
+      }
+    ],
     "guide_variables": {
       "race_name": "Gravel Weekend Tukums",
       "race_distance": "140 km / 87.0 miles",
@@ -365,6 +374,17 @@
       "migration_notes": [
         "New catalog intake from the official 2026 UCI Gravel World Series calendar reconciliation."
       ]
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "145 km",
+          "winner_male": "Piotr Havik",
+          "winning_time_male": "3:48:13",
+          "source": "https://gravelweekend.com/en/archive/"
+        }
+      },
+      "latest_year": "2025"
     }
   }
 }

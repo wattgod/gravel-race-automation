@@ -18,7 +18,7 @@ def load(path: Path):
 def test_hellhole_profile_uses_current_official_stage_race_facts() -> None:
     race = load(ROOT / f"race-data/{SLUG}.json")["race"]
 
-    assert race["vitals"]["date_specific"] == "2026: October 2-4"
+    assert race["vitals"]["date_specific"] == "2027: October 1-3 (Friday-Sunday, CONFIRMED — mtpleasantvelo.org)"
     assert race["vitals"]["distance_mi"] == 150
     assert race["vitals"]["elevation_ft"] is None
     assert race["vitals"]["gain_display"] == "Not published"
@@ -46,7 +46,7 @@ def test_hellhole_generated_discovery_assets_match_the_profile() -> None:
     assert row["elevation_ft"] is None
     assert row["overall_score"] == 50
     assert "optional night prologue" in row["tagline"]
-    assert jsonld["startDate"] == "2026-10-02"
+    assert jsonld["startDate"] == "2027-10-01"
     assert jsonld["url"] == (
         "https://www.mtpleasantvelo.org/hellhole-gravel-grind-stage-race"
     )

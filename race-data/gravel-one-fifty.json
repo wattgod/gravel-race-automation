@@ -11,7 +11,7 @@
       "location_badge": "RODEN, NETHERLANDS",
       "county": "Drenthe",
       "date": "Late April annually",
-      "date_specific": "2026: April 25",
+      "date_specific": "2027: July 25 (Sunday, CONFIRMED — gravelonefifty.nl)",
       "terrain_types": [
         "Dutch countryside",
         "Flat gravel",
@@ -102,7 +102,7 @@
       "food": "Roden has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Gravel One Fifty website"
+      "official_site": ""
     },
     "history": {
       "founded": null,
@@ -111,6 +111,24 @@
       "notable_moments": [],
       "reputation": "Regional Dutch event."
     },
+    "editions": [
+      {
+        "year": 2027,
+        "note": "Moves from April to July",
+        "source": "https://gravelonefifty.nl/"
+      },
+      {
+        "year": 2026,
+        "date": "2026-04-25",
+        "note": "Moved from July to April",
+        "source": "https://www.gravelonefifty.nl/blog/gravel-one-fifty-2026-wind-stof-en-een-sterke-strijd-in-roden"
+      },
+      {
+        "year": 2025,
+        "date": "2025-07-12",
+        "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/gravel-one-fifty/results/"
+      }
+    ],
     "course_description": {
       "character": "Dutch flat gravel.",
       "suffering_zones": [
@@ -358,6 +376,12 @@
         "url": "https://www.youtube.com/watch?v=HCZo4FhTGps",
         "category": "community",
         "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://gravelonefifty.nl/",
+        "category": "official",
+        "label": "Gravel One Fifty — 2027 date",
+        "accessed": "2026-11-06"
       }
     ],
     "tire_recommendations": {
@@ -723,6 +747,25 @@
         "credit": "YouTube / FlyingGravelMan",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "150 km",
+          "winner_female": "Romy Kasper",
+          "winner_male": "Kamiel Notebaert",
+          "source": "https://www.gravelonefifty.nl/blog/gravel-one-fifty-2026-wind-stof-en-een-sterke-strijd-in-roden"
+        },
+        "2025": {
+          "race": "150 km",
+          "winner_female": "Femke Markus",
+          "winner_male": "Jordan Habets",
+          "winning_time_female": "4:24:56",
+          "winning_time_male": "4:06:45",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/gravel-one-fifty/results/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

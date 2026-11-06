@@ -132,6 +132,20 @@
       ],
       "reputation": "A demanding gravel-ultra format inside the established BikingMan Corsica event week."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-05-29",
+        "edition": 2,
+        "source": "https://bikingman.com/race_edition/555-corsica-2-2026/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-30",
+        "edition": 1,
+        "source": "https://bikingman.com/race_edition/555-corsica-1-2025/"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "high",
       "validation_status": "official-2027-date-course-verified-2026-08-08",
@@ -227,6 +241,19 @@
         "category": "official",
         "label": "BikingMan official 2027 race calendar"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "488 km",
+          "winner_female": "Laurianne Levasseur",
+          "winner_male": "Michael Tokarski",
+          "winning_time_female": "27h40m",
+          "winning_time_male": "25h40m",
+          "source": "https://bikingman.com/race_edition/555-corsica-2-2026/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

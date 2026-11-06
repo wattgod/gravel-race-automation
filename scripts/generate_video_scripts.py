@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate platform-ready video scripts from gravel race profile data.
 
-Transforms 328 race profiles into spoken-cadence scripts for TikTok,
+Transforms race profiles into spoken-cadence scripts for TikTok,
 Instagram Reels, YouTube Shorts, and YouTube long-form. Scripts are
 creative starting points for a presenter, not final copy.
 
@@ -27,6 +27,10 @@ RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 OUTPUT_DIR = PROJECT_ROOT / "video-scripts"
 
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
+sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+from race_facts import catalog_race_count  # noqa: E402
+
+RACE_COUNT = catalog_race_count()
 from brand_tokens import TIER_NAMES
 from generate_neo_brutalist import (
     normalize_race_data,
@@ -291,7 +295,7 @@ def analyze_hooks(rd):
     hooks.append({
         "angle": "tier_reveal",
         "tension_text": (
-            f"We rated 328 gravel races. {name} is {tier_name}. "
+            f"We rated {RACE_COUNT} races. {name} is {tier_name}. "
             f"Score: {score} out of 100."
         ),
         "engagement_question": (
@@ -520,7 +524,7 @@ def fmt_should_you_race(rd):
     # Course character
     character = to_spoken(rd["course"]["character"])
 
-    # All 15 dimensions, top 8 highlighted
+    # All 15 scored fields (14 criteria + cultural-impact bonus), top 8 highlighted
     dims_by_score = sorted(
         ALL_DIMS, key=lambda d: rd["explanations"][d]["score"], reverse=True
     )
@@ -575,7 +579,7 @@ def fmt_should_you_race(rd):
 
 ## HOOK (0-10s)
 [TEXT ON SCREEN: "Should You Race {name}?"]
-"Should you race {name}? I rated 328 gravel races. {name} scored {score} out of 100. {tier_name} tier. Here's what that actually means."
+"Should you race {name}? I rated {RACE_COUNT} races. {name} scored {score} out of 100. {tier_name} tier. Here's what that actually means."
 
 ## THE COURSE (10s-1min)
 [VISUAL: Route map{_rwgps_inline(rd)}]
@@ -584,7 +588,7 @@ def fmt_should_you_race(rd):
 [RIFF HERE — describe what it feels like to ride this course]
 
 ## THE SCORES (1-5min)
-[VISUAL: Score card with all 15 dimensions]
+[VISUAL: Score card with all 14 criteria]
 
 ### Top 8 Dimensions
 {highlights_text}
@@ -703,7 +707,7 @@ def fmt_roast(rd):
 
 ## CTA (2.5-3min)
 [TEXT: gravelgodcycling.com/race/{slug}]
-"Full breakdown. All 15 dimensions. Free prep kit. Link in bio."
+"Full breakdown. All 14 criteria. Free prep kit. Link in bio."
 
 ## ENGAGEMENT
 "Roast or defend {name}. Go."
@@ -821,7 +825,7 @@ def fmt_data_drops(all_races):
     drops.append(
         _drop_script(
             "Database Size",
-            f'"We rated {total} gravel races. Every single one scored on 15 dimensions. '
+            f'"We rated {total} gravel races. Every single one scored on 14 criteria. '
             f'Here\'s the breakdown."',
             f"[TEXT ON SCREEN: \"{total} RACES RATED\"]",
         )
@@ -934,7 +938,7 @@ Use each drop as a standalone short-form clip. Mix and match.
 
 ---
 **VISUAL NOTES:** Bold typography overlays, counter animations, tier badge graphics.
-**CTA FOR ALL:** "{total} races. 15 dimensions. gravelgodcycling.com. Link in bio."
+**CTA FOR ALL:** "{total} races. 14 criteria. gravelgodcycling.com. Link in bio."
 """
 
 

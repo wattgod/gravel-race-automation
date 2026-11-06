@@ -1,10 +1,11 @@
 {
   "@context": "https://schema.org",
   "@type": "SportsEvent",
-  "name": "Trans Am Bike Race",
+  "name": "Trans Am Bike Nonstop",
   "description": "4,200 miles from the Pacific to the Atlantic. The longest road ultra-race on earth. Self-supported across 10 states. America, coast to coast.",
   "sport": "Bikepacking",
-  "startDate": "2026-06-07",
+  "startDate": "2027-06-06",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Astoria, Oregon to Yorktown, Virginia",
@@ -22,7 +23,7 @@
   },
   "url": "https://rideyrbike.com/transambikenonstop/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Based on Adventure Cycling Association's TransAmerica Bicycle Trail (created 1976 for Bikecentennial)",
     "url": "https://rideyrbike.com/transambikenonstop/"
   }

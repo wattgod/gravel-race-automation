@@ -12,7 +12,7 @@
       "location_badge": "ONTARIO, CA",
       "county": "Brant/Hamilton",
       "date": "Late April annually",
-      "date_specific": "2026: April 26 (Sunday, CONFIRMED — parisancaster.com; completed); 2027: April 25 (Sunday, PATTERN ESTIMATE — last Sunday of April, per 2026 date; official 2027 date not yet announced)",
+      "date_specific": "2027: April 25 (Sunday, CONFIRMED — raceroster.com)",
       "terrain_types": [
         "Rail trail",
         "Farm lanes",
@@ -179,6 +179,24 @@
       ],
       "reputation": "Canada's spring classic—the race where weather determines everything."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-26",
+        "source": "https://parisancaster.com/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-04-27",
+        "note": "Became a UCI Gravel World Series round; moved from Blue Mountains qualifier slot to P2A.",
+        "source": "https://canadiancyclist.com/dailynews.php?id=38902&title=perry-clarke-win-30th-paris-to-ancaster"
+      },
+      {
+        "year": 2024,
+        "date": "2024-04-28",
+        "source": "https://canadiancyclist.com/cycling4women_news.php?id=38373&title=clarke-repeats-as-paris-to-ancaster-champion"
+      }
+    ],
     "course_description": {
       "character": "A multi-surface chaos ride through Ontario farmland. Fast flat rail trail sections contrast with hike-a-bike mud chutes. The racing is European spring classic style—surge for position before the bottleneck sectors, survive the mud, then sprint for the final climb. Point-to-point from Paris to Ancaster.",
       "suffering_zones": [
@@ -233,6 +251,12 @@
       }
     },
     "citations": [
+      {
+        "url": "https://raceroster.com/events/2027/165409/paris-to-ancaster",
+        "category": "official",
+        "label": "Paris to Ancaster — 2027 date",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://ridewithgps.com/routes/53024230",
         "category": "route",
@@ -324,11 +348,6 @@
         "label": "Facebook"
       },
       {
-        "url": "https://www.strava.com/athlete/routes",
-        "category": "activity",
-        "label": "Strava"
-      },
-      {
         "url": "https://www.strava.com/challenges/p2a-2017-final-climb",
         "category": "activity",
         "label": "Strava"
@@ -339,10 +358,30 @@
         "2024": {
           "winning_time_male": "3:07:22",
           "conditions": "Warm, Humid, Wet",
-          "key_takeaways": []
+          "key_takeaways": [],
+          "race": "Cento",
+          "winner_female": "Devon Clarke",
+          "winner_male": "Lane Maher",
+          "source": "https://canadiancyclist.com/cycling4women_news.php?id=38373&title=clarke-repeats-as-paris-to-ancaster-champion"
+        },
+        "2025": {
+          "race": "Cento",
+          "winner_female": "Devon Clarke",
+          "winner_male": "Benjamin Perry",
+          "winning_time_female": "3:15:02",
+          "winning_time_male": "2:47:49",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/paris-to-ancaster/results/"
+        },
+        "2026": {
+          "race": "Cento",
+          "winner_female": "Elly Moore",
+          "winner_male": "Nick Kleban",
+          "winning_time_female": "3:24:47",
+          "winning_time_male": "3:06:26",
+          "source": "https://www.granfondoguide.com/Contents/IndexFull/9141/nick-kelban-and-elly-moore-take-victory-at-2026-paris-to-ancaster-bike-race"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

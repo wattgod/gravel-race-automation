@@ -115,7 +115,8 @@ class TestDataLoading:
         assert stats["race_count"] == len(race_index)
 
     def test_stats_dimensions(self, stats):
-        assert stats["dimensions"] == 15
+        """14 base criteria; cultural impact is a bonus, not a criterion."""
+        assert stats["dimensions"] == 14
 
     def test_stats_t1_count(self, stats, race_index):
         expected = sum(1 for r in race_index if r.get("tier") == 1)
@@ -126,7 +127,15 @@ class TestDataLoading:
         assert "dimensions" in stats
         assert "t1_count" in stats
         assert "t2_count" in stats
-        assert "region_count" in stats
+        assert "country_count" in stats
+        assert "region_count" not in stats
+
+    def test_country_count_normalizes_states_and_abbreviations(self):
+        """'CO' and 'Colorado' are one country, not two regions."""
+        races = [{"location": "Elbert, CO"}, {"location": "Salida, Colorado"},
+                 {"location": "Southwest Nebraska (Curtis, Elwood, Cambridge, McCook)"},
+                 {"location": "Alberta, Canada"}, {"location": "Canmore, Alberta"}]
+        assert compute_stats(races)["country_count"] == 2
 
 
 # ── Featured Races ───────────────────────────────────────────
@@ -419,7 +428,8 @@ class TestSectionBuilders:
         assert str(stats["dimensions"]) in bar
         assert str(stats["t1_count"]) in bar
         assert str(stats["t2_count"]) in bar
-        assert "Regions" in bar
+        assert "Countries" in bar
+        assert "Regions" not in bar
 
     def test_bento_features_section(self, race_index):
         html = build_bento_features(race_index)
@@ -454,7 +464,7 @@ class TestSectionBuilders:
 
     def test_training_cta_links(self):
         html = build_training_cta()
-        assert "/questionnaire/" in html
+        assert "/training-plans/start/" in html
 
     def test_training_cta_has_no_empty_panel(self):
         """Regression: gg-hp-cta-right used to render as an empty
@@ -550,7 +560,7 @@ class TestLadderStrip:
     def test_cta_hrefs_correct(self, stats):
         html = build_ladder_strip(stats)
         assert 'href="https://gravelgodcycling.com/gravel-races/"' in html
-        assert 'href="https://gravelgodcycling.com/questionnaire/"' in html
+        assert 'href="https://gravelgodcycling.com/training-plans/start/"' in html
         assert 'href="https://gravelgodcycling.com/coaching/"' in html
         # Coaching CTA must NOT use the imported COACHING_URL (/coaching/apply/)
         assert 'href="https://gravelgodcycling.com/coaching/apply/"' not in html
@@ -1137,7 +1147,7 @@ class TestSidebar:
     def test_sidebar_cta(self, stats, race_index, upcoming):
         html = build_sidebar(stats, race_index, upcoming)
         assert "gg-hp-sidebar-cta" in html
-        assert "/questionnaire/" in html
+        assert "/training-plans/start/" in html
 
     def test_sidebar_coming_up(self, stats, race_index, upcoming):
         html = build_sidebar(stats, race_index, upcoming)
@@ -2138,8 +2148,9 @@ class TestHeroRadarViz:
         assert 'role="img"' in viz_html
 
     def test_viz_svg_aria_label(self, viz_html):
-        """SVG has aria-label mentioning 15 scoring criteria."""
-        assert 'aria-label="Rating system radar chart showing 15 scoring criteria"' in viz_html
+        """SVG aria-label: 14 criteria plus the cultural impact bonus."""
+        assert ('aria-label="Rating system radar chart showing 14 scoring criteria '
+                'plus the cultural impact bonus"') in viz_html
 
     def test_viz_15_axis_labels(self, viz_html):
         """15 text elements with the label class."""
@@ -2302,21 +2313,18 @@ class TestHeroRadarViz:
                 assert 1 <= s <= 5, f"{name}[{i}] = {s}, expected 1-5"
 
     def test_viz_axis_count_matches_stats_and_headline(self, viz_html, stats, race_index):
-        """The radar's axis count, stats['dimensions'] (used in the hero
-        headline and stat bar), and the aria-label all agree on 15 — the
-        real count of scored criteria in race.gravel_god_rating."""
+        """The radar draws 15 axes (14 criteria + the cultural impact bonus);
+        stats['dimensions'] (hero headline, stat bar) counts the 14 criteria."""
         import re
         labels = re.findall(r'<text[^>]*class="gg-hp-hv-lbl"', viz_html)
         aria_match = re.search(
-            r'aria-label="Rating system radar chart showing (\d+) scoring criteria"',
+            r'aria-label="Rating system radar chart showing (\d+) scoring criteria '
+            r'plus the cultural impact bonus"',
             viz_html,
         )
         assert aria_match, "aria-label with scoring criteria count not found"
-        assert len(HERO_VIZ_DIMS) == 15
-        assert len(labels) == 15
-        assert int(aria_match.group(1)) == 15
-        assert stats["dimensions"] == 15
-        assert len(labels) == int(aria_match.group(1)) == stats["dimensions"] == len(HERO_VIZ_DIMS)
+        assert len(HERO_VIZ_DIMS) == len(labels) == 15
+        assert int(aria_match.group(1)) == stats["dimensions"] == 14
 
     def test_viz_archetypes_visually_distinct(self):
         """No two archetypes have identical scores."""

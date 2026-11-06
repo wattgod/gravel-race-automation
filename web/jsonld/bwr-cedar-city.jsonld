@@ -4,7 +4,9 @@
   "name": "Belgian Waffle Ride Cedar City",
   "description": "Half the climbing of San Diego. All the suffering. Plus miles of playground sand.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-06-13",
+  "startDate": "2027-05-14",
+  "endDate": "2027-05-15",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Cedar City, Utah",
@@ -22,7 +24,7 @@
   },
   "url": "https://www.belgianwaffleride.bike/pages/utah",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Michael Marckx / Monuments of Cycling",
     "url": "https://www.belgianwaffleride.bike/pages/utah"
   }

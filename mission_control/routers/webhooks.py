@@ -41,6 +41,9 @@ _REVISED_SUBJECTS = {"goal_2027": "your 2027 goal, revised"}
 # Brand-specific overrides fall back to _REVISED_SUBJECTS when absent, so
 # every other brand keeps its existing subject unchanged.
 _REVISED_SUBJECTS_BY_BRAND = {"xcskilabs": {"goal_2027": "your season, revised"}}
+# The /goals/ form's optional last question (season_review_variants.s_help).
+# The alert shows it as "Help", and the morning reply drafter pitches from it.
+HELP_MOST_LABELS = {"plan": "A plan", "coaching": "Coaching", "tips": "Just tips"}
 _SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,80}$")
 _MAX_NAME_LEN = 200
 _MAX_SOURCE_LEN = 100
@@ -249,18 +252,22 @@ async def _send_enrollment_alert(
         labels = (
             ("a_race", "Race"), ("a_race_date", "Date"),
             ("outcome_goal", "Goal"), ("inner_obstacle", "Obstacle"),
-            ("habit", "Habit"), ("habit_when", "When"),
+            ("habit", "Habit"), ("habit_when", "When"), ("help_most", "Help"),
         )
+        shown = dict(answers)
+        if shown.get("help_most"):
+            shown["help_most"] = HELP_MOST_LABELS.get(shown["help_most"], shown["help_most"])
         rows = "".join(
             f"<tr><th style='text-align:left;vertical-align:top;padding:3px 12px 3px 0'>"
-            f"{escape(label)}</th><td style='padding:3px 0'>{escape(str(answers[key]))}</td></tr>"
-            for key, label in labels if answers.get(key)
+            f"{escape(label)}</th><td style='padding:3px 0'>{escape(str(shown[key]))}</td></tr>"
+            for key, label in labels if shown.get(key)
         )
+        pitch = " Pitch what they said would help most." if shown.get("help_most") else ""
         html = (
             f"<p><b>{escape(name) or '(no name)'}</b> &lt;{escape(email)}&gt;"
             f" · {escape(brand)}</p>"
             f"<table style='border-collapse:collapse'>{rows}</table>"
-            f"<p>Reply personally using their stated goal and obstacle. "
+            f"<p>Reply personally using their stated goal and obstacle.{pitch} "
             f"Ask what their first week will look like. No automatic reply was sent from this alert.</p>"
             f"<p>Entry: {escape(str(source_data.get('entry_src') or 'unknown'))}"
             f" · Offer: {escape(str(source_data.get('offer_variant') or 'unknown'))}</p>"

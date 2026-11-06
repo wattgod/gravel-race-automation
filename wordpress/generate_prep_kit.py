@@ -47,6 +47,7 @@ from brand_tokens import (
     get_tokens_css,
     get_ga4_head_snippet,
 )
+from season import season_year
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from cookie_consent import get_consent_banner_html
 from pricing import PRICE_PER_WEEK
@@ -64,13 +65,13 @@ from generate_guide import (
 
 # ── Constants ──────────────────────────────────────────────────
 
-QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/questionnaire/"
+QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/training-plans/start/"
 GUIDE_DIR = Path(__file__).parent.parent / "guide"
 CONTENT_JSON = GUIDE_DIR / "gravel-guide-content.json"
 OUTPUT_DIR = Path(__file__).parent / "output" / "prep-kit"
 WEATHER_DIR = Path(__file__).parent.parent / "data" / "weather"
 QUOTES_DIR = Path(__file__).parent.parent / "data" / "quotes"
-CURRENT_YEAR = str(datetime.now().year)
+SEASON_YEAR = str(season_year())
 
 # Public legacy URL retained by active email captures. The canonical profile
 # slug is mid-south, but /the-mid-south/prep-kit/ has already been handed to
@@ -1457,7 +1458,7 @@ def build_pk_logistics(raw: dict, rd: dict) -> str:
         </div>''')
 
     official = logistics.get("official_site", "")
-    if official:
+    if str(official).startswith("http"):
         items.append(f'''<div class="gg-pk-logistics-item">
           <div class="gg-pk-logistics-label">Official Site</div>
           <p class="gg-pk-logistics-text"><a href="{esc(official)}" target="_blank" rel="noopener">{esc(official)}</a></p>
@@ -2350,10 +2351,29 @@ def build_pk_recovery(guide_sections: dict) -> str:
   </section>'''
 
 
+def _has_training_guide(slug: str) -> bool:
+    """True when /race/{slug}/training-plan/ is generated.
+
+    Mirrors generate_training_plan_pages.py, which skips races whose race
+    pack has no demand profile.
+    """
+    pack_path = Path(__file__).resolve().parent.parent / "web" / "race-packs" / f"{slug}.json"
+    try:
+        return bool(json.loads(pack_path.read_text(encoding="utf-8")).get("demands"))
+    except (OSError, json.JSONDecodeError):
+        return False
+
+
 def build_pk_footer_cta(rd: dict) -> str:
     """Build footer CTA linking to training plans and newsletter."""
     name = esc(rd["name"])
     slug = esc(rd["slug"])
+    # The training guide pages had no inbound links; the prep kit is their
+    # natural parent (same race, same plan-intent reader).
+    guide_link = (
+        f' &middot; <a href="/race/{slug}/training-plan/">How to Train for {name}</a>'
+        if _has_training_guide(rd["slug"]) else ''
+    )
     return f'''<footer class="gg-pk-footer">
     <div class="gg-pk-footer-inner">
       <h3>Ready to Race {name}?</h3>
@@ -2365,7 +2385,7 @@ def build_pk_footer_cta(rd: dict) -> str:
         <a href="{esc(COACHING_URL)}" class="gg-pk-btn gg-pk-btn--secondary">1:1 COACHING</a>
       </div>
       <p class="gg-pk-footer-back">
-        <a href="/race/{slug}/">Back to {name} Race Profile</a>
+        <a href="/race/{slug}/">Back to {name} Race Profile</a>{guide_link}
       </p>
     </div>
   </footer>'''

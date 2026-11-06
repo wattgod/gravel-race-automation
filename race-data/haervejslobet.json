@@ -32,7 +32,8 @@
       "cultural_impact": 3,
       "overall_score": 77,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "adventure": {
@@ -141,10 +142,24 @@
     },
     "history": {
       "overview": "Denmark's largest cycling event, inspired by ancient Hærvejen migration route used by Vikings, pilgrims, and armies. Now part of prestigious L'Etape Denmark by Tour de France series.",
-      "founded": 1985,
+      "founded": 2013,
       "notable_editions": "Integration into L'Etape series elevated profile; record participation in recent years with 10,000+ riders across distances.",
       "growth_trajectory": "Steady expansion from local ride to international gran fondo, adding Tour de France branding and diverse formats (road/MTB/gravel)."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Run as L'Etape Denmark by Tour de France; 300 km Flensburg to Viborg.",
+        "source": "https://denmark.letapeseries.com/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-28",
+        "edition": 13,
+        "note": "Third year as an official L'Etape by Tour de France event.",
+        "source": "https://www.granfondoguide.com/Contents/Index/8232/l%E2%80%99etape-denmark-by-tour-de-france-is-back-to-challenge-your-inner-viking-in-june-2025"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Viking-fueled endurance test blending history, hills, and high-quality organization.",
       "best_for": "History buffs, ultra-endurance roadies, and groups seeking a festive Scandinavian adventure.",
@@ -152,6 +167,12 @@
       "pro_tip": "Opt for early registration to secure the Queen Stage; pack arm warmers for Jutland's unpredictable winds and train on rolling terrain."
     },
     "citations": [
+      {
+        "url": "https://altomcykling.dk/haervejslobet-nyt-lob-med-klassiker-potentiale",
+        "category": "media",
+        "label": "Hærvejsløbet: first public edition 2013",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://pedalpeople.cc/l-etape-denmark",
         "title": "L'Etape Denmark",
@@ -182,6 +203,19 @@
       }
     ],
     "slug": "haervejslobet",
-    "name": "Hærvejsløbet — The Viking Gran Fondo"
+    "name": "Hærvejsløbet — The Viking Gran Fondo",
+    "results": {
+      "years": {
+        "2025": {
+          "race": "300 km",
+          "winner_female": "Kaja Block",
+          "winner_male": "Daniel Brockhoff",
+          "winning_time_female": "10:04:35",
+          "winning_time_male": "8:05:28",
+          "source": "https://www.granfondoguide.com/Contents/IndexFull/8605/lihn-and-havbro-pull-on-the-yellow-jersey-at-2025-letape-denmark"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

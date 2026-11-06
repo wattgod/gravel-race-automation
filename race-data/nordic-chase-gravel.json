@@ -10,14 +10,14 @@
       "elevation_m": 7200,
       "elevation_ft": 23622,
       "course_status": "source_blocked",
-      "course_status_label": "2027 GRAND DEPART PENDING",
+      "course_status_label": "2027 ROUTE PENDING",
       "course_status_reason": "The organizer's 2027 calendar confirms the Copenhagen-to-Oslo gravel event window, but its route page still describes the 2026 course and schedule. The final 2027 GPX and exact grand-depart date have not been published.",
       "location": "Copenhagen, Denmark to Oslo, Norway",
       "location_badge": "COPENHAGEN TO OSLO",
       "county": "Denmark, Sweden, and Norway",
       "country": "Denmark / Sweden / Norway",
-      "date": "2027: August 13-19 event window; exact grand depart pending",
-      "date_specific": "TBD — 2027 event window: August 13-19; exact grand depart pending",
+      "date": "2027: June 17-23",
+      "date_specific": "2027: June 17-23 (CONFIRMED — nordicchase.com/cph-osl)",
       "last_confirmed_date": null,
       "terrain_types": [
         "Nordic gravel roads",
@@ -43,7 +43,7 @@
     },
     "climate": {
       "primary": "Nordic summer with coastal exposure",
-      "description": "The August corridor can combine long daylight, mild temperatures, rain, and exposed Baltic or North Sea winds. Four days of changing conditions matter more than any single forecast.",
+      "description": "The June corridor can combine long daylight, mild temperatures, rain, and exposed Baltic or North Sea winds. Four days of changing conditions matter more than any single forecast.",
       "challenges": [
         "Rain and temperature swings across three countries",
         "Exposed coastal wind",
@@ -103,7 +103,7 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "The announced August 2027 window reduces heat risk but leaves real exposure to Nordic rain, wind, and cold overnight riding."
+        "explanation": "The June 2027 dates reduce heat risk but leaves real exposure to Nordic rain, wind, and cold overnight riding."
       },
       "altitude": {
         "score": 1,
@@ -211,12 +211,18 @@
       "reputation": "A young, small-field European ultra built around self-support, community, and point-to-point adventure."
     },
     "final_verdict": {
-      "score": "76 / 100",
+      "score": "66 / 100",
       "one_liner": "Three countries, roughly 500 miles, and no support crew to rescue bad pacing or bad logistics.",
       "should_you_race": "Yes if you already understand overnight self-supported riding and want the most complete Nordic Chase adventure. First-time ultra riders should prove their sleep, lighting, navigation, and resupply systems on shorter events before committing.",
       "alternatives": "Choose Nordic Chase Berlin to Copenhagen Gravel for a shorter first step into the series, or a supported stage race if you want the scenery without managing every overnight decision yourself."
     },
     "citations": [
+      {
+        "url": "https://nordicchase.com/cph-osl",
+        "category": "official",
+        "label": "Nordic Chase: Copenhagen–Oslo 2027, June 17-23",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://nordicchase.com/",
         "category": "official",
@@ -236,12 +242,12 @@
     "eligibility": {
       "status": "active",
       "race_plan_eligible": true,
-      "status_note": "The organizer has confirmed the 2027 Copenhagen-to-Oslo gravel identity and August 13-19 event window. Training-plan publication remains source-blocked until it publishes the exact grand-depart date and final 2027 route package."
+      "status_note": "The organizer has confirmed the 2027 Copenhagen-to-Oslo gravel identity and June 17-23 dates. Training-plan publication remains source-blocked until it publishes the final 2027 route package."
     },
     "research_metadata": {
       "data_confidence": "official 2027 event window; latest organizer-verified course retained only as a guarded planning reference",
       "validation_status": "source_blocked_for_2027_plan",
-      "next_edition_status": "waiting_for_exact_grand_depart_and_final_route",
+      "next_edition_status": "waiting_for_final_2027_route",
       "known_gap": "The route page still carries the 2026 800 km / 7,200 m course and schedule. Do not clone, date, or publish a 2027 TrainingPeaks plan until the organizer confirms the 2027 grand depart and final GPX.",
       "sources": [
         "https://nordicchase.com/",

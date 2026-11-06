@@ -4,7 +4,8 @@
   "name": "Bear 100",
   "description": "Chip-timed spring gravel through Wisconsin's Nicolet National Forest.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-02",
+  "startDate": "2027-05-01",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Laona, Wisconsin",
@@ -22,7 +23,7 @@
   },
   "url": "https://www.thebear100.com/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Laona organizers and the Laona Rescue Squad",
     "url": "https://www.thebear100.com/"
   }

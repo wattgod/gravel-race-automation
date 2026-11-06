@@ -5,13 +5,13 @@
     "display_name": "Tor Divide",
     "tagline": "UK Peak District gravel challenge.",
     "vitals": {
-      "distance_mi": 60,
+      "distance_mi": 155.3,
       "elevation_ft": 5000,
       "location": "Peak District, UK",
       "location_badge": "PEAK DISTRICT, UK",
       "county": "Derbyshire",
       "date": "Mid-May annually",
-      "date_specific": "2026: May 17",
+      "date_specific": "2027: May 22-23 (Saturday-Sunday, CONFIRMED — tordivide.co.uk)",
       "terrain_types": [
         "UK Peak District",
         "British gravel",
@@ -45,16 +45,16 @@
         "Significant mountainous (5000 feet)",
         "Peak District scenery",
         "UK gravel experience",
-        "60-mile distance",
+        "155-mile distance",
         "Small-medium field"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 46,
+      "overall_score": 49,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 2,
-      "length": 3,
+      "length": 5,
       "technicality": 3,
       "elevation": 3,
       "climate": 2,
@@ -73,7 +73,7 @@
     },
     "biased_opinion": {
       "verdict": "UK Peak District Gravel",
-      "summary": "Tor Divide is a regional event in UK—Peak District terrain with significant elevation. The moorland is scenic, but the small-medium local field, regional organization, and limited prestige keep it in Tier 4.",
+      "summary": "Tor Divide is a regional event in UK—Peak District terrain with significant elevation. The moorland is scenic, but the small-medium local field, regional organization, and limited prestige keep it in Tier 3.",
       "strengths": [
         "Peak District scenery",
         "UK gravel experience",
@@ -91,7 +91,7 @@
       "bottom_line": "A solid regional UK Peak District gravel race. Worth it for UK riders. Not worth traveling internationally for."
     },
     "final_verdict": {
-      "score": "46 / 100",
+      "score": "49 / 100",
       "one_liner": "UK Peak District gravel challenge.",
       "should_you_race": "If you're local to UK—yes, it's solid. If you're traveling internationally—skip it.",
       "alternatives": "For better UK races: Lauf Gritfest.",
@@ -105,16 +105,39 @@
       "food": "Peak District has dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Tor Divide website",
+      "official_site": "",
       "camping": "camping at an event village in Bamford on Friday night** before the Saturday morning start"
     },
     "history": {
-      "founded": null,
+      "founded": 2024,
       "founder": "Local UK organizers",
       "origin_story": "Regional UK Peak District gravel event.",
       "notable_moments": [],
       "reputation": "Regional UK event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-05-16",
+        "edition": 3,
+        "note": "Very wet weather; Peak Gravel route continued.",
+        "source": "https://bikepacking.com/event/tor-divide-2026/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-17",
+        "edition": 2,
+        "note": "Start moved from Edale to Bamford; 200 km Peak Gravel route added.",
+        "source": "https://bikepacking.com/event/tor-divide-2025/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-05-18",
+        "edition": 1,
+        "note": "First edition, starting and finishing in Edale with 150 km and 250 km routes.",
+        "source": "https://bikepacking.com/event/tor-divide-2024/"
+      }
+    ],
     "course_description": {
       "character": "UK Peak District gravel.",
       "suffering_zones": [
@@ -146,7 +169,7 @@
     },
     "guide_variables": {
       "race_name": "Tor Divide",
-      "race_distance": "60 miles",
+      "race_distance": "155 miles",
       "race_elevation": "5,000 feet",
       "race_date": "Summer",
       "race_location": "Peak District, UK",
@@ -270,8 +293,8 @@
         "explanation": "Event village camping in Bamford with Saturday morning starts delivers solid organization, plus \"a train station a stone's throw from the start\" makes public transport viable. Laura describes taking away \"new skills\" and \"a renewed sense of what's possible\" from the experience, but basic details like entry fees and exact start times remain unpublished."
       },
       "length": {
-        "score": 3,
-        "explanation": "Claire Frecknall's team \"averaged a mere 10kmh for the first 35km\" on day one, showing how the 200km Peak Gravel and 250km Divide routes demand respect. The 32-hour cutoff and figure-eight design through Edale lets riders split it into manageable overnight segments or push through as a proper single-day challenge. Similar distance to Crusher in the Tushar."
+        "score": 5,
+        "explanation": "Claire Frecknall's team \"averaged a mere 10kmh for the first 35km\" on day one, showing how the 200km Peak Gravel and 250km Divide routes demand respect. The 32-hour cutoff and figure-eight design through Edale lets riders split it into manageable overnight segments or push through as a proper single-day challenge. Similar distance to Crusher in the Tushar. The 250 km flagship route (about 155 miles) clears 150 miles, which scores 5."
       },
       "technicality": {
         "score": 3,
@@ -342,6 +365,12 @@
         "url": "https://www.gravelunion.cc/article/ride-report-tor-ide-2024",
         "category": "community",
         "label": "gravelunion.cc: Ride Report Tor Ide 2024"
+      },
+      {
+        "url": "https://tordivide.co.uk/",
+        "category": "official",
+        "label": "Tor Divide official site — three routes from 150 km to 250 km; 2027 date",
+        "accessed": "2026-11-06"
       }
     ],
     "results": {

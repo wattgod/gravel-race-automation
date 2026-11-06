@@ -6,7 +6,7 @@
       "slug": "mt-fuji-hill-climb",
       "name": "Mt. Fuji Hill Climb",
       "date": "First Sunday of June or TBD",
-      "date_specific": "June 7, 2026",
+      "date_specific": "2027: June 6 (Sunday, CONFIRMED — fujihc.jp)",
       "distance_mi": 15,
       "elevation_ft": 4600,
       "location": "Fujiyoshida, Yamanashi, Japan",
@@ -37,7 +37,8 @@
       "cultural_impact": 4,
       "overall_score": 79,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -156,6 +157,21 @@
       "founded": 2004,
       "notable_facts": "Grew to Japan's largest hill climb with 8500 starters by 22nd edition in 2026. Pioneered mass-participation climbing on sacred Mt. Fuji. Added Zwift virtual dojos and Fuji Hill Ride Tours for global reach."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-07",
+        "edition": 22,
+        "note": "First time riders broke 55 minutes; women's first gold ring (under 65 min).",
+        "source": "https://www.cyclowired.jp/news/node/392616"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-01",
+        "edition": 21,
+        "source": "https://funride.jp/events/mtfujihc2025/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Brutal paved assault up Mt. Fuji—Japan's signature sufferfest.",
       "who_should_ride": "Strong climbers chasing iconic climbs and big fields. Anyone targeting sub-2hr personal bests on volcanic roads.",
@@ -174,10 +190,43 @@
     ],
     "citations": [
       {
+        "url": "https://www.fujihc.jp/info/the23rd/",
+        "category": "official",
+        "label": "Mt. Fuji Hill Climb — 2027 date",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://www.fujihc.jp/",
         "category": "official",
         "label": "Official Website"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "24 km (organizer-selection class)",
+          "winner_female": "大石 由美子",
+          "winner_male": "大前 翔",
+          "winning_time_female": "1:08:08.46",
+          "winning_time_male": "55:54.51",
+          "source": "https://www.cyclowired.jp/news/node/392616"
+        },
+        "2025": {
+          "race": "24 km (organizer-selection class)",
+          "winner_female": "三島 雅世",
+          "winner_male": "石井 雄悟",
+          "winning_time_female": "1:11:55",
+          "winning_time_male": "57:35",
+          "source": "https://www.cyclowired.jp/news/node/390133"
+        },
+        "2024": {
+          "race": "24 km (organizer-selection class)",
+          "winner_female": "三島 雅世",
+          "winner_male": "金子 宗平",
+          "source": "https://www.cyclowired.jp/news/node/390133"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

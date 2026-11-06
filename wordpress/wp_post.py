@@ -75,6 +75,7 @@ import re
 from dataclasses import dataclass
 from datetime import date, datetime
 from pathlib import Path
+from article_offers import offer_for_slug, render_offer
 from typing import Mapping, NamedTuple, Sequence
 from zoneinfo import ZoneInfo
 
@@ -638,7 +639,8 @@ def render_post(
         body,
         in_short=in_short or None,
         in_short_on_phone=in_short_on_phone,
-        ladder=True,
+        ladder=False,
+        offer_html=render_offer(offer_for_slug(src.slug)),
         contents=sections >= MIN_CONTENTS_SECTIONS,
         figures=shell_figures,
         extra_css="\n".join(css + ([extra_css] if extra_css else [])),

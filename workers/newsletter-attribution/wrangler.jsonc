@@ -1,0 +1,9 @@
+{
+  "name": "newsletter-attribution",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {"enabled": true, "head_sampling_rate": 0.1},
+  "vars": {"CAPTURE_ENABLED": "true", "ALLOW_LOCAL_TEST": "false"},
+  "d1_databases": [{"binding": "DB", "database_name": "newsletter-attribution", "database_id": "2202d328-5483-4414-a07d-2d028517dfa7", "migrations_dir": "migrations"}]
+}

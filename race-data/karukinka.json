@@ -5,13 +5,13 @@
     "display_name": "Karukinka",
     "tagline": "Chilean Tierra del Fuego gravel adventure.",
     "vitals": {
-      "distance_mi": 120,
-      "elevation_ft": 10000,
+      "distance_mi": 273.4,
+      "elevation_ft": 18045,
       "location": "Tierra del Fuego, Chile",
       "location_badge": "TIERRA DEL FUEGO, CHILE",
       "county": "Tierra del Fuego",
-      "date": "Late February annually",
-      "date_specific": "2026: February 25",
+      "date": "December",
+      "date_specific": "TBD — 3rd edition ran December 8-12, 2025; 2026 date not announced",
       "terrain_types": [
         "Chilean Tierra del Fuego",
         "South American gravel",
@@ -50,13 +50,13 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 54,
+      "overall_score": 57,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 1,
-      "length": 4,
+      "length": 5,
       "technicality": 4,
-      "elevation": 4,
+      "elevation": 5,
       "climate": 1,
       "altitude": 2,
       "adventure": 5,
@@ -91,7 +91,7 @@
       "bottom_line": "An extreme Tierra del Fuego gravel adventure. Worth it for elite adventure seekers with big budgets. Not practical for most riders."
     },
     "final_verdict": {
-      "score": "54 / 100",
+      "score": "57 / 100",
       "one_liner": "Chilean Tierra del Fuego gravel adventure.",
       "should_you_race": "If you have a big budget and want an extreme end-of-the-world experience—maybe. For most riders—there are better options.",
       "alternatives": "For better value: regional gravel races. For similar Chilean terrain: Gravel del Fuego.",
@@ -114,6 +114,15 @@
       "notable_moments": [],
       "reputation": "Regional Chilean event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-12-08",
+        "end_date": "2025-12-12",
+        "edition": 3,
+        "source": "https://karukinkagravelrace.com/"
+      }
+    ],
     "course_description": {
       "character": "Tierra del Fuego mountain gravel.",
       "suffering_zones": [
@@ -145,8 +154,8 @@
     },
     "guide_variables": {
       "race_name": "Karukinka",
-      "race_distance": "120 miles",
-      "race_elevation": "10,000 feet",
+      "race_distance": "273 miles (5 stages)",
+      "race_elevation": "18,045 feet (total)",
       "race_date": "Summer",
       "race_location": "Tierra del Fuego, Chile",
       "race_terrain": "Tierra del Fuego mountain gravel",
@@ -269,16 +278,16 @@
         "explanation": "After a 13-hour flight to Santiago plus 3+ hours to Punta Arenas, riders face an 8-hour minibus journey including ferry crossing to reach Villa Cameron (population: 90). Jorge Padrones notes you \"start to be conscious of how remote this area is when you look into the time that it takes to get there.\" No self-supported transport options exist - you're entirely dependent on organizer logistics from Punta Arenas."
       },
       "length": {
-        "score": 4,
-        "explanation": "Five stages covering 440 kilometers with riders going out to \"the end of any road in that part of the world\" then returning on the same route. Stage 1 alone covers 98km through steppe landscape, while Stage 2 spans 114km crossing mountain ranges. The multi-day format with basic albergue lodging makes the distance feel substantial compared to single-day centuries. Longer than Belgian Waffle Ride San Diego."
+        "score": 5,
+        "explanation": "Five stages covering 440 kilometers with riders going out to \"the end of any road in that part of the world\" then returning on the same route. Stage 1 alone covers 98km through steppe landscape, while Stage 2 spans 114km crossing mountain ranges. At roughly 273 miles the total is well past the 150-mile mark for a top length score, and basic albergue lodging makes every stage count."
       },
       "technicality": {
         "score": 4,
         "explanation": "Racing begins immediately with Jorge Padrones reporting \"straight away there was a nasty climb in which we could see the first attacks\" just minutes from Villa Cameron. The course follows the military-built Ruta Vicuña-Yendegaia through hairpin-filled mountain passes and forests. Riders get exclusive access to 10km of unopened road sections built by Chilean Army engineers at one kilometer per year. More technical than most — comparable to Belgian Waffle Ride San Diego."
       },
       "elevation": {
-        "score": 4,
-        "explanation": "5,500 meters of climbing across two southernmost mountain passes on Earth, with Stage 2 alone featuring approximately 2,000 meters of ascent. The route transitions dramatically from Magellanic pampa through native forests to snow-capped peaks. Jorge Padrones described Stage 2 as \"a hard mountain stage\" with \"two long climbs crossing a huge mountain range.\" More climbing than SBT GRVL at the same score."
+        "score": 5,
+        "explanation": "5,500 meters (about 18,000 ft) of climbing across two southernmost mountain passes on Earth, with Stage 2 alone featuring approximately 2,000 meters of ascent. The route transitions dramatically from Magellanic pampa through native forests to snow-capped peaks. Jorge Padrones described Stage 2 as \"a hard mountain stage\" with \"two long climbs crossing a huge mountain range.\" The total clears 10,000 ft with room to spare."
       },
       "climate": {
         "score": 1,
@@ -371,6 +380,12 @@
         "url": "https://colombici.cc/journal/finding-myself",
         "category": "community",
         "label": "colombici.cc: Finding Myself"
+      },
+      {
+        "url": "https://karukinkagravelrace.com/",
+        "category": "official",
+        "label": "Karukinka Gravel Race — five stages, about 440 km and 5,500 m climbing",
+        "accessed": "2026-11-05"
       }
     ],
     "results": {

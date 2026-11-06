@@ -65,10 +65,12 @@ def test_committed_listing_is_fresh(page):
 
 
 def test_every_article_in_blog_index_has_a_card(page):
-    urls = [e["url"] for e in json.loads(gai.INDEX_JSON.read_text()) if e.get("category") == "article"]
+    urls = {e.url for e in gai.load_essays()}
     hrefs = [re.search(r'href="([^"]*)"', c).group(1) for c in _cards(page)]
-    assert sorted(hrefs) == sorted(urls)
+    assert set(hrefs) == urls
+    assert len(hrefs) == len(urls)
     assert 'href=""' not in page
+    assert all(href.startswith("/") for href in hrefs)
 
 
 def test_sweet_spot_card_uses_its_current_og_image(page):
@@ -77,21 +79,38 @@ def test_sweet_spot_card_uses_its_current_og_image(page):
     assert "sweet-spot-rip.png" not in page
 
 
-def test_training_app_card_uses_look_inside(page):
-    card = next(c for c in _cards(page) if "/articles/your-training-app-doesnt-know-your-race-exists/" in c)
-    assert f'src="{SITE}/articles/your-training-app-doesnt-know-your-race-exists/img/og-look-inside.jpg"' in card
+def test_withdrawn_article_is_absent(page):
+    assert 'href="/articles/your-training-app-doesnt-know-your-race-exists/"' not in page
+
+
+def test_every_reformatted_wordpress_post_is_listed(page):
+    paths = sorted(gai.POSTS_DIR.glob("*/index.html"))
+    assert len(paths) == 77
+    for path in paths:
+        assert f'href="/{path.parent.name}/"' in page
+
+
+def test_substack_duplicates_prefer_existing_local_versions(page):
+    entries = json.loads(gai.SUBSTACK_INDEX.read_text())
+    for entry in entries:
+        url = entry.get("local_url") or f"/articles/{entry['slug']}/"
+        assert sum(f'href="{url}"' in card for card in _cards(page)) == 1
+    assert 'href="https://gravelgodcycling.substack.com/p/' not in page
 
 
 def test_card_matches_its_essay_page(page):
     """Headline, dek, image and reading time come from the committed essay."""
     for essay in gai.load_essays():
-        src = (gai.ARTICLES_DIR / essay.slug / "index.html").read_text(encoding="utf-8")
+        directory = gai.ARTICLES_DIR if essay.url.startswith("/articles/") else gai.POSTS_DIR
+        src = (directory / essay.slug / "index.html").read_text(encoding="utf-8")
         assert re.search(rf'<meta property="og:image" content="{re.escape(essay.og_image)}">', src)
-        assert f"{essay.minutes} min read" in src
+        if essay.minutes:
+            assert f"{essay.minutes} min read" in src
         card = next(c for c in _cards(page) if f'href="{essay.url}"' in c)
         assert f">{gai.esc(essay.headline)}</h2>" in card
         assert gai.esc(essay.dek) in card
-        assert 'width="1200" height="630"' in card
+        if essay.og_width and essay.og_height:
+            assert f'width="{essay.og_width}" height="{essay.og_height}"' in card
         assert "| Gravel God" not in card
 
 
@@ -143,7 +162,6 @@ def test_shell_header_and_footer(page):
 # mega footer wrote /cookies/ etc. absolute, the shell's legal footer relative).
 PRE_SHELL_LINKS = (
     "/articles/sweet-spot-training-cycling/",
-    "/articles/your-training-app-doesnt-know-your-race-exists/",
     "/cookies/", "/privacy/", "/terms/",
     f"{SITE}/", f"{SITE}/about/", f"{SITE}/articles/", f"{SITE}/coaching/", f"{SITE}/consulting/",
     f"{SITE}/cookies/", f"{SITE}/course/", f"{SITE}/fueling-methodology/", f"{SITE}/gravel-races/",
@@ -234,3 +252,13 @@ def test_text_is_escaped(tmp_path):
         (e,) = gai.load_essays(index, articles)
     card = gai.render_card(e)
     assert "&lt;b&gt;&quot;x&quot;&lt;/b&gt;" in card and "a &lt; b &amp; c" in card
+
+
+def test_withdrawal_stays_excluded_if_stale_index_reintroduces_it(tmp_path):
+    index, articles = _write(tmp_path, [_entry("your-training-app-doesnt-know-your-race-exists", "2026-07-02")])
+    assert gai.load_essays(index, articles) == []
+
+
+def test_withdrawn_page_returns_gone_configuration():
+    path = gai.ARTICLES_DIR/'your-training-app-doesnt-know-your-race-exists/.htaccess'
+    assert path.read_text().strip() == 'Redirect gone /articles/your-training-app-doesnt-know-your-race-exists/'

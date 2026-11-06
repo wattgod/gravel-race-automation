@@ -137,3 +137,52 @@ root URL**: `gravelgodcycling.com/<slug>/`. The slug never changes (no
 - Concession section is mandatory: name who shouldn't buy/believe.
 - Free-first: the article must be fully useful with zero purchase.
 - One CTA voice: the shell's ladder + subscribe blocks; no extra pitches.
+
+## Article archive (2026-10-28)
+
+`generate_articles_index.py` lists all committed `wordpress/posts/*/index.html`
+at their original URLs, the authored essays in `blog-index.json`, and full
+Substack reprints in `wordpress/articles/`. Existing WordPress/essay versions
+win over repeat Substack publications. The public archive contains only local
+article links. New WordPress imports need no manual index entry.
+
+Substack metadata refresh: `python3 scripts/sync_substack_index.py`.
+Import complete published snapshots: `python3 scripts/import_substack_posts.py
+/path/to/snapshots`. It preserves source copy/images, removes platform controls,
+rejects truncated bodies, and writes committed `wordpress/substack_sources/`
+and article directories. Re-render without network using the same command
+without a snapshots argument. Then regenerate the listing. The source metadata
+records the original published URL; Article JSON-LD includes `isBasedOn`.
+
+The training-app essay was withdrawn at Matti's request: it was not authored by
+him. `web/withdrawn-articles.json` excludes it from index regeneration, and its
+committed directory `.htaccess` returns HTTP 410 on the public site. The old
+source/artwork remain historical material only. Do not republish it or use it
+as an authorship/voice source. This supersedes its older SHIPPED/backlog notes.
+
+## Article signup and contextual resources
+
+All article renderers and the listing use the one native Slow, Mid, 38s signup
+in `editorial_shell.render_footer()`. It submits directly to Substack; the
+plain Substack link is a fallback. Do not substitute a Mission Control lead
+submission for a newsletter subscription. Do not infer `sign_up` from iframe
+loads, focus, clicks, or arbitrary cross-origin messages.
+
+`wordpress/article_offers.py` holds the reviewed slug-to-resource policy.
+Training pieces can offer a plan or coaching; matched race reports link to
+the current race guide; some explainers link to the relevant handbook chapter.
+Unlisted/new articles default to newsletter only. Add a mapping deliberately;
+never infer an offer from an incidental body keyword. Render at most one
+resource, outside the authored sections; leave body copy and artwork intact.
+The old universal plans/coaching ladder is disabled for imported posts and
+Sweet Spot. Prices come from `pricing.py`/`data/pricing.json`.
+
+`article_deep_read` fires once per page load at the 75% milestone. The four
+scroll-depth milestones still fire independently. `article_cta_click` describes
+article actions; commercial plan/coaching links additionally emit the canonical
+`cta_click` for the existing intent report. Those event types are separate
+measures, never summed as customer conversions.
+
+Regression: `pytest tests/test_article_conversion.py` executes the emitted JS
+for gradual scrolling, repeated scrolling, a jump to the bottom, and a real
+commercial click. It also checks every archive page's signup and reviewed offer.

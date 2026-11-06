@@ -206,6 +206,15 @@
       "notable_moments": [],
       "reputation": "An established Czech gravel event upgraded into a credible international qualifier."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-08-02",
+        "edition": 7,
+        "note": "Course extended to 128 km ahead of a bid to join the UCI Gravel World Series.",
+        "source": "https://mtbs.cz/clanek/tubolito-gravel-tour-hlinsko-vysledky/kategorie/bleskovky-zavody"
+      }
+    ],
     "guide_variables": {
       "race_name": "Gravel Tour Hlinsko",
       "race_distance": "129 km / 80.2 miles",
@@ -346,6 +355,17 @@
       "migration_notes": [
         "New catalog intake from the official 2026 UCI Gravel World Series calendar reconciliation."
       ]
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "128 km",
+          "winner_male": "Filip Adel",
+          "winning_time_male": "3:59:41",
+          "source": "https://www.czechcyclingfederation.com/gravel-tour-hlinsko-vyhral-filip-adel/"
+        }
+      },
+      "latest_year": "2025"
     }
   }
 }

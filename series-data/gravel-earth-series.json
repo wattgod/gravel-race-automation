@@ -3,21 +3,24 @@
     "name": "Gravel Earth Series",
     "slug": "gravel-earth-series",
     "display_name": "Gravel Earth Series",
-    "tagline": "Europe's premier gravel circuit — from Girona to Kenya to Iceland, the global alternative to America's gravel hegemony.",
+    "tagline": "Klassmark's licensed global gravel series, 2023-2026. Replaced by The Traka World Series in 2027.",
     "organizer": "Klassmark",
     "founded": 2023,
     "headquarters": "Girona, Spain",
     "website": "https://gravelearth.com",
-    "description": "The Gravel Earth Series is the most ambitious international gravel racing circuit in the world. Built around The Traka — the flagship event in Girona that helped put European gravel on the map — the series spans 12 events across 7 countries on 4 continents. From the volcanic deserts of Spain's Monegros to the highlands of Iceland to the safari tracks of Kenya, Gravel Earth offers a genuinely global vision of what gravel racing can be. The series blends ultra-distance stage races, single-day classics, and adventure events into a comprehensive calendar that rewards versatility, exploration, and sheer endurance.",
-    "history": "The Gravel Earth Series grew out of The Traka, a gravel race founded in Girona, Spain that quickly became one of Europe's premier events. Klassmark, the organizing company, recognized that gravel racing was exploding globally but lacked a European-centered series to rival America's Life Time Grand Prix. In 2023, they launched Gravel Earth as an umbrella circuit connecting The Traka with partner events across Europe and beyond. The 2024 season expanded dramatically, adding events in Iceland, Kenya, and the United States (via partnerships with Oregon Trail Gravel Grinder, Lost and Found, and Core4). By 2026, the series encompasses 12 events across 7 countries with a EUR 37,500 prize pool.",
-    "format_overview": "The Gravel Earth Series encompasses a wide variety of formats unified by a global points-based championship. Events range from single-day races (The Traka 200, Gravel Desert) to multi-day stage races (Oregon Trail at 5 days, Migration Gravel Race at 4 stages). Flagship events include The Traka 360 (335km ultra-distance) and the Migration Gravel Race (450-650km across Kenya). The series awards points across categories with EUR 2,500 per category winner.",
+    "status": "ended",
+    "ended_year": 2026,
+    "successor": "the-traka-world-series",
+    "description": "The Gravel Earth Series was Klassmark's global gravel series from 2023 through 2026, built around The Traka in Girona. Independent organizers joined under license and borrowed The Traka's name and methods in return. The calendar grew to more than 20 events in 13 countries in 2025, then shrank to twelve for 2026, the final season. From 2027 Klassmark runs The Traka World Series instead, a seven-round calendar under its own control.",
+    "history": "Klassmark, the Girona company behind The Traka, launched Gravel Earth in 2023 as a license system: partner races on several continents carried the series name and drew on The Traka's image and practices, an arrangement that never ran free of friction. Partners included Oregon Trail Gravel Grinder, Lost and Found and CORE4 in the United States and Migration Gravel Race in Kenya. The calendar passed 20 events in 13 countries in 2025; for 2026 Klassmark cut it to twelve and never disclosed a prize purse. On November 5, 2026, Klassmark confirmed Gravel Earth would not continue and announced The Traka World Series for 2027.",
+    "format_overview": "Gravel Earth mixed single-day races such as The Traka 200 and Gravel Desert with stage races such as Oregon Trail Gravel Grinder and Migration Gravel Race under one points-based championship. The event list below is the final 2026 calendar.",
     "events": [
       {
         "name": "La Santa Vall",
-        "slug": null,
+        "slug": "santa-vall",
         "location": "Sant Gregori, Spain",
         "month": "February",
-        "has_profile": false
+        "has_profile": true
       },
       {
         "name": "The Hills Gravel Race",
@@ -28,10 +31,10 @@
       },
       {
         "name": "Gravel Desert",
-        "slug": null,
+        "slug": "gravel-desert",
         "location": "Monegros, Spain",
         "month": "April",
-        "has_profile": false
+        "has_profile": true
       },
       {
         "name": "The Traka 360",
@@ -101,6 +104,18 @@
       "total_events": 12,
       "countries": 7,
       "oldest_event_year": 2023
-    }
+    },
+    "citations": [
+      {
+        "url": "https://rawcyclingmag.com/the-traka-world-series/",
+        "category": "media",
+        "label": "RAW Cycling Magazine: The Traka World Series (Gravel Earth ends)"
+      },
+      {
+        "url": "https://progravelmagazine.substack.com/p/the-traka-world-series-2027-is-born",
+        "category": "media",
+        "label": "Pro Gravel Magazine: The Traka World Series 2027 is born"
+      }
+    ]
   }
 }

@@ -41,6 +41,7 @@ Read that first. Additional traps verified against a live profile
   real intel — check `key_challenges`/`terrain_notes` arrays are non-empty too.
 - **`curated: false` videos stay in `videos[]`.** Only `curated: true` entries
   should render; the array holds accepted and rejected results side by side.
+- **`race.editions` is the edition history** (newest first: `year`, ISO `date`/`end_date`, `status` `cancelled`|`not_held`, `edition`, `note`, `source`). The next edition stays in `vitals.date_specific`; the page's Editions table merges the two. Every researched entry carries an https `source`. Change dates with `scripts/set_race_date.py` so the old edition is kept (CLAUDE.md pitfall 16).
 - **`history.founded` / `guide_variables.altitude_feet` are `null`-typed, not
   absent.** Same falsiness risk as CLAUDE.md #4 (`esc(0)`) — check `is None`,
   not truthiness, on any numeric vitals field here.

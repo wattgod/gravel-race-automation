@@ -6,7 +6,7 @@
     "tagline": "Washington Cascades gravel adventure.",
     "vitals": {
       "distance_mi": 65,
-      "elevation_ft": 5500,
+      "elevation_ft": 6600,
       "location": "Snoqualmie Pass, WA",
       "location_badge": "SNOQUALMIE PASS, WA",
       "county": "Kittitas County",
@@ -42,7 +42,7 @@
       "surface": "Gravel roads through Washington Cascades. Significant elevation with mountain scenery.",
       "technical_rating": 3,
       "features": [
-        "Significant mountainous (5500 feet)",
+        "Significant mountainous (6600 feet)",
         "Washington Cascades scenery",
         "Pacific Northwest adventure",
         "65-mile distance",
@@ -50,13 +50,13 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 47,
+      "overall_score": 49,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 2,
       "length": 3,
       "technicality": 3,
-      "elevation": 3,
+      "elevation": 4,
       "climate": 2,
       "altitude": 2,
       "adventure": 3,
@@ -73,7 +73,7 @@
     },
     "biased_opinion": {
       "verdict": "Washington Cascades Adventure",
-      "summary": "The GRiT Adventure is a regional event in Washington—Cascades terrain with significant elevation. The mountains are scenic, but the small-medium local field, remote location, and limited organization keep it in Tier 4.",
+      "summary": "The GRiT Adventure is a regional event in Washington—Cascades terrain with significant elevation. The mountains are scenic, but the small-medium local field, remote location, and limited organization keep it in Tier 3.",
       "strengths": [
         "Washington Cascades scenery",
         "Mountain adventure",
@@ -91,7 +91,7 @@
       "bottom_line": "A solid regional WA Cascades gravel race. Worth it for WA/Northwest riders. Not worth traveling far for."
     },
     "final_verdict": {
-      "score": "47 / 100",
+      "score": "49 / 100",
       "one_liner": "Washington Cascades gravel adventure.",
       "should_you_race": "If you're local to WA—yes, it's solid. If you're traveling—skip it.",
       "alternatives": "For better WA races: Check regional options."
@@ -102,7 +102,7 @@
       "food": "Snoqualmie Pass has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check The GRiT Adventure website",
+      "official_site": "",
       "camping": "Camping available along the I90 corridor near Snoqualmie Pass**[2]"
     },
     "history": {
@@ -112,6 +112,18 @@
       "notable_moments": [],
       "reputation": "Regional WA event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Maximus course shortened to 60 miles from 70",
+        "source": "https://www.webscorer.com/race?raceid=440420"
+      },
+      {
+        "year": 2025,
+        "date": "2025-07-19",
+        "source": "https://www.webscorer.com/race?raceid=398365"
+      }
+    ],
     "course_description": {
       "character": "Washington Cascades mountain gravel.",
       "suffering_zones": [
@@ -144,7 +156,7 @@
     "guide_variables": {
       "race_name": "The GRiT Adventure",
       "race_distance": "65 miles",
-      "race_elevation": "5,500 feet",
+      "race_elevation": "6,600 feet",
       "race_date": "Summer",
       "race_location": "Snoqualmie Pass, WA",
       "race_terrain": "Washington Cascades gravel",
@@ -275,8 +287,8 @@
         "explanation": "The lollipop course mixes doubletrack, singletrack, and technical obstacles that caught Martin Criminale's fender repeatedly: \"I kept bending the front one when I tried to ride over logs.\" Water troughs require \"get off and walk your bike as the transition at the bottom is too sudden to ride.\" Similar technical demands to Gravel Worlds."
       },
       "elevation": {
-        "score": 3,
-        "explanation": "5500 feet over 65 miles averages 85 feet per mile, which is climbing. The \"brutal climbs\" promise in Cascade terrain means sustained grades that \"will take your breath away.\" Not Alpine epic numbers, but enough vertical to separate the climbers from the pretenders. Similar elevation profile to Gravel Worlds."
+        "score": 4,
+        "explanation": "The 60-mile Maximus course climbs 6,600 feet, about 110 feet per mile, which is climbing. The \"brutal climbs\" promise in Cascade terrain means sustained grades that \"will take your breath away.\" Not Alpine epic numbers, but enough vertical to separate the climbers from the pretenders. Similar elevation profile to Gravel Worlds. That 6,600 feet lands in the 6,000 to 9,999 ft band, which scores 4."
       },
       "climate": {
         "score": 2,
@@ -300,7 +312,7 @@
       },
       "experience": {
         "score": 3,
-        "explanation": "Starting at Crystal Springs Sno-Park and mixing \"asphalt, dirt/gravel roads, with some double track sections\" delivers Adventure Gravel. The Cascades location promises \"adventure, giggles, dirt, sweat, hugs,\" which sounds cheesy but the terrain backs it up. At 65 miles with 5500 feet of gain, you'll earn whatever experience you get."
+        "explanation": "Starting at Crystal Springs Sno-Park and mixing \"asphalt, dirt/gravel roads, with some double track sections\" delivers Adventure Gravel. The Cascades location promises \"adventure, giggles, dirt, sweat, hugs,\" which sounds cheesy but the terrain backs it up. With 6,600 feet of gain on the Maximus course, you'll earn whatever experience you get."
       },
       "community": {
         "score": 2,
@@ -334,6 +346,12 @@
         "url": "https://martin.criminale.com/2022/06/pre-riding-grit-l-course.html",
         "category": "community",
         "label": "martin.criminale.com: Pre Riding Grit L Course.Html"
+      },
+      {
+        "url": "https://thegrit.bike/event-details/",
+        "category": "official",
+        "label": "The GRiT event details — Maximus course, 60 miles and 6,600 ft of climbing",
+        "accessed": "2026-11-05"
       }
     ],
     "tire_recommendations": {
@@ -621,6 +639,27 @@
         "credit": "YouTube / PNW eBike",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "60 mi",
+          "winner_female": "Sabrina Hirsch",
+          "winner_male": "Nick McLean",
+          "winning_time_female": "4:43:09.7",
+          "winning_time_male": "3:50:45.6",
+          "source": "https://www.webscorer.com/race?raceid=440420"
+        },
+        "2025": {
+          "race": "70 mi",
+          "winner_female": "Becca Book",
+          "winner_male": "Austen Davis",
+          "winning_time_female": "4:54:26.3",
+          "winning_time_male": "3:53:53.2",
+          "source": "https://www.webscorer.com/race?raceid=398365"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

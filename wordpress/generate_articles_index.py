@@ -8,14 +8,16 @@ header + Subscribe, footer and consent banner as the essays, and the shell's
 tokens for type and colour. One card per essay: OG image, headline, dek,
 date and reading time. The newest essay leads; the rest follow in a grid.
 
-Data, so a new essay needs no change here:
-- Which essays, and their dates: every entry in web/blog-index.json with
-  category "article" (url + date required), newest first.
-- What the card shows: read from the committed essay page,
-  wordpress/articles/<slug>/index.html (the h1, the dek, og:image and its
-  size, "N min read"), so the card always matches the page and its share
-  card. An essay without a committed page falls back to its blog-index.json
-  title (minus " | Gravel God"), excerpt and og_image.
+Data sources:
+- Authored essays: category "article" entries in web/blog-index.json.
+- Reformatted WordPress posts: committed wordpress/posts/<slug>/index.html,
+  preserving their original root URLs and publication dates.
+- Full Substack reprints: web/substack-index.json and their committed pages.
+  Existing on-site versions win over repeat newsletter publications.
+- Withdrawals: web/withdrawn-articles.json, also enforced by the blog generator.
+
+Headlines, artwork and reading times come from each committed page. A missing
+full Substack copy fails the build; the archive never substitutes a teaser.
 
 Writes wordpress/articles/index.html (tracked, like the essays);
 tests/test_articles_index.py fails if it is stale. Deploy: SCP it to
@@ -43,13 +45,16 @@ from shared_header import get_site_header_js  # noqa: E402
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 INDEX_JSON = PROJECT_ROOT / "web" / "blog-index.json"
 ARTICLES_DIR = PROJECT_ROOT / "wordpress" / "articles"
+POSTS_DIR = PROJECT_ROOT / "wordpress" / "posts"
+SUBSTACK_INDEX = PROJECT_ROOT / "web" / "substack-index.json"
+WITHDRAWN_INDEX = PROJECT_ROOT / "web" / "withdrawn-articles.json"
 OUTPUT_PATH = ARTICLES_DIR / "index.html"
 SITE_URL = "https://gravelgodcycling.com"
 
 PAGE_TITLE = "Articles — Gravel God Cycling"
 PAGE_DESCRIPTION = "In-depth articles on gravel cycling training, nutrition, and race strategy from Gravel God."
 OG_DESCRIPTION = "In-depth articles on gravel cycling training, nutrition, and race strategy."
-HEADLINE = "Hot Takes"
+HEADLINE = "Articles"
 DEK = "In-depth articles on training, racing, and not being slow"
 KICKER = "Essays"
 EMPTY_TEXT = "More articles coming soon."
@@ -110,12 +115,14 @@ def _slug_from_url(url: str) -> str:
     return url.rstrip("/").rsplit("/", 1)[-1]
 
 
-def load_essays(index_json: Path = INDEX_JSON, articles_dir: Path = ARTICLES_DIR) -> list[Essay]:
+def load_essays(index_json: Path = INDEX_JSON, articles_dir: Path = ARTICLES_DIR,
+                *, posts_dir: Path | None = None, substack_index: Path | None = None) -> list[Essay]:
     """Every category "article" entry in blog-index.json, newest first.
 
     Raises ValueError on an entry without a /articles/ url or a valid date:
     a broken entry should stop the build, not ship a card with href=""."""
     entries = json.loads(index_json.read_text(encoding="utf-8"))
+    withdrawn = set(json.loads(WITHDRAWN_INDEX.read_text(encoding="utf-8")))
     essays = []
     for e in entries:
         if e.get("category") != "article":
@@ -128,6 +135,8 @@ def load_essays(index_json: Path = INDEX_JSON, articles_dir: Path = ARTICLES_DIR
         except ValueError:
             raise ValueError(f"blog-index.json article {url} has no valid date: {e.get('date')!r}") from None
         slug = _slug_from_url(url)
+        if slug in withdrawn:
+            continue
         page_path = articles_dir / slug / "index.html"
         if page_path.exists():
             page = read_essay_page(page_path.read_text(encoding="utf-8"))
@@ -145,6 +154,53 @@ def load_essays(index_json: Path = INDEX_JSON, articles_dir: Path = ARTICLES_DIR
             og_height=page.get("og_height"),
             minutes=page.get("minutes"),
         ))
+    # Imported posts keep their original root URLs. Discover committed pages,
+    # rather than requiring a second manual registration for each import.
+    if index_json == INDEX_JSON:
+        posts_dir = posts_dir or POSTS_DIR
+        substack_index = substack_index or SUBSTACK_INDEX
+    if posts_dir is not None:
+        for path in sorted(posts_dir.glob("*/index.html")):
+            raw = path.read_text(encoding="utf-8")
+            if re.search(r'<meta name="robots" content="[^"]*noindex', raw):
+                continue
+            canonical = re.search(r'<link rel="canonical" href="([^"]+)"', raw)
+            published = re.search(r'"datePublished"\s*:\s*"(\d{4}-\d{2}-\d{2})', raw)
+            if not canonical or not published:
+                raise ValueError(f"Imported post missing canonical or publication date: {path}")
+            url = html_mod.unescape(canonical.group(1))
+            expected = f"{SITE_URL}/{path.parent.name}/"
+            if url != expected:
+                raise ValueError(f"Imported post canonical mismatch: {path}: {url!r}")
+            card = read_essay_page(raw)
+            essays.append(Essay(
+                slug=path.parent.name, url=url.removeprefix(SITE_URL),
+                headline=card["headline"], dek=card["dek"],
+                published=date.fromisoformat(published.group(1)),
+                og_image=card["og_image"], og_width=card["og_width"],
+                og_height=card["og_height"], minutes=card["minutes"],
+            ))
+    seen = {e.url for e in essays}
+    if substack_index is not None:
+        for entry in json.loads(substack_index.read_text(encoding="utf-8")):
+            if entry.get("local_url") in seen:
+                continue
+            # Full reprints use the same shell as the existing essays.
+            local_path = articles_dir / entry["slug"] / "index.html"
+            if local_path.exists():
+                card = read_essay_page(local_path.read_text(encoding="utf-8"))
+                url = f"/articles/{entry['slug']}/"
+                if url in seen:
+                    continue
+                essays.append(Essay(
+                    slug=entry["slug"], url=url, headline=card["headline"],
+                    dek=card["dek"], published=date.fromisoformat(entry["date"]),
+                    og_image=card["og_image"], og_width=card["og_width"],
+                    og_height=card["og_height"], minutes=card["minutes"],
+                ))
+                seen.add(url)
+                continue
+            raise ValueError(f"Full Substack reprint missing: {entry['slug']}")
     essays.sort(key=lambda x: (x.published, x.url), reverse=True)
     return essays
 
@@ -207,6 +263,7 @@ LISTING_CSS = """
 @media (min-width:900px){
   .gg-ai-lead{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);column-gap:40px;align-items:center}
   .gg-ai-lead .gg-ai-txt{padding:0}
+  .gg-ai-lead:not(:has(.gg-ai-img)){grid-template-columns:1fr}
 }
 @media (max-width:640px){
   .gg-ai-page{padding:0 16px}
@@ -250,9 +307,7 @@ def render_articles_index(essays: list[Essay]) -> str:
 
 <main class="gg-ai-page">
   <header class="gg-ai-hero">
-    <p class="kick-top">{esc(KICKER)}</p>
     <h1>{esc(HEADLINE)}</h1>
-    <p class="dek">{esc(DEK)}</p>
   </header>
 {render_listing(essays)}
 </main>

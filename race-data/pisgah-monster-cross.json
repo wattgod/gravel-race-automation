@@ -11,7 +11,7 @@
       "location_badge": "PISGAH FOREST, NC",
       "county": "Transylvania County",
       "date": "September annually",
-      "date_specific": "2026: September 12 (SATURDAY, CONFIRMED — pisgahproductions.com/events/pisgah-monster-cross-challenge/; 2027 not yet announced)",
+      "date_specific": "2027: September 11 (Saturday, CONFIRMED — pisgahproductions.com)",
       "terrain_types": [
         "Pisgah National Forest gravel and paved forest roads",
         "Brutal Appalachian climbing terrain"
@@ -119,6 +119,24 @@
       ],
       "reputation": "Southeast gravel classic. Technical Pisgah terrain. 15-20% DNF."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-09-12",
+        "source": "https://pisgahproductions.com/events/pisgah-monster-cross-challenge/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-09-06",
+        "note": "Course updated: up Joel Branch and down into the hatchery on 475C.",
+        "source": "https://www.bikereg.com/pisgah-monster-cross-challenge-2024?nc=1"
+      },
+      {
+        "year": 2024,
+        "date": "2024-09-07",
+        "source": "https://results.bikereg.com/race/19691"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -203,12 +221,12 @@
       }
     },
     "final_verdict": {
-      "score": "69 / 100",
+      "score": "73 / 100",
       "one_liner": "Pisgah's gravel roads will remind you that 8,777 feet of climbing doesn't negotiate, even when wrapped in Appalachian eye candy.",
       "should_you_race": "You need legitimate climbing legs and comfort grinding for 14 hours through National Forest terrain that rewards bike handling over pure watts. The three aid stations mean you're mostly self-sufficient between long stretches of Pisgah's relentless rollers. Show up undertrained to this one and you'll discover new definitions of suffering before that 10PM cutoff.",
       "alternatives": "Gravel Worlds gives you similar distance with less punishing elevation if you want to test endurance without the Appalachian punishment. Dirty Kanza DK200 offers comparable suffering but trades mountain climbs for Kansas wind and heat—pick your preferred torture method.",
       "alternative_slugs": [
-        "garmin-gravel-worlds",
+        "gravel-worlds",
         "unbound-200"
       ]
     },
@@ -267,7 +285,8 @@
       {
         "url": "https://www.pisgahproductions.com/events/pisgah-monster-cross-challenge/",
         "category": "other",
-        "label": "Pisgahproductions"
+        "label": "Pisgah Productions: Pisgah Monster-Cross Challenge (2027 date)",
+        "accessed": "2026-11-05"
       },
       {
         "url": "https://www.pisgahproductions.com/results/2024-pisgah-monster-cross-challenge-results/",
@@ -640,6 +659,35 @@
         "credit": "YouTube / Gravel Cyclist",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "69 mi",
+          "winner_female": "Olivia Pantano",
+          "winner_male": "Nick Bragg",
+          "winning_time_female": "4:59:13",
+          "winning_time_male": "4:20:35",
+          "source": "https://www.pisgahproductions.com/results/2026-pisgah-monster-cross-challenge-results/"
+        },
+        "2025": {
+          "race": "69 mi",
+          "winner_female": "Sierra Sims",
+          "winner_male": "Oakely Griffin",
+          "winning_time_female": "5:11:05",
+          "winning_time_male": "4:05:33",
+          "source": "https://www.pisgahproductions.com/results/2025-pisgah-monster-cross-challenge-results/"
+        },
+        "2024": {
+          "race": "69 mi",
+          "winner_female": "Amy Phillips",
+          "winner_male": "Manolo Wrolich",
+          "winning_time_female": "5:08:50",
+          "winning_time_male": "4:25:14",
+          "source": "https://results.bikereg.com/race/19691"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

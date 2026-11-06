@@ -138,12 +138,38 @@
       ],
       "reputation": "A professionally delivered young stage race with unusually serious prize, classification, and rider-support ambitions."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 1,
+        "note": "Inaugural six-day gravel stage race, Mossel Bay to Wilderness; final stage ran April 18",
+        "source": "https://bikenetwork.co.za/final-wrap-2026-garden-route-giro/"
+      }
+    ],
     "course_description": {
       "character": "A six-day solo race moving from the Western Cape coast through farmlands, Karoo passes, valleys, and indigenous forest before returning to the ocean edge.",
       "suffering_zones": [
-        {"mile": 0, "label": "Coastal Opening", "desc": "The first stage starts later at 10:00 and establishes the groups before the route turns inland.", "terrain_detail": "Coastal roads and rolling gravel", "named_section": "Mossel Bay region"},
-        {"mile": 120, "label": "Karoo Transition", "desc": "The middle stages cross mountain passes into drier country, where climbing, exposure, and accumulated fatigue converge.", "terrain_detail": "Mountain-pass gravel and semi-desert roads", "named_section": "Klein and Great Karoo"},
-        {"mile": 300, "label": "Forest Finale", "desc": "The final stage returns toward Wilderness through coastal and indigenous forest terrain with five prior days in the legs.", "terrain_detail": "Forest gravel and linking pavement", "named_section": "Garden Route return"}
+        {
+          "mile": 0,
+          "label": "Coastal Opening",
+          "desc": "The first stage starts later at 10:00 and establishes the groups before the route turns inland.",
+          "terrain_detail": "Coastal roads and rolling gravel",
+          "named_section": "Mossel Bay region"
+        },
+        {
+          "mile": 120,
+          "label": "Karoo Transition",
+          "desc": "The middle stages cross mountain passes into drier country, where climbing, exposure, and accumulated fatigue converge.",
+          "terrain_detail": "Mountain-pass gravel and semi-desert roads",
+          "named_section": "Klein and Great Karoo"
+        },
+        {
+          "mile": 300,
+          "label": "Forest Finale",
+          "desc": "The final stage returns toward Wilderness through coastal and indigenous forest terrain with five prior days in the legs.",
+          "terrain_detail": "Forest gravel and linking pavement",
+          "named_section": "Garden Route return"
+        }
       ],
       "signature_challenge": "Maintaining stage-to-stage recovery and tactical judgment across roughly 600 km and 11,000 m while the terrain repeatedly changes character.",
       "ridewithgps_id": null,
@@ -168,9 +194,21 @@
       "altitude_feet": null
     },
     "non_negotiables": [
-      {"requirement": "Six-day durability block", "by_when": "Week 8", "why": "No single long ride reproduces six consecutive stages and approximately 11,000 m of total climbing."},
-      {"requirement": "Daily recovery system", "by_when": "Week 9", "why": "Feeding, sleep, clothing, and bike reset determine whether power survives the middle stages."},
-      {"requirement": "Variable-terrain execution", "by_when": "Week 10", "why": "The race moves between coastal wind, mountain passes, Karoo roads, forest, and pavement."}
+      {
+        "requirement": "Six-day durability block",
+        "by_when": "Week 8",
+        "why": "No single long ride reproduces six consecutive stages and approximately 11,000 m of total climbing."
+      },
+      {
+        "requirement": "Daily recovery system",
+        "by_when": "Week 9",
+        "why": "Feeding, sleep, clothing, and bike reset determine whether power survives the middle stages."
+      },
+      {
+        "requirement": "Variable-terrain execution",
+        "by_when": "Week 10",
+        "why": "The race moves between coastal wind, mountain passes, Karoo roads, forest, and pavement."
+      }
     ],
     "research_metadata": {
       "data_confidence": "medium",
@@ -188,29 +226,91 @@
       ]
     },
     "biased_opinion_ratings": {
-      "logistics": {"score": 2, "explanation": "George Airport helps, but a six-day point-to-point race and moving accommodation remain complex."},
-      "length": {"score": 5, "explanation": "The organizer projects roughly 600 km across six stages, well beyond a normal one-day endurance event."},
-      "technicality": {"score": 3, "explanation": "The challenge is changing between Karoo roads, Garden Route forest, and paved links more than organizer-published singletrack or extreme obstacles."},
-      "elevation": {"score": 5, "explanation": "The official 2027 preview projects about 11,000 m across the week."},
-      "climate": {"score": 3, "explanation": "Western Cape coast, mountain, and Karoo conditions can change sharply, though April is not marketed as an extreme-weather window."},
-      "altitude": {"score": 2, "explanation": "The advertised 11 Western Cape mountain passes matter, but no published 2027 summit requires a dedicated altitude camp."},
-      "adventure": {"score": 5, "explanation": "Six stages through seven towns and several distinct Western Cape landscapes create a full point-to-point journey."},
-      "prestige": {"score": 3, "explanation": "The 2026 inaugural race established a professional identity and strong incentives, but Garden Route Giro is still young."},
-      "race_quality": {"score": 5, "explanation": "Dryland Event Management provides timing, tracking, medical and mechanical support, luggage transfer, food, villages, and structured classifications."},
-      "experience": {"score": 5, "explanation": "The 6-day moving race village, host towns, leaders jerseys, and general-classification narrative make this far more than a start-finish event."},
-      "community": {"score": 4, "explanation": "Mossel Bay, Wilderness, and 5 other host towns anchor the shared moving village established by the first edition."},
-      "field_depth": {"score": 4, "explanation": "Meaningful elite incentives and general-classification racing attracted credible competition in the 2026 inaugural event."},
-      "value": {"score": 2, "explanation": "The ride-only package is extensive but costs R32,950 before accommodation."},
-      "expenses": {"score": 1, "explanation": "International travel to South Africa, 6 race days, accommodation packages, and transfers make this a premium-budget race."}
+      "logistics": {
+        "score": 2,
+        "explanation": "George Airport helps, but a six-day point-to-point race and moving accommodation remain complex."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The organizer projects roughly 600 km across six stages, well beyond a normal one-day endurance event."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The challenge is changing between Karoo roads, Garden Route forest, and paved links more than organizer-published singletrack or extreme obstacles."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "The official 2027 preview projects about 11,000 m across the week."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Western Cape coast, mountain, and Karoo conditions can change sharply, though April is not marketed as an extreme-weather window."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The advertised 11 Western Cape mountain passes matter, but no published 2027 summit requires a dedicated altitude camp."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "Six stages through seven towns and several distinct Western Cape landscapes create a full point-to-point journey."
+      },
+      "prestige": {
+        "score": 3,
+        "explanation": "The 2026 inaugural race established a professional identity and strong incentives, but Garden Route Giro is still young."
+      },
+      "race_quality": {
+        "score": 5,
+        "explanation": "Dryland Event Management provides timing, tracking, medical and mechanical support, luggage transfer, food, villages, and structured classifications."
+      },
+      "experience": {
+        "score": 5,
+        "explanation": "The 6-day moving race village, host towns, leaders jerseys, and general-classification narrative make this far more than a start-finish event."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "Mossel Bay, Wilderness, and 5 other host towns anchor the shared moving village established by the first edition."
+      },
+      "field_depth": {
+        "score": 4,
+        "explanation": "Meaningful elite incentives and general-classification racing attracted credible competition in the 2026 inaugural event."
+      },
+      "value": {
+        "score": 2,
+        "explanation": "The ride-only package is extensive but costs R32,950 before accommodation."
+      },
+      "expenses": {
+        "score": 1,
+        "explanation": "International travel to South Africa, 6 race days, accommodation packages, and transfers make this a premium-budget race."
+      }
     },
     "training_config": {
       "workout_modifications": {
-        "stage_block": {"enabled": false, "reason": "Current pipeline supports one Race Day, not six consecutive stages"},
-        "recovery_rehearsal": {"enabled": true, "weeks": [6, 7, 8, 9, 10]},
-        "dress_rehearsal": {"enabled": false, "reason": "Awaiting final 2027 stage profiles and a multi-day model"}
+        "stage_block": {
+          "enabled": false,
+          "reason": "Current pipeline supports one Race Day, not six consecutive stages"
+        },
+        "recovery_rehearsal": {
+          "enabled": true,
+          "weeks": [
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": false,
+          "reason": "Awaiting final 2027 stage profiles and a multi-day model"
+        }
       },
       "masterclass_topics": {
-        "priority_order": ["recovery", "pacing", "climbing", "logistics"],
+        "priority_order": [
+          "recovery",
+          "pacing",
+          "climbing",
+          "logistics"
+        ],
         "race_specific": true,
         "topics": {
           "recovery": "Preserving power through six stages",
@@ -233,10 +333,39 @@
       }
     },
     "citations": [
-      {"url": "https://www.gardenroutegiro.co.za/", "category": "official", "label": "Official 2027 date, six-stage identity, and landing-page distance claim"},
-      {"url": "https://www.gardenroutegiro.co.za/garden-route-giro-race-info-2/", "category": "official", "label": "Official 2027 schedule and route-pending notice"},
-      {"url": "https://www.gardenroutegiro.co.za/garden-route-giro-entry-info/", "category": "official", "label": "Official 2027 fees and inclusions"},
-      {"url": "https://www.gardenroutegiro.co.za/the-garden-route-giro-story-continues-as-2027-entries-open/", "category": "official", "label": "Official 2027 approximately 600 km and 11,000 m projection"}
-    ]
+      {
+        "url": "https://www.gardenroutegiro.co.za/",
+        "category": "official",
+        "label": "Official 2027 date, six-stage identity, and landing-page distance claim"
+      },
+      {
+        "url": "https://www.gardenroutegiro.co.za/garden-route-giro-race-info-2/",
+        "category": "official",
+        "label": "Official 2027 schedule and route-pending notice"
+      },
+      {
+        "url": "https://www.gardenroutegiro.co.za/garden-route-giro-entry-info/",
+        "category": "official",
+        "label": "Official 2027 fees and inclusions"
+      },
+      {
+        "url": "https://www.gardenroutegiro.co.za/the-garden-route-giro-story-continues-as-2027-entries-open/",
+        "category": "official",
+        "label": "Official 2027 approximately 600 km and 11,000 m projection"
+      }
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "6 stages",
+          "winner_female": "Mariëlle Trouwborst",
+          "winner_male": "Cronje Beukes",
+          "winning_time_female": "19:09:22",
+          "winning_time_male": "16:49:27",
+          "source": "https://bikenetwork.co.za/final-wrap-2026-garden-route-giro/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

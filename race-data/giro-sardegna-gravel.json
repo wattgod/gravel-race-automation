@@ -139,6 +139,26 @@
       ],
       "reputation": "Italian gravel scene. Sardinia. Island adventure. Mediterranean views. Well-organized."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 3,
+        "source": "https://cyclingflash.com/race/uci-gravel-world-series-giro-sardegna-gravel-2026/result"
+      },
+      {
+        "year": 2025,
+        "date": "2025-04-25",
+        "edition": 2,
+        "note": "New start and finish in Santa Lucia di Siniscola with a new loop course.",
+        "source": "https://ucigravelworldseries.com/en/german-sweep-in-mens-race-italian-showdown-in-womens-at-giro-sardegna-gravel/"
+      },
+      {
+        "year": 2024,
+        "edition": 1,
+        "note": "First edition, run as stage five of the six-day Giro Sardegna.",
+        "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-2024/giro-sardegna-gravel/results/"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -294,10 +314,30 @@
         "2024": {
           "key_takeaways": [
             "The gravel component is newer—it was added as the second edition of the gravel race, with the first edition occurring in 2024"
-          ]
+          ],
+          "race": "Elite",
+          "winner_female": "Debora Piana",
+          "winner_male": "Frederik Rassmann",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-2024/giro-sardegna-gravel/results/"
+        },
+        "2026": {
+          "race": "107 km",
+          "winner_female": "Giorgia Vettorello",
+          "winner_male": "Tobias König",
+          "winning_time_female": "3:41:04",
+          "winning_time_male": "3:08:05",
+          "source": "https://www.granfondoguide.com/RaceDashboard/UCIGravelWorldSeries/1/9145/giorgia-vettorello-and-tobias-konig-take-victory-at-2026-uci-giro-sardegna-gravel"
+        },
+        "2025": {
+          "race": "117 km",
+          "winner_female": "Debora Piana",
+          "winner_male": "Tim Wollenberg",
+          "winning_time_female": "4:16:18",
+          "winning_time_male": "3:28:32",
+          "source": "https://granfondodailynews.com/2025/04/26/uci-gravel-world-series-results-from-giro-sardegna/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

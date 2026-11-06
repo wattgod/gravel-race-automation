@@ -206,6 +206,13 @@
       "notable_moments": [],
       "reputation": "A serious Nordic classic and UCI World Series qualifier."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-09-06",
+        "source": "https://gravelearthseries.com/2025/09/08/falling-leaves-lahti-2025-nordic-gravel-tight-finishes-and-natural-beauty/"
+      }
+    ],
     "guide_variables": {
       "race_name": "Falling Leaves Lahti",
       "race_distance": "175 km / 108.7 miles",
@@ -352,6 +359,26 @@
       "migration_notes": [
         "New catalog intake from the official 2026 UCI Gravel World Series calendar reconciliation."
       ]
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "180 km",
+          "winner_female": "Geerike Schreurs",
+          "winner_male": "Frederik Raßmann",
+          "winning_time_female": "5:31:19",
+          "winning_time_male": "4:44:23",
+          "source": "https://gravelearthseries.com/2025/09/08/falling-leaves-lahti-2025-nordic-gravel-tight-finishes-and-natural-beauty/"
+        },
+        "2024": {
+          "race": "180 km",
+          "winner_female": "Lotta Henttala",
+          "winner_male": "Markus Auvinen",
+          "winning_time_male": "5:00:18",
+          "source": "https://www.cyclingnews.com/races/gravel-earth-global-events-2024/falling-leaves/results/"
+        }
+      },
+      "latest_year": "2025"
     }
   }
 }

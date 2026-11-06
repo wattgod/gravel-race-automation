@@ -383,57 +383,57 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 460,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip"
-        },
-        {
-          "rank": 2,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
-          "brand": "Pirelli",
-          "recommended_width_mm": 40,
-          "msrp_usd": 73.99,
-          "weight_grams": 430,
-          "crr_watts": null,
-          "why": "excellent wet grip"
-        },
-        {
-          "rank": 3,
-          "tire_id": "schwalbe-g-one-overland",
-          "name": "Schwalbe G-One Overland",
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
           "brand": "Schwalbe",
           "recommended_width_mm": 40,
           "msrp_usd": 69.9,
-          "weight_grams": 490,
-          "crr_watts": 40.0,
-          "why": "excellent wet grip"
+          "weight_grams": 480,
+          "crr_watts": 38.0,
+          "why": "Technical terrain dominator. Aggressive grip when the course gets rowdy."
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 460,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        },
+        {
+          "rank": 3,
+          "tire_id": "teravail-washburn",
+          "name": "Teravail Washburn",
+          "brand": "Teravail",
+          "recommended_width_mm": 42,
+          "msrp_usd": 64.0,
+          "weight_grams": 450,
+          "crr_watts": 37.0,
+          "why": "Technical trail tire. Fast center for climbing, aggressive edges for descending."
         }
       ],
       "front_rear_split": {
         "applicable": true,
         "front": {
-          "tire_id": "rene-herse-snoqualmie-pass",
-          "name": "Rene Herse Snoqualmie Pass",
-          "width_mm": 44
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
         },
         "rear": {
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
           "width_mm": 40
         },
         "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
       },
-      "race_surface_profile": "wet",
+      "race_surface_profile": "technical",
       "recommended_width_mm": 40,
       "pressure_psi": {
         "140_160lb_dry": "34-38",

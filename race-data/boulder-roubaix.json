@@ -191,6 +191,13 @@
       ],
       "reputation": "Colorado's defining spring race. The original American Paris-Roubaix tribute. A biennial tradition that was riding dirt roads before gravel was a genre."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "New 29-mile loop with start/finish moved to Boulder Reservoir; Colorado State Road Race Championships.",
+        "source": "https://boulderroubaix.com/"
+      }
+    ],
     "course_description": {
       "character": "Rolling mixed-surface through North Boulder County agricultural landscape. The 2026 course is a new 30-mile (48 km) loop — 61% unpaved, 39% paved — that starts and finishes at Boulder Reservoir. The terrain is constant undulation through working farm and county roads that can be anywhere from smooth to extremely rutted depending on weather. No single dramatic climb, but the accumulated rolling and the wind across open terrain create a war of attrition. The finishing stretch along the Boulder Feeder Canal and across the reservoir dams adds a challenging technical element to the final miles.",
       "suffering_zones": [
@@ -328,6 +335,17 @@
       "sources_count": 10,
       "last_updated": "2026-02-27",
       "notes": "Active event confirmed for April 26, 2026. New course for 2026 moves to Boulder Reservoir with 30-mile loop (61% unpaved, 39% paved). Biennial event — held every other year since 1992. Also serves as 2026 Colorado State Road Race Championships. Discipline classified as 'gravel' based on 61% unpaved surface despite USAC 'road race' sanctioning — the organizer themselves describes it as 'Call it a Road Race, a Gravel Race or a Mixed-Surface Race.' Founded 1992, not 1990 as some sources claim (30th anniversary confirmed in 2022)."
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "87 mi",
+          "winner_male": "Cade Bickmore",
+          "winning_time_male": "3:43:58",
+          "source": "https://dbcevents.com/2026-results/"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

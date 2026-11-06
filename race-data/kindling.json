@@ -134,12 +134,40 @@
       ],
       "reputation": "An unproven event format backed by a team with real South African stage-race infrastructure."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-25",
+        "end_date": "2026-04-27",
+        "status": "cancelled",
+        "note": "Inaugural edition postponed to 2027.",
+        "source": "https://kindling-gravel.com/"
+      }
+    ],
     "course_description": {
       "character": "Three consecutive point-to-point gravel stages: two climbing-heavy days into and around Blaauwater Burn Camp, then a faster return to Graaff-Reinet.",
       "suffering_zones": [
-        {"mile": 0, "label": "Stage 1 Commitment", "desc": "The opening 102 km carries the week's biggest climbing load at 1,660 m; over-racing it compromises the entire weekend.", "terrain_detail": "Karoo gravel and climbing", "named_section": "Graaff-Reinet to Blaauwater"},
-        {"mile": 63, "label": "Camp Turnaround", "desc": "Stage 2 adds another 111 km and 1,460 m before a second night at Burn Camp, where recovery becomes part of race execution.", "terrain_detail": "Remote farm and gravel roads", "named_section": "Blaauwater loop"},
-        {"mile": 132, "label": "Return on Tired Legs", "desc": "The final 90 km has less gain but starts with two stages already in the body.", "terrain_detail": "Fast semi-desert gravel", "named_section": "Blaauwater to Graaff-Reinet"}
+        {
+          "mile": 0,
+          "label": "Stage 1 Commitment",
+          "desc": "The opening 102 km carries the week's biggest climbing load at 1,660 m; over-racing it compromises the entire weekend.",
+          "terrain_detail": "Karoo gravel and climbing",
+          "named_section": "Graaff-Reinet to Blaauwater"
+        },
+        {
+          "mile": 63,
+          "label": "Camp Turnaround",
+          "desc": "Stage 2 adds another 111 km and 1,460 m before a second night at Burn Camp, where recovery becomes part of race execution.",
+          "terrain_detail": "Remote farm and gravel roads",
+          "named_section": "Blaauwater loop"
+        },
+        {
+          "mile": 132,
+          "label": "Return on Tired Legs",
+          "desc": "The final 90 km has less gain but starts with two stages already in the body.",
+          "terrain_detail": "Fast semi-desert gravel",
+          "named_section": "Blaauwater to Graaff-Reinet"
+        }
       ],
       "signature_challenge": "Recovering well enough between three stages to preserve power and decision-making on day three.",
       "ridewithgps_id": null,
@@ -164,9 +192,21 @@
       "altitude_feet": null
     },
     "non_negotiables": [
-      {"requirement": "Three-day training block", "by_when": "Week 8", "why": "The event is three consecutive race stages, not one long day."},
-      {"requirement": "Rapid recovery routine", "by_when": "Week 9", "why": "Sleep, feeding, mobility, and bike reset at Burn Camp directly affect the next stage."},
-      {"requirement": "Stage-one restraint", "by_when": "Week 10", "why": "The opening stage has the most climbing and can ruin the remaining two days if paced like a standalone race."}
+      {
+        "requirement": "Three-day training block",
+        "by_when": "Week 8",
+        "why": "The event is three consecutive race stages, not one long day."
+      },
+      {
+        "requirement": "Rapid recovery routine",
+        "by_when": "Week 9",
+        "why": "Sleep, feeding, mobility, and bike reset at Burn Camp directly affect the next stage."
+      },
+      {
+        "requirement": "Stage-one restraint",
+        "by_when": "Week 10",
+        "why": "The opening stage has the most climbing and can ruin the remaining two days if paced like a standalone race."
+      }
     ],
     "research_metadata": {
       "data_confidence": "medium",
@@ -183,29 +223,96 @@
       ]
     },
     "biased_opinion_ratings": {
-      "logistics": {"score": 2, "explanation": "Graaff-Reinet requires a substantial transfer from Gqeberha or George, though the full-service package reduces on-event friction."},
-      "length": {"score": 4, "explanation": "The race totals 303 km, but the load is divided into three moderate-length stages rather than one ultra day."},
-      "technicality": {"score": 3, "explanation": "Great Karoo gravel and seldom-ridden tracks demand control without published evidence of extreme technical features."},
-      "elevation": {"score": 4, "explanation": "The published stages total 3,770 m, with serious climbing on both opening days."},
-      "climate": {"score": 4, "explanation": "Great Karoo sun, wind, dryness, and temperature swings compound across three days."},
-      "altitude": {"score": 2, "explanation": "The Blaauwater Farm setting adds exposure, but the organizer does not publish a high-altitude acclimation requirement."},
-      "adventure": {"score": 5, "explanation": "A remote Burn Camp, seldom-ridden Karoo terrain, and point-to-point stages make the event immersive."},
-      "prestige": {"score": 2, "explanation": "The Gravel Burn connection helps, but Kindling itself has not yet held an edition."},
-      "race_quality": {"score": 4, "explanation": "Blaauwater Burn Camp, bike wash, meals, and established Gravel Burn staff indicate strong production potential."},
-      "experience": {"score": 4, "explanation": "The compact stage-race format and shared Burn Camp promise more than a normal weekend race."},
-      "community": {"score": 4, "explanation": "The organizer explicitly frames the race and host towns as a shared Karoo community project."},
-      "field_depth": {"score": 2, "explanation": "No 2027 entrant list, result history, or elite field exists yet."},
-      "value": {"score": 2, "explanation": "The 3-day package is extensive, but a current 2027 price was not exposed and full-service stage racing is rarely inexpensive."},
-      "expenses": {"score": 1, "explanation": "International travel to South Africa, Graaff-Reinet transfers, and a full-service destination package make this an expensive commitment."}
+      "logistics": {
+        "score": 2,
+        "explanation": "Graaff-Reinet requires a substantial transfer from Gqeberha or George, though the full-service package reduces on-event friction."
+      },
+      "length": {
+        "score": 4,
+        "explanation": "The race totals 303 km, but the load is divided into three moderate-length stages rather than one ultra day."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Great Karoo gravel and seldom-ridden tracks demand control without published evidence of extreme technical features."
+      },
+      "elevation": {
+        "score": 4,
+        "explanation": "The published stages total 3,770 m, with serious climbing on both opening days."
+      },
+      "climate": {
+        "score": 4,
+        "explanation": "Great Karoo sun, wind, dryness, and temperature swings compound across three days."
+      },
+      "altitude": {
+        "score": 2,
+        "explanation": "The Blaauwater Farm setting adds exposure, but the organizer does not publish a high-altitude acclimation requirement."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "A remote Burn Camp, seldom-ridden Karoo terrain, and point-to-point stages make the event immersive."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "The Gravel Burn connection helps, but Kindling itself has not yet held an edition."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Blaauwater Burn Camp, bike wash, meals, and established Gravel Burn staff indicate strong production potential."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The compact stage-race format and shared Burn Camp promise more than a normal weekend race."
+      },
+      "community": {
+        "score": 4,
+        "explanation": "The organizer explicitly frames the race and host towns as a shared Karoo community project."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "No 2027 entrant list, result history, or elite field exists yet."
+      },
+      "value": {
+        "score": 2,
+        "explanation": "The 3-day package is extensive, but a current 2027 price was not exposed and full-service stage racing is rarely inexpensive."
+      },
+      "expenses": {
+        "score": 1,
+        "explanation": "International travel to South Africa, Graaff-Reinet transfers, and a full-service destination package make this an expensive commitment."
+      }
     },
     "training_config": {
       "workout_modifications": {
-        "stage_block": {"enabled": true, "stages": 3, "dates": ["2027-04-24", "2027-04-25", "2027-04-26"], "reason": "Receipt-gated TrainingPeaks customization supports three consecutive stage workouts"},
-        "recovery_rehearsal": {"enabled": true, "weeks": [7, 8, 9, 10]},
-        "dress_rehearsal": {"enabled": true, "reason": "Use the Ultra master progression and overnight-recovery rehearsals before the three-stage race block"}
+        "stage_block": {
+          "enabled": true,
+          "stages": 3,
+          "dates": [
+            "2027-04-24",
+            "2027-04-25",
+            "2027-04-26"
+          ],
+          "reason": "Receipt-gated TrainingPeaks customization supports three consecutive stage workouts"
+        },
+        "recovery_rehearsal": {
+          "enabled": true,
+          "weeks": [
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "reason": "Use the Ultra master progression and overnight-recovery rehearsals before the three-stage race block"
+        }
       },
       "masterclass_topics": {
-        "priority_order": ["recovery", "pacing", "fueling", "travel"],
+        "priority_order": [
+          "recovery",
+          "pacing",
+          "fueling",
+          "travel"
+        ],
         "race_specific": true,
         "topics": {
           "recovery": "Executing a two-night Burn Camp reset",
@@ -228,9 +335,21 @@
       }
     },
     "citations": [
-      {"url": "https://kindling-gravel.com/", "category": "official", "label": "Official 2027 event overview and stage figures"},
-      {"url": "https://kindling-gravel.com/route/", "category": "official", "label": "Official route concept and 2027 date"},
-      {"url": "https://kindling-gravel.com/entry-package/", "category": "official", "label": "Official full-service entry package"}
+      {
+        "url": "https://kindling-gravel.com/",
+        "category": "official",
+        "label": "Official 2027 event overview and stage figures"
+      },
+      {
+        "url": "https://kindling-gravel.com/route/",
+        "category": "official",
+        "label": "Official route concept and 2027 date"
+      },
+      {
+        "url": "https://kindling-gravel.com/entry-package/",
+        "category": "official",
+        "label": "Official full-service entry package"
+      }
     ]
   }
 }

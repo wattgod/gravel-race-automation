@@ -11,7 +11,7 @@
       "location_badge": "HASTINGS, MI",
       "county": "Barry County",
       "date": "Mid-April annually",
-      "date_specific": "2027: April 17 (Saturday, CONFIRMED \u2014 barry-roubaix.com; 2026 edition already ran)",
+      "date_specific": "2027: April 17 (Saturday, CONFIRMED — barry-roubaix.com; 2026 edition already ran)",
       "terrain_types": [
         "Michigan farmland",
         "Rolling gravel",
@@ -93,7 +93,7 @@
     "final_verdict": {
       "score": "51 / 100",
       "one_liner": "62-mile Michigan farmland gravel with 1000+ riders.",
-      "should_you_race": "If you want a 62-mile challenge with large field and festival atmosphere\u2014yes, it's a fun event. If you want terrain variety or pro field depth\u2014look elsewhere.",
+      "should_you_race": "If you want a 62-mile challenge with large field and festival atmosphere—yes, it's a fun event. If you want terrain variety or pro field depth—look elsewhere.",
       "alternatives": "For longer/harder events: Unbound 200, Dirty Kanza. For similar large field events: other Michigan gravel races.",
       "alternative_slugs": [
         "unbound-200"
@@ -115,6 +115,26 @@
       "notable_moments": [],
       "reputation": "Large field Michigan event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-18",
+        "edition": 17,
+        "source": "https://barry-roubaix.com/results"
+      },
+      {
+        "year": 2025,
+        "date": "2025-04-12",
+        "edition": 16,
+        "source": "https://barry-roubaix.com/results"
+      },
+      {
+        "year": 2024,
+        "date": "2024-04-20",
+        "note": "Blackrocks Brewery became title sponsor.",
+        "source": "https://barry-roubaix.com/results"
+      }
+    ],
     "course_description": {
       "character": "Rolling farmland gravel for 62 miles.",
       "suffering_zones": [
@@ -282,7 +302,7 @@
       },
       "community": {
         "score": 3,
-        "explanation": "Nothing bonds cyclists like shared suffering through Michigan spring weather - the 2011 edition with 25\u00b0F starts and 10\u00b0F windchill created a brotherhood of the hardcore. Youth race free, no license required, and the beer flows freely afterward. But with 5,500 riders, you're more likely to bond with strangers than find your crew. As Packet pickup organization puts it: \"We rolled into town Friday afternoon and quickly picked up our packets from the well-organized and friendly volunteers.\""
+        "explanation": "Nothing bonds cyclists like shared suffering through Michigan spring weather - the 2011 edition with 25°F starts and 10°F windchill created a brotherhood of the hardcore. Youth race free, no license required, and the beer flows freely afterward. But with 5,500 riders, you're more likely to bond with strangers than find your crew. As Packet pickup organization puts it: \"We rolled into town Friday afternoon and quickly picked up our packets from the well-organized and friendly volunteers.\""
       },
       "field_depth": {
         "score": 2,
@@ -294,7 +314,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Registration runs $80-120. Hastings, Michigan won't break your budget for hotels and food like a destination race. Registration opens in November and sells out fast, so no last-minute discounts. Factor in cold weather gear because April in Michigan can still hit you with 25\u00b0F starts and potential snowstorms like 2013. Similar expense level to Belgian Waffle Ride San Diego."
+        "explanation": "Registration runs $80-120. Hastings, Michigan won't break your budget for hotels and food like a destination race. Registration opens in November and sells out fast, so no last-minute discounts. Factor in cold weather gear because April in Michigan can still hit you with 25°F starts and potential snowstorms like 2013. Similar expense level to Belgian Waffle Ride San Diego."
       },
       "length": {
         "score": 3,
@@ -310,11 +330,11 @@
       },
       "climate": {
         "score": 2,
-        "explanation": "Michigan spring weather is a dice roll between snowstorms and freak 70\u00b0F heat waves. The 2017 edition saw 42% DNF rates from cold rain and 18+ mph winds, while 2016 turned into a dusty road race. 2011's 25\u00b0F start with 10\u00b0F windchill separated the hardcore from the smart. More weather exposure than Belgian Waffle Ride San Diego. As Jorden Wakeley puts it: \"Snow, wind, cold and wind were the name of the game today. Broke away with 100K to go with last years winner, Connor Kamm, and stuck it all the way to the finish.\""
+        "explanation": "Michigan spring weather is a dice roll between snowstorms and freak 70°F heat waves. The 2017 edition saw 42% DNF rates from cold rain and 18+ mph winds, while 2016 turned into a dusty road race. 2011's 25°F start with 10°F windchill separated the hardcore from the smart. More weather exposure than Belgian Waffle Ride San Diego. As Jorden Wakeley puts it: \"Snow, wind, cold and wind were the name of the game today. Broke away with 100K to go with last years winner, Connor Kamm, and stuck it all the way to the finish.\""
       },
       "altitude": {
         "score": 1,
-        "explanation": "It's Michigan. You're racing at corn field elevation where the biggest altitude challenge is climbing onto your roof rack. Zero altitude considerations unless you count the brief oxygen debt from laughing at this question. Lower altitude than Gravel Worlds \u2014 no thin-air concerns."
+        "explanation": "It's Michigan. You're racing at corn field elevation where the biggest altitude challenge is climbing onto your roof rack. Zero altitude considerations unless you count the brief oxygen debt from laughing at this question. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "logistics": {
         "score": 3,
@@ -375,13 +395,47 @@
     "results": {
       "years": {
         "2024": {
-          "winner_male": "David Brower",
-          "winner_female": "Devon Clarke",
-          "winning_time_male": "2:52:01",
-          "winning_time_female": "3:06:09"
+          "race": "100 mi",
+          "winner_female": "Erin Omara",
+          "winner_male": "Daxton Mock",
+          "winning_time_female": "5:23:08",
+          "winning_time_male": "4:58:26",
+          "source": "https://barry-roubaix.com/results"
+        },
+        "2026": {
+          "race": "100 mi",
+          "winner_female": "Erin O'Mara",
+          "winner_male": "Ian Boswell",
+          "winning_time_female": "5:49:37",
+          "winning_time_male": "5:14:52",
+          "source": "https://barry-roubaix.com/results"
+        },
+        "2025": {
+          "race": "100 mi",
+          "winner_female": "Erin O'Mara",
+          "winner_male": "Ian Boswell",
+          "winning_time_female": "5:14:49",
+          "winning_time_male": "5:01:26",
+          "source": "https://barry-roubaix.com/results"
+        },
+        "2023": {
+          "race": "100 mi",
+          "winner_female": "Erin Omara",
+          "winner_male": "Geno Villafano",
+          "winning_time_female": "5:37:58",
+          "winning_time_male": "4:53:06",
+          "source": "https://barry-roubaix.com/results"
+        },
+        "2022": {
+          "race": "100 mi",
+          "winner_female": "Cynthia Frazier",
+          "winner_male": "Jordan Wakely",
+          "winning_time_female": "6:55:26",
+          "winning_time_male": "5:40:11",
+          "source": "https://barry-roubaix.com/results"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

@@ -116,6 +116,23 @@
       "notable_moments": [],
       "reputation": "Regional Tennessee event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-03-29",
+        "source": "https://www.rapidexpeditions.com/waucheesi-bike-race.html"
+      },
+      {
+        "year": 2025,
+        "date": "2025-03-30",
+        "source": "https://www.itsyourrace.com/results.aspx?id=16687"
+      },
+      {
+        "year": 2023,
+        "date": "2023-03-26",
+        "source": "https://www.webscorer.com/race?raceid=309718"
+      }
+    ],
     "course_description": {
       "character": "Rapid Expeditions' grassroots mountain race out of Tellico Plains (~900ft): Wily 88 flagship — 88 miles with 11,500+ ft through Cherokee and Nantahala National Forests (climbs: Basin Gap, North River Road, Farr Gap — 88 only); Wondrous 63 — 63 miles/8,800+ ft; new 38-mile option (2026, stats unpublished). Police-escorted neutral rollout, 4 aid stations, sunset cutoff, ~250 riders, camping vibe. PRIOR PROFILE 75mi/5,000ft matched no real option — corrected 2026-07-13. RACE DAY IS SUNDAY.",
       "suffering_zones": [
@@ -563,6 +580,19 @@
         "credit": "YouTube / Team Mad Cow Ramble ",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2023": {
+          "race": "88 mi",
+          "winner_female": "Sierra Sims",
+          "winner_male": "Jorden Wakeley",
+          "winning_time_female": "6:44:08",
+          "winning_time_male": "5:28:43",
+          "source": "https://www.webscorer.com/race?raceid=309718"
+        }
+      },
+      "latest_year": "2023"
+    }
   }
 }

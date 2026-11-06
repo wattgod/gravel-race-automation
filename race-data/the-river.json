@@ -121,6 +121,14 @@
       ],
       "reputation": "A young, fast Ardennes race with Klassmark production."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 1,
+        "note": "Inaugural edition; final round of the 2026 Gravel Earth Series.",
+        "source": "https://www.cyclingnews.com/pro-cycling/racing/gravel-earth-series-geerike-schreurs-and-mads-wurtz-schmidt-solo-to-elite-wins-at-the-river-and-capture-series-titles/"
+      }
+    ],
     "course_description": {
       "character": "The 2027 Queen Race runs 160.2 km from Bouillon's event village with 2,550 m of gain, 72% of it unpaved. Fast forest tracks, rolling climbs and riverside gravel follow the Semois, and the course never climbs above 440 m.",
       "suffering_zones": [
@@ -271,6 +279,19 @@
         "category": "media",
         "label": "Vojo: GRG Gravel origins, Semois base camp, 160 km Queen Race added"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "160 km",
+          "winner_female": "Geerike Schreurs",
+          "winner_male": "Mads Würtz Schmidt",
+          "winning_time_female": "5:23:13",
+          "winning_time_male": "4:36:43",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/gravel-earth-series-geerike-schreurs-and-mads-wurtz-schmidt-solo-to-elite-wins-at-the-river-and-capture-series-titles/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

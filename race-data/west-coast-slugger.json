@@ -131,12 +131,38 @@
       ],
       "reputation": "A new but professionally operated Vancouver Island forest-road race."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 1,
+        "note": "First edition.",
+        "source": "https://cyclingbc.net/event/west-coast-slugger-gravel-fondo/"
+      }
+    ],
     "course_description": {
       "character": "A remote 122.9 km long course on coastal forest and logging roads with lake and inlet views, steep pitches, gates, wildlife, and limited cell coverage.",
       "suffering_zones": [
-        {"mile": 0, "label": "Mosaic Log Sort", "desc": "All distances start west on Stirling Arm Road before splitting into their forest-road loops.", "terrain_detail": "Industrial forest access road", "named_section": "Stirling Arm Road"},
-        {"mile": 30, "label": "Waterfront Forest Roads", "desc": "Long remote sectors around lakes and the Alberni Inlet combine scenery with limited support and open-road vigilance.", "terrain_detail": "Gravel and dirt logging roads", "named_section": "Port Alberni backcountry"},
-        {"mile": 60, "label": "The Walls", "desc": "The organizer promises a couple of sheer walls; late-race gearing matters more than a missing headline elevation number suggests.", "terrain_detail": "Short steep gravel climbs", "named_section": "West Coast Slugger walls"}
+        {
+          "mile": 0,
+          "label": "Mosaic Log Sort",
+          "desc": "All distances start west on Stirling Arm Road before splitting into their forest-road loops.",
+          "terrain_detail": "Industrial forest access road",
+          "named_section": "Stirling Arm Road"
+        },
+        {
+          "mile": 30,
+          "label": "Waterfront Forest Roads",
+          "desc": "Long remote sectors around lakes and the Alberni Inlet combine scenery with limited support and open-road vigilance.",
+          "terrain_detail": "Gravel and dirt logging roads",
+          "named_section": "Port Alberni backcountry"
+        },
+        {
+          "mile": 60,
+          "label": "The Walls",
+          "desc": "The organizer promises a couple of sheer walls; late-race gearing matters more than a missing headline elevation number suggests.",
+          "terrain_detail": "Short steep gravel climbs",
+          "named_section": "West Coast Slugger walls"
+        }
       ],
       "signature_challenge": "Staying fueled, mechanically independent, and controlled on remote logging roads before the late steep pitches.",
       "ridewithgps_id": null,
@@ -161,9 +187,21 @@
       "altitude_feet": null
     },
     "non_negotiables": [
-      {"requirement": "Official next-edition date", "by_when": "Before building plans", "why": "The inaugural 2026 race is complete and no next date is published."},
-      {"requirement": "Self-supported long-ride rehearsal", "by_when": "Week 9", "why": "The race bible warns of limited cell coverage and requires riders to carry repair, clothing, navigation, and nutrition gear."},
-      {"requirement": "45-50 mm tire rehearsal", "by_when": "Week 10", "why": "The organizer explicitly recommends 45-50 mm tires to reduce pinch-flat and puncture risk."}
+      {
+        "requirement": "Official next-edition date",
+        "by_when": "Before building plans",
+        "why": "The inaugural 2026 race is complete and no next date is published."
+      },
+      {
+        "requirement": "Self-supported long-ride rehearsal",
+        "by_when": "Week 9",
+        "why": "The race bible warns of limited cell coverage and requires riders to carry repair, clothing, navigation, and nutrition gear."
+      },
+      {
+        "requirement": "45-50 mm tire rehearsal",
+        "by_when": "Week 10",
+        "why": "The organizer explicitly recommends 45-50 mm tires to reduce pinch-flat and puncture risk."
+      }
     ],
     "research_metadata": {
       "data_confidence": "high",
@@ -182,30 +220,110 @@
       ]
     },
     "biased_opinion_ratings": {
-      "logistics": {"score": 3, "explanation": "Port Alberni requires island travel and a drive to an industrial forest venue, but the race bible gives clear packet, parking, and emergency instructions."},
-      "length": {"score": 3, "explanation": "The official Esperto route is 76.37 miles, inside the rubric's 60-100-mile band."},
-      "technicality": {"score": 3, "explanation": "Open logging roads, steep walls, gates, and a 45-50 mm tire recommendation create mixed technical demands without confirmed singletrack."},
-      "elevation": {"score": 2, "explanation": "The organizer describes steep walls but publishes no total gain; a conservative 2 avoids inventing a number."},
-      "climate": {"score": 3, "explanation": "The 2026 race bible required rain, wind, warm-head, and full-finger gear because coastal exposure is a material constraint."},
-      "altitude": {"score": 1, "explanation": "The Port Alberni coastal setting does not create an altitude-training requirement."},
-      "adventure": {"score": 4, "explanation": "Remote Port Alberni lake and inlet views, limited cell coverage, wildlife, and industrial forest roads make the course feel far from town."},
-      "prestige": {"score": 2, "explanation": "BC Gravel Series affiliation is credible regionally, but the event has completed only one edition."},
-      "race_quality": {"score": 4, "explanation": "A 14-page race bible, three routes, feed support, sweeps, medical staff, parking, packet pickup, and awards indicate professional operation."},
-      "experience": {"score": 4, "explanation": "Port Alberni's forest and waterfront setting is materially more memorable than a generic regional road loop."},
-      "community": {"score": 3, "explanation": "The BC Gravel Series has local partners and a community-cyclery pickup, but one edition cannot support a stronger culture claim."},
-      "field_depth": {"score": 2, "explanation": "The organizer publishes no field size or evidence of a deep elite field for the 2026 edition."},
-      "value": {"score": 3, "explanation": "The 3-route support package is substantial, but the official page does not preserve a final verifiable entry price."},
-      "expenses": {"score": 3, "explanation": "Ferry or flight costs to Vancouver Island make the total trip moderate even for western-Canada riders."}
+      "logistics": {
+        "score": 3,
+        "explanation": "Port Alberni requires island travel and a drive to an industrial forest venue, but the race bible gives clear packet, parking, and emergency instructions."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The official Esperto route is 76.37 miles, inside the rubric's 60-100-mile band."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "Open logging roads, steep walls, gates, and a 45-50 mm tire recommendation create mixed technical demands without confirmed singletrack."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "The organizer describes steep walls but publishes no total gain; a conservative 2 avoids inventing a number."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "The 2026 race bible required rain, wind, warm-head, and full-finger gear because coastal exposure is a material constraint."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The Port Alberni coastal setting does not create an altitude-training requirement."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Remote Port Alberni lake and inlet views, limited cell coverage, wildlife, and industrial forest roads make the course feel far from town."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "BC Gravel Series affiliation is credible regionally, but the event has completed only one edition."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "A 14-page race bible, three routes, feed support, sweeps, medical staff, parking, packet pickup, and awards indicate professional operation."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "Port Alberni's forest and waterfront setting is materially more memorable than a generic regional road loop."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The BC Gravel Series has local partners and a community-cyclery pickup, but one edition cannot support a stronger culture claim."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The organizer publishes no field size or evidence of a deep elite field for the 2026 edition."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The 3-route support package is substantial, but the official page does not preserve a final verifiable entry price."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Ferry or flight costs to Vancouver Island make the total trip moderate even for western-Canada riders."
+      }
     },
     "training_config": {
       "workout_modifications": {
-        "remote_endurance": {"enabled": true, "weeks": [7, 8, 9, 10]},
-        "steep_wall_repeatability": {"enabled": true, "weeks": [8, 9, 10]},
-        "wet_traction": {"enabled": true, "weeks": [7, 8, 9, 10]},
-        "dress_rehearsal": {"enabled": true, "week": 10, "day": "Sunday", "duration_hours": {"ayahuasca": 3, "finisher": 4, "compete": 5, "podium": 6}}
+        "remote_endurance": {
+          "enabled": true,
+          "weeks": [
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "steep_wall_repeatability": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "wet_traction": {
+          "enabled": true,
+          "weeks": [
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Sunday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
       },
       "masterclass_topics": {
-        "priority_order": ["self_support", "traction", "climbing", "equipment"],
+        "priority_order": [
+          "self_support",
+          "traction",
+          "climbing",
+          "equipment"
+        ],
         "race_specific": true,
         "topics": {
           "self_support": "Remote forest-road nutrition, repair, and navigation",
@@ -228,9 +346,21 @@
       }
     },
     "citations": [
-      {"url": "https://www.bcgravelseries.com/westcoastslugger", "category": "official", "label": "Official 2026 event page"},
-      {"url": "https://www.bcgravelseries.com/_files/ugd/0d2628_e2008b39dfde4922910d2d3c8698ed94.pdf", "category": "official", "label": "Official 2026 race bible"},
-      {"url": "https://www.bcgravelseries.com/post/2026-bc-gravel-series-registration-open", "category": "official", "label": "Official 2026 series announcement"}
+      {
+        "url": "https://www.bcgravelseries.com/westcoastslugger",
+        "category": "official",
+        "label": "Official 2026 event page"
+      },
+      {
+        "url": "https://www.bcgravelseries.com/_files/ugd/0d2628_e2008b39dfde4922910d2d3c8698ed94.pdf",
+        "category": "official",
+        "label": "Official 2026 race bible"
+      },
+      {
+        "url": "https://www.bcgravelseries.com/post/2026-bc-gravel-series-registration-open",
+        "category": "official",
+        "label": "Official 2026 series announcement"
+      }
     ]
   }
 }

@@ -5,7 +5,7 @@
       "name": "Gran Fondo Argentina",
       "location": "Buenos Aires, Argentina",
       "date": "2025: October 12",
-      "date_specific": "2025: October 12",
+      "date_specific": "2026: October 11 (Sunday, Buenos Aires, CONFIRMED — granfondoargentina.com)",
       "distance_mi": 77,
       "elevation_ft": 300,
       "discipline": "road",
@@ -112,11 +112,29 @@
     "slug": "gran-fondo-argentina",
     "citations": [
       {
+        "url": "https://granfondoargentina.com/bsas/inicio/",
+        "category": "official",
+        "label": "Gran Fondo Argentina: 2026 Buenos Aires, October 11 (4th edition)",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://granfondoargentina.com/",
         "category": "official",
         "label": "Gran Fondo Argentina — official event site"
       }
     ],
-    "name": "Gran Fondo Argentina"
+    "name": "Gran Fondo Argentina",
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-10-11",
+        "edition": 4,
+        "source": "https://granfondoargentina.com/bsas/inicio/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-10-12"
+      }
+    ]
   }
 }

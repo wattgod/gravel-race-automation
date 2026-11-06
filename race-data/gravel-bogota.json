@@ -132,6 +132,14 @@
       ],
       "reputation": "A new Colombian UCI qualifier whose altitude is more distinctive than its short history."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 1,
+        "note": "Inaugural edition and Colombia's first UCI Gravel World Series round.",
+        "source": "https://www.cyclingnews.com/pro-cycling/racing/uci-gravel-world-series-simon-pellaud-and-natalia-franco-solo-to-wins-at-high-elevation-bogota-gravel/"
+      }
+    ],
     "course_description": {
       "character": "A 128 km, 61%-gravel race course with repeated climbs between 2,561 and 3,089 m above sea level.",
       "suffering_zones": [
@@ -353,6 +361,19 @@
         "category": "official",
         "label": "UCI Gravel World Series — inaugural Gravel Bogotá race report"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "127 km",
+          "winner_female": "Natalia Franco",
+          "winner_male": "Simon Pellaud",
+          "winning_time_female": "4:37:58",
+          "winning_time_male": "3:44:37",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/uci-gravel-world-series-simon-pellaud-and-natalia-franco-solo-to-wins-at-high-elevation-bogota-gravel/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

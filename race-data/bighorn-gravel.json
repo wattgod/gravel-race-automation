@@ -121,6 +121,27 @@
         "year": 2026,
         "date": "2026-06-20",
         "source": "https://bighornevents.com/race-day-gravel"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-22",
+        "edition": 4,
+        "source": "https://www.vaildaily.com/news/bighorn-gravel-2025-off-road-mountain-bike-race-gypsum/"
+      },
+      {
+        "year": 2024,
+        "edition": 3,
+        "source": "https://www.vaildaily.com/news/over-500-cyclists-participate-in-third-annual-bighorn-gravel-race/"
+      },
+      {
+        "year": 2023,
+        "edition": 2,
+        "source": "https://www.vaildaily.com/news/three-time-leadville-100-champion-howard-grotts-rides-to-victory-in-mens-rams-horn-escape-race-at-bighorn-gravel/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-06-25",
+        "source": "https://www.bighornevents.com/results"
       }
     ],
     "course_description": {
@@ -800,6 +821,43 @@
         "credit": "YouTube / The Ride with Ben Delaney",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "85 mi",
+          "winner_female": "Cecily Decker",
+          "winner_male": "Henry Nelson",
+          "winning_time_female": "5:32:14",
+          "winning_time_male": "4:54:47",
+          "source": "https://www.bighornevents.com/results"
+        },
+        "2025": {
+          "race": "85 mi",
+          "winner_female": "Cecily Decker",
+          "winner_male": "Cobe Freeburn",
+          "winning_time_female": "5:42:38",
+          "winning_time_male": "5:00:36",
+          "source": "https://www.bighornevents.com/results"
+        },
+        "2024": {
+          "race": "85 mi",
+          "winner_female": "Cecily Decker",
+          "winner_male": "Eric Brunner",
+          "winning_time_female": "5:36:15",
+          "winning_time_male": "4:56:08",
+          "source": "https://www.bighornevents.com/results"
+        },
+        "2023": {
+          "race": "77 mi",
+          "winner_female": "Michela Thompson",
+          "winner_male": "Howard Grotts",
+          "winning_time_female": "5:23:59",
+          "winning_time_male": "4:26:00",
+          "source": "https://www.bighornevents.com/results"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

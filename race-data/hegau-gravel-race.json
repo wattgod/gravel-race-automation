@@ -114,6 +114,14 @@
       "notable_moments": [],
       "reputation": "Regional German event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-07-06",
+        "edition": 2,
+        "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/hegau-gravel-festival/results/"
+      }
+    ],
     "course_description": {
       "character": "German countryside rolling gravel.",
       "suffering_zones": [
@@ -375,10 +383,29 @@
           "key_takeaways": [
             "Historical weather incidents: Unavailable; first event in 2024, no incidents noted",
             "Race history (founded year, founder if known): First took place in 2024 in Singen, which hosted 2017 UCI mountainbike marathon world championships."
-          ]
+          ],
+          "race": "108 km",
+          "winner_male": "Jonas Koch",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/hegau-gravel-festival/results/"
+        },
+        "2026": {
+          "race": "108 km",
+          "winner_female": "Nele Laing",
+          "winner_male": "Petr Vakoč",
+          "winning_time_female": "3:37:01",
+          "winning_time_male": "3:09:29",
+          "source": "https://www.cyclingnews.com/pro-cycling/uci-gravel-world-series-petr-vakoc-and-nele-laing-celebrate-in-singen-as-they-take-victories-at-hegau-gravel/"
+        },
+        "2025": {
+          "race": "108 km",
+          "winner_female": "Rosa Klöser",
+          "winner_male": "Mathijs Loman",
+          "winning_time_female": "3:33:18",
+          "winning_time_male": "3:10:45",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/hegau-gravel-festival/results/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

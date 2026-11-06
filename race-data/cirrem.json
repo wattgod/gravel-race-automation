@@ -124,6 +124,23 @@
       ],
       "reputation": "An established grassroots Iowa winter gravel race known for weather uncertainty and a finish at Cumming Tap."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 18,
+        "source": "https://cirrem.com/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-02-22",
+        "source": "https://www.webscorer.com/race?pid=1&raceid=381373"
+      },
+      {
+        "year": 2024,
+        "date": "2024-02-24",
+        "source": "https://www.webscorer.com/race?pid=1&raceid=343695"
+      }
+    ],
     "course_description": {
       "character": "A roughly 100-kilometer loop on hilly, open gravel roads in Madison County, with a checkpoint near halfway and surface difficulty dictated by freeze, thaw, precipitation, and wind.",
       "suffering_zones": [],
@@ -425,6 +442,35 @@
     "youtube_data": {
       "videos": [],
       "quotes": []
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "100 km",
+          "winner_female": "Theresa Bender",
+          "winner_male": "Matt Zimmer",
+          "winning_time_female": "4:39:39",
+          "winning_time_male": "3:07:47",
+          "source": "https://www.webscorer.com/race?pid=1&raceid=422903"
+        },
+        "2025": {
+          "race": "100 km",
+          "winner_female": "Theresa Bender",
+          "winner_male": "Mason Wilson",
+          "winning_time_female": "4:31:47",
+          "winning_time_male": "3:22:00",
+          "source": "https://www.webscorer.com/race?pid=1&raceid=381373"
+        },
+        "2024": {
+          "race": "100 km",
+          "winner_female": "Kennon Meyer",
+          "winner_male": "Dillon McNeill",
+          "winning_time_female": "3:46:49",
+          "winning_time_male": "3:06:38",
+          "source": "https://www.webscorer.com/race?pid=1&raceid=343695"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

@@ -115,6 +115,22 @@
       "notable_moments": [],
       "reputation": "Regional BC event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-08-23",
+        "end_date": "2025-08-25",
+        "note": "Final edition; organizers moved on to the Rough Rider stage race in Arizona.",
+        "source": "https://zone4.ca/event/2025/y205wL/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-08-24",
+        "end_date": "2024-08-26",
+        "note": "Three stages based at Nipika Mountain Resort.",
+        "source": "https://zone4.ca/event/2024/462v3B/"
+      }
+    ],
     "course_description": {
       "character": "BC mountain multi-stage gravel.",
       "suffering_zones": [
@@ -803,6 +819,25 @@
         "credit": "YouTube / PIQUE PICTURES",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "3 stages",
+          "winner_female": "Lindsay Glassford",
+          "winner_male": "Nicolas Kleban",
+          "winning_time_female": "11:44:45",
+          "winning_time_male": "10:04:56",
+          "source": "https://vcpcycling.com/final-gravel-royale-crowns-overall-champions-in-style/"
+        },
+        "2024": {
+          "race": "3 stages",
+          "winner_female": "Chelsee Pummell",
+          "winner_male": "Julien Gagne",
+          "source": "https://cyclingmagazine.ca/gravel/2024-transrockies-gravel-royale-gange-wins/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

@@ -115,6 +115,14 @@
       "notable_moments": [],
       "reputation": "Regional SC event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-03-14",
+        "note": "New start and finish in downtown Whitmire",
+        "source": "https://www.southeastgravel.com/gravel-battle-of-sumter-forest"
+      }
+    ],
     "course_description": {
       "character": "Southeast Gravel race from downtown Whitmire: the 2026 long course is 73 miles with 4,481 feet of gain on the organizer-linked route. The course crosses the river in both directions and uses the tunnels under I-26. Long-course aid stations are at miles 21, 40, and 63.",
       "suffering_zones": [
@@ -766,6 +774,19 @@
         "credit": "YouTube / Alex Runge",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "73 mi",
+          "winner_female": "Colleen Maher Larocca",
+          "winner_male": "Johnny Mitchell",
+          "winning_time_female": "3:34:51",
+          "winning_time_male": "3:13:48",
+          "source": "https://www.webscorer.com/race?raceid=424372"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

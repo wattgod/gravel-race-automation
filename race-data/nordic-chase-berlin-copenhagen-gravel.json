@@ -16,8 +16,8 @@
       "location_badge": "BERLIN TO COPENHAGEN",
       "county": "Germany and Denmark",
       "country": "Germany / Denmark",
-      "date": "2027: July 31-August 5 event window; exact grand depart pending",
-      "date_specific": "TBD — 2027 event window: July 31-August 5; exact grand depart pending",
+      "date": "2027: June 3-8",
+      "date_specific": "2027: June 3-8 (CONFIRMED — nordicchase.com/ber-cph)",
       "last_confirmed_date": null,
       "terrain_types": [
         "German forest tracks",
@@ -103,7 +103,7 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "The announced July-August 2027 window is moderate, while rain and Baltic wind can still reshape the race."
+        "explanation": "The June 2027 dates are moderate, while rain and Baltic wind can still reshape the race."
       },
       "altitude": {
         "score": 1,
@@ -225,6 +225,12 @@
     },
     "citations": [
       {
+        "url": "https://nordicchase.com/ber-cph",
+        "category": "official",
+        "label": "Nordic Chase: Berlin–Copenhagen 2027, June 3-8",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://nordicchase.com/",
         "category": "official",
         "label": "Nordic Chase official 2027 calendar and registration announcement"
@@ -243,7 +249,7 @@
     "eligibility": {
       "status": "active",
       "race_plan_eligible": true,
-      "status_note": "The organizer has confirmed the 2027 Berlin-to-Copenhagen gravel identity and July 31-August 5 event window. Training-plan publication remains source-blocked until it publishes the exact grand-depart date and final 2027 route package."
+      "status_note": "The organizer has confirmed the 2027 Berlin-to-Copenhagen gravel identity and June 3-8 dates. Training-plan publication remains source-blocked until it publishes the final 2027 route package."
     },
     "research_metadata": {
       "data_confidence": "official 2027 event window; latest organizer-reconned course retained only as a guarded planning reference",

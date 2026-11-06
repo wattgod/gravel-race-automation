@@ -121,6 +121,24 @@
       "notable_moments": [],
       "reputation": "Growing regional Utah mountain event; Velo has called it 'the toughest gravel race you've never heard of.'"
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-08-29",
+        "source": "https://utahcycling.com/event/wasatch-all-road/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-09-27",
+        "source": "https://www.webscorer.com/race?raceid=407664"
+      },
+      {
+        "year": 2024,
+        "status": "not_held",
+        "note": "One-year pause; group ride held in place of the race",
+        "source": "https://ventumracing.com/alt-road/"
+      }
+    ],
     "course_description": {
       "character": "The organizer-published Bigfoot flagship is 82 miles with 10,560 feet of gain and 77% gravel on the western slope of the Uinta Range.",
       "suffering_zones": [
@@ -701,6 +719,19 @@
         "credit": "YouTube / CADE Media",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "Bigfoot",
+          "winner_female": "Melissa Aitken",
+          "winner_male": "Zach Calton",
+          "winning_time_female": "6:09:05.7",
+          "winning_time_male": "5:07:19.1",
+          "source": "https://www.webscorer.com/race?raceid=407664"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

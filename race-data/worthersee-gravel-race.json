@@ -119,6 +119,21 @@
       ],
       "reputation": "The newest race on the UCI Gravel World Series calendar and, per early finishers, one of the best-organized — a three-day festival built around Velden's lakefront."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-04-06",
+        "edition": 2,
+        "source": "https://cyclingflash.com/race/uci-gravel-world-series-worthersee-gravel-2025/result"
+      },
+      {
+        "year": 2024,
+        "date": "2024-04-07",
+        "edition": 1,
+        "note": "First edition; opening round of the UCI Gravel World Series.",
+        "source": "https://www.woerthersee-gravel.com/en/international-gravel-race-makes-its-debut-at-lake-woerthersee/"
+      }
+    ],
     "course_description": {
       "character": "UCI Gravel World Series qualifier from Velden am Wörthersee: 150km/1,713m full distance (78km start loop + 72km second loop) along the Wörthersee south shore and the Drau river channel. A 4km gravel ramp gaining 150m hits at km 2 and splits the field immediately; the final climb runs the same ramp in reverse. 94km/1,182m is the official course for men 60+ / women 50+. Start/finish 450m ASL, high point 620m at km 99. 2024 debut sold out in two months.",
       "suffering_zones": [
@@ -392,14 +407,26 @@
           "key_takeaways": [
             "Inaugural edition, April 7, 2024 — first UCI Gravel World Series race in Austria",
             "Sold out within two months of opening registration"
-          ]
+          ],
+          "race": "144 km",
+          "winner_female": "Giada Borghesi",
+          "winner_male": "Sebastian Schönberger",
+          "winning_time_female": "4:28:36",
+          "winning_time_male": "4:00:23",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-2024/woerthersee-gravel/results/"
         },
         "2025": {
           "key_takeaways": [
             "Field grew to nearly 2,000 riders from 40+ countries",
             "Men's winner: Magnus Bak Klaris (Denmark), 3:38:16; Felix Stehli (Switzerland) 2nd, Lukas Pöstlberger (Austria) 3rd/Austrian national champion.",
             "Women's winner: Geerike Schreurs (Netherlands), 4:32:21; Karolina Migoń (Switzerland) 2nd, Carolin Schiff (Germany) 3rd"
-          ]
+          ],
+          "race": "136 km",
+          "winner_female": "Geerike Schreurs",
+          "winner_male": "Magnus Bak Klaris",
+          "winning_time_female": "4:32:21",
+          "winning_time_male": "3:38:16",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/woerthersee-gravel-race/results/"
         },
         "2026": {
           "key_takeaways": [

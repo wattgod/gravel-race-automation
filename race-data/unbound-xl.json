@@ -300,6 +300,22 @@
           "winning_time_female": "20:57:57",
           "winning_time_male": "17:49:51",
           "source": "https://escapecollective.com/rob-britton-and-heather-jackson-take-record-wins-at-unbound-xl/"
+        },
+        "2018": {
+          "race": "350 mi",
+          "winner_female": "Rebecca Rusch",
+          "winner_male": "Matt Acker",
+          "winning_time_female": "28:27:02",
+          "winning_time_male": "25:10:02",
+          "source": "https://kvoe.com/2018/06/02/matt-acker-wins-1st-ever-dk-xl-ted-king-wins-dk-200-for-second-time/"
+        },
+        "2019": {
+          "race": "350 mi",
+          "winner_female": "Lael Wilcox",
+          "winner_male": "Jay Petervary",
+          "winning_time_female": "23:51:37",
+          "winning_time_male": "22:31:41",
+          "source": "https://www.cxmagazine.com/gravel-results-2019-dkxl-350-mile-ultra-endurance"
         }
       },
       "latest_year": "2025"
@@ -895,7 +911,28 @@
         "year": 2021,
         "date": "2021-06-04",
         "source": "https://theradavist.com/358-hard-miles-26-hours-55-minutes-lael-wilcox-at-the-2021-unbound-xl"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://www.unboundgravel.com/2020-event-status-update/"
+      },
+      {
+        "year": 2019,
+        "date": "2019-05-31",
+        "note": "Open to applicants for the first time",
+        "source": "https://kvoe.com/2019/02/10/lottery-selection-system-leads-to-bigger-dirty-kanza-field/"
+      },
+      {
+        "year": 2018,
+        "date": "2018-06-01",
+        "note": "First DK XL: 34 invited riders, 350 miles",
+        "source": "https://www.bicycleretailer.com/industry-news/2018/01/15/dirty-kanza-adds-350-mile-challenge-2018-event"
       }
-    ]
+    ],
+    "history": {
+      "founded": 2018
+    }
   }
 }

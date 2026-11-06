@@ -114,6 +114,26 @@
       "notable_moments": [],
       "reputation": "Local Iowa event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-06",
+        "note": "Switched from miles to kilometers: new 100K, 50K and 25K routes.",
+        "source": "https://www.bikeiowa.com/Event/16462/prairie-burn-100-gravel-bike-ride-and-fun-run"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-14",
+        "edition": 6,
+        "source": "https://ahrensfamilyfoundation.org/prairie-burners-enjoy-riding-running-summer-fun-outside/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-06-08",
+        "note": "Chip timing added; new routes and a race for the 100-mile riders.",
+        "source": "https://www.bikeiowa.com/Event/15784/prairie-burn-100"
+      }
+    ],
     "course_description": {
       "character": "Iowa rolling gravel.",
       "suffering_zones": [
@@ -651,6 +671,17 @@
         "credit": "YouTube / We Are Iowa Local 5 News",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "100 mi",
+          "winner_female": "Kristin Hansen",
+          "winner_male": "Ben Anderson",
+          "source": "https://ahrensfamilyfoundation.org/prairie-burners-enjoy-riding-running-summer-fun-outside/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

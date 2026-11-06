@@ -11,7 +11,7 @@
       "location_badge": "AIGLE, SWITZERLAND",
       "county": "Vaud",
       "date": "Mid-July annually",
-      "date_specific": "2026: July 12",
+      "date_specific": "2027: July 11 (Sunday, CONFIRMED — themajestics.ch)",
       "terrain_types": [
         "Swiss Alps",
         "Alpine gravel",
@@ -105,12 +105,32 @@
       "official_site": ""
     },
     "history": {
-      "founded": null,
+      "founded": 2024,
       "founder": "Swiss organizers",
       "origin_story": "Regional Swiss gravel event.",
       "notable_moments": [],
       "reputation": "Regional Swiss event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-07-12",
+        "note": "Renamed The Majestics Gravel (from Gravel Suisse); UCI Gravel World Series round",
+        "source": "https://ucigravelworldseries.com/en/villars/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-28",
+        "note": "UCI Gravel World Series round",
+        "source": "https://en.wikipedia.org/wiki/2024%E2%80%9325_UCI_Gravel_World_Series"
+      },
+      {
+        "year": 2024,
+        "date": "2024-07-06",
+        "note": "First edition, as Gravel Suisse; UCI Gravel World Series round",
+        "source": "https://www.tour-magazin.de/en/professional-cycling/latest-news/25-races-this-is-the-uci-gravel-world-series-2024/"
+      }
+    ],
     "course_description": {
       "character": "Swiss Alpine gravel.",
       "suffering_zones": [
@@ -320,6 +340,12 @@
     },
     "citations": [
       {
+        "url": "https://themajestics.ch/en/uci-gravel-world-series/",
+        "category": "official",
+        "label": "The Majestics Gravel (UCI Gravel World Series, Villars): 2027 edition July 11",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://ridewithgps.com/routes/51959894",
         "category": "route",
         "label": "RideWithGPS: UCI Gravel Suisse - The Summit 2025"
@@ -375,10 +401,32 @@
         "2024": {
           "key_takeaways": [
             "The UCI Gravel Suisse debuted in 2024 on the UCI calendar"
-          ]
+          ],
+          "race": "102 km",
+          "winner_female": "Karolina Migon",
+          "winner_male": "Olivier Godfroid",
+          "winning_time_female": "4:09:26",
+          "winning_time_male": "3:32:21",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-2024/gravel-suisse/results/"
+        },
+        "2026": {
+          "race": "106 km",
+          "winner_female": "Elena Hartmann",
+          "winner_male": "Joel Roth",
+          "winning_time_female": "4:15:22",
+          "winning_time_male": "3:35:28",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/uci-gravel-world-series-swiss-riders-joel-roth-and-elena-hartmann-climb-to-victories-at-the-majestics-gravel/"
+        },
+        "2025": {
+          "race": "100 km",
+          "winner_female": "Sophie Wright",
+          "winner_male": "Andreas Seewald",
+          "winning_time_female": "4:25:00",
+          "winning_time_male": "3:37:47",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/gravel-suisse/results/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

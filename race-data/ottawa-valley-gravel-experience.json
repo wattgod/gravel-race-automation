@@ -115,6 +115,14 @@
       "notable_moments": [],
       "reputation": "Local Ontario event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-04-12",
+        "note": "Opening round of the Canada Gravel Cup.",
+        "source": "https://gravelcup.com/gravel-cup-events/ottawa-valley-gravel-experience-2024-bmjx3"
+      }
+    ],
     "course_description": {
       "character": "Ontario rolling gravel.",
       "suffering_zones": [
@@ -750,6 +758,19 @@
         "credit": "YouTube / Ride the Highlands",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "97 km",
+          "winner_female": "Francesca Seal",
+          "winner_male": "Mark Andrews",
+          "winning_time_female": "3:18:38",
+          "winning_time_male": "3:01:37",
+          "source": "https://www.timeral.info/Archive/A1-2025.html"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

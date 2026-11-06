@@ -10,8 +10,8 @@
       "location": "Thomasville, GA",
       "location_badge": "THOMASVILLE, GA",
       "county": "Thomas County",
-      "date": "Late March annually",
-      "date_specific": "2025: March 22",
+      "date": "Cancelled for 2025",
+      "date_specific": "Status: CANCELLED for 2025 (BikeReg lists 'CANCELLED Rose City Rampage Gravel Race'); next edition not announced",
       "terrain_types": [
         "Georgia plains",
         "Southern gravel",
@@ -114,6 +114,13 @@
       "notable_moments": [],
       "reputation": "Regional GA event."
     },
+    "editions": [
+      {
+        "year": 2024,
+        "date": "2024-04-06",
+        "source": "https://www.bikereg.com/62192"
+      }
+    ],
     "course_description": {
       "character": "Georgia plains gravel.",
       "suffering_zones": [
@@ -405,6 +412,23 @@
         "200pluslb_mixed": "42-46",
         "200pluslb_wet": "40-44"
       }
+    },
+    "results": {
+      "years": {
+        "2024": {
+          "race": "Long",
+          "winner_female": "Lauren Baker",
+          "winner_male": "Daniel Vu",
+          "winning_time_female": "3:02:15",
+          "winning_time_male": "2:57:43",
+          "source": "https://www.chainbusterresults.com/results/2024/2024RoseCityLong.pdf"
+        }
+      },
+      "latest_year": "2024"
+    },
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "The 2025 Rose City Rampage was cancelled, and no later edition has been announced."
     }
   }
 }

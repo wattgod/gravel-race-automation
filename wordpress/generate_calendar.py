@@ -2,7 +2,14 @@
 """
 Generate a standalone race calendar page for SEO.
 
-Creates /race/calendar/{year}/index.html showing all races organized by month.
+Creates /race/calendar/{season}/index.html for the season riders are planning
+(season.season_year()) plus an archive page for every earlier season since
+FIRST_CALENDAR_YEAR. On the season page each race sits in the month of its
+next edition: the stored date when the profile has one, otherwise the date
+projected from the last edition (season.estimate_next), marked "Est.". Only
+when nothing can be projected does it sit in the month it last ran, marked
+"{season} date TBA". /race/calendar/ itself is a
+302 to the season page (scripts/push_wordpress.py REDIRECT_BLOCK).
 Targets queries like "gravel race calendar 2026", "gravel racing schedule",
 "gravel events this month".
 
@@ -26,12 +33,18 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+sys.path.append(str(Path(__file__).parent.parent / "scripts"))
+from race_facts import is_ranked, may_estimate  # noqa: E402
+from season import PAST, estimate_next, parse_edition, season_year  # noqa: E402
 from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, get_ga4_head_snippet, get_tokens_css, SITE_BASE_URL
 from shared_header import get_site_header_css, get_site_header_html
 from cookie_consent import get_consent_banner_html
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-CURRENT_YEAR = date.today().year
+SEASON_YEAR = season_year()  # rider-facing season; rolls over in September
+# First season with a calendar page; every season from here to SEASON_YEAR - 1
+# is regenerated as an archive (those URLs rank, so they stay live).
+FIRST_CALENDAR_YEAR = 2026
 
 TIER_NAMES = {1: "Elite", 2: "Contender", 3: "Solid", 4: "Roster"}
 TIER_COLORS = {
@@ -53,17 +66,88 @@ def esc(text) -> str:
     return html_mod.escape(str(text)) if text else ""
 
 
-def build_calendar_page(races: list) -> str:
-    """Generate the full calendar page."""
-    # Group by month
-    by_month = defaultdict(list)
-    for r in races:
-        month = r.get("month", "TBD")
-        by_month[month].append(r)
+def load_editions(slugs) -> tuple[dict, frozenset]:
+    """(slug -> race.vitals.date_specific, slugs never to estimate) from race-data/.
 
-    # Sort each month's races by score
+    Missing files are skipped. The second item lists races that
+    ``race_facts.may_estimate`` rules out (not running, source blocked).
+    """
+    editions, fixed = {}, set()
+    for slug in slugs:
+        path = PROJECT_ROOT / "race-data" / f"{slug}.json"
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        race = data.get("race", data)
+        editions[slug] = (race.get("vitals") or {}).get("date_specific")
+        if not may_estimate(race):
+            fixed.add(slug)
+    return editions, frozenset(fixed)
+
+
+def place_race(race: dict, year: int, date_specific, season: int = None, *,
+               project: bool = True, on=None):
+    """Where a race sits on the ``year`` calendar.
+
+    Returns (month name or "TBD", kind, label, day) or None when the race's
+    next edition is after ``year``. kind is "confirmed", "estimated" (stored
+    as an estimate, or projected from a past edition when ``project``),
+    "tba" (season page, nothing to project: placed in the month it last ran)
+    or "archived" (earlier season).
+    """
+    season = SEASON_YEAR if season is None else season
+    ed = parse_edition(date_specific)
+    fallback = race.get("month") if race.get("month") in MONTHS else "TBD"
+    if (year >= season and project and is_ranked(race)
+            and ed.state(on) == PAST):
+        est = estimate_next(ed, on)
+        if est and est.year == year:
+            ed = est
+    if ed.year == year and ed.month:
+        month = MONTHS[ed.month - 1]
+        when = f"{month[:3]} {ed.day}" if ed.day else month[:3]
+        if year < season:
+            return month, "archived", when if ed.day else "", ed.day or 99
+        if ed.estimated:
+            return month, "estimated", f"Est. {when}", ed.day or 99
+        return month, "confirmed", when if ed.day else f"{when} · day TBA", ed.day or 99
+    if year < season:
+        return fallback, "archived", "", 99
+    if ed.year and ed.year > year:
+        return None
+    month = MONTHS[ed.month - 1] if ed.month else fallback
+    return month, "tba", f"{year} date TBA", 99
+
+
+def build_calendar_page(races: list, year: int = None, editions: dict = None,
+                        fixed: frozenset = frozenset()) -> str:
+    """Generate the calendar page for ``year`` (default: the current season).
+
+    ``fixed``: slugs whose past edition is never projected (``load_editions``).
+    """
+    year = SEASON_YEAR if year is None else year
+    archive = year < SEASON_YEAR
+    editions = editions or {}
+    # A calendar lists races that are happening; not-running races are out.
+    by_month = defaultdict(list)
+    placed = []
+    for r in races:
+        if not is_ranked(r):
+            continue
+        spot = place_race(r, year, editions.get(r.get("slug")),
+                          project=r.get("slug") not in fixed)
+        if spot is None:
+            continue
+        month, kind, label, day = spot
+        entry = dict(r, _kind=kind, _label=label, _day=day)
+        by_month[month].append(entry)
+        placed.append(entry)
+    races = placed
+
+    # Dated races first (by day), then by score
     for month in by_month:
-        by_month[month].sort(key=lambda x: -x.get("overall_score", 0))
+        by_month[month].sort(key=lambda x: (x["_day"], -x.get("overall_score", 0)))
 
     # Extract unique regions for filter
     regions = sorted(set(r.get("region", "") for r in races if r.get("region")))
@@ -85,7 +169,7 @@ def build_calendar_page(races: list) -> str:
             month_sections.append(
                 f'<section id="month-{m.lower()}" class="gg-cal-month" data-month="{m}">'
                 f'<h2>{m} <span class="gg-cal-month-count">0 races</span></h2>'
-                f'<p class="gg-cal-empty">No races scheduled in {m}.</p></section>'
+                f'<p class="gg-cal-empty">No races in {m}.</p></section>'
             )
             continue
 
@@ -108,12 +192,15 @@ def build_calendar_page(races: list) -> str:
                     pass
             stats = " · ".join(stat_parts)
 
+            date_html = (
+                f'<div class="gg-cal-card-date gg-cal-card-date--{r["_kind"]}">{esc(r["_label"])}</div>' if r["_label"] else "")
             cards.append(
                 f'<a href="/race/{esc(r["slug"])}/" class="gg-cal-card" '
-                f'data-tier="{tier}" data-region="{esc(region)}">'
+                f'data-tier="{tier}" data-region="{esc(region)}" data-date="{r["_kind"]}">'
                 f'<div class="gg-cal-card-score" style="color:{tier_color}">{score}</div>'
                 f'<div class="gg-cal-card-body">'
                 f'<div class="gg-cal-card-tier" style="border-color:{tier_color}">T{tier}</div>'
+                f'{date_html}'
                 f'<div class="gg-cal-card-name">{esc(r["name"])}</div>'
                 f'<div class="gg-cal-card-location">{esc(r.get("location",""))}</div>'
                 f'<div class="gg-cal-card-stats">{esc(stats)}</div>'
@@ -153,10 +240,20 @@ def build_calendar_page(races: list) -> str:
             f'<div class="gg-cal-grid">{"".join(tbd_cards)}</div></section>'
         )
 
-    canonical = f"{SITE_BASE_URL}/race/calendar/{CURRENT_YEAR}/"
-    title = f"Gravel Race Calendar {CURRENT_YEAR} — All {len(races)} Events | Gravel God"
+    canonical = f"{SITE_BASE_URL}/race/calendar/{year}/"
+    if archive:
+        hero_sub = (f'{len(races)} events &middot; '
+                    f'<a href="/race/calendar/{SEASON_YEAR}/">{SEASON_YEAR} calendar &rarr;</a>')
+    else:
+        confirmed = sum(1 for r in races if r["_kind"] == "confirmed")
+        hero_sub = f"{len(races)} events worldwide &middot; {confirmed} dates confirmed"
+    other_years = "".join(
+        f' &middot;\n    <a href="/race/calendar/{y}/">{y} calendar</a>'
+        for y in range(FIRST_CALENDAR_YEAR, SEASON_YEAR + 1) if y != year
+    )
+    title = f"Gravel Race Calendar {year} — All {len(races)} Events | Gravel God"
     description = (
-        f"Complete {CURRENT_YEAR} gravel race calendar with {len(races)} events worldwide. "
+        f"Complete {year} gravel race calendar with {len(races)} events worldwide. "
         f"Filter by tier and region. Find your next race."
     )
 
@@ -181,7 +278,7 @@ def build_calendar_page(races: list) -> str:
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_BASE_URL}/"},
             {"@type": "ListItem", "position": 2, "name": "Gravel Races", "item": f"{SITE_BASE_URL}/gravel-races/"},
-            {"@type": "ListItem", "position": 3, "name": f"Calendar {CURRENT_YEAR}", "item": canonical},
+            {"@type": "ListItem", "position": 3, "name": f"Calendar {year}", "item": canonical},
         ],
     }, ensure_ascii=False, indent=2)
 
@@ -330,6 +427,9 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 }}
 .gg-cal-card-name {{ font-family: var(--gg-font-editorial); font-size: 14px; font-weight: 700; display: inline; }}
 .gg-cal-card-location {{ font-size: 10px; color: var(--gg-color-secondary-brown); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }}
+.gg-cal-card-date {{ font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gg-color-teal); margin-bottom: 2px; }}
+.gg-cal-card-date--estimated, .gg-cal-card-date--tba {{ color: var(--gg-color-secondary-brown); }}
+.gg-cal-hero-sub a {{ color: var(--gg-color-warm-paper); }}
 .gg-cal-card-stats {{ font-size: 10px; color: var(--gg-color-secondary-brown); }}
 .gg-cal-card[data-hidden="true"] {{ display: none; }}
 
@@ -389,12 +489,12 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   {get_site_header_html(active="races")}
 
   <div class="gg-cal-breadcrumb">
-    <a href="/">Home</a> &rsaquo; <a href="/gravel-races/">Gravel Races</a> &rsaquo; Calendar {CURRENT_YEAR}
+    <a href="/">Home</a> &rsaquo; <a href="/gravel-races/">Gravel Races</a> &rsaquo; Calendar {year}
   </div>
 
   <section class="gg-cal-hero">
-    <h1>{CURRENT_YEAR} Gravel Race Calendar</h1>
-    <div class="gg-cal-hero-sub">{len(races)} events worldwide &middot; Updated live</div>
+    <h1>{year} Gravel Race Calendar</h1>
+    <div class="gg-cal-hero-sub">{hero_sub}</div>
   </section>
 
   <div class="gg-cal-summary">
@@ -423,7 +523,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   <footer class="gg-cal-footer">
     <a href="/">Gravel God</a> &middot; {len(races)} races &middot;
     <a href="/gravel-races/">Search All</a> &middot;
-    <a href="/race/methodology/">Methodology</a>
+    <a href="/race/methodology/">Methodology</a>{other_years}
   </footer>
 
 </div>
@@ -489,13 +589,14 @@ def main():
         all_races = json.load(f)
     print(f"Loaded {len(all_races)} races")
 
-    page_dir = output_dir / "calendar" / str(CURRENT_YEAR)
-    page_dir.mkdir(parents=True, exist_ok=True)
-
-    page_html = build_calendar_page(all_races)
-    out_path = page_dir / "index.html"
-    out_path.write_text(page_html, encoding="utf-8")
-    print(f"Generated calendar/{CURRENT_YEAR}/index.html ({len(all_races)} races)")
+    editions, fixed = load_editions(r.get("slug") for r in all_races)
+    for year in range(FIRST_CALENDAR_YEAR, SEASON_YEAR + 1):
+        page_dir = output_dir / "calendar" / str(year)
+        page_dir.mkdir(parents=True, exist_ok=True)
+        page_html = build_calendar_page(all_races, year, editions, fixed)
+        (page_dir / "index.html").write_text(page_html, encoding="utf-8")
+        label = "season" if year == SEASON_YEAR else "archive"
+        print(f"Generated calendar/{year}/index.html ({label})")
 
 
 if __name__ == "__main__":

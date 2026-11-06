@@ -5,6 +5,8 @@
   "description": "Private-ranch gravel through the Book Cliffs \u2014 roads closed to the public every other day of the year.",
   "sport": "Gravel Cycling",
   "startDate": "2027-05-15",
+  "endDate": "2027-05-16",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "De Beque, Colorado (High Lonesome Ranch Basecamp)",
@@ -16,7 +18,7 @@
   },
   "url": "https://geminiadventures.com/bike/wild-horse-gravel",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Roll Massif (org lineage: Roll Massif -> Outside Events -> Gemini Adventures, current organizer)",
     "url": "https://geminiadventures.com/bike/wild-horse-gravel"
   }

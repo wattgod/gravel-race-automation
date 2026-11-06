@@ -36,7 +36,7 @@ RACES = {
         "distance_mi": 497,
         "elevation_ft": 23622,
         "score": 66,
-        "date_window": "2027 event window: August 13-19",
+        "date_window": "2027: June 17-23",
         "official_page": "https://nordicchase.com/cph-osl-gravel",
     },
     "nordic-chase-berlin-copenhagen-gravel": {
@@ -45,7 +45,7 @@ RACES = {
         "distance_mi": 454,
         "elevation_ft": 13123,
         "score": 66,
-        "date_window": "2027 event window: July 31-August 5",
+        "date_window": "2027: June 3-8",
         "official_page": "https://nordicchase.com/ber-cph-gravel",
     },
 }
@@ -67,8 +67,8 @@ def test_nordic_chase_gravel_routes_are_distinct_and_graded() -> None:
         assert vitals["location"] == expected["location"]
         assert vitals["distance_mi"] == expected["distance_mi"]
         assert vitals["elevation_ft"] == expected["elevation_ft"]
-        assert vitals["date_specific"].startswith("TBD —")
-        assert expected["date_window"] in vitals["date_specific"]
+        assert vitals["date_specific"].startswith(expected["date_window"])
+        assert "CONFIRMED" in vitals["date_specific"]
         assert race["logistics"]["official_site"] == expected["official_page"]
         assert rating["overall_score"] == expected["score"]
         assert round(sum(rating[key] for key in COMPONENTS) / 70 * 100) == expected["score"]
@@ -87,14 +87,13 @@ def test_nordic_chase_2027_plans_stay_source_blocked() -> None:
         assert race["eligibility"]["race_plan_eligible"] is True
         assert race["vitals"]["course_status"] == "source_blocked"
         assert race["vitals"]["course_status_label"] == (
-            "2027 GRAND DEPART PENDING"
+            "2027 ROUTE PENDING"
         )
         assert metadata["validation_status"] == "source_blocked_for_2027_plan"
         assert metadata["next_edition_status"] == (
-            "waiting_for_exact_grand_depart_and_final_route"
+            "waiting_for_final_2027_route"
         )
         assert "Do not clone, date, or publish" in metadata["known_gap"]
-        assert "exact grand depart pending" in race["vitals"]["date_specific"]
 
 
 def test_generated_index_contains_both_nordic_chase_gravel_races() -> None:
@@ -118,7 +117,6 @@ def test_source_blocked_pages_do_not_publish_a_false_race_day_or_plan_cta() -> N
         race_data = load_race_data(ROOT / "race-data" / f"{slug}.json")
         html = generate_page(race_data, index)
 
-        assert "exact grand depart pending" in html
         assert '"@type":"SportsEvent"' not in html
         assert "data-race-date=" not in html
         assert f"questionnaire/?race={slug}" not in html

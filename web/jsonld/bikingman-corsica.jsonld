@@ -5,6 +5,7 @@
   "description": "A 500-kilometer self-supported crossing of Corsica with 10,000 meters of climbing and roughly 100 kilometers of forest track.",
   "sport": "Bikepacking",
   "startDate": "2027-05-27",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Porto-Vecchio to Biguglia, Corsica, France",
@@ -16,7 +17,7 @@
   },
   "url": "https://bikingman.com/en/corsica-en/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "BikingMan",
     "url": "https://bikingman.com/en/corsica-en/"
   }

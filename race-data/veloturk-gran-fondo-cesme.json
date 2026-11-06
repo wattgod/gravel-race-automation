@@ -6,7 +6,7 @@
       "slug": "veloturk-gran-fondo-cesme",
       "name": "VeloTurk Gran Fondo Cesme",
       "date": "2026: April TBD",
-      "date_specific": "2026: April TBD",
+      "date_specific": "2026: October 24-25 (races Sunday, October 25; granfondocesme.com)",
       "distance_mi": 57,
       "elevation_ft": 3400,
       "location": "Cesme, Izmir, Turkey",
@@ -37,7 +37,8 @@
       "cultural_impact": 2,
       "overall_score": 63,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -156,6 +157,14 @@
       "founded": 2017,
       "notable_facts": "Eighth edition in 2025 confirms 8+ runnings; Veloturk foundation donates bikes to Turkish children via event proceeds; First organized in Cappadocia context before Cesme focus."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-10-25",
+        "end_date": "2025-10-26",
+        "source": "https://www.yeniakit.com.tr/haber/cesme-bisiklet-tutkunlarini-konuk-edecek-veloturk-gran-fondo-cesme-by-salcano-25-26-ekimde-gerceklesecek-1957650.html"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Scenic Aegean gran fondo blending coastal beauty, moderate challenge, and Turkish charity vibes.",
       "who_should_ride": "Intermediate roadies seeking picturesque 57-mile sufferfests with solid organization and value. Ideal for Euro-adjacent travelers wanting unique Turkish cycling.",
@@ -176,8 +185,22 @@
       {
         "url": "https://granfondocesme.com/en",
         "category": "official",
-        "label": "Official Website"
+        "label": "Gran Fondo Çeşme: 2026 dates (October 24-25)",
+        "accessed": "2026-11-06"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "91 km",
+          "winner_female": "Gökçe Demirsoy",
+          "winner_male": "Onur Dağlıoğlu",
+          "winning_time_female": "02:37:59",
+          "winning_time_male": "02:24:54",
+          "source": "https://granfondo.com.tr/gran-fondo/veloturk-gran-fondo-cesme-2025-tamamlandi/5516/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

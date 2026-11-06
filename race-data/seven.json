@@ -177,6 +177,19 @@
       ],
       "reputation": "The World Championship host—where Australian wilderness meets elite gravel racing."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Course preview for the 2026 UCI Gravel World Championships in Nannup",
+        "source": "https://granfondodailynews.com/2026/05/16/gravel-grit-and-glory-johnston-cromwell-rule-worlds-dry-run-as-seven-hits-record-2000-racers/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-17",
+        "note": "Date inferred by source from 'Saturday' and report date May 18.",
+        "source": "https://granfondodailynews.com/2025/05/18/uci-gravel-world-series-results-from-seven-in-australia-and-the-scottish-gralloch/"
+      }
+    ],
     "course_description": {
       "character": "A relentless climbing race through Western Australian pine plantations and state forests. The 'parallel singletrack' roads are often just two tire tracks wide with grass in the middle. Sharp quartz grit and mica create constant flat tire risk. 12-13 categorized climbs with 3,200m total elevation in 125km—one of the highest climbing ratios in gravel racing.",
       "suffering_zones": [
@@ -339,9 +352,33 @@
           "key_takeaways": [],
           "winning_time_male": "4:05:11",
           "winning_time_female": "4:44:30"
+        },
+        "2026": {
+          "race": "125 km",
+          "winner_female": "Tiffany Cromwell",
+          "winner_male": "Brendan Johnston",
+          "winning_time_female": "04:28:52",
+          "winning_time_male": "03:55:56",
+          "source": "https://granfondodailynews.com/2026/05/16/gravel-grit-and-glory-johnston-cromwell-rule-worlds-dry-run-as-seven-hits-record-2000-racers/"
+        },
+        "2025": {
+          "race": "126 km",
+          "winner_female": "Tiffany Cromwell",
+          "winner_male": "Mark O'Brien",
+          "winning_time_female": "4:39:46",
+          "winning_time_male": "4:05:20",
+          "source": "https://granfondodailynews.com/2025/05/18/uci-gravel-world-series-results-from-seven-in-australia-and-the-scottish-gralloch/"
+        },
+        "2023": {
+          "race": "125 km",
+          "winner_female": "Tiffany Cromwell",
+          "winner_male": "Tasman Nankervis",
+          "winning_time_female": "4h 58m 25s",
+          "winning_time_male": "4h 16m 44s",
+          "source": "https://granfondoguide.com/Contents/PopUp/7341/nankervis-and-cromwell-fastest-at-uci-seven-gravel-race-downunder"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

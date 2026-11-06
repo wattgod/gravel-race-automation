@@ -136,6 +136,20 @@
       ],
       "reputation": "New (2025-founded) UCI Gravel World Series qualifier. Peille/French Alps, high above Monaco. Iconic location. Steep climbs. Brutal."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 2,
+        "source": "https://granfondodailynews.com/2026/04/20/from-tour-de-france-to-tour-de-gravel-bardet-rules-the-riviera-at-monaco-gravel-race/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-04-20",
+        "edition": 1,
+        "note": "First edition, a UCI Gravel World Series qualifier",
+        "source": "https://granfondodailynews.com/2025/04/22/uci-monaco-gravel-results-schmidt-aguirre-dominate-to-earn-solo-victories-and-qualify-for-worlds/"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -225,9 +239,9 @@
       "should_you_race": "If you can handle roughly 115 feet of climbing per mile on short, punchy ascents, this is your European gravel vacation with World Championship qualification upside. The Mercantour park setting means you're climbing through postcard scenery instead of Kansas cornfields. Skip it if you prefer sustained efforts over constant gear changes, or if you think 72 miles sounds easy because the math doesn't lie on those repeated kicks.",
       "alternatives": "Dirty Kanza offers similar UCI points without the airline ticket, while Gravel Worlds qualifiers like SBT GRVL give you high desert instead of Alpine views. If you want European gravel without the Monaco price tag, consider Gravel One Fifty in the UK for comparable terrain and fewer tourist crowds.",
       "alternative_slugs": [
-        "garmin-gravel-worlds",
+        "gravel-worlds",
         "gravel-one-fifty",
-        "sbt-grvl",
+        "steamboat-gravel",
         "unbound-200"
       ]
     },
@@ -603,6 +617,27 @@
         "credit": "YouTube / Cycles Aix'Perts",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "120 km",
+          "winner_female": "Sophie Wright",
+          "winner_male": "Romain Bardet",
+          "winning_time_female": "4:27:35",
+          "winning_time_male": "3:47:38",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/uci-gravel-world-series-romain-bardet-and-sophie-wright-stretch-the-gaps-to-win-monaco-gravel-race/"
+        },
+        "2025": {
+          "race": "120 km",
+          "winner_female": "Morgan Aguirre",
+          "winner_male": "Mads Wurtz Schmidt",
+          "winning_time_female": "4:35:55",
+          "winning_time_male": "3:51:32",
+          "source": "https://granfondodailynews.com/2025/04/22/uci-monaco-gravel-results-schmidt-aguirre-dominate-to-earn-solo-victories-and-qualify-for-worlds/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

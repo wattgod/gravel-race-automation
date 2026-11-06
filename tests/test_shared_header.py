@@ -19,13 +19,13 @@ class TestHeaderHTML:
         for label in ["RACES", "PRODUCTS", "SERVICES", "ARTICLES", "ABOUT"]:
             assert f">{label}</a>" in html
 
-    def test_four_dropdown_containers(self):
+    def test_five_dropdown_containers(self):
         html = get_site_header_html()
-        assert html.count('class="gg-site-header-item"') == 4
+        assert html.count('class="gg-site-header-item"') == 5
 
     def test_four_dropdowns(self):
         html = get_site_header_html()
-        assert html.count('class="gg-site-header-dropdown"') == 4
+        assert html.count('class="gg-site-header-dropdown"') == 5
 
     def test_about_has_no_dropdown(self):
         html = get_site_header_html()
@@ -49,6 +49,8 @@ class TestHeaderHTML:
             "Consulting",
             "Slow Mid 38s",
             "Hot Takes",
+            "Surge Check",
+            "White Papers",
         ]
         for link_text in expected:
             assert link_text in html, f"Missing dropdown link: {link_text}"
@@ -62,7 +64,7 @@ class TestHeaderHTML:
             re.DOTALL,
         )
         sub_links = sum(d.count("<a ") for d in dropdowns)
-        assert sub_links == 11  # +1 for Courses link under PRODUCTS
+        assert sub_links == 12  # RESOURCES: Handbook, Surge Check, White Papers
 
     def test_logo_present(self):
         html = get_site_header_html()
@@ -72,7 +74,7 @@ class TestHeaderHTML:
         assert 'class="gg-site-header-logo"' in html
 
     def test_aria_current_when_active(self):
-        for key in ["races", "products", "services", "articles", "about"]:
+        for key in ["races", "products", "services", "articles", "resources", "about"]:
             html = get_site_header_html(active=key)
             assert 'aria-current="page"' in html
 

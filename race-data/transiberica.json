@@ -12,8 +12,8 @@
       "time_limit": "15 days (Aug 22 to Sep 6)",
       "field_size": "limited to ~250",
       "participation_trend": "growing since 2017, application-based",
-      "date": "2026: August 22",
-      "date_specific": "2026: August 22",
+      "date": "2027: September 4",
+      "date_specific": "2027: September 4 (Bilbao finish, CONFIRMED — transiberica.club)",
       "location": "Oudenaarde, Belgium to Bilbao, Spain",
       "distance_mi": 1864,
       "elevation_ft": 157480
@@ -148,6 +148,61 @@
         "category": "official",
         "label": "Transibérica Ultracycling — official event information"
       }
-    ]
+    ],
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Start moved to Oudenaarde, Belgium; about 3,000 km to Bilbao.",
+        "source": "https://dotwatcher.cc/race/transib%C3%A9rica-2026"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-19",
+        "note": "Started in Bolzano, Italy; about 2,600 km to Bilbao.",
+        "source": "https://dotwatcher.cc/race/transiberica-2025"
+      },
+      {
+        "year": 2024,
+        "edition": 7,
+        "note": "Started in Bolzano, Italy.",
+        "source": "https://www.transiberica.club/previous-transiberica/"
+      },
+      {
+        "year": 2023,
+        "edition": 6,
+        "note": "Started in Malaga, Spain.",
+        "source": "https://www.transiberica.club/previous-transiberica/"
+      },
+      {
+        "year": 2022,
+        "edition": 5,
+        "note": "Started and finished in Bilbao.",
+        "source": "https://www.transiberica.club/previous-transiberica/"
+      }
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "2,600 km",
+          "winner_female": "Ada Haas",
+          "winner_male": "Michael Mayer",
+          "winning_time_female": "7d 9h 17m",
+          "winning_time_male": "6d 1h 17m",
+          "source": "https://dotwatcher.cc/results/2025/transiberica-2025"
+        },
+        "2024": {
+          "race": "2,600 km",
+          "winner_female": "Marguerite Muhlhaus",
+          "winner_male": "Georg Walther",
+          "winning_time_female": "7d 6h 56m",
+          "winning_time_male": "6d 12h 13m",
+          "source": "https://www.transiberica.club/previous-transiberica/"
+        }
+      },
+      "latest_year": "2025"
+    },
+    "history": {
+      "founded": 2018
+    }
   }
 }

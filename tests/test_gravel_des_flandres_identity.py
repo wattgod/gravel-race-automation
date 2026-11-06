@@ -16,7 +16,7 @@ def test_invalid_profile_is_retired_with_a_documented_tombstone():
         "tombstones"
     ]
     record = next(row for row in tombstones if row["slug"] == "gravel-des-flandres")
-    assert record["redirect"] == "/race/calendar/2026/"
+    assert record["redirect"] == "/race/calendar/"
     assert "no organizer or official event exists" in record["reason"]
     assert "Flanders Gravel Series" in record["reason"]
 
@@ -25,11 +25,11 @@ def test_invalid_profile_redirects_to_the_current_race_calendar():
     deployer = (ROOT / "scripts" / "push_wordpress.py").read_text()
     assert (
         "RewriteRule ^race/gravel-des-flandres/?$ "
-        "/race/calendar/2026/ [R=301,L]"
+        "/race/calendar/ [R=301,L]"
     ) in deployer
     assert (
         "RewriteRule ^race/gravel-des-flandres/(.*)$ "
-        "/race/calendar/2026/ [R=301,L]"
+        "/race/calendar/ [R=301,L]"
     ) in deployer
 
 

@@ -139,6 +139,20 @@
       ],
       "reputation": "Australian gravel scene. Adelaide Hills. UCI Oceania Gravel Championship host (2026). Paused for 2027 as of Jul 2026 announcement."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 3,
+        "note": "Doubled as the first Oceania Gravel Championships.",
+        "source": "https://www.cyclingweekly.com/racing/getting-the-balance-back-romain-bardet-takes-solo-victory-at-australias-radl-grvl-with-new-rapha-team"
+      },
+      {
+        "year": 2025,
+        "date": "2025-01-24",
+        "edition": 2,
+        "source": "https://www.cyclingnews.com/races/radl-grvl-2025/elite-men-women/results/"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -665,6 +679,27 @@
     "taking_a_break": {
       "label": "TAKING A BREAK",
       "line": "RADL GRVL is paused for 2027 with an eye on a 2028 return. Train for it now and be ready when it's back."
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "127 km",
+          "winner_female": "Nicole Frain",
+          "winner_male": "Romain Bardet",
+          "winning_time_female": "4:02:32",
+          "winning_time_male": "3:30:07",
+          "source": "https://escapecollective.com/nicole-frain-and-romain-bardet-win-radl-grvl-in-adelaide-australia/"
+        },
+        "2025": {
+          "race": "112 km",
+          "winner_female": "Tiffany Cromwell",
+          "winner_male": "Brendan Johnston",
+          "winning_time_female": "3:28:41",
+          "winning_time_male": "2:59:39",
+          "source": "https://www.cyclingnews.com/races/radl-grvl-2025/elite-men-women/results/"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

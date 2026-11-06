@@ -5,8 +5,8 @@
     "display_name": "Sunday Creek Classic",
     "tagline": "Queensland hinterland gravel through dairy country.",
     "vitals": {
-      "distance_mi": 62,
-      "elevation_ft": 4000,
+      "distance_mi": 74.6,
+      "elevation_ft": 9843,
       "location": "Kenilworth, Queensland",
       "location_badge": "KENILWORTH, QLD",
       "county": "Sunshine Coast Regional Council",
@@ -49,13 +49,13 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 44,
-      "tier": 4,
-      "tier_label": "TIER 4",
+      "overall_score": 46,
+      "tier": 3,
+      "tier_label": "TIER 3",
       "logistics": 2,
       "length": 3,
       "technicality": 2,
-      "elevation": 3,
+      "elevation": 4,
       "climate": 2,
       "altitude": 1,
       "adventure": 2,
@@ -68,7 +68,8 @@
       "expenses": 3,
       "score_note": "Small grassroots Queensland event. Affordable and community-focused but very limited infrastructure and field.",
       "discipline": "gravel",
-      "display_tier": 4
+      "display_tier": 3,
+      "display_tier_label": "TIER 3"
     },
     "biased_opinion": {
       "verdict": "Grassroots Hinterland Ride",
@@ -90,7 +91,7 @@
       "bottom_line": "A small local gravel race in rural Queensland. Perfect for locals who want an affordable weekend ride. Not worth traveling for unless you're already in the area or combining with hinterland tourism."
     },
     "final_verdict": {
-      "score": "44 / 100",
+      "score": "46 / 100",
       "one_liner": "Small grassroots Queensland hinterland ride with modest ambitions.",
       "should_you_race": "Only if you're local to Queensland and want an affordable, low-key gravel ride. Not worth traveling for.",
       "alternatives": "For better Queensland events: Noosa Gravel Enduro. For similar grassroots vibes: other regional Australian events.",
@@ -104,7 +105,7 @@
       "food": "Small town with minimal dining. Stock up beforehand.",
       "packet_pickup": "Race morning typically",
       "parking": "At start/finish",
-      "official_site": "Check Queensland cycling calendars",
+      "official_site": "",
       "camping": "camping options are not listed"
     },
     "history": {
@@ -145,8 +146,8 @@
     },
     "guide_variables": {
       "race_name": "Sunday Creek Classic",
-      "race_distance": "62 miles",
-      "race_elevation": "4,000 feet",
+      "race_distance": "75 miles",
+      "race_elevation": "9,843 feet",
       "race_date": "Winter/spring",
       "race_location": "Kenilworth, QLD",
       "race_terrain": "Hinterland gravel roads",
@@ -244,7 +245,7 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Sunday Creek Classic",
-        "race_hook": "62 miles of Queensland hinterland dairy country gravel.",
+        "race_hook": "75 miles of Queensland hinterland dairy country gravel.",
         "race_hook_detail": "Small grassroots event in rural Kenilworth.",
         "distance": "62",
         "dark_mile": "40",
@@ -268,8 +269,8 @@
         "explanation": "Water crossings force tactical decisions - Imogen Smith encountered \"a deep causeway\" where \"the guy at the front shook his head and dismounted 'I'm not riding into that'.\" The course features mandatory hike-a-bike through \"impossible head-high moto ruts\" and Sunday Creek Road descent described as \"a collection of sharp rocks held together like extreme nougat.\" Less technical than The Mid South."
       },
       "elevation": {
-        "score": 3,
-        "explanation": "Mt Buggery at 5.3km gaining 500m defines the climbing, with \"gradients that top out just a whisker under 30%.\" Even Shimano GRX 12-speed gearing couldn't handle the steepest ramps, forcing Imogen Smith to walk sections she'd previously ridden on her mountain bike. The 3,000m total over 120km creates sustained vertical punishment throughout. Similar elevation profile to Gravel Worlds."
+        "score": 4,
+        "explanation": "Mt Buggery at 5.3km gaining 500m defines the climbing, with \"gradients that top out just a whisker under 30%.\" Even Shimano GRX 12-speed gearing couldn't handle the steepest ramps, forcing Imogen Smith to walk sections she'd previously ridden on her mountain bike. The 3,000m total over 120km creates sustained vertical punishment throughout. Similar elevation profile to Gravel Worlds. That 3,000 m (about 9,840 ft) falls in the 6,000 to 9,999 ft band, which scores 4."
       },
       "climate": {
         "score": 2,
@@ -362,6 +363,12 @@
         "url": "https://www.zinc96.com.au/event/sunday-creek-classic/",
         "category": "other",
         "label": "Zinc96"
+      },
+      {
+        "url": "https://www.gravelclassics.com.au/scc-course",
+        "category": "official",
+        "label": "Gravel Classics — Sunday Creek Classic, 120 km with 3,000 m of climbing",
+        "accessed": "2026-11-05"
       }
     ],
     "tire_recommendations": {
@@ -739,6 +746,27 @@
         "credit": "YouTube / JakeBikeAU",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "120 km",
+          "winner_female": "Storm Graham",
+          "winner_male": "Richie Leech",
+          "winning_time_female": "4:54:43",
+          "winning_time_male": "4:13:00",
+          "source": "https://www.gravelclassics.com.au/news/sunday-creek-classic-delivers-another-big-weekend-of-gravel-racing-in-kenilworth"
+        },
+        "2025": {
+          "race": "120 km",
+          "winner_female": "Nicola Jelinek",
+          "winner_male": "Finn McKenzie",
+          "winning_time_female": "5:35:58",
+          "winning_time_male": "4:06:38",
+          "source": "https://www.gravelclassics.com.au/news/thanks-for-racing"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

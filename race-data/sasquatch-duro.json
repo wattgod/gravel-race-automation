@@ -114,6 +114,24 @@
       "notable_moments": [],
       "reputation": "Growing regional Oregon mountain event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-11",
+        "source": "https://obra.org/events/29035"
+      },
+      {
+        "year": 2025,
+        "date": "2025-04-13",
+        "source": "https://obra.org/events/28898/results"
+      },
+      {
+        "year": 2023,
+        "date": "2023-07-29",
+        "note": "Held in July at Oakridge; later editions run in April at Carlton.",
+        "source": "https://www.webscorer.com/mudslingerevents"
+      }
+    ],
     "course_description": {
       "character": "The 67-mile long course gains 4,976 feet on paved and unpaved roads through Carlton's vineyards, forests, and farmland. The timed finish is several miles before the return to town.",
       "suffering_zones": [
@@ -628,6 +646,19 @@
         "credit": "YouTube / Ride Revival",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "Long course",
+          "winner_female": "Kristina Gray",
+          "winner_male": "Max Ritzow",
+          "winning_time_female": "3:37:36",
+          "winning_time_male": "2:58:51",
+          "source": "https://www.granfondoguide.com/Contents/IndexFull/9106/kristina-gray-and-max-ritzow-fastest-at-2026-sasquatch-duro"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

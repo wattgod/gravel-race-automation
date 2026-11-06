@@ -3,7 +3,7 @@
 Generate the Intensity-Aware Fueling Methodology page.
 
 A scrollytelling narrative visual essay (38 citations) on the W/kg fueling
-framework that powers the carb calculator in all 328 Race Prep Kits. Features
+framework that powers the carb calculator in every Race Prep Kit. Features
 an inline calculator, sticky-chart scroll sections, and corrected crossover
 science. Published as a branded, infographic-enriched HTML page.
 
@@ -56,11 +56,9 @@ def build_nav() -> str:
     breadcrumb = f'''<div class="gg-wp-breadcrumb">
   <a href="{SITE_BASE_URL}/">Home</a>
   <span class="gg-wp-breadcrumb-sep">&rsaquo;</span>
-  <a href="{SITE_BASE_URL}/articles/">Articles</a>
-  <span class="gg-wp-breadcrumb-sep">&rsaquo;</span>
   <span>Fueling Methodology</span>
 </div>'''
-    return get_site_header_html("articles") + "\n" + breadcrumb
+    return get_site_header_html("resources") + "\n" + breadcrumb
 
 
 def build_hero() -> str:
@@ -2216,7 +2214,7 @@ def generate_whitepaper_page(external_assets: dict = None) -> str:
     scroll_fitness = build_scroll_fitness()
     practical = build_practical()
     tldr = build_tldr()
-    inline_cta_1 = build_inline_cta("FIND YOUR RACE PREP KIT", "Personalized fueling for 328 races.", "find_race_prep_kit")
+    inline_cta_1 = build_inline_cta("FIND YOUR RACE PREP KIT", "Personalized fueling for every race we rate.", "find_race_prep_kit")
     phenotype = build_phenotype()
     jensen = build_jensen()
     power_curve = build_power_curve()

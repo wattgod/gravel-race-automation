@@ -114,6 +114,18 @@
       "notable_moments": [],
       "reputation": "Small regional Oregon event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-03-15",
+        "source": "https://www.webscorer.com/race?embed=1&raceid=424645"
+      },
+      {
+        "year": 2025,
+        "date": "2025-03-16",
+        "source": "https://www.webscorer.com/mudslingerevents"
+      }
+    ],
     "course_description": {
       "character": "Rolling gravel through eastern Oregon wheat country.",
       "suffering_zones": [
@@ -356,9 +368,17 @@
           "key_takeaways": [
             "Race history: 3rd edition in 2026 (implies founded ~2024); instant classic in first year, attracting over 300 riders"
           ]
+        },
+        "2026": {
+          "race": "67 mi",
+          "winner_female": "Brenna Wrye-Simpson",
+          "winner_male": "Felipe Nystrom",
+          "winning_time_female": "3:51:24",
+          "winning_time_male": "3:13:08",
+          "source": "https://www.webscorer.com/race?embed=1&raceid=424645"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

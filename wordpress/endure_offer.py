@@ -19,6 +19,6 @@ def get_endure_offer_html() -> str:
 </style>
 <h4>ENDURE</h4>
 <p>Your training, in one place.</p>
-<nav aria-label="Endure"><a href="{SIGNUP_URL.replace('&', '&amp;')}" data-ga="endure_trial_click" data-ga-label="site_footer">Try Endure for 7 days</a><a href="https://endurelabs.app/help">Endure Help Center</a></nav>
-<p class="endure-trial-terms">7 days free. Card required. Then your selected plan bills automatically unless you cancel. Cancel online before your trial ends to avoid a charge. Available to eligible new subscribers.</p>
+<nav aria-label="Endure"><a href="{SIGNUP_URL.replace('&', '&amp;')}" data-ga="endure_trial_click" data-ga-label="site_footer">Try Endure for 14 days</a><a href="https://endurelabs.app/help">Endure Help Center</a></nav>
+<p class="endure-trial-terms">14 days free. Card required. Then your selected plan bills automatically unless you cancel. Cancel online before your trial ends to avoid a charge. Available to eligible new subscribers.</p>
 </aside>'''

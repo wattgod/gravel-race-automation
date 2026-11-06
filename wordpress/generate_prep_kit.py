@@ -47,6 +47,7 @@ from brand_tokens import (
     get_tokens_css,
     get_ga4_head_snippet,
 )
+from season import season_year
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from cookie_consent import get_consent_banner_html
 from pricing import PRICE_PER_WEEK
@@ -70,7 +71,7 @@ CONTENT_JSON = GUIDE_DIR / "gravel-guide-content.json"
 OUTPUT_DIR = Path(__file__).parent / "output" / "prep-kit"
 WEATHER_DIR = Path(__file__).parent.parent / "data" / "weather"
 QUOTES_DIR = Path(__file__).parent.parent / "data" / "quotes"
-CURRENT_YEAR = str(datetime.now().year)
+SEASON_YEAR = str(season_year())
 
 # Public legacy URL retained by active email captures. The canonical profile
 # slug is mid-south, but /the-mid-south/prep-kit/ has already been handed to
@@ -1457,7 +1458,7 @@ def build_pk_logistics(raw: dict, rd: dict) -> str:
         </div>''')
 
     official = logistics.get("official_site", "")
-    if official:
+    if str(official).startswith("http"):
         items.append(f'''<div class="gg-pk-logistics-item">
           <div class="gg-pk-logistics-label">Official Site</div>
           <p class="gg-pk-logistics-text"><a href="{esc(official)}" target="_blank" rel="noopener">{esc(official)}</a></p>

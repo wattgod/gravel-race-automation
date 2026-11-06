@@ -119,6 +119,24 @@
       ],
       "reputation": "A young (2021-founded) but fast-rising Tasmanian gravel race — regional roots, now an annual UCI Gravel World Series qualifier since 2025."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-20",
+        "source": "https://www.cyclingnews.com/pro-cycling/racing/uci-gravel-world-series-brendan-johnston-goes-solo-to-take-third-win-at-devils-cardigan-as-holly-harris-snares-a-first/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-10",
+        "note": "Joined the UCI Gravel World Series as an Australian qualifier.",
+        "source": "https://cyclingflash.com/race/uci-gravel-world-series-the-devils-cardigan-2025/result"
+      },
+      {
+        "year": 2024,
+        "note": "Hosted the AusCycling Gravel National Championships.",
+        "source": "https://www.cyclingnews.com/races/auscycling-gravel-national-championships-2024/elite-australian-gravel-national-championships-devils-cardigan/results/"
+      }
+    ],
     "course_description": {
       "character": "Tasmanian mountain gravel through the Mt Victoria Forest Reserve and Dorset farming valleys, from the Blue Derby trailhead to Branxholm. Three named climbs define the 106km/66mi UCI-qualifier route.",
       "suffering_zones": [
@@ -688,6 +706,35 @@
         "credit": "YouTube / The Devils Cardigan ",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "106 km",
+          "winner_female": "Holly Harris",
+          "winner_male": "Brendan Johnston",
+          "winning_time_female": "4:15:44",
+          "winning_time_male": "3:22:49",
+          "source": "https://ucigravelworldseries.com/en/johnston-and-harris-dominate-at-devils-cardigan-final-australian-qualifier-in-derby/"
+        },
+        "2025": {
+          "race": "106 km",
+          "winner_female": "Talia Appleton",
+          "winner_male": "Brendan Johnston",
+          "winning_time_female": "4:03:15",
+          "winning_time_male": "3:24:12",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/the-devils-cardigan/results/"
+        },
+        "2024": {
+          "race": "106 km",
+          "winner_female": "Courtney Sherwell",
+          "winner_male": "Brendan Johnston",
+          "winning_time_female": "4:10:43",
+          "winning_time_male": "3:26:20",
+          "source": "https://www.cyclingnews.com/races/auscycling-gravel-national-championships-2024/elite-australian-gravel-national-championships-devils-cardigan/results/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

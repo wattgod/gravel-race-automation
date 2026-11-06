@@ -3,7 +3,11 @@
 import json
 import pytest
 from pathlib import Path
+from datetime import date
 from unittest.mock import patch
+
+JAN_15 = date(2026, 1, 15)
+NOV_5 = date(2026, 11, 5)
 
 from fact_check_profiles import (
     compare_distance,
@@ -132,35 +136,52 @@ class TestCompareElevation:
 class TestCompareDate:
     def test_stale_to_2026(self):
         """Pre-2026 profile date + 2026 scraped = STALE_DATE."""
-        cls, _ = compare_date("2025: July 10", "2026-07-12")
+        cls, _ = compare_date("2025: July 10", "2026-07-12", on=JAN_15)
         assert cls == "STALE_DATE"
 
     def test_both_2026_matching(self):
         """Both 2026 and same month = CONFIRM."""
-        cls, _ = compare_date("2026: June 6", "2026-06-07")
+        cls, _ = compare_date("2026: June 6", "2026-06-07", on=JAN_15)
         assert cls == "CONFIRM"
 
     def test_both_2026_mismatch(self):
         """Both 2026 but 3+ month shift = MISMATCH."""
-        cls, _ = compare_date("2026: June 6", "2026-10-15")
+        cls, _ = compare_date("2026: June 6", "2026-10-15", on=JAN_15)
         assert cls == "MISMATCH"
 
     def test_no_scraped_date(self):
-        cls, _ = compare_date("2025: July 10", None)
+        cls, _ = compare_date("2025: July 10", None, on=JAN_15)
         assert cls is None
 
     def test_enrichable_empty_profile(self):
-        cls, _ = compare_date("", "2026-06-06")
+        cls, _ = compare_date("", "2026-06-06", on=JAN_15)
         assert cls == "ENRICHABLE"
 
     def test_enrichable_none_profile(self):
-        cls, _ = compare_date(None, "2026-06-06")
+        cls, _ = compare_date(None, "2026-06-06", on=JAN_15)
         assert cls == "ENRICHABLE"
 
     def test_adjacent_months_confirm(self):
         """1-month shift counts as CONFIRM."""
-        cls, _ = compare_date("2026: June 6", "June 30, 2026")
+        cls, _ = compare_date("2026: June 6", "June 30, 2026", on=JAN_15)
         assert cls == "CONFIRM"
+
+
+class TestCompareDateByEditionNotYear:
+    """2026-11-05: '2026: August 30' already ran, so it is stale."""
+
+    def test_this_year_but_past_profile_is_stale(self):
+        cls, _ = compare_date("2026: August 30", "2027-08-29", on=NOV_5)
+        assert cls == "STALE_DATE"
+
+    def test_scraped_past_edition_is_ignored(self):
+        """The site still showing the run edition is not a new date."""
+        cls, _ = compare_date("2026: August 30", "2026-08-30", on=NOV_5)
+        assert cls is None
+
+    def test_undated_profile_with_upcoming_scrape_is_stale(self):
+        cls, _ = compare_date("2027: TBD", "June 5, 2027", on=NOV_5)
+        assert cls == "STALE_DATE"
 
 
 # ---------------------------------------------------------------------------
@@ -229,11 +250,12 @@ class TestAutoFix:
 
         fixes = auto_fix_race("test-race", comparison)
         assert len(fixes) == 1
-        assert "2026-07-12" in fixes[0]
+        # Written in the stored form, never as the raw scraped ISO string.
+        assert "'2026: July 12'" in fixes[0]
 
         # Verify file was updated
         updated = json.loads(path.read_text())
-        assert updated["race"]["vitals"]["date_specific"] == "2026-07-12"
+        assert updated["race"]["vitals"]["date_specific"] == "2026: July 12"
 
     def test_rejects_large_month_shift(self, tmp_path, monkeypatch):
         """Date fix is skipped when month shift > 2."""

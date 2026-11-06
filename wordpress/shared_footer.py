@@ -33,7 +33,6 @@ def get_mega_footer_html() -> str:
       <h4 class="gg-mega-footer-heading">PRODUCTS</h4>
       <nav class="gg-mega-footer-links">
         <a href="{SITE_BASE_URL}/products/training-plans/">Custom Training Plans</a>
-        <a href="{SITE_BASE_URL}/guide/">Gravel Handbook</a>
       </nav>
     </div>
     <div class="gg-mega-footer-col">
@@ -49,6 +48,13 @@ def get_mega_footer_html() -> str:
         <a href="{SUBSTACK_URL}" target="_blank" rel="noopener">Slow Mid 38s</a>
         <a href="{SITE_BASE_URL}/articles/">Hot Takes</a>
         <a href="{SITE_BASE_URL}/insights/">The State of Gravel</a>
+      </nav>
+    </div>
+    <div class="gg-mega-footer-col">
+      <h4 class="gg-mega-footer-heading">RESOURCES</h4>
+      <nav class="gg-mega-footer-links">
+        <a href="{SITE_BASE_URL}/guide/">Gravel Handbook</a>
+        <a href="{SITE_BASE_URL}/surge-check/">Surge Check</a>
         <a href="{SITE_BASE_URL}/fueling-methodology/">White Papers</a>
       </nav>
     </div>
@@ -78,7 +84,7 @@ def get_mega_footer_css() -> str:
     return """
 /* ── Mega Footer ───────────────────────────────────────── */
 .gg-mega-footer { background: var(--gg-color-dark-brown); border-top: var(--gg-border-gold); margin-top: var(--gg-spacing-xl); }
-.gg-mega-footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr; gap: var(--gg-spacing-lg); padding: var(--gg-spacing-2xl) var(--gg-spacing-xl); max-width: 1200px; margin: 0 auto; }
+.gg-mega-footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr; gap: var(--gg-spacing-lg); padding: var(--gg-spacing-2xl) var(--gg-spacing-xl); max-width: 1200px; margin: 0 auto; }
 .gg-mega-footer-brand-title { font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-white); margin: 0 0 var(--gg-spacing-sm) 0; }
 .gg-mega-footer-brand-tagline { font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); line-height: var(--gg-line-height-prose); color: var(--gg-color-tan); margin: 0; }
 .gg-mega-footer-heading { font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-ultra-wide); text-transform: uppercase; color: var(--gg-color-gold); margin: 0 0 var(--gg-spacing-md) 0; }
@@ -97,7 +103,7 @@ def get_mega_footer_css() -> str:
 
 /* Tablet: 3-column */
 @media (max-width: 900px) {
-  .gg-mega-footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .gg-mega-footer-grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
 }
 
 /* Mobile: 1-column */

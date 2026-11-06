@@ -96,8 +96,7 @@
       "should_you_race": "Yes if you want a compact climbing race on the Oregon Coast and are comfortable racing on open roads; skip it if protected-road logistics are non-negotiable.",
       "alternatives": "For better OR races: Oregon Coast Gravel Epic, Oregon Gran Fondo.",
       "alternative_slugs": [
-        "oregon-coast-gravel-epic",
-        "oregon-gran-fondo"
+        "oregon-coast-gravel-epic"
       ]
     },
     "logistics": {
@@ -115,6 +114,18 @@
       "notable_moments": [],
       "reputation": "A steep Oregon Triple Crown stop with a scenic coastal setting and unusually consequential climbing for its distance."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-05-03",
+        "source": "https://obra.org/events/29042/results"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-04",
+        "source": "https://www.webscorer.com/mudslingerevents"
+      }
+    ],
     "course_description": {
       "character": "A paved rollout from Yachats leads to a remote timed start, a sustained forest climb, rolling gravel, and a fast open-road return. Timing ends one mile before Yachats for safety.",
       "suffering_zones": [
@@ -640,6 +651,17 @@
         ],
         "search_text": "The West Coast Gravel race in Yachats, Oregon features a challenging 53-mile course starting with a remote timing format. The main challenge is a relentless 1,900-foot climb over the first 10 timed miles that strings riders across the mountainside. A dangerous left turn onto Forest Service Road 55 requires caution due to traffic, with fire support stationed nearby. After the initial climb, the course follows an up-and-down pattern gaining and losing elevation until the second aid station, then transitions to primarily downhill. The route includes Forest Service roads with giant potholes before finishing on Yachats River Road, where riders can face a stiff headwind for the final flat paved miles. Recent rider reports describe about 200 starters in this timed event, which uses remote sensors rather than finish-line placement for results. The scenic Oregon coast setting provides beautiful views despite the challenging terrain and variable weather."
       }
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "45 mi",
+          "winner_male": "Felipe Nystrom",
+          "winning_time_male": "2:47:57",
+          "source": "https://obra.org/events/29042/results"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

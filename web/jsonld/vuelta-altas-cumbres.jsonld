@@ -5,6 +5,7 @@
   "description": "Sierras de C\u00f3rdoba mountain gravel through the Traslasierra Valley -- Argentina's first UCI Gravel World Series event.",
   "sport": "Gravel Cycling",
   "startDate": "2027-03-21",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Villa Cura Brochero, C\u00f3rdoba Province, Argentina",
@@ -22,7 +23,7 @@
   },
   "url": "https://vueltaaltascumbres.com.ar/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Deportistas de Aventura Asociaci\u00f3n Civil (with Agencia C\u00f3rdoba Deportes and the Municipality of Villa Cura Brochero)",
     "url": "https://vueltaaltascumbres.com.ar/"
   }

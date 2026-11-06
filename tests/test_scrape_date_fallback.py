@@ -22,6 +22,7 @@ class TestCachedExtractFallback:
     def test_reads_cached_iso_date(self, monkeypatch):
         """Falls back to cached extract with ISO date."""
         monkeypatch.setattr("batch_date_search.HAS_SCRAPER", True)
+        monkeypatch.setenv("GG_TODAY", "2026-03-01")  # 2026 season
         extract = {"date_2026": "2026-07-12", "distance_mi": 200}
 
         with patch("batch_date_search.load_extract", return_value=extract):
@@ -36,6 +37,7 @@ class TestCachedExtractFallback:
     def test_reads_cached_text_date(self, monkeypatch):
         """Falls back to cached extract with text date like 'June 6, 2026'."""
         monkeypatch.setattr("batch_date_search.HAS_SCRAPER", True)
+        monkeypatch.setenv("GG_TODAY", "2026-03-01")  # 2026 season
         extract = {"date_2026": "June 6, 2026"}
 
         with patch("batch_date_search.load_extract", return_value=extract):
@@ -47,6 +49,17 @@ class TestCachedExtractFallback:
         assert date_spec is not None
         assert "June" in date_spec
         assert month == "June"
+
+    def test_2026_extract_is_ignored_in_the_2027_season(self, monkeypatch):
+        """In November 2026 a cached 2026 date is the last edition, not the next."""
+        monkeypatch.setattr("batch_date_search.HAS_SCRAPER", True)
+        monkeypatch.setenv("GG_TODAY", "2026-11-05")
+        extract = {"date_2026": "2026-07-12"}
+
+        with patch("batch_date_search.load_extract", return_value=extract):
+            date_spec, month = scraper_fallback_date({"logistics": {}}, "test-race")
+
+        assert (date_spec, month) == (None, None)
 
     def test_no_extract_no_url_returns_none(self, monkeypatch):
         """Returns None when no extract and no URL."""
@@ -64,6 +77,7 @@ class TestCachedExtractFallback:
     def test_extract_without_date_tries_scrape(self, monkeypatch):
         """When extract has no date_2026, falls back to direct scraping."""
         monkeypatch.setattr("batch_date_search.HAS_SCRAPER", True)
+        monkeypatch.setenv("GG_TODAY", "2026-03-01")  # 2026 season
         extract = {"distance_mi": 200}  # No date_2026
 
         html = '<html><body><p>Race date: July 12, 2026</p></body></html>'
@@ -104,6 +118,7 @@ class TestDirectScrapingFallback:
     def test_scrapes_url_extracts_date(self, monkeypatch):
         """Direct scraping finds date in HTML."""
         monkeypatch.setattr("batch_date_search.HAS_SCRAPER", True)
+        monkeypatch.setenv("GG_TODAY", "2026-03-01")  # 2026 season
 
         html = """
         <html><body>

@@ -41,6 +41,8 @@ REMOTE_ROOT = "~/www/gravelgodcycling.com/public_html"
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 sys.path.insert(0, str(SCRIPT_DIR))
 
+from season import season_year  # noqa: E402
+
 TOMBSTONES = frozenset(
     t["slug"] for t in json.loads(
         (PROJECT_ROOT / "config" / "tombstones.json").read_text())["tombstones"])
@@ -56,7 +58,7 @@ STATIC_REGISTRY = {
     # only page path; adjudicated 2026-07-23 — root versions do not exist):
     "/race/blog-index/", "/race/coaching-apply/", "/race/coaching-welcome/",
     "/race/consulting-confirmed/", "/race/mission-control/",
-    "/race/power-rankings-2026/", "/race/quiz/",
+    f"/race/power-rankings-{season_year()}/", "/race/quiz/",
     "/race/training-plans-success/", "/race/whitepaper-fueling/",
 }
 

@@ -150,6 +150,24 @@
       ],
       "reputation": ""
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 18,
+        "note": "Start and finish moved back into downtown Two Harbors; first Heck Fest.",
+        "source": "https://www.heckofthenorth.com/cadence"
+      },
+      {
+        "year": 2025,
+        "date": "2025-10-04",
+        "source": "https://www.mtecresults.com/race/leaderboard/19723/2025_Heck_of_the_North-105_Miles"
+      },
+      {
+        "year": 2024,
+        "date": "2024-09-28",
+        "source": "https://www.mtecresults.com/race/leaderboard/17868/2024_Heck_of_the_North-99_Miles"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -239,7 +257,7 @@
       "should_you_race": "If you've got mountain bike skills and don't mind wrestling roots and rocks for 100 miles, this is your jam. The snowmobile trails demand 40mm+ tires and actual bike handling—your road racing background won't save you here. Skip it if you're looking for fast gravel or hate technical terrain that slows you to 8 mph.",
       "alternatives": "Gravel Worlds gives you similar distance with less technical bullshit, while Lutsen 99er keeps you in Minnesota but trades the tech for pure climbing suffering. Both let you actually use your fitness instead of just surviving the trail.",
       "alternative_slugs": [
-        "garmin-gravel-worlds"
+        "gravel-worlds"
       ]
     },
     "citations": [
@@ -340,10 +358,32 @@
           "conditions": "2024: Dry, cool (42-52°F), perfect conditions",
           "field_size_actual": 35,
           "dnf_rate_pct": 8,
-          "key_takeaways": []
+          "key_takeaways": [],
+          "race": "105 mi",
+          "winner_female": "Emily Flynn",
+          "winner_male": "Nick Nygaard",
+          "winning_time_female": "5:55:51",
+          "winning_time_male": "4:48:21",
+          "source": "https://www.mtecresults.com/race/leaderboard/17868/2024_Heck_of_the_North-99_Miles"
+        },
+        "2026": {
+          "race": "100 mi",
+          "winner_female": "Danielle Ravnikar",
+          "winner_male": "Nicholas Nygaard",
+          "winning_time_female": "5:18:28",
+          "winning_time_male": "4:41:11",
+          "source": "https://www.mtecresults.com/race/leaderboard/21803/2026_Heck_of_the_North-100_Miles"
+        },
+        "2025": {
+          "race": "105 mi",
+          "winner_female": "Brooklyn Waldner",
+          "winner_male": "Peter MacGregor",
+          "winning_time_female": "7:09:26",
+          "winning_time_male": "5:05:15",
+          "source": "https://www.mtecresults.com/race/leaderboard/19723/2025_Heck_of_the_North-105_Miles"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

@@ -11,7 +11,7 @@
       "location_badge": "GLENROCK, WY",
       "county": "Converse County",
       "date": "Mid-July annually",
-      "date_specific": "2026: July 11",
+      "date_specific": "Status: CANCELLED for 2026 (cowboycrusher.com: \"2026 Event Cancelled\"); no 2027 date announced",
       "terrain_types": [
         "Wyoming rolling",
         "Local event",
@@ -325,6 +325,12 @@
     },
     "citations": [
       {
+        "url": "https://cowboycrusher.com/",
+        "category": "official",
+        "label": "Cowboy Crusher: 2026 event cancelled",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://ridewithgps.com/routes/53566970",
         "category": "route",
         "label": "RideWithGPS: Wrangler 60"
@@ -427,6 +433,10 @@
         "200pluslb_mixed": "42-46",
         "200pluslb_wet": "40-44"
       }
+    },
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "Cowboy Crusher cancelled its 2026 edition and hasn't announced 2027. The course's demands haven't changed, so be ready if it comes back."
     }
   }
 }

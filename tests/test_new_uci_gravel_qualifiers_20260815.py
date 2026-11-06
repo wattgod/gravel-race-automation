@@ -12,7 +12,7 @@ SLUGS = {
         "official": "https://gravelclassic.com/course/",
     },
     "khomas100": {
-        "date": "2026: August 22",
+        "date": "2027: March 6 (Saturday, CONFIRMED — khomas100.com.na)",
         "distance_mi": 88.9,
         "elevation_ft": 7546,
         "score": 71,

@@ -2,12 +2,16 @@
   "id": "schwalbe-g-one-overland",
   "name": "Schwalbe G-One Overland",
   "brand": "Schwalbe",
+  "casing": "Super Ground",
   "widths_mm": [
     40,
-    45
+    45,
+    50
   ],
+  "widths_source": "existing",
   "tread_type": "mud",
   "tread_description": "Open knob design with ADDIX SpeedGrip for all-condition grip",
+  "tagline": "All-conditions adventurer. Handles mud, wet, and loose with confidence.",
   "best_conditions": [
     "mud",
     "wet",
@@ -19,50 +23,76 @@
     "fast gravel"
   ],
   "tubeless_ready": true,
-  "brr_urls_by_width": {
-    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-overland",
-    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-overland"
-  },
-  "tagline": "All-conditions adventurer. Handles mud, wet, and loose with confidence.",
-  "strengths": [
-    "Excellent all-condition grip",
-    "Strong puncture protection",
-    "Good mud shedding"
-  ],
-  "weaknesses": [
-    "Slow on dry pavement",
-    "Heavy",
-    "Not a speed tire"
-  ],
   "msrp_usd": 69.9,
-  "weight_grams": {
-    "40": 490,
-    "45": 550
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 50,
+      "measured_width_mm": 46.0,
+      "year": 2023,
+      "model": "Schwalbe G-One Overland Super Ground SpeedGrip 50",
+      "rr_watts": 20.0,
+      "test_psi": 31,
+      "puncture_tread": 29.0,
+      "wet_grip": 79.0,
+      "knob_center_mm": 1.5,
+      "knob_edge_mm": 2.7,
+      "weight_g": 663.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-overland"
+    }
+  ],
+  "brr_urls_by_width": {
+    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-overland"
   },
   "crr_watts_at_29kmh": {
-    "40": 40.0
+    "50": 20.0
   },
-  "puncture_resistance": "high",
+  "weight_grams": {
+    "50": 663
+  },
+  "puncture_resistance": "low",
   "wet_traction": "good",
   "mud_clearance": "moderate",
+  "strengths": [
+    "Wet grip 79 on BRR's wet test"
+  ],
+  "weaknesses": [
+    "Thin tread: puncture score 29"
+  ],
   "recommended_use": [
-    "mud",
-    "wet",
-    "mixed wet",
-    "all-conditions adventure"
+    "wet roads",
+    "loose corners",
+    "mud"
   ],
   "avoid_use": [
-    "smooth pavement",
-    "fast gravel",
-    "dry hardpack"
+    "sharp rock"
   ],
   "status": "active",
-  "race_appearances": {},
+  "race_appearances": {
+    "paris-to-ancaster": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "rasputitsa": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "muddy"
+    }
+  },
   "community_reviews": [],
   "comparable_tires": [
+    "continental-dubnital",
+    "continental-terra-hardpack",
+    "pirelli-cinturato-gravel-rh",
+    "pirelli-cinturato-gravel-s",
+    "rene-herse-hurricane-ridge",
+    "schwalbe-g-one-bite",
+    "schwalbe-g-one-rx-pro",
     "schwalbe-g-one-ultrabite",
-    "tufo-gravel-swampero",
-    "vittoria-terreno-wet"
+    "tufo-gravel-swampero"
   ],
   "versions": [],
   "last_enriched": null

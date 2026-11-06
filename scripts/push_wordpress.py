@@ -3336,6 +3336,9 @@ RewriteRule ^tire/(?:[a-z0-9-]+-vs-)?specialized-pathfinder-pro-47(?:-vs-[a-z0-9
 # misrouted by these generic fallbacks.
 RewriteCond %{DOCUMENT_ROOT}/race/$1/tires/index.html !-f
 RewriteRule ^race/([^/]+)/tires/?$ /race/$1/ [R=301,L]
+RewriteCond %{DOCUMENT_ROOT}/tire/$1-vs-$2/index.html !-f
+RewriteCond %{DOCUMENT_ROOT}/tire/$1/index.html -f
+RewriteRule ^tire/([a-z0-9-]+?)-vs-([a-z0-9-]+?)/?$ /tire/$1/ [R=301,L]
 RewriteCond %{DOCUMENT_ROOT}/race/$1-vs-$2/index.html !-f
 RewriteCond %{DOCUMENT_ROOT}/race/$1/index.html -f
 RewriteRule ^race/([^/]+?)-vs-([^/]+?)/?$ /race/$1/ [R=301,L]

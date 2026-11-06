@@ -410,67 +410,84 @@
       "primary": [
         {
           "rank": 1,
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
           "brand": "Schwalbe",
-          "recommended_width_mm": 40,
-          "msrp_usd": 69.9,
-          "weight_grams": 480,
-          "crr_watts": 38.0,
-          "why": "Technical terrain dominator. Aggressive grip when the course gets rowdy."
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 592,
+          "crr_watts": 16.7,
+          "tested_width_mm": 50,
+          "course_cost_watts": 18.46,
+          "why": "Rolls 16.7 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
         },
         {
           "rank": 2,
-          "tire_id": "maxxis-reaver",
-          "name": "Maxxis Reaver",
-          "brand": "Maxxis",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 460,
-          "crr_watts": 35.0,
-          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 573,
+          "crr_watts": 19.2,
+          "tested_width_mm": 50,
+          "course_cost_watts": 20.08,
+          "why": "Rolls 19.2 W at 50mm on BRR's drum. 4mm shoulder knobs for loose corners."
         },
         {
           "rank": 3,
-          "tire_id": "teravail-washburn",
-          "name": "Teravail Washburn",
-          "brand": "Teravail",
-          "recommended_width_mm": 42,
-          "msrp_usd": 64.0,
-          "weight_grams": 450,
-          "crr_watts": 37.0,
-          "why": "Technical trail tire. Fast center for climbing, aggressive edges for descending."
+          "tire_id": "schwalbe-g-one-rx-pro",
+          "name": "Schwalbe G-One RX Pro",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 657,
+          "crr_watts": 19.4,
+          "tested_width_mm": 50,
+          "course_cost_watts": 21.32,
+          "why": "Rolls 19.4 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
         }
       ],
       "front_rear_split": {
-        "applicable": true,
-        "front": {
-          "tire_id": "panaracer-gravelking-tlc",
-          "name": "Panaracer GravelKing TLC",
-          "width_mm": 43
-        },
-        "rear": {
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
-          "width_mm": 40
-        },
-        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+        "applicable": false
       },
       "race_surface_profile": "technical",
-      "recommended_width_mm": 40,
+      "recommended_width_mm": 50,
       "pressure_psi": {
-        "140_160lb_dry": "34-38",
-        "140_160lb_mixed": "30-34",
-        "140_160lb_wet": "28-32",
-        "160_180lb_dry": "36-40",
-        "160_180lb_mixed": "34-38",
-        "160_180lb_wet": "32-36",
-        "180_200lb_dry": "40-44",
-        "180_200lb_mixed": "36-40",
-        "180_200lb_wet": "34-38",
-        "200pluslb_dry": "42-46",
-        "200pluslb_mixed": "40-44",
-        "200pluslb_wet": "38-42"
+        "gravel_category": 3,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "45mm": "26/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "150": {
+            "45mm": "27/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "170": {
+            "45mm": "28/29",
+            "50mm": "23/24",
+            "55mm": "19/20"
+          },
+          "190": {
+            "45mm": "28/29",
+            "50mm": "23/24",
+            "55mm": "19/20"
+          },
+          "210": {
+            "45mm": "29/30",
+            "50mm": "24/25",
+            "55mm": "20/20"
+          },
+          "230": {
+            "45mm": "29/31",
+            "50mm": "24/25",
+            "55mm": "20/21"
+          }
+        }
       }
     },
     "youtube_data": {

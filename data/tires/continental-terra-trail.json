@@ -7,8 +7,10 @@
     40,
     45
   ],
+  "widths_source": "existing",
   "tread_type": "knobby",
   "tread_description": "Dual-compound knobby tread with ShieldWall puncture protection",
+  "tagline": "The do-everything gravel tire. Fast enough to race, tough enough to survive.",
   "best_conditions": [
     "mixed",
     "hardpack",
@@ -19,148 +21,69 @@
     "deep mud"
   ],
   "tubeless_ready": true,
-  "brr_urls_by_width": {
-    "35": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-trail",
-    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-trail",
-    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-trail-45"
-  },
-  "tagline": "The do-everything gravel tire. Fast enough to race, tough enough to survive.",
-  "strengths": [
-    "Excellent puncture protection",
-    "Versatile across conditions",
-    "Durable"
-  ],
-  "weaknesses": [
-    "Heavier than file treads",
-    "Not the fastest on smooth surfaces",
-    "Slower in deep mud"
-  ],
   "msrp_usd": 74.99,
-  "weight_grams": {
-    "35": 400,
-    "40": 450,
-    "45": 510
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 37.0,
+      "year": 2020,
+      "model": "Continental Terra Trail TR 40",
+      "rr_watts": 22.2,
+      "test_psi": 36,
+      "puncture_tread": 35.0,
+      "wet_grip": 67.0,
+      "knob_center_mm": 1.3,
+      "knob_edge_mm": 2.3,
+      "weight_g": 452.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-trail"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-trail"
   },
   "crr_watts_at_29kmh": {
-    "40": 33.5
+    "40": 22.2
   },
-  "puncture_resistance": "high",
-  "wet_traction": "good",
+  "weight_grams": {
+    "40": 452
+  },
+  "puncture_resistance": "moderate",
+  "wet_traction": "fair",
   "mud_clearance": "low",
+  "strengths": [],
+  "weaknesses": [
+    "Slow rolling: 22.2 W at 40mm on BRR's drum"
+  ],
   "recommended_use": [
-    "mixed gravel",
-    "all-rounder",
-    "sharp rock",
-    "long distance",
-    "chunky gravel"
+    "loose corners"
   ],
   "avoid_use": [
-    "deep mud"
+    "fast smooth courses",
+    "mud"
   ],
   "status": "active",
-  "race_appearances": {
-    "bear-100": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "dirty-30": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "filthy-50": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "gravel-locos": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "highlands-gravel-classic": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "iowa-wind-and-rock": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "melting-mann": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "mid-south": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "oregon-trail-gravel": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "radl-grvl": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "safari-gravel-race": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "sea-otter-europe-gravel": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "unbound-100": {
-      "rank": 1,
-      "width_mm": 40,
-      "position": "rear",
-      "surface": "mixed"
-    },
-    "unbound-200": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "wish-one-millau": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    }
-  },
+  "race_appearances": {},
   "community_reviews": [],
   "comparable_tires": [
     "donnelly-mso",
     "goodyear-connector",
+    "goodyear-xplr-inter",
     "hutchinson-touareg",
     "irc-boken-double-cross",
     "maxxis-rambler",
+    "michelin-power-gravel",
     "panaracer-gravelking-sk",
+    "panaracer-gravelking-x1",
+    "pirelli-cinturato-gravel-h",
     "pirelli-cinturato-gravel-m",
+    "schwalbe-g-one-r-pro",
+    "silca-protocol-rcg-3",
     "specialized-pathfinder-pro",
+    "specialized-tracer",
     "teravail-cannonball",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero",
     "vittoria-terreno-mix"
   ],
   "versions": [],

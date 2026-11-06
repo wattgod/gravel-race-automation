@@ -29,8 +29,10 @@ from generate_tire_guide import (
     get_top_tires,
     get_front_rear_split,
     compute_pressure_table,
-    recommend_width,
-    CRR_FAST_THRESHOLD,
+    gravel_category,
+    pick_reasons,
+    target_width,
+    BIKE_AND_KIT_LB,
 )
 from generate_neo_brutalist import normalize_race_data
 
@@ -50,23 +52,6 @@ TIRE_PICK_DISCIPLINES = frozenset({"gravel"})
 def gets_tire_picks(race: dict) -> bool:
     """True when this race's discipline is one the tire database covers."""
     return race_discipline(race) in TIRE_PICK_DISCIPLINES
-
-
-def pick_reasons(tire: dict, profile: dict, crr_val) -> str:
-    """One or two short sentences on why this tire fits this course."""
-    reasons = []
-    if profile["needs_puncture"] and tire.get("puncture_resistance") == "high":
-        reasons.append("Tough casing for sharp rock")
-    if crr_val is not None and crr_val <= CRR_FAST_THRESHOLD:
-        reasons.append(f"Rolls fast: {crr_val:g}W at 29 km/h in BRR testing")
-    if profile["needs_wet"] and tire.get("wet_traction") == "good":
-        reasons.append("Grips when it's wet")
-    if (profile["needs_mud"] or profile.get("mud_risk")) and \
-            tire.get("mud_clearance") in ("moderate", "high"):
-        reasons.append("Sheds mud")
-    if not reasons:
-        return (tire.get("tagline") or "Solid all-round pick.").strip()
-    return ". ".join(reasons[:3]) + "."
 
 
 def load_race_file(filepath: Path) -> tuple:
@@ -100,26 +85,15 @@ def build_enrichment(rd: dict, raw_race: dict, tire_db: list, slug: str) -> dict
     top_picks = get_top_tires(tire_db, profile)
     front_rear = get_front_rear_split(tire_db, profile, top_picks)
 
-    # A sourced floor is the course recommendation ("45mm or wider"); each
-    # pick then sits at its nearest size at or above it.
-    rec_width = profile.get("min_width_mm") or (top_picks[0]["width"] if top_picks else 40)
+    # The course width: the target for this terrain, raised to any sourced
+    # organizer floor. Each pick sits at its nearest offered size.
+    rec_width = target_width(profile)
     tech_rating = profile["tech_rating"]
 
-    # Build primary recommendations
     primary = []
     for i, pick in enumerate(top_picks):
-        tire = pick["tire"]
-        width = pick["width"]
-        crr_data = tire.get("crr_watts_at_29kmh")
-        crr_val = None
-        if crr_data and isinstance(crr_data, dict):
-            # Look up CRR for the recommended width, fall back to first available
-            crr_val = crr_data.get(str(width)) or next(iter(crr_data.values()), None)
-        weight_data = tire.get("weight_grams", {})
-        weight_val = weight_data.get(str(width))
-        if not weight_val and weight_data:
-            weight_val = next(iter(weight_data.values()))
-
+        tire, width, cost = pick["tire"], pick["width"], pick["cost"]
+        test = cost["test"]
         primary.append({
             "rank": i + 1,
             "tire_id": tire["id"],
@@ -127,19 +101,23 @@ def build_enrichment(rd: dict, raw_race: dict, tire_db: list, slug: str) -> dict
             "brand": tire["brand"],
             "recommended_width_mm": width,
             "msrp_usd": tire.get("msrp_usd"),
-            "weight_grams": weight_val,
-            "crr_watts": crr_val,
-            "why": pick_reasons(tire, profile, crr_val),
+            "weight_grams": round(test["weight_g"]) if test and test["weight_g"] else None,
+            "crr_watts": test["rr_watts"] if test else None,
+            "tested_width_mm": test["width_mm"] if test else None,
+            "course_cost_watts": cost["total"],
+            "why": pick_reasons(tire, width, profile),
         })
 
-    # Build pressure table as flat dict
-    pressure_rows = compute_pressure_table(tech_rating, rec_width)
-    pressure_psi = {}
-    for row in pressure_rows:
-        weight_key = row["weight_range"].replace(" lbs", "lb").replace("-", "_").replace("+", "plus").replace(" ", "")
-        pressure_psi[f"{weight_key}_dry"] = row["dry"]
-        pressure_psi[f"{weight_key}_mixed"] = row["mixed"]
-        pressure_psi[f"{weight_key}_wet"] = row["wet"]
+    # Front / rear psi by rider weight for the course width and one size
+    # either side (whole psi, "front/rear").
+    pressure_psi = {
+        "gravel_category": gravel_category(tech_rating),
+        "bike_and_kit_lb": BIKE_AND_KIT_LB,
+        "by_rider_lb": {
+            str(row["rider_lb"]): {f"{w}mm": f"{f}/{r}" for w, (f, r) in row["cells"].items()}
+            for row in compute_pressure_table(tech_rating, rec_width)
+        },
+    }
 
     # Build front/rear split
     front_rear_data = {"applicable": False}

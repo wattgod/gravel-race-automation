@@ -4,10 +4,13 @@
   "brand": "Pirelli",
   "widths_mm": [
     40,
-    45
+    45,
+    50
   ],
+  "widths_source": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/cinturato-gravel-s",
   "tread_type": "aggressive",
   "tread_description": "Aggressive open knob pattern with SmartGRIP compound",
+  "tagline": "Soft-terrain specialist. Open knob pattern sheds mud and grips wet rock.",
   "best_conditions": [
     "technical",
     "loose",
@@ -19,169 +22,62 @@
     "fast roads"
   ],
   "tubeless_ready": true,
-  "brr_urls_by_width": {
-    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-s",
-    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-s"
-  },
-  "tagline": "Soft-terrain specialist. Open knob pattern sheds mud and grips wet rock.",
-  "strengths": [
-    "Excellent wet grip",
-    "Good mud shedding",
-    "Strong cornering"
-  ],
-  "weaknesses": [
-    "High rolling resistance",
-    "Slow on pavement",
-    "Wears faster on hard surfaces"
-  ],
   "msrp_usd": 73.99,
-  "weight_grams": {
-    "40": 430,
-    "45": 470
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 39.0,
+      "year": 2023,
+      "model": "Pirelli Cinturato Gravel S 40",
+      "rr_watts": 25.6,
+      "test_psi": 33,
+      "puncture_tread": 34.0,
+      "wet_grip": 65.0,
+      "knob_center_mm": 2.0,
+      "knob_edge_mm": 3.2,
+      "weight_g": 553.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-s"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-s"
   },
-  "crr_watts_at_29kmh": null,
-  "puncture_resistance": "high",
-  "wet_traction": "good",
+  "crr_watts_at_29kmh": {
+    "40": 25.6
+  },
+  "weight_grams": {
+    "40": 553
+  },
+  "puncture_resistance": "low",
+  "wet_traction": "fair",
   "mud_clearance": "moderate",
+  "strengths": [],
+  "weaknesses": [
+    "Slow rolling: 25.6 W at 40mm on BRR's drum",
+    "Thin tread: puncture score 34"
+  ],
   "recommended_use": [
-    "technical terrain",
-    "wet",
-    "loose over hard",
-    "wet rock"
+    "loose corners",
+    "mud"
   ],
   "avoid_use": [
-    "smooth pavement",
-    "fast gravel",
-    "dry hardpack"
+    "fast smooth courses",
+    "sharp rock"
   ],
   "status": "active",
-  "race_appearances": {
-    "bwr-arizona": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "bwr-california": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "bwr-cedar-city": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "bwr-montana": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "bwr-north-carolina": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "crystal-bear": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "dirty-reiver": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "dirty-sheets-gravel-grind": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "gunni-grinder": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "heck-of-the-north": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "karukinka": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "marji-gesick": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "pirinexus-360": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "rebeccas-private-idaho": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "seven": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "southern-cross-gravel": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "the-rift": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "the-traka": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "transcordilleras": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "unbound-xl": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    }
-  },
+  "race_appearances": {},
   "community_reviews": [],
   "comparable_tires": [
+    "continental-dubnital",
     "maxxis-reaver",
+    "rene-herse-hurricane-ridge",
     "schwalbe-g-one-bite",
+    "schwalbe-g-one-overland",
+    "schwalbe-g-one-rx-pro",
+    "schwalbe-g-one-ultrabite",
     "teravail-washburn",
+    "tufo-gravel-swampero",
     "vittoria-terreno-wet",
     "wtb-resolute"
   ],

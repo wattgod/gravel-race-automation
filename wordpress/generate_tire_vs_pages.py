@@ -78,12 +78,12 @@ def _rating_to_num(value: str) -> int:
 def compute_tire_scores(tire: dict) -> dict:
     """Compute 7-dimension radar scores (1-5 scale) for a tire."""
     # Rolling resistance: lower watts = higher score.
-    # Best ~27W, worst ~42W among gravel tires
+    # BRR drum at low pressure: best ~15W, worst ~31W among gravel tires
     crr_data = tire.get("crr_watts_at_29kmh") or {}
     crr_vals = [v for v in crr_data.values() if isinstance(v, (int, float))]
     if crr_vals:
         avg_crr = sum(crr_vals) / len(crr_vals)
-        crr_score = max(1, min(5, round(5 - (avg_crr - 27) / 3)))
+        crr_score = max(1, min(5, round(5 - (avg_crr - 15) / 4)))
     else:
         crr_score = 3
 
@@ -92,12 +92,12 @@ def compute_tire_scores(tire: dict) -> dict:
     wet = _rating_to_num(tire.get("wet_traction", ""))
     mud = _rating_to_num(tire.get("mud_clearance", ""))
 
-    # Weight: lighter = higher score. Lightest ~310g, heaviest ~620g at 40mm
+    # Weight: lighter = higher score. BRR-measured, lightest ~360g, heaviest ~670g
     weight_data = tire.get("weight_grams", {})
     weight_vals = [v for v in weight_data.values() if isinstance(v, (int, float))]
     if weight_vals:
         avg_weight = sum(weight_vals) / len(weight_vals)
-        weight_score = max(1, min(5, round(5 - (avg_weight - 310) / 70)))
+        weight_score = max(1, min(5, round(5 - (avg_weight - 360) / 75)))
     else:
         weight_score = 3
 
@@ -167,7 +167,20 @@ def select_tire_pairs(tire_db: list) -> list:
         for b in knobby_tires[:4]:  # Top 4 knobby
             pairs.add(tuple(sorted([a["id"], b["id"]])))
 
-    return sorted(pairs)
+    # Publish a comparison only when it compares measured numbers that people
+    # would look up: both tires BRR-tested at a shared width, and at least one
+    # of them picked for a race. Missing pairs 301 to the first tire's page.
+    by_id = {t["id"]: t for t in tire_db}
+
+    def tested(t):
+        return {x["width_mm"] for x in t.get("brr_tests") or []}
+
+    def worth_a_page(pair):
+        a, b = by_id[pair[0]], by_id[pair[1]]
+        return (a.get("lab_tested") and b.get("lab_tested") and tested(a) & tested(b)
+                and (a.get("race_appearances") or b.get("race_appearances")))
+
+    return sorted(p for p in pairs if worth_a_page(p))
 
 
 # ── SVG Builder ───────────────────────────────────────────────
@@ -920,33 +933,29 @@ def build_specs_comparison(tire_a: dict, tire_b: dict) -> str:
         return f"<tr><td>{label}</td><td{cls_a}>{val_a}</td><td{cls_b}>{val_b}</td></tr>"
 
     # Price
-    pa = f"${tire_a['msrp_usd']:.2f}" if tire_a.get("msrp_usd") else "N/A"
-    pb = f"${tire_b['msrp_usd']:.2f}" if tire_b.get("msrp_usd") else "N/A"
-    rows.append(_compare_row("MSRP", pa, pb, lower_wins=True))
+    if tire_a.get("msrp_usd") or tire_b.get("msrp_usd"):
+        pa = f"${tire_a['msrp_usd']:.2f}" if tire_a.get("msrp_usd") else "—"
+        pb = f"${tire_b['msrp_usd']:.2f}" if tire_b.get("msrp_usd") else "—"
+        rows.append(_compare_row("MSRP", pa, pb, lower_wins=True))
 
     # Widths
     wa = ", ".join(f"{w}" for w in tire_a["widths_mm"])
     wb = ", ".join(f"{w}" for w in tire_b["widths_mm"])
     rows.append(f"<tr><td>Widths (mm)</td><td>{wa}</td><td>{wb}</td></tr>")
 
-    # Weight at common width
-    common_widths = set(str(w) for w in tire_a["widths_mm"]) & set(str(w) for w in tire_b["widths_mm"])
-    if common_widths:
-        cw = sorted(common_widths)[len(common_widths) // 2]  # Pick middle width
-        wa_g = tire_a.get("weight_grams", {}).get(cw, "—")
-        wb_g = tire_b.get("weight_grams", {}).get(cw, "—")
+    # Weight and rolling resistance at a width both tires were lab-tested at
+    crr_a = tire_a.get("crr_watts_at_29kmh") or {}
+    crr_b = tire_b.get("crr_watts_at_29kmh") or {}
+    tested_common = sorted(set(crr_a) & set(crr_b), key=int)
+    if tested_common:
+        cw = tested_common[len(tested_common) // 2]  # Pick middle width
+        wa_g = tire_a.get("weight_grams", {}).get(cw)
+        wb_g = tire_b.get("weight_grams", {}).get(cw)
         wa_s = f"{wa_g}g" if isinstance(wa_g, (int, float)) else "—"
         wb_s = f"{wb_g}g" if isinstance(wb_g, (int, float)) else "—"
         rows.append(_compare_row(f"Weight ({cw}mm)", wa_s, wb_s, lower_wins=True))
-
-    # CRR
-    crr_a = tire_a.get("crr_watts_at_29kmh") or {}
-    crr_b = tire_b.get("crr_watts_at_29kmh") or {}
-    crr_va = next((v for v in crr_a.values() if isinstance(v, (int, float))), None)
-    crr_vb = next((v for v in crr_b.values() if isinstance(v, (int, float))), None)
-    ca_s = f"{crr_va}W" if crr_va else "—"
-    cb_s = f"{crr_vb}W" if crr_vb else "—"
-    rows.append(_compare_row("CRR (29km/h)", ca_s, cb_s, lower_wins=True))
+        rows.append(_compare_row(f"Rolling resistance ({cw}mm)", f"{crr_a[cw]}W", f"{crr_b[cw]}W",
+                                 lower_wins=True))
 
     # Qualitative ratings
     def _rating_label(v):

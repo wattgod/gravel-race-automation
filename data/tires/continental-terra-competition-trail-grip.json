@@ -1,0 +1,78 @@
+{
+  "id": "continental-terra-competition-trail-grip",
+  "name": "Continental Terra Competition Trail Grip",
+  "brand": "Continental",
+  "widths_mm": [
+    40
+  ],
+  "widths_source": "existing",
+  "tread_type": "file",
+  "tubeless_ready": true,
+  "msrp_usd": null,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 37.0,
+      "year": 2026,
+      "model": "Continental Terra Competition Trail Grip 40",
+      "rr_watts": 20.0,
+      "test_psi": 36,
+      "puncture_tread": 73.0,
+      "wet_grip": 79.0,
+      "knob_center_mm": 0.5,
+      "knob_edge_mm": 1.0,
+      "weight_g": 462.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-competition-trail-rapid"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-competition-trail-rapid"
+  },
+  "crr_watts_at_29kmh": {
+    "40": 20.0
+  },
+  "weight_grams": {
+    "40": 462
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "good",
+  "mud_clearance": "none",
+  "strengths": [
+    "Tough tread: puncture score 73",
+    "Wet grip 79 on BRR's wet test"
+  ],
+  "weaknesses": [],
+  "recommended_use": [
+    "sharp rock",
+    "wet roads"
+  ],
+  "avoid_use": [
+    "mud"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "challenge-getaway-pro",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-hardpack",
+    "continental-terra-speed-40",
+    "hutchinson-caracal-race",
+    "panaracer-gravelking-tlc",
+    "panaracer-gravelking-zx-r",
+    "pirelli-cinturato-gravel-h",
+    "pirelli-cinturato-gravel-rh",
+    "rene-herse-snoqualmie-pass",
+    "schwalbe-g-one-rs-pro",
+    "schwalbe-g-one-rs",
+    "silca-protocol-rcg-1",
+    "specialized-pathfinder-pro",
+    "specialized-pathfinder",
+    "ultradynamico-cava-race",
+    "vittoria-terreno-dry",
+    "vittoria-terreno-pro-t30",
+    "wtb-vulpine-s"
+  ],
+  "versions": []
+}

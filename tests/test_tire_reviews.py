@@ -784,7 +784,7 @@ class TestEndToEndPageGeneration(unittest.TestCase):
         cls.html = generate_tire_page(cls.tire, race_recs=cls.race_recs)
 
     def test_page_contains_review_section(self):
-        self.assertIn("05 / COMMUNITY REVIEWS", self.html)
+        self.assertIn("04 / COMMUNITY REVIEWS", self.html)
 
     def test_page_contains_review_form(self):
         self.assertIn("tp-rev-form", self.html)
@@ -808,13 +808,13 @@ class TestEndToEndPageGeneration(unittest.TestCase):
         self.assertIn("submitting", self.html)
         self.assertIn("submitBtn.disabled", self.html)
 
-    def test_internal_links_section_numbered_06(self):
-        self.assertIn("06 /", self.html)
+    def test_internal_links_section_numbered_05(self):
+        self.assertIn("05 / RELATED TIRE GUIDES", self.html)
 
     def test_section_number_ordering(self):
-        """Community Reviews (05) must come before Internal Links (06)."""
-        pos_05 = self.html.index("05 / COMMUNITY REVIEWS")
-        pos_06 = self.html.index("06 /")
+        """Community Reviews (04) must come before Internal Links (05)."""
+        pos_05 = self.html.index("04 / COMMUNITY REVIEWS")
+        pos_06 = self.html.index("05 / RELATED TIRE GUIDES")
         self.assertLess(pos_05, pos_06)
 
 

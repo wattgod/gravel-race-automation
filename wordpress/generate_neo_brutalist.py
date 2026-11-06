@@ -5871,6 +5871,7 @@ def build_tire_picks(rd: dict) -> str:
         if price:
             meta_parts.append(f'${price:.0f}')
         meta = ' · '.join(meta_parts)
+        meta_html = f'<div class="gg-tire-meta">{esc(meta)}</div>' if meta else ''
 
         why_html = f'<div class="gg-tire-why">{esc(why)}</div>' if why else ''
         picks_html.append(
@@ -5878,7 +5879,7 @@ def build_tire_picks(rd: dict) -> str:
             f'<div class="gg-tire-rank">{esc(str(rank))}</div>'
             f'<div class="gg-tire-info">'
             f'<div class="gg-tire-name">{tire_name_html(t.get("tire_id"), name)}</div>'
-            f'<div class="gg-tire-meta">{esc(meta)}</div>'
+            f'{meta_html}'
             f'{why_html}'
             f'</div>'
             f'</div>'

@@ -1,0 +1,83 @@
+{
+  "id": "michelin-power-gravel",
+  "name": "Michelin Power Gravel",
+  "brand": "Michelin",
+  "widths_mm": [
+    40
+  ],
+  "widths_source": "existing",
+  "tread_type": "knobby",
+  "tubeless_ready": true,
+  "msrp_usd": null,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 39.0,
+      "year": 2022,
+      "model": "Michelin Power Gravel (v2) 40",
+      "rr_watts": 21.9,
+      "test_psi": 33,
+      "puncture_tread": 50.0,
+      "wet_grip": 61.0,
+      "knob_center_mm": 1.5,
+      "knob_edge_mm": 2.5,
+      "weight_g": 495.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/michelin-power-gravel-40"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/michelin-power-gravel-40"
+  },
+  "crr_watts_at_29kmh": {
+    "40": 21.9
+  },
+  "weight_grams": {
+    "40": 495
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "poor",
+  "mud_clearance": "low",
+  "strengths": [
+    "Tough tread: puncture score 50"
+  ],
+  "weaknesses": [
+    "Wet grip 61 on BRR's wet test"
+  ],
+  "recommended_use": [
+    "sharp rock",
+    "loose corners"
+  ],
+  "avoid_use": [
+    "wet roads",
+    "mud"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "continental-dubnital",
+    "continental-terra-trail",
+    "donnelly-mso",
+    "goodyear-connector",
+    "goodyear-xplr-inter",
+    "hutchinson-touareg",
+    "irc-boken-double-cross",
+    "maxxis-rambler",
+    "panaracer-gravelking-sk",
+    "panaracer-gravelking-x1",
+    "pirelli-cinturato-gravel-h",
+    "pirelli-cinturato-gravel-m",
+    "schwalbe-g-one-r-pro",
+    "silca-protocol-rcg-3",
+    "specialized-pathfinder-pro",
+    "specialized-tracer",
+    "teravail-cannonball",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero",
+    "vittoria-terreno-dry",
+    "vittoria-terreno-mix",
+    "vittoria-terreno-pro-t30"
+  ],
+  "versions": []
+}

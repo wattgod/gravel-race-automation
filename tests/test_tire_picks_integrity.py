@@ -163,7 +163,7 @@ def test_sourced_width_floor_survives_a_rerun():
     rd["slug"] = slug
     now = build_enrichment(rd, race, list(TIRES.values()), slug)
     assert now["min_width_mm"] == 45 and now["min_width_source"]
-    assert now["recommended_width_mm"] == 45
+    assert now["recommended_width_mm"] >= 45
     widths = [p["recommended_width_mm"] for p in now["primary"]]
     split = now["front_rear_split"]
     if split.get("applicable"):

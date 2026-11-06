@@ -5,8 +5,10 @@
   "widths_mm": [
     42
   ],
+  "widths_source": "existing",
   "tread_type": "aggressive",
   "tread_description": "Chevron center with aggressive side knobs, TCS tubeless",
+  "tagline": "Aggressive chevron tread. Fast center with confident cornering.",
   "best_conditions": [
     "technical",
     "loose",
@@ -17,155 +19,57 @@
     "deep mud"
   ],
   "tubeless_ready": true,
+  "msrp_usd": 64.95,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 42,
+      "measured_width_mm": 42.0,
+      "year": 2021,
+      "model": "WTB Resolute TCS Light 42",
+      "rr_watts": 24.8,
+      "test_psi": 33,
+      "puncture_tread": 20.0,
+      "wet_grip": 65.0,
+      "knob_center_mm": 2.0,
+      "knob_edge_mm": 2.0,
+      "weight_g": 484.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/wtb-resolute"
+    }
+  ],
   "brr_urls_by_width": {
     "42": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/wtb-resolute"
   },
-  "tagline": "Aggressive chevron tread. Fast center with confident cornering.",
-  "strengths": [
-    "Fast center tread",
-    "Aggressive cornering knobs",
-    "Good puncture protection"
-  ],
-  "weaknesses": [
-    "Only one width",
-    "Can be harsh on smooth surfaces",
-    "Side knobs can fold"
-  ],
-  "msrp_usd": 64.95,
-  "weight_grams": {
-    "42": 460
-  },
   "crr_watts_at_29kmh": {
-    "42": 36.5
+    "42": 24.8
   },
-  "puncture_resistance": "high",
+  "weight_grams": {
+    "42": 484
+  },
+  "puncture_resistance": "low",
   "wet_traction": "fair",
   "mud_clearance": "low",
-  "recommended_use": [
-    "technical terrain",
-    "mixed technical",
-    "loose gravel"
+  "strengths": [],
+  "weaknesses": [
+    "Slow rolling: 24.8 W at 42mm on BRR's drum",
+    "Thin tread: puncture score 20"
   ],
+  "recommended_use": [],
   "avoid_use": [
-    "smooth pavement",
-    "deep mud"
+    "fast smooth courses",
+    "sharp rock",
+    "mud"
   ],
   "status": "active",
-  "race_appearances": {
-    "big-sugar": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "bootlegger-100": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "crusher-in-the-tushar": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "gravel-brazil": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "grinduro-california": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "grinduro-france": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "grinduro-germany": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "grinduro": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "lauf-true-grit": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "lost-river-classic": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "monaco-gravel-race": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "pisgah-monster-cross": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "sea-otter-gravel": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "the-gralloch": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "uci-gravel-worlds": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "vermont-overland": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "vuelta-altas-cumbres": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "whiskey-off-road": {
-      "rank": 3,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "technical"
-    }
-  },
+  "race_appearances": {},
   "community_reviews": [],
   "comparable_tires": [
+    "continental-dubnital",
     "maxxis-reaver",
     "pirelli-cinturato-gravel-s",
+    "rene-herse-hurricane-ridge",
     "schwalbe-g-one-bite",
+    "schwalbe-g-one-rx-pro",
     "teravail-washburn",
     "vittoria-terreno-wet"
   ],

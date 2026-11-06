@@ -371,67 +371,95 @@
       "primary": [
         {
           "rank": 1,
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "brand": "Specialized",
-          "recommended_width_mm": 38,
-          "msrp_usd": 54.99,
-          "weight_grams": 380,
-          "crr_watts": 32.0,
-          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+          "tire_id": "continental-terra-competition-race-rapid",
+          "name": "Continental Terra Competition Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 45,
+          "msrp_usd": null,
+          "weight_grams": 482,
+          "crr_watts": 15.8,
+          "tested_width_mm": 45,
+          "course_cost_watts": 15.8,
+          "why": "Rolls 15.8 W at 45mm on BRR's drum."
         },
         {
           "rank": 2,
-          "tire_id": "panaracer-gravelking-sk",
-          "name": "Panaracer GravelKing SK",
-          "brand": "Panaracer",
-          "recommended_width_mm": 40,
-          "msrp_usd": 64.9,
-          "weight_grams": 380,
-          "crr_watts": 32.5,
-          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+          "tire_id": "hutchinson-caracal-race",
+          "name": "Hutchinson Caracal Race",
+          "brand": "Hutchinson",
+          "recommended_width_mm": 45,
+          "msrp_usd": null,
+          "weight_grams": 566,
+          "crr_watts": 16.3,
+          "tested_width_mm": 45,
+          "course_cost_watts": 17.74,
+          "why": "Rolls 16.3 W at 45mm on BRR's drum."
         },
         {
           "rank": 3,
-          "tire_id": "vittoria-terreno-mix",
-          "name": "Vittoria Terreno Mix",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 420,
-          "crr_watts": 33.5,
-          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
+          "tire_id": "pirelli-cinturato-gravel-h",
+          "name": "Pirelli Cinturato Gravel H",
+          "brand": "Pirelli",
+          "recommended_width_mm": 45,
+          "msrp_usd": null,
+          "weight_grams": 522,
+          "crr_watts": 17.9,
+          "tested_width_mm": 40,
+          "course_cost_watts": 20.1,
+          "why": "BRR tested the 40mm: 17.9 W."
         }
       ],
       "front_rear_split": {
         "applicable": true,
         "front": {
-          "tire_id": "vittoria-terreno-dry",
-          "name": "Vittoria Terreno Dry",
-          "width_mm": 40
+          "tire_id": "continental-terra-competition-race-rapid",
+          "name": "Continental Terra Competition Race Rapid",
+          "width_mm": 45
         },
         "rear": {
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "width_mm": 38
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "width_mm": 50
         },
-        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+        "rationale": "The rear carries 53% of the weight and does the climbing traction, so it gets the 2.3mm center knobs; the front rolls the faster file tread."
       },
       "race_surface_profile": "mixed",
-      "recommended_width_mm": 38,
+      "recommended_width_mm": 45,
       "pressure_psi": {
-        "140_160lb_dry": "36-40",
-        "140_160lb_mixed": "33-37",
-        "140_160lb_wet": "31-35",
-        "160_180lb_dry": "39-43",
-        "160_180lb_mixed": "36-40",
-        "160_180lb_wet": "34-38",
-        "180_200lb_dry": "42-46",
-        "180_200lb_mixed": "39-43",
-        "180_200lb_wet": "37-41",
-        "200pluslb_dry": "45-49",
-        "200pluslb_mixed": "42-46",
-        "200pluslb_wet": "40-44"
+        "gravel_category": 2,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "40mm": "36/38",
+            "45mm": "30/31",
+            "50mm": "24/25"
+          },
+          "150": {
+            "40mm": "37/39",
+            "45mm": "30/32",
+            "50mm": "25/26"
+          },
+          "170": {
+            "40mm": "38/39",
+            "45mm": "31/32",
+            "50mm": "26/27"
+          },
+          "190": {
+            "40mm": "39/40",
+            "45mm": "32/33",
+            "50mm": "26/27"
+          },
+          "210": {
+            "40mm": "39/41",
+            "45mm": "32/34",
+            "50mm": "27/28"
+          },
+          "230": {
+            "40mm": "40/42",
+            "45mm": "33/34",
+            "50mm": "27/28"
+          }
+        }
       }
     },
     "results": {

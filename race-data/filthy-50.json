@@ -155,6 +155,41 @@
         "status": "not_held",
         "note": "Organizers took a year off.",
         "source": "https://the-filthy.com/"
+      },
+      {
+        "year": 2023,
+        "date": "2023-10-14",
+        "source": "https://endurancepromotions.com/ResultDetails.aspx?id=1605"
+      },
+      {
+        "year": 2021,
+        "date": "2021-10-09",
+        "note": "100-mile, 50-mile and 25-mile options",
+        "source": "https://endurancepromotions.com/ResultDetails.aspx?id=1501"
+      },
+      {
+        "year": 2019,
+        "date": "2019-10-12",
+        "note": "Moved from Stewartville to Lanesboro",
+        "source": "https://fillmorecountyjournal.com/filthy-50-bike-race-celebrates-first-year-in-lanesboro/"
+      },
+      {
+        "year": 2018,
+        "date": "2018-10-14",
+        "edition": 6,
+        "note": "Snow and wet roads on race day; Pretty Filthy 24-mile route added",
+        "source": "https://mnbiketrailnavigator.blogspot.com/2018/03/6th-annual-filthy-50-registration-opens.html"
+      },
+      {
+        "year": 2015,
+        "date": "2015-10-11",
+        "source": "https://curtkrieger.blogspot.com/2015/10/filthy-fifty.html"
+      },
+      {
+        "year": 2014,
+        "date": "2014-10-12",
+        "edition": 2,
+        "source": "https://mnbiketrailnavigator.blogspot.com/2014/03/the-filthy-50-returns-for-second-year.html"
       }
     ],
     "research_metadata": {
@@ -327,7 +362,7 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
@@ -338,7 +373,7 @@
           "msrp_usd": 54.99,
           "weight_grams": 380,
           "crr_watts": 32.0,
-          "why": "high puncture protection for sharp surfaces"
+          "why": "Tough casing for sharp rock."
         },
         {
           "rank": 2,
@@ -349,7 +384,7 @@
           "msrp_usd": 74.99,
           "weight_grams": 450,
           "crr_watts": 33.5,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+          "why": "Tough casing for sharp rock."
         },
         {
           "rank": 3,
@@ -360,7 +395,7 @@
           "msrp_usd": 64.99,
           "weight_grams": 430,
           "crr_watts": 34.5,
-          "why": "high puncture protection for sharp surfaces"
+          "why": "Tough casing for sharp rock."
         }
       ],
       "front_rear_split": {
@@ -554,6 +589,14 @@
           "winning_time_female": "2:34:01",
           "winning_time_male": "2:14:31",
           "source": "https://www.mtecresults.com/race/leaderboard/21935/2026_The_Filthy_50-The_Filthy_50_-_50_Mile"
+        },
+        "2023": {
+          "race": "100 mi",
+          "winner_female": "Erica Schwanke",
+          "winner_male": "Brant Kochsiek",
+          "winning_time_female": "7:53:50",
+          "winning_time_male": "5:34:07",
+          "source": "https://endurancepromotions.com/ResultDetails.aspx?id=1605"
         }
       },
       "latest_year": "2026"

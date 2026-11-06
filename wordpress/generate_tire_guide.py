@@ -55,6 +55,35 @@ NEGATION_PATTERN = re.compile(
     re.IGNORECASE,
 )
 
+# Course-text signals, matched on word boundaries. A bare substring test read
+# "rain" inside "terrain" (nearly every race came out wet) and "bog" inside
+# "sandy sections bog down wheels" (a sand race came out muddy).
+MUD_TERMS = re.compile(r"\b(?:mud|muddy|mudd\w+|boggy|bogs|peanut[- ]butter)\b")
+CLAY_TERMS = re.compile(r"\bclay\b")
+WET_TERMS = re.compile(
+    r"\b(?:wet|rain|rainy|rains|raining|rainfall|puddles?|standing water)\b")
+PUNCTURE_TERMS = re.compile(
+    r"\b(?:limestone|flint|sharp|rocky(?!\s+mountain)|chunk\w*|shred\w*"
+    r"|angular|abrasive)\b")
+SINGLETRACK_TERMS = re.compile(
+    r"\b(?:singletrack|single-track|switchbacks?|technical descents?|roots"
+    r"|rock gardens?)\b")
+
+# A hedge near a mention makes it a maybe, not the course: "occasional
+# sand/mud", "mud when wet", "spring mud potential", "creek crossings in wet
+# years". Hedges count within HEDGE_WINDOW words either side, same clause.
+HEDGE_WORDS = frozenset({
+    "occasional", "occasionally", "some", "sometimes", "potential",
+    "potentially", "possible", "possibly", "may", "might", "can", "could",
+    "if", "when", "after", "risk", "chance", "rare", "rarely", "years",
+    "spots", "patches", "isolated", "forecast", "following",
+})
+NEGATION_WORDS = frozenset({"no", "not", "unlike", "without", "minimal", "zero",
+                            "never", "absent"})
+HEDGE_WINDOW = 5
+CLAUSE_SPLIT = re.compile(r"[.;!?|—]")
+WORD = re.compile(r"[a-z0-9'-]+")
+
 # Surface demand categories
 SURFACE_FAST = "fast"
 SURFACE_MIXED = "mixed"
@@ -119,11 +148,9 @@ SCORE_PRICE_MID = 1    # <= $70
 # 100 miles is standard ultra-distance cutoff (Unbound 200, Almanzo 100).
 COMFORT_DISTANCE_MI = 100
 
-# Precipitation threshold for "needs wet" flag (percent chance).
+# Precipitation threshold for the "needs wet" grip weighting (share of
+# race-month days with any rain). Never sets the surface category.
 PRECIP_WET_THRESHOLD = 40
-
-# Precipitation threshold for SURFACE_WET classification (percent chance).
-PRECIP_SURFACE_WET_THRESHOLD = 50
 
 # ── Pressure Table Constants ─────────────────────────────────
 # Base pressure for a 40mm tire at tech_rating 2 on a tubeless setup with
@@ -222,15 +249,17 @@ def parse_terrain_text(raw_race: dict) -> tuple:
     primary_val = terrain.get("primary", "")
     if isinstance(primary_val, dict):
         primary_val = " ".join(str(k) for k in primary_val.keys())
-    surface = (str(surface_val) + " " + str(primary_val)).lower()
+    # Fields and list items join with ". " so each stays its own clause for
+    # the hedge check (a hedge in one feature must not soften the next).
+    surface = (str(surface_val) + ". " + str(primary_val)).lower()
     features_raw = terrain.get("features", [])
     if isinstance(features_raw, list):
-        features = " ".join(str(f) for f in features_raw).lower()
+        features = ". ".join(str(f) for f in features_raw).lower()
         features_list = [str(f) for f in features_raw]
     else:
         features = str(features_raw).lower()
         features_list = [str(features_raw)] if features_raw else []
-    combined = surface + " " + features
+    combined = surface + ". " + features
 
     distance_mi = vitals.get("distance_mi", 50)
     if distance_mi is None:
@@ -254,7 +283,7 @@ def parse_terrain_text(raw_race: dict) -> tuple:
             elevation_ft = 0
     terrain_types = vitals.get("terrain_types", [])
     if isinstance(terrain_types, list):
-        combined += " " + " ".join(str(t).lower() for t in terrain_types)
+        combined += ". " + ". ".join(str(t).lower() for t in terrain_types)
 
     return combined, tech_rating, distance_mi, elevation_ft, features_list
 
@@ -265,8 +294,30 @@ def extract_negated_keywords(text: str) -> set:
 
 
 def keyword_present(text: str, keyword: str, negated: set) -> bool:
-    """Check if keyword is present in text AND not negated."""
-    return keyword in text and keyword not in negated
+    """Check if keyword starts a word in text AND is not negated."""
+    return (keyword not in negated
+            and re.search(r"\b" + re.escape(keyword), text) is not None)
+
+
+def count_mentions(text: str, pattern: re.Pattern) -> tuple:
+    """Count (firm, hedged) mentions of pattern in text, skipping negated ones.
+
+    A mention is hedged when a HEDGE_WORDS word sits within HEDGE_WINDOW words
+    of it in the same clause, negated when a NEGATION_WORDS word sits in the
+    three words before it.
+    """
+    firm = hedged = 0
+    for clause in CLAUSE_SPLIT.split(text.lower()):
+        for m in pattern.finditer(clause):
+            before = WORD.findall(clause[:m.start()])
+            after = WORD.findall(clause[m.end():])[:HEDGE_WINDOW]
+            if NEGATION_WORDS & set(before[-3:]):
+                continue
+            if HEDGE_WORDS & set(before[-HEDGE_WINDOW:] + after):
+                hedged += 1
+            else:
+                firm += 1
+    return firm, hedged
 
 
 # ── Race Profile Builder ─────────────────────────────────────
@@ -278,42 +329,46 @@ def build_race_profile(rd: dict, raw_race: dict, weather: dict) -> dict:
     Returns dict with:
       - surface_category: fast/mixed/technical/muddy/wet
       - tech_rating, distance_mi, elevation_ft
-      - needs_puncture, needs_wet, needs_mud, needs_speed, needs_comfort
+      - needs_puncture, needs_wet, needs_mud, mud_risk, needs_speed,
+        needs_comfort
       - precip_pct, climbing_ratio
       - combined_text (for debugging)
+
+    The surface category comes from the course text alone. Weather (an
+    optional data/weather/{slug}.json, share of race-month days with any
+    rain) only adds wet-grip weighting: "it rained on 55% of August days in
+    Leadville" is not a wet course, and those files are not in the repo, so
+    letting them pick the category made picks unreproducible.
     """
     combined, tech_rating, distance_mi, elevation_ft, features_list = \
         parse_terrain_text(raw_race)
     precip_pct = weather.get("precip_chance_pct", 20)
-    negated = extract_negated_keywords(combined)
 
     # Climbing ratio: ft per mile
     climbing_ratio = elevation_ft / max(distance_mi, 1)
 
-    # Determine surface demands
-    needs_mud = keyword_present(combined, "mud", negated) or \
-                keyword_present(combined, "clay", negated) or \
-                keyword_present(combined, "bog", negated) or \
-                keyword_present(combined, "swamp", negated)
-    needs_wet = precip_pct >= PRECIP_WET_THRESHOLD or \
-                keyword_present(combined, "wet", negated) or \
-                keyword_present(combined, "rain", negated) or \
-                keyword_present(combined, "creek", negated)
-    needs_puncture = any(keyword_present(combined, kw, negated)
-                         for kw in ["limestone", "flint", "sharp", "rocky", "chunk",
-                                    "shred", "angular", "abrasive"])
+    # Determine surface demands. Firm mud ("infamous mud sectors") makes the
+    # course muddy; hedged mud ("occasional sand/mud") or any clay is a risk
+    # that favors mud clearance without forcing mud tires.
+    mud_firm, mud_hedged = count_mentions(combined, MUD_TERMS)
+    clay_firm, clay_hedged = count_mentions(combined, CLAY_TERMS)
+    wet_firm, wet_hedged = count_mentions(combined, WET_TERMS)
+    needs_mud = mud_firm > 0
+    mud_risk = not needs_mud and (mud_hedged + clay_firm + clay_hedged) > 0
+    wet_surface = wet_firm > 0
+    needs_wet = (wet_surface or wet_hedged > 0 or needs_mud or mud_risk
+                 or precip_pct >= PRECIP_WET_THRESHOLD)
+    needs_puncture = sum(count_mentions(combined, PUNCTURE_TERMS)) > 0
     needs_speed = tech_rating <= 2 and not needs_mud
     needs_comfort = distance_mi >= COMFORT_DISTANCE_MI
 
     # Is it truly technical singletrack or just chunky/rough gravel?
-    has_singletrack = any(keyword_present(combined, kw, negated)
-                          for kw in ["singletrack", "switchback", "technical descent",
-                                     "roots", "rock garden"])
+    has_singletrack = sum(count_mentions(combined, SINGLETRACK_TERMS)) > 0
 
     # Classify primary surface demand
     if needs_mud:
         surface_category = SURFACE_MUDDY
-    elif needs_wet and precip_pct >= PRECIP_SURFACE_WET_THRESHOLD:
+    elif wet_surface:
         surface_category = SURFACE_WET
     elif tech_rating >= 4:
         surface_category = SURFACE_TECHNICAL
@@ -334,10 +389,13 @@ def build_race_profile(rd: dict, raw_race: dict, weather: dict) -> dict:
         "needs_puncture": needs_puncture,
         "needs_wet": needs_wet,
         "needs_mud": needs_mud,
+        "mud_risk": mud_risk,
         "needs_speed": needs_speed,
         "needs_comfort": needs_comfort,
         "combined_text": combined,
         "features_list": features_list,
+        # Sourced width floor carried in the tire block so re-runs keep it.
+        "min_width_mm": (raw_race.get("tire_recommendations") or {}).get("min_width_mm"),
     }
 
 
@@ -354,12 +412,15 @@ def filter_tires(tires: list, profile: dict) -> list:
         # Hard disqualification: race needs mud, tire has no mud clearance
         if profile["needs_mud"] and tire.get("mud_clearance") == "none":
             continue
-        # Hard disqualification: race needs wet grip, tire has poor wet traction
-        if profile["needs_wet"] and profile["precip_pct"] >= PRECIP_SURFACE_WET_THRESHOLD and \
+        # Hard disqualification: the course itself is wet, tire has poor wet traction
+        if profile["surface_category"] == SURFACE_WET and \
            tire.get("wet_traction") == "poor":
             continue
         # MTB crossover warning: tech_rating >= 5 with file tread
         if profile["tech_rating"] >= 5 and tire.get("tread_type") == "file":
+            continue
+        # Sourced width floor (organizer guidance): tire must come that wide
+        if not offers_min_width(tire, profile):
             continue
         filtered.append(tire)
     return filtered
@@ -443,15 +504,16 @@ def score_tire(tire: dict, profile: dict) -> float:
         elif wt == "fair":
             score += SCORE_WET_FAIR
 
-    # 7. Mud clearance when mud keywords present
-    if profile["needs_mud"]:
+    # 7. Mud clearance when mud keywords present (half weight for a mud risk)
+    if profile["needs_mud"] or profile.get("mud_risk"):
+        weight = 1.0 if profile["needs_mud"] else 0.5
         mc = tire.get("mud_clearance", "none")
         if mc == "high":
-            score += SCORE_MUD_HIGH
+            score += SCORE_MUD_HIGH * weight
         elif mc == "moderate":
-            score += SCORE_MUD_MODERATE
+            score += SCORE_MUD_MODERATE * weight
         elif mc == "low":
-            score += SCORE_MUD_LOW
+            score += SCORE_MUD_LOW * weight
 
     # 8. Distance/comfort bonus for long races
     if profile["needs_comfort"]:
@@ -487,14 +549,27 @@ def score_tire(tire: dict, profile: dict) -> float:
     return score
 
 
-def recommend_width(tech_rating: int, tire: dict) -> int:
-    """Recommend tire width based on technical rating and available widths."""
+def recommend_width(tech_rating: int, tire: dict, min_width: int = None) -> int:
+    """Recommend tire width based on technical rating and available widths.
+
+    min_width is a sourced floor (organizer guidance, kept in
+    tire_recommendations.min_width_mm): widths below it are never picked.
+    """
     # Clamp tech_rating to known range, default to widest for extreme tech
     target = WIDTH_TARGETS.get(min(tech_rating, 4), WIDTH_TARGETS[2])
 
     widths = sorted(tire["widths_mm"])
+    if min_width:
+        target = max(target, min_width)
+        widths = [w for w in widths if w >= min_width] or widths
     closest = min(widths, key=lambda w: abs(w - target))
     return closest
+
+
+def offers_min_width(tire: dict, profile: dict) -> bool:
+    """True when the tire comes at least as wide as the course's sourced floor."""
+    floor = profile.get("min_width_mm")
+    return not floor or max(tire.get("widths_mm") or [0]) >= floor
 
 
 def get_top_tires(tires: list, profile: dict, n: int = 3) -> list:
@@ -515,7 +590,7 @@ def get_top_tires(tires: list, profile: dict, n: int = 3) -> list:
     scored = []
     for tire in candidates:
         s = score_tire(tire, profile)
-        w = recommend_width(tech_rating, tire)
+        w = recommend_width(tech_rating, tire, profile.get("min_width_mm"))
         scored.append({
             "tire": tire,
             "score": s,
@@ -550,7 +625,7 @@ def get_front_rear_split(tires: list, profile: dict, top_picks: list) -> dict:
         candidates = tires
     for tire in candidates:
         s = score_tire(tire, profile)
-        w = recommend_width(tech_rating, tire)
+        w = recommend_width(tech_rating, tire, profile.get("min_width_mm"))
         all_scored.append({"tire": tire, "score": s, "width": w})
     all_scored.sort(key=lambda x: x["score"], reverse=True)
 
@@ -646,7 +721,7 @@ def generate_why_text(tire: dict, profile: dict, race_name: str) -> str:
             parts.append("limited wet traction — monitor forecast")
 
     # Reference mud clearance for muddy courses
-    if profile["needs_mud"]:
+    if profile["needs_mud"] or profile.get("mud_risk"):
         mc = tire.get("mud_clearance", "none")
         if mc == "high":
             parts.append("excellent mud shedding")
@@ -769,7 +844,7 @@ def get_condition_alternatives(tires: list, profile: dict, top_picks: list) -> d
     if primary_wet in ("poor", "fair"):
         best_score = -999
         for tire in tires:
-            if tire["id"] in top_ids:
+            if tire["id"] in top_ids or not offers_min_width(tire, profile):
                 continue
             if tire.get("wet_traction") != "good":
                 continue
@@ -778,14 +853,14 @@ def get_condition_alternatives(tires: list, profile: dict, top_picks: list) -> d
             s += 20
             if s > best_score:
                 best_score = s
-                wet_alt = {"tire": tire, "score": s, "width": recommend_width(tech_rating, tire)}
+                wet_alt = {"tire": tire, "score": s, "width": recommend_width(tech_rating, tire, profile.get("min_width_mm"))}
 
     # Dry alternative: show whenever primary isn't already a file-tread tire
     dry_alt = None
     if primary_tread != "file":
         best_score = -999
         for tire in tires:
-            if tire["id"] in top_ids:
+            if tire["id"] in top_ids or not offers_min_width(tire, profile):
                 continue
             if tire.get("tread_type") != "file":
                 continue
@@ -798,7 +873,7 @@ def get_condition_alternatives(tires: list, profile: dict, top_picks: list) -> d
                     s += 15
             if s > best_score:
                 best_score = s
-                dry_alt = {"tire": tire, "score": s, "width": recommend_width(tech_rating, tire)}
+                dry_alt = {"tire": tire, "score": s, "width": recommend_width(tech_rating, tire, profile.get("min_width_mm"))}
 
     return {"wet": wet_alt, "dry": dry_alt}
 
@@ -997,6 +1072,15 @@ a:hover { text-decoration: underline; }
   font-size: var(--gg-font-size-lg);
   font-weight: var(--gg-font-weight-bold);
   margin: 0;
+}
+.tg-tire-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.tg-tire-link:hover {
+  color: var(--gg-color-teal);
 }
 .tg-tire-brand {
   font-family: var(--gg-font-data);
@@ -1428,6 +1512,13 @@ def build_surface_analysis(rd: dict, raw_race: dict, weather: dict) -> str:
 </section>'''
 
 
+def tire_link(tire_id, name: str) -> str:
+    """Tire name linked to its /tire/{id}/ page (every database tire has one)."""
+    if not tire_id:
+        return esc(name)
+    return f'<a href="/tire/{esc(tire_id)}/" class="tg-tire-link">{esc(name)}</a>'
+
+
 def build_tire_cards(top_picks: list, profile: dict, race_name: str,
                      front_rear: dict = None) -> str:
     """Build Section 02: Top 3 Tire Recommendations with real data."""
@@ -1484,7 +1575,7 @@ def build_tire_cards(top_picks: list, profile: dict, race_name: str,
       <div class="tg-tire-rank tg-tire-rank--{rank}">#{rank}</div>
       <div class="tg-tire-header">
         <span class="tg-tire-brand">{esc(tire['brand'])}</span>
-        <h3 class="tg-tire-name">{esc(tire['name'])}</h3>
+        <h3 class="tg-tire-name">{tire_link(tire['id'], tire['name'])}</h3>
         <span class="tg-tire-width">Recommended: {width}mm &mdash; {price_label}</span>
       </div>
       <div class="tg-tire-body">
@@ -1512,8 +1603,8 @@ def build_tire_cards(top_picks: list, profile: dict, race_name: str,
         split_html = f'''<div class="tg-alt-card" style="margin-top:var(--gg-spacing-lg);border-left:3px solid var(--gg-color-teal)">
       <div class="tg-alt-label">FRONT / REAR SPLIT OPTION</div>
       <p style="font-family:var(--gg-font-data);font-size:var(--gg-font-size-sm);margin-bottom:4px">
-        <strong>Front:</strong> {esc(f['name'])} ({f['width_mm']}mm) &mdash;
-        <strong>Rear:</strong> {esc(r['name'])} ({r['width_mm']}mm)
+        <strong>Front:</strong> {tire_link(f.get('tire_id'), f['name'])} ({f['width_mm']}mm) &mdash;
+        <strong>Rear:</strong> {tire_link(r.get('tire_id'), r['name'])} ({r['width_mm']}mm)
       </p>
       <p style="font-family:var(--gg-font-data);font-size:var(--gg-font-size-xs);color:var(--gg-color-secondary-brown)">{esc(rationale)}</p>
     </div>'''
@@ -1635,7 +1726,7 @@ def build_alternatives_section(alts: dict) -> str:
         review = f' <a href="{esc(brr_url)}" target="_blank" rel="noopener" style="color:var(--gg-color-teal)">Review &rarr;</a>' if brr_url else ""
         cards.append(f'''<div class="tg-alt-card">
       <div class="tg-alt-label">PLAN B: WET CONDITIONS</div>
-      <h4>{esc(t['name'])} ({w}mm){price_str}</h4>
+      <h4>{tire_link(t['id'], t['name'])} ({w}mm){price_str}</h4>
       <p>{esc(t.get('tagline', ''))}{review}</p>
     </div>''')
 
@@ -1648,7 +1739,7 @@ def build_alternatives_section(alts: dict) -> str:
         review = f' <a href="{esc(brr_url)}" target="_blank" rel="noopener" style="color:var(--gg-color-teal)">Review &rarr;</a>' if brr_url else ""
         cards.append(f'''<div class="tg-alt-card">
       <div class="tg-alt-label">PLAN B: DRY CONDITIONS</div>
-      <h4>{esc(t['name'])} ({w}mm){price_str}</h4>
+      <h4>{tire_link(t['id'], t['name'])} ({w}mm){price_str}</h4>
       <p>{esc(t.get('tagline', ''))}{review}</p>
     </div>''')
 

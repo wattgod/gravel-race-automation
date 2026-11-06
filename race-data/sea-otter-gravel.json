@@ -102,7 +102,7 @@
       "official_site": "https://www.seaotterclassic.com"
     },
     "history": {
-      "founded": 1991,
+      "founded": 2021,
       "founder": "Frank Yohannan",
       "origin_story": "Sea Otter Classic began as a mountain bike race and festival. Gravel racing was added as the sport grew. The event is now North America's largest cycling festival.",
       "notable_moments": [
@@ -117,6 +117,23 @@
         "year": 2026,
         "date": "2026-04-16",
         "source": "https://granfondodailynews.com/2026/04/17/sea-otter-classic-gravel-2026-lange-and-migon-claim-life-time-grand-prix-opening-round/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-04-10",
+        "note": "90-mile pro race; opening round of the Life Time Grand Prix",
+        "source": "https://www.cxmagazine.com/2025-sea-otter-gravel-race-results-men-women-photos-video-report-life-time-grand-prix"
+      },
+      {
+        "year": 2024,
+        "date": "2024-04-20",
+        "note": "New 50-mile course in Fort Ord National Monument",
+        "source": "https://velo.outsideonline.com/gravel/gravel-racing/results-brennan-wertz-and-cassia-boglio-win-sea-otter-gravel-race/?scope=anon"
+      },
+      {
+        "year": 2021,
+        "note": "Gravel race debuts at the post-COVID October Sea Otter, as La Gravilla",
+        "source": "https://velo.outsideonline.com/gravel/la-gravilla-at-the-sea-otter-classic-because-its-not-a-gravel-race-at-all-2/?scope=anon"
       }
     ],
     "course_description": {
@@ -337,7 +354,13 @@
         "2024": {
           "key_takeaways": [
             "Note: 2024 was the first \"real\" gravel race at Sea Otter"
-          ]
+          ],
+          "race": "50 mi",
+          "winner_female": "Cassia Boglio",
+          "winner_male": "Brennan Wertz",
+          "winning_time_female": "2:41:54",
+          "winning_time_male": "2:18:25",
+          "source": "https://velo.outsideonline.com/gravel/gravel-racing/results-brennan-wertz-and-cassia-boglio-win-sea-otter-gravel-race/?scope=anon"
         },
         "2026": {
           "race": "88.8 mi",
@@ -346,6 +369,14 @@
           "winning_time_female": "5:10:39",
           "winning_time_male": "4:15:03",
           "source": "https://granfondodailynews.com/2026/04/17/sea-otter-classic-gravel-2026-lange-and-migon-claim-life-time-grand-prix-opening-round/"
+        },
+        "2025": {
+          "race": "90 mi",
+          "winner_female": "Haley Batten",
+          "winner_male": "Keegan Swenson",
+          "winning_time_female": "5:02:45",
+          "winning_time_male": "4:20:25",
+          "source": "https://velo.outsideonline.com/gravel/results-sea-otter-classic-gravel-race-pro-life-time-grand-prix-2025/"
         }
       },
       "latest_year": "2026"
@@ -355,7 +386,7 @@
       "name": "Life Time Grand Prix"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
@@ -366,7 +397,7 @@
           "msrp_usd": 69.9,
           "weight_grams": 480,
           "crr_watts": 38.0,
-          "why": "excellent wet grip"
+          "why": "Technical terrain dominator. Aggressive grip when the course gets rowdy."
         },
         {
           "rank": 2,
@@ -381,22 +412,22 @@
         },
         {
           "rank": 3,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
-          "brand": "Pirelli",
-          "recommended_width_mm": 40,
-          "msrp_usd": 73.99,
-          "weight_grams": 430,
-          "crr_watts": null,
-          "why": "excellent wet grip"
+          "tire_id": "wtb-resolute",
+          "name": "WTB Resolute",
+          "brand": "WTB",
+          "recommended_width_mm": 42,
+          "msrp_usd": 64.95,
+          "weight_grams": 460,
+          "crr_watts": 36.5,
+          "why": "Aggressive chevron tread. Fast center with confident cornering."
         }
       ],
       "front_rear_split": {
         "applicable": true,
         "front": {
-          "tire_id": "rene-herse-snoqualmie-pass",
-          "name": "Rene Herse Snoqualmie Pass",
-          "width_mm": 44
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
         },
         "rear": {
           "tire_id": "schwalbe-g-one-bite",

@@ -130,7 +130,7 @@
       "ridewithgps_name": "Mammoth TUFF - Long 25 V3"
     },
     "history": {
-      "founded": "2010s",
+      "founded": 2022,
       "founder": "TUFF Ventures",
       "origin_story": "Mammoth Tuff is UCI Gravel World Series qualifier. High Sierra alpine gravel at 8,000 ft. 400+ riders. Mammoth Lakes resort town. Professional organization.",
       "notable_moments": [
@@ -150,6 +150,36 @@
         "date": "2025-09-13",
         "note": "First year as a UCI Gravel World Series qualifier",
         "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/mammoth-tuff/results/"
+      },
+      {
+        "year": 2024,
+        "note": "Long course shortened to about 90 miles",
+        "source": "https://www.tuff.ventures/mtuff/courses"
+      },
+      {
+        "year": 2023,
+        "date": "2023-09-16",
+        "source": "https://www.townofmammothlakes.ca.gov/List.aspx?MID=3464"
+      },
+      {
+        "year": 2022,
+        "date": "2022-09-17",
+        "edition": 1,
+        "note": "Inaugural edition; long course about 107 miles",
+        "source": "https://www.easternsierranow.com/inaugural-mammoth-tuff-gravel-race-set-for-mammoth-lakes-ca-on-september-17-2022/"
+      },
+      {
+        "year": 2021,
+        "status": "cancelled",
+        "note": "National Forest closures during the Calder Fire",
+        "source": "https://roadbikeaction.com/mammoth-tuff-gravel-race-the-challenge-of-the-year/"
+      },
+      {
+        "year": 2020,
+        "date": "2020-09-19",
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://www.easternsierranow.com/inaugural-mammoth-tuff-gravel-race-set-for-mammoth-lakes-ca-on-september-17-2022/"
       }
     ],
     "research_metadata": {
@@ -323,7 +353,7 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
@@ -362,9 +392,9 @@
       "front_rear_split": {
         "applicable": true,
         "front": {
-          "tire_id": "vittoria-terreno-dry",
-          "name": "Vittoria Terreno Dry",
-          "width_mm": 40
+          "tire_id": "rene-herse-snoqualmie-pass",
+          "name": "Rene Herse Snoqualmie Pass",
+          "width_mm": 44
         },
         "rear": {
           "tire_id": "specialized-pathfinder-pro",

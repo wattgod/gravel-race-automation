@@ -237,6 +237,77 @@
         "year": 2022,
         "date": "2022-06-10",
         "source": "https://bikepacking.com/tracker/2022-tour-divide-tracker/"
+      },
+      {
+        "year": 2021,
+        "date": "2021-06-11",
+        "note": "Border-to-border start at Eureka, Montana; no Canadian section",
+        "source": "https://bikepacking.com/event/tour-divide-2021/"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://bikepacking.com/news/miss-tour-divide/"
+      },
+      {
+        "year": 2019,
+        "date": "2019-06-14",
+        "source": "https://bikepacking.com/event/tour-divide-2019/"
+      },
+      {
+        "year": 2018,
+        "date": "2018-06-08",
+        "source": "https://bikepacking.com/event/tour-divide-2018/"
+      },
+      {
+        "year": 2017,
+        "date": "2017-06-09",
+        "source": "https://bikepacking.com/event/tour-divide/"
+      },
+      {
+        "year": 2016,
+        "date": "2016-06-10",
+        "note": "Course record, 13d 22h 51m (Mike Hall)",
+        "source": "https://singletrackworld.com/2016/06/tour-divide-record-set-to-fall-to-mike-hall/"
+      },
+      {
+        "year": 2015,
+        "date": "2015-06-12",
+        "source": "https://mtbcast.com/site2/tour-divide-2015/"
+      },
+      {
+        "year": 2014,
+        "date": "2014-06-13",
+        "source": "https://tourdivide.org"
+      },
+      {
+        "year": 2013,
+        "date": "2013-06-14",
+        "note": "Wildfires forced a reroute in New Mexico",
+        "source": "https://www.mountainflyermagazine.com/view.php/2013-tour-divide.html"
+      },
+      {
+        "year": 2012,
+        "date": "2012-06-08",
+        "source": "https://www.mountainflyermagazine.com/view.php/2012-tour-divide-part-1-the-northern-half.html"
+      },
+      {
+        "year": 2011,
+        "date": "2011-06-10",
+        "note": "First Grand Depart from Antelope Wells as well as Banff",
+        "source": "https://tourdivide.org/2011_start_list"
+      },
+      {
+        "year": 2010,
+        "date": "2010-06-11",
+        "source": "https://tourdivide.org/2010_start_list"
+      },
+      {
+        "year": 2008,
+        "date": "2008-06-13",
+        "note": "First Tour Divide, starting in Banff",
+        "source": "https://tourdivide.org/2008_start_list"
       }
     ],
     "course_description": {
@@ -485,77 +556,111 @@
           "winning_time_female": "19d 00h 54m",
           "winning_time_male": "14d 16h 36m",
           "source": "https://bikepacking.com/tracker/2022-tour-divide-tracker/"
+        },
+        "2008": {
+          "race": "2,709 mi",
+          "winner_female": "Mary Collier",
+          "winner_male": "Matthew Lee",
+          "winning_time_female": "29d 17h 37m",
+          "winning_time_male": "19d 12h 0m",
+          "source": "https://tourdivide.org/2008_TD_results"
+        },
+        "2009": {
+          "race": "2,745 mi",
+          "winner_female": "Jill Homer",
+          "winner_male": "Matthew Lee",
+          "winning_time_female": "24d 7h 24m",
+          "winning_time_male": "17d 23h 45m",
+          "source": "https://tourdivide.org/2009_TD_results"
+        },
+        "2010": {
+          "race": "2,745 mi",
+          "winner_female": "Cricket Butler",
+          "winner_male": "Matthew Lee",
+          "winning_time_female": "26d 9h 36m",
+          "winning_time_male": "17d 16h 10m",
+          "source": "https://tourdivide.org/2010_TD_results"
+        },
+        "2011": {
+          "race": "2,745 mi",
+          "winner_female": "Caroline Soong",
+          "winner_male": "Kurt Refsnider",
+          "winning_time_female": "22d 9h 59m",
+          "winning_time_male": "15d 20h 51m",
+          "source": "https://bikepacking.com/event/tour-divide-2019/"
+        },
+        "2012": {
+          "race": "2,745 mi",
+          "winner_female": "Eszter Horanyi",
+          "winner_male": "Ollie Whalley",
+          "winning_time_female": "19d 3h 35m",
+          "winning_time_male": "16d 2h 54m",
+          "source": "https://bikepacking.com/event/tour-divide-2019/"
+        },
+        "2013": {
+          "race": "2,745 mi",
+          "winner_female": "Sara Dallman",
+          "winner_male": "Mike Hall",
+          "winning_time_female": "22d 19h 5m",
+          "winning_time_male": "14d 11h 55m",
+          "source": "https://bikepacking.com/event/tour-divide-2019/"
+        },
+        "2014": {
+          "race": "2,745 mi",
+          "winner_female": "Alice Drobna",
+          "winner_male": "Jefe Branham",
+          "winning_time_female": "22d 6h 36m",
+          "winning_time_male": "16d 2h 39m",
+          "source": "https://bikepacking.com/event/tour-divide-2019/"
+        },
+        "2015": {
+          "race": "2,745 mi",
+          "winner_male": "Josh Kato",
+          "winning_time_male": "14d 11h 37m",
+          "source": "https://en.wikipedia.org/wiki/Tour_Divide"
+        },
+        "2016": {
+          "race": "2,745 mi",
+          "winner_female": "Jackie Bernardi",
+          "winner_male": "Mike Hall",
+          "winning_time_female": "19d 21h 41m",
+          "winning_time_male": "13d 22h 51m",
+          "source": "https://bikepacking.com/event/tour-divide-2019/"
+        },
+        "2017": {
+          "race": "2,745 mi",
+          "winner_female": "Marketa Peggy Marvanova",
+          "winner_male": "Brian Lucido",
+          "winning_time_female": "22d 18h 4m",
+          "winning_time_male": "14d 22h 50m",
+          "source": "https://bikepacking.com/event/tour-divide-2019/"
+        },
+        "2018": {
+          "race": "2,745 mi",
+          "winner_female": "Alexandera Houchin",
+          "winner_male": "Lewis Ciddor",
+          "winning_time_female": "23d 3h 51m",
+          "winning_time_male": "15d 2h 8m",
+          "source": "https://bikepacking.com/event/tour-divide-2019/"
+        },
+        "2019": {
+          "race": "2,745 mi",
+          "winner_female": "Alexandera Houchin",
+          "winner_male": "Christopher Seistrup",
+          "winning_time_female": "18d 20h 26m",
+          "winning_time_male": "15d 11h 24m",
+          "source": "https://en.wikipedia.org/wiki/Tour_Divide"
+        },
+        "2021": {
+          "race": "2,450 mi",
+          "winner_female": "Lauren Brownlee",
+          "winner_male": "Jay Petervary",
+          "winning_time_female": "20d 5h 43m",
+          "winning_time_male": "14d 19h 15m",
+          "source": "https://en.wikipedia.org/wiki/Tour_Divide"
         }
       },
       "latest_year": "2026"
-    },
-    "tire_recommendations": {
-      "generated_at": "2026-02-19",
-      "primary": [
-        {
-          "rank": 1,
-          "tire_id": "schwalbe-g-one-overland",
-          "name": "Schwalbe G-One Overland",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 40,
-          "msrp_usd": 69.9,
-          "weight_grams": 490,
-          "crr_watts": 40.0,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
-        },
-        {
-          "rank": 2,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
-          "brand": "Pirelli",
-          "recommended_width_mm": 40,
-          "msrp_usd": 73.99,
-          "weight_grams": 430,
-          "crr_watts": null,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
-        },
-        {
-          "rank": 3,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 460,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip"
-        }
-      ],
-      "front_rear_split": {
-        "applicable": true,
-        "front": {
-          "tire_id": "rene-herse-snoqualmie-pass",
-          "name": "Rene Herse Snoqualmie Pass",
-          "width_mm": 44
-        },
-        "rear": {
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
-          "width_mm": 40
-        },
-        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
-      },
-      "race_surface_profile": "wet",
-      "recommended_width_mm": 40,
-      "pressure_psi": {
-        "140_160lb_dry": "34-38",
-        "140_160lb_mixed": "30-34",
-        "140_160lb_wet": "28-32",
-        "160_180lb_dry": "36-40",
-        "160_180lb_mixed": "34-38",
-        "160_180lb_wet": "32-36",
-        "180_200lb_dry": "40-44",
-        "180_200lb_mixed": "36-40",
-        "180_200lb_wet": "34-38",
-        "200pluslb_dry": "42-46",
-        "200pluslb_mixed": "40-44",
-        "200pluslb_wet": "38-42"
-      }
     },
     "research_metadata": {
       "research_strength": {

@@ -133,6 +133,32 @@
         "year": 2024,
         "date": "2024-07-20",
         "source": "https://906adventureteam.com/crusher-2025/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-07-16",
+        "end_date": "2022-07-17",
+        "source": "https://my.raceresult.com/211882/"
+      },
+      {
+        "year": 2020,
+        "note": "Self-supported Crusher EX format during COVID-19 lockdowns",
+        "source": "https://906adventureteam.com/mountain-bike-events/the-crusher/"
+      },
+      {
+        "year": 2019,
+        "note": "First point-to-point route, Copper Harbor to Marquette, 225 miles",
+        "source": "https://906adventureteam.com/mountain-bike-events/the-crusher/"
+      },
+      {
+        "year": 2018,
+        "note": "906 Adventure Team took over the event",
+        "source": "https://906adventureteam.com/mountain-bike-events/the-crusher/"
+      },
+      {
+        "year": 2014,
+        "note": "Held as the Huron Mountain Crusher",
+        "source": "https://906adventureteam.com/mountain-bike-events/the-crusher/"
       }
     ],
     "course_description": {
@@ -382,7 +408,7 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
@@ -397,6 +423,17 @@
         },
         {
           "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
           "tire_id": "vittoria-terreno-mix",
           "name": "Vittoria Terreno Mix",
           "brand": "Vittoria",
@@ -405,17 +442,6 @@
           "weight_grams": 420,
           "crr_watts": 33.5,
           "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
-        },
-        {
-          "rank": 3,
-          "tire_id": "continental-terra-trail",
-          "name": "Continental Terra Trail",
-          "brand": "Continental",
-          "recommended_width_mm": 40,
-          "msrp_usd": 74.99,
-          "weight_grams": 450,
-          "crr_watts": 33.5,
-          "why": "excellent wet grip"
         }
       ],
       "front_rear_split": {
@@ -724,6 +750,16 @@
         "credit": "YouTube / Gregory Boehnlein",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2019": {
+          "race": "225 mi",
+          "winner_male": "Mark Kransz",
+          "source": "https://news.nmu.edu/nmu-student-crushes-crusher"
+        }
+      },
+      "latest_year": "2019"
+    }
   }
 }

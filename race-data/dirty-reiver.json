@@ -216,6 +216,33 @@
         "year": 2023,
         "date": "2023-04-22",
         "source": "https://www.bbc.co.uk/news/uk-england-tyne-65337507"
+      },
+      {
+        "year": 2022,
+        "note": "Back in April after two years of COVID-19 disruption",
+        "source": "https://www.wheelbase.co.uk/blog/giles-drake-takes-2nd-place-at-the-dirty-reiver/"
+      },
+      {
+        "year": 2021,
+        "note": "Moved from April to September because of COVID-19; 65 km route added",
+        "source": "https://northtynesideriders.co.uk/round-up-for-september-2021/"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic; rescheduled once to September, then called off",
+        "source": "https://advntr.cc/dirty-reiver-2020-cancelled/"
+      },
+      {
+        "year": 2018,
+        "date": "2018-04-21",
+        "source": "https://www.rootsandrain.com/event6709/2018-apr-21-focal-events-dirty-reiver-kielder-forest/finish-spread/"
+      },
+      {
+        "year": 2016,
+        "date": "2016-04-16",
+        "note": "First edition; snow on the course",
+        "source": "https://cycletechreview.com/2016/reviews/restless-legs-the-dirty-reiver/"
       }
     ],
     "course_description": {
@@ -395,46 +422,46 @@
       "latest_year": "2024"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "schwalbe-g-one-ultrabite",
-          "name": "Schwalbe G-One Ultrabite",
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
           "brand": "Schwalbe",
           "recommended_width_mm": 45,
           "msrp_usd": 69.9,
-          "weight_grams": 560,
-          "crr_watts": 42.0,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip. strong mud clearance"
+          "weight_grams": 540,
+          "crr_watts": 38.0,
+          "why": "Tough casing for sharp rock. Grips when it's wet. Sheds mud."
         },
         {
           "rank": 2,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
           "recommended_width_mm": 45,
           "msrp_usd": 79.99,
           "weight_grams": 520,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip. strong mud clearance"
+          "crr_watts": 35.0,
+          "why": "Tough casing for sharp rock."
         },
         {
           "rank": 3,
-          "tire_id": "tufo-gravel-swampero",
-          "name": "Tufo Gravel Swampero",
-          "brand": "Tufo",
-          "recommended_width_mm": 44,
-          "msrp_usd": 69.95,
-          "weight_grams": 530,
+          "tire_id": "pirelli-cinturato-gravel-s",
+          "name": "Pirelli Cinturato Gravel S",
+          "brand": "Pirelli",
+          "recommended_width_mm": 45,
+          "msrp_usd": 73.99,
+          "weight_grams": 470,
           "crr_watts": null,
-          "why": "excellent wet grip. strong mud clearance"
+          "why": "Tough casing for sharp rock. Grips when it's wet. Sheds mud."
         }
       ],
       "front_rear_split": {
         "applicable": false
       },
-      "race_surface_profile": "muddy",
+      "race_surface_profile": "technical",
       "recommended_width_mm": 45,
       "pressure_psi": {
         "140_160lb_dry": "30-34",

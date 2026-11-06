@@ -174,7 +174,7 @@
       "camping": "camping at the Hvolsvöllur campground (used by “dozens” of riders)<u>[trainerroad"
     },
     "history": {
-      "founded": 2016,
+      "founded": 2019,
       "founder": "Reykjavík Cycling Club",
       "origin_story": "Created by Reykjavík Cycling Club to showcase Iceland's volcanic terrain. The course crosses the Mid-Atlantic Ridge—geological boundary between continents.",
       "notable_moments": [
@@ -198,6 +198,28 @@
         "date": "2026-07-17",
         "end_date": "2026-07-18",
         "source": "https://timataka.net/therift2026/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-07-23",
+        "source": "https://presse.cafeducycliste.com/216837-annabel-fisher-cafe-du-cycliste-gravel-team-rider-wins-the-2022-edition-of-the-rift-iceland/"
+      },
+      {
+        "year": 2021,
+        "date": "2021-07-24",
+        "source": "https://www.cyclingnews.com/races/the-rift-gravel-race-2021/elite-men/results/"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://www.youarecurrent.com/2022/10/18/gravel-warriors-local-cyclists-take-on-challenge-of-the-rift-200k-race-in-iceland/"
+      },
+      {
+        "year": 2019,
+        "date": "2019-07-27",
+        "note": "Inaugural edition, 200 km around Hekla",
+        "source": "https://www.cyclingwest.com/racing/gravel-racing/icelands-rift-gravel-race-report/"
       }
     ],
     "course_description": {
@@ -387,15 +409,69 @@
           "winner_female": "Rosa Klöser",
           "winner_male": "Magnus Bak Klaris",
           "source": "https://www.cyclingnews.com/races/gravel-earth-series-2025/the-rift-10-event-elite-men-women/results/"
+        },
+        "2019": {
+          "race": "200 km",
+          "winner_female": "Alison Tetrick",
+          "winner_male": "Colin Strickland",
+          "winning_time_female": "8:03:53",
+          "winning_time_male": "6:38:47",
+          "source": "https://www.cxmagazine.com/gravel-results-2019-rift-iceland-lauf-volcanoes"
+        },
+        "2021": {
+          "race": "200 km",
+          "winner_female": "Holly Mathews",
+          "winner_male": "Peter Stetina",
+          "winning_time_female": "8:04:15",
+          "winning_time_male": "6:51:24",
+          "source": "https://www.cyclingnews.com/races/the-rift-gravel-race-2021/elite-men/results/"
+        },
+        "2022": {
+          "race": "200 km",
+          "winner_female": "Annabel Fisher",
+          "winner_male": "Nathan Haas",
+          "winning_time_female": "7:53:52",
+          "winning_time_male": "6:47:49",
+          "source": "https://www.cyclingnews.com/races/the-rift-gravel-race-iceland-2022/200k-pro-elite/results/"
+        },
+        "2023": {
+          "race": "200 km",
+          "winner_female": "Carolin Schiff",
+          "winner_male": "Simen Nordahl Svendsen",
+          "winning_time_female": "7:54:50",
+          "winning_time_male": "6:57:39",
+          "source": "https://www.cyclingnews.com/news/schiff-dominates-the-rift-gravel-pro-women-nordahl-svendsen-outsprints-slik/"
         }
       },
       "latest_year": "2026"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 45,
+          "msrp_usd": 69.9,
+          "weight_grams": 540,
+          "crr_watts": 38.0,
+          "why": "Tough casing for sharp rock."
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 45,
+          "msrp_usd": 79.99,
+          "weight_grams": 520,
+          "crr_watts": 35.0,
+          "why": "Tough casing for sharp rock."
+        },
+        {
+          "rank": 3,
           "tire_id": "pirelli-cinturato-gravel-s",
           "name": "Pirelli Cinturato Gravel S",
           "brand": "Pirelli",
@@ -403,35 +479,13 @@
           "msrp_usd": 73.99,
           "weight_grams": 470,
           "crr_watts": null,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
-        },
-        {
-          "rank": 2,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 45,
-          "msrp_usd": 79.99,
-          "weight_grams": 520,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip"
-        },
-        {
-          "rank": 3,
-          "tire_id": "schwalbe-g-one-overland",
-          "name": "Schwalbe G-One Overland",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 45,
-          "msrp_usd": 69.9,
-          "weight_grams": 550,
-          "crr_watts": 40.0,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+          "why": "Tough casing for sharp rock."
         }
       ],
       "front_rear_split": {
         "applicable": false
       },
-      "race_surface_profile": "wet",
+      "race_surface_profile": "technical",
       "recommended_width_mm": 45,
       "pressure_psi": {
         "140_160lb_dry": "30-34",

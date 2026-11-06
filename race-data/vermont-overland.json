@@ -137,11 +137,11 @@
       }
     },
     "history": {
-      "founded": "2009",
+      "founded": 2014,
       "founder": "Peter Vollers",
-      "origin_story": "Vermont Overland founded 2009. One of oldest US gravel events. Vermont pavé—8 sectors of Class 4 rough unmaintained roads. Capped at 1,000 riders. Starts at Ascutney Outdoors in West Windsor, near Woodstock.",
+      "origin_story": "First race in 2014: the Vermont Overland Grand Prix, Woodstock. Vermont pavé—8 sectors of Class 4 rough unmaintained roads. Capped at 1,000 riders. Starts at Ascutney Outdoors in West Windsor, near Woodstock.",
       "notable_moments": [
-        "2009: Founded—one of oldest US gravel events",
+        "2014: First Vermont Overland Grand Prix in Woodstock",
         "2023: Perfect conditions (60-75°F)",
         "2024: Warm, humid (65-80°F)"
       ],
@@ -165,6 +165,39 @@
         "date": "2021-08-29",
         "edition": 7,
         "source": "https://802timing.com/results/21results/bikeresults/8.29.21overalloverland.htm"
+      },
+      {
+        "year": 2019,
+        "date": "2019-08-25",
+        "source": "https://www.802timing.com/results/19results/runresults/8.25.19overalloverland.htm"
+      },
+      {
+        "year": 2018,
+        "date": "2018-08-26",
+        "note": "New course starting at the organizer's home in Reading",
+        "source": "https://802timing.com/results/18results/bikeresults/8.26.18womenoverland.htm"
+      },
+      {
+        "year": 2017,
+        "note": "No timed results",
+        "source": "https://www.vermontoverland.com/news/2023/9/6/10-years-of-vermont-overland"
+      },
+      {
+        "year": 2016,
+        "date": "2016-08-28",
+        "source": "https://results.bikereg.com/race/8204"
+      },
+      {
+        "year": 2015,
+        "date": "2015-08-23",
+        "note": "Moved from Woodstock to Pomfret",
+        "source": "https://www.gravel-results.com/race/6750"
+      },
+      {
+        "year": 2014,
+        "date": "2014-08-24",
+        "note": "First edition, run as the Vermont Overland Grand Prix in downtown Woodstock",
+        "source": "https://www.gravel-results.com/race/4948"
       }
     ],
     "research_metadata": {
@@ -337,46 +370,46 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 45,
-          "msrp_usd": 79.99,
-          "weight_grams": 520,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip"
-        },
-        {
-          "rank": 2,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
-          "brand": "Pirelli",
-          "recommended_width_mm": 45,
-          "msrp_usd": 73.99,
-          "weight_grams": 470,
-          "crr_watts": null,
-          "why": "excellent wet grip"
-        },
-        {
-          "rank": 3,
-          "tire_id": "schwalbe-g-one-overland",
-          "name": "Schwalbe G-One Overland",
+          "tire_id": "schwalbe-g-one-bite",
+          "name": "Schwalbe G-One Bite",
           "brand": "Schwalbe",
           "recommended_width_mm": 45,
           "msrp_usd": 69.9,
-          "weight_grams": 550,
-          "crr_watts": 40.0,
-          "why": "excellent wet grip"
+          "weight_grams": 540,
+          "crr_watts": 38.0,
+          "why": "Technical terrain dominator. Aggressive grip when the course gets rowdy."
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 45,
+          "msrp_usd": 79.99,
+          "weight_grams": 520,
+          "crr_watts": 35.0,
+          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+        },
+        {
+          "rank": 3,
+          "tire_id": "wtb-resolute",
+          "name": "WTB Resolute",
+          "brand": "WTB",
+          "recommended_width_mm": 42,
+          "msrp_usd": 64.95,
+          "weight_grams": 460,
+          "crr_watts": 36.5,
+          "why": "Aggressive chevron tread. Fast center with confident cornering."
         }
       ],
       "front_rear_split": {
         "applicable": false
       },
-      "race_surface_profile": "wet",
+      "race_surface_profile": "technical",
       "recommended_width_mm": 45,
       "pressure_psi": {
         "140_160lb_dry": "30-34",
@@ -782,6 +815,38 @@
           "winner_male": "Brendan Rhim",
           "winning_time_male": "3:04:44",
           "source": "https://offroadindex.co/results/vermont-overland?year=2024"
+        },
+        "2014": {
+          "winner_male": "Anthony Clark",
+          "winning_time_male": "2:42:47",
+          "source": "https://www.gravel-results.com/race/4948"
+        },
+        "2016": {
+          "race": "48 mi",
+          "winner_female": "Lyne Bessette",
+          "winner_male": "Ansel Dickey",
+          "winning_time_female": "2:59:00",
+          "winning_time_male": "2:37:29",
+          "source": "https://results.bikereg.com/race/8204"
+        },
+        "2018": {
+          "race": "42 mi",
+          "winner_female": "Tina Severson",
+          "winner_male": "Ted King",
+          "winning_time_female": "2:50:28",
+          "source": "https://802timing.com/results/18results/bikeresults/8.26.18womenoverland.htm"
+        },
+        "2019": {
+          "race": "43 mi",
+          "winner_female": "Regina Legge",
+          "winner_male": "Brendan Rhim",
+          "winning_time_female": "2:43:42",
+          "source": "https://www.802timing.com/results/19results/runresults/8.25.19overalloverland.htm"
+        },
+        "2015": {
+          "winner_female": "Crystal Anthony",
+          "winning_time_female": "3:19:44",
+          "source": "https://www.gravel-results.com/race/6750"
         }
       },
       "latest_year": "2025"

@@ -30,12 +30,43 @@ from generate_tire_guide import (
     get_front_rear_split,
     compute_pressure_table,
     recommend_width,
+    CRR_FAST_THRESHOLD,
 )
 from generate_neo_brutalist import normalize_race_data
+
+sys.path.insert(0, str(Path(__file__).parent))
+from race_facts import race_discipline
 
 # ── Paths ────────────────────────────────────────────────────
 
 RACE_DATA_DIR = Path(__file__).parent.parent / "race-data"
+
+# The tire database is gravel tires (35-50mm). MTB races are ridden on 2.2"+
+# tires and bikepacking routes run from pavement (Trans Am, TCR) to MTB
+# singletrack (Tour Divide, Colorado Trail), so a gravel pick there is wrong.
+TIRE_PICK_DISCIPLINES = frozenset({"gravel"})
+
+
+def gets_tire_picks(race: dict) -> bool:
+    """True when this race's discipline is one the tire database covers."""
+    return race_discipline(race) in TIRE_PICK_DISCIPLINES
+
+
+def pick_reasons(tire: dict, profile: dict, crr_val) -> str:
+    """One or two short sentences on why this tire fits this course."""
+    reasons = []
+    if profile["needs_puncture"] and tire.get("puncture_resistance") == "high":
+        reasons.append("Tough casing for sharp rock")
+    if crr_val is not None and crr_val <= CRR_FAST_THRESHOLD:
+        reasons.append(f"Rolls fast: {crr_val:g}W at 29 km/h in BRR testing")
+    if profile["needs_wet"] and tire.get("wet_traction") == "good":
+        reasons.append("Grips when it's wet")
+    if (profile["needs_mud"] or profile.get("mud_risk")) and \
+            tire.get("mud_clearance") in ("moderate", "high"):
+        reasons.append("Sheds mud")
+    if not reasons:
+        return (tire.get("tagline") or "Solid all-round pick.").strip()
+    return ". ".join(reasons[:3]) + "."
 
 
 def load_race_file(filepath: Path) -> tuple:
@@ -69,7 +100,9 @@ def build_enrichment(rd: dict, raw_race: dict, tire_db: list, slug: str) -> dict
     top_picks = get_top_tires(tire_db, profile)
     front_rear = get_front_rear_split(tire_db, profile, top_picks)
 
-    rec_width = top_picks[0]["width"] if top_picks else 40
+    # A sourced floor is the course recommendation ("45mm or wider"); each
+    # pick then sits at its nearest size at or above it.
+    rec_width = profile.get("min_width_mm") or (top_picks[0]["width"] if top_picks else 40)
     tech_rating = profile["tech_rating"]
 
     # Build primary recommendations
@@ -87,19 +120,6 @@ def build_enrichment(rd: dict, raw_race: dict, tire_db: list, slug: str) -> dict
         if not weight_val and weight_data:
             weight_val = next(iter(weight_data.values()))
 
-        # Build concise "why" text
-        why_parts = []
-        if tire.get("puncture_resistance") == "high" and profile["needs_puncture"]:
-            why_parts.append("high puncture protection for sharp surfaces")
-        if crr_val and crr_val <= 30:
-            why_parts.append(f"fast rolling at {crr_val}W")
-        if tire.get("wet_traction") == "good" and profile["needs_wet"]:
-            why_parts.append("excellent wet grip")
-        if tire.get("mud_clearance") in ("moderate", "high") and profile["needs_mud"]:
-            why_parts.append("strong mud clearance")
-        if not why_parts:
-            why_parts.append(tire.get("tagline", "Strong all-round pick"))
-
         primary.append({
             "rank": i + 1,
             "tire_id": tire["id"],
@@ -109,7 +129,7 @@ def build_enrichment(rd: dict, raw_race: dict, tire_db: list, slug: str) -> dict
             "msrp_usd": tire.get("msrp_usd"),
             "weight_grams": weight_val,
             "crr_watts": crr_val,
-            "why": ". ".join(why_parts[:3]),
+            "why": pick_reasons(tire, profile, crr_val),
         })
 
     # Build pressure table as flat dict
@@ -139,7 +159,7 @@ def build_enrichment(rd: dict, raw_race: dict, tire_db: list, slug: str) -> dict
             "rationale": front_rear.get("rationale", ""),
         }
 
-    return {
+    result = {
         "generated_at": datetime.now().strftime("%Y-%m-%d"),
         "primary": primary,
         "front_rear_split": front_rear_data,
@@ -147,6 +167,13 @@ def build_enrichment(rd: dict, raw_race: dict, tire_db: list, slug: str) -> dict
         "recommended_width_mm": rec_width,
         "pressure_psi": pressure_psi,
     }
+    # Hand-set inputs survive every re-run: min_width_mm is a sourced width
+    # floor (organizer guidance) and min_width_source says where it came from.
+    prior = raw_race.get("tire_recommendations") or {}
+    for key in ("min_width_mm", "min_width_source"):
+        if prior.get(key):
+            result[key] = prior[key]
+    return result
 
 
 def enrich_single(slug: str, tire_db: list, dry_run: bool = False) -> tuple:
@@ -160,6 +187,13 @@ def enrich_single(slug: str, tire_db: list, dry_run: bool = False) -> tuple:
 
     try:
         data, raw_race, is_nested = load_race_file(filepath)
+        if not gets_tire_picks(raw_race):
+            discipline = race_discipline(raw_race)
+            if "tire_recommendations" in raw_race and not dry_run:
+                del raw_race["tire_recommendations"]
+                save_race_file(filepath, data, raw_race, is_nested)
+                return True, f"{slug}: removed picks ({discipline} race)"
+            return True, f"{slug}: skipped ({discipline} race)"
         rd = normalize_race_data(data)
         rd["slug"] = rd.get("slug") or slug
 
@@ -190,6 +224,10 @@ def main():
                         help="Preview enrichment without writing")
     parser.add_argument("--force", action="store_true",
                         help="Re-enrich even if tire_recommendations already exist")
+    parser.add_argument("--existing-only", action="store_true",
+                        help="Re-enrich only races that already have picks (refresh "
+                             "after a matcher change without adding picks to new "
+                             "profiles)")
     args = parser.parse_args()
 
     tire_db = load_tire_database()
@@ -204,22 +242,26 @@ def main():
     total = len(slugs)
     success = 0
     skipped = 0
+    removed = 0
     errors = []
 
     if args.dry_run:
         print(f"\n--- DRY RUN: previewing {total} races ---\n")
 
     for i, slug in enumerate(slugs, 1):
-        # Check if already enriched (unless --force)
-        if not args.force and not args.dry_run:
+        # Check if already enriched (unless --force). Non-gravel races always
+        # go through so enrich_single can strip picks they should not have.
+        if (not args.force or args.existing_only) and not args.dry_run:
             filepath = RACE_DATA_DIR / f"{slug}.json"
             if filepath.exists():
                 try:
                     d = json.loads(filepath.read_text(encoding="utf-8"))
                     r = d.get("race", d)
                     tr = r.get("tire_recommendations")
-                    if tr and isinstance(tr, dict) and \
-                       isinstance(tr.get("primary"), list) and len(tr["primary"]) > 0:
+                    has_picks = bool(tr and isinstance(tr, dict) and
+                                     isinstance(tr.get("primary"), list) and
+                                     len(tr["primary"]) > 0)
+                    if gets_tire_picks(r) and has_picks != bool(args.existing_only):
                         skipped += 1
                         continue
                 except json.JSONDecodeError as e:
@@ -228,17 +270,23 @@ def main():
                     logging.warning("Could not read %s: %s", slug, e)
 
         ok, msg = enrich_single(slug, tire_db, dry_run=args.dry_run)
-        if ok:
+        if not ok:
+            errors.append(msg)
+        elif msg.startswith(f"{slug}: skipped ("):
+            skipped += 1
+        elif msg.startswith(f"{slug}: removed picks"):
+            removed += 1
+            print(f"  {msg}")
+        else:
             success += 1
             if args.dry_run:
                 print(msg)
-        else:
-            errors.append(msg)
 
         if not args.dry_run and i % 50 == 0:
             print(f"  [{i}/{total}] {success} enriched, {skipped} skipped, {len(errors)} errors")
 
-    print(f"\nDone: {success}/{total} enriched, {skipped} skipped, {len(errors)} errors")
+    print(f"\nDone: {success}/{total} enriched, {skipped} skipped, "
+          f"{removed} non-gravel picks removed, {len(errors)} errors")
     if errors:
         print(f"Errors ({len(errors)}):")
         for err in errors[:10]:

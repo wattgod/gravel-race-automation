@@ -196,6 +196,39 @@
         "year": 2026,
         "note": "New 29-mile loop with start/finish moved to Boulder Reservoir; Colorado State Road Race Championships.",
         "source": "https://boulderroubaix.com/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-04-06",
+        "note": "Pro races shortened to 36 miles because of high winds",
+        "source": "https://dbcevents.com/2024-boulder-roubaix-race-recap/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-04-16",
+        "note": "30th anniversary race",
+        "source": "https://www.road-results.com/race/14229"
+      },
+      {
+        "year": 2019,
+        "date": "2019-04-06",
+        "source": "https://results.bikereg.com/race/11244"
+      },
+      {
+        "year": 2015,
+        "date": "2015-04-11",
+        "note": "Women's race rerouted for one lap around a brush fire",
+        "source": "https://provelopassion.com/2015/04/11/grajales-and-conklin-conquer-dirt-dodge-brush-fire-to-win-2015-boulder-roubaix/"
+      },
+      {
+        "year": 2012,
+        "date": "2012-04-07",
+        "source": "https://www.mountainflyermagazine.com/view.php/boulder-roubaix-hard-racing-on-the-hard-pack.html"
+      },
+      {
+        "year": 2003,
+        "date": "2003-04-13",
+        "source": "https://autobus.cyclingnews.com/road.php?id=road%2F2003%2Fapr03%2Fboulder_roubaix"
       }
     ],
     "course_description": {
@@ -343,6 +376,32 @@
           "winner_male": "Cade Bickmore",
           "winning_time_male": "3:43:58",
           "source": "https://dbcevents.com/2026-results/"
+        },
+        "2024": {
+          "race": "36 mi (shortened)",
+          "winner_female": "Anna Dorovskikh",
+          "winner_male": "Finn Gullickson",
+          "winning_time_female": "1:56:59",
+          "winning_time_male": "1:37:02",
+          "source": "https://dbcevents.com/2024-boulder-roubaix-race-recap/"
+        },
+        "2015": {
+          "race": "75 mi",
+          "winner_female": "Lucy Conklin",
+          "winner_male": "Cesar Grajales",
+          "source": "https://provelopassion.com/2015/04/11/grajales-and-conklin-conquer-dirt-dodge-brush-fire-to-win-2015-boulder-roubaix/"
+        },
+        "2012": {
+          "race": "75 mi",
+          "winner_female": "Alison Powers",
+          "winner_male": "Frank Pipp",
+          "source": "https://www.mountainflyermagazine.com/view.php/boulder-roubaix-hard-racing-on-the-hard-pack.html"
+        },
+        "2003": {
+          "race": "186 km",
+          "winner_female": "Katrina Grove",
+          "winner_male": "Will Frischkorn",
+          "source": "https://autobus.cyclingnews.com/road.php?id=road%2F2003%2Fapr03%2Fboulder_roubaix"
         }
       },
       "latest_year": "2026"

@@ -201,6 +201,57 @@
         "end_date": "2024-08-24",
         "edition": 15,
         "source": "https://www.gravelworlds.com/history"
+      },
+      {
+        "year": 2021,
+        "note": "Long Voyage 300 added",
+        "source": "https://www.gravelworlds.com/gwhistory/2021-gravel-worlds"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic; held as a virtual event with fundraising for a memorial",
+        "source": "https://www.gravelworlds.com/history"
+      },
+      {
+        "year": 2019,
+        "edition": 10,
+        "source": "https://www.gravelworlds.com/gwhistory/2019-gravel-worlds"
+      },
+      {
+        "year": 2017,
+        "note": "Last loop course around Lincoln; Privateer 75 added",
+        "source": "https://www.gravelworlds.com/gwhistory/gravel-worlds-2017"
+      },
+      {
+        "year": 2015,
+        "date": "2015-08-22",
+        "note": "Start and finish moved to Fallbrook, north Lincoln",
+        "source": "https://www.gravelcyclist.com/race-reports/gravel-worlds-race-report-by-austin-morris/"
+      },
+      {
+        "year": 2014,
+        "date": "2014-08-23",
+        "edition": 5,
+        "note": "Second and final year at Conestoga State Park; first course over 10,000 ft of climbing",
+        "source": "https://www.gravelworlds.com/gwhistory/2014-gravel-worlds"
+      },
+      {
+        "year": 2013,
+        "note": "Start and finish at Conestoga State Park, south of Lincoln",
+        "source": "https://www.gravelworlds.com/gwhistory/2013-gravel-worlds"
+      },
+      {
+        "year": 2012,
+        "date": "2012-08-18",
+        "note": "New course and more structured race format",
+        "source": "https://www.gravelworlds.com/history"
+      },
+      {
+        "year": 2010,
+        "date": "2010-08-21",
+        "note": "First Gravel Worlds, after the 2008-2009 Good Life Gravel Adventure",
+        "source": "https://www.gravelworlds.com/history"
       }
     ],
     "course_description": {
@@ -418,51 +469,145 @@
           "winning_time_female": "7:33:03",
           "winning_time_male": "6:59:44",
           "source": "https://www.gravelworlds.com/history"
+        },
+        "2010": {
+          "race": "150 mi",
+          "winner_female": "Kelly Kostman",
+          "winner_male": "Mike Marchand",
+          "winning_time_female": "12:15",
+          "winning_time_male": "8:51",
+          "source": "https://www.gravelworlds.com/history"
+        },
+        "2011": {
+          "race": "150 mi",
+          "winner_female": "Loren Uscilowski",
+          "winner_male": "Greg Shimonek",
+          "winning_time_female": "12:21:34",
+          "winning_time_male": "10:38:30",
+          "source": "https://www.gravelworlds.com/history"
+        },
+        "2012": {
+          "race": "150 mi",
+          "winner_female": "Sydney Brown",
+          "winner_male": "Jay Thomas",
+          "winning_time_female": "11:22",
+          "winning_time_male": "9:06",
+          "source": "https://www.gravelworlds.com/history"
+        },
+        "2013": {
+          "race": "150 mi",
+          "winner_female": "Monika Sattler",
+          "winner_male": "Austin Horse",
+          "source": "https://www.gravelworlds.com/blog/past-winners/2013-gravel-worlds"
+        },
+        "2014": {
+          "race": "150 mi",
+          "winner_male": "Dan Hughes",
+          "source": "https://www.gravelworlds.com/blog/past-winners/2014-gravel-worlds"
+        },
+        "2015": {
+          "race": "150 mi",
+          "winner_female": "Rebecca Rusch",
+          "winner_male": "Neil Shirley",
+          "winning_time_female": "9:08:47",
+          "winning_time_male": "7:54:03",
+          "source": "https://www.gravelworlds.com/history"
+        },
+        "2016": {
+          "race": "150 mi",
+          "winner_female": "Kae Takeshita",
+          "winner_male": "Rob Evans",
+          "winning_time_female": "9:09:23",
+          "winning_time_male": "8:16:14",
+          "source": "https://www.gravelworlds.com/history"
+        },
+        "2017": {
+          "race": "150 mi",
+          "winner_female": "Alison Tetrick",
+          "winner_male": "Colin Strickland",
+          "winning_time_female": "8:13:51",
+          "winning_time_male": "7:18:26",
+          "source": "https://www.gravelworlds.com/gwhistory/gravel-worlds-2017"
+        },
+        "2018": {
+          "race": "150 mi",
+          "winner_female": "Alison Tetrick",
+          "winner_male": "Colin Strickland",
+          "winning_time_female": "7:39:50",
+          "winning_time_male": "7:09:54",
+          "source": "https://www.gravelworlds.com/history"
+        },
+        "2019": {
+          "race": "150 mi",
+          "winner_female": "Alison Tetrick",
+          "winner_male": "John Borstelmann",
+          "winning_time_female": "7:56:43",
+          "winning_time_male": "7:02:19",
+          "source": "https://www.gravelworlds.com/history"
+        },
+        "2021": {
+          "race": "150 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "John Borstelmann",
+          "winning_time_female": "7:36:42",
+          "winning_time_male": "7:04:37",
+          "source": "https://www.gravelworlds.com/blog/2021-results"
         }
       },
       "latest_year": "2026"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "schwalbe-g-one-ultrabite",
-          "name": "Schwalbe G-One Ultrabite",
-          "brand": "Schwalbe",
+          "tire_id": "pirelli-cinturato-gravel-m",
+          "name": "Pirelli Cinturato Gravel M",
+          "brand": "Pirelli",
           "recommended_width_mm": 40,
-          "msrp_usd": 69.9,
-          "weight_grams": 500,
-          "crr_watts": 42.0,
-          "why": "excellent wet grip. strong mud clearance"
+          "msrp_usd": 73.99,
+          "weight_grams": 440,
+          "crr_watts": 34.0,
+          "why": "Mixed-terrain specialist. Balanced grip and speed for variable conditions."
         },
         {
           "rank": 2,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 460,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip. strong mud clearance"
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
         },
         {
           "rank": 3,
-          "tire_id": "tufo-gravel-swampero",
-          "name": "Tufo Gravel Swampero",
-          "brand": "Tufo",
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
           "recommended_width_mm": 40,
-          "msrp_usd": 69.95,
-          "weight_grams": 480,
-          "crr_watts": null,
-          "why": "excellent wet grip. strong mud clearance"
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
         }
       ],
       "front_rear_split": {
-        "applicable": false
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "pirelli-cinturato-gravel-m",
+          "name": "Pirelli Cinturato Gravel M",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
       },
-      "race_surface_profile": "muddy",
+      "race_surface_profile": "mixed",
       "recommended_width_mm": 40,
       "pressure_psi": {
         "140_160lb_dry": "34-38",

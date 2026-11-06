@@ -123,6 +123,38 @@
         "end_date": "2023-09-17",
         "edition": 8,
         "source": "https://ultrasignup.com/m_results_event.aspx?did=98366"
+      },
+      {
+        "year": 2022,
+        "date": "2022-09-16",
+        "source": "https://ultrarunning.com/calendar/event/marji-gesick-100/race"
+      },
+      {
+        "year": 2021,
+        "date": "2021-09-18",
+        "source": "https://ultrarunning.com/calendar/event/marji-gesick-100/race"
+      },
+      {
+        "year": 2020,
+        "date": "2020-09-18",
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://ultrarunning.com/calendar/event/marji-gesick-100/race"
+      },
+      {
+        "year": 2019,
+        "date": "2019-09-20",
+        "source": "https://ultrarunning.com/calendar/event/marji-gesick-100/race"
+      },
+      {
+        "year": 2018,
+        "date": "2018-09-21",
+        "source": "https://ultrarunning.com/calendar/event/marji-gesick-100/race"
+      },
+      {
+        "year": 2017,
+        "date": "2017-09-22",
+        "source": "https://ultrarunning.com/calendar/event/marji-gesick-100/race"
       }
     ],
     "course_description": {
@@ -416,7 +448,7 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
@@ -427,7 +459,7 @@
           "msrp_usd": 69.9,
           "weight_grams": 540,
           "crr_watts": 38.0,
-          "why": "excellent wet grip"
+          "why": "Technical terrain dominator. Aggressive grip when the course gets rowdy."
         },
         {
           "rank": 2,
@@ -449,7 +481,7 @@
           "msrp_usd": 73.99,
           "weight_grams": 470,
           "crr_watts": null,
-          "why": "excellent wet grip"
+          "why": "Soft-terrain specialist. Open knob pattern sheds mud and grips wet rock."
         }
       ],
       "front_rear_split": {
@@ -765,6 +797,21 @@
         "credit": "YouTube / Travel Marquette Michigan",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2016": {
+          "race": "100 mi",
+          "winner_male": "Tinker Juarez",
+          "source": "https://www.singletracks.com/community/hardest-race-youve-never-heard-marji-gesick-100/"
+        },
+        "2017": {
+          "race": "100 mi",
+          "winner_male": "Jeremiah Bishop",
+          "source": "https://www.singletracks.com/community/hardest-race-youve-never-heard-marji-gesick-100/"
+        }
+      },
+      "latest_year": "2022"
+    }
   }
 }

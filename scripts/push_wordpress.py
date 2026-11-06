@@ -2839,6 +2839,23 @@ def season_power_rankings_redirect_rules() -> str:
 SEASON_POWER_RANKINGS_REDIRECT_RULES = season_power_rankings_redirect_rules()
 
 
+# MTB and bikepacking races lost their gravel tire picks in the Nov 2026 tire
+# audit (2.2" MTB tires and paved routes are outside the gravel tire
+# database). Their old /race/{slug}/tires/ pages stay on disk because the tire
+# guide sync only adds, and the generic /tires/ fallback below only fires when
+# the file is missing, so these need an explicit rule.
+# tests/test_tire_picks_integrity.py keeps this list in step with race-data.
+TIRE_GUIDES_WITHDRAWN = (
+    "atlas-mountain-race", "badlands", "chequamegon-mtb", "colorado-trail-race",
+    "fuego-mtb", "leadville-100", "little-sugar-mtb", "torino-nice-rally",
+    "tour-divide", "trans-am-bike-race", "transcontinental-race",
+)
+TIRE_GUIDES_WITHDRAWN_RULE = (
+    "RewriteRule ^race/(" + "|".join(TIRE_GUIDES_WITHDRAWN)
+    + ")/tires/?$ /race/$1/ [R=301,L]"
+)
+
+
 REDIRECT_BLOCK = """\
 # BEGIN Gravel God Redirects
 <IfModule mod_rewrite.c>
@@ -3297,6 +3314,13 @@ RewriteRule ^gravel-tv/?$ /gravel-weekly/ [R=301,L]
 RewriteRule ^race/gravel-tv/?$ /gravel-weekly/ [R=301,L]
 RewriteRule ^race/(about|articles|coaching|consulting|cookies|course|gravel-weekly|guide|insights|privacy|terms|training-plans)/?$ /$1/ [R=301,L]
 RewriteRule ^race/homepage/?$ / [R=301,L]
+
+# Tire guides withdrawn from MTB/bikepacking races (see TIRE_GUIDES_WITHDRAWN).
+""" + TIRE_GUIDES_WITHDRAWN_RULE + """
+# specialized-pathfinder-pro-47 was a duplicate entry for the 47mm Pathfinder
+# Pro, merged into specialized-pathfinder-pro (Nov 2026). Its page and the VS
+# pages built from it go to the one tire page.
+RewriteRule ^tire/(?:[a-z0-9-]+-vs-)?specialized-pathfinder-pro-47(?:-vs-[a-z0-9-]+)?/?$ /tire/specialized-pathfinder-pro/ [R=301,L]
 
 # Dead-reference self-healing (2026-07-22 link audit: 215 stale /tires/ +
 # 24 undeployed VS URLs sat in the sitemap 404ing). If the page exists on

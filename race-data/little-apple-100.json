@@ -422,32 +422,10 @@
       "latest_year": "2025"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 460,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip"
-        },
-        {
-          "rank": 2,
-          "tire_id": "continental-terra-trail",
-          "name": "Continental Terra Trail",
-          "brand": "Continental",
-          "recommended_width_mm": 40,
-          "msrp_usd": 74.99,
-          "weight_grams": 450,
-          "crr_watts": 33.5,
-          "why": "excellent wet grip"
-        },
-        {
-          "rank": 3,
           "tire_id": "specialized-pathfinder-pro",
           "name": "Specialized Pathfinder Pro",
           "brand": "Specialized",
@@ -456,6 +434,28 @@
           "weight_grams": 380,
           "crr_watts": 32.0,
           "why": "Fast center, grippy edges. The modern all-rounder benchmark."
+        },
+        {
+          "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
+          "tire_id": "vittoria-terreno-mix",
+          "name": "Vittoria Terreno Mix",
+          "brand": "Vittoria",
+          "recommended_width_mm": 40,
+          "msrp_usd": 79.99,
+          "weight_grams": 420,
+          "crr_watts": 33.5,
+          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
         }
       ],
       "front_rear_split": {
@@ -466,27 +466,27 @@
           "width_mm": 44
         },
         "rear": {
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "width_mm": 40
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "width_mm": 38
         },
         "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
       },
-      "race_surface_profile": "wet",
-      "recommended_width_mm": 40,
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 38,
       "pressure_psi": {
-        "140_160lb_dry": "35-39",
-        "140_160lb_mixed": "32-36",
-        "140_160lb_wet": "30-34",
-        "160_180lb_dry": "38-42",
-        "160_180lb_mixed": "35-39",
-        "160_180lb_wet": "33-37",
-        "180_200lb_dry": "41-45",
-        "180_200lb_mixed": "38-42",
-        "180_200lb_wet": "36-40",
-        "200pluslb_dry": "44-48",
-        "200pluslb_mixed": "41-45",
-        "200pluslb_wet": "39-43"
+        "140_160lb_dry": "36-40",
+        "140_160lb_mixed": "33-37",
+        "140_160lb_wet": "31-35",
+        "160_180lb_dry": "39-43",
+        "160_180lb_mixed": "36-40",
+        "160_180lb_wet": "34-38",
+        "180_200lb_dry": "42-46",
+        "180_200lb_mixed": "39-43",
+        "180_200lb_wet": "37-41",
+        "200pluslb_dry": "45-49",
+        "200pluslb_mixed": "42-46",
+        "200pluslb_wet": "40-44"
       }
     },
     "youtube_data": {

@@ -154,6 +154,14 @@ def test_problems_rejects(entry, fragment):
     assert any(fragment in p for p in problems({"vitals": {}, "editions": [entry]}))
 
 
+def test_problems_accepts_editions_back_to_1950():
+    """Nove Colli started in 1971; the floor is 1950, not the 1980 it once was."""
+    ok = {"year": 1971, "date": "1971-05-16", "source": "https://www.novecolli.it/"}
+    assert problems({"vitals": {}, "editions": [ok]}) == []
+    too_old = {"year": 1949, "date": "1949-05-16", "source": "https://www.novecolli.it/"}
+    assert problems({"vitals": {}, "editions": [too_old]})
+
+
 def test_no_script_writes_date_specific_directly():
     """Date writers go through set_date_specific so the old edition is kept."""
     direct = re.compile(r"""\[\s*["']date_specific["']\s*\]\s*=(?!=)""")

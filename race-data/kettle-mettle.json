@@ -120,6 +120,12 @@
         "year": 2025,
         "date": "2025-06-28",
         "source": "https://startlinetiming.com/en/races/2025/kettlemettle/event/Full%20100K"
+      },
+      {
+        "year": 2019,
+        "edition": 6,
+        "note": "New course records in all distances",
+        "source": "https://www.granfondoguide.com/Contents/Index/5044/new-course-records-set-at-kettle-mettle-gravel-fondo"
       }
     ],
     "course_description": {
@@ -381,71 +387,71 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 460,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip"
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "brand": "IRC",
+          "recommended_width_mm": 42,
+          "msrp_usd": 59.99,
+          "weight_grams": 400,
+          "crr_watts": null,
+          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
         },
         {
           "rank": 2,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
-          "brand": "Pirelli",
-          "recommended_width_mm": 40,
-          "msrp_usd": 73.99,
-          "weight_grams": 430,
-          "crr_watts": null,
-          "why": "excellent wet grip"
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
         },
         {
           "rank": 3,
-          "tire_id": "schwalbe-g-one-overland",
-          "name": "Schwalbe G-One Overland",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 40,
-          "msrp_usd": 69.9,
-          "weight_grams": 490,
-          "crr_watts": 40.0,
-          "why": "excellent wet grip"
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
         }
       ],
       "front_rear_split": {
         "applicable": true,
         "front": {
-          "tire_id": "rene-herse-snoqualmie-pass",
-          "name": "Rene Herse Snoqualmie Pass",
-          "width_mm": 44
+          "tire_id": "panaracer-gravelking-tlc",
+          "name": "Panaracer GravelKing TLC",
+          "width_mm": 43
         },
         "rear": {
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "width_mm": 40
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
+          "width_mm": 42
         },
         "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
       },
-      "race_surface_profile": "wet",
-      "recommended_width_mm": 40,
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 42,
       "pressure_psi": {
-        "140_160lb_dry": "34-38",
+        "140_160lb_dry": "32-36",
         "140_160lb_mixed": "30-34",
         "140_160lb_wet": "28-32",
         "160_180lb_dry": "36-40",
-        "160_180lb_mixed": "34-38",
-        "160_180lb_wet": "32-36",
-        "180_200lb_dry": "40-44",
+        "160_180lb_mixed": "32-36",
+        "160_180lb_wet": "30-34",
+        "180_200lb_dry": "38-42",
         "180_200lb_mixed": "36-40",
         "180_200lb_wet": "34-38",
         "200pluslb_dry": "42-46",
-        "200pluslb_mixed": "40-44",
-        "200pluslb_wet": "38-42"
+        "200pluslb_mixed": "38-42",
+        "200pluslb_wet": "36-40"
       }
     },
     "youtube_data": {
@@ -718,6 +724,25 @@
           "winning_time_female": "4:22:01",
           "winning_time_male": "3:41:48",
           "source": "https://startlinetiming.com/en/races/2025/kettlemettle/event/Full%20100K"
+        },
+        "2019": {
+          "race": "138 km",
+          "winner_female": "Rachel McBride",
+          "winner_male": "Nick Geddes",
+          "winning_time_male": "4:54:35",
+          "source": "https://www.granfondoguide.com/Contents/Index/5044/new-course-records-set-at-kettle-mettle-gravel-fondo"
+        },
+        "2022": {
+          "race": "138 km",
+          "winner_male": "Carsten Ivany",
+          "winning_time_male": "4:47:55",
+          "source": "https://www.kettlemettle.ca/results-and-photos/"
+        },
+        "2024": {
+          "race": "135 km",
+          "winner_male": "Lee Agur",
+          "winning_time_male": "4:27:43",
+          "source": "https://www.pentictonnow.com/watercooler/news/news/Penticton/Kettle_Mettle_Dirty_Fondo_takes_gravel_racers_from_Penticton_to_Kelowna_on_the_KVR_Trail/"
         }
       },
       "latest_year": "2025"

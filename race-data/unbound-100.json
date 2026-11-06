@@ -222,6 +222,52 @@
         "date": "2022-06-04",
         "note": "New southbound course",
         "source": "https://www.cyclingnews.com/races/unbound-gravel-2022/unbound-100/results/"
+      },
+      {
+        "year": 2021,
+        "note": "First edition as Unbound Gravel, renamed from Dirty Kanza",
+        "source": "https://en.wikipedia.org/wiki/Unbound_Gravel"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://www.unboundgravel.com/2020-event-status-update/"
+      },
+      {
+        "year": 2019,
+        "note": "Became an official race distance as the DK 100",
+        "source": "https://en.wikipedia.org/wiki/Unbound_Gravel"
+      },
+      {
+        "year": 2018,
+        "date": "2018-06-02",
+        "source": "https://www.athlinks.com/event/174195"
+      },
+      {
+        "year": 2017,
+        "date": "2017-06-03",
+        "source": "https://www.athlinks.com/event/174195"
+      },
+      {
+        "year": 2016,
+        "date": "2016-06-04",
+        "source": "https://www.athlinks.com/event/174195"
+      },
+      {
+        "year": 2015,
+        "date": "2015-05-30",
+        "source": "https://www.athlinks.com/event/174195"
+      },
+      {
+        "year": 2014,
+        "date": "2014-05-31",
+        "source": "https://www.athlinks.com/event/174195"
+      },
+      {
+        "year": 2013,
+        "note": "First held as the DK Half Pint",
+        "source": "https://en.wikipedia.org/wiki/Unbound_Gravel"
       }
     ],
     "course_description": {
@@ -399,51 +445,104 @@
           "winner_female": "Lauren Stephens",
           "winner_male": "Stephen Hyde",
           "source": "https://en.wikipedia.org/wiki/Unbound_Gravel"
+        },
+        "2013": {
+          "race": "100 mi",
+          "winner_female": "Lynn Malir",
+          "winner_male": "Mark Schloegel",
+          "source": "https://en.wikipedia.org/wiki/Unbound_Gravel"
+        },
+        "2014": {
+          "race": "100 mi",
+          "winner_female": "Danielle Pellicano",
+          "winner_male": "David Wilson",
+          "source": "https://en.wikipedia.org/wiki/Unbound_Gravel"
+        },
+        "2015": {
+          "race": "100 mi",
+          "winner_female": "Jennifer Rhoades",
+          "winner_male": "Austin Morris",
+          "source": "https://en.wikipedia.org/wiki/Unbound_Gravel"
+        },
+        "2016": {
+          "race": "100 mi",
+          "winner_female": "Rebecca Rusch",
+          "winner_male": "Guy Alvarez",
+          "source": "https://en.wikipedia.org/wiki/Unbound_Gravel"
+        },
+        "2017": {
+          "race": "100 mi",
+          "winner_female": "Rebecca Rusch",
+          "winner_male": "Steven Baxter",
+          "source": "https://en.wikipedia.org/wiki/Unbound_Gravel"
+        },
+        "2018": {
+          "race": "100 mi",
+          "winner_female": "Erica Mueller",
+          "winner_male": "Matthew Accarrino",
+          "source": "https://en.wikipedia.org/wiki/Unbound_Gravel"
+        },
+        "2019": {
+          "race": "100 mi",
+          "winner_female": "Lauren Stephens",
+          "winner_male": "Ashton Lambie",
+          "source": "https://en.wikipedia.org/wiki/Unbound_Gravel"
         }
       },
       "latest_year": "2026"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "schwalbe-g-one-ultrabite",
-          "name": "Schwalbe G-One Ultrabite",
-          "brand": "Schwalbe",
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "brand": "Continental",
           "recommended_width_mm": 40,
-          "msrp_usd": 69.9,
-          "weight_grams": 500,
-          "crr_watts": 42.0,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip. strong mud clearance"
+          "msrp_usd": 74.99,
+          "weight_grams": 450,
+          "crr_watts": 33.5,
+          "why": "Tough casing for sharp rock. Grips when it's wet."
         },
         {
           "rank": 2,
-          "tire_id": "tufo-gravel-swampero",
-          "name": "Tufo Gravel Swampero",
-          "brand": "Tufo",
-          "recommended_width_mm": 40,
-          "msrp_usd": 69.95,
-          "weight_grams": 480,
-          "crr_watts": null,
-          "why": "excellent wet grip. strong mud clearance"
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Tough casing for sharp rock."
         },
         {
           "rank": 3,
-          "tire_id": "schwalbe-g-one-overland",
-          "name": "Schwalbe G-One Overland",
-          "brand": "Schwalbe",
+          "tire_id": "pirelli-cinturato-gravel-m",
+          "name": "Pirelli Cinturato Gravel M",
+          "brand": "Pirelli",
           "recommended_width_mm": 40,
-          "msrp_usd": 69.9,
-          "weight_grams": 490,
-          "crr_watts": 40.0,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip. strong mud clearance"
+          "msrp_usd": 73.99,
+          "weight_grams": 440,
+          "crr_watts": 34.0,
+          "why": "Tough casing for sharp rock."
         }
       ],
       "front_rear_split": {
-        "applicable": false
+        "applicable": true,
+        "front": {
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
+        },
+        "rear": {
+          "tire_id": "continental-terra-trail",
+          "name": "Continental Terra Trail",
+          "width_mm": 40
+        },
+        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
       },
-      "race_surface_profile": "muddy",
+      "race_surface_profile": "mixed",
       "recommended_width_mm": 40,
       "pressure_psi": {
         "140_160lb_dry": "34-38",

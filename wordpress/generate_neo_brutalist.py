@@ -984,7 +984,8 @@ def normalize_race_data(data: dict) -> dict:
         'vitals': {
             'distance': f"{vitals.get('distance_mi', '--')} mi" if vitals.get('distance_mi') else '--',
             'distance_mi': vitals.get('distance_mi', 0),
-            'elevation': f"{vitals.get('elevation_ft'):,} ft" if isinstance(vitals.get('elevation_ft'), (int, float)) else '--',
+            # 0 ft is "unknown" in the data, never a real climbing total.
+            'elevation': f"{vitals.get('elevation_ft'):,} ft" if isinstance(vitals.get('elevation_ft'), (int, float)) and vitals.get('elevation_ft') > 0 else '--',
             'course_status': vitals.get('course_status', ''),
             'course_status_label': vitals.get('course_status_label', ''),
             'course_status_reason': vitals.get('course_status_reason', ''),
@@ -3739,7 +3740,7 @@ def build_training(rd: dict) -> str:
         official_link = (
             f'<a href="{esc(official_site)}" class="gg-btn gg-btn--outline" '
             f'target="_blank" rel="noopener">CHECK OFFICIAL UPDATES</a>'
-            if official_site else ''
+            if str(official_site).startswith('http') else ''
         )
         return f'''<section id="training" class="gg-section gg-fade-section">
     <div class="gg-section-header">

@@ -414,14 +414,14 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
           "tire_id": "specialized-pathfinder-pro",
           "name": "Specialized Pathfinder Pro",
           "brand": "Specialized",
-          "recommended_width_mm": 40,
+          "recommended_width_mm": 38,
           "msrp_usd": 54.99,
           "weight_grams": 380,
           "crr_watts": 32.0,
@@ -460,12 +460,12 @@
         "rear": {
           "tire_id": "specialized-pathfinder-pro",
           "name": "Specialized Pathfinder Pro",
-          "width_mm": 40
+          "width_mm": 38
         },
         "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
       },
       "race_surface_profile": "mixed",
-      "recommended_width_mm": 40,
+      "recommended_width_mm": 38,
       "pressure_psi": {
         "140_160lb_dry": "36-40",
         "140_160lb_mixed": "33-37",

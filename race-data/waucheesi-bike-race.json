@@ -358,21 +358,10 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
-          "brand": "Specialized",
-          "recommended_width_mm": 42,
-          "msrp_usd": 54.99,
-          "weight_grams": 420,
-          "crr_watts": 32.0,
-          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
-        },
-        {
-          "rank": 2,
           "tire_id": "irc-boken-double-cross",
           "name": "IRC Boken Double Cross",
           "brand": "IRC",
@@ -381,6 +370,17 @@
           "weight_grams": 400,
           "crr_watts": null,
           "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+        },
+        {
+          "rank": 2,
+          "tire_id": "specialized-pathfinder-pro",
+          "name": "Specialized Pathfinder Pro",
+          "brand": "Specialized",
+          "recommended_width_mm": 42,
+          "msrp_usd": 54.99,
+          "weight_grams": 420,
+          "crr_watts": 32.0,
+          "why": "Fast center, grippy edges. The modern all-rounder benchmark."
         },
         {
           "rank": 3,
@@ -402,8 +402,8 @@
           "width_mm": 43
         },
         "rear": {
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
+          "tire_id": "irc-boken-double-cross",
+          "name": "IRC Boken Double Cross",
           "width_mm": 42
         },
         "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"

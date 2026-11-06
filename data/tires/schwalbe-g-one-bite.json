@@ -62,18 +62,6 @@
   ],
   "status": "active",
   "race_appearances": {
-    "atlas-mountain-race": {
-      "rank": 1,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "badlands": {
-      "rank": 1,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
     "berryman-epic": {
       "rank": 1,
       "width_mm": 45,
@@ -122,17 +110,11 @@
       "position": "primary",
       "surface": "technical"
     },
-    "chequamegon-mtb": {
+    "cowichan-crusher-gravel-fondo": {
       "rank": 1,
-      "width_mm": 45,
-      "position": "primary",
+      "width_mm": 40,
+      "position": "rear",
       "surface": "technical"
-    },
-    "colorado-trail-race": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "wet"
     },
     "crusher-in-the-tushar": {
       "rank": 1,
@@ -140,10 +122,22 @@
       "position": "primary",
       "surface": "technical"
     },
-    "giro-sardegna-gravel": {
+    "crystal-bear": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
+      "surface": "technical"
+    },
+    "dirty-reiver": {
       "rank": 1,
       "width_mm": 45,
       "position": "primary",
+      "surface": "technical"
+    },
+    "dirty-sheets-gravel-grind": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
       "surface": "technical"
     },
     "gravel-brazil": {
@@ -154,8 +148,8 @@
     },
     "grinduro-california": {
       "rank": 1,
-      "width_mm": 45,
-      "position": "primary",
+      "width_mm": 40,
+      "position": "rear",
       "surface": "technical"
     },
     "grinduro-france": {
@@ -168,6 +162,12 @@
       "rank": 1,
       "width_mm": 45,
       "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro-italy": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
       "surface": "technical"
     },
     "grinduro": {
@@ -194,23 +194,29 @@
       "position": "primary",
       "surface": "technical"
     },
+    "karukinka": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "kowtown-gravel": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
+      "surface": "technical"
+    },
     "lauf-true-grit": {
       "rank": 1,
       "width_mm": 45,
       "position": "primary",
       "surface": "technical"
     },
-    "little-sugar-mtb": {
+    "lost-river-classic": {
       "rank": 1,
       "width_mm": 45,
       "position": "primary",
       "surface": "technical"
-    },
-    "lost-river-classic": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "wet"
     },
     "marji-gesick": {
       "rank": 1,
@@ -248,13 +254,37 @@
       "position": "rear",
       "surface": "technical"
     },
+    "river-city-gravel-fondo": {
+      "rank": 1,
+      "width_mm": 40,
+      "position": "rear",
+      "surface": "technical"
+    },
     "sea-otter-gravel": {
       "rank": 1,
       "width_mm": 40,
       "position": "rear",
       "surface": "technical"
     },
+    "seven": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "southern-cross-gravel": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
     "the-gralloch": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "the-rift": {
       "rank": 1,
       "width_mm": 45,
       "position": "primary",
@@ -266,12 +296,6 @@
       "position": "primary",
       "surface": "technical"
     },
-    "transcontinental-race": {
-      "rank": 1,
-      "width_mm": 40,
-      "position": "rear",
-      "surface": "technical"
-    },
     "transcordilleras": {
       "rank": 1,
       "width_mm": 45,
@@ -279,6 +303,18 @@
       "surface": "technical"
     },
     "uci-gravel-worlds": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "unbound-xl": {
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "vermont-overland": {
       "rank": 1,
       "width_mm": 45,
       "position": "primary",

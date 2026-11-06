@@ -358,7 +358,7 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
@@ -373,6 +373,17 @@
         },
         {
           "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 40,
+          "msrp_usd": 64.9,
+          "weight_grams": 380,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
           "tire_id": "vittoria-terreno-mix",
           "name": "Vittoria Terreno Mix",
           "brand": "Vittoria",
@@ -381,17 +392,6 @@
           "weight_grams": 420,
           "crr_watts": 33.5,
           "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
-        },
-        {
-          "rank": 3,
-          "tire_id": "continental-terra-trail",
-          "name": "Continental Terra Trail",
-          "brand": "Continental",
-          "recommended_width_mm": 40,
-          "msrp_usd": 74.99,
-          "weight_grams": 450,
-          "crr_watts": 33.5,
-          "why": "excellent wet grip"
         }
       ],
       "front_rear_split": {

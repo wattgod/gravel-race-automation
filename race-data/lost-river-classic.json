@@ -349,32 +349,10 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 45,
-          "msrp_usd": 79.99,
-          "weight_grams": 520,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip"
-        },
-        {
-          "rank": 2,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
-          "brand": "Pirelli",
-          "recommended_width_mm": 45,
-          "msrp_usd": 73.99,
-          "weight_grams": 470,
-          "crr_watts": null,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
-        },
-        {
-          "rank": 3,
           "tire_id": "schwalbe-g-one-bite",
           "name": "Schwalbe G-One Bite",
           "brand": "Schwalbe",
@@ -382,13 +360,35 @@
           "msrp_usd": 69.9,
           "weight_grams": 540,
           "crr_watts": 38.0,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+          "why": "Tough casing for sharp rock."
+        },
+        {
+          "rank": 2,
+          "tire_id": "maxxis-reaver",
+          "name": "Maxxis Reaver",
+          "brand": "Maxxis",
+          "recommended_width_mm": 45,
+          "msrp_usd": 79.99,
+          "weight_grams": 520,
+          "crr_watts": 35.0,
+          "why": "Tough casing for sharp rock."
+        },
+        {
+          "rank": 3,
+          "tire_id": "wtb-resolute",
+          "name": "WTB Resolute",
+          "brand": "WTB",
+          "recommended_width_mm": 42,
+          "msrp_usd": 64.95,
+          "weight_grams": 460,
+          "crr_watts": 36.5,
+          "why": "Tough casing for sharp rock."
         }
       ],
       "front_rear_split": {
         "applicable": false
       },
-      "race_surface_profile": "wet",
+      "race_surface_profile": "technical",
       "recommended_width_mm": 45,
       "pressure_psi": {
         "140_160lb_dry": "30-34",

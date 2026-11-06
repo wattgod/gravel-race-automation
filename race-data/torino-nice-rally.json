@@ -353,63 +353,6 @@
       },
       "latest_year": "2024"
     },
-    "tire_recommendations": {
-      "generated_at": "2026-02-19",
-      "primary": [
-        {
-          "rank": 1,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
-          "brand": "Pirelli",
-          "recommended_width_mm": 45,
-          "msrp_usd": 73.99,
-          "weight_grams": 470,
-          "crr_watts": null,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
-        },
-        {
-          "rank": 2,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 45,
-          "msrp_usd": 79.99,
-          "weight_grams": 520,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip"
-        },
-        {
-          "rank": 3,
-          "tire_id": "schwalbe-g-one-overland",
-          "name": "Schwalbe G-One Overland",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 45,
-          "msrp_usd": 69.9,
-          "weight_grams": 550,
-          "crr_watts": 40.0,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
-        }
-      ],
-      "front_rear_split": {
-        "applicable": false
-      },
-      "race_surface_profile": "wet",
-      "recommended_width_mm": 45,
-      "pressure_psi": {
-        "140_160lb_dry": "30-34",
-        "140_160lb_mixed": "26-30",
-        "140_160lb_wet": "24-28",
-        "160_180lb_dry": "32-36",
-        "160_180lb_mixed": "30-34",
-        "160_180lb_wet": "28-32",
-        "180_200lb_dry": "36-40",
-        "180_200lb_mixed": "32-36",
-        "180_200lb_wet": "30-34",
-        "200pluslb_dry": "38-42",
-        "200pluslb_mixed": "36-40",
-        "200pluslb_wet": "34-38"
-      }
-    },
     "research_metadata": {
       "research_strength": {
         "overall": 97.0,

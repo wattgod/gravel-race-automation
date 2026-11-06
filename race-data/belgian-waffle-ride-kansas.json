@@ -205,7 +205,7 @@
     },
     "status": "DROPPED - Not part of the 2026 BWR Quad-Tripel Crown (Arizona, California, Utah, Montana). Ran 2021-2023 in Lawrence, KS; no Kansas edition in 2024 or 2025; Montana replaced Kansas as the fourth 2026 stop. No official 2026 or 2027 Kansas edition listed on belgianwaffleride.bike as of July 2026; the site's /pages/kansas URL now serves Montana content.",
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
@@ -220,14 +220,14 @@
         },
         {
           "rank": 2,
-          "tire_id": "irc-boken-double-cross",
-          "name": "IRC Boken Double Cross",
-          "brand": "IRC",
-          "recommended_width_mm": 42,
-          "msrp_usd": 59.99,
-          "weight_grams": 400,
-          "crr_watts": null,
-          "why": "Underrated mixed-terrain tire. Fast center with confident shoulder grip."
+          "tire_id": "pirelli-cinturato-gravel-m",
+          "name": "Pirelli Cinturato Gravel M",
+          "brand": "Pirelli",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.99,
+          "weight_grams": 440,
+          "crr_watts": 34.0,
+          "why": "Mixed-terrain specialist. Balanced grip and speed for variable conditions."
         },
         {
           "rank": 3,
@@ -244,9 +244,9 @@
       "front_rear_split": {
         "applicable": true,
         "front": {
-          "tire_id": "panaracer-gravelking-tlc",
-          "name": "Panaracer GravelKing TLC",
-          "width_mm": 43
+          "tire_id": "vittoria-terreno-dry",
+          "name": "Vittoria Terreno Dry",
+          "width_mm": 40
         },
         "rear": {
           "tire_id": "specialized-pathfinder-pro",

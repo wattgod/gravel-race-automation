@@ -375,7 +375,7 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
@@ -390,6 +390,17 @@
         },
         {
           "rank": 2,
+          "tire_id": "panaracer-gravelking-sk",
+          "name": "Panaracer GravelKing SK",
+          "brand": "Panaracer",
+          "recommended_width_mm": 43,
+          "msrp_usd": 64.9,
+          "weight_grams": 410,
+          "crr_watts": 32.5,
+          "why": "Affordable all-rounder. Light knobs add grip without killing speed."
+        },
+        {
+          "rank": 3,
           "tire_id": "pirelli-cinturato-gravel-m",
           "name": "Pirelli Cinturato Gravel M",
           "brand": "Pirelli",
@@ -398,17 +409,6 @@
           "weight_grams": 440,
           "crr_watts": 34.0,
           "why": "Mixed-terrain specialist. Balanced grip and speed for variable conditions."
-        },
-        {
-          "rank": 3,
-          "tire_id": "vittoria-terreno-mix",
-          "name": "Vittoria Terreno Mix",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 420,
-          "crr_watts": 33.5,
-          "why": "Graphene versatility. Mixed-terrain grip with reasonable rolling speed."
         }
       ],
       "front_rear_split": {

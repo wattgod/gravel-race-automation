@@ -10,8 +10,8 @@
       "location": "Colombian Andes, Colombia",
       "location_badge": "COLOMBIAN ANDES",
       "county": "Colombian Andes",
-      "date": "Year-round",
-      "date_specific": "2026: Various dates",
+      "date": "2027: February 14-21",
+      "date_specific": "2027: February 14-21 (8 stages, Buga to Villa de Leyva, CONFIRMED — transcordilleras.cc)",
       "terrain_types": [
         "Colombian Andes",
         "South American gravel",
@@ -73,7 +73,7 @@
     },
     "biased_opinion": {
       "verdict": "Colombian Andes Mountain Adventure",
-      "summary": "Transcordilleras is a regional event in Colombian Andes—extreme mountainous terrain with massive elevation at high altitude. The Colombian Andes are stunning, but the difficult/expensive access, extreme altitude, and regional field keep it firmly in Tier 3.",
+      "summary": "Transcordilleras is a regional event in Colombian Andes—extreme mountainous terrain with massive elevation at high altitude. The Colombian Andes are stunning, but the difficult/expensive access, extreme altitude, and regional field keep it firmly in Tier 2.",
       "strengths": [
         "Stunning Colombian Andes",
         "Extreme elevation challenge",
@@ -105,15 +105,32 @@
       "food": "Limited dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Transcordilleras website"
+      "official_site": ""
     },
     "history": {
-      "founded": null,
+      "founded": 2021,
       "founder": "Colombian organizers",
       "origin_story": "Regional Colombian Andes gravel event.",
       "notable_moments": [],
       "reputation": "Regional Colombian event."
     },
+    "editions": [
+      {
+        "year": 2022,
+        "date": "2022-02-20",
+        "end_date": "2022-02-27",
+        "note": "Second 8-stage edition, crossing the three Andes ranges from Yopal to Santafé de Antioquia.",
+        "source": "https://rawcyclingmag.com/transcordilleras-2022-chasing-the-toucan/"
+      },
+      {
+        "year": 2021,
+        "date": "2021-05-21",
+        "end_date": "2021-05-28",
+        "edition": 1,
+        "note": "First edition: 8-stage self-supported race from Yopal to Tadó.",
+        "source": "https://rawcyclingmag.com/transcordilleras-connecting-the-three-colombian-mountain-ranges/"
+      }
+    ],
     "course_description": {
       "character": "Colombian Andes mountain gravel.",
       "suffering_zones": [
@@ -324,6 +341,12 @@
       }
     },
     "citations": [
+      {
+        "url": "https://transcordilleras.cc/",
+        "category": "official",
+        "label": "Transcordilleras: 2027 edition, February 14-21",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://4iiii.com/blog/griffin-easter-transcordilleras/",
         "category": "other",

@@ -11,7 +11,7 @@ Usage:
   python scripts/extract_dates.py --dry-run     # Preview changes without writing
   python scripts/extract_dates.py               # Apply changes
   python scripts/extract_dates.py --verbose      # Show extraction details
-  python scripts/extract_dates.py --stale        # Also update pre-2026 dates
+  python scripts/extract_dates.py --stale        # Also update already-run editions
 """
 
 import argparse
@@ -21,6 +21,9 @@ import sys
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
+from season import PAST, edition_state  # noqa: E402
+from race_editions import set_date_specific  # noqa: E402
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 RESEARCH_DIR = PROJECT_ROOT / "research-dumps"
 
@@ -251,22 +254,18 @@ def is_tbd(date_specific):
     return "TBD" in str(date_specific)
 
 
-def is_stale(date_specific):
-    """Check if a date_specific field has a year before 2026."""
+def is_stale(date_specific, on=None):
+    """True when the stored edition has already run (see wordpress/season.py)."""
     if not date_specific:
         return False
-    ds = str(date_specific).strip()
-    m = re.match(r'(\d{4})', ds)
-    if m:
-        return int(m.group(1)) < 2026
-    return False
+    return edition_state(date_specific, on) == PAST
 
 
 def main():
     parser = argparse.ArgumentParser(description="Extract dates from research dumps")
     parser.add_argument("--dry-run", action="store_true", help="Preview changes without writing")
     parser.add_argument("--verbose", action="store_true", help="Show extraction details")
-    parser.add_argument("--stale", action="store_true", help="Also update profiles with pre-2026 dates")
+    parser.add_argument("--stale", action="store_true", help="Also update profiles whose edition already ran")
     args = parser.parse_args()
 
     # Find all TBD profiles
@@ -285,7 +284,7 @@ def main():
     all_profiles = tbd_profiles + stale_profiles
     print(f"Found {len(tbd_profiles)} profiles with TBD dates")
     if args.stale:
-        print(f"Found {len(stale_profiles)} profiles with stale (pre-2026) dates")
+        print(f"Found {len(stale_profiles)} profiles with already-run editions")
 
     updated = 0
     updated_stale = 0
@@ -331,7 +330,7 @@ def main():
         old_ds = vitals.get("date_specific", "")
         old_date = vitals.get("date", "")
 
-        vitals["date_specific"] = date_spec
+        set_date_specific(race, date_spec)
         if date_general:
             vitals["date"] = date_general
 

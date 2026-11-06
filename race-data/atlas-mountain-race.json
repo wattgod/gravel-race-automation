@@ -116,6 +116,25 @@
       "notable_moments": [],
       "reputation": "Extreme ultra-endurance adventure."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Started in Beni Mellal; Telouet Pass left out; wind and snow forced detours",
+        "source": "https://www.tuttobiciweb.it/article/2026/02/13/1770921653/atlas-mountain-race-ultracycling?lang=en"
+      },
+      {
+        "year": 2025,
+        "date": "2025-02-07",
+        "end_date": "2025-02-15",
+        "source": "https://www.apidura.com/journal/atlas-mountain-race-everything-you-need-to-know/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-02-09",
+        "edition": 4,
+        "source": "https://dotwatcher.cc/race/atlas-mountain-race-2024"
+      }
+    ],
     "course_description": {
       "character": "The 2027 fixed route runs 1,331 kilometers from Ouzoud through the Atlas and Anti-Atlas to Essaouira, gaining 24,688 meters on gravel, singletrack, doubletrack, and remote colonial pistes with very little tarmac.",
       "suffering_zones": [],
@@ -722,6 +741,33 @@
         "credit": "YouTube / Atlas Mountain Race",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "1,432 km",
+          "winner_female": "Cynthia Carson",
+          "winner_male": "Victor Bosoni",
+          "winning_time_female": "5d 5h 2m",
+          "winning_time_male": "4d 1h 46m",
+          "source": "https://www.tuttobiciweb.it/article/2026/02/13/1770921653/atlas-mountain-race-ultracycling?lang=en"
+        },
+        "2025": {
+          "race": "1,300 km",
+          "winner_female": "Marei Moldenhauer",
+          "winner_male": "Alex McCormack",
+          "winning_time_female": "4d 14h 20m",
+          "winning_time_male": "3d 20h 00m",
+          "source": "https://www.themountainraces.cc/resources/amr-2025-results"
+        },
+        "2024": {
+          "race": "1,300 km",
+          "winner_female": "Cynthia Carson",
+          "winner_male": "Justinas Leveika",
+          "source": "https://dotwatcher.cc/race/atlas-mountain-race-2024"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

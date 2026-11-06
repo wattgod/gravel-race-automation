@@ -210,6 +210,43 @@
       ],
       "reputation": "The benchmark for European ultra-endurance cycling. Where legends are made and the sport's boundaries are defined."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 12,
+        "source": "https://www.lostdot.cc/tcr"
+      },
+      {
+        "year": 2025,
+        "date": "2025-07-27",
+        "edition": 11,
+        "source": "https://www.lostdot.cc/race/tcrno11"
+      },
+      {
+        "year": 2024,
+        "date": "2024-07-21",
+        "edition": 10,
+        "source": "https://dotwatcher.cc/race/transcontinental-race-no10"
+      },
+      {
+        "year": 2023,
+        "date": "2023-07-23",
+        "edition": 9,
+        "source": "https://www.cyclist.co.uk/in-depth/transcontinental-race-route-how-to-watch-winners"
+      },
+      {
+        "year": 2022,
+        "date": "2022-07-24",
+        "edition": 8,
+        "source": "https://www.lostdot.cc/race/tcrno8"
+      },
+      {
+        "year": 2021,
+        "status": "cancelled",
+        "note": "Covid pandemic. Thessaloniki had been announced as the finish.",
+        "source": "https://ridefar.info/races/transcontinental-race/transcontinental-race-no-9-2023/"
+      }
+    ],
     "course_description": {
       "character": "A continental crossing by bicycle. Start and finish points change each year — London to Istanbul, Geraardsbergen to Thessaloniki, Roubaix to Istanbul, Santiago de Compostela to Constanta, and Trondheim to Kalamata. The free-route format means riders plan their own path between 4 mandatory control points, each spaced 500-1,200km apart. Between checkpoints, you could ride 800km on flat highways or 600km through mountain passes — the strategic choice is yours. Mandatory parcours at each control point (5-100+ km of prescribed route, often on gravel through mountains) force every rider through the same crucible. The TCR is not about any single course — it is about the concept: cross Europe by bike, self-supported, as fast as you can.",
       "suffering_zones": [
@@ -407,9 +444,25 @@
             "~5,000km route from Santiago de Compostela to Constanta",
             "Decisive ferry crossing was key tactical move"
           ]
+        },
+        "2026": {
+          "race": "~4,700 km",
+          "winner_female": "Sarah Bosslet",
+          "winner_male": "Robin Gemperle",
+          "winning_time_female": "12d 11h 01m",
+          "winning_time_male": "10d 08h 55m",
+          "source": "https://www.lostdot.cc/tcr"
+        },
+        "2023": {
+          "race": "~3,900 km",
+          "winner_female": "Jaimi Wilson",
+          "winner_male": "Christoph Strasser",
+          "winning_time_female": "11d 07h 39m",
+          "winning_time_male": "8d 16h 30m",
+          "source": "https://www.lostdot.cc/results/tcrno9"
         }
       },
-      "latest_year": "2025"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-27",

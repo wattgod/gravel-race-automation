@@ -5,6 +5,8 @@
   "description": "Where the Mojave, Great Basin, and Colorado Plateau collide to humble your gravel dreams.",
   "sport": "Gravel Cycling",
   "startDate": "2027-03-18",
+  "endDate": "2027-03-20",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Santa Clara, Utah",
@@ -16,7 +18,7 @@
   },
   "url": "https://truegritepic.com/gravel/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "GRO Promotions / GRO Races",
     "url": "https://truegritepic.com/gravel/"
   }

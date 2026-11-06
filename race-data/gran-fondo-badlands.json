@@ -5,7 +5,7 @@
       "name": "Gran Fondo Badlands",
       "location": "Drumheller, Alberta, Canada",
       "date": "2026: July 4",
-      "date_specific": "2026: July 4",
+      "date_specific": "2027: July 3 (Saturday, CONFIRMED — transrockies.com)",
       "distance_mi": 101,
       "elevation_ft": 2870,
       "discipline": "road",
@@ -32,7 +32,8 @@
       "cultural_impact": 2,
       "overall_score": 61,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "adventure": {
@@ -157,6 +158,18 @@
       ],
       "growth_trajectory": "Rapid growth following relocation to Drumheller Valley; established as a premier Canadian Gran Fondo event with consistent year-over-year participation and recognition among cycling enthusiasts."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-07-05",
+        "source": "https://zone4.ca/event/2025/9ApnkO/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-07-06",
+        "source": "https://zone4.ca/event/2024/V36o6q/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "A well-organized, scenic road cycling celebration of Alberta's badlands landscape that delivers excellent value and community atmosphere for riders of all abilities seeking a memorable weekend adventure.",
       "best_for": "Weekend warriors, recreational cyclists, riders seeking scenic beauty over competitive intensity, cyclists interested in unique cultural experiences, families (with youth and children's ride options), and those looking for professional event organization with strong community focus.",
@@ -212,9 +225,28 @@
         "snippet": "2026 event details with specific start times for each distance category",
         "category": "other",
         "label": "Movemint"
+      },
+      {
+        "url": "https://transrockies.com/",
+        "category": "official",
+        "label": "Gran Fondo Badlands — 2027 date",
+        "accessed": "2026-11-06"
       }
     ],
     "slug": "gran-fondo-badlands",
-    "name": "Gran Fondo Badlands"
+    "name": "Gran Fondo Badlands",
+    "results": {
+      "years": {
+        "2025": {
+          "race": "163 km",
+          "winner_female": "Kathryn Durell",
+          "winner_male": "John Li",
+          "winning_time_female": "4:43:30",
+          "winning_time_male": "4:21:08",
+          "source": "https://www.granfondoguide.com/Contents/Index/8614/durell-and-li-take-victory-at-the-sold-out-10th-anniversary-granfondo-badlands"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

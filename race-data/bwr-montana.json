@@ -12,8 +12,8 @@
       "location": "Bozeman, Montana",
       "location_badge": "BOZEMAN, MONTANA",
       "county": "Gallatin County",
-      "date": "Late June annually",
-      "date_specific": "2026: June 19-20 (Friday check-in/expo, Saturday race day — CONFIRMED, belgianwaffleride.bike; 2027 not yet announced)",
+      "date": "Mid-September in 2027 (June in 2026)",
+      "date_specific": "2027: September 17-18 (Friday-Saturday, CONFIRMED — belgianwaffleride.bike); 2026: June 19-20 (completed)",
       "terrain_types": [
         "Steep gravel climbs",
         "Smooth tarmac and rugged backcountry roads",
@@ -121,7 +121,7 @@
       "ridewithgps_name": "BWR Montana 2025 (autotraced) — note: from a prior-year edition; the route is redrawn most years so treat as illustrative, not the current course"
     },
     "history": {
-      "founded": "~2022",
+      "founded": 2025,
       "founder": "Belgian Waffle Ride series",
       "origin_story": "BWR Montana ('Hell of the Bozone') founded ~2022, based in Bozeman, MT. 500-800 riders. Part of the BWR series. Montana Rockies mountain gravel around Bozeman.",
       "notable_moments": [
@@ -131,6 +131,21 @@
       ],
       "reputation": "BWR series. Montana Rockies, based in Bozeman. Technical mountain terrain. Well-organized. Waffles at finish."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 2,
+        "source": "https://velo.outsideonline.com/gravel/gravel-racing/results-stella-hobbs-and-hayden-christian-win-bwr-montana-2026/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-28",
+        "end_date": "2025-06-29",
+        "edition": 1,
+        "note": "First BWR Montana.",
+        "source": "https://www.cyclingnews.com/races/belgian-waffle-ride-series-2025/bwr-montana/results/"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -274,6 +289,11 @@
         "url": "https://www.trainerroad.com/forum/t/bwr-montana-june-29th/103804",
         "category": "community",
         "label": "TrainerRoad"
+      },
+      {
+        "url": "https://belgianwaffleride.bike/pages/future-dates",
+        "category": "official",
+        "label": "Belgian Waffle Ride: future dates"
       }
     ],
     "series": {
@@ -523,6 +543,26 @@
         "credit": "YouTube / Goettl Media",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "115 mi",
+          "winner_female": "Stella Hobbs",
+          "winner_male": "Hayden Christian",
+          "winning_time_female": "5:07:39",
+          "winning_time_male": "4:45:32",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/belgian-waffle-ride-hayden-christian-secures-quad-tripel-crown-of-gravel-with-victory-in-montana-while-cecile-lejeune-wraps-up-womens-overall-title-with-runner-up-finish/"
+        },
+        "2025": {
+          "winner_female": "Stella Hobbs",
+          "winner_male": "Russell Finsterwald",
+          "winning_time_female": "5:31:33",
+          "winning_time_male": "5:03:22",
+          "source": "https://www.cyclingnews.com/races/belgian-waffle-ride-series-2025/bwr-montana/results/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

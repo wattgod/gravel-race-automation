@@ -5,8 +5,8 @@
     "display_name": "Muck n Mac Fest",
     "tagline": "Two days of Scottish Borders gravel, timed enduro stages, and festival recovery at Traquair House.",
     "seo": {
-      "title": "Muck n Mac Fest 2027 Guide | Gravel God",
-      "description": "Muck n Mac Fest 2027: two 75 km Scottish gravel days, timed enduro stages, camping, course facts, rating, and training guidance."
+      "title": "Muck n Mac Fest {year} Guide | Gravel God",
+      "description": "Muck n Mac Fest {year}: two 75 km Scottish gravel days, timed enduro stages, camping, course facts, rating, and training guidance."
     },
     "vitals": {
       "distance_mi": 93.2,
@@ -15,7 +15,7 @@
       "location_badge": "TRAQUAIR, SCOTLAND",
       "county": "Scottish Borders",
       "date": "May 1-2, 2027",
-      "date_specific": "2027: May 1-2",
+      "date_specific": "2027: April 30-May 2 (Friday-Sunday, CONFIRMED — outsiderevents.com)",
       "course_status": "2027 dates, long-weekender distance, and two-day format confirmed; final GPX and exact gain pending",
       "pack_status": "pending",
       "course_status_label": "2027 TWO-DAY FORMAT VERIFIED",
@@ -128,6 +128,16 @@
       "notable_moments": [],
       "reputation": "A small, highly rated Scottish gravel festival with a timed-segment format."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-05-01",
+        "end_date": "2026-05-03",
+        "edition": 5,
+        "note": "Included the BORDER.200 as GrALBA round 2.",
+        "source": "https://www.events1000.com/GB/Innerleithen/105797087573828/Muck-n%27-Mac-Fest"
+      }
+    ],
     "course_description": {
       "character": "Two consecutive gravel-enduro days from Traquair House, with approximately 75 km per day, timed segments, and untimed transfers.",
       "suffering_zones": [
@@ -351,6 +361,12 @@
       }
     },
     "citations": [
+      {
+        "url": "https://www.outsiderevents.com/scottish-gravel-riding-events",
+        "category": "official",
+        "label": "Outsider Events: Muck n' Mac Fest 2027, April 30 - May 2",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://ridewithgps.com/routes/50611662",
         "category": "route",

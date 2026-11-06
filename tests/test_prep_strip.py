@@ -76,6 +76,15 @@ class TestRetiredJsContract:
 
 
 class TestDateDegradation:
+    @pytest.fixture(autouse=True)
+    def before_race(self, monkeypatch):
+        monkeypatch.setenv("GG_TODAY", "2026-05-01")
+
+    def test_past_date_omits_attr(self, packed_slug, monkeypatch):
+        monkeypatch.setenv("GG_TODAY", "2026-11-05")
+        html = build_prep_strip(_rd(slug=packed_slug, date_specific="2026: May 30"))
+        assert "data-race-date" not in html
+
     def test_valid_date_emits_attr(self, packed_slug):
         html = build_prep_strip(_rd(slug=packed_slug,
                                     date_specific="2026: May 30"))

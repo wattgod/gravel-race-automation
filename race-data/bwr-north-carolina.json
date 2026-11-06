@@ -340,8 +340,27 @@
       }
     ],
     "history": {
-      "founder": "Michael Marckx"
+      "founder": "Michael Marckx",
+      "founded": 2021
     },
+    "editions": [
+      {
+        "year": 2025,
+        "edition": 5,
+        "note": "Moved from June to October; held at Wag Valley Farm near Asheville.",
+        "source": "https://www.belgianwaffleride.bike/pages/northcarolina"
+      },
+      {
+        "year": 2024,
+        "date": "2024-06-22",
+        "source": "https://www.belgianwaffleride.bike/blogs/news/results"
+      },
+      {
+        "year": 2023,
+        "date": "2023-06-10",
+        "source": "https://www.belgianwaffleride.bike/blogs/news/results"
+      }
+    ],
     "series": {
       "id": "belgian-waffle-ride",
       "name": "Belgian Waffle Ride"
@@ -754,6 +773,31 @@
     "taking_a_break": {
       "label": "TAKING A BREAK",
       "line": "No North Carolina edition is on the current BWR calendar. Train the course anyway — BWR fitness travels."
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "100 mi",
+          "winner_female": "Emily Newsom",
+          "winner_male": "Adam Roberge",
+          "winning_time_female": "5:25:23",
+          "winning_time_male": "4:46:26",
+          "source": "https://www.granfondoguide.com/RaceDashboard/BelgianWaffleRideSeries/1/8743/emily-newsome-and-adam-roberge-take-victory-at-2025-belgian-waffle-ride-north-carolina"
+        },
+        "2024": {
+          "race": "100 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "Josh Burnett",
+          "source": "https://www.belgianwaffleride.bike/blogs/news/results"
+        },
+        "2023": {
+          "race": "100 mi",
+          "winner_female": "Austin Killips",
+          "winner_male": "Adam Roberge",
+          "source": "https://www.belgianwaffleride.bike/blogs/news/results"
+        }
+      },
+      "latest_year": "2025"
     }
   }
 }

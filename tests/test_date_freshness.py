@@ -2,6 +2,7 @@
 
 import json
 import sys
+from datetime import date
 from pathlib import Path
 from unittest.mock import patch
 
@@ -71,10 +72,21 @@ def test_stale_dates_old_year():
     assert any("Stale" in i for i in issues)
 
 
-def test_stale_dates_current_year():
+def test_stale_dates_upcoming_edition_is_fresh():
     race = {"vitals": {"date_specific": "2026: June 6"}}
-    issues = check_stale_dates(race)
-    assert len(issues) == 0
+    assert check_stale_dates(race, on=date(2026, 5, 1)) == []
+
+
+def test_stale_dates_this_year_but_already_ran_is_stale():
+    """Year compare said fresh; the edition has passed (2026-11-05)."""
+    race = {"vitals": {"date_specific": "2026: August 30"}}
+    issues = check_stale_dates(race, on=date(2026, 11, 5))
+    assert any("Stale" in i for i in issues)
+
+
+def test_stale_dates_skips_not_running_race():
+    race = {"vitals": {"date_specific": "Status: DROPPED — last held Oct 11, 2025"}}
+    assert check_stale_dates(race, on=date(2026, 11, 5)) == []
 
 
 # ── check_missing_fields ──

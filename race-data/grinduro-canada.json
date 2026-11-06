@@ -352,10 +352,30 @@
     "history": {
       "founder": "Northern Consultancy Co"
     },
+    "editions": [
+      {
+        "year": 2022,
+        "date": "2022-08-20",
+        "status": "cancelled",
+        "source": "https://www.ahotu.com/event/grinduro-canada"
+      },
+      {
+        "year": 2021,
+        "date": "2021-08-21",
+        "end_date": "2021-08-22",
+        "edition": 2,
+        "source": "https://www.lecharlevoisien.com/2021/08/21/cest-parti-pour-les-300-cyclistes-du-grinduro-canada/"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "Covid-19 pandemic.",
+        "source": "https://www.lecharlevoisien.com/2021/08/21/cest-parti-pour-les-300-cyclistes-du-grinduro-canada/"
+      }
+    ],
     "results": {
       "years": {
-        "2024": {
-        }
+        "2024": {}
       },
       "latest_year": "2024"
     },
@@ -541,6 +561,10 @@
         "credit": "YouTube / SkiPresse : : CyclePresse",
         "gif": true
       }
-    ]
+    ],
+    "taking_a_break": {
+      "label": "NO EDITION SINCE 2022",
+      "line": "Grinduro Canada was last held in August 2022 and is not on the current Grinduro calendar."
+    }
   }
 }

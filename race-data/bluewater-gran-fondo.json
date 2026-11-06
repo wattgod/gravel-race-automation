@@ -32,7 +32,8 @@
       "cultural_impact": 2,
       "overall_score": 69,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "adventure": {
@@ -145,6 +146,19 @@
       "notable_editions": "10th anniversary in 2026 with special jersey and enhanced experiences.",
       "growth_trajectory": "From 8th edition in 2024 to 10th in 2026, consistently praised for organization and growth."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "10th anniversary ride.",
+        "source": "https://www.timingshack.ca/20260802-bigf/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-03",
+        "edition": 9,
+        "source": "https://raceroster.com/events/2025/94237/bluewater-international-gran-fondo-2025"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Ontario's top gran fondo: scenic, supported, and community-driven perfection.",
       "best_for": "Social riders, first-timers, and those seeking value-packed road cycling.",
@@ -189,6 +203,27 @@
       }
     ],
     "slug": "bluewater-gran-fondo",
-    "name": "Bluewater International Gran Fondo"
+    "name": "Bluewater International Gran Fondo",
+    "results": {
+      "years": {
+        "2025": {
+          "race": "150 km",
+          "winner_female": "Debbie Levasseur",
+          "winner_male": "Chris Caruana",
+          "winning_time_female": "42:19.0",
+          "winning_time_male": "39:20.5",
+          "source": "https://www.granfondoguide.com/Contents/IndexFull/8666/blue-skies-for-1000-lucky-cyclists-at-2025-bluewater-international-gran-fondo"
+        },
+        "2026": {
+          "race": "160 km",
+          "winner_female": "Mia Kairouz",
+          "winner_male": "Simao Santa Barbara",
+          "winning_time_female": "52:09.5",
+          "winning_time_male": "40:30.6",
+          "source": "https://www.granfondoguide.com/Contents/Index/9311/mia-kairouz-and-simao-santa-barbara-fastest-at-2026-bluewater-international-gran-fondo"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

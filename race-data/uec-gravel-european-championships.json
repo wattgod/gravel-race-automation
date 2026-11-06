@@ -122,6 +122,29 @@
       ],
       "reputation": "A young continental championship with a qualification gate and immediate competitive weight, but no completed Lahti edition yet."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-09-21",
+        "edition": 3,
+        "note": "Held in Avezzano, Italy.",
+        "source": "https://www.sport-record.de/gravel/gravel-uce.pdf"
+      },
+      {
+        "year": 2024,
+        "date": "2024-10-13",
+        "edition": 2,
+        "note": "Held in Asiago, Italy.",
+        "source": "https://www.sport-record.de/gravel/gravel-uce.pdf"
+      },
+      {
+        "year": 2023,
+        "date": "2023-10-01",
+        "edition": 1,
+        "note": "First edition, held in Oud-Heverlee, Belgium.",
+        "source": "https://www.sport-record.de/gravel/gravel-uce.pdf"
+      }
+    ],
     "guide_variables": {
       "race_name": "UEC Gravel European Championships — Lahti 2027",
       "race_distance": "TBD — 2027 course pending",
@@ -315,6 +338,27 @@
         "category": "official",
         "label": "UCI Gravel World Series Lahti page — July 31, 2027 championship date and current regional terrain context"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "148 km",
+          "winner_female": "Erica Magnaldi",
+          "winner_male": "Mads Würtz Schmidt",
+          "source": "https://www.uec.ch/en/actu/342/eurogravel25-magnaldi-wurtz-schmidt-triumph-in-avezzano"
+        },
+        "2024": {
+          "winner_female": "Sina Frei",
+          "winner_male": "Martin Stošek",
+          "source": "https://www.sport-record.de/gravel/gravel-uce.pdf"
+        },
+        "2023": {
+          "winner_female": "Lorena Wiebes",
+          "winner_male": "Jasper Stuyven",
+          "source": "https://www.sport-record.de/gravel/gravel-uce.pdf"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

@@ -4,7 +4,7 @@
     {
       "slug": "balkan-gravel",
       "reason": "fabricated",
-      "redirect": "/race/calendar/2026/"
+      "redirect": "/race/calendar/"
     },
     {
       "slug": "black-forest-gravel",
@@ -24,7 +24,7 @@
     {
       "slug": "greek-gravel",
       "reason": "fabricated",
-      "redirect": "/race/calendar/2026/"
+      "redirect": "/race/calendar/"
     },
     {
       "slug": "kal-tour-dirty-100",
@@ -54,7 +54,7 @@
     {
       "slug": "chiang-mai-gran-fondo",
       "reason": "fabricated",
-      "redirect": "/race/calendar/2026/"
+      "redirect": "/race/calendar/"
     },
     {
       "slug": "3-state-3-mountain-challenge",
@@ -129,12 +129,42 @@
     {
       "slug": "gravel-des-flandres",
       "reason": "invalid generic identity: no organizer or official event exists under this name; the profile mixed unsupported 2025 facts with media from the distinct Flanders Gravel Series, which last appeared on the organizer calendar in 2023",
-      "redirect": "/race/calendar/2026/"
+      "redirect": "/race/calendar/"
     },
     {
       "slug": "66-south-pyrenees",
       "reason": "duplicate identity for the same September 26, 2026 Font-Romeu UCI Gravel World Series race tracked canonically as pyrenees-catalanes-gravel-tour; the retired profile also carried a lower stale grade and unrelated Pyrenees-crossing rider intel",
       "redirect": "/race/pyrenees-catalanes-gravel-tour/"
+    },
+    {
+      "slug": "garmin-gravel-worlds",
+      "reason": "duplicate identity: Garmin is the title sponsor of the same Lincoln, Nebraska event tracked canonically as gravel-worlds (data/duplicate-merges.json, 2026-11-01)",
+      "redirect": "/race/gravel-worlds/"
+    },
+    {
+      "slug": "gravel-worlds-amateur",
+      "reason": "duplicate identity: amateurs ride the same Lincoln, Nebraska 150-mile day tracked canonically as gravel-worlds (data/duplicate-merges.json, 2026-11-01)",
+      "redirect": "/race/gravel-worlds/"
+    },
+    {
+      "slug": "bwr-san-diego",
+      "reason": "duplicate identity: the original Del Mar Belgian Waffle Ride is tracked canonically as bwr-california (data/duplicate-merges.json, 2026-11-01)",
+      "redirect": "/race/bwr-california/"
+    },
+    {
+      "slug": "bwr-utah",
+      "reason": "duplicate identity: BWR Utah is the Cedar City event tracked canonically as bwr-cedar-city (data/duplicate-merges.json, 2026-11-01)",
+      "redirect": "/race/bwr-cedar-city/"
+    },
+    {
+      "slug": "bwr-asheville",
+      "reason": "duplicate identity: the one North Carolina BWR (Hendersonville, near Asheville) is tracked canonically as bwr-north-carolina (data/duplicate-merges.json, 2026-11-01)",
+      "redirect": "/race/bwr-north-carolina/"
+    },
+    {
+      "slug": "gravel-earth",
+      "reason": "series-ended",
+      "redirect": "/race/series/gravel-earth-series/"
     }
   ]
 }

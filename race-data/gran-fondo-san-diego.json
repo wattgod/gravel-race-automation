@@ -5,7 +5,7 @@
       "name": "Gran Fondo San Diego",
       "location": "San Diego, California, USA",
       "date": "2026: April 19",
-      "date_specific": "2026: April 19",
+      "date_specific": "2027: April 18 (Sunday, CONFIRMED — sdgranfondo.com)",
       "distance_mi": 101,
       "elevation_ft": 6600,
       "discipline": "road",
@@ -32,7 +32,8 @@
       "cultural_impact": 2,
       "overall_score": 66,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "adventure": {
@@ -148,7 +149,7 @@
     },
     "history": {
       "overview": "The Gran Fondo San Diego is an established cycling event that has grown into a premier Southern California cycling celebration. The event combines Italian Gran Fondo tradition with San Diego's cycling culture, featuring the classic Great Western Loop through East County backcountry.",
-      "founded": 2008,
+      "founded": 2009,
       "notable_editions": [
         "Voted Top 10 Century Ride in the USA",
         "18th Annual edition in 2026",
@@ -156,6 +157,20 @@
       ],
       "growth_trajectory": "The event has evolved from a regional cycling ride into a recognized premier cycling event with thorough support infrastructure, multiple route options accommodating all skill levels, and an established festival atmosphere with live entertainment and Italian-themed celebrations."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-19",
+        "note": "100, 60 and 35-mile routes from Ruocco Park",
+        "source": "https://www.sdgranfondo.com/press-release"
+      },
+      {
+        "year": 2019,
+        "date": "2019-04-07",
+        "edition": 11,
+        "source": "https://www.sdgranfondo.com/press-release"
+      }
+    ],
     "final_verdict": {
       "one_liner": "A well-organized, community-focused century ride through San Diego's scenic backcountry with excellent support infrastructure and celebratory atmosphere.",
       "best_for": "Cyclists seeking a challenging but achievable century ride with strong community elements, those wanting to experience Southern California's diverse landscapes, riders interested in timed climbing competitions, and participants who value post-ride celebration and Italian cultural themes.",
@@ -164,11 +179,18 @@
     },
     "citations": [
       {
+        "url": "https://www.sdgranfondo.com/press-release",
+        "category": "official",
+        "label": "SD Gran Fondo press page (started 2009)",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://www.sdgranfondo.com",
         "title": "GranFondo San Diego - Voted Top 10 Century Ride in the USA",
         "snippet": "The 18th Annual GranFondo San Diego on Sunday April 19, 2026. Welcome to the ultimate celebration of cycling, flavor, and the breathtaking San Diego waterfront!",
         "category": "official",
-        "label": "Official Website"
+        "label": "Gran Fondo San Diego — 2027 date",
+        "accessed": "2026-11-06"
       },
       {
         "url": "https://www.sdgranfondo.com/overview",

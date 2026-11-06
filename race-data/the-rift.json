@@ -11,7 +11,7 @@
       "location_badge": "HVOLSVÖLLUR, SOUTHERN ICELAND",
       "county": "",
       "date": "Mid-July annually",
-      "date_specific": "2026: July 17-18 (Abyss starts Fri July 17; Rift 200km, Crevasse 140km, and Crack 60km race Sat July 18)",
+      "date_specific": "2027: July 23-24 (Friday-Saturday, CONFIRMED — therift.bike)",
       "terrain_types": [
         "Black volcanic sand",
         "sharp lava rock",
@@ -154,7 +154,7 @@
       "quote": "You literally ride between continents."
     },
     "final_verdict": {
-      "score": "89 / 100",
+      "score": "79 / 100",
       "one_liner": "Iceland's volcanic gravel race where you literally cross between continents and experience weather that doesn't negotiate.",
       "should_you_race": "Yes, if bucket-list adventure matters more than racing. The Rift delivers geological pilgrimage, otherworldly terrain, and a story you'll tell forever. Just be ready for Iceland's weather and the expense of getting there.",
       "alternatives": "If you want European adventure: Traka 360 (Spain, 360km). If you want guaranteed good weather: Unbound (Kansas, June). If you want premium adventure: Migration Gravel Race (Kenya, 4-day).",
@@ -192,6 +192,14 @@
         "Glacier-fed river crossings require dismount decisions"
       ]
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-07-17",
+        "end_date": "2026-07-18",
+        "source": "https://timataka.net/therift2026/"
+      }
+    ],
     "course_description": {
       "character": "Otherworldly. Black volcanic sand, lava fields, glacier views. It looks like Mars with better air.",
       "suffering_zones": [
@@ -349,16 +357,39 @@
         "url": "https://coefficientcycling.com/blogs/news/200km-of-lava-fields-fog-and-roads-carved-from-volcanic-rock-my-rift-iceland-experience-with-coefficient-cycling",
         "category": "community",
         "label": "coefficientcycling.com: 200Km Of Lava Fields Fog And Roads Carved From Volcanic R..."
+      },
+      {
+        "url": "https://www.therift.bike/",
+        "category": "official",
+        "label": "The Rift: 2027 dates"
       }
     ],
     "results": {
       "years": {
         "2024": {
           "conditions": "For example, one comment warned that “the 200 [km] is brutal and it doesn’t let off”",
-          "key_takeaways": []
+          "key_takeaways": [],
+          "race": "elite",
+          "winner_female": "Cecily Decker",
+          "winner_male": "Simen Nordahl Svendsen",
+          "source": "https://www.cyclingnews.com/races/gravel-earth-global-events-2024/the-rift-gravel/results"
+        },
+        "2026": {
+          "race": "200 km elite",
+          "winner_female": "Haley Smith",
+          "winner_male": "Anton Stensby",
+          "winning_time_female": "7:25:50",
+          "winning_time_male": "6:16:51",
+          "source": "https://granfondodailynews.com/2026/07/19/stensby-smith-conquer-icelands-punishing-black-lava-fields-at-the-rift/"
+        },
+        "2025": {
+          "race": "elite",
+          "winner_female": "Rosa Klöser",
+          "winner_male": "Magnus Bak Klaris",
+          "source": "https://www.cyclingnews.com/races/gravel-earth-series-2025/the-rift-10-event-elite-men-women/results/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

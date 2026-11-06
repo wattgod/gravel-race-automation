@@ -4,6 +4,7 @@
   "name": "Glengarry Games Gravel Run",
   "description": "A one-edition Highland Games gravel race whose grandstand finish was real\u2014and whose 2026 date was not.",
   "sport": "Gravel Cycling",
+  "eventStatus": "https://schema.org/EventPostponed",
   "location": {
     "@type": "Place",
     "name": "Maxville, Ontario, Canada",
@@ -15,7 +16,7 @@
   },
   "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Gravel Cup Canada and the Glengarry Highland Games",
     "url": "https://gravelcup.com/gravel-cup-events/glengarry-gravel-run"
   }

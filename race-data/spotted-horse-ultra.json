@@ -105,15 +105,39 @@
       "food": "Iowa has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Spotted Horse Ultra website"
+      "official_site": ""
     },
     "history": {
-      "founded": null,
+      "founded": 2016,
       "founder": "Iowa organizers",
       "origin_story": "Regional Iowa ultra-endurance gravel event.",
       "notable_moments": [],
       "reputation": "Regional Iowa event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-10-18",
+        "source": "https://www.bikeiowa.com/Event/16255/spotted-horse-gravel-ultra"
+      },
+      {
+        "year": 2024,
+        "date": "2024-10-19",
+        "source": "https://www.webscorer.com/race?raceid=370440"
+      },
+      {
+        "year": 2022,
+        "date": "2022-10-22",
+        "source": "https://spottedhorsecycling.com/results/"
+      },
+      {
+        "year": 2021,
+        "date": "2021-10-23",
+        "edition": 6,
+        "note": "Added a 75 mile Quarter Horse loop; finish at Madison County Winery.",
+        "source": "https://www.bikeiowa.com/Event/14467/spotted-horse-gravel-ultra"
+      }
+    ],
     "course_description": {
       "character": "Iowa prairie ultra-endurance gravel.",
       "suffering_zones": [
@@ -683,6 +707,17 @@
         "credit": "YouTube / BikeIowaGuy",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2024": {
+          "race": "200 mi",
+          "winner_male": "John Whipple",
+          "winning_time_male": "13:49:09",
+          "source": "https://www.webscorer.com/race?raceid=370440"
+        }
+      },
+      "latest_year": "2024"
+    }
   }
 }

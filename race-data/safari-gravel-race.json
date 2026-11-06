@@ -116,6 +116,25 @@
       "notable_moments": [],
       "reputation": "Kenya's inaugural UCI Gravel World Series event; growing reputation for genuine altitude/heat demands and guaranteed wildlife on course."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-13",
+        "source": "https://ucigravelworldseries.com/en/lorot-and-nyirarukundo-make-history-at-safari-gravel-race-in-hells-gate/"
+      },
+      {
+        "year": 2025,
+        "edition": 2,
+        "source": "https://ucigravelworldseries.com/en/safari-gravel-race-in-kenya-for-hailey-hunter-smith-and-lukas-maleszewski/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-06-15",
+        "edition": 1,
+        "note": "First UCI Gravel World Series race held in Kenya.",
+        "source": "https://velo.outsideonline.com/gravel/gravel-racing/safari-gravel-shines-a-spotlight-on-kenyas-growing-race-scene/"
+      }
+    ],
     "course_description": {
       "character": "Team Amani's single-day UCI Gravel World Series qualifier from Sulmac Village on Lake Naivasha's south shore, adjacent to Hell's Gate National Park: 111km/2,500m (69mi/8,202ft) elite+age-band course, 60km/1,000m official course for men 60+/women 50+. ~85% gravel — red clay, singletrack, game trails — with guaranteed plains-game sightings (zebra, giraffe, warthog; Hell's Gate is one of the few parks cyclists enter unescorted). Course runs 1,675m-2,214m (5,495-7,264ft); start ~1,884m (6,181ft) = ALTITUDE RACE. Equatorial midday heat + altitude are the twin prep angles. Finish at Camp Carnelley's. Distinct from Migration Gravel Race (separate 4-stage Maasai Mara event, same organizers). PRIOR PROFILE 100mi/5,000ft wrong on both axes — corrected 2026-07-14.",
       "suffering_zones": [
@@ -704,6 +723,31 @@
         "credit": "YouTube / Josh Reid",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "100 km",
+          "winner_female": "Claudette Nyirarukundo",
+          "winner_male": "Lawrence Lorot",
+          "winning_time_female": "4:16:52",
+          "winning_time_male": "3:29:04",
+          "source": "https://ucigravelworldseries.com/en/lorot-and-nyirarukundo-make-history-at-safari-gravel-race-in-hells-gate/"
+        },
+        "2025": {
+          "race": "111 km",
+          "winner_female": "Hailey Hunter Smith",
+          "winner_male": "Lukas Malezsewski",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/safari-gravel-race/results/"
+        },
+        "2024": {
+          "race": "100 km",
+          "winner_female": "Maddy Nutt",
+          "winner_male": "Hans Becking",
+          "source": "https://ucigravelworldseries.com/en/safari-gravel-race-for-maddy-nutt-and-hans-becking/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

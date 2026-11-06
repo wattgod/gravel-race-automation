@@ -6,7 +6,7 @@
       "slug": "granfondo-nove-colli",
       "name": "Gran Fondo Nove Colli",
       "date": "2026: May TBD",
-      "date_specific": "2026: May 24",
+      "date_specific": "2027: May 23 (Sunday, CONFIRMED — novecolli.it)",
       "distance_mi": 127,
       "elevation_ft": 12600,
       "location": "Cesenatico, Emilia-Romagna, Italy",
@@ -37,7 +37,8 @@
       "cultural_impact": 4,
       "overall_score": 89,
       "tier": 1,
-      "tier_label": "TIER 1"
+      "tier_label": "TIER 1",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -168,6 +169,34 @@
       "founded": 1971,
       "notable_facts": "Oldest gran fondo in the world, originating in Cesenatico as Romagna's signature event. Reached 55th edition recently, returning to classic roots with nine climbs. Route segments like Barbotto featured in Giro d’Italia 2024."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-05-24",
+        "edition": 55,
+        "note": "Original Gorolo climb returned to the 200 km route; new 107 km gravel route.",
+        "source": "https://www.novecolli.it/en-GB/event/nove-colli-reaches-its-55th-edition-and-returns-to-its-roots"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-18",
+        "edition": 54,
+        "source": "https://www.visitromagna.it/en/events/2465/cesenatico-nove-colli"
+      },
+      {
+        "year": 2024,
+        "date": "2024-05-19",
+        "edition": 53,
+        "source": "https://www.novecolli.it/it-it/evento/il-bis-di-manuel-senni-illumina-la-53esima-edizione-della-nove-colli"
+      },
+      {
+        "year": 2023,
+        "date": "2023-09-24",
+        "edition": 52,
+        "note": "Moved from May 21 to September 24 after the Romagna floods; long route cut to 170 km.",
+        "source": "https://www.corrierecesenate.it/la-nove-colli-si-ripete-lemozione-manuel-senni-vince/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Ultimate Italian gran fondo icon: 9 savage climbs, 12,000 souls, eternal glory.",
       "who_should_ride": "Strong amateurs craving legendary status via 3840 m suffering on Barbotto and Pugliano. Climbers who thrive in massive, roaring pelotons through Apennine beauty.",
@@ -192,8 +221,48 @@
       {
         "url": "https://www.novecolli.it/en-GB",
         "category": "official",
-        "label": "Official Website"
+        "label": "Gran Fondo Nove Colli — 2027 date",
+        "accessed": "2026-11-06"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "200 km",
+          "winner_female": "Annalisa Prato",
+          "winner_male": "Riccardo Barbuto",
+          "source": "https://www.novecolli.it/it-IT/albo_doro"
+        },
+        "2025": {
+          "race": "200 km",
+          "winner_female": "Roberta Bussone",
+          "winner_male": "Alberto Nardin",
+          "source": "https://www.novecolli.it/it-IT/albo_doro"
+        },
+        "2024": {
+          "race": "200 km",
+          "winner_female": "Giulia Portaluri",
+          "winner_male": "Manuel Senni",
+          "winning_time_female": "6:13:14",
+          "winning_time_male": "5:16:00",
+          "source": "https://www.novecolli.it/it-it/evento/il-bis-di-manuel-senni-illumina-la-53esima-edizione-della-nove-colli"
+        },
+        "2023": {
+          "race": "170 km",
+          "winner_female": "Monika Dietl",
+          "winner_male": "Manuel Senni",
+          "winning_time_female": "5:24:29",
+          "winning_time_male": "4:33:10",
+          "source": "https://www.novecolli.it/it-IT/evento/e-manuel-senni-a-vincere-la-52esima-edizione-della-nove-colli"
+        },
+        "2022": {
+          "race": "Long route",
+          "winner_female": "Laura Simenc",
+          "winner_male": "Loic Ruffaut",
+          "source": "https://www.novecolli.it/it-IT/albo_doro"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

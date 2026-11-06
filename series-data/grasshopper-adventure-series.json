@@ -17,41 +17,66 @@
         "slug": null,
         "location": "Ukiah, California",
         "month": "January",
-        "has_profile": false
+        "has_profile": false,
+        "date": "2027-01-31",
+        "date_text": "January 31, 2027",
+        "note": "A Strambecco listing gives January 24."
       },
       {
         "name": "Huffmaster",
         "slug": null,
         "location": "Maxwell, California",
         "month": "February",
-        "has_profile": false
+        "has_profile": false,
+        "date": "2027-02-28",
+        "date_text": "February 28, 2027",
+        "note": "A Strambecco listing gives February 27."
       },
       {
         "name": "King Ridge",
         "slug": null,
-        "location": "Duncan Hills, California",
+        "location": "Monte Rio, California",
         "month": "March",
-        "has_profile": false
+        "has_profile": false,
+        "date": "2027-03-20",
+        "date_text": "March 20, 2027"
       },
       {
         "name": "Jackson Forest",
         "slug": null,
         "location": "Caspar, California",
         "month": "April",
-        "has_profile": false
+        "has_profile": false,
+        "date": "2027-04-10",
+        "date_text": "April 10, 2027"
       },
       {
         "name": "Ukiah Mendo Gravel Epic",
         "slug": null,
         "location": "Ukiah, California",
         "month": "May",
-        "has_profile": false
+        "has_profile": false,
+        "date": "2027-05-23",
+        "date_text": "May 23, 2027"
       }
     ],
     "key_stats": {
       "total_events": 5,
       "countries": 1,
       "oldest_event_year": 1998
-    }
+    },
+    "season": 2027,
+    "citations": [
+      {
+        "url": "https://grasshopperadventureseries.com/",
+        "category": "official",
+        "label": "Grasshopper Adventure Series: 2027 dates"
+      },
+      {
+        "url": "https://strambecco.com/organizer/hopper-adventures-grasshopper",
+        "category": "other",
+        "label": "Strambecco: Hopper Adventures event listings"
+      }
+    ]
   }
 }

@@ -5,7 +5,7 @@
       "name": "Dartmoor Legend Ultra Sportive",
       "location": "Exeter Racecourse, Kennford, Exeter, Devon, EX6 7XS, England",
       "date": "2026: July 11",
-      "date_specific": "2026: July 11",
+      "date_specific": "2027: April 24 (Saturday, CONFIRMED — sportivaevents.co.uk)",
       "distance_mi": 200,
       "elevation_ft": 19700,
       "discipline": "road",
@@ -32,7 +32,8 @@
       "cultural_impact": 2,
       "overall_score": 79,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "adventure": {
@@ -154,6 +155,20 @@
       "notable_editions": "2025 new Exeter Racecourse start/finish. 318km/6066m edition completed in 15:57 by 9th place finisher.",
       "growth_trajectory": "Incorporated into expanded Moor to Sea event family with 4 distances. Steady growth in ultra-cycling popularity."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-07-11",
+        "note": "Run together with Moor to Sea Sportive, moved to July",
+        "source": "https://sportive.com/event/dartmoor-legend-ultra/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-10",
+        "note": "New start and finish at Exeter Racecourse",
+        "source": "https://findarace.com/events/dartmoor-legend-ultra"
+      }
+    ],
     "final_verdict": {
       "one_liner": "UK's definitive ultra sportive - 200 miles of Dartmoor savagery.",
       "best_for": "Endurance masochists seeking supported ultra-distance road suffering with full logistics.",
@@ -166,7 +181,8 @@
         "title": "Dartmoor Legend Ultra - Sportiva Events",
         "snippet": "The UK's toughest sportive: a 200 mile ultra cycling challenge taking on some of Dartmoor's most iconic climbs.",
         "category": "official",
-        "label": "Official Website"
+        "label": "Dartmoor Legend Ultra Sportive — 2027 date",
+        "accessed": "2026-11-06"
       },
       {
         "url": "https://sportivaevents.clubtrac.co.uk/e/moor-to-sea-and-dartmoor-legend-7613",

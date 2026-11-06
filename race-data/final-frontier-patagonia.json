@@ -13,7 +13,7 @@
       "field_size": "limited spots",
       "participation_trend": "subscriptions open October 1st 2026, first come first serve",
       "date": "2026: March 8",
-      "date_specific": "2026: March 8",
+      "date_specific": "2027: March 6 (Saturday, CONFIRMED — finalfrontierpatagonia.com)",
       "location": "Southern Patagonia, Chile",
       "distance_mi": 1678,
       "elevation_ft": 82021
@@ -101,7 +101,8 @@
       {
         "url": "https://www.finalfrontierpatagonia.com/en/",
         "category": "official",
-        "label": "Final Frontier Patagonia — official event site"
+        "label": "Final Frontier Patagonia — 2027 date",
+        "accessed": "2026-11-06"
       },
       {
         "url": "https://finalfrontierpatagonia.com/en/route",
@@ -113,6 +114,18 @@
         "category": "official",
         "label": "Final Frontier Patagonia — official terms and regulations"
       }
-    ]
+    ],
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-03-08",
+        "edition": 1,
+        "note": "Inaugural edition, about 3,000 km from Puerto Montt to Ushuaia; 53 of 100 starters finished.",
+        "source": "https://bikepacking.com/plog/southbound-final-frontier-patagonia-video/"
+      }
+    ],
+    "history": {
+      "founded": 2026
+    }
   }
 }

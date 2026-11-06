@@ -97,6 +97,14 @@ jobs:
           python3 wordpress/generate_tier_hubs.py
           python3 wordpress/generate_insights.py
           python3 wordpress/generate_about.py
+          # The season calendar and power rankings ship with --sync-pages.
+          # The .htaccess pushed below sends /race/calendar/ and past
+          # seasons' rankings to this season's pages, so build them here or
+          # those redirects land on 404s after the September rollover.
+          python3 wordpress/generate_calendar.py
+          python3 wordpress/generate_power_rankings.py
+          python3 wordpress/generate_series_hubs.py
+          python3 wordpress/generate_homepage.py
           # Methodology and the tier hubs ship with --sync-pages, insights,
           # about and the tire guides with their own flags below. The /tire/
           # pages are built only so the sitemap lists them: their deploy
@@ -143,6 +151,8 @@ jobs:
             --season-review-variants athlete,goal_2027 \
             --sync-redirects --sync-sitemap --sync-meta-descriptions \
             --sync-insights --sync-about --sync-tire-guides \
+            --sync-series --sync-homepage --sync-index --sync-widget \
+            --sync-llms-txt --sync-rss --sync-embed \
             $OG_FLAG --purge-cache
 
       - name: Check the live site
@@ -152,7 +162,9 @@ jobs:
           v="v=$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
           fail=0
           code() { curl -s -o /dev/null -w '%{http_code} %{redirect_url}' "$1"; }
-          for path in /training-plans/start/ /training-plans/details/ /products/training-plans/ /goals/; do
+          season=$(python3 -c "import sys; sys.path.insert(0, 'wordpress'); from season import season_year; print(season_year())")
+          for path in /training-plans/start/ /training-plans/details/ /products/training-plans/ /goals/ \
+                      "/race/calendar/$season/" "/race/power-rankings-$season/" /race/series/; do
             got=$(code "$base$path?$v")
             echo "$path -> $got"
             case "$got" in 200*) ;; *) fail=1 ;; esac

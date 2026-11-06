@@ -163,6 +163,12 @@
         "status": "not_held",
         "note": "Organizer took the year off",
         "source": "https://granfondobratislava.sk/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-03",
+        "edition": 4,
+        "source": "https://www.casta.sk/cestne-cyklisticke-preteky-nay-gran-fondo/"
       }
     ],
     "final_verdict": {
@@ -192,6 +198,18 @@
     "taking_a_break": {
       "label": "TAKING A BREAK",
       "line": "Granfondo Bratislava is taking 2026 off and hasn't announced 2027. This plan still trains you for exactly this kind of day."
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "132 km",
+          "winner_female": "Bianka Babačová",
+          "winner_male": "Federico Pozzetto",
+          "winning_time_male": "3:18:40",
+          "source": "https://granfondobratislava.sk/nay-gran-fondo-bratislava-2025-je-za-nami/"
+        }
+      },
+      "latest_year": "2025"
     }
   }
 }

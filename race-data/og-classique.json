@@ -201,12 +201,20 @@
       "official_site": "https://ucigravelworldseries.com/en/og-classique/"
     },
     "history": {
-      "founded": null,
+      "founded": 2026,
       "founder": "Official organizer listed by the UCI Gravel World Series",
       "origin_story": "Joined the UCI Gravel World Series in 2026 and immediately drew a 485-rider international start list.",
       "notable_moments": [],
       "reputation": "A well-executed Canadian UCI qualifier with a strong first elite race."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 1,
+        "note": "First edition; UCI Gravel World Series qualifier.",
+        "source": "https://granfondodailynews.com/2026/06/22/king-family-sweeps-age-group-podium-as-adam-roberge-wins-at-og-classique-gravel/"
+      }
+    ],
     "guide_variables": {
       "race_name": "OG Classique",
       "race_distance": "124 km / 77.1 miles",
@@ -353,6 +361,19 @@
       "migration_notes": [
         "New catalog intake from the official 2026 UCI Gravel World Series calendar reconciliation."
       ]
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "124 km",
+          "winner_female": "Haley Smith",
+          "winner_male": "Adam Roberge",
+          "winning_time_female": "3:45:45",
+          "winning_time_male": "3:09:46",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/uci-gravel-world-series-adam-roberge-and-haley-smith-best-in-sprints-for-victories-at-canadas-og-classique/"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

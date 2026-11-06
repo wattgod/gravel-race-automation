@@ -138,6 +138,14 @@
       ],
       "reputation": "Respected regional event in WV Gravel Series known for honest challenge, strong community vibe, and commitment to trail advocacy over commercial growth."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-08-16",
+        "note": "Part of the West Virginia Gravel Series.",
+        "source": "https://www.wvgravelseries.com/results"
+      }
+    ],
     "community": {
       "vibe": "Grassroots Appalachian gravel community with genuine trail advocacy focus. Regional riders who prioritize authentic challenge over luxury amenities. Tight-knit WV Gravel Series regulars who show up to suffer together and support local trails.",
       "best_for": [
@@ -617,6 +625,19 @@
         "credit": "YouTube / Ride Loose",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "85 mi",
+          "winner_female": "Elizabeth Sheldon",
+          "winner_male": "Zachary Racine",
+          "winning_time_female": "5:49:39",
+          "winning_time_male": "4:34:11",
+          "source": "https://moorefieldexaminer.com/2025/08/19/lost-river-classic-traverses-gravel-terrain/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

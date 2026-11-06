@@ -85,20 +85,62 @@
       "scoring_notes": "The 66/100 score applies the published rubric to the established Berlin-to-Copenhagen identity and latest verified route, not an unpublished 2027 GPX. Ultra distance, 13,123 feet of climbing, and the international crossing score highly; the young series, 100-rider cap, and costly point-to-point trip keep prestige, field depth, and expenses conservative."
     },
     "biased_opinion_ratings": {
-      "logistics": {"score": 4, "explanation": "Berlin and Copenhagen are easy to reach, but the international point-to-point finish, ferry timing, self-arranged sleep, and extraction planning make this a significant destination-race operation."},
-      "length": {"score": 5, "explanation": "The latest detailed route is 730 kilometres and requires at least one overnight for nearly everyone."},
-      "technicality": {"score": 3, "explanation": "The organizer's 2026 route uses forest tracks and mixed gravel that reward handling without turning the event into a mountain-bike race."},
-      "elevation": {"score": 5, "explanation": "The latest detailed route carries 4,000 metres, or 13,123 feet, of climbing, above the published 10,000-foot threshold for the maximum score."},
-      "climate": {"score": 3, "explanation": "The announced July-August 2027 window is moderate, while rain and Baltic wind can still reshape the race."},
-      "altitude": {"score": 1, "explanation": "The 2026 Berlin-to-Copenhagen route has no sustained high-altitude exposure."},
-      "adventure": {"score": 5, "explanation": "A self-supported international crossing from Berlin to Copenhagen through forest and coast is a complete adventure."},
-      "prestige": {"score": 2, "explanation": "The route has a strong identity but only a short results history and a 100-rider cap, so it remains a growing event rather than a national fixture."},
-      "race_quality": {"score": 4, "explanation": "Organizer reconnaissance, tracking, and a capped field provide a credible foundation, with final 2027 detail still pending."},
-      "experience": {"score": 4, "explanation": "The move from Berlin forests to the Baltic ferry and a Copenhagen finish is memorable, while the final 2027 route remains unpublished."},
-      "community": {"score": 3, "explanation": "A 100-rider field, briefing, social ride, tracking, and finish welcome support a good small-event vibe without evidence for a legendary community score."},
-      "field_depth": {"score": 2, "explanation": "The 100-rider event is too new and small to claim an established deep competitive field."},
-      "value": {"score": 3, "explanation": "The 2026 package supplied GPS tracking and event structure, while riders still covered every resupply and overnight cost."},
-      "expenses": {"score": 2, "explanation": "Berlin-to-Copenhagen travel, accommodation, and northern-European prices put the 2027 trip in the rubric's high-cost range; expenses score lower when the trip costs more."}
+      "logistics": {
+        "score": 4,
+        "explanation": "Berlin and Copenhagen are easy to reach, but the international point-to-point finish, ferry timing, self-arranged sleep, and extraction planning make this a significant destination-race operation."
+      },
+      "length": {
+        "score": 5,
+        "explanation": "The latest detailed route is 730 kilometres and requires at least one overnight for nearly everyone."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The organizer's 2026 route uses forest tracks and mixed gravel that reward handling without turning the event into a mountain-bike race."
+      },
+      "elevation": {
+        "score": 5,
+        "explanation": "The latest detailed route carries 4,000 metres, or 13,123 feet, of climbing, above the published 10,000-foot threshold for the maximum score."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "The announced July-August 2027 window is moderate, while rain and Baltic wind can still reshape the race."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The 2026 Berlin-to-Copenhagen route has no sustained high-altitude exposure."
+      },
+      "adventure": {
+        "score": 5,
+        "explanation": "A self-supported international crossing from Berlin to Copenhagen through forest and coast is a complete adventure."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "The route has a strong identity but only a short results history and a 100-rider cap, so it remains a growing event rather than a national fixture."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "Organizer reconnaissance, tracking, and a capped field provide a credible foundation, with final 2027 detail still pending."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The move from Berlin forests to the Baltic ferry and a Copenhagen finish is memorable, while the final 2027 route remains unpublished."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "A 100-rider field, briefing, social ride, tracking, and finish welcome support a good small-event vibe without evidence for a legendary community score."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The 100-rider event is too new and small to claim an established deep competitive field."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The 2026 package supplied GPS tracking and event structure, while riders still covered every resupply and overnight cost."
+      },
+      "expenses": {
+        "score": 2,
+        "explanation": "Berlin-to-Copenhagen travel, accommodation, and northern-European prices put the 2027 trip in the rubric's high-cost range; expenses score lower when the trip costs more."
+      }
     },
     "biased_opinion": {
       "verdict": "The Cleaner Entry Into Nordic Chase",
@@ -121,10 +163,30 @@
       "character": "The latest detailed route leaves Berlin, works north through forest tracks and farmland, reaches the Baltic, crosses by ferry into Denmark, and finishes on the gravel paths of Sjælland in Copenhagen. It is one continuous self-supported race, not a stage event. The final 2027 GPX may change and is intentionally not represented here as fixed.",
       "signature_challenge": "Holding an efficient all-day pace through exposed, rolling terrain while coordinating resupply, sleep, navigation, and the ferry connection.",
       "suffering_zones": [
-        {"name": "The Berlin rollout", "mile": "0-60", "description": "Urban navigation and early adrenaline reward restraint.", "survival_strategy": "Stay on the route, avoid traffic-risk heroics, and settle into an all-day pace."},
-        {"name": "Northern German forests", "mile": "60-260", "description": "Repetitive gravel, darkness, and limited services test focus.", "survival_strategy": "Plan night resupply in advance and keep navigation prompts visible and charged."},
-        {"name": "The Baltic approach", "mile": "260-350", "description": "Exposed wind can make nominally flat kilometres expensive.", "survival_strategy": "Ride power, not speed, and protect the legs before the ferry transition."},
-        {"name": "Sjælland to Copenhagen", "mile": "350-finish", "description": "The finish looks close while fatigue and small route decisions continue to accumulate.", "survival_strategy": "Keep eating and navigating until the timing mat rather than mentally finishing at the ferry."}
+        {
+          "name": "The Berlin rollout",
+          "mile": "0-60",
+          "description": "Urban navigation and early adrenaline reward restraint.",
+          "survival_strategy": "Stay on the route, avoid traffic-risk heroics, and settle into an all-day pace."
+        },
+        {
+          "name": "Northern German forests",
+          "mile": "60-260",
+          "description": "Repetitive gravel, darkness, and limited services test focus.",
+          "survival_strategy": "Plan night resupply in advance and keep navigation prompts visible and charged."
+        },
+        {
+          "name": "The Baltic approach",
+          "mile": "260-350",
+          "description": "Exposed wind can make nominally flat kilometres expensive.",
+          "survival_strategy": "Ride power, not speed, and protect the legs before the ferry transition."
+        },
+        {
+          "name": "Sjælland to Copenhagen",
+          "mile": "350-finish",
+          "description": "The finish looks close while fatigue and small route decisions continue to accumulate.",
+          "survival_strategy": "Keep eating and navigating until the timing mat rather than mentally finishing at the ferry."
+        }
       ]
     },
     "logistics": {
@@ -147,6 +209,14 @@
       ],
       "reputation": "A young, small-field European gravel ultra with an unusually clear point-to-point narrative."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-08-01",
+        "note": "Gravel edition run on a separate day from the road edition.",
+        "source": "https://bikepacking.com/event/2026-nordic-chase-chapter-two/"
+      }
+    ],
     "final_verdict": {
       "score": "66 / 100",
       "one_liner": "Berlin forests, Baltic wind, a ferry, and 454 self-supported miles to Copenhagen.",
@@ -186,6 +256,19 @@
         "https://nordicchase.com/terms-and-conditions"
       ],
       "research_date": "2026-08-15"
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "735 km",
+          "winner_female": "Bianca Datola",
+          "winner_male": "Florian Seifert",
+          "winning_time_female": "34h 04m",
+          "winning_time_male": "29h 36m",
+          "source": "https://www.strava.com/clubs/1383419/posts"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

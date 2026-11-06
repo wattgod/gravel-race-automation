@@ -112,12 +112,26 @@
       "official_site": "https://www.nedgravel.com/"
     },
     "history": {
-      "founded": null,
+      "founded": 2021,
       "founder": "Gavin Coombs",
       "origin_story": "Founded as an inclusive high-altitude gravel event in Nederland, Colorado.",
       "notable_moments": [],
       "reputation": "Growing Front Range gravel event with real mountain character."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-07-12",
+        "edition": 5,
+        "source": "https://www.outdoorsportswire.com/fifth-annual-ned-gravel-event-returns-bigger-better-than-ever-before/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-07-13",
+        "edition": 4,
+        "source": "https://www.themtnear.com/stories/hundreds-of-competitors-test-their-mettle,13214"
+      }
+    ],
     "course_description": {
       "character": "High-altitude mountain gravel with significant climbing through ghost towns.",
       "suffering_zones": [
@@ -409,9 +423,17 @@
           "key_takeaways": [
             "A new Bronze course was introduced in 2024"
           ]
+        },
+        "2025": {
+          "race": "70 mi",
+          "winner_female": "Andrea Dvorak",
+          "winner_male": "Eric Brunner",
+          "winning_time_female": "4:33:23",
+          "winning_time_male": "3:40:32",
+          "source": "https://www.themtnear.com/stories/nedgravel-2025-takes-over-town,50246"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

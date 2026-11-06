@@ -3117,9 +3117,9 @@ RewriteRule ^race/gravel-suisse/?$ /race/the-majestics-gravel/ [R=301,L]
 RewriteRule ^race/gravel-suisse\\.md$ /race/the-majestics-gravel.md [R=301,L]
 RewriteRule ^race/gravel-suisse/(.*)$ /race/the-majestics-gravel/$1 [R=301,L]
 # Its photos still sit in /race-photos/gravel-suisse/ on the server; serve them
-# at the new path until they are copied there.
+# at the new path until they are copied there under the new names.
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^race-photos/the-majestics-gravel/(gravel-suisse-[a-z0-9.-]+)$ /race-photos/gravel-suisse/$1 [L]
+RewriteRule ^race-photos/the-majestics-gravel/the-majestics-gravel-([a-z0-9.-]+)$ /race-photos/gravel-suisse/gravel-suisse-$1 [L]
 # Border Wars was renamed Homegrown Gravel Adventure for 2025 (data/duplicate-merges.json).
 RewriteRule ^race/border-wars-vs-[a-z0-9-]+/?$ /race/homegrown-gravel-adventure/ [R=301,L]
 RewriteRule ^race/[a-z0-9-]+-vs-border-wars/?$ /race/homegrown-gravel-adventure/ [R=301,L]

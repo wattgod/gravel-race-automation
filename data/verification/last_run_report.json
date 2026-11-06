@@ -1,213 +1,186 @@
 {
- "run_at": "2026-10-29T14:02:38.513426+00:00",
+ "run_at": "2026-11-05T14:02:03.671684+00:00",
  "model": "claude-haiku-4-5",
  "races": [
   {
-   "slug": "seorak-granfondo",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "mismatch",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "12467",
-     "confidence": "high",
-     "source_url": "https://www.platooncycles.com/2026-cycling-events-in-korea-first-half/",
-     "source_type": "media_outlet",
-     "course_scope": "standard_course",
-     "note": "Web sources consistently report 3,700–3,800 m elevation (3,700 m = 12,139 ft; 3,800 m = 12,467 ft). Database value of 11,500 ft is significantly lower, corresponding to only ~3,505 m."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 27030,
-    "output_tokens": 790
-   }
-  },
-  {
-   "slug": "serenissima-gravel",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "71.9",
-     "confidence": "high",
-     "source_url": "https://serenissimagravel.com/percorso",
-     "source_type": "official_site",
-     "course_scope": "standard_course",
-     "note": "Official site reports 115.6 km (71.9 mi) for 2026 professionals course, significantly different from database value of 72 mi. The 2025 edition was 151.6 km (94.2 mi) and 2021 inaugural was 132.1 km (82.1 mi), so course varies by year."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 53073,
-    "output_tokens": 899
-   }
-  },
-  {
-   "slug": "seven",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 51940,
-    "output_tokens": 969
-   }
-  },
-  {
-   "slug": "sierra-nevada-limite",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "87",
-     "confidence": "high",
-     "source_url": "https://www.ahotu.com/event/sierra-nevada-limite-gran-fondo",
-     "source_type": "tracker",
-     "course_scope": "shorter_option",
-     "note": "The web shows 140 km (87 mi) as the current 2026 flagship distance. The 146 km (91 mi) appears to have been the standard course in prior years (2024-2025). Multiple sources confirm: 146 km = 90.73 mi ≈ 91 mi. Current 2026 flagship is 140 km (87 mi) per official site and multiple sources. This represents a shortened flagship course for 2026."
-    },
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "10826",
-     "confidence": "high",
-     "source_url": "https://sierranevadalimite.com/snl-info/",
-     "source_type": "official_site",
-     "course_scope": "standard_course",
-     "note": "Official site states 119 km and 3,319 m+ elevation. The 146 km distance has 3,900 m (12,795 ft). Current 2026 flagship is 119-140 km with 3,319 m (10,892 ft) or 3,200 m (10,499 ft) per various official sources. Database value of 11,000 ft ≈ 3,353 m, but sources show primarily 3,319 m or 3,200 m elevation for the current route."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 56453,
-    "output_tokens": 1074
-   }
-  },
-  {
-   "slug": "silver-city-century",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "unverifiable",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "62",
-     "confidence": "high",
-     "source_url": "https://www.bikeiowa.com/Event/16024/silver-city-century",
-     "source_type": "official_site",
-     "course_scope": "standard_course",
-     "note": "Official Iowa Gravel Series site consistently lists the race as 100km / 62 miles, not 100 miles. The race is branded as a 'Century' but in kilometers, not miles."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
-     "old": 100.0,
-     "new": 62.0,
-     "source": "https://www.bikeiowa.com/Event/16024/silver-city-century",
-     "flag_only": true,
-     "reason": "shorter course option: flagship distance kept",
-     "note": "Official Iowa Gravel Series site consistently lists the race as 100km / 62 miles, not 100 miles. The race is branded as a 'Century' but in kilometers, not miles."
-    }
-   ],
-   "usage": {
-    "input_tokens": 35101,
-    "output_tokens": 895
-   }
-  },
-  {
-   "slug": "soldier-cutoff-hillduro",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 48914,
-    "output_tokens": 915
-   }
-  },
-  {
-   "slug": "southern-cross-gravel",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "unverifiable",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 25349,
-    "output_tokens": 982
-   }
-  },
-  {
-   "slug": "spirit-world-100",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "unverifiable",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 52347,
-    "output_tokens": 797
-   }
-  },
-  {
-   "slug": "spotted-horse-ultra",
+   "slug": "the-insayner",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "unverifiable",
-    "field_size": "mismatch",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "25",
+     "confidence": "high",
+     "source_url": "https://runsignup.com/Race/WI/Sayner/2023InSaynerMountainBikeRace",
+     "source_type": "official_results",
+     "course_scope": "standard_course",
+     "note": "Multiple sources including official registration site confirm main race is 25 miles (25(ish) miles). However, historical data shows distance has varied: 23 miles in 2021-2023, 25 miles in 2025-2026. The 2026 edition is documented as 25 miles."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 24636,
+    "output_tokens": 794
+   }
+  },
+  {
+   "slug": "the-mane-event-gravel",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "70, 90, 100",
+     "confidence": "high",
+     "source_url": "https://battistrada.com/en/cycling-calendar/edition/the-mane-event-gravel-grinder-2025/42944/",
+     "source_type": "media_outlet",
+     "course_scope": "standard_course",
+     "note": "Battistrada and GravelGodCycling show 2025 registration at $70 (25-mi), $90 (54-mi flagship), and $100 (78-mi), not the database estimate of ~$75-95 for 54-mi course. The $90 for 54-mile is within the stated range but 25 and 78-mile are below and above respectively."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 23857,
+    "output_tokens": 829
+   }
+  },
+  {
+   "slug": "the-rad",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 64349,
+    "output_tokens": 1075
+   }
+  },
+  {
+   "slug": "the-range",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 22707,
+    "output_tokens": 826
+   }
+  },
+  {
+   "slug": "the-rift",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "unverifiable",
+    "field_size": "confirmed",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 16586,
+    "output_tokens": 721
+   }
+  },
+  {
+   "slug": "the-traka",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "unverifiable",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "200€ for 2026 Traka 200; priority/general registration dates were July 1, 2025 (not July 14/16, 2026)",
+     "confidence": "high",
+     "source_url": "https://web.rockthesport.com/en/event/the-traka-2026",
+     "source_type": "other",
+     "course_scope": "standard_course",
+     "note": "2026 registration cost was 200€ (not €80-200 range). The database lists registration dates of July 14/16 for 2026 (for 2027 edition), but official RockTheSport shows 2026 registration opened July 1, 2025. The database value €80-200 may refer to variable pricing across multiple Traka distances; the Traka 200 itself was flat 200€. For 2027, sources indicate priority July 14 and general July 16, which aligns with database."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 22854,
+    "output_tokens": 970
+   }
+  },
+  {
+   "slug": "the-watermoo",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "unverifiable",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "111",
+     "confidence": "high",
+     "source_url": "https://thewatermoo.com/",
+     "source_type": "official_site",
+     "course_scope": "standard_course",
+     "note": "Official website states 111 miles, not 62 miles. This is consistently reported across multiple independent sources including GranFondoGuide, TrailForks, and the event's own official site."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 62.0,
+     "new": 111.0,
+     "source": "https://thewatermoo.com/",
+     "flag_only": true,
+     "reason": "swing over 50%: likely a different distance variant",
+     "note": "Official website states 111 miles, not 62 miles. This is consistently reported across multiple independent sources including GranFondoGuide, TrailForks, and the event's own official site."
+    }
+   ],
+   "usage": {
+    "input_tokens": 16803,
+    "output_tokens": 585
+   }
+  },
+  {
+   "slug": "the-wolf-dronninglund",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
     "prize_purse": "unverifiable",
     "registration_cost": "unverifiable",
     "status": "confirmed"
@@ -216,73 +189,87 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "175",
+     "web_value": "102.5",
      "confidence": "high",
-     "source_url": "https://spottedhorsecycling.com/home/",
+     "source_url": "https://ucigravelworldseries.com/en/dronninglund/",
      "source_type": "official_site",
-     "course_scope": "one_off_edition",
-     "note": "Official site (spottedhorsecycling.com) lists course distances as 35, 75, 150, and 200 miles for the standard race. However, Strambecco (updated ~369 days ago) reports 2026 edition offers 35, 70, and 175 miles as ultra distance—a change from the standard 200-mile flagship course. This appears to be a one-off edition modification for 2026 only."
-    },
-    {
-     "field": "field_size",
-     "verdict": "mismatch",
-     "web_value": "120",
-     "confidence": "high",
-     "source_url": "https://www.granfondoguide.com/Events/Index/5354/spotted-horse-gravel-ultra",
-     "source_type": "media_outlet",
      "course_scope": "standard_course",
-     "note": "GranFondoGuide (October 2025 edition) reports 'Limited to: 120 riders.' Our database value of 200–400 riders significantly exceeds this documented limit."
+     "note": "Official UCI Gravel World Series site lists 165 km flagship distance (165 km ÷ 0.621371 = 102.5 mi), confirming database value for the longest route. GravelGodCycling also lists 102.5 mi for the 165 km option. Multiple sources confirm 82-123-165 km as the three distance options; 165 km is the flagship elite distance."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 44400,
+    "output_tokens": 1206
+   }
+  },
+  {
+   "slug": "thunder-bay-thriller",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "65",
+     "confidence": "high",
+     "source_url": "https://www.letsrockcf.org/thunder-bay-thriller",
+     "source_type": "official_site",
+     "course_scope": "standard_course",
+     "note": "Official website and multiple reliable sources confirm flagship 2026 distance is 65 miles, not 50. Race offers multi-distance options (15, 31, 65, 100 miles) but 65-mile is the primary/long course."
     }
    ],
    "changes": [
     {
      "field": "vitals.distance_mi",
-     "old": 150.0,
-     "new": 175.0,
-     "source": "https://spottedhorsecycling.com/home/",
-     "flag_only": true,
-     "reason": "one-off edition change (reroute/detour/weather): recorded as a note, flagship value kept",
-     "note": "Official site (spottedhorsecycling.com) lists course distances as 35, 75, 150, and 200 miles for the standard race. However, Strambecco (updated ~369 days ago) reports 2026 edition offers 35, 70, and 175 miles as ultra distance—a change from the standard 200-mile flagship course. This appears to be a one-off edition modification for 2026 only.",
-     "one_off": true
-    },
-    {
-     "field": "vitals.field_size",
-     "old": 200.0,
-     "new": 120.0,
-     "source": "https://www.granfondoguide.com/Events/Index/5354/spotted-horse-gravel-ultra",
+     "old": 50.0,
+     "new": 65.0,
+     "source": "https://www.letsrockcf.org/thunder-bay-thriller",
      "source_tier": "unknown/aggregator",
      "needs_review": true,
-     "reason": "source is unknown/aggregator, not official"
+     "reason": "30% change (limit 15%); source is unknown/aggregator, not official"
+    },
+    {
+     "field": "rating.length",
+     "old": 2,
+     "new": 3,
+     "source": "rubric recompute",
+     "needs_review": true,
+     "reason": null
+    },
+    {
+     "field": "biased_opinion_ratings.length.score",
+     "old": 2,
+     "new": 3,
+     "source": "rubric recompute (sync)",
+     "needs_review": true
+    },
+    {
+     "field": "rating.overall_score",
+     "old": 40,
+     "new": 41,
+     "source": "rubric recompute",
+     "needs_review": true,
+     "reason": null
     }
    ],
    "usage": {
-    "input_tokens": 24680,
-    "output_tokens": 878
+    "input_tokens": 44163,
+    "output_tokens": 920
    }
   },
   {
-   "slug": "spring-valley-100",
+   "slug": "toppling-goliath-gravel-grinder",
    "verdicts": {
     "distance_mi": "confirmed",
     "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "unverifiable",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 23629,
-    "output_tokens": 883
-   }
-  },
-  {
-   "slug": "standard-deluxe-dirt-road-century",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "unverifiable",
-    "field_size": "confirmed",
+    "field_size": "unverifiable",
     "prize_purse": "confirmed",
     "registration_cost": "confirmed",
     "status": "confirmed"
@@ -290,50 +277,81 @@
    "mismatches": [],
    "changes": [],
    "usage": {
-    "input_tokens": 51035,
-    "output_tokens": 977
+    "input_tokens": 42299,
+    "output_tokens": 834
    }
   },
   {
-   "slug": "steamboat-gravel",
+   "slug": "tor-divide",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "unverifiable",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "155.3",
+     "confidence": "high",
+     "source_url": "https://bikepacking.com/event/tor-divide-2026/",
+     "source_type": "media_outlet",
+     "course_scope": "standard_course",
+     "note": "Official BIKEPACKING.com listing and multiple sources (granfondoguide.com, Battistrada) all confirm the flagship 250km route is 155.3 mi, not 60 mi. The 60 mi value does not match any of the three route options offered (150 km, 225 km, 250 km)."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "£89",
+     "confidence": "high",
+     "source_url": "https://bikepacking.com/event/tor-divide-2026/",
+     "source_type": "media_outlet",
+     "course_scope": "standard_course",
+     "note": "Multiple sources (BIKEPACKING.com, TimeOutdoors, granfondoguide.com) confirm 2026 cost is £89, not £75-95. The official event store also lists entries at £89. Registration is online."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 60.0,
+     "new": 155.3,
+     "source": "https://bikepacking.com/event/tor-divide-2026/",
+     "flag_only": true,
+     "reason": "swing over 50%: likely a different distance variant",
+     "note": "Official BIKEPACKING.com listing and multiple sources (granfondoguide.com, Battistrada) all confirm the flagship 250km route is 155.3 mi, not 60 mi. The 60 mi value does not match any of the three route options offered (150 km, 225 km, 250 km)."
+    }
+   ],
+   "usage": {
+    "input_tokens": 22704,
+    "output_tokens": 1008
+   }
+  },
+  {
+   "slug": "torino-nice-rally",
    "verdicts": {
     "distance_mi": "confirmed",
     "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
     "registration_cost": "unverifiable",
     "status": "confirmed"
    },
    "mismatches": [],
    "changes": [],
    "usage": {
-    "input_tokens": 25734,
-    "output_tokens": 746
+    "input_tokens": 19130,
+    "output_tokens": 903
    }
   },
   {
-   "slug": "struggle-dales",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "unverifiable",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 25761,
-    "output_tokens": 889
-   }
-  },
-  {
-   "slug": "sunday-creek-classic",
+   "slug": "total-tomahawk-terrain",
    "verdicts": {
     "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
     "prize_purse": "confirmed",
     "registration_cost": "mismatch",
     "status": "confirmed"
@@ -342,299 +360,335 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "74.56",
+     "web_value": "103",
      "confidence": "high",
-     "source_url": "https://www.sundaycreekclassic.cc/event-details",
+     "source_url": "https://www.ironbull.org/ttt-details",
      "source_type": "official_site",
      "course_scope": "standard_course",
-     "note": "Official website and multiple sources consistently report 120km, which converts to 74.56 miles, not 62 miles as in database."
+     "note": "The official race site and multiple sources confirm the 103-mile distance as the standard flagship course. The 8th edition (2026) features 103 miles as the main TTT distance, with shorter 33 and 63 mile route options. Database value of 62 miles matches only the intermediate option, not the flagship course."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "free",
+     "confidence": "high",
+     "source_url": "https://www.ironbull.org/ttt-details",
+     "source_type": "official_site",
+     "course_scope": "standard_course",
+     "note": "Official site explicitly states 'Free registration' for the 8th edition (June 20, 2026). Multiple sources confirm this is a free community gravel ride. Database value of ~$60-90 registration cost contradicts official information."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 62.0,
+     "new": 103.0,
+     "source": "https://www.ironbull.org/ttt-details",
+     "flag_only": true,
+     "reason": "swing over 50%: likely a different distance variant",
+     "note": "The official race site and multiple sources confirm the 103-mile distance as the standard flagship course. The 8th edition (2026) features 103 miles as the main TTT distance, with shorter 33 and 63 mile route options. Database value of 62 miles matches only the intermediate option, not the flagship course."
+    }
+   ],
+   "usage": {
+    "input_tokens": 22567,
+    "output_tokens": 772
+   }
+  },
+  {
+   "slug": "tour-aotearoa",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "121358",
+     "confidence": "high",
+     "source_url": "https://dotwatcher.cc/race/tour-aotearoa-2024",
+     "source_type": "official_results",
+     "course_scope": "standard_course",
+     "note": "DotWatcher (official tracking site), Grokipedia, Bikemap, and other sources consistently report ~37,000 m elevation gain for the standard route. 37,000 m = 121,358 ft. Database lists 0 ft, which is incorrect. Elevation gain is substantial and well-documented."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.elevation_ft",
+     "old": 0.0,
+     "new": 121358.0,
+     "source": "https://dotwatcher.cc/race/tour-aotearoa-2024",
+     "flag_only": true,
+     "reason": "weak source (tracker)",
+     "note": "DotWatcher (official tracking site), Grokipedia, Bikemap, and other sources consistently report ~37,000 m elevation gain for the standard route. 37,000 m = 121,358 ft. Database lists 0 ft, which is incorrect. Elevation gain is substantial and well-documented."
+    }
+   ],
+   "usage": {
+    "input_tokens": 53248,
+    "output_tokens": 989
+   }
+  },
+  {
+   "slug": "tour-de-gap",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 45438,
+    "output_tokens": 775
+   }
+  },
+  {
+   "slug": "tour-de-nebraska",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "confirmed",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "234",
+     "confidence": "high",
+     "source_url": "https://www.tourdenebraska.com/past-routes.html",
+     "source_type": "official_site",
+     "course_scope": "one_off_edition",
+     "note": "2025 edition (Curtis-Elwood-Cambridge-McCook route) was 234 miles, not 250 miles. Database lists 250 miles as the standard value. The GravelGodCycling training site mentions '250 plus miles' for Curtis-Elwood-Cambridge-McCook but uses imprecise language. Official site lists 2025 route as 234 miles."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "$445 (2026 full registration)",
+     "confidence": "high",
+     "source_url": "https://www.bikereg.com/74174?orc=1",
+     "source_type": "official_results",
+     "course_scope": "standard_course",
+     "note": "2026 Tour de Nebraska (current/Hartington route) shows $445 full registration fee. Database states $100 online cost for Curtis-Elwood-Cambridge-McCook route. 2025 registration data not directly found in search results, but 2026 pricing is significantly higher. Different route, so may explain difference."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.distance_mi",
+     "old": 250.0,
+     "new": 234.0,
+     "source": "https://www.tourdenebraska.com/past-routes.html",
+     "flag_only": true,
+     "reason": "one-off edition change (reroute/detour/weather): recorded as a note, flagship value kept",
+     "note": "2025 edition (Curtis-Elwood-Cambridge-McCook route) was 234 miles, not 250 miles. Database lists 250 miles as the standard value. The GravelGodCycling training site mentions '250 plus miles' for Curtis-Elwood-Cambridge-McCook but uses imprecise language. Official site lists 2025 route as 234 miles.",
+     "one_off": true
+    }
+   ],
+   "usage": {
+    "input_tokens": 23014,
+    "output_tokens": 997
+   }
+  },
+  {
+   "slug": "tour-de-romandie-cyclosportive",
+   "verdicts": {
+    "distance_mi": "unverifiable",
+    "elevation_ft": "unverifiable",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "unverifiable"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 64020,
+    "output_tokens": 791
+   }
+  },
+  {
+   "slug": "tour-divide",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "158051",
+     "confidence": "high",
+     "source_url": "https://bikepacking.com/tracker/2026-tour-divide-tracker/",
+     "source_type": "media_outlet",
+     "course_scope": "standard_course",
+     "note": "2026 tracker shows 48,174 M (158,051 FT) elevation gain. 2025 tracker reports 48,185 M (158,087 FT). Multiple sources report ~158,000 ft. Database claims 200,000 ft, which exceeds web-sourced figures by approximately 42,000 ft. One older source (2024) mentioned ~200,000 ft but this appears to be a minority outlier; consistent recent official-adjacent sources report ~158,000 ft."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.elevation_ft",
+     "old": 200000.0,
+     "new": 158051.0,
+     "source": "https://bikepacking.com/tracker/2026-tour-divide-tracker/",
+     "flag_only": true,
+     "reason": "reputable outlet cannot overwrite a value backed by official race site",
+     "note": "2026 tracker shows 48,174 M (158,051 FT) elevation gain. 2025 tracker reports 48,185 M (158,087 FT). Multiple sources report ~158,000 ft. Database claims 200,000 ft, which exceeds web-sourced figures by approximately 42,000 ft. One older source (2024) mentioned ~200,000 ft but this appears to be a minority outlier; consistent recent official-adjacent sources report ~158,000 ft."
+    }
+   ],
+   "usage": {
+    "input_tokens": 32773,
+    "output_tokens": 1038
+   }
+  },
+  {
+   "slug": "tour-of-oman-sportive",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "unverifiable",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [],
+   "changes": [],
+   "usage": {
+    "input_tokens": 26480,
+    "output_tokens": 666
+   }
+  },
+  {
+   "slug": "tour-of-the-peak",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "confirmed",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "12142",
+     "confidence": "high",
+     "source_url": "https://velo29events.com/sportives/tour-of-the-peak-sportive/tour-of-the-peak-long/",
+     "source_type": "official_site",
+     "course_scope": "standard_course",
+     "note": "Official Velo29 Events website states 12,142ft elevation (3,701m) for the long route. Database value of 9,500ft is significantly lower. Epic Road Rides also mentions 3,400 metres (11,155ft) but Velo29's 3,701m figure is used on multiple sources."
+    }
+   ],
+   "changes": [
+    {
+     "field": "vitals.elevation_ft",
+     "old": 9500.0,
+     "new": 12142.0,
+     "source": "https://velo29events.com/sportives/tour-of-the-peak-sportive/tour-of-the-peak-long/",
+     "source_tier": "official race site",
+     "needs_review": true,
+     "reason": "28% change (limit 15%)"
+    }
+   ],
+   "usage": {
+    "input_tokens": 22614,
+    "output_tokens": 909
+   }
+  },
+  {
+   "slug": "tour-of-thekkady",
+   "verdicts": {
+    "distance_mi": "mismatch",
+    "elevation_ft": "mismatch",
+    "field_size": "unverifiable",
+    "prize_purse": "unverifiable",
+    "registration_cost": "unverifiable",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "distance_mi",
+     "verdict": "mismatch",
+     "web_value": "99.2",
+     "confidence": "high",
+     "source_url": "https://www.tourofthekkady.com/",
+     "source_type": "official_site",
+     "course_scope": "standard_course",
+     "note": "Official site confirms 160 km tour distance (99.2 mi). Database claims 90 mi. 160 km = 99.37 mi. Additionally, there's a 145 km race (90.1 mi) which is closer to database value, but the flagship tour is 160 km."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
      "web_value": "9843",
      "confidence": "high",
-     "source_url": "https://www.sundaycreekclassic.cc/event-details",
+     "source_url": "https://www.tourofthekkady.com/",
      "source_type": "official_site",
      "course_scope": "standard_course",
-     "note": "Official website and multiple sources consistently report 3,000 meters of climbing, which converts to 9,843 feet, not 4,000 feet as in database."
-    },
-    {
-     "field": "registration_cost",
-     "verdict": "mismatch",
-     "web_value": "145-185 AUD",
-     "confidence": "high",
-     "source_url": "https://www.sundaycreekclassic.cc/event-details",
-     "source_type": "official_site",
-     "course_scope": "standard_course",
-     "note": "Official website shows Early Bird $145 (before 31 Jan 2026) and Regular $185, not $60-100 AUD as stated in database. 2026 pricing confirmed; 2025 pricing was also higher ($145-$185)."
+     "note": "Official site states elevation of 3,000+ meters, consistently mentioned across multiple sources. 3000m = 9843 ft. Database claims 9800 ft, which falls within the '3000+' claim (off by ~43 ft), but multiple sources confirm 3000m as the base."
     }
    ],
    "changes": [
     {
      "field": "vitals.distance_mi",
-     "old": 62.0,
-     "new": 74.56,
-     "source": "https://www.sundaycreekclassic.cc/event-details",
-     "source_tier": "unknown/aggregator",
+     "old": 90.0,
+     "new": 99.2,
+     "source": "https://www.tourofthekkady.com/",
+     "source_tier": "official race site",
      "needs_review": true,
-     "reason": "20% change (limit 15%); source is unknown/aggregator, not official"
+     "reason": null
     },
     {
-     "field": "vitals.elevation_ft",
-     "old": 4000.0,
-     "new": 9843.0,
-     "source": "https://www.sundaycreekclassic.cc/event-details",
-     "flag_only": true,
-     "reason": "swing over 50%: likely a different distance variant",
-     "note": "Official website and multiple sources consistently report 3,000 meters of climbing, which converts to 9,843 feet, not 4,000 feet as in database."
-    }
-   ],
-   "usage": {
-    "input_tokens": 22714,
-    "output_tokens": 791
-   }
-  },
-  {
-   "slug": "swamp-fox-gravel-fondo",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "unverifiable",
-    "field_size": "confirmed",
-    "prize_purse": "unverifiable",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "100",
-     "confidence": "high",
-     "source_url": "https://www.mtpleasantvelo.org/swampfoxgravelfondo",
-     "source_type": "official_site",
-     "course_scope": "standard_course",
-     "note": "Official site describes race flagship distance as 100 miles, not 65 miles. Database value of 65 miles appears to represent a shorter course option."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
-     "old": 65.0,
-     "new": 100.0,
-     "source": "https://www.mtpleasantvelo.org/swampfoxgravelfondo",
-     "flag_only": true,
-     "reason": "swing over 50%: likely a different distance variant",
-     "note": "Official site describes race flagship distance as 100 miles, not 65 miles. Database value of 65 miles appears to represent a shorter course option."
-    }
-   ],
-   "usage": {
-    "input_tokens": 24201,
-    "output_tokens": 790
-   }
-  },
-  {
-   "slug": "switchgrass",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 50116,
-    "output_tokens": 716
-   }
-  },
-  {
-   "slug": "takelma-gravel-grinder",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "mismatch",
-    "prize_purse": "unverifiable",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "56 or 57",
-     "confidence": "high",
-     "source_url": "https://www.takelmagravelgrinder.com/",
-     "source_type": "official_site",
-     "course_scope": "standard_course",
-     "note": "Official website states '55-mile' but multiple sources including official registrar BikeReg list 56 mi, and third-party sites list 57 mi. The official site (takelmagravelgrinder.com) describes 55 miles, but the BikeReg registration page and Strambecco consistently show 56–57 miles. There is internal inconsistency in official sources."
-    },
-    {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "6000 or 6250",
-     "confidence": "high",
-     "source_url": "https://www.takelmagravelgrinder.com/",
-     "source_type": "official_site",
-     "course_scope": "standard_course",
-     "note": "Official site and most sources cite 6,000 ft elevation gain. GranFondoGuide 2026 registration page states 6,250 ft, but this appears to be an outlier. The consensus is 6,000 ft, not 4,500 ft as in database."
-    },
-    {
-     "field": "field_size",
-     "verdict": "mismatch",
-     "web_value": "200",
-     "confidence": "high",
-     "source_url": "https://www.takelmagravelgrinder.com/",
-     "source_type": "official_site",
-     "course_scope": "standard_course",
-     "note": "Official site and multiple sources confirm field limited to 200 riders. Database states 50-100 riders."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.elevation_ft",
-     "old": 4500.0,
-     "new": 6000.0,
-     "source": "https://www.takelmagravelgrinder.com/",
-     "source_tier": "unknown/aggregator",
-     "needs_review": true,
-     "reason": "33% change (limit 15%); source is unknown/aggregator, not official"
-    },
-    {
-     "field": "vitals.field_size",
-     "old": 50.0,
-     "new": 200.0,
-     "source": "https://www.takelmagravelgrinder.com/",
-     "flag_only": true,
-     "reason": "swing over 50%: likely a different distance variant",
-     "note": "Official site and multiple sources confirm field limited to 200 riders. Database states 50-100 riders."
-    },
-    {
-     "field": "rating.elevation",
-     "old": 3,
-     "new": 4,
+     "field": "rating.length",
+     "old": 4,
+     "new": 3,
      "source": "rubric recompute",
      "needs_review": true,
      "reason": null
     },
     {
-     "field": "biased_opinion_ratings.elevation.score",
-     "old": 3,
-     "new": 4,
+     "field": "biased_opinion_ratings.length.score",
+     "old": 4,
+     "new": 3,
      "source": "rubric recompute (sync)",
      "needs_review": true
     },
     {
      "field": "rating.overall_score",
-     "old": 43,
-     "new": 44,
+     "old": 73,
+     "new": 71,
      "source": "rubric recompute",
      "needs_review": true,
-     "reason": null
-    }
-   ],
-   "usage": {
-    "input_tokens": 52253,
-    "output_tokens": 1008
-   }
-  },
-  {
-   "slug": "tartu-rattamaraton-gravel",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "mismatch",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "76.4",
-     "confidence": "high",
-     "source_url": "https://ucigravelworldseries.com/en/olepaa-elva/",
-     "source_type": "official_site",
-     "course_scope": "standard_course",
-     "note": "Official UCI Gravel World Series source states '123 km course'. Converting: 123 km × 0.621371 = 76.4 mi. This differs from the database value of 78.3 mi (126 km). The 123 km gravel flagship distance is documented across multiple sources (ucigravelworldseries.com, championchip.ee results, Gran Fondo Daily News 2026 coverage). The 126 km mentioned in some sources appears to be a marketing figure or differs slightly from actual measured course."
+     "reason": "overall score moves 2+ points"
     },
     {
-     "field": "elevation_ft",
-     "verdict": "mismatch",
-     "web_value": "4921",
-     "confidence": "high",
-     "source_url": "https://ucigravelworldseries.com/en/olepaa-elva/",
-     "source_type": "official_site",
-     "course_scope": "standard_course",
-     "note": "Official UCI Gravel World Series source states 'around 1500 m of elevation gain over the 123 km course'. Converting: 1500 m × 3.28084 = 4921 ft. Database value matches this conversion exactly. Confirmed as correct."
-    }
-   ],
-   "changes": [],
-   "usage": {
-    "input_tokens": 25166,
-    "output_tokens": 934
-   }
-  },
-  {
-   "slug": "texas-hell-week",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "varies (daily routes 30-50mi, 50-80mi, 60-100mi)",
-     "confidence": "high",
-     "source_url": "https://gravelgodcycling.com/race/best-gravel-races-texas/",
-     "source_type": "media_outlet",
-     "course_scope": "standard_course",
-     "note": "Web source (Gravel God) lists Texas Hell Week as 200 miles, but official sources from www.texashellweek.com and RAAM Challenge clarify it's a 7-day event where participants choose from three daily route options totaling 30-50, 50-80, and 60-100 miles each day. Only the companion race Stampede 200 is a fixed 200-mile double century. Database value of 200 miles does not match the actual event structure."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
-     "old": 200.0,
-     "new": 30.0,
-     "source": "https://gravelgodcycling.com/race/best-gravel-races-texas/",
-     "flag_only": true,
-     "reason": "swing over 50%: likely a different distance variant",
-     "note": "Web source (Gravel God) lists Texas Hell Week as 200 miles, but official sources from www.texashellweek.com and RAAM Challenge clarify it's a 7-day event where participants choose from three daily route options totaling 30-50, 50-80, and 60-100 miles each day. Only the companion race Stampede 200 is a fixed 200-mile double century. Database value of 200 miles does not match the actual event structure."
+     "field": "rating.tier",
+     "old": null,
+     "new": 2,
+     "source": "rubric recompute",
+     "tier_change": true,
+     "needs_review": true
     }
    ],
    "usage": {
-    "input_tokens": 46652,
-    "output_tokens": 977
+    "input_tokens": 23667,
+    "output_tokens": 769
    }
   },
   {
-   "slug": "the-accursed-race",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "confirmed",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 25089,
-    "output_tokens": 803
-   }
-  },
-  {
-   "slug": "the-crusher",
+   "slug": "trans-am-bike-race",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "confirmed",
@@ -647,203 +701,172 @@
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "100 or 175 (varies by course option)",
+     "web_value": "3514",
      "confidence": "high",
-     "source_url": "https://906adventureteam.com/mountain-bike-events/the-crusher/",
-     "source_type": "official_site",
-     "course_scope": "standard_course",
-     "note": "The Crusher offers multiple distance options: 40, 50, 100, 175, 225 miles plus P2P (500 miles). The standard flagship Mass Start course is 175 miles, not 62 miles. A 62-mile reference appears only on Gravel God Cycling review (a media outlet) but this contradicts the official 906 Adventure Team site and all other sources which confirm 175 miles as the primary ultra endurance course."
+     "source_url": "https://ultracyclingraces.com/races/trans-am-bike-nonstop-2026",
+     "source_type": "other",
+     "course_scope": "one_off_edition",
+     "note": "Web shows 5,650 km for 2026 edition (3,514 mi), but multiple sources confirm the standard flagship route is approximately 4,200–4,262 miles. 2026 distance appears to be a one-off checkpoint edition with different route/finish options (Yorktown classic vs. Washington D.C. modern), not the standard course. Database value 4233 mi matches the traditional TransAmerica Bicycle Trail flagship course."
     }
    ],
    "changes": [
     {
      "field": "vitals.distance_mi",
-     "old": 62.0,
-     "new": 100.0,
-     "source": "https://906adventureteam.com/mountain-bike-events/the-crusher/",
-     "flag_only": true,
-     "reason": "swing over 50%: likely a different distance variant",
-     "note": "The Crusher offers multiple distance options: 40, 50, 100, 175, 225 miles plus P2P (500 miles). The standard flagship Mass Start course is 175 miles, not 62 miles. A 62-mile reference appears only on Gravel God Cycling review (a media outlet) but this contradicts the official 906 Adventure Team site and all other sources which confirm 175 miles as the primary ultra endurance course."
-    }
-   ],
-   "usage": {
-    "input_tokens": 24389,
-    "output_tokens": 855
-   }
-  },
-  {
-   "slug": "the-divide",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "unverifiable",
-    "field_size": "unverifiable",
-    "prize_purse": "unverifiable",
-    "registration_cost": "unverifiable",
-    "status": "mismatch"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "50",
-     "confidence": "high",
-     "source_url": "https://hardracingevents.com/events/the-divide/",
-     "source_type": "official_site",
-     "course_scope": "one_off_edition",
-     "note": "2026 COURSE UPDATE (June 1, 2026) on official site states long course will be 52 miles. Pre-June sources consistently reported 50 miles as the Pro-Elite distance. Database value of 52 actually matches the revised 2026 course announced by race organizer. However, the race was CANCELLED on July 24, 2026 due to historic flooding. Our database records show 52, which aligns with the announced 2026 reroute before cancellation."
-    },
-    {
-     "field": "status",
-     "verdict": "mismatch",
-     "web_value": "cancelled",
-     "confidence": "high",
-     "source_url": "https://hardracingevents.com/events/the-divide/",
-     "source_type": "official_site",
-     "course_scope": "standard_course",
-     "note": "Official race website (hardracingevents.com) announcement dated July 24, 2026 states: 'It is with a heavy heart that we are announcing the cancellation of the 2026 Divide race. This past spring we had historic flooding and many of the back roads in our area are still not open.' The race is cancelled, not active, as of today's date (October 29, 2026). This is official confirmation of cancellation for the current year."
-    }
-   ],
-   "changes": [
-    {
-     "field": "status",
-     "old": "active",
-     "new": "cancelled",
-     "source": "https://hardracingevents.com/events/the-divide/",
-     "flag_only": true,
-     "reason": "status is flag-only",
-     "note": "Official race website (hardracingevents.com) announcement dated July 24, 2026 states: 'It is with a heavy heart that we are announcing the cancellation of the 2026 Divide race. This past spring we had historic flooding and many of the back roads in our area are still not open.' The race is cancelled, not active, as of today's date (October 29, 2026). This is official confirmation of cancellation for the current year."
-    }
-   ],
-   "usage": {
-    "input_tokens": 45577,
-    "output_tokens": 1186
-   }
-  },
-  {
-   "slug": "the-equalizer",
-   "verdicts": {
-    "distance_mi": "mismatch",
-    "elevation_ft": "unverifiable",
-    "field_size": "confirmed",
-    "prize_purse": "confirmed",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [
-    {
-     "field": "distance_mi",
-     "verdict": "mismatch",
-     "web_value": "49",
-     "confidence": "high",
-     "source_url": "https://www.bikesignup.com/Race/MO/Warrenton/TheWarrentonEqualizer",
-     "source_type": "official_site",
-     "course_scope": "one_off_edition",
-     "note": "October 24, 2026 edition runs 49 miles (all state championship contenders race this distance). Database value of 62 miles corresponds to the standard 100K distance that typically runs in November. October 24, 2026 is a one-off edition with a reroute to 49 miles per official site."
-    }
-   ],
-   "changes": [
-    {
-     "field": "vitals.distance_mi",
-     "old": 62.0,
-     "new": 49.0,
-     "source": "https://www.bikesignup.com/Race/MO/Warrenton/TheWarrentonEqualizer",
+     "old": 4233.0,
+     "new": 3514.0,
+     "source": "https://ultracyclingraces.com/races/trans-am-bike-nonstop-2026",
      "flag_only": true,
      "reason": "one-off edition change (reroute/detour/weather): recorded as a note, flagship value kept",
-     "note": "October 24, 2026 edition runs 49 miles (all state championship contenders race this distance). Database value of 62 miles corresponds to the standard 100K distance that typically runs in November. October 24, 2026 is a one-off edition with a reroute to 49 miles per official site.",
+     "note": "Web shows 5,650 km for 2026 edition (3,514 mi), but multiple sources confirm the standard flagship route is approximately 4,200–4,262 miles. 2026 distance appears to be a one-off checkpoint edition with different route/finish options (Yorktown classic vs. Washington D.C. modern), not the standard course. Database value 4233 mi matches the traditional TransAmerica Bicycle Trail flagship course.",
      "one_off": true
     }
    ],
    "usage": {
-    "input_tokens": 57549,
-    "output_tokens": 988
+    "input_tokens": 28604,
+    "output_tokens": 1084
    }
   },
   {
-   "slug": "the-gralloch",
-   "verdicts": {
-    "distance_mi": "confirmed",
-    "elevation_ft": "confirmed",
-    "field_size": "unverifiable",
-    "prize_purse": "confirmed",
-    "registration_cost": "confirmed",
-    "status": "confirmed"
-   },
-   "mismatches": [],
-   "changes": [],
-   "usage": {
-    "input_tokens": 26739,
-    "output_tokens": 762
-   }
-  },
-  {
-   "slug": "the-grit-adventure",
+   "slug": "trans-balkan-race",
    "verdicts": {
     "distance_mi": "mismatch",
     "elevation_ft": "mismatch",
     "field_size": "confirmed",
     "prize_purse": "unverifiable",
-    "registration_cost": "confirmed",
+    "registration_cost": "mismatch",
     "status": "confirmed"
    },
    "mismatches": [
     {
      "field": "distance_mi",
      "verdict": "mismatch",
-     "web_value": "63",
+     "web_value": "870",
      "confidence": "high",
-     "source_url": "https://thegrit.bike/event-details/",
+     "source_url": "https://www.transbalkanrace.com/route/",
      "source_type": "official_site",
      "course_scope": "standard_course",
-     "note": "Official site (thegrit.bike) lists the flagship 'Maximus' course as 63 miles with 7,100 feet of climbing. Database value of 65 mi does not match. Multiple sources confirm: Battistrada 2025 shows 101 km / 63 mi for the longest route; Gravel God Cycling and web sources consistently reference 65 mi, but the official GRiT site's Event Details page (updated 106 days ago per metadata) states 'Maximus' as 60 miles with 6,600 feet—however a more recent mention on Event Details also lists 63 miles. The most authoritative source (thegrit.bike Event Details page listing 4 courses) shows Maximus at 60 miles, but the detailed course descriptions show 63 mi as a longstanding flagship distance."
+     "note": "Official site and multiple reliable sources (bikepacking.com 2026, official TBR route page, Bikeradar) consistently state 1,400 km for the flagship race course. This converts to ~869.9 mi (1400 × 0.621371 = 869.12 mi), matching database's 870 mi when rounded. However, historical editions and some sources cite 1,350 km (838.8 mi) for 2023-2025, and 2027 is listed as 1,350 km on GranFondoGuide. The 2026 edition specifically was 1,400 km per bikepacking.com and official route page. Database value of 870 mi appears to reflect the 2026 standard course correctly."
     },
     {
      "field": "elevation_ft",
      "verdict": "mismatch",
-     "web_value": "7100",
+     "web_value": "98425",
      "confidence": "high",
-     "source_url": "https://thegrit.bike/event-details/",
+     "source_url": "https://www.transbalkanrace.com/route/",
      "source_type": "official_site",
      "course_scope": "standard_course",
-     "note": "Official site lists the flagship 'Maximus' course with 7,100 feet of elevation gain (per earlier version) and 6,600 feet (per current version at approximately 106 days ago). Database value is 5,500 ft. The 2025 Battistrada edition (official partner) clearly states the longest route as 101 km / 63 mi with 2,164 m (7,100 ft) elevation. The 7,100 ft figure is the longest/most challenging version listed across multiple sources."
+     "note": "Official site states 30,000 meters of climbing. Conversion: 30,000 m × 3.28084 ft/m = 98,425.2 ft. This matches database exactly. All major sources (official TBR, bikepacking.com, Bikeradar, DotWatcher, Veloatlas) confirm 30,000 m. Database value is confirmed accurate for the standard course."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "390",
+     "confidence": "high",
+     "source_url": "https://www.transbalkanrace.com/registrations/",
+     "source_type": "official_site",
+     "course_scope": "standard_course",
+     "note": "Official TBR registrations page states 2027 entry fee is €390 (plus optional €80 tracker rental or €35 for own device). Database field was left empty; web confirms €390 base fee for 2027. Also confirmed: 2026 was €350 (bikepacking.com), 2025 was €320, 2024 was €290."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 29703,
+    "output_tokens": 1190
+   }
+  },
+  {
+   "slug": "trans-iowa",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "mismatch",
+    "field_size": "confirmed",
+    "prize_purse": "confirmed",
+    "registration_cost": "mismatch",
+    "status": "mismatch"
+   },
+   "mismatches": [
+    {
+     "field": "elevation_ft",
+     "verdict": "mismatch",
+     "web_value": "19291",
+     "confidence": "high",
+     "source_url": "http://rambleur.com/ramblings/2018/5/1/the-end-of-an-era",
+     "source_type": "media_outlet",
+     "course_scope": "standard_course",
+     "note": "Trans Iowa V14 had 19,291 feet elevation gain. Earlier editions (V5) had ~15,000 feet. Database value of 9,000 feet is roughly half the documented elevation gain."
+    },
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "Free",
+     "confidence": "high",
+     "source_url": "http://transiowa.blogspot.com/",
+     "source_type": "official_site",
+     "course_scope": "standard_course",
+     "note": "Official site lists race as 'Free' with 'Registration: CLOSED forever'. First race in 2005 was $20 entry fee; later editions became free."
+    },
+    {
+     "field": "status",
+     "verdict": "mismatch",
+     "web_value": "defunct",
+     "confidence": "high",
+     "source_url": "http://transiowa.blogspot.com/",
+     "source_type": "official_site",
+     "course_scope": "standard_course",
+     "note": "Official announcement: '5/5/18: Trans Iowa will not happen again. In case you haven't heard or read the news, there will not be a T.I.v15.' Last edition was April 28, 2018 (V14). Race is officially defunct."
     }
    ],
    "changes": [
     {
      "field": "vitals.elevation_ft",
-     "old": 5500.0,
-     "new": 7100.0,
-     "source": "https://thegrit.bike/event-details/",
-     "source_tier": "unknown/aggregator",
-     "needs_review": true,
-     "reason": "29% change (limit 15%); source is unknown/aggregator, not official"
+     "old": 9000.0,
+     "new": 19291.0,
+     "source": "http://rambleur.com/ramblings/2018/5/1/the-end-of-an-era",
+     "flag_only": true,
+     "reason": "swing over 50%: likely a different distance variant",
+     "note": "Trans Iowa V14 had 19,291 feet elevation gain. Earlier editions (V5) had ~15,000 feet. Database value of 9,000 feet is roughly half the documented elevation gain."
     },
     {
-     "field": "rating.elevation",
-     "old": 3,
-     "new": 4,
-     "source": "rubric recompute",
-     "needs_review": true,
-     "reason": null
-    },
-    {
-     "field": "biased_opinion_ratings.elevation.score",
-     "old": 3,
-     "new": 4,
-     "source": "rubric recompute (sync)",
-     "needs_review": true
-    },
-    {
-     "field": "rating.overall_score",
-     "old": 47,
-     "new": 49,
-     "source": "rubric recompute",
-     "needs_review": true,
-     "reason": "overall score moves 2+ points"
+     "field": "status",
+     "old": "active",
+     "new": "defunct",
+     "source": "http://transiowa.blogspot.com/",
+     "flag_only": true,
+     "reason": "status is flag-only",
+     "note": "Official announcement: '5/5/18: Trans Iowa will not happen again. In case you haven't heard or read the news, there will not be a T.I.v15.' Last edition was April 28, 2018 (V14). Race is officially defunct."
     }
    ],
    "usage": {
-    "input_tokens": 25648,
-    "output_tokens": 1195
+    "input_tokens": 49315,
+    "output_tokens": 937
+   }
+  },
+  {
+   "slug": "trans-sylvania-epic",
+   "verdicts": {
+    "distance_mi": "confirmed",
+    "elevation_ft": "confirmed",
+    "field_size": "confirmed",
+    "prize_purse": "unverifiable",
+    "registration_cost": "mismatch",
+    "status": "confirmed"
+   },
+   "mismatches": [
+    {
+     "field": "registration_cost",
+     "verdict": "mismatch",
+     "web_value": "$480-$749",
+     "confidence": "high",
+     "source_url": "https://www.bikereg.com/tsegravel?nc=1",
+     "source_type": "official_site",
+     "course_scope": "standard_course",
+     "note": "BikReg (official registration) shows tiered pricing: $649 initial (after 0-25 registrations: $674, after 50: $699, after 100: $724, after 150: $749). Database claims ~$300-500; actual costs are higher at $649-749 range."
+    }
+   ],
+   "changes": [],
+   "usage": {
+    "input_tokens": 24645,
+    "output_tokens": 916
    }
   }
  ],

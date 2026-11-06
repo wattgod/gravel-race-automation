@@ -169,6 +169,18 @@
         "Brennan Wertz won the 2026 men's race in a course-record 3:50:02; Alia Shafi won the women's race."
       ]
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-02-28",
+        "source": "https://www.movemint.cc/events/huffmaster-2026"
+      },
+      {
+        "year": 2025,
+        "date": "2025-02-22",
+        "source": "https://www.grasshopperadventureseries.com/huffmaster"
+      }
+    ],
     "final_verdict": {
       "one_liner": "A deceptively tactical ninety-miler where the easy-looking road start merely delays the real bill.",
       "who_is_it_for": "Riders who can race efficiently in a group, climb hard after two hours, descend loose roads at speed, and adapt equipment to late-winter conditions.",
@@ -225,6 +237,41 @@
       "sources": [
         "https://www.grasshopperadventureseries.com/huffmaster"
       ]
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "89 mi",
+          "winner_female": "Alia Shafi",
+          "winner_male": "Brennan Wertz",
+          "winning_time_female": "4:34:20",
+          "winning_time_male": "3:50:02",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/grasshopper-adventure-series-brennan-wertz-delivers-knock-out-punch-in-three-up-sprint-for-third-consecutive-win-at-huffmaster/"
+        },
+        "2025": {
+          "race": "89 mi",
+          "winner_female": "Kate Courtney",
+          "winner_male": "Brennan Wertz",
+          "winning_time_female": "4:17:25",
+          "winning_time_male": "4:04:20",
+          "source": "https://www.cyclingnews.com/races/grasshopper-adventure-series-2025/huffmaster-hopper-2/results/"
+        },
+        "2024": {
+          "race": "89 mi",
+          "winner_female": "Flavia Oliveira Parks",
+          "winner_male": "Brennan Wertz",
+          "source": "https://www.cyclingnews.com/races/grasshopper-adventure-series-2024/huffmaster-hopper-2/results/"
+        },
+        "2023": {
+          "race": "89 mi",
+          "winner_female": "Katerina Nash",
+          "winner_male": "Ian Lopez de San Roman",
+          "winning_time_female": "5:33:33",
+          "winning_time_male": "4:43:38",
+          "source": "https://velo.outsideonline.com/gravel/katerina-nash-ian-lopez-de-san-roman-win-mud-caked-huffmaster-hopper/?scope=anon"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

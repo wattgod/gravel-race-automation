@@ -3,20 +3,23 @@
     "name": "Life Time Grand Prix",
     "slug": "life-time-grand-prix",
     "display_name": "Life Time Grand Prix",
-    "tagline": "Pro cycling's off-road championship series — five iconic races, one overall title, and the biggest purse in gravel.",
+    "tagline": "Pro cycling's off-road championship series: seven races, one overall title.",
     "organizer": "Life Time Inc.",
     "founded": 2022,
     "headquarters": "Chanhassen, Minnesota",
     "website": "https://www.lifetimegrandprix.com",
-    "description": "The Life Time Grand Prix is professional off-road cycling's premier championship series. Launched in 2022, it links five of America's most iconic endurance races into a single season-long competition with a $250,000 prize purse. The series selects 30 men and 30 women through a combination of invitation and qualification, then scores them across all five events. The result is the closest thing gravel and mountain biking have to a Grand Tour — a season-long narrative that forces the best riders in the world to be versatile across gravel, mountain bike, and ultra-endurance disciplines.",
-    "history": "Life Time launched the Grand Prix in 2022 as the first true championship series for off-road cycling. The concept was simple but transformative: take the marquee events that Life Time already owned or partnered with — Unbound, Leadville, Sea Otter, Big Sugar, and Chequamegon — and create a points-based series that would crown an overall champion. The inaugural season immediately elevated the profile of every constituent race, drawing mainstream sports media attention and creating season-long storylines. Keegan Swenson won the first men's title; Lauren De Crescenzo took the women's. The series lineup has evolved — Chequamegon was part of the original six-race format but the 2026 season features five events. By 2024, the series had expanded its field size and prize purse, establishing itself as the definitive competitive framework for American off-road cycling.",
-    "format_overview": "Thirty men and thirty women compete across five races spanning gravel, mountain bike, and ultra-endurance disciplines. Points are awarded based on finish position at each event (1st place = 100 points, 2nd = 95, 3rd = 92, scaling down), with the overall champion determined by cumulative points across all five races. Athletes must start all events to be eligible for the overall title. The series intentionally mixes disciplines — from the 200-mile gravel of Unbound to the high-altitude mountain biking of Leadville — to reward the most complete off-road cyclists.",
+    "description": "The Life Time Grand Prix is professional off-road cycling's season-long championship. Launched in 2022, it scores an invited and qualified pro field across Life Time's biggest gravel and mountain bike races. For 2027 that means 25 women and 25 men racing seven events, from Sea Otter in April to the Sugar races in Bentonville, with each rider's best six results counting. The mix of 200-mile gravel and high-altitude mountain biking rewards complete off-road riders over specialists.",
+    "history": "Life Time launched the Grand Prix in 2022 as the first true championship series for off-road cycling. The concept was simple but transformative: take the marquee events that Life Time already owned or partnered with — Unbound, Leadville, Sea Otter, Big Sugar, and Chequamegon — and create a points-based series that would crown an overall champion. The inaugural season immediately elevated the profile of every constituent race, drawing mainstream sports media attention and creating season-long storylines. Keegan Swenson won the first men's title; Lauren De Crescenzo took the women's. The lineup has changed most seasons. For 2027 it runs seven events, The Rad Dirt Fest returns, and a new Sea Otter qualifier fills 14 of the 25 places in each field.",
+    "format_overview": "In 2027, 25 women and 25 men race seven events across gravel and mountain bike. The top 10 in each field from the 2026 standings and the top 2026 U23 rider get automatic invitations; the other 14 places go through the Sea Otter Grand Prix Qualifier, which combines Sea Otter Classic Gravel and the Fuego XL. Riders must start at least six events and their best six results count, so anyone who finishes all seven drops the lowest score. Points are awarded based on finish position at each event (1st place = 100 points, 2nd = 95, 3rd = 92, scaling down).",
     "events": [
       {
         "name": "Sea Otter Classic Gravel",
         "slug": "sea-otter-gravel",
         "location": "Monterey, California",
         "month": "April",
+        "date": "2027-04-15",
+        "date_text": "April 15-16, 2027",
+        "note": "Opening round and Grand Prix qualifier.",
         "has_profile": true
       },
       {
@@ -24,6 +27,8 @@
         "slug": "unbound-200",
         "location": "Emporia, Kansas",
         "month": "June",
+        "date": "2027-06-05",
+        "date_text": "June 5, 2027 (festival June 3-6)",
         "has_profile": true
       },
       {
@@ -31,6 +36,8 @@
         "slug": "leadville-100",
         "location": "Leadville, Colorado",
         "month": "August",
+        "date": "2027-08-14",
+        "date_text": "August 14, 2027",
         "has_profile": true
       },
       {
@@ -38,6 +45,27 @@
         "slug": "chequamegon-mtb",
         "location": "Cable to Hayward, Wisconsin",
         "month": "September",
+        "date": "2027-09-18",
+        "date_text": "September 18, 2027",
+        "has_profile": true
+      },
+      {
+        "name": "The Rad Dirt Fest",
+        "slug": "the-rad",
+        "location": "Trinidad, Colorado",
+        "month": "September",
+        "date": "2027-09-25",
+        "date_text": "September 25, 2027",
+        "note": "Returns to the series in 2027.",
+        "has_profile": true
+      },
+      {
+        "name": "Little Sugar MTB",
+        "slug": "little-sugar-mtb",
+        "location": "Bentonville, Arkansas",
+        "month": "TBD",
+        "date": null,
+        "date_text": "2027 date not announced",
         "has_profile": true
       },
       {
@@ -45,13 +73,48 @@
         "slug": "big-sugar",
         "location": "Bentonville, Arkansas",
         "month": "October",
+        "date": null,
+        "date_text": "2027 date not announced",
         "has_profile": true
       }
     ],
     "key_stats": {
-      "total_events": 5,
+      "total_events": 7,
       "countries": 1,
       "oldest_event_year": 1983
-    }
+    },
+    "season": 2027,
+    "citations": [
+      {
+        "url": "https://endurance.biz/2026/industry-news/life-time-grand-prix-unveils-2027-qualification-format-and-calendar/",
+        "category": "media",
+        "label": "endurance.biz: 2027 Grand Prix qualification format and calendar"
+      },
+      {
+        "url": "https://www.cyclingnews.com/pro-cycling/the-rad-dirt-fest-returns-to-life-time-grand-prix-in-2027-for-seven-event-series-with-adjusted-selection-rules/",
+        "category": "media",
+        "label": "Cyclingnews: The Rad Dirt Fest returns for a seven-event 2027 series"
+      },
+      {
+        "url": "https://www.seaotterclassic.com/gravel/",
+        "category": "official",
+        "label": "Sea Otter Classic Gravel"
+      },
+      {
+        "url": "https://www.unboundgravel.com/",
+        "category": "official",
+        "label": "UNBOUND Gravel: 2027 dates"
+      },
+      {
+        "url": "https://www.lifetime.life/",
+        "category": "official",
+        "label": "Life Time: Leadville and Chequamegon 2027 dates"
+      },
+      {
+        "url": "https://theraddirt.com/",
+        "category": "official",
+        "label": "The Rad Dirt Fest: 2027 date"
+      }
+    ]
   }
 }

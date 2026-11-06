@@ -543,6 +543,27 @@ def apply_review_queue(queue_path, pr_body_path):
     return 0
 
 
+def commit_message(report: dict, day: str) -> str:
+    """Commit subject for a run: fixes written and items held for a human.
+
+    Flag-only and review-held changes are never written, so a run with no
+    fixes can still have flagged work; the subject must say so.
+    """
+    applied, races, fields = 0, 0, 0
+    for r in report.get("races", []):
+        changes = r.get("changes") or []
+        written = len(written_changes(changes))
+        applied += written
+        held = len(changes) - written
+        if held:
+            races += 1
+            fields += held
+    flagged = f"{races} flagged for review"
+    if fields != races:
+        flagged = f"{races} races ({fields} fields) flagged for review"
+    return f"veracity: {applied} fixes applied, {flagged} ({day})"
+
+
 def _tag(c):
     if c.get("flag_only"):
         return f" [FLAG-ONLY: {c.get('reason')}]"
@@ -560,11 +581,17 @@ def main():
                     help="where races needing human review are queued")
     ap.add_argument("--apply-review-queue", metavar="QUEUE",
                     help="apply a queue written by a previous run (review branch only)")
+    ap.add_argument("--commit-message", metavar="REPORT",
+                    help="print the commit subject for a run report and exit")
     ap.add_argument("--pr-body", default=str(VERIFY_DIR / "review_pr_body.md"))
     args = ap.parse_args()
 
     if args.apply_review_queue:
         return apply_review_queue(args.apply_review_queue, args.pr_body)
+    if args.commit_message:
+        report = json.loads(Path(args.commit_message).read_text())
+        print(commit_message(report, datetime.now(timezone.utc).date().isoformat()))
+        return 0
 
     client = anthropic.Anthropic()  # ANTHROPIC_API_KEY from env
     state = load_state()

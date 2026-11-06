@@ -86,8 +86,9 @@ def test_nannup_index_and_training_preview_match_the_profile() -> None:
 def test_nannup_machine_readable_derivatives_cannot_regress_to_europe() -> None:
     dates = json.loads((ROOT / "web" / "race-dates.json").read_text(encoding="utf-8"))
     # The public countdown starts with the two-day championship weekend; the
-    # plan itself targets the Sunday long-course categories.
-    assert dates["uci-gravel-worlds"] == "2026-10-10"
+    # plan itself targets the Sunday long-course categories. After Nannup the
+    # countdown rolls to the provisional 2027 Châtel weekend.
+    assert dates["uci-gravel-worlds"] in {"2026-10-10", "2027-08-26"}
     assert MANUAL_COORDS["uci-gravel-worlds"] == (-33.9784, 115.7638)
 
     llms = (ROOT / "web" / "llms-full.txt").read_text(encoding="utf-8")

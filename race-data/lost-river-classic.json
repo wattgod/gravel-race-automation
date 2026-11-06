@@ -11,7 +11,7 @@
       "location_badge": "MATHIAS, WEST VIRGINIA",
       "county": "Hardy County",
       "date": "Mid-August annually",
-      "date_specific": "2026: August 16 (Saturday)",
+      "date_specific": "2026: August 15 (Saturday, completed)",
       "terrain_types": [
         "Appalachian gravel roads",
         "George Washington National Forest service roads",
@@ -138,6 +138,19 @@
       ],
       "reputation": "Respected regional event in WV Gravel Series known for honest challenge, strong community vibe, and commitment to trail advocacy over commercial growth."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-08-15",
+        "source": "https://moorefieldexaminer.com/2026/08/18/nearly-200-cyclists-ascended-on-the-fifth-annual-lost-river-classic-2026-08-19/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-16",
+        "note": "Part of the West Virginia Gravel Series.",
+        "source": "https://www.wvgravelseries.com/results"
+      }
+    ],
     "community": {
       "vibe": "Grassroots Appalachian gravel community with genuine trail advocacy focus. Regional riders who prioritize authentic challenge over luxury amenities. Tight-knit WV Gravel Series regulars who show up to suffer together and support local trails.",
       "best_for": [
@@ -278,6 +291,12 @@
       ]
     },
     "citations": [
+      {
+        "url": "https://moorefieldexaminer.com/2026/08/18/nearly-200-cyclists-ascended-on-the-fifth-annual-lost-river-classic-2026-08-19/",
+        "category": "media",
+        "label": "Moorefield Examiner: 2026 Lost River Classic report",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://ridewithgps.com/routes/52228993",
         "category": "route",
@@ -617,6 +636,19 @@
         "credit": "YouTube / Ride Loose",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "85 mi",
+          "winner_female": "Elizabeth Sheldon",
+          "winner_male": "Zachary Racine",
+          "winning_time_female": "5:49:39",
+          "winning_time_male": "4:34:11",
+          "source": "https://moorefieldexaminer.com/2025/08/19/lost-river-classic-traverses-gravel-terrain/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

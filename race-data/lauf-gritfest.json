@@ -105,16 +105,31 @@
       "food": "Limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Lauf Gritfest website",
+      "official_site": "",
       "camping": "Campsite opens Friday 12:00, closes Monday 11:00"
     },
     "history": {
-      "founded": null,
+      "founded": 2018,
       "founder": "UK organizers",
       "origin_story": "Regional Welsh gravel event.",
       "notable_moments": [],
       "reputation": "Regional UK event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-06-20",
+        "end_date": "2025-06-22",
+        "source": "https://gritfest.co.uk/info/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-06-21",
+        "end_date": "2024-06-23",
+        "note": "Hosted a round of the Gravel Earth Series for the first time in Great Britain.",
+        "source": "https://gravelearthseries.com/2024/06/23/great-britain-hosted-the-gravel-earth-series-at-gritfest/"
+      }
+    ],
     "course_description": {
       "character": "Welsh mountain gravel with significant climbing.",
       "suffering_zones": [
@@ -743,6 +758,17 @@
         "credit": "YouTube / James Hester",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2024": {
+          "race": "2 days, 122 km",
+          "winner_female": "Xan Crees",
+          "winner_male": "Tom Couzens",
+          "source": "https://gravelearthseries.com/2024/06/23/great-britain-hosted-the-gravel-earth-series-at-gritfest/"
+        }
+      },
+      "latest_year": "2024"
+    }
   }
 }

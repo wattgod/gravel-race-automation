@@ -5,6 +5,7 @@
   "description": "Oklahoma's weather lottery with a $100K purse and a guaranteed Bobby hug.",
   "sport": "Gravel Cycling",
   "startDate": "2027-03-13",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Stillwater, Oklahoma",
@@ -16,7 +17,7 @@
   },
   "url": "https://www.midsouthgravel.com",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Bobby and Crystal Wintle (owners of District Bicycles, 712 South Main)",
     "url": "https://www.midsouthgravel.com"
   }

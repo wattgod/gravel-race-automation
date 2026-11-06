@@ -5,6 +5,7 @@
   "description": "Dalby Grit. 50 miles of gravel through Dalby Forest.",
   "sport": "Gravel Cycling",
   "startDate": "2026-06-19",
+  "endDate": "2026-06-21",
   "location": {
     "@type": "Place",
     "name": "Dalby Forest, North York Moors, UK",
@@ -15,7 +16,7 @@
     }
   },
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Focal Events (Dirty Reiver organisers)"
   }
 }

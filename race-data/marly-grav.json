@@ -91,7 +91,7 @@
       "bottom_line": "A fast UCI qualifier where the accumulated climbing and repeated loops matter far more than the Netherlands' flat-riding stereotype."
     },
     "final_verdict": {
-      "score": "46 / 100",
+      "score": "49 / 100",
       "one_liner": "Short, steep UCI gravel racing through the South Limburg hills.",
       "should_you_race": "If you're in Netherlands/Europe and want a local event—yes, it's solid. If you're international—there are better options.",
       "alternatives": "For similar regional events: other Dutch gravel races. For more elevation: Belgian or German gravel races."
@@ -111,6 +111,21 @@
       "notable_moments": [],
       "reputation": "Large Dutch UCI Gravel World Series qualifier."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-05-10",
+        "edition": 4,
+        "source": "https://www.marlygrav.com/en/uitslag-race-2026"
+      },
+      {
+        "year": 2025,
+        "date": "2025-05-11",
+        "edition": 3,
+        "note": "Renamed from Gravel Fondo Limburg",
+        "source": "https://limburgcycling.com/tim-wellens-en-lorena-wiebes-winnen-marly-grav-race/"
+      }
+    ],
     "course_description": {
       "character": "Repeated short, steep climbing on gravel and hollow roads through the South Limburg hills.",
       "suffering_zones": [
@@ -670,6 +685,27 @@
         "credit": "YouTube / KOENEGO",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "153 km",
+          "winner_female": "Lorena Wiebes",
+          "winner_male": "Wout van Aert",
+          "winning_time_female": "4:22:33",
+          "winning_time_male": "4:08:24",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/lorena-wiebes-clinches-win-in-small-group-sprint-at-marly-grav-as-wout-van-aert-carves-out-solo-celebration-at-the-uci-gravel-world-series-race/"
+        },
+        "2025": {
+          "race": "155 km",
+          "winner_female": "Lorena Wiebes",
+          "winner_male": "Tim Wellens",
+          "winning_time_female": "5:19:46",
+          "winning_time_male": "4:21:17",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/marly-grav-race/results/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

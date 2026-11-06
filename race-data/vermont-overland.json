@@ -147,6 +147,26 @@
       ],
       "reputation": "OG gravel (founded 2009). Vermont pavé character. Technical terrain."
     },
+    "editions": [
+      {
+        "year": 2023,
+        "date": "2023-08-26",
+        "note": "Field cut by about 500 riders, with more road closures and police support",
+        "source": "https://www.802timing.com/results/23results/bikeresults/8.26.23overlandagegroups.htm"
+      },
+      {
+        "year": 2022,
+        "date": "2022-08-27",
+        "edition": 8,
+        "source": "https://802timing.com/results/22results/bikeresults/8.27.22overalndoverall.htm"
+      },
+      {
+        "year": 2021,
+        "date": "2021-08-29",
+        "edition": 7,
+        "source": "https://802timing.com/results/21results/bikeresults/8.29.21overalloverland.htm"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -726,6 +746,45 @@
         "credit": "YouTube / Sean Mauceri",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "Overland Bike",
+          "winner_female": "Sarah Lange",
+          "winner_male": "Ian Boswell",
+          "winning_time_female": "3:13:44",
+          "winning_time_male": "2:49:39",
+          "source": "https://www.movemint.cc/events/vermont-overland-bike/results/364"
+        },
+        "2023": {
+          "race": "Overland Bike",
+          "winner_female": "Sarah Lange",
+          "winner_male": "Kyle Murphy",
+          "winning_time_female": "3:37:48",
+          "winning_time_male": "3:13:20",
+          "source": "https://www.802timing.com/results/23results/bikeresults/8.26.23overlandagegroups.htm"
+        },
+        "2022": {
+          "race": "Overland Bike",
+          "winner_female": "Sarah Lange",
+          "winning_time_female": "3:43:13",
+          "source": "https://802timing.com/results/22results/bikeresults/8.27.22overalndoverall.htm"
+        },
+        "2021": {
+          "race": "Overland Bike",
+          "winner_female": "Maghalie Rochette",
+          "winning_time_female": "3:16:06",
+          "source": "https://802timing.com/results/21results/bikeresults/8.29.21overalloverland.htm"
+        },
+        "2024": {
+          "race": "Overland Bike",
+          "winner_male": "Brendan Rhim",
+          "winning_time_male": "3:04:44",
+          "source": "https://offroadindex.co/results/vermont-overland?year=2024"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

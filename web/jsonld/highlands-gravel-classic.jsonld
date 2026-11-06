@@ -5,6 +5,7 @@
   "description": "One of the US qualifiers for UCI Gravel World Championships. 67 miles of Ozark smashfest.",
   "sport": "Gravel Cycling",
   "startDate": "2027-04-24",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Goshen, Arkansas",
@@ -22,7 +23,7 @@
   },
   "url": "https://highlandsgravelclassic.com",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Bruce Dunn and team",
     "url": "https://highlandsgravelclassic.com"
   }

@@ -12,7 +12,7 @@
       "location_badge": "CABLE, WISCONSIN",
       "county": "Bayfield County",
       "date": "September annually",
-      "date_specific": "2027: September 18",
+      "date_specific": "2027: September 18 (Saturday, CONFIRMED — lifetime.life)",
       "terrain_types": [
         "American Birkebeiner Ski Trail",
         "Forest roads",
@@ -141,6 +141,24 @@
       ],
       "reputation": "Legendary MTB. 40+ years. Mass start chaos. LTGP race. Technical terrain."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-09-19",
+        "source": "https://www.lifetimegrandprix.com/events/chequamegon-mtb/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-09-13",
+        "edition": 42,
+        "source": "https://www.endurancesportswire.com/melisa-rollins-and-alexey-vermeulen-claim-victory-at-42nd-life-time-chequamegon-mtb-festival/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-09-14",
+        "source": "https://www.lifetimegrandprix.com/events/chequamegon-mtb/"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -294,6 +312,11 @@
         "url": "https://hungrybeargravel.com/information",
         "category": "community",
         "label": "hungrybeargravel.com: Information"
+      },
+      {
+        "url": "https://www.lifetime.life/",
+        "category": "official",
+        "label": "Life Time: Chequamegon MTB Festival 2027 date"
       }
     ],
     "results": {
@@ -302,9 +325,25 @@
           "winner_male": "Keegan Swenson",
           "winner_female": "Sofia Gomez Villafane",
           "winning_time_male": "2:00:01"
+        },
+        "2026": {
+          "race": "40 mi",
+          "winner_female": "Sofia Gomez Villafane",
+          "winner_male": "Matthew Wilson",
+          "winning_time_female": "2:14:10",
+          "winning_time_male": "1:57:50",
+          "source": "https://www.lifetimegrandprix.com/events/chequamegon-mtb/"
+        },
+        "2025": {
+          "race": "40 mi",
+          "winner_female": "Melisa Rollins",
+          "winner_male": "Alexey Vermeulen",
+          "winning_time_female": "2:14:05",
+          "winning_time_male": "1:56:35",
+          "source": "https://www.lifetimegrandprix.com/events/chequamegon-mtb/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "series": {
       "id": "life-time-grand-prix",

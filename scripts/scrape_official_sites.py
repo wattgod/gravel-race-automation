@@ -141,7 +141,9 @@ def main():
                         help="Only process races of this tier (repeatable)")
     parser.add_argument("--slug", help="Process single race by slug")
     parser.add_argument("--stale-only", action="store_true",
-                        help="Only process races with stale (pre-2026) dates")
+                        help="Only process races whose edition already ran or has no date")
+    parser.add_argument("--limit", type=int, default=None,
+                        help="Process at most N races (highest tier first)")
     parser.add_argument("--no-claude", action="store_true",
                         help="Scrape HTML only, skip Claude extraction")
     parser.add_argument("--force", action="store_true",
@@ -158,6 +160,11 @@ def main():
         slug_filter=args.slug,
         stale_only=args.stale_only,
     )
+
+    if args.limit is not None and len(sites) > args.limit:
+        keep = sorted(sites, key=lambda s: (sites[s]["tier"] or 9, s))[:args.limit]
+        print(f"Limiting to {args.limit} of {len(sites)} races (highest tier first)")
+        sites = {s: sites[s] for s in keep}
 
     if not sites:
         print("No races found matching filters.")

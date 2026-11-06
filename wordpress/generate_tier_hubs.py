@@ -18,6 +18,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
+sys.path.append(str(Path(__file__).parent.parent / "scripts"))
+from race_facts import is_ranked  # noqa: E402
 from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, get_ga4_head_snippet, get_tokens_css
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
@@ -109,6 +111,11 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
         distance = r.get("distance_mi")
         elevation = r.get("elevation_ft")
         month = r.get("month", "")
+        # Listed but marked: a not-running race is never silently ranked.
+        status_badge = (
+            "" if is_ranked(r)
+            else f'<span class="gg-status-badge">{esc(r.get("status_label") or "Not running")}</span>'
+        )
 
         stat_parts = []
         if distance:
@@ -125,7 +132,7 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
         cards_html.append(f'''<a href="/race/{esc(slug)}/" class="gg-hub-card">
       <div class="gg-hub-card-score">{score}</div>
       <div class="gg-hub-card-body">
-        <div class="gg-hub-card-name">{esc(name)}</div>
+        {status_badge}<div class="gg-hub-card-name">{esc(name)}</div>
         <div class="gg-hub-card-location">{esc(location)}</div>
         <div class="gg-hub-card-tagline">{esc(tagline)}</div>
         <div class="gg-hub-card-stats">{esc(stats_line)}</div>
@@ -372,6 +379,18 @@ def build_hub_page(tier: int, races: list, all_races: list) -> str:
 .gg-hub-card-body {{
   flex: 1;
   padding: 12px 16px;
+}}
+.gg-status-badge {{
+  display: inline-block;
+  font-family: var(--gg-font-data);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gg-color-error);
+  border: 2px solid var(--gg-color-error);
+  padding: 1px 6px;
+  margin-bottom: 4px;
 }}
 .gg-hub-card-name {{
   font-family: var(--gg-font-editorial);

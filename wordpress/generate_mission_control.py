@@ -314,8 +314,8 @@ def collect_quick_commands() -> dict:
     """Hardcoded command reference."""
     return {
         "Generate": [
-            ("python wordpress/generate_neo_brutalist.py --all", "Regenerate all 328 race profiles"),
-            ("python wordpress/generate_prep_kit.py --all", "Regenerate all 328 prep kits"),
+            ("python wordpress/generate_neo_brutalist.py --all", "Regenerate all race profiles"),
+            ("python wordpress/generate_prep_kit.py --all", "Regenerate all prep kits"),
             ("python wordpress/generate_homepage.py", "Regenerate homepage"),
             ("python wordpress/generate_about.py", "Regenerate about page"),
             ("python wordpress/generate_coaching.py", "Regenerate coaching page"),

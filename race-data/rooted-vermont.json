@@ -106,7 +106,7 @@
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Vermont cycling calendars"
+      "official_site": ""
     },
     "history": {
       "founded": null,
@@ -115,6 +115,19 @@
       "notable_moments": [],
       "reputation": "Regional VT event."
     },
+    "editions": [
+      {
+        "year": 2022,
+        "date": "2022-07-31",
+        "source": "https://802timing.com/results/22results/bikeresults/7.31.22pntsrooted.htm"
+      },
+      {
+        "year": 2021,
+        "date": "2021-08-01",
+        "note": "Held in Richmond, Vermont.",
+        "source": "https://www.singletracks.com/community/rooted-vermont-gravel-race-laura-ted-king/"
+      }
+    ],
     "course_description": {
       "character": "Rolling to mountainous Vermont gravel.",
       "suffering_zones": [
@@ -659,6 +672,16 @@
         ],
         "search_text": "Rooted Vermont features significant climbing with over 20,000 feet of elevation in the first 18 miles according to riders. The course includes challenging technical sections called class four sectors that create bottlenecks and separate the field, particularly around miles 9 and 13. Riders describe absolute mayhem in these sections with common mechanical issues including seat post failures. The race offers beautiful views at aid stations with pickle shooters available. Camping options range from basic setups to elaborate overland vehicles and rooftop tents. Strategy involves starting near the front to avoid bottlenecks during the neutral start, then working up through the field while always having wheels to follow. The terrain alternates between serious climbing sections and nice flat recovery areas, making it ideal for riders who enjoy significant elevation gain."
       }
+    },
+    "results": {
+      "years": {
+        "2022": {
+          "race": "82 mi",
+          "winner_female": "Katie Kantzes",
+          "source": "https://3t.bike/blogs/news/the-race-winning-racemax-from-rooted-vermont"
+        }
+      },
+      "latest_year": "2022"
     }
   }
 }

@@ -111,6 +111,19 @@
       "notable_moments": [],
       "reputation": "Local Australian event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-03-01",
+        "source": "https://www.cyclingnews.com/gravel-races/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-02-25",
+        "edition": 8,
+        "source": "https://www.sleepmonsters.com/mob_races.php?article_id=11531"
+      }
+    ],
     "course_description": {
       "character": "Australian coastal gravel.",
       "suffering_zones": [
@@ -707,6 +720,31 @@
         "credit": "YouTube / RapidAscentEvents",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "97 km",
+          "winner_female": "Courtney Sherwell",
+          "winner_male": "Brendan Johnston",
+          "source": "https://www.cyclingnews.com/gravel-races/"
+        },
+        "2024": {
+          "race": "97 km",
+          "winner_female": "Samara Sheppard",
+          "winner_male": "Tasman Nankervis",
+          "winning_time_female": "3:30:21",
+          "winning_time_male": "2:48:15",
+          "source": "https://www.sleepmonsters.com/mob_races.php?article_id=11531"
+        },
+        "2025": {
+          "race": "97 km",
+          "winner_female": "Shelley Knowles",
+          "winner_male": "Tasman Nankervis",
+          "source": "https://timesnewsgroup.com.au/surfcoasttimes/news/racing-heats-up-in-the-otways/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

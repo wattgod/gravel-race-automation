@@ -12,7 +12,7 @@
       "location_badge": "CAMPBELL RIVER, BC",
       "county": "Strathcona Regional District",
       "date": "Mid-April annually",
-      "date_specific": "2026: April 12 (Sunday)",
+      "date_specific": "2027: April 18 (Sunday, CONFIRMED — bcgravelseries.com)",
       "terrain_types": [
         "Gravel roads",
         "Forest service roads",
@@ -117,6 +117,19 @@
       ],
       "reputation": "Well-regarded regional fondo with good organization and technical terrain."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-12",
+        "note": "Opening event of the BC Gravel Series on Vancouver Island.",
+        "source": "https://cyclingbc.net/event/river-city-gravel-fondo-2026/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-04-20",
+        "source": "https://www.webscorer.com/race?raceid=389946"
+      }
+    ],
     "course_description": {
       "character": "Rolling to hilly forest service roads with technical sections and beautiful island scenery.",
       "suffering_zones": [
@@ -359,7 +372,8 @@
       {
         "url": "https://www.bcgravelseries.com/rivercitygravelfondo",
         "category": "official",
-        "label": "Official Website"
+        "label": "Official Website; 2027 date",
+        "accessed": "2026-11-06"
       },
       {
         "url": "https://ridewithgps.com/routes/50401058",
@@ -733,6 +747,19 @@
         "credit": "YouTube / Heyjude's Adventures",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "120 km",
+          "winner_female": "Sofia Donnecke",
+          "winner_male": "Michael Van Den Ham",
+          "winning_time_female": "3:59:27",
+          "winning_time_male": "3:16:10",
+          "source": "https://www.webscorer.com/race?raceid=389946"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

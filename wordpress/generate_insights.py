@@ -4,7 +4,7 @@ Generate "The State of Gravel" data insights page in neo-brutalist style.
 
 A data journalism page (NYT/Pudding.cool style) with scroll-triggered
 infographics and editorial narrative. Surfaces original research from
-rated gravel race profiles across 15 scoring criteria (14 rated dimensions + cultural-impact bonus, /70).
+rated gravel race profiles across 14 scoring criteria (/70) plus a cultural-impact bonus.
 
 Uses brand tokens exclusively — zero hardcoded hex, no border-radius, no
 box-shadow, <rect> only (no <circle>).
@@ -25,6 +25,9 @@ from pathlib import Path
 from collections import defaultdict
 from statistics import mean, median
 
+import sys as _sys  # noqa: E402
+_sys.path.append(str(Path(__file__).parent.parent / "scripts"))
+from race_facts import is_ranked  # noqa: E402
 from generate_neo_brutalist import (
     SITE_BASE_URL,
     get_page_css,
@@ -366,12 +369,16 @@ def compute_editorial_facts(races: list[dict]) -> dict:
     quality_state_avg = quality_candidates.get(quality_state, 0)
     quality_state_count = state_counts.get(quality_state, 0)
 
+    # Every superlative below names a race. Only races that are running may
+    # be named "best value", "cheapest Tier 1" and so on.
+    ranked = [r for r in races if is_ranked(r)]
+
     # Cheap beat: find surprising tier reversal — cheaper race in better tier
     # Exclude prestige>=4 cheap races (cheap for institutional reasons, not market)
     # and multi-day events >$500 from priciest comparison
     cheap_beat = {}
     priced_races = [
-        r for r in races
+        r for r in ranked
         if r.get("price") and r["price"] > 0
         and r.get("tier") and r.get("overall_score", 0) > 0
     ]
@@ -414,7 +421,7 @@ def compute_editorial_facts(races: list[dict]) -> dict:
 
     # Best value: highest-scoring race under $150 (excluding prestige>=4)
     value_candidates = [
-        r for r in races
+        r for r in ranked
         if r.get("price") and 0 < r["price"] <= 150
         and (r.get("scores") or {}).get("prestige", 0) < 4
         and r.get("overall_score", 0) > 0
@@ -429,7 +436,7 @@ def compute_editorial_facts(races: list[dict]) -> dict:
         }
 
     # Youngest T1 race
-    t1_with_year = [(r, r["founded"]) for r in races if r.get("tier") == 1 and r.get("founded")]
+    t1_with_year = [(r, r["founded"]) for r in ranked if r.get("tier") == 1 and r.get("founded")]
     t1_with_year.sort(key=lambda x: -x[1])
     youngest_t1 = {}
     if t1_with_year:
@@ -437,7 +444,7 @@ def compute_editorial_facts(races: list[dict]) -> dict:
         youngest_t1 = {"name": r["name"], "founded": yr, "score": r.get("overall_score", 0)}
 
     # Midwest stats
-    midwest = [r for r in races if r.get("region") == "Midwest"]
+    midwest = [r for r in ranked if r.get("region") == "Midwest"]
     midwest_count = len(midwest)
     midwest_avg = mean([r.get("overall_score", 0) for r in midwest]) if midwest else 0
 
@@ -445,7 +452,7 @@ def compute_editorial_facts(races: list[dict]) -> dict:
     # Editorial exclusions: races that are genuinely rad despite the numbers
     _overrated_exclude = {"pony-xpress"}
     overrated_candidates = []
-    for r in races:
+    for r in ranked:
         if r.get("slug") in _overrated_exclude:
             continue
         p = (r.get("scores") or {}).get("prestige", 0)
@@ -458,7 +465,7 @@ def compute_editorial_facts(races: list[dict]) -> dict:
 
     # Underrated: low prestige, high score
     underrated_candidates = []
-    for r in races:
+    for r in ranked:
         p = (r.get("scores") or {}).get("prestige", 0)
         score = r.get("overall_score", 0)
         tier = r.get("tier", 4)
@@ -468,7 +475,7 @@ def compute_editorial_facts(races: list[dict]) -> dict:
     underrated = [x[0] for x in underrated_candidates[:5]]
 
     # Pearson correlation: price vs score
-    priced = [(r["price"], r.get("overall_score", 0)) for r in races if r.get("price") and r["price"] > 0]
+    priced = [(r["price"], r.get("overall_score", 0)) for r in ranked if r.get("price") and r["price"] > 0]
     price_score_corr = 0.0
     if len(priced) >= 3:
         px = [p for p, _ in priced]
@@ -481,7 +488,7 @@ def compute_editorial_facts(races: list[dict]) -> dict:
             price_score_corr = cov / (std_p * std_s)
 
     # Cheapest T1 race
-    t1_priced = [(r, r["price"]) for r in races if r.get("tier") == 1 and r.get("price") and r["price"] > 0]
+    t1_priced = [(r, r["price"]) for r in ranked if r.get("tier") == 1 and r.get("price") and r["price"] > 0]
     t1_priced.sort(key=lambda x: x[1])
     cheapest_t1 = {}
     if t1_priced:
@@ -489,7 +496,7 @@ def compute_editorial_facts(races: list[dict]) -> dict:
         cheapest_t1 = {"name": r["name"], "price": p, "score": r.get("overall_score", 0)}
 
     # Priciest T4 race (exclude multi-day >$500)
-    t4_priced = [(r, r["price"]) for r in races if r.get("tier") == 4 and r.get("price") and 0 < r["price"] <= 500]
+    t4_priced = [(r, r["price"]) for r in ranked if r.get("tier") == 4 and r.get("price") and 0 < r["price"] <= 500]
     t4_priced.sort(key=lambda x: -x[1])
     priciest_t4 = {}
     if t4_priced:
@@ -742,7 +749,7 @@ def build_hero(stats: dict) -> str:
     return f'''<section class="gg-insights-hero" id="hero">
   <div class="gg-insights-hero-inner">
     <h1 class="gg-insights-hero-title">The State of Gravel</h1>
-    <p class="gg-insights-hero-subtitle">{stats["total_races"]} gravel races. 15 scoring criteria. {stats["states_with_races"]} states. Scroll to explore.</p>
+    <p class="gg-insights-hero-subtitle">{stats["total_races"]} races. 14 scoring criteria. {stats["states_with_races"]} states. Scroll to explore.</p>
     <div class="gg-insights-counters">
 {counter_html}    </div>
   </div>
@@ -812,7 +819,7 @@ def build_data_story(races: list[dict], editorial_facts: dict) -> str:
 
     tier_section = f'''<section id="tier-breakdown" class="gg-insights-section">
   <h2 class="gg-insights-section-title">The Gravel 1%</h2>
-  <p class="gg-insights-narrative">{tier_counts[1]} of {total} races earn Tier 1. {tier_counts[3]} land in Tier 3. Scoring 80+ across 15 criteria is hard. That is the point.</p>
+  <p class="gg-insights-narrative">{tier_counts[1]} of {total} races earn Tier 1. {tier_counts[3]} land in Tier 3. Scoring 80+ across 14 criteria is hard. That is the point.</p>
   <div class="gg-ins-data-chart" data-animate="bars">
 {tier_bars}  </div>
 </section>'''
@@ -1208,7 +1215,7 @@ def build_closing(race_count: int, stats: dict = None) -> str:
         items.append(f'<span class="gg-ins-closing-stat-item">{race_count} races</span>')
         if state_count:
             items.append(f'<span class="gg-ins-closing-stat-item">{state_count} states</span>')
-        items.append('<span class="gg-ins-closing-stat-item">15 criteria</span>')
+        items.append('<span class="gg-ins-closing-stat-item">14 criteria</span>')
         if median_price:
             items.append(f'<span class="gg-ins-closing-stat-item">${median_price} median entry</span>')
         stat_strip = f'''  <div class="gg-ins-closing-stats">
@@ -1218,7 +1225,7 @@ def build_closing(race_count: int, stats: dict = None) -> str:
 
     return f'''<section class="gg-insights-section gg-ins-closing" id="what-now">
   <h2 class="gg-insights-section-title">Now Go Race</h2>
-  <p class="gg-insights-narrative">{race_count} races. 15 criteria. The data is here. Use it.</p>
+  <p class="gg-insights-narrative">{race_count} races. 14 criteria. The data is here. Use it.</p>
 {stat_strip}  <div class="gg-insights-closing-single">
     <a href="{SITE_BASE_URL}/gravel-races/" class="gg-insights-cta-btn-gold gg-insights-cta-btn-lg" data-cta="closing-explore">Explore All {race_count} Races</a>
   </div>

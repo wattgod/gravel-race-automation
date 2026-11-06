@@ -3,8 +3,9 @@
   "@type": "SportsEvent",
   "name": "Birkebeinerrittet Sykkel",
   "description": "",
-  "sport": "Gravel Cycling",
+  "sport": "Mountain Biking",
   "startDate": "2027-08-28",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Rena to Lillehammer, Norway",

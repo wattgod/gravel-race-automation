@@ -11,7 +11,7 @@
       "location_badge": "DAHLONEGA, GEORGIA",
       "county": "Lumpkin County",
       "date": "Early March annually",
-      "date_specific": "2027: TBD (2026 edition ran March 7)",
+      "date_specific": "2027: March 6 (Saturday, CONFIRMED — mountaingoatadventures.com)",
       "terrain_types": [
         "North Georgia mountain gravel",
         "forest roads",
@@ -124,7 +124,7 @@
       "ridewithgps_name": "Gravel, Southern Cross 01 (copy)"
     },
     "history": {
-      "founded": "DATA NOT FOUND",
+      "founded": null,
       "founder": "Mountain Goat Adventures",
       "origin_story": "Steady cult following. 250-300 riders annually. Regional Southeast field with repeat participants.",
       "notable_moments": [
@@ -133,6 +133,32 @@
       ],
       "reputation": ""
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-03-07"
+      },
+      {
+        "year": 2025,
+        "date": "2025-03-01",
+        "source": "https://mountaingoatadventures.com/results/2025/SouthernCrossResults2025.pdf"
+      },
+      {
+        "year": 2024,
+        "date": "2024-03-02",
+        "source": "https://mountaingoatadventures.com/results/2024/SouthernCrossResults2024.pdf"
+      },
+      {
+        "year": 2023,
+        "date": "2023-03-04",
+        "source": "https://mountaingoatadventures.com/results/2023/SouthernCrossResults2023.pdf"
+      },
+      {
+        "year": 2022,
+        "date": "2022-03-05",
+        "source": "https://mountaingoatadventures.com/results/2022/SouthernCrossResults2022.pdf"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -224,7 +250,7 @@
       "alternatives": "Gravel Worlds offers similar climbing with bigger fields and prestige, while Belgian Waffle Ride serves up more technical punishment if you want your suffering with extra rocks. Both skip the intimate winery finish for pure Type 2 fun.",
       "alternative_slugs": [
         "bwr-california",
-        "garmin-gravel-worlds"
+        "gravel-worlds"
       ]
     },
     "citations": [
@@ -310,10 +336,44 @@
           "conditions": "2024: Dry conditions, temps 45-68°F",
           "field_size_actual": 35,
           "dnf_rate_pct": 12,
-          "key_takeaways": []
+          "key_takeaways": [],
+          "race": "50 mi",
+          "winner_female": "Ali LeCraw",
+          "winner_male": "Michael Garrison",
+          "winning_time_female": "3:22:20",
+          "winning_time_male": "2:43:56",
+          "source": "https://mountaingoatadventures.com/results/2024/SouthernCrossResults2024.pdf"
+        },
+        "2026": {
+          "race": "50 mi",
+          "winner_female": "Colleen Maher LaRocca",
+          "winning_time_female": "3:11:12",
+          "source": "https://mountaingoatadventures.com/results/2026/SouthernCrossResults2026.pdf"
+        },
+        "2025": {
+          "race": "50 mi",
+          "winner_female": "Samantha Clark",
+          "winner_male": "Ty Magner",
+          "winning_time_female": "3:05:55",
+          "winning_time_male": "2:35:40",
+          "source": "https://mountaingoatadventures.com/results/2025/SouthernCrossResults2025.pdf"
+        },
+        "2023": {
+          "race": "50 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "Connor Kamm",
+          "winning_time_female": "2:49:16",
+          "winning_time_male": "2:37:13",
+          "source": "https://mountaingoatadventures.com/results/2023/SouthernCrossResults2023.pdf"
+        },
+        "2022": {
+          "race": "50 mi",
+          "winner_male": "Jim Snitzer",
+          "winning_time_male": "2:41:16",
+          "source": "https://mountaingoatadventures.com/results/2022/SouthernCrossResults2022.pdf"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

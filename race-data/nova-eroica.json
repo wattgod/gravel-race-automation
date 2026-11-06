@@ -11,7 +11,7 @@
       "location_badge": "BUONCONVENTO, TUSCANY",
       "county": "Tuscany",
       "date": "Spring (date varies year to year — April 2026, June 2025)",
-      "date_specific": "2026: Sunday, April 12 (CONFIRMED — federciclismo.it FCI listing; part of the April 10-12 festival weekend; completed); 2027 not yet officially announced — the event's calendar date has moved year to year (June 2025, April 2026), though the competitive race consistently runs on Sunday",
+      "date_specific": "2027: April 11 (Sunday, CONFIRMED — eroica.cc)",
       "terrain_types": [
         "Tuscan strade bianche (white roads)",
         "Road transfer sections",
@@ -134,6 +134,13 @@
       ],
       "reputation": "Italian gravel scene. Tuscan strade bianche. Well-organized. Medieval town. International destination."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-12",
+        "source": "https://federciclismo.it/"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -253,6 +260,12 @@
       }
     ],
     "citations": [
+      {
+        "url": "https://www.eroica.cc/en/events/",
+        "category": "official",
+        "label": "Nova Eroica — 2027 date",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://ridewithgps.com/routes/39107798",
         "category": "route",

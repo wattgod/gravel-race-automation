@@ -4,7 +4,8 @@
   "name": "Hot Springs Gravel Gauntlet",
   "description": "Southeast Gravel's Appalachian leg from the town the Appalachian Trail walks through.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-05-16",
+  "startDate": "2027-05-22",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Hot Springs, North Carolina",
@@ -22,7 +23,7 @@
   },
   "url": "https://www.southeastgravel.com/hot-springs-gravel-gauntlet",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Southeast Gravel (Greenville, SC)",
     "url": "https://www.southeastgravel.com/hot-springs-gravel-gauntlet"
   }

@@ -41,7 +41,8 @@
       "editorial_tier": 3,
       "editorial_tier_label": "TIER 3",
       "display_tier": 3,
-      "display_tier_label": "TIER 3"
+      "display_tier_label": "TIER 3",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -160,6 +161,14 @@
       "founded": 2023,
       "notable_facts": "Created to commemorate Hungary's 2022 Giro d’Italia Grand Départ. Record participation in 2025 from Balatonfüred. Evolving with new longer routes announced for 2026."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-05-01",
+        "edition": 3,
+        "source": "https://balatonfondo.com/hirek/balatonfondo-2025-minden-amit-tudnod-kell"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Hungary's premier gran fondo delivers scenic Lake Balaton bliss on pro-closed roads.",
       "who_should_ride": "Intermediate roadies craving a fast, supported 75-miler with community vibes. Families enjoy the kids' program alongside the main event.",
@@ -182,6 +191,17 @@
         "category": "official",
         "label": "Official Website"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "134 km",
+          "winner_male": "Federico Pozzetto",
+          "winning_time_male": "3:09:54",
+          "source": "https://www.nemzetisport.hu/kerekpar/2025/05/magyar-es-olasz-gyozelmet-hozott-a-balatonfondo"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

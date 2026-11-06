@@ -5,9 +5,9 @@
       "name": "Tour of the Peak",
       "location": "Bakewell, Derbyshire, England",
       "date": "2026: May 17",
-      "date_specific": "2026: May 17",
+      "date_specific": "2027: May 16 (Sunday, CONFIRMED — velo29events.com)",
       "distance_mi": 113,
-      "elevation_ft": 9500,
+      "elevation_ft": 11175,
       "discipline": "road",
       "month": "May",
       "prestige": 2,
@@ -32,7 +32,8 @@
       "cultural_impact": 2,
       "overall_score": 77,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "adventure": {
@@ -53,7 +54,7 @@
       },
       "elevation": {
         "score": 5,
-        "explanation": "Nearly 10,000ft of brutal Peak District climbing makes legs scream."
+        "explanation": "Over 11,000 ft of brutal Peak District climbing makes legs scream."
       },
       "expenses": {
         "score": 4,
@@ -149,6 +150,20 @@
       "notable_editions": "Original race hosted top pros; modern sportive upholds tough legacy with multiple distances.",
       "growth_trajectory": "Established annual event with consistent routes; Velo29 organizing for years, building rider loyalty."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-05-18",
+        "note": "Sportive on the route of the Tour of the Peak road race",
+        "source": "https://www.timeoutdoors.com/events/tour-of-the-peak-sportive"
+      },
+      {
+        "year": 2024,
+        "date": "2024-05-19",
+        "note": "Medium and long routes from Bakewell Showground",
+        "source": "https://www.sportive.com/events/tour-of-the-peak-2024/2024-05-19/6636/cycling"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Peak District's savage climbs on historic roads—a true test of grit.",
       "best_for": "Climbers seeking UK classics with massive vert and scenery.",
@@ -161,7 +176,8 @@
         "title": "Tour of the Peak Sportive",
         "snippet": "This classic sportive, named after and follows the same route as the original Tour of the Peak road race which ran from 1943 through to 2005.",
         "category": "official",
-        "label": "Official Website"
+        "label": "Velo29 Events — Tour of the Peak long route: 182.1 km, 3,406 m climbing; 2027 date",
+        "accessed": "2026-11-06"
       },
       {
         "url": "https://racepass.com/gb/races/the-peaks-tour",

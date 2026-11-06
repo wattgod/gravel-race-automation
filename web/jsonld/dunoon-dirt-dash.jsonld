@@ -4,7 +4,8 @@
   "name": "Dunoon Dirt Dash",
   "description": "Dunoon Dirt Dash. 45 miles of gravel through Dunoon.",
   "sport": "Gravel Cycling",
-  "startDate": "2026-09-27",
+  "startDate": "2027-09-25",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Dunoon, Scotland, UK",
@@ -15,7 +16,7 @@
     }
   },
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Markus Stitz and Dirt Dash Ltd"
   }
 }

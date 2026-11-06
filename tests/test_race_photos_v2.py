@@ -529,4 +529,9 @@ class TestRealRaceData:
         # route ID belonged to the Tour Divide rather than the Manton event.
         # Floor re-pinned 183->182 (Aug 15 2026): Leuven's 2026 final route
         # is pending; the removed RWGPS trace described the 147 km 2025 race.
-        assert rwgps_count >= 182, f"Expected >=182 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 182->179 (Nov 1 2026): five duplicate identities
+        # (garmin-gravel-worlds, gravel-worlds-amateur, bwr-san-diego,
+        # bwr-utah, bwr-asheville) moved to race-data-archived/duplicates/.
+        # Four carried older copies of routes; every canonical page keeps its
+        # own current route (data/duplicate-merges.json).
+        assert rwgps_count >= 179, f"Expected >=179 current RWGPS routes, got {rwgps_count}"

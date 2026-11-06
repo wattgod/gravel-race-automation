@@ -2,7 +2,7 @@
 """
 Generate the Gravel God Methodology page in neo-brutalist style.
 
-Explains the scoring system, tier definitions, 15 dimensions, prestige
+Explains the scoring system, tier definitions, 14 criteria plus the cultural-impact bonus, prestige
 overrides, and FAQ. Reuses CSS/style patterns from generate_neo_brutalist.py.
 
 Usage:
@@ -53,7 +53,7 @@ def build_hero() -> str:
     return '''<div class="gg-hero">
     <div class="gg-hero-tier" style="background:var(--gg-color-teal)">METHODOLOGY</div>
     <h1 data-text="How We Rate Gravel Races">How We Rate Gravel Races</h1>
-    <p class="gg-hero-tagline">Every race in our database is scored across 15 dimensions by human editors. Here&#39;s exactly how it works.</p>
+    <p class="gg-hero-tagline">Every race in our database is scored on 14 criteria, plus a cultural-impact bonus, by human editors. Here&#39;s exactly how it works.</p>
   </div>'''
 
 
@@ -83,7 +83,7 @@ def build_tier_system() -> str:
             <td style="font-weight:700">Elite</td>
             <td>&ge; 60</td>
             <td>Established races with strong reputations and competitive fields. The next tier of must-do events.</td>
-            <td><a href="{SITE_BASE_URL}/race/barry-roubaix/" style="color:var(--gg-color-teal);font-weight:700">Barry-Roubaix</a></td>
+            <td><a href="{SITE_BASE_URL}/race/the-rift/" style="color:var(--gg-color-teal);font-weight:700">The Rift</a></td>
           </tr>
           <tr>
             <td><span style="display:inline-block;padding:2px 10px;background:#fff;color:var(--gg-color-secondary-brown);font-weight:700;font-size:11px;letter-spacing:1.5px;border:2px solid #666">TIER 3</span></td>
@@ -97,7 +97,7 @@ def build_tier_system() -> str:
             <td style="font-weight:700">Grassroots</td>
             <td>&lt; 45</td>
             <td>Up-and-coming races and local grinders. Small fields, raw vibes, grassroots gravel.</td>
-            <td><a href="{SITE_BASE_URL}/race/114-gravel-race/" style="color:var(--gg-color-teal);font-weight:700">114 Gravel Race</a></td>
+            <td><a href="{SITE_BASE_URL}/race/gravel-rocks/" style="color:var(--gg-color-teal);font-weight:700">Gravel Rocks</a></td>
           </tr>
         </tbody>
       </table>
@@ -336,7 +336,7 @@ def build_jsonld() -> str:
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "How We Rate Gravel Races — Gravel God Methodology",
-        "description": "The complete scoring methodology behind Gravel God race ratings. 15 dimensions, 4 tiers, transparent formula.",
+        "description": "The complete scoring methodology behind Gravel God race ratings. 14 criteria, 4 tiers, transparent formula.",
         "url": f"{SITE_BASE_URL}/race/methodology/",
         "isPartOf": {
             "@type": "WebSite",
@@ -381,7 +381,7 @@ def build_jsonld() -> str:
                 "name": "Why isn't my favorite race rated higher?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Our rubric prioritizes consistency. A race might be incredible for a specific niche but score lower on logistics, field depth, or global prestige. The 15-dimension breakdown shows exactly where a race excels and where it loses points.",
+                    "text": "Our rubric prioritizes consistency. A race might be incredible for a specific niche but score lower on logistics, field depth, or global prestige. The 14-criteria breakdown shows exactly where a race excels and where it loses points.",
                 },
             },
             {
@@ -389,7 +389,7 @@ def build_jsonld() -> str:
                 "name": "What about mountain bike and bikepacking races?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We include a small number of iconic MTB events (like Leadville and Chequamegon) and ultra-endurance bikepacking races (like Tour Divide and Transcontinental) that are culturally significant to the gravel community. These are tagged with MTB or Bikepacking discipline labels. The same 15-dimension rubric applies.",
+                    "text": "We include a small number of iconic MTB events (like Leadville and Chequamegon) and ultra-endurance bikepacking races (like Tour Divide and Transcontinental) that are culturally significant to the gravel community. These are tagged with MTB or Bikepacking discipline labels. The same 14-criteria rubric applies.",
                 },
             },
         ],
@@ -433,7 +433,7 @@ def generate_methodology_page(external_assets: dict = None) -> str:
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="How We Rate Gravel Races — Gravel God Methodology">
-  <meta name="twitter:description" content="15 dimensions, 4 tiers, transparent formula. Here&#39;s how Gravel God scores every race.">
+  <meta name="twitter:description" content="14 criteria, 4 tiers, transparent formula. Here&#39;s how Gravel God scores every race.">
   <meta name="twitter:image" content="{SITE_BASE_URL}/og/homepage.jpg">'''
 
     preload = get_preload_hints()
@@ -444,7 +444,7 @@ def generate_methodology_page(external_assets: dict = None) -> str:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How We Rate Gravel Races — Gravel God Methodology</title>
-  <meta name="description" content="The complete scoring methodology behind Gravel God race ratings. 15 dimensions, 4 tiers, transparent formula.">
+  <meta name="description" content="The complete scoring methodology behind Gravel God race ratings. 14 criteria, 4 tiers, transparent formula.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="{esc(canonical_url)}">
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>

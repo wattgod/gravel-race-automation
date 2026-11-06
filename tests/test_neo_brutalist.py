@@ -864,9 +864,9 @@ class TestParseEventDates:
 # ── Sections ──────────────────────────────────────────────────
 
 class TestSections:
-    def test_toc_has_12_links(self):
+    def test_toc_has_13_links(self):
         html = build_toc()
-        assert html.count("<a ") == 12
+        assert html.count("<a ") == 13
 
     def test_course_overview_has_map(self, normalized_data):
         html = build_course_overview(normalized_data)

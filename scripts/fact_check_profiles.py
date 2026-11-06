@@ -32,6 +32,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
 from season import UPCOMING, canonical, needs_date_refresh, parse_edition  # noqa: E402
+from race_editions import set_date_specific  # noqa: E402
 from scrape_utils import (
     load_extract,
     next_edition_date,
@@ -275,7 +276,7 @@ def auto_fix_race(slug: str, comparison: dict, dry_run: bool = False) -> list:
                 continue
             fix_desc = f"date_specific: {info['profile']!r} -> {new_ds!r}"
             if not dry_run:
-                vitals["date_specific"] = new_ds
+                set_date_specific(race, new_ds)
                 modified = True
             fixes.append(fix_desc)
 

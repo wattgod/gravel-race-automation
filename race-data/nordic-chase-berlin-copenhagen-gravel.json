@@ -10,7 +10,7 @@
       "elevation_m": 4000,
       "elevation_ft": 13123,
       "course_status": "source_blocked",
-      "course_status_label": "2027 GRAND DEPART PENDING",
+      "course_status_label": "2027 ROUTE PENDING",
       "course_status_reason": "The organizer's 2027 calendar confirms the Berlin-to-Copenhagen gravel event window, but the route page still describes the 2026 course and schedule. The final 2027 GPX and exact grand-depart date have not been published.",
       "location": "Berlin, Germany to Copenhagen, Denmark",
       "location_badge": "BERLIN TO COPENHAGEN",
@@ -254,7 +254,7 @@
     "research_metadata": {
       "data_confidence": "official 2027 event window; latest organizer-reconned course retained only as a guarded planning reference",
       "validation_status": "source_blocked_for_2027_plan",
-      "next_edition_status": "waiting_for_exact_grand_depart_and_final_route",
+      "next_edition_status": "waiting_for_final_2027_route",
       "known_gap": "The route page still carries the 2026 730 km / 4,000 m course and schedule. Do not clone, date, or publish a 2027 TrainingPeaks plan until the organizer confirms the 2027 grand depart and final GPX.",
       "sources": [
         "https://nordicchase.com/",

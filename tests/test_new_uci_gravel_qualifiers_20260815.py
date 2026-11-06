@@ -19,7 +19,7 @@ SLUGS = {
         "official": "https://khomas100.com.na/routes/",
     },
     "graean-cymru": {
-        "date": "2026: September 5-6",
+        "date": "2027: June 5-6 (CONFIRMED — gloriousgravel.com)",
         "distance_mi": 65,
         "elevation_ft": 6795,
         "score": 76,

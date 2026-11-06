@@ -689,14 +689,16 @@ async def subscriber_webhook(
 def _pickem_merge(existing: dict, new: dict) -> dict:
     """An existing record with a pick'em entry's answer folded in.
 
-    Only pick'em keys and the race change. A race the pick'em named replaces
-    the stored one; a "No" or "In the lottery" takes back only a race an
-    earlier pick'em entry set, never one the rider gave somewhere else.
+    Only pick'em keys and the race change, and the race only when the pick'em
+    set it (or none is stored). A race the rider gave on another form (a prep
+    kit, a race watch) keeps its countdown; the pick'em just records its answer.
     """
     merged = dict(existing)
     for key in ("pickem_game", "pickem_racing"):
         if new.get(key):
             merged[key] = new[key]
+    if existing.get("race_slug") and existing.get("race_slug") != existing.get("pickem_race_slug"):
+        return merged
     if new.get("race_slug"):
         for key in _PICKEM_RACE_KEYS:
             if new.get(key):

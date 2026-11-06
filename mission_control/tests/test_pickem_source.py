@@ -85,3 +85,15 @@ def test_no_keeps_a_race_given_elsewhere(client, fake_db):
     for row in _rows(fake_db):
         assert row["source_data"]["race_slug"] == "sbt-grvl"
         assert row["source_data"]["pickem_racing"] == "no"
+
+
+def test_racing_answer_keeps_a_race_given_elsewhere(client, fake_db):
+    """A Mid South prep-kit lead who says "200" in the pick'em keeps the Mid South countdown."""
+    client.post("/webhooks/subscriber", headers={"Authorization": "Bearer test-secret-123"},
+                json={"email": EMAIL, "source": "race_profile", "brand": "gravelgod",
+                      "race_slug": "mid-south", "race_name": "The Mid South"})
+    _post(client)
+    for row in _rows(fake_db):
+        assert row["source_data"]["race_slug"] == "mid-south"
+        assert row["source_data"]["pickem_racing"] == "200"
+        assert "pickem_race_slug" not in row["source_data"]

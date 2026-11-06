@@ -467,8 +467,9 @@ def build_distance_elevation_svg(series: dict, race_data: dict) -> str:
         if slug and e.get("has_profile") and slug in race_data:
             rd = race_data[slug]
             vitals = rd.get("vitals", {})
-            dist = vitals.get("distance_mi", 0)
-            elev = vitals.get("elevation_ft", 0)
+            # null = not published (BWR Mexico has no climbing figure).
+            dist = vitals.get("distance_mi")
+            elev = vitals.get("elevation_ft")
             if dist or elev:
                 profiled.append((e, dist, elev))
 
@@ -476,10 +477,10 @@ def build_distance_elevation_svg(series: dict, race_data: dict) -> str:
         return ""
 
     # Sort by distance descending
-    profiled.sort(key=lambda x: x[1], reverse=True)
+    profiled.sort(key=lambda x: x[1] or 0, reverse=True)
 
-    max_dist = max(p[1] for p in profiled) or 1
-    max_elev = max(p[2] for p in profiled) or 1
+    max_dist = max(p[1] or 0 for p in profiled) or 1
+    max_elev = max(p[2] or 0 for p in profiled) or 1
 
     label_width = 160
     bar_area = 350
@@ -517,7 +518,7 @@ def build_distance_elevation_svg(series: dict, race_data: dict) -> str:
         )
 
         # Distance bar (teal)
-        dist_w = (dist / max_dist) * bar_area if max_dist else 0
+        dist_w = ((dist or 0) / max_dist) * bar_area
         delay_d = i * 0.08
         rows.append(
             f'  <rect x="{label_width}" y="{y_base + 2}" width="{dist_w:.1f}" height="14" '
@@ -527,11 +528,12 @@ def build_distance_elevation_svg(series: dict, race_data: dict) -> str:
         rows.append(
             f'  <text x="{label_width + dist_w + 6:.1f}" y="{y_base + 13}" font-size="10" '
             f'fill="{COLORS["dark_brown"]}" '
-            f"font-family=\"'Sometype Mono', monospace\">{dist} mi</text>"
+            f"font-family=\"'Sometype Mono', monospace\">"
+            f"{f'{dist} mi' if dist else 'not published'}</text>"
         )
 
         # Elevation bar (gold)
-        elev_w = (elev / max_elev) * bar_area if max_elev else 0
+        elev_w = ((elev or 0) / max_elev) * bar_area
         delay_e = i * 0.08 + 0.04
         rows.append(
             f'  <rect x="{label_width}" y="{y_base + 20}" width="{elev_w:.1f}" height="14" '
@@ -541,7 +543,8 @@ def build_distance_elevation_svg(series: dict, race_data: dict) -> str:
         rows.append(
             f'  <text x="{label_width + elev_w + 6:.1f}" y="{y_base + 31}" font-size="10" '
             f'fill="{COLORS["dark_brown"]}" '
-            f"font-family=\"'Sometype Mono', monospace\">{elev:,} ft</text>"
+            f"font-family=\"'Sometype Mono', monospace\">"
+            f"{f'{elev:,} ft' if elev else 'not published'}</text>"
         )
 
     content = "\n".join(rows)

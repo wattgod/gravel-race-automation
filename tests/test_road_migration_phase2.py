@@ -178,12 +178,14 @@ class TestCatalogContract:
         # a review of a series that ended after 2026 (net -1).
         # The Nov. 5 season refresh added CORE4 and The River, rounds 5 and 6
         # of The Traka World Series 2027 (net +2).
+        # The Nov. 6 follow-up added Santa Vall and Gravel Desert (Traka
+        # World Series rounds 1 and 2) and BWR Mexico (net +3).
         source_count = migration_map["source_snapshot"]["gravel_god"][
             "race_data_total_profiles"
         ]
         departing_count = len(road_migration.redirected_entries(migration_map))
-        post_migration_additions = 10
-        assert len(race_index) == source_count - departing_count + post_migration_additions == 380
+        post_migration_additions = 13
+        assert len(race_index) == source_count - departing_count + post_migration_additions == 383
 
     def test_archived_profiles_never_feed_generated_index(
         self, migration_map, race_index

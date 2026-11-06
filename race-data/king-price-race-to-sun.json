@@ -114,6 +114,20 @@
       "notable_moments": [],
       "reputation": "Regional South African event."
     },
+    "editions": [
+      {
+        "year": 2024,
+        "date": "2024-05-11",
+        "note": "Doubled as the South African Gravel Championships.",
+        "source": "https://honeycomb-bee.co.za/news/racing-to-the-sun-marc-pritzen-is-the-2024-sa-gravel-champion/"
+      },
+      {
+        "year": 2023,
+        "date": "2023-05-06",
+        "note": "First year with a 50-mile distance.",
+        "source": "https://racetothesun.co.za/2023/05/06/king-price-race-to-the-sun-2023/"
+      }
+    ],
     "course_description": {
       "character": "South African mountain multi-stage gravel.",
       "suffering_zones": [
@@ -718,6 +732,34 @@
         "credit": "YouTube / King Price Race to the Sun",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "100 mi",
+          "winner_female": "Hayley Preen",
+          "winner_male": "Marc Pritzen",
+          "winning_time_female": "5:23:46",
+          "winning_time_male": "4:30:11",
+          "source": "https://racetothesun.co.za/honeycomb226ers_dominate/"
+        },
+        "2024": {
+          "race": "100 mi",
+          "winner_female": "Danielle Strydom",
+          "winner_male": "Marc Pritzen",
+          "winning_time_female": "5:32:48",
+          "winning_time_male": "4:35:52",
+          "source": "https://racetothesun.co.za/2024/05/14/race-report-king-price-race-to-the-sun-2024/"
+        },
+        "2023": {
+          "race": "100 mi",
+          "winner_female": "Sarah Hill",
+          "winner_male": "Alex Miller",
+          "winning_time_male": "4:21:39",
+          "source": "https://racetothesun.co.za/2023/05/06/king-price-race-to-the-sun-2023/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

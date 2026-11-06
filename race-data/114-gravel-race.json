@@ -114,6 +114,13 @@
       "notable_moments": [],
       "reputation": "Regional Portuguese event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "UCI Gravel World Series round; 137 km from Elvas, Portugal, to Badajoz, Spain",
+        "source": "https://114gravelrace.com/wp-content/uploads/2026/03/Clasificacion-General-114-UGWS-2-1.pdf"
+      }
+    ],
     "course_description": {
       "character": "Portuguese rolling gravel.",
       "suffering_zones": [
@@ -657,6 +664,17 @@
         "credit": "YouTube / Manuel Moreno | CICLEMAN",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "137 km",
+          "winner_male": "Mads Würtz Schmidt",
+          "winning_time_male": "3:31:36",
+          "source": "https://www.cyclingnews.com/pro-cycling/uci-gravel-world-series-nicole-frain-and-mads-wurtz-schmidt-drop-rivals-for-solo-wins-at-114-gravel-race/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

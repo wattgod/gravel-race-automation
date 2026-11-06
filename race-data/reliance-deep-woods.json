@@ -112,6 +112,15 @@
       "notable_moments": [],
       "reputation": "Regional TN event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-24",
+        "end_date": "2026-04-26",
+        "note": "New race routes with less chunk, two Saturday race distances and separate Saturday and Sunday races.",
+        "source": "https://www.sorbachattanooga.org/events/2026/4/24/reliance-gravel"
+      }
+    ],
     "course_description": {
       "character": "TN mountain gravel.",
       "suffering_zones": [
@@ -652,6 +661,19 @@
         "credit": "YouTube / Gravel Cyclist",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "72 mi",
+          "winner_female": "Natalia Franco Villegas",
+          "winner_male": "Anthony Lellinger",
+          "winning_time_female": "4:56",
+          "winning_time_male": "4:29",
+          "source": "https://www.tennesseegravel.com/reliance-results-2026"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

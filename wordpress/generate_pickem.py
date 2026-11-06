@@ -50,6 +50,17 @@ def load_leaderboard(game: dict) -> dict | None:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def build_racing(game: dict) -> str:
+    """One-tap radio chips: is this rider racing it, and which distance."""
+    chips = "".join(
+        f'<label class="gg-pk-chip"><input type="radio" name="racing" value="{esc(o["value"])}" required>'
+        f'<span>{esc(o["label"])}</span></label>'
+        for o in game["racing"]["options"]
+    )
+    return (f'<fieldset class="gg-pk-racing"><legend>{esc(game["racing"]["question"])}</legend>'
+            f'<div class="gg-pk-chips">{chips}</div></fieldset>')
+
+
 def build_form(game: dict) -> str:
     datalists, fieldsets = [], []
     for cat, label in CATEGORIES:
@@ -72,6 +83,7 @@ def build_form(game: dict) -> str:
     <div class="gg-pk-podiums">{"".join(fieldsets)}</div>
     {"".join(datalists)}
     <div class="gg-pk-you">
+      {build_racing(game)}
       <div class="gg-pk-row"><label for="gg-pk-email">Email</label>
         <input id="gg-pk-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
       <div class="gg-pk-row"><label for="gg-pk-name">Leaderboard name</label>
@@ -142,6 +154,9 @@ PAGE_JS = r"""
         if (v && typeof v[+el.getAttribute('data-place')] === 'string') el.value = v[+el.getAttribute('data-place')];
       });
       if (typeof saved.display_name === 'string') form.elements.display_name.value = saved.display_name;
+      if (typeof saved.racing === 'string') {
+        form.querySelectorAll('input[name="racing"]').forEach(function (el) { el.checked = el.value === saved.racing; });
+      }
     }
   } catch (e) {}
 
@@ -155,6 +170,8 @@ PAGE_JS = r"""
       var lower = p[cat].map(function (v) { return v.toLowerCase(); });
       if (new Set(lower).size !== 3) { say('Same rider twice in the ' + cats[cat] + ' podium.', 'error'); return; }
     }
+    var racingEl = form.querySelector('input[name="racing"]:checked');
+    if (!racingEl) { say('Answer: ' + form.querySelector('.gg-pk-racing legend').textContent, 'error'); form.querySelector('input[name="racing"]').focus(); return; }
     if (!form.elements.email.checkValidity()) { say('Enter a valid email.', 'error'); form.elements.email.focus(); return; }
     var name = form.elements.display_name.value.trim();
     if (!name) { say('Enter a leaderboard name.', 'error'); form.elements.display_name.focus(); return; }
@@ -164,6 +181,7 @@ PAGE_JS = r"""
       email: form.elements.email.value.trim(),
       display_name: name,
       opt_in: form.elements.opt_in.checked,
+      racing: racingEl.value,
       picks: p,
       website: form.elements.website.value
     };
@@ -178,7 +196,7 @@ PAGE_JS = r"""
       return resp.json().catch(function () { return {}; }).then(function (body) { return { ok: resp.ok, body: body }; });
     }).then(function (res) {
       if (res.ok && res.body.success) {
-        try { localStorage.setItem(storeKey, JSON.stringify({ picks: p, display_name: name })); } catch (e) {}
+        try { localStorage.setItem(storeKey, JSON.stringify({ picks: p, display_name: name, racing: payload.racing })); } catch (e) {}
         say(res.body.replaced
           ? 'Saved. These picks replaced your earlier ones.'
           : 'Saved. To change them before the start, send the form again with the same email.', 'ok');
@@ -222,6 +240,14 @@ body { margin: 0; background: var(--gg-color-warm-paper); }
 .gg-pk-row label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
 .gg-pk-form input[type=text], .gg-pk-form input[type=email] { width: 100%; min-width: 0; font: inherit; font-size: 16px; padding: 10px; border: 2px solid var(--gg-color-dark-brown); background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); }
 .gg-pk-form input:focus { outline: 3px solid var(--gg-color-teal); outline-offset: 0; }
+.gg-pk-racing { border: 0; margin: 0; padding: 0; min-width: 0; }
+.gg-pk-racing legend { padding: 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.gg-pk-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.gg-pk-chip { position: relative; flex: 1 1 auto; cursor: pointer; }
+.gg-pk-chip input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; }
+.gg-pk-chip span { display: block; min-height: 44px; padding: 10px 14px; text-align: center; font-size: 15px; font-weight: 700; border: 2px solid var(--gg-color-dark-brown); background: var(--gg-color-warm-paper); white-space: nowrap; }
+.gg-pk-chip input:checked + span { background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); }
+.gg-pk-chip input:focus-visible + span { outline: 3px solid var(--gg-color-teal); outline-offset: 0; }
 .gg-pk-check { display: flex; gap: 10px; align-items: flex-start; margin-top: 14px; font-size: 14px; line-height: 1.4; cursor: pointer; }
 .gg-pk-check input { width: 20px; height: 20px; margin: 0; flex: none; accent-color: var(--gg-color-teal); }
 .gg-pk-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }

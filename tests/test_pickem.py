@@ -94,6 +94,43 @@ class TestGeneratorOutput:
         assert len(pickem.rider_names(GAME, "men")) > 20
 
 
+# --- Racing question ---
+
+class TestRacing:
+    def test_renders_all_options_required(self, page):
+        field = re.search(r'<fieldset class="gg-pk-racing">.*?</fieldset>', page, re.S).group(0)
+        assert "<legend>Racing Unbound 2027?</legend>" in field
+        radios = re.findall(r'<input type="radio" name="racing" value="([^"]+)" required>', field)
+        assert radios == ["xl", "200", "100", "lottery", "no"]
+        labels = re.findall(r"<span>([^<]+)</span>", field)
+        assert labels == ["XL", "200", "100", "In the lottery", "No"]
+        assert "<p" not in field and "<small" not in field
+
+    def test_distances_come_from_race_data(self):
+        profiles = {p.stem for p in (ROOT / "race-data").glob("unbound-*.json")}
+        slugs = {o["race_slug"] for o in GAME["racing"]["options"] if o.get("race_slug")}
+        assert slugs == profiles
+        assert not {"25", "50"} & {o["value"] for o in GAME["racing"]["options"]}
+
+    def test_worker_racing_matches_game_file_and_race_data(self):
+        source = WORKER.read_text()
+        for option in GAME["racing"]["options"]:
+            key = re.escape(option["value"])
+            if option.get("race_slug"):
+                name = json.loads((ROOT / "race-data" / f"{option['race_slug']}.json").read_text())["race"]["name"]
+                pattern = r"'?%s'?: \{ race_slug: '%s', race_name: '%s' \}" % (
+                    key, re.escape(option["race_slug"]), re.escape(name))
+            else:
+                pattern = r"'?%s'?: null" % key
+            assert re.search(pattern, source), option
+
+    def test_page_js_requires_and_sends_racing(self):
+        js = generate_pickem.PAGE_JS
+        assert js.index("racingEl") < js.index("fetch(")
+        assert "racing: racingEl.value" in js
+        assert "racing: payload.racing" in js
+
+
 # --- Lock: one constant ---
 
 class TestLock:
@@ -102,7 +139,7 @@ class TestLock:
 
     def test_worker_lock_matches_game_file(self):
         source = WORKER.read_text()
-        match = re.search(r"'%s':\s*'([^']+)'" % re.escape(GAME["game"]), source)
+        match = re.search(r"'%s':\s*\{\s*lock:\s*'([^']+)'" % re.escape(GAME["game"]), source)
         assert match, "game missing from worker GAMES"
         assert match.group(1) == GAME["lock_utc"]
 
@@ -182,9 +219,22 @@ HARNESS = r"""
 const mod = await import(process.argv[1]);
 const worker = mod.default;
 const store = new Map();
+const sent = [];
+let mcStatus = 200;
+globalThis.fetch = async (url, options = {}) => {
+  sent.push({ url: String(url), auth: options.headers?.Authorization, body: JSON.parse(options.body) });
+  return new Response('{"status":"ok"}', { status: mcStatus });
+};
+async function step(fn) {
+  const before = sent.length;
+  const result = await fn();
+  return { ...result, sent: sent.slice(before) };
+}
 const env = {
   ALLOWED_ORIGINS: 'https://gravelgodcycling.com',
   EXPORT_TOKEN: 'secret',
+  MC_WEBHOOK_URL: 'https://mc.example.test',
+  MC_WEBHOOK_SECRET: 'mc-secret',
   PICKEM: {
     async get(k) { return store.has(k) ? store.get(k).value : null; },
     async put(k, value, opts) { store.set(k, { value, metadata: opts && opts.metadata }); },
@@ -195,15 +245,16 @@ const env = {
   }
 };
 const base = { game: 'unbound-200-2027', email: 'Rider@Example.com', display_name: 'Rider',
-  opt_in: true, picks: { women: ['A', 'B', 'C'], men: ['D', 'E', 'F'] } };
+  opt_in: true, racing: '200', picks: { women: ['A', 'B', 'C'], men: ['D', 'E', 'F'] } };
 async function post(body, origin = 'https://gravelgodcycling.com') {
   const r = await worker.fetch(new Request('https://w.dev/', { method: 'POST',
     headers: { 'Content-Type': 'application/json', Origin: origin }, body: JSON.stringify(body) }), env);
   return { status: r.status, body: await r.json().catch(() => null) };
 }
 const out = {};
-out.first = await post(base);
-out.second = await post({ ...base, email: 'rider@example.com ', picks: { women: ['C', 'B', 'A'], men: ['D', 'E', 'F'] } });
+out.first = await step(() => post(base));
+out.second = await step(() => post({ ...base, email: 'rider@example.com ', racing: 'lottery',
+  picks: { women: ['C', 'B', 'A'], men: ['D', 'E', 'F'] } }));
 out.honeypot = await post({ ...base, website: 'x' });
 out.noName = await post({ ...base, display_name: ' ' });
 out.dupe = await post({ ...base, picks: { women: ['A', 'a', 'C'], men: ['D', 'E', 'F'] } });
@@ -219,6 +270,22 @@ out.exportNoAuth = (await worker.fetch(new Request('https://w.dev/export'), env)
 const exp = await worker.fetch(new Request('https://w.dev/export',
   { headers: { Authorization: 'Bearer secret' } }), env);
 out.export = await exp.json();
+async function admin(method, path, token = 'secret') {
+  const r = await worker.fetch(new Request('https://w.dev' + path,
+    { method, headers: { Authorization: 'Bearer ' + token } }), env);
+  return { status: r.status, body: await r.json() };
+}
+out.noRacing = await post({ ...base, racing: undefined });
+out.badRacing = await post({ ...base, racing: 'maybe' });
+out.protoRacing = await post({ ...base, racing: 'toString' });
+out.optOut = await step(() => post({ ...base, email: 'quiet@example.com', opt_in: false, racing: 'no' }));
+mcStatus = 500;
+out.mcDown = await step(() => post({ ...base, email: 'xl@example.com', racing: 'xl' }));
+mcStatus = 200;
+out.exportAfter = (await admin('GET', '/export')).body;
+out.resyncNoAuth = (await admin('POST', '/resync', 'wrong')).status;
+out.resync = await step(() => admin('POST', '/resync'));
+out.exportResynced = (await admin('GET', '/export')).body;
 console.log(JSON.stringify(out));
 """
 
@@ -242,8 +309,9 @@ class TestWorker:
         assert result.returncode == 0, result.stderr
 
     def test_first_save_then_replace(self, worker_run):
-        assert worker_run["first"] == {"status": 200, "body": {"success": True, "replaced": False,
-                                                                "locks_at": GAME["lock_utc"]}}
+        assert worker_run["first"]["status"] == 200
+        assert worker_run["first"]["body"] == {"success": True, "replaced": False,
+                                               "locks_at": GAME["lock_utc"]}
         assert worker_run["second"]["body"]["replaced"] is True
 
     def test_one_entry_per_email_latest_picks(self, worker_run):
@@ -270,6 +338,63 @@ class TestWorker:
         assert worker_run["exportNoAuth"] == 401
         source = WORKER.read_text()
         assert "env.EXPORT_TOKEN" in source
+
+    def test_rejects_missing_or_unknown_racing(self, worker_run):
+        for case in ("noRacing", "badRacing", "protoRacing"):
+            assert worker_run[case]["status"] == 400, case
+            assert worker_run[case]["body"]["error"] == "Answer the racing question."
+
+    def test_racing_stored_and_changeable(self, worker_run):
+        entry = worker_run["export"]["entries"][0]
+        assert entry["racing"] == "lottery"
+
+    def test_opt_in_sends_one_mc_call_with_race(self, worker_run):
+        sent = worker_run["first"]["sent"]
+        assert len(sent) == 1
+        call = sent[0]
+        assert call["url"] == "https://mc.example.test/webhooks/subscriber"
+        assert call["auth"] == "Bearer mc-secret"
+        assert call["body"] == {"email": "rider@example.com", "name": "", "brand": "gravelgod",
+                                "source": "pickem", "game": GAME["game"], "racing": "200",
+                                "race_slug": "unbound-200", "race_name": "Unbound 200"}
+
+    def test_no_race_slug_for_lottery_or_no(self, worker_run):
+        sent = worker_run["second"]["sent"]
+        assert len(sent) == 1
+        assert sent[0]["body"]["racing"] == "lottery"
+        assert "race_slug" not in sent[0]["body"] and "race_name" not in sent[0]["body"]
+
+    def test_opt_out_sends_nothing(self, worker_run):
+        assert worker_run["optOut"]["status"] == 200
+        assert worker_run["optOut"]["sent"] == []
+
+    def test_mc_failure_still_saves_unsynced(self, worker_run):
+        assert worker_run["mcDown"]["status"] == 200
+        assert worker_run["mcDown"]["body"]["success"] is True
+        assert len(worker_run["mcDown"]["sent"]) == 1
+        entries = {e["email"]: e for e in worker_run["exportAfter"]["entries"]}
+        assert entries["xl@example.com"]["mc_synced"] is False
+        assert entries["rider@example.com"]["mc_synced"] is True
+        assert entries["quiet@example.com"]["mc_synced"] is False
+
+    def test_export_counts_answers_and_unsynced(self, worker_run):
+        export = worker_run["exportAfter"]
+        assert export["count"] == 3 and export["opt_in_count"] == 2
+        assert export["unsynced_count"] == 1
+        assert export["racing_counts"] == {"xl": 1, "200": 0, "100": 0, "lottery": 1, "no": 1}
+
+    def test_resync_retries_only_unsynced_opted_in(self, worker_run):
+        assert worker_run["resyncNoAuth"] == 401
+        resync = worker_run["resync"]
+        assert resync["body"] == {"game": GAME["game"], "tried": 1, "synced": 1, "still_unsynced": 0}
+        assert [c["body"]["email"] for c in resync["sent"]] == ["xl@example.com"]
+        assert resync["sent"][0]["body"]["race_slug"] == "unbound-xl"
+        assert worker_run["exportResynced"]["unsynced_count"] == 0
+
+    def test_wrangler_mc_url_matches_mission_control(self):
+        toml = WRANGLER.read_text()
+        assert 'MC_WEBHOOK_URL = "https://athlete-profiles-production.up.railway.app"' in toml
+        assert "MC_WEBHOOK_SECRET" in toml and "env.MC_WEBHOOK_SECRET" in WORKER.read_text()
 
     def test_wrangler_binds_kv(self):
         toml = WRANGLER.read_text()

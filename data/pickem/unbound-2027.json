@@ -6,6 +6,16 @@
   "path": "/race/pickem/unbound-200-2027/",
   "lock_utc": "2027-06-05T11:00:00Z",
   "worker_url": "https://pickem-intake.gravelgodcoaching.workers.dev",
+  "racing": {
+    "question": "Racing Unbound 2027?",
+    "options": [
+      {"value": "xl", "label": "XL", "race_slug": "unbound-xl"},
+      {"value": "200", "label": "200", "race_slug": "unbound-200"},
+      {"value": "100", "label": "100", "race_slug": "unbound-100"},
+      {"value": "lottery", "label": "In the lottery"},
+      {"value": "no", "label": "No"}
+    ]
+  },
   "riders": {
     "women": [
       {"list": "Unbound 200 podium 2026", "sources": ["https://socalcycling.com/?p=85083"],

@@ -4,6 +4,10 @@
     "slug": "wasatch-all-road",
     "display_name": "Wasatch All-Road",
     "tagline": "Northern Utah mountain gravel in Wasatch Range near Park City.",
+    "seo": {
+      "title": "Wasatch All-Road {year}: 82 mi, 10,560 ft of Utah Gravel",
+      "description": "Wasatch All-Road {year} in Heber City, UT: the 82-mile Bigfoot climbs 10,560 ft on 77% gravel. The toughest gravel race you've never heard of."
+    },
     "vitals": {
       "distance_mi": 82,
       "elevation_ft": 10560,
@@ -11,7 +15,7 @@
       "location_badge": "HEBER CITY, UT",
       "county": "Summit County",
       "date": "Late August annually",
-      "date_specific": "2026: August 29",
+      "date_specific": "2027: September 11 (Saturday, CONFIRMED — utahgravelseries.com)",
       "terrain_types": [
         "Mountain gravel",
         "High altitude",
@@ -358,7 +362,8 @@
       {
         "url": "https://utahgravelseries.com/wasatchallroad",
         "category": "community",
-        "label": "utahgravelseries.com: Wasatchallroad"
+        "label": "Utah Gravel Series: Wasatch All Road (2027 date)",
+        "accessed": "2026-11-05"
       }
     ],
     "tire_recommendations": {
@@ -696,10 +701,6 @@
         "credit": "YouTube / CADE Media",
         "gif": true
       }
-    ],
-    "seo": {
-      "title": "Wasatch All-Road 2026: 82 mi, 10,560 ft of Utah Gravel",
-      "description": "Wasatch All-Road (Aug 29, 2026, Heber City, UT): the 82-mile Bigfoot climbs 10,560 ft on 77% gravel. The toughest gravel race you've never heard of."
-    }
+    ]
   }
 }

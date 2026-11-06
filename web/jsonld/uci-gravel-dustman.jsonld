@@ -5,6 +5,7 @@
   "description": "Asia's only UCI Gravel World Series stop \u2014 jungle gravel from a Khmer Empire outpost.",
   "sport": "Gravel Cycling",
   "startDate": "2026-11-14",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Kanchanaburi, Thailand (Muang Sing Historical Park)",
@@ -15,7 +16,7 @@
     }
   },
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Bike Zone Events"
   }
 }

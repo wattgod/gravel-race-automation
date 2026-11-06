@@ -40,6 +40,7 @@ from brand_tokens import (
     get_tokens_css,
     get_ga4_head_snippet,
 )
+from season import season_year
 from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
@@ -57,7 +58,7 @@ RACE_DATA_DIR = Path(__file__).parent.parent / "race-data"
 GUIDE_CONTENT_PATH = Path(__file__).parent.parent / "guide" / "gravel-guide-content.json"
 SUBSTACK_RSS_URL = "https://gravelgodcycling.substack.com/feed"
 
-CURRENT_YEAR = date.today().year
+SEASON_YEAR = season_year()
 
 # ── Featured race slugs (curated for homepage diversity) ─────
 
@@ -618,7 +619,7 @@ def build_hero(stats: dict, race_index: list = None) -> str:
     return f'''<section class="gg-hp-hero" id="race-database">
     <div class="gg-hp-hero-inner">
       <div class="gg-hp-hero-content">
-        <p class="gg-hp-hero-kicker">THE {CURRENT_YEAR} RACE DATABASE</p>
+        <p class="gg-hp-hero-kicker">THE {SEASON_YEAR} RACE DATABASE</p>
         <h1 id="hero-title">Every gravel race, rated.</h1>
         <div class="gg-hp-accent-line" aria-hidden="true"></div>
         <p class="gg-hp-hero-deck">{race_count} races scored on {dimensions} criteria &mdash; and the training to show up ready for the one you pick.</p>
@@ -779,7 +780,7 @@ def _parse_score(raw) -> int:
 
 
 # Series umbrella slugs — not individual races, excluded from examples
-_SERIES_UMBRELLA_SLUGS = {"grasshopper-series", "grinduro", "gravel-earth"}
+_SERIES_UMBRELLA_SLUGS = {"grasshopper-series", "grinduro"}
 
 
 def _compute_archetype_examples(race_index: list) -> dict:
@@ -2352,7 +2353,7 @@ def generate_homepage(race_index: list, race_data_dir: Path = None,
     # a 34-race/9% undercount. Nearest 10 stays accurate to within single
     # digits while still not flapping on every single new race added.)
     stable_count = (stats['race_count'] // 10) * 10
-    title = f"{stable_count}+ Gravel, MTB & Ultra Races Rated for {CURRENT_YEAR} | Gravel God"
+    title = f"{stable_count}+ Gravel, MTB & Ultra Races Rated for {SEASON_YEAR} | Gravel God"
     meta_desc = (
         f"Find your next off-road cycling event. {stats['race_count']} races "
         f"worldwide, rated on {stats['dimensions']} criteria. Training plans and race intel."

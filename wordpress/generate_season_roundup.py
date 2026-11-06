@@ -27,6 +27,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import TIER_NAMES
 from blog_tracking import get_plan_intent_tracking_script
+from season import season_year
 from editorial_shell import ArticleMeta, Claim, render_editorial_page
 
 # Roundups indexable only via the owner-approved allowlist (WS5 Option A).
@@ -694,7 +695,7 @@ def main():
         return
 
     if args.all:
-        year = date.today().year
+        year = season_year()
         if args.dry_run:
             generate_all(races, year, out_dir, dry_run=True)
         else:

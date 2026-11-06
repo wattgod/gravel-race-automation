@@ -5,6 +5,7 @@
   "description": "Sheridan's Bighorn-foothills hundo \u2014 Wyoming ranch gravel, four honest distances.",
   "sport": "Gravel Cycling",
   "startDate": "2027-06-05",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Sheridan, Wyoming (Kendrick Park)",
@@ -16,7 +17,7 @@
   },
   "url": "https://thedeadswede.com",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Dead Swede Hundo LLC / Sheridan Bicycle Company",
     "url": "https://thedeadswede.com"
   }

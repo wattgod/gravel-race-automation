@@ -4,6 +4,10 @@
     "slug": "little-sugar-mtb",
     "display_name": "Little Sugar MTB",
     "tagline": "New LTGP MTB race—30 miles of technical Bentonville singletrack, pairs with Big Sugar Gravel, pro field guaranteed.",
+    "series": {
+      "id": "life-time-grand-prix",
+      "name": "Life Time Grand Prix"
+    },
     "vitals": {
       "distance_mi": 30,
       "elevation_ft": 3500,
@@ -11,7 +15,7 @@
       "location_badge": "BENTONVILLE, ARKANSAS",
       "county": "Benton County",
       "date": "Early April annually",
-      "date_specific": "2026: October 11",
+      "date_specific": "2026: October 11; 2027 date not announced (Life Time Grand Prix round)",
       "terrain_types": [
         "Bentonville MTB trails (70% singletrack)",
         "Gravel/dirt roads (30%)",
@@ -277,11 +281,6 @@
         "label": "progravelmagazine.com: Gómez Villafañe And Jones Go Solo At Little Sugar Mtb"
       },
       {
-        "url": "https://www.nwaonline.com/news/2024/oct/14/little-sugar-mtb-race-returns-to-bentonville/",
-        "category": "community",
-        "label": "nwaonline.com: Little Sugar Mtb Race Returns To Bentonville"
-      },
-      {
         "url": "https://alliedcycleworks.com/blogs/stories/big-little-sugar-bike-check",
         "category": "other",
         "label": "Alliedcycleworks"
@@ -325,6 +324,11 @@
         "url": "https://www.bigsugarclassic.com/visit/bentonville-area-lodging/",
         "category": "other",
         "label": "Bigsugarclassic"
+      },
+      {
+        "url": "https://endurance.biz/2026/industry-news/life-time-grand-prix-unveils-2027-qualification-format-and-calendar/",
+        "category": "media",
+        "label": "endurance.biz: 2027 Life Time Grand Prix calendar"
       }
     ],
     "results": {

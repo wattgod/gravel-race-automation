@@ -3,9 +3,9 @@
     "name": "Pickerel Buck40",
     "slug": "pickerel-buck40",
     "display_name": "Pickerel Buck40",
-    "tagline": "Wisconsin 40-mile rolling gravel.",
+    "tagline": "Wisconsin 140-mile rolling gravel.",
     "vitals": {
-      "distance_mi": 40,
+      "distance_mi": 140,
       "elevation_ft": 2500,
       "location": "Wisconsin",
       "location_badge": "WISCONSIN",
@@ -45,16 +45,16 @@
         "Moderate rolling (2500 feet)",
         "Countryside scenery",
         "WI setting",
-        "40-mile distance",
+        "140-mile distance",
         "Regional event"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 46,
+      "overall_score": 49,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 3,
-      "length": 2,
+      "length": 4,
       "technicality": 2,
       "elevation": 2,
       "climate": 3,
@@ -82,7 +82,7 @@
         "Good WI access"
       ],
       "weaknesses": [
-        "Shorter 40-mile distance",
+        "Only two resupply points on a 140-mile route",
         "Moderate organization",
         "Regional field only",
         "Moderate rolling only",
@@ -91,8 +91,8 @@
       "bottom_line": "A solid regional WI gravel race with rolling terrain. Worth it for WI/Midwest cyclists seeking a shorter event. Not a destination race for national travelers."
     },
     "final_verdict": {
-      "score": "46 / 100",
-      "one_liner": "Wisconsin 40-mile rolling gravel.",
+      "score": "49 / 100",
+      "one_liner": "Wisconsin 140-mile rolling gravel.",
       "should_you_race": "If you're in WI/Midwest and want a local shorter event—yes, it's solid. If you're from out of region—there are better options.",
       "alternatives": "For longer WI events: Bear 100, Hungry Bear 100. For similar regional events: other WI gravel races.",
       "alternative_slugs": [
@@ -147,7 +147,7 @@
     },
     "guide_variables": {
       "race_name": "Pickerel Buck40",
-      "race_distance": "40 miles",
+      "race_distance": "140 miles",
       "race_elevation": "2,500 feet",
       "race_date": "Summer/Fall",
       "race_location": "Wisconsin",
@@ -247,7 +247,7 @@
         "race_specific": true,
         "topics": {
           "pacing": "Rolling terrain pacing",
-          "fueling": "Nutrition for 40-mile rolling",
+          "fueling": "Nutrition for 140-mile rolling",
           "weather": "Riding in variable WI weather",
           "rolling": "Sustained rolling strategy"
         }
@@ -255,7 +255,7 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Pickerel Buck40",
-        "race_hook": "Wisconsin 40-mile rolling gravel.",
+        "race_hook": "Wisconsin 140-mile rolling gravel.",
         "race_hook_detail": "Regional event with rolling terrain.",
         "distance": "40",
         "dark_mile": "20",
@@ -271,8 +271,8 @@
         "explanation": "Self-supported format with no course marking means \"use paper cue sheets, gpx, or your phone to navigate.\" Shane Hitz calls this route \"hard, no doubt about it\" with gnarly chunk roads and unrelenting sand sections that vary by drought conditions."
       },
       "length": {
-        "score": 2,
-        "explanation": "40 miles with a sub-10-hour benchmark and only two resupply options at Pickerel or Waubee Lodge. The route offers bikepacking as an alternative to the single-day format for Ironbear 1000 eligibility. More compact than Grinduro. As Shane Hitz puts it: \"This route is hard, no doubt about it. It has two sections of old school singletrack the first being four miles long... It has about 20% roads that are gnarly chunk or unrelenting sand.\""
+        "score": 4,
+        "explanation": "140 miles with a sub-10-hour benchmark and only two resupply options at Pickerel or Waubee Lodge. The route offers bikepacking as an alternative to the single-day format for Ironbear 1000 eligibility. As Shane Hitz puts it: \"This route is hard, no doubt about it. It has two sections of old school singletrack the first being four miles long... It has about 20% roads that are gnarly chunk or unrelenting sand.\" At 140 miles it falls in the 100 to 149 mile band, which scores 4."
       },
       "technicality": {
         "score": 2,
@@ -280,7 +280,7 @@
       },
       "elevation": {
         "score": 2,
-        "explanation": "2500 feet over 40 miles includes climbs up Big Rock and Thunder Mountain. Nick Holzem describes pushing his full suspension rig up Big Rock then \"had a blast riding down the steep technical chute.\" Less climbing than The Mid South."
+        "explanation": "2500 feet over 140 miles includes climbs up Big Rock and Thunder Mountain. Nick Holzem describes pushing his full suspension rig up Big Rock then \"had a blast riding down the steep technical chute.\" Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
@@ -362,6 +362,12 @@
         "url": "https://www.ironbull.org/fkt-leaderboard",
         "category": "community",
         "label": "ironbull.org: Fkt Leaderboard"
+      },
+      {
+        "url": "https://www.ironbull.org/ironbear-1000",
+        "category": "official",
+        "label": "IRONBULL (organizer) — Pickerel Buck40, 140 mile gravel route",
+        "accessed": "2026-11-05"
       }
     ],
     "tire_recommendations": {

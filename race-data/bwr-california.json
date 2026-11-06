@@ -4,6 +4,10 @@
     "slug": "bwr-california",
     "display_name": "Belgian Waffle Ride",
     "tagline": "The original BWR: 107 miles across 30 road and unroad sectors from Del Mar.",
+    "seo": {
+      "title": "Belgian Waffle Ride (BWR) San Diego {year}: Course & Rating",
+      "description": "Belgian Waffle Ride {year}, the original BWR in Del Mar, CA: 107 miles over 30 road and unroad sectors. Course, registration and our {score}/100 rating."
+    },
     "vitals": {
       "distance_mi": 107,
       "elevation_ft": 7367,
@@ -11,7 +15,7 @@
       "location_badge": "DEL MAR, CALIFORNIA",
       "county": "San Diego County",
       "date": "Late April–early May annually",
-      "date_specific": "2027: April 25 (Sunday, CONFIRMED — belgianwaffleride.bike/pages/future-dates); 2026 edition (May 2-3, Del Mar Polo Fields) completed, now historical",
+      "date_specific": "2027: May 1-2 (Saturday-Sunday, CONFIRMED — belgianwaffleride.bike/pages/future-dates); 2026 edition (May 2-3, Del Mar Polo Fields) completed, now historical",
       "terrain_types": [
         "47% pavement",
         "53% unroad (dirt, gravel, single-track, sand, rock gardens)",
@@ -305,6 +309,11 @@
         "url": "https://adamroberge.com/2024/04/563/",
         "category": "community",
         "label": "adamroberge.com: 563"
+      },
+      {
+        "url": "https://belgianwaffleride.bike/pages/future-dates",
+        "category": "official",
+        "label": "Belgian Waffle Ride: future dates"
       }
     ],
     "series": {

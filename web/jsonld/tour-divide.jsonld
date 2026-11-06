@@ -5,6 +5,7 @@
   "description": "2,745 miles from Banff to Mexico. The longest mountain bike time trial on earth. Self-supported. Unsupported. Unforgettable.",
   "sport": "Bikepacking",
   "startDate": "2027-06-11",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Banff, Alberta to Antelope Wells, New Mexico",
@@ -16,7 +17,7 @@
   },
   "url": "https://tourdivide.org",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Matthew Lee (expanded from Mike Curiak's Great Divide Race)",
     "url": "https://tourdivide.org"
   }

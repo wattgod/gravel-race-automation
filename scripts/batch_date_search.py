@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """
-batch_date_search.py — Web-search for 2026 dates for races with stale (pre-2026) dates.
+batch_date_search.py — Web-search for the next edition's date for races whose stored
+edition has passed or is undated.
 
-Searches DuckDuckGo for each stale race's 2026 date, parses results for date
+The target year is season.season_year() (2027 from September 2026).
+Searches DuckDuckGo for each stale race's next-edition date, parses results for date
 patterns, and opportunistically captures official website URLs.
 
 With --use-scraper: after DuckDuckGo fails, falls back to cached scrape extracts
@@ -37,6 +39,14 @@ except ImportError:
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
+sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+from race_facts import needs_date_check  # noqa: E402
+from season import season_year  # noqa: E402  (race_facts puts wordpress/ on the path)
+
+
+def next_edition_year() -> int:
+    """The year this script searches for: the season riders are planning for."""
+    return season_year()
 
 MONTHS = [
     "January", "February", "March", "April", "May", "June",
@@ -137,17 +147,19 @@ def needs_website(race):
 # Date parsing from search result snippets
 # ---------------------------------------------------------------------------
 
-def extract_date_from_text(text):
-    """Extract a 2026 date from search result text.
+def extract_date_from_text(text, year=None):
+    """Extract a date in ``year`` (default: the next edition year) from text.
 
     Returns (date_specific, month, day) or (None, None, None).
     """
+    year = int(year or next_edition_year())
+    y = str(year)
     candidates = []
 
-    # Pattern 1: "Month DD, 2026" or "Month DD-DD, 2026"
+    # Pattern 1: "Month DD, YYYY" or "Month DD-DD, YYYY"
     p1 = re.finditer(
         rf'({MONTH_PATTERN})\s+(\d{{1,2}})(?:st|nd|rd|th)?'
-        r'(?:\s*[-–]\s*(\d{1,2})(?:st|nd|rd|th)?)?,?\s*2026',
+        r'(?:\s*[-–]\s*(\d{1,2})(?:st|nd|rd|th)?)?,?\s*' + y + r'(?!\d)',
         text, re.IGNORECASE
     )
     for m in p1:
@@ -162,10 +174,10 @@ def extract_date_from_text(text):
             else:
                 candidates.append((month, day, None, m.start()))
 
-    # Pattern 2: "DD Month 2026" or "DD-DD Month 2026" (European format)
+    # Pattern 2: "DD Month YYYY" or "DD-DD Month YYYY" (European format)
     p2 = re.finditer(
         rf'(\d{{1,2}})(?:st|nd|rd|th)?\s*[-–]?\s*(?:(\d{{1,2}})(?:st|nd|rd|th)?\s+)?'
-        rf'({MONTH_PATTERN}),?\s*2026',
+        rf'({MONTH_PATTERN}),?\s*{y}(?!\d)',
         text, re.IGNORECASE
     )
     for m in p2:
@@ -180,8 +192,8 @@ def extract_date_from_text(text):
             else:
                 candidates.append((month, day, None, m.start()))
 
-    # Pattern 3: "2026-MM-DD" ISO format
-    p3 = re.finditer(r'2026-(\d{2})-(\d{2})', text)
+    # Pattern 3: "YYYY-MM-DD" ISO format
+    p3 = re.finditer(rf'(?<!\d){y}-(\d{{2}})-(\d{{2}})', text)
     for m in p3:
         month_num = int(m.group(1))
         day = int(m.group(2))
@@ -189,9 +201,9 @@ def extract_date_from_text(text):
             month = MONTHS[month_num - 1]
             candidates.append((month, day, None, m.start()))
 
-    # Pattern 4: "May 29 - May 31, 2026" cross-day range with month repeated
+    # Pattern 4: "May 29 - May 31, YYYY" cross-day range with month repeated
     p4 = re.finditer(
-        rf'({MONTH_PATTERN})\s+(\d{{1,2}})\s*[-–]\s*(?:{MONTH_PATTERN})\s+(\d{{1,2}}),?\s*2026',
+        rf'({MONTH_PATTERN})\s+(\d{{1,2}})\s*[-–]\s*(?:{MONTH_PATTERN})\s+(\d{{1,2}}),?\s*{y}(?!\d)',
         text, re.IGNORECASE
     )
     for m in p4:
@@ -209,32 +221,33 @@ def extract_date_from_text(text):
     # Take the first candidate (search results are relevance-ordered)
     month, day, day_end, _ = candidates[0]
     if day_end:
-        date_spec = f"2026: {month} {day}-{day_end}"
+        date_spec = f"{year}: {month} {day}-{day_end}"
     else:
-        date_spec = f"2026: {month} {day}"
+        date_spec = f"{year}: {month} {day}"
 
     return date_spec, month, day
 
 
-def build_search_queries(race, slug):
-    """Build search queries for a race's 2026 date (primary + fallback)."""
+def build_search_queries(race, slug, year=None):
+    """Build search queries for a race's next-edition date (primary + fallback)."""
+    year = int(year or next_edition_year())
     display_name = race.get("display_name", race.get("name", ""))
     location = race.get("vitals", {}).get("location", "")
 
     queries = []
 
-    # Primary: race name + 2026 + gravel/cycling context
-    queries.append(f'{display_name} 2026 gravel race date')
+    # Primary: race name + year + gravel/cycling context
+    queries.append(f'{display_name} {year} gravel race date')
 
-    # Fallback 1: quoted name + 2026
-    queries.append(f'"{display_name}" 2026')
+    # Fallback 1: quoted name + year
+    queries.append(f'"{display_name}" {year}')
 
     # Fallback 2: with location context
     if location:
         parts = [p.strip() for p in location.split(",")]
         loc_suffix = parts[-1].strip() if parts else ""
         if loc_suffix:
-            queries.append(f'{display_name} 2026 cycling {loc_suffix}')
+            queries.append(f'{display_name} {year} cycling {loc_suffix}')
 
     return queries
 
@@ -278,7 +291,7 @@ def _result_mentions_race(result, display_name, slug):
 
 
 def search_race_date(race, slug, verbose=False):
-    """Search for a race's 2026 date and official website.
+    """Search for a race's next-edition date and official website.
 
     Returns (date_specific, date_general, website_url).
     """
@@ -404,7 +417,7 @@ def _extract_month_from_date_specific(ds):
 
 
 def load_stale_races(tier_filters=None, slug_filter=None):
-    """Load races with stale (pre-2026) dates."""
+    """Load active races whose edition already ran or has no usable date."""
     stale = []
     for f in sorted(RACE_DATA_DIR.glob("*.json")):
         slug = f.stem
@@ -415,10 +428,7 @@ def load_stale_races(tier_filters=None, slug_filter=None):
         race = data.get("race", data)
         ds = race.get("vitals", {}).get("date_specific", "")
 
-        if not ds:
-            continue
-        m = re.match(r"(\d{4})", str(ds))
-        if not m or int(m.group(1)) >= 2026:
+        if not needs_date_check(race):
             continue
 
         tier = race.get("gravel_god_rating", {}).get("tier") or \
@@ -433,7 +443,7 @@ def load_stale_races(tier_filters=None, slug_filter=None):
 
 
 def scraper_fallback_date(race, slug, verbose=False):
-    """Try to find a 2026 date via cached scrape extracts or direct scraping.
+    """Try to find a next-edition date via cached scrape extracts or direct scraping.
 
     Returns (date_specific, month_name) or (None, None).
     Requires --use-scraper flag and scrapling installed.
@@ -443,12 +453,15 @@ def scraper_fallback_date(race, slug, verbose=False):
 
     # Step 1: Check cached extract from scrape_official_sites.py
     extract = load_extract(slug)
-    if extract and extract.get("date_2026"):
+    # Only old extracts carry a 2026-keyed date; it is the next edition only
+    # while 2026 is the season being searched.
+    if (next_edition_year() == 2026 and extract and extract.get("date_2026")
+            and not extract.get("next_edition_date")):
         date_str = str(extract["date_2026"])
         if verbose:
             print(f"  SCRAPER FALLBACK: cached extract has date_2026={date_str}")
         # Parse into our format
-        date_spec, month, day = extract_date_from_text(date_str + " 2026")
+        date_spec, month, day = extract_date_from_text(date_str + " 2026", year=2026)
         if not date_spec:
             # Try as-is if it looks like "2026-MM-DD"
             iso = re.match(r"2026-(\d{2})-(\d{2})", date_str)
@@ -494,7 +507,7 @@ def scraper_fallback_date(race, slug, verbose=False):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Web-search for 2026 dates for stale races"
+        description="Web-search for next-edition dates for stale races"
     )
     parser.add_argument("--dry-run", action="store_true",
                         help="Preview changes without writing")
@@ -595,10 +608,10 @@ def main():
                                 race["vitals"]["date"] = date_general
                 else:
                     date_not_found += 1
-                    print(f"  NO 2026 DATE FOUND (DuckDuckGo + scraper)")
+                    print(f"  NO {next_edition_year()} DATE FOUND (DuckDuckGo + scraper)")
             else:
                 date_not_found += 1
-                print(f"  NO 2026 DATE FOUND")
+                print(f"  NO {next_edition_year()} DATE FOUND")
 
         if website:
             website_found += 1

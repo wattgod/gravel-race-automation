@@ -5,7 +5,7 @@
     "display_name": "Heathland Gravel",
     "tagline": "Belgian heathland gravel challenge.",
     "vitals": {
-      "distance_mi": 65,
+      "distance_mi": 99.4,
       "elevation_ft": 1781,
       "location": "Belgium",
       "location_badge": "BELGIUM",
@@ -154,7 +154,7 @@
     },
     "guide_variables": {
       "race_name": "Heathland Gravel",
-      "race_distance": "65 miles",
+      "race_distance": "99 miles",
       "race_elevation": "3,500 feet",
       "race_date": "Spring",
       "race_location": "Belgium",
@@ -279,7 +279,7 @@
       },
       "length": {
         "score": 3,
-        "explanation": "160km hits the gravel sweet spot - long enough to hurt without being a death march. Three distance options (70km, 110km, 160km) accommodate different ambitions rather than forcing everyone into the same suffering. The 65-mile user data doesn't match official distances, but any of these options deliver a proper day in the saddle. Similar distance to Crusher in the Tushar."
+        "explanation": "160km hits the gravel sweet spot - long enough to hurt without being a death march. Three distance options (70km, 110km, 160km) accommodate different ambitions rather than forcing everyone into the same suffering. At 160 km (99 miles) the long route sits just under the 100-mile line, so length stays a 3. Similar distance to Crusher in the Tushar."
       },
       "technicality": {
         "score": 2,
@@ -287,7 +287,7 @@
       },
       "elevation": {
         "score": 1,
-        "explanation": "Mining slagheaps from Belgium's industrial heritage provide the main climbing through Hoge Kempen National Park's 127 square kilometers. One rider described 'wenig Höhenmeter' - low elevation gain - which matches the modest 3500 feet over 65 miles that won't break legs on uphills. Less climbing than The Mid South."
+        "explanation": "Mining slagheaps from Belgium's industrial heritage provide the main climbing through Hoge Kempen National Park's 127 square kilometers. One rider described 'wenig Höhenmeter' - low elevation gain - which matches the modest climbing over 160 km that won't break legs on uphills. Less climbing than The Mid South."
       },
       "climate": {
         "score": 3,
@@ -395,6 +395,12 @@
         "url": "https://www.youtube.com/watch?v=X8Xg7YkvYdU",
         "category": "community",
         "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.heathlandgravel.com/",
+        "category": "official",
+        "label": "Heathland Gravel official site — 160 km Unbound Gravel qualifier, plus 110 and 70 km",
+        "accessed": "2026-11-05"
       }
     ],
     "results": {

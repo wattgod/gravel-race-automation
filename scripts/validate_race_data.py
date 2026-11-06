@@ -52,6 +52,8 @@ from datetime import date
 from pathlib import Path
 
 RACE_DATA_DIR = Path(__file__).resolve().parent.parent / "race-data"
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
+from season import PAST, edition_state  # noqa: E402
 
 # Sibling repo that owns known_races.py + the races.json snapshot. Mirrors
 # the Path.home()/'Documents'/'GravelGod'/... convention already used by
@@ -292,7 +294,7 @@ def check_snapshot(report, snapshot, slugs=None, race_data_dir=None):
 def check_internal(report, slugs=None, race_data_dir=None):
     """(b) implausibilities + (c) gain-vs-ASL confusion, per race-data file."""
     race_data_dir = race_data_dir or RACE_DATA_DIR
-    today_year = date.today().year
+    today = date.today()
     files = sorted(race_data_dir.glob("*.json"))
     if slugs:
         files = [f for f in files if f.stem in slugs]
@@ -343,12 +345,11 @@ def check_internal(report, slugs=None, race_data_dir=None):
                     )
 
         # (b) stale date_specific year
-        year = _year_of(v.get("date_specific"))
-        if year is not None and year < today_year:
+        if edition_state(v.get("date_specific"), today) == PAST:
             report.warning(
                 slug,
-                f"STALE_DATE: date_specific year {year} is in the past "
-                f"(current year {today_year}) -- needs a refresh for the "
+                f"STALE_DATE: date_specific {str(v.get('date_specific'))[:40]!r} "
+                f"already ran (today {today}) -- needs a refresh for the "
                 f"next running of the race",
             )
 

@@ -4,7 +4,9 @@
   "name": "Belgian Waffle Ride",
   "description": "The original BWR: 107 miles across 30 road and unroad sectors from Del Mar.",
   "sport": "Gravel Cycling",
-  "startDate": "2027-04-25",
+  "startDate": "2027-05-01",
+  "endDate": "2027-05-02",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Del Mar, California",
@@ -22,7 +24,7 @@
   },
   "url": "https://belgianwaffleride.bike",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Michael Marckx (MMX)",
     "url": "https://belgianwaffleride.bike"
   }

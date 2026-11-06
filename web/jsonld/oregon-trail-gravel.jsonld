@@ -5,6 +5,8 @@
   "description": "5 days. 5 stages. The Grand Tour of American Gravel.",
   "sport": "Gravel Cycling",
   "startDate": "2027-07-07",
+  "endDate": "2027-07-11",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Central Oregon (multiple towns)",
@@ -21,7 +23,7 @@
   },
   "url": "https://www.oregontrailgravelgrinder.com",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Breakaway Promotions",
     "url": "https://www.oregontrailgravelgrinder.com"
   }

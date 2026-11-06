@@ -193,7 +193,7 @@ def problems(race: dict) -> list[str]:
         if extra:
             out.append(f"{where} has unknown keys {sorted(extra)}")
         year = e.get("year")
-        if not isinstance(year, int) or not 1980 <= year <= 2100:
+        if not isinstance(year, int) or not 1950 <= year <= 2100:
             out.append(f"{where}.year must be an integer year")
             continue
         years.append(year)

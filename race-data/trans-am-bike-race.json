@@ -208,6 +208,62 @@
         "date": "2025-06-01",
         "note": "Checkpoint format introduced; finish at Yorktown or Washington D.C.",
         "source": "https://rideyrbike.com/transambikenonstop/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-06-02",
+        "note": "Run as Trans Am Bike Nonstop; finish at Yorktown or Washington, D.C.",
+        "source": "https://rideyrbike.com/results/"
+      },
+      {
+        "year": 2023,
+        "date": "2023-06-04",
+        "edition": 9,
+        "source": "https://transambikerace.com/2023-trans-am-bike-race-its-just-a-bike-ride/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-06-05",
+        "source": "https://bikepacking.com/event/trans-am-bike-race-2022/"
+      },
+      {
+        "year": 2021,
+        "date": "2021-06-06",
+        "source": "https://bikepacking.com/event/trans-am-bike-race-2021/"
+      },
+      {
+        "year": 2019,
+        "date": "2019-06-02",
+        "source": "https://bikepacking.com/event/trans-am-bike-race-2019/"
+      },
+      {
+        "year": 2018,
+        "date": "2018-06-02",
+        "note": "Velomobiles allowed for the first time",
+        "source": "https://rideyrbike.com/TABR2018"
+      },
+      {
+        "year": 2017,
+        "date": "2017-06-03",
+        "source": "https://bikepacking.com/event/trans-bike-race-2017/"
+      },
+      {
+        "year": 2016,
+        "date": "2016-06-04",
+        "note": "Riders could race either direction; pairs category added",
+        "source": "https://rideyrbike.com/events/"
+      },
+      {
+        "year": 2015,
+        "date": "2015-06-06",
+        "source": "https://rideyrbike.com/events/"
+      },
+      {
+        "year": 2014,
+        "date": "2014-06-07",
+        "edition": 1,
+        "note": "Inaugural race, Astoria to Yorktown",
+        "source": "https://www.apidura.com/journal/transam-bike-race-2014/"
       }
     ],
     "course_description": {
@@ -708,6 +764,89 @@
         "credit": "YouTube / Mortalbicycler",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2014": {
+          "race": "4,233 mi",
+          "winner_female": "Juliana Buhring",
+          "winner_male": "Mike Hall",
+          "winning_time_female": "20d 23h 46m",
+          "winning_time_male": "17d 16h 17m",
+          "source": "https://en.wikipedia.org/wiki/Trans_Am_Bike_Race"
+        },
+        "2015": {
+          "race": "4,200 mi",
+          "winner_male": "Jesse Carlsson",
+          "winning_time_male": "18d 23h 8m",
+          "source": "https://en.wikipedia.org/wiki/Trans_Am_Bike_Race"
+        },
+        "2016": {
+          "race": "4,200 mi",
+          "winner_female": "Lael Wilcox",
+          "winner_male": "Steffen Streich",
+          "winning_time_female": "18d 0h 10m",
+          "winning_time_male": "18d 2h 18m",
+          "source": "https://en.wikipedia.org/wiki/Trans_Am_Bike_Race"
+        },
+        "2017": {
+          "race": "4,182 mi",
+          "winner_female": "Janie Hayes",
+          "winner_male": "Evan Deutsch",
+          "winning_time_female": "19d 7h 41m",
+          "winning_time_male": "17d 9h 8m",
+          "source": "https://en.wikipedia.org/wiki/Trans_Am_Bike_Race"
+        },
+        "2018": {
+          "race": "4,300 mi",
+          "winner_female": "Tanja Hacker",
+          "winner_male": "Peter Andersen",
+          "winning_time_female": "22d 20h 8m",
+          "winning_time_male": "16d 20h 41m",
+          "source": "https://en.wikipedia.org/wiki/Trans_Am_Bike_Race"
+        },
+        "2019": {
+          "race": "4,300 mi",
+          "winner_female": "Lea Meszarosova",
+          "winner_male": "Abdullah Zeinab",
+          "winning_time_female": "21d 10h 4m",
+          "winning_time_male": "16d 9h 56m",
+          "source": "https://en.wikipedia.org/wiki/Trans_Am_Bike_Race"
+        },
+        "2021": {
+          "race": "4,300 mi",
+          "winner_female": "Brooke Barney",
+          "winner_male": "Kraig Pauli",
+          "winning_time_female": "30d 11h 55m",
+          "winning_time_male": "17d 8h 30m",
+          "source": "https://en.wikipedia.org/wiki/Trans_Am_Bike_Race"
+        },
+        "2022": {
+          "race": "4,300 mi",
+          "winner_female": "De'anna Caligiuri",
+          "winner_male": "Kraig Pauli",
+          "winning_time_female": "35d 0h 12m",
+          "winning_time_male": "17d 9h 1m",
+          "source": "https://rideyrbike.com/results/"
+        },
+        "2023": {
+          "race": "4,200 mi",
+          "winner_female": "Abby Moore",
+          "winner_male": "Omar Di Felice",
+          "winning_time_female": "29d 20h 53m",
+          "winning_time_male": "18d 10h 13m",
+          "source": "https://en.wikipedia.org/wiki/Trans_Am_Bike_Race"
+        },
+        "2024": {
+          "race": "4,191 mi",
+          "winner_female": "Leah Goldstein",
+          "winner_male": "Artie Carpenter",
+          "winning_time_female": "22d 3h 2m",
+          "winning_time_male": "19d 9h 2m",
+          "source": "https://dotwatcher.cc/results/2024/trans-am-bike-race-2024?rider=Artie+Carpenter"
+        }
+      },
+      "latest_year": "2024"
+    }
   }
 }

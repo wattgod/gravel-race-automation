@@ -232,6 +232,34 @@
         "date": "2025-09-13",
         "note": "California stop returned to Quincy, where Grinduro began in 2015.",
         "source": "https://my.raceresult.com/360133/results"
+      },
+      {
+        "year": 2019,
+        "date": "2019-09-28",
+        "edition": 5,
+        "note": "New mostly dirt course after Plumas National Forest wildfires",
+        "source": "https://www.gravelcyclist.com/race-reports/2019-grinduro-california-the-four-seasons-of-bike-riding-racing/"
+      },
+      {
+        "year": 2018,
+        "edition": 4,
+        "source": "https://theradavist.com/rounding-out-the-2018-sierra-buttes-triple-crown-with-grinduro-in-quincy"
+      },
+      {
+        "year": 2017,
+        "date": "2017-10-07",
+        "source": "https://www.synergyracetiming.com/race/grinduro-2017/"
+      },
+      {
+        "year": 2016,
+        "date": "2016-10-08",
+        "source": "https://www.cxmagazine.com/2016-grinduro-results-duncan-riffle-meredith-descends-miller-tt-wins"
+      },
+      {
+        "year": 2015,
+        "date": "2015-10-10",
+        "note": "First Grinduro, Quincy, California",
+        "source": "https://adventuresportsjournal.com/grinduro/"
       }
     ],
     "notable_winners": [
@@ -485,7 +513,43 @@
     },
     "results": {
       "years": {
-        "2024": {}
+        "2024": {},
+        "2015": {
+          "race": "60 mi",
+          "winner_female": "Caroline Dezendorf",
+          "winner_male": "Barry Wicks",
+          "source": "https://spokemagazine.com/grinduro/"
+        },
+        "2016": {
+          "race": "Timed segments",
+          "winner_female": "Meredith Miller",
+          "winner_male": "Duncan Riffle",
+          "winning_time_female": "48:35.2",
+          "winning_time_male": "40:48.9",
+          "source": "https://www.cxmagazine.com/2016-grinduro-results-duncan-riffle-meredith-descends-miller-tt-wins"
+        },
+        "2017": {
+          "race": "Timed segments",
+          "winner_female": "Katerina Nash",
+          "winner_male": "Carl Decker",
+          "winning_time_female": "46:02.1",
+          "winning_time_male": "40:22.62",
+          "source": "https://www.synergyracetiming.com/race/grinduro-2017/"
+        },
+        "2018": {
+          "race": "Timed segments",
+          "winner_female": "Lindsay Dwyer",
+          "winner_male": "Ted King",
+          "source": "https://element.ly/2018/10/grinduro-2018/"
+        },
+        "2019": {
+          "race": "59.5 mi",
+          "winner_female": "Katerina Nash",
+          "winner_male": "Stephan Davoust",
+          "winning_time_female": "47:33",
+          "winning_time_male": "42:30",
+          "source": "https://www.cxmagazine.com/katerina-nash-stephan-davoust-take-wintry-2019-grinduro-results"
+        }
       },
       "latest_year": "2024"
     },

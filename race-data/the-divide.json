@@ -180,6 +180,43 @@
         "year": 2022,
         "date": "2022-07-31",
         "source": "https://hardracingevents.com/events/the-divide/race-results/"
+      },
+      {
+        "year": 2021,
+        "date": "2021-07-25",
+        "source": "https://michianatiming.com/results-the-divide-gravel-bike-race-7252021/"
+      },
+      {
+        "year": 2020,
+        "date": "2020-07-26",
+        "source": "https://michianatiming.com/results-the-divide-gravel-bike-race-7262020/"
+      },
+      {
+        "year": 2019,
+        "date": "2019-07-28",
+        "edition": 5,
+        "source": "https://michianatiming.com/results-5th-annual-divide-gravel-bike-race-7282019/"
+      },
+      {
+        "year": 2018,
+        "date": "2018-07-29",
+        "edition": 4,
+        "source": "https://michianatiming.com/results-4th-annual-divide-gravel-bike-race/"
+      },
+      {
+        "year": 2017,
+        "date": "2017-07-23",
+        "source": "https://michianatiming.com/thedivide-bike-race-2017/"
+      },
+      {
+        "year": 2016,
+        "date": "2016-07-24",
+        "source": "https://michianatiming.com/the-divide-72416/"
+      },
+      {
+        "year": 2015,
+        "date": "2015-07-19",
+        "source": "https://michianatiming.com/the-divide-bike-and-longboard-races-71915/"
       }
     ],
     "final_verdict": {
@@ -210,6 +247,51 @@
         "category": "official",
         "label": "Official Results Archive"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2017": {
+          "race": "50 mi",
+          "winner_female": "Susan Vigland",
+          "winner_male": "Al Mcwilliams",
+          "winning_time_female": "2:40:22.7",
+          "winning_time_male": "2:22:34.6",
+          "source": "https://michianatiming.com/wp-content/uploads/2017/07/50-mile-overall.htm"
+        },
+        "2018": {
+          "race": "51 mi",
+          "winner_female": "Tracy Berman",
+          "winner_male": "Nathaniel Williams",
+          "winning_time_female": "3:08:26.6",
+          "winning_time_male": "2:20:27.3",
+          "source": "https://michianatiming.com/wp-content/uploads/2018/07/Overall-Division-Results.htm"
+        },
+        "2019": {
+          "race": "50 mi",
+          "winner_female": "Kaitlyn Patterson",
+          "winner_male": "Tim Coffey",
+          "winning_time_female": "2:46:21.6",
+          "winning_time_male": "2:27:18.8",
+          "source": "https://michianatiming.com/wp-content/uploads/2019/07/Overall-Results-1.htm"
+        },
+        "2020": {
+          "race": "50 mi",
+          "winner_female": "Tory Cane",
+          "winner_male": "Jorden Wakeley",
+          "winning_time_female": "3:22:42.6",
+          "winning_time_male": "2:30:29.7",
+          "source": "https://michianatiming.com/wp-content/uploads/2020/07/Overall-Finish-List.htm"
+        },
+        "2021": {
+          "race": "50 mi",
+          "winner_female": "Victoria Cane",
+          "winner_male": "Garrett Jenema",
+          "winning_time_female": "2:57:08.9",
+          "winning_time_male": "2:29:10.3",
+          "source": "https://michianatiming.com/wp-content/uploads/2021/07/Overall-Results-2.htm"
+        }
+      },
+      "latest_year": "2021"
+    }
   }
 }

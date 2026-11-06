@@ -134,6 +134,16 @@
         "year": 2023,
         "date": "2023-05-06",
         "source": "https://www.performancetiming.com/2023/05/the-bear-100-gravel-bike-ride-2023/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-05-07",
+        "source": "https://www.ironbull.org/in-the-news/ironbull-1000-launch"
+      },
+      {
+        "year": 2019,
+        "date": "2019-05-11",
+        "source": "https://www.diablocycling.com/races-events--blog/archives/05-2019"
       }
     ],
     "course_description": {
@@ -696,6 +706,17 @@
         "credit": "YouTube / Adam Lives Adventure",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2019": {
+          "race": "108 mi",
+          "winner_female": "Leia Rollins",
+          "winner_male": "Dan Naef",
+          "source": "https://www.cxmagazine.com/gravel-race-2019-bear-100-wisconsin-northwoods"
+        }
+      },
+      "latest_year": "2019"
+    }
   }
 }

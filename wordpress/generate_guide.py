@@ -1267,18 +1267,20 @@ def build_nav() -> str:
   </div>'''
 
 
-# Painted scenes of the Gravel God character (v6 rig look, gravel-god-character repo),
-# one per chapter. Files: guide/art/gg-art-<slug>-{1x,2x}.webp, served from /guide/media/.
+# Gravel God character scenes, one per chapter, rendered from the v6.7 character rig
+# (gravel-god-character repo) by scripts/render_guide_character_art.py.
+# Files: guide/art/gg-art-<slug>-{1x,2x}.webp, served from /guide/media/. The "v67-" prefix is
+# also a cache-buster: /guide/media/ is cached for a year, so new art needs new filenames.
 GUIDE_ART = {
-    0: "00-cover",
-    1: "01-what-is-gravel",
-    2: "02-race-selection",
-    3: "03-training-fundamentals",
-    4: "04-workout-execution",
-    5: "05-nutrition",
-    6: "06-mental",
-    7: "07-race-week",
-    8: "08-post-race",
+    0: "v67-00-cover",
+    1: "v67-01-what-is-gravel",
+    2: "v67-02-race-selection",
+    3: "v67-03-training-fundamentals",
+    4: "v67-04-workout-execution",
+    5: "v67-05-nutrition",
+    6: "v67-06-mental",
+    7: "v67-07-race-week",
+    8: "v67-08-post-race",
 }
 
 
@@ -1688,9 +1690,9 @@ def build_guide_css() -> str:
 .gg-guide-chapter-hero--dark .gg-guide-chapter-subtitle{color:var(--gg-color-sand)}
 .gg-guide-chapter-body{padding:40px 48px}
 
-/* ── Painted chapter openers ── */
+/* ── Chapter openers (character scenes) ── */
 .gg-guide-chapter-hero--art{display:block;min-height:0;padding:0;background:var(--gg-color-dark-brown)}
-.gg-guide-chapter-art{display:block;width:100%;aspect-ratio:21/9;object-fit:cover;object-position:50% 38%;border-bottom:3px solid var(--gg-color-dark-brown)}
+.gg-guide-chapter-art{display:block;width:100%;height:auto;aspect-ratio:21/9;object-fit:cover;object-position:50% 38%;border-bottom:3px solid var(--gg-color-dark-brown)}
 .gg-guide-chapter-hero--art .gg-guide-chapter-title-block{max-width:none;display:grid;grid-template-columns:auto 1fr;column-gap:24px;align-items:end;padding:24px 32px 28px;background:var(--gg-color-dark-brown)}
 .gg-guide-chapter-bignum{display:none}
 .gg-guide-chapter-hero--art .gg-guide-chapter-bignum{display:block;grid-row:1 / span 3;font-family:var(--gg-font-data);font-size:112px;font-weight:700;line-height:.8;letter-spacing:-6px;color:var(--gg-color-light-gold)}
@@ -1700,7 +1702,7 @@ def build_guide_css() -> str:
 
 /* ── Cover ── */
 .gg-neo-brutalist-page .gg-hero.gg-guide-cover{padding:0;background:var(--gg-color-dark-brown);border-bottom:3px solid var(--gg-color-dark-brown)}
-.gg-guide-cover-art{display:block;width:100%;aspect-ratio:16/8;object-fit:cover;object-position:30% 50%}
+.gg-guide-cover-art{display:block;width:100%;height:auto;aspect-ratio:16/8;object-fit:cover;object-position:30% 50%}
 .gg-guide-cover-slab{position:relative;margin:-120px 0 0 32px;max-width:620px;background:var(--gg-color-dark-brown);border:3px solid var(--gg-color-light-gold);padding:28px 32px 32px}
 .gg-guide-cover-eyebrow{display:block;font-family:var(--gg-font-data);font-size:12px;font-weight:700;letter-spacing:3px;color:var(--gg-color-light-gold);margin-bottom:12px}
 .gg-neo-brutalist-page .gg-guide-cover h1{font-size:48px;margin-bottom:12px}

@@ -30,10 +30,10 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "tyrone-tt": "Black-and-white photo of the old \"Tyrone, New Mexico\" storefront with a \"No Over Night Parking\" sign, a Scott team tent and a pickup truck out front, and a colour cartoon Gravel God in a cowboy hat looking on from the left.",
-    "gaslighting": "Text-message screenshot: \"Can't wait!! How was TT?\" The reply \"Today was the crit\", then \"No way! It happened already? Not at night?\", and a final profane reply marked Delivered; a grinning cartoon Gravel God head sits between the bubbles.",
-    "trust-your-neighbor": "A printed sign taped inside the cracked rear window of a weathered soft-top 4x4 reads \"Trust your neighbor but brand your cows.\"; cartoon Gravel God's cowboy hat fills the bottom of the frame.",
-    "the-tony": "A man in a purple Nature Sacks T-shirt feeds a card into the pay box of a self-serve car wash under its washing-instructions dial, a blue hose trailing away, while cartoon Gravel God in a cowboy hat watches from the left.",
+    "tyrone-tt": "Black-and-white photo of the Tyrone, New Mexico storefront with a NO OVERNIGHT PARKING sign and a SCOTT tent; cartoon Gravel God, in colour, looks on from the corner.",
+    "gaslighting": "A text thread: \"Can't wait!!\" \"How was TT?\" \"Today was the crit.\" \"No way! It happened already? Not at night?\" \"I fuck on you.\" Cartoon Gravel God grins in the middle.",
+    "trust-your-neighbor": "Cartoon Gravel God, seen from behind, reads a sign taped in a dusty truck window: \"Trust your neighbor but brand your cows.\"",
+    "the-tony": "A rider in a purple tee feeds a self-serve car wash machine; cartoon Gravel God stands beside him, eyebrows raised.",
 }
 
 DESCRIPTION = ("Tour of the Gila Stage 3: the Tyrone time trial, the UCI bike-check jig, a result the author "

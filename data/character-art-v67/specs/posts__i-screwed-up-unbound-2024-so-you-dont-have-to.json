@@ -1,0 +1,203 @@
+{
+ "collection": "posts",
+ "slug": "i-screwed-up-unbound-2024-so-you-dont-have-to",
+ "images": [
+  {
+   "file": "img/trash-1.webp",
+   "name": "trash-1",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      620,
+      520,
+      1000,
+      900
+     ],
+     "erase_box": [
+      560,
+      670,
+      1015,
+      900
+     ],
+     "mask": "box",
+     "pad": 10,
+     "pose": "sit",
+     "face": "sleepy",
+     "psi": 60
+    }
+   ],
+   "joke": "(no words: he ends up in the trash alley)",
+   "match": "closest",
+   "note": "Old cartoon lay flat on the ground; the rig cannot lie down, so he sits slumped in the alley.",
+   "alt": "A sunlit back alley of dumpsters, crushed cans and spilled trash; cartoon Gravel God sits slumped on the ground, half asleep.",
+   "erase_extra": [
+    [
+     40,
+     745,
+     570,
+     900
+    ]
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/image000005.webp",
+   "name": "image000005",
+   "verdict": "keep",
+   "why": "Security-camera still of a person with a bike at a shop door; no Gravel God."
+  },
+  {
+   "file": "img/image000004.webp",
+   "name": "image000004",
+   "verdict": "keep",
+   "why": "Security-camera still of a person at a shop door; no Gravel God."
+  },
+  {
+   "file": "img/image000003.webp",
+   "name": "image000003",
+   "verdict": "keep",
+   "why": "Security-camera still of a person at a shop door; no Gravel God."
+  },
+  {
+   "file": "img/waxed.webp",
+   "name": "waxed",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1040,
+      680,
+      1250,
+      900
+     ],
+     "erase_box": [
+      975,
+      670,
+      1255,
+      900
+     ],
+     "mask": "box",
+     "pad": 10,
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "joke": "(no words: him at the bottom of the frame by the double track)",
+   "match": "closest",
+   "note": "His bike's handlebar beside him is gone; bust only.",
+   "alt": "A grassy double track climbing between fences and trees; cartoon Gravel God's grimacing head and shoulders at the bottom of the frame.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/hwy-h.webp",
+   "name": "hwy-h",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      650,
+      40,
+      980,
+      890
+     ],
+     "erase_box": [
+      610,
+      0,
+      1010,
+      900
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "pose": "walk",
+     "face": "focused",
+     "psi": 20,
+     "scale": 1.08
+    }
+   ],
+   "joke": "(no words: him on foot down Highway H)",
+   "match": "closest",
+   "note": "Old art showed him running; the rig has a walk, not a run.",
+   "alt": "Cartoon Gravel God walks down the middle of a country highway past cornfields, a creek and power lines on a sunny morning.",
+   "erase_extra": [
+    [
+     690,
+     640,
+     890,
+     900
+    ]
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/expectations.webp",
+   "name": "expectations",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      610,
+      40,
+      800,
+      335
+     ],
+     "erase_box": [
+      600,
+      35,
+      810,
+      340
+     ],
+     "mask": "box",
+     "pad": 8,
+     "ride": "seated_climb",
+     "face": "smile",
+     "psi": 0
+    },
+    {
+     "box": [
+      550,
+      600,
+      840,
+      840
+     ],
+     "erase_box": [
+      535,
+      470,
+      915,
+      848
+     ],
+     "mask": "box",
+     "pad": 8,
+     "ride": "brake_hard",
+     "face": "surprised",
+     "psi": 0
+    }
+   ],
+   "shapes": [
+    {
+     "type": "line",
+     "box": [
+      0,
+      452,
+      1420,
+      230
+     ],
+     "fill": "#111111",
+     "width": 4
+    }
+   ],
+   "joke": "EXPECTATIONS / REALITY",
+   "match": "closest",
+   "note": "Reality panel showed him crashing upside down; the rig cannot flip, so he brakes hard on the squiggle.",
+   "alt": "Two panels. \"EXPECTATIONS\": cartoon Gravel God rides a straight line up to a can of Miller Lite. \"REALITY\": he brakes hard, wide-eyed, on a wildly squiggly line to the same can.",
+   "verdict": "replace"
+  }
+ ]
+}

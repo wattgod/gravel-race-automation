@@ -1,0 +1,109 @@
+{
+ "collection": "posts",
+ "slug": "the-double-day-3-yield-to-tonnage",
+ "images": [
+  {
+   "file": "img/ut-pa-baeretur-1.webp",
+   "name": "ut-pa-baeretur-1",
+   "verdict": "keep",
+   "why": "Strava screenshot; no character."
+  },
+  {
+   "file": "img/mega-lol.webp",
+   "name": "mega-lol",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      80,
+      480,
+      330,
+      810
+     ],
+     "erase_box": [
+      55,
+      470,
+      348,
+      810
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "face": "laugh",
+     "psi": 22.5,
+     "fit": "height"
+    }
+   ],
+   "joke": "LOL",
+   "alt": "A TrainingPeaks file from a 20.8-mile, 59 TSS time trial with a giant purple \"LOL\" across the map, and cartoon Gravel God laughing at it from the corner."
+  },
+  {
+   "file": "img/bufz-doge-fuchs.webp",
+   "name": "bufz-doge-fuchs",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      0,
+      0,
+      232,
+      312
+     ],
+     "erase_box": [
+      0,
+      0,
+      248,
+      318
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "face": "shout",
+     "psi": 22.5,
+     "fit": "height"
+    }
+   ],
+   "alt": "Two time-trial files stacked. Top, \"Rte 66 TT\": 20:56.61, 9.10 mi, normalized power 328 W, 4.24 W/kg, with the mustached Gravel God character in a white tee peering in at top left. Bottom, \"Entire Workout\": 18:34, 9.12 mi, 415 W, 5.08 W/kg, with a muscle-bound teammate in a cowboy hat holding a toaster. A yellow splash sweeps across."
+  },
+  {
+   "file": "img/nap-god.webp",
+   "name": "nap-god",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      5,
+      215,
+      240,
+      885
+     ],
+     "erase_box": [
+      0,
+      205,
+      252,
+      892
+     ],
+     "pose": "shrug",
+     "face": "smile",
+     "psi": 80,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "A cluttered living room after a race: one rider sorts kit on the floor, another naps on the couch in the foreground, and cartoon Gravel God stands at the left with a shrug."
+  },
+  {
+   "file": "img/screen-shot-2022-04-22-at-5-17-43-pm.webp",
+   "name": "screen-shot-2022-04-22-at-5-17-43-pm",
+   "verdict": "keep",
+   "why": "Screenshot; no character."
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+ "collection": "posts",
+ "slug": "tour-of-the-gila-stage-1-full-tilt-like-a-peter-built",
+ "images": [
+  {
+   "file": "img/lol.webp",
+   "name": "lol",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      510,
+      480,
+      670,
+      880
+     ],
+     "erase_box": [
+      442.16,
+      439.8,
+      729.84,
+      893.4
+     ],
+     "pose": "thumbs_up",
+     "face": "grin",
+     "psi": 90,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "\"LOL!\" over the Tour of the Gila stage, where cartoon Gravel God gives a thumbs up in front of the backdrop.",
+   "joke": "LOL!",
+   "match": "exact"
+  },
+  {
+   "file": "img/lol-1.webp",
+   "name": "lol-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      50,
+      170,
+      260,
+      695
+     ],
+     "erase_box": [
+      10,
+      150,
+      302,
+      702
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 67.5,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "A shirtless rider holding a water bottle in a race parking lot; cartoon Gravel God stands thinking at the left.",
+   "match": "exact"
+  }
+ ]
+}

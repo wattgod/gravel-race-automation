@@ -42,7 +42,7 @@ OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
     "crash-nurse": "Two photos side by side: a selfie of Matti in a red Rio Grande jersey after his crash, nose and lip bloodied and grazed, earbuds in; and a young girl in a nurse costume taping a dressing onto his scraped thigh at home.",
-    "sbt-grvl-start": "Painterly-filtered photo of the SBT GRVL start: a crowd of helmeted riders under string lights facing the SBT GRVL arch, with the top of cartoon Gravel God's cowboy hat among them.",
+    "sbt-grvl-start": "Painterly-filtered photo of the SBT GRVL start: a crowd of helmeted riders under string lights facing the SBT GRVL arch, with the back of cartoon Gravel God's slicked-back head among them.",
     "hey-yeah-you-snap-out-of-it-youre-a-stallion": "Selfie of a weathered, grey-haired rider in a cycling cap and light-blue jersey, with a speech bubble: \"Hey. Yeah, you. Snap out of it. You're a STALLION!\"",
     "sbt-aften": "Collage after the race: Matti grinning in red Rio Grande kit beside his bike in the finish area, and Matti in glasses at a restaurant with a small boy in an SBT GRVL cap and a girl in a floral dress.",
     "screen-shot-2021-11-24-at-10-56-27-am": "TrainingPeaks summary of \"SBT Gravel\", August 15, 2021: 7:22:30, 145 mi, 396 hrTSS, Fitness 107, Fatigue 146, Form -4; planned vs completed 140 vs 145 mi, 17.5 vs 19.6 mph, 9,000 vs 7,808 ft, normalized power 302 W; Matti's comment begins \"Best gravel race I've put together so far\" and says he preloaded 1500 mg of sodium the night before and 1500 mg 90 minutes before.",

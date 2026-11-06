@@ -35,12 +35,12 @@ OUTPUT_PATH = wp_post.output_path(SLUG)
 
 _P = "my-thoughts-if-you-can-afford-a-bike-you-can-afford-a-portable-lactate-teste"
 ALT = {
-    f"{_P}-3": "Cartoon Gravel God in a cowboy hat, seen from behind, sits at a desk watching a video in which a cartoon cyclist says, \"I only train in Zone 7 now, fueled entirely by meatloaf.\"",
-    _P: "Animated: a globe spins on its stand against a starfield, its axis labelled \"Biopsychosocial\" and \"Impact\", with cartoon Gravel God in a cowboy hat peering up from beside it.",
+    f"{_P}-3": "Cartoon Gravel God, seen from behind at his desk, watches a cartoon cyclist on his monitor say: \"I only train in Zone 7 now, fueled entirely by meatloaf.\"",
+    _P: "Cartoon Gravel God, seen from behind, looks up at a cartoon Earth in a starry sky labelled \"BIOPSYCHOSOCIAL IMPACT\".",
     f"{_P}-2": "Tweet from Alan Couzens (@Alan_Couzens): \"My thoughts... If you can afford a bike, you can afford a portable lactate tester.\"",
     f"{_P}-1": "Tweet thread from Alan Couzens (@Alan_Couzens): \"7 unpopular truths for the serious endurance athlete\", including showing up every day for years, living differently from your peers, conflict at work and in relationships, \"7-10 hours a week is *exercise* ... not competitive training\", and triathlon as a lifestyle sport.",
     f"{_P}-2-2": "A person holds up a phone showing a glucose monitor app reading 108 mg/dL, with a daily trace and a 90-day overview, next to a round white sensor patch on the back of their upper arm.",
-    "untitled-design": "Cartoon Gravel God in a cowboy hat, hand on chin, stands in thought in front of a white brick wall covered in faint charts, formulas and diagrams.",
+    "untitled-design": "Cartoon Gravel God, thinking, in front of a faded whiteboard of charts, arrows and sketches.",
 }
 
 DESCRIPTION = ("How to judge a training method or product by context: how much it can improve performance, "

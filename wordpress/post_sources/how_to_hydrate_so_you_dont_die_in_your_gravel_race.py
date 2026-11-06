@@ -31,15 +31,15 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "desert": "Cartoon Gravel God in a cowboy hat rides a bike across a cracked, dried-out desert lake bed toward low mountains, under a blazing sun.",
+    "desert": "Cartoon Gravel God rides a bike across a cracked, dried-out desert lake bed toward low mountains, under a blazing sun.",
     "leg-twitch-1": "Animated: close-up video of a sunburnt, dust-flecked calf twitching with cramp above a purple patterned sock, as a rider sits on a curb; the camera then pans to his gravel bike lying on the pavement, a Garmin on the stem and a course-profile sticker on the top tube.",
-    "seethisplaceinjanuary": "Cartoon Gravel God in a cowboy hat stands on a frozen, snow-covered fjord shore, sipping from a mug: \"Cold? It's June. You should see this place in January.\"",
-    "sweat": "Cartoon Gravel God in a cowboy hat grins, drops of sweat on his face and legs, standing in a puddle of his own sweat.",
+    "seethisplaceinjanuary": "Cartoon Gravel God stands in the snow with a coffee: \"Cold? It's June. You should see this place in January.\"",
+    "sweat": "Cartoon Gravel God grins, standing in a puddle of his own sweat.",
     "glood-plasma": "Diagram of a blood sample in a test tube: red blood cells settled at the bottom, a thin band of white blood cells and platelets, and yellow plasma on top, its contents listed as water, gases, ions, proteins, nutrients and wastes.",
     "inbloodbro": "Photo of a man in a dark sweater and white collar, looking at the camera, with a speech bubble: \"It's all in your blood, bro.\"",
-    "startdehydrated": "Cartoon Gravel God in a cowboy hat grins: \"You're going to start your workout dehydrated? Awesome. It's going to go great!\"",
-    "sodium": "Cartoon Gravel God in a cowboy hat eyes two wooden spoons heaped with fine salt and coarse salt crystals on dark slate.",
-    "just-drink": "Cartoon Gravel God in a cowboy hat, sipping a drink at a bar counter: \"So what I'm getting from your 2,000 words is to just drink beer and you won't cramp.\"",
+    "startdehydrated": "Cartoon Gravel God grins and gives a thumbs up: \"You're going to start your workout dehydrated? Awesome. It's going to go great!\"",
+    "sodium": "Cartoon Gravel God, one eyebrow up, eyes two wooden spoons heaped with fine salt and coarse salt crystals on dark slate.",
+    "just-drink": "Cartoon Gravel God, drink in hand at a bar counter: \"So what I'm getting from your 2,000 words is to just drink beer and you won't cramp.\"",
 }
 
 # Figures this module adds (excluded from the word-for-word text diff).

@@ -1,0 +1,419 @@
+{
+ "collection": "articles",
+ "slug": "crabs-in-a-bucket",
+ "images": [
+  {
+   "file": "img/51723133bee06430.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "flat",
+    "color": "#70757a"
+   },
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      440,
+      -200,
+      1120,
+      470
+     ],
+     "fill": "#f7f0bd",
+     "outline": "#2b2b2b",
+     "width": 10
+    }
+   ],
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      530,
+      1024
+     ],
+     "box": [
+      0,
+      0,
+      610,
+      1024
+     ]
+    },
+    {
+     "src": [
+      1130,
+      0,
+      1536,
+      1024
+     ],
+     "box": [
+      1000,
+      0,
+      1536,
+      1024
+     ]
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      620,
+      110,
+      990,
+      1000
+     ],
+     "pose": "point",
+     "psi": 67.5,
+     "face": "grin"
+    }
+   ],
+   "match": "closest",
+   "note": "Painted scene rebuilt: the crabs and bucket are kept, the wall behind him is a flat grey and the light opening is redrawn; he points instead of lounging back on one hand."
+  },
+  {
+   "file": "img/6dc0e8fbc9a76b87.webp",
+   "verdict": "keep",
+   "why": "Training log screenshot; no character."
+  },
+  {
+   "file": "img/9aff72d21341ebbc.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "flat",
+    "color": "#000000"
+   },
+   "insets": [
+    {
+     "src": [
+      54,
+      26,
+      620,
+      209
+     ],
+     "box": [
+      54,
+      26,
+      620,
+      209
+     ]
+    },
+    {
+     "src": [
+      876,
+      64,
+      1525,
+      272
+     ],
+     "box": [
+      876,
+      64,
+      1525,
+      272
+     ]
+    },
+    {
+     "src": [
+      59,
+      446,
+      620,
+      632
+     ],
+     "box": [
+      59,
+      446,
+      620,
+      632
+     ]
+    },
+    {
+     "src": [
+      876,
+      395,
+      1525,
+      597
+     ],
+     "box": [
+      876,
+      395,
+      1525,
+      597
+     ]
+    },
+    {
+     "src": [
+      953,
+      743,
+      1525,
+      926
+     ],
+     "box": [
+      953,
+      743,
+      1525,
+      926
+     ]
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      590,
+      300,
+      880,
+      1010
+     ],
+     "pose": "shoulder_bike",
+     "psi": 80,
+     "face": "grin"
+    }
+   ],
+   "joke": "Nice hat, loser / Imagine thinking being a Cat 1 is a flex / I'd win too if I didn't have a job. / Miller is for ugly ppl / Mid.",
+   "match": "closest",
+   "note": "The original held the bike overhead; the rig has no overhead lift, so he carries it on his shoulder.",
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      818,
+      238,
+      942,
+      362
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      787,
+      187,
+      893,
+      293
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      822,
+      -18,
+      938,
+      98
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      788,
+      48,
+      892,
+      152
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      784,
+      122,
+      876,
+      214
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      817,
+      565,
+      943,
+      691
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      786,
+      514,
+      894,
+      622
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      817,
+      301,
+      943,
+      427
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      786,
+      370,
+      894,
+      478
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      783,
+      449,
+      877,
+      543
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      883,
+      263,
+      977,
+      357
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      911,
+      271,
+      1009,
+      369
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      904,
+      304,
+      996,
+      396
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      881,
+      316,
+      969,
+      404
+     ],
+     "fill": "#000000"
+    },
+    {
+     "type": "rect",
+     "box": [
+      876,
+      271,
+      1060,
+      282
+     ],
+     "fill": "#000000"
+    }
+   ]
+  },
+  {
+   "file": "img/33812445c7eb479f.webp",
+   "verdict": "keep",
+   "why": "Tweet screenshot; no character."
+  },
+  {
+   "file": "img/fdc2a76826da6b0a.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "gradient",
+    "top": "#d9d9d9",
+    "bottom": "#8e8e8e"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      790,
+      1024
+     ],
+     "box": [
+      0,
+      0,
+      790,
+      1024
+     ]
+    },
+    {
+     "src": [
+      790,
+      0,
+      1010,
+      570
+     ],
+     "box": [
+      790,
+      0,
+      1010,
+      570
+     ]
+    },
+    {
+     "src": [
+      790,
+      810,
+      1010,
+      1024
+     ],
+     "box": [
+      790,
+      810,
+      1010,
+      1024
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      1250,
+      40,
+      1470,
+      330
+     ],
+     "fill": "#f4f4f4",
+     "outline": "#2a2a2a",
+     "width": 8
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      790,
+      150,
+      1536,
+      1024
+     ],
+     "pose": "phone",
+     "psi": 112.5,
+     "crop": "bust",
+     "fit": "height",
+     "face": "focused"
+    }
+   ],
+   "joke": "Haters Database",
+   "match": "closest",
+   "note": "Painted scene rebuilt: the monitor and desk are kept, the wall behind him is a plain grey."
+  }
+ ]
+}

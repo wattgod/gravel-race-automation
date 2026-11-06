@@ -33,11 +33,11 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "fml": "Cartoon Gravel God, seen from behind in his brown cowboy hat, drives away; in the rear-view mirror two small children, a girl in sunglasses and a smiling boy, look back at him. Speech bubble: \"FML - what am I doing?\"",
-    "are-you-quitting-bike-racing": "Several hands push microphones toward cartoon Gravel God in his cowboy hat, shown in profile; a speech bubble from the reporters asks: \"Are you quitting bike racing?\"",
-    "da-fugg": "Two panels. \"2010\": a photo of a young, clean-shaven Matti in a grey T-shirt with orange sunglasses pushed up on his forehead, in a kitchen. \"2021\": cartoon Gravel God, bearded, in a cowboy hat, T-shirt and shorts, looks back at him and says: \"Da fugg? Nice facial hair loser.\"",
-    "makes-sense": "Cartoon Gravel God stands on a gravel road at sunset, hand on his chin, with a thought bubble: \"One thing I realize is that I don't like spending prolonged stretches away from my family, especially when the best-case scenario is that I'll get my shit kicked in. Makes sense.\"",
-    "train-your-heart": "A faded close-up of cartoon Gravel God's face, and over it a photo of two small children, a boy and a girl, walking away hand in hand.",
+    "fml": "Cartoon Gravel God, seen from behind, drives away; in the rear-view mirror two small children, a girl in sunglasses and a smiling boy, look back at him. Speech bubble: \"FML - what am I doing?\"",
+    "are-you-quitting-bike-racing": "Several hands push microphones toward cartoon Gravel God, shown in profile, eyebrows up; a speech bubble from the reporters asks: \"Are you quitting bike racing?\"",
+    "da-fugg": "Two panels. \"2010\": a photo of a young, clean-shaven Matti in a grey T-shirt with orange sunglasses pushed up on his forehead, in a kitchen. \"2021\": cartoon Gravel God, handlebar mustache, arms crossed, eyeing the photo, with a speech bubble: \"Da fugg? Nice facial hair loser.\"",
+    "makes-sense": "Cartoon Gravel God stands on a gravel road at sunset, arms crossed and thinking, with a thought bubble: \"One thing I realize is that I don't like spending prolonged stretches away from my family, especially when the best-case scenario is that I'll get my shit kicked in. Makes sense.\"",
+    "train-your-heart": "A close-up of cartoon Gravel God smiling at the left, beside a photo of two small children, a boy and a girl, walking away hand in hand.",
 }
 
 # Matter-of-fact restatements; section = 0-based h2 index (no headings: 0).

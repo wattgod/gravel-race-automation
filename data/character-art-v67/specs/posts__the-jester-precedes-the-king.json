@@ -1,0 +1,305 @@
+{
+ "collection": "posts",
+ "slug": "the-jester-precedes-the-king",
+ "images": [
+  {
+   "file": "img/looking-like-a-moron.webp",
+   "name": "looking-like-a-moron",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      150,
+      40,
+      390,
+      600
+     ],
+     "erase_box": [
+      50,
+      40,
+      475,
+      600
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90
+    }
+   ],
+   "alt": "Cartoon Gravel God grins beside the words \"Because I was scared of looking like a moron.\"",
+   "joke": "Because I was scared of looking like a moron.",
+   "match": "exact"
+  },
+  {
+   "file": "img/damn-kids.webp",
+   "name": "damn-kids",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      850,
+      170,
+      1090,
+      560
+     ],
+     "erase_box": [
+      830,
+      150,
+      1100,
+      565
+     ],
+     "ride": "cruise",
+     "face": "shout",
+     "psi": 30,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "A cyclocross racer climbs a snowy course past a crowd; cartoon Gravel God rides alongside shouting \"Damn kids!.\"",
+   "joke": "Damn kids!.",
+   "match": "exact"
+  },
+  {
+   "file": "img/still-open.webp",
+   "name": "still-open",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      360,
+      200,
+      670,
+      600
+     ],
+     "erase_box": [
+      350,
+      195,
+      680,
+      600
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "elev": 8,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God, seen from behind at night, asks a lit-up convenience store \"You guys still open?\"",
+   "joke": "You guys still open?",
+   "match": "exact"
+  },
+  {
+   "file": "img/try-new-things-1.webp",
+   "name": "try-new-things-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      780,
+      230,
+      1020,
+      600
+     ],
+     "erase_box": [
+      760,
+      215,
+      1030,
+      600
+     ],
+     "ride": "cruise",
+     "psi": 270,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God rides a sandy desert trail behind a mountain biker, groaning \"Uggggh I don't have to steer on Zwift.\"",
+   "joke": "Uggggh I don't have to steer on Zwift.",
+   "match": "exact",
+   "erase_extra": [
+    [
+     760,
+     210,
+     1040,
+     305
+    ]
+   ]
+  },
+  {
+   "file": "img/still-havent-done-cyclocross.webp",
+   "name": "still-havent-done-cyclocross",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      560,
+      20,
+      1100,
+      600
+     ],
+     "erase_box": [
+      447.4,
+      -36.0,
+      1197.6,
+      612.0
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "contain",
+     "anchor": "bottom",
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "Cartoon Gravel God, thoughtful, with speech bubbles: \"Why? I never did cyclocross, EVEN TO THIS DAY!\", a small figure asks \"Y tho?\", and he answers \"I didn't want to look like a clown.\"",
+   "joke": "Why? I never did cyclocross, EVEN TO THIS DAY! / Y tho? / I didn't want to look like a clown.",
+   "match": "exact"
+  },
+  {
+   "file": "img/foreclosed-identity.webp",
+   "name": "foreclosed-identity",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      40,
+      180,
+      200,
+      595
+     ],
+     "erase_box": [
+      20,
+      170,
+      212,
+      600
+     ],
+     "pose": "arms_crossed",
+     "face": "smile",
+     "psi": 90,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God, arms crossed, stands on a farm road beside text: \"Because allowing your identity to foreclose around a rigid cycling identity prevents the acquisition of skills, abilities, and experiences that will make you better at bikes in general, which indirectly benefits performance in your preferred cycling discipline.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/profile-look.webp",
+   "name": "profile-look",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      420,
+      20,
+      800,
+      600
+     ],
+     "erase_box": [
+      340,
+      10,
+      870,
+      600
+     ],
+     "pose": "stand",
+     "psi": 22.5,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "alt": "Cartoon Gravel God in profile, head and shoulders, looking off to the right.",
+   "match": "exact"
+  },
+  {
+   "file": "img/good-beats-world-class.webp",
+   "name": "good-beats-world-class",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1010,
+      170,
+      1190,
+      595
+     ],
+     "erase_box": [
+      980,
+      160,
+      1200,
+      600
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God grins beside text: \"Because in most things, good is just as good as world-class, not because being good within a discipline is close to world-class, but because being good in many disciplines makes you world-class compared to most people.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/practice-what-you-preach.webp",
+   "name": "practice-what-you-preach",
+   "verdict": "keep",
+   "why": "Photo of his daughter with a speech bubble; no cartoon."
+  },
+  {
+   "file": "img/try-new-things.webp",
+   "name": "try-new-things",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      330,
+      200,
+      600,
+      600
+     ],
+     "erase_box": [
+      310,
+      195,
+      620,
+      600
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "elev": 8,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God, seen from behind, at a fork in a snowy trail: one sign says \"TRY NEW THINGS\", the other \"DON'T GROW\".",
+   "joke": "TRY NEW THINGS / DON'T GROW",
+   "match": "exact",
+   "erase_extra": [
+    [
+     300,
+     190,
+     630,
+     305
+    ]
+   ]
+  }
+ ]
+}

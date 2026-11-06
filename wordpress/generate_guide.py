@@ -1267,8 +1267,8 @@ def build_nav() -> str:
   </div>'''
 
 
-# Gravel God character scenes, one per chapter, rendered from the v6.7 character rig
-# (gravel-god-character repo) by scripts/render_guide_character_art.py.
+# Gravel God character scenes, one per chapter: the pre-v6.7 paintings with him repainted from the v6.7
+# character rig's reference cards (gravel-god-character repo) by scripts/paint_guide_character_art.py.
 # Files: guide/art/gg-art-<slug>-{1x,2x}.webp, served from /guide/media/. The "v67-" prefix is
 # also a cache-buster: /guide/media/ is cached for a year, so new art needs new filenames.
 GUIDE_ART = {

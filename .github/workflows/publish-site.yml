@@ -139,6 +139,9 @@ jobs:
           for d in wordpress/articles/*/; do
             scp "${O[@]}" "$d/index.html" "$R/articles/$(basename "$d")/index.html"
           done
+          # Only the /tire/ index (the sitemap lists it; without it the
+          # folder answers 403). The per-tire pages stay a laptop step.
+          scp "${O[@]}" wordpress/output/tire/index.html "$R/tire/index.html"
 
       - name: Push pages
         env:

@@ -24,6 +24,11 @@ def test_pushes_series_homepage_index_and_llms():
         assert flag in WF
 
 
+def test_pushes_the_tire_index_without_the_deleting_tire_sync():
+    assert 'wordpress/output/tire/index.html "$R/tire/index.html"' in WF
+    assert "--sync-tire-pages" not in WF
+
+
 def test_season_pages_are_built_before_redirects_are_pushed():
     build = WF.index("python3 wordpress/generate_calendar.py")
     push = WF.index("--sync-redirects")

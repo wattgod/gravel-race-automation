@@ -125,6 +125,30 @@
       ],
       "reputation": "Iowa's B-road race, now with a European pro series attached."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-08-16",
+        "edition": 4,
+        "source": "https://www.cyclingnews.com/races/gravel-earth-series-2025/core4-10-percent-event-elite-men-women/results/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-08-17",
+        "source": "https://www.thegazette.com/sports/johnson-county-bike-race-core4-returns-this-weekend/"
+      },
+      {
+        "year": 2023,
+        "date": "2023-08-19",
+        "edition": 2,
+        "source": "https://www.thegazette.com/sports/johnson-county-bike-race-core4-returns-this-weekend/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-08-27",
+        "source": "https://www.bikeiowa.com/Event/14612/core4-gravel"
+      }
+    ],
     "course_description": {
       "character": "The 2027 routes are not public yet. The 2026 course started on Main Street in Solon, north of Iowa City, and mixed gravel, B-roads, singletrack and pavement past river crossings, prairie savannah and an urban section. The organizer lists about 6,000 feet for the 120-mile route.",
       "signature_challenge": "Racing the B-roads in whatever state the weather left them: dust when dry, sticky mud after storms.",
@@ -265,6 +289,19 @@
         "category": "results",
         "label": "Cyclingnews: 2026 CORE4 results"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "100 mi",
+          "winner_female": "Rosa Maria Klöser",
+          "winner_male": "Julien Gagne",
+          "winning_time_female": "5:12:38",
+          "winning_time_male": "4:36:54",
+          "source": "https://www.cyclingnews.com/races/gravel-earth-series-2025/core4-10-percent-event-elite-men-women/results/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

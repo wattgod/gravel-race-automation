@@ -163,6 +163,25 @@
       "founded": 2014,
       "notable_facts": "Grew to Hong Kong's largest cycling event with 6000 entrants by attracting global universities for inaugural World University Trophy. Expanded routes annually to include more bridges/tunnels, boosting tourism. Partnered with Sun Hung Kai Properties for charity impact."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-10-11",
+        "note": "UCI 1.1 road race returned; rides start and finish at West Kowloon.",
+        "source": "https://en.wikipedia.org/wiki/2026_Hong_Kong_Cyclothon"
+      },
+      {
+        "year": 2025,
+        "date": "2025-11-30",
+        "status": "cancelled",
+        "source": "https://partnernet.hktb.com/en/destination/events_festivals/index.html?eventID=83743"
+      },
+      {
+        "year": 2024,
+        "date": "2024-10-13",
+        "source": "https://partnernet.hktb.com/en/industry_news/hktb_updates/index.html?id=7167"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Urban bridge-blasting sportive blending Hong Kong's skyline with mass-ride energy.",
       "who_should_ride": "Intermediate roadies seeking iconic infrastructure thrills and Asian cycling vibes. Tourists wanting sport-tourism combo with 5000 mates.",
@@ -189,6 +208,17 @@
         "category": "official",
         "label": "Official Website"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "100 km",
+          "winner_male": "Paul Magnier",
+          "winning_time_male": "2:03:30",
+          "source": "https://en.wikipedia.org/wiki/2026_Hong_Kong_Cyclothon"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

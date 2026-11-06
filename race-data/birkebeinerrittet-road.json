@@ -138,6 +138,14 @@
       "notable_editions": "The inaugural 1993 race drew 1,327 participants. The current event page identifies the 2026 race as the 33rd edition.",
       "growth_trajectory": "The race grew into a mass-participation MTB institution and sold out annually through 2015; current official copy says elite, recreational, and touring riders share the event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-08-30",
+        "edition": 32,
+        "source": "https://www.sportsidioten.no/resultater/ultrabirken-sykkel-2025/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Norway's backpacked MTB legend: history, mountains, and massive community.",
       "best_for": "History buffs, adventure seekers, and social riders seeking epic Norwegian vibes.",
@@ -199,6 +207,35 @@
       "guard": "Use the official 2027 date and the organizer's current 84-kilometer, approximately 1,200–1,300-meter route as the training base. Preserve the Djuposet hike-a-bike, late mixed-surface descending, point-to-point logistics, and mandatory backpack of at least 2 kilograms. Birken's final 2027 route, schedule, aid, cutoff, fee, transport, and equipment documents override every current operational detail."
     },
     "slug": "birkebeinerrittet-road",
-    "name": "Birkebeinerrittet Sykkel"
+    "name": "Birkebeinerrittet Sykkel",
+    "results": {
+      "years": {
+        "2023": {
+          "race": "84 km",
+          "winner_female": "Marte Berg Edseth",
+          "winner_male": "Ådne Holter",
+          "winning_time_female": "3:03:26",
+          "winning_time_male": "2:36:08",
+          "source": "https://www.sportsidioten.no/resultater/ultrabirken-sykkel-2025/"
+        },
+        "2022": {
+          "race": "84 km",
+          "winner_female": "Ingrid Lorvik",
+          "winner_male": "Jørgen Nordhagen",
+          "winning_time_female": "3:09:55",
+          "winning_time_male": "2:35:51",
+          "source": "https://www.sportsidioten.no/resultater/ultrabirken-sykkel-2025/"
+        },
+        "2021": {
+          "race": "84 km",
+          "winner_female": "Ingrid Lorvik",
+          "winner_male": "Eskil Evensen-Lie",
+          "winning_time_female": "3:06:20",
+          "winning_time_male": "2:37:50",
+          "source": "https://www.sportsidioten.no/resultater/ultrabirken-sykkel-2025/"
+        }
+      },
+      "latest_year": "2023"
+    }
   }
 }

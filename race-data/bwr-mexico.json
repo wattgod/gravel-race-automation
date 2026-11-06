@@ -127,6 +127,26 @@
       ],
       "reputation": "Billed as the largest gravel race in Mexico, and the last stop on the BWR calendar."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-11-22",
+        "end_date": "2025-11-23",
+        "edition": 3,
+        "source": "https://www.belgianwaffleride.bike/blogs/news/results"
+      },
+      {
+        "year": 2024,
+        "date": "2024-11-23",
+        "end_date": "2024-11-24",
+        "source": "https://www.belgianwaffleride.bike/blogs/news/results"
+      },
+      {
+        "year": 2023,
+        "date": "2023-11-26",
+        "source": "https://www.belgianwaffleride.bike/blogs/news/results"
+      }
+    ],
     "course_description": {
       "character": "The Waffle is listed as +180 km from Tequisquiapan over fast gravel roads, technical sectors, vineyard country and ranch roads. Velo places the 2027 route among vineyards, ranch roads and historic towns with views of Peña de Bernal. No route file or climbing figure is published, and the distance moves: a 2023 finisher put that year's Waffle at 159 km.",
       "suffering_zones": [
@@ -324,6 +344,12 @@
           "winner_female": "Anet Barrera",
           "winning_time_male": null,
           "winning_time_female": null
+        },
+        "2024": {
+          "race": "Waffle",
+          "winner_female": "Anet Barrera",
+          "winner_male": "Ulises Castillo",
+          "source": "https://www.belgianwaffleride.bike/blogs/news/results"
         }
       },
       "latest_year": "2025"

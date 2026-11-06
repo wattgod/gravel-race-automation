@@ -130,6 +130,15 @@
       ],
       "reputation": "USA Cycling National Championship. Collegiate only. Competitive field. Remote Texas Panhandle."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-03-07",
+        "edition": 1,
+        "note": "First USA Cycling Collegiate Gravel National Championships, held with Valley of Tears.",
+        "source": "https://usacycling.org/article/fort-lewis-college-wins-team-omnium-title-at-the-inaugural-usa-cycling-collegiate-gravel-national-championships"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -538,6 +547,19 @@
         "credit": "YouTube / Skyler Mackey",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "49.5 mi",
+          "winner_female": "Emma Kasza-James",
+          "winner_male": "Nate Meister",
+          "winning_time_female": "2:49:09",
+          "winning_time_male": "2:20:18",
+          "source": "https://www.durangoherald.com/articles/college-sports/fort-lewis-college-dominates-inaugural-collegiate-gravel-national-championships/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

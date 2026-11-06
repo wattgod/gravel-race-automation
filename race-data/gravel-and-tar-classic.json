@@ -120,7 +120,7 @@
       "surface_breakdown": null
     },
     "history": {
-      "founded": "2016 (UCI 1.2 status since 2018)",
+      "founded": 2016,
       "founder": "Steve Stannard / Greasy Chain Charitable Trust",
       "origin_story": "Gravel and Tar Classic launched 2016 in Manawatū-Whanganui, New Zealand, gaining UCI 1.2 Oceania Tour status in 2018. It is an elite/international-license-only UCI road race with gravel sectors (the organizer's own site calls it 'the first serious gravel race in Australasia,' but it is UCI-registered as a road race, not a gravel event). The 2025 edition was cancelled due to low entries. The public-facing amateur companion ride has been rebranded 'Slicks and Stones Gravel Assault,' relaunching at a new venue (Apiti village) in April 2026.",
       "notable_moments": [
@@ -134,7 +134,20 @@
     "editions": [
       {
         "year": 2025,
-        "status": "cancelled"
+        "status": "cancelled",
+        "note": "Postponed from November because of low entries; not a UCI event.",
+        "source": "https://www.thepress.co.nz/nz-news/360882441/gravel-and-tar-cycle-race-hits-brakes-over-lack-entries"
+      },
+      {
+        "year": 2024,
+        "date": "2024-01-20",
+        "source": "https://www.webscorer.com/race?raceid=340161"
+      },
+      {
+        "year": 2022,
+        "status": "not_held",
+        "note": "No race because of COVID-19 restrictions in New Zealand.",
+        "source": "https://en.wikipedia.org/wiki/Gravel_and_Tar_Classic"
       }
     ],
     "research_metadata": {
@@ -662,6 +675,19 @@
         "credit": "YouTube / The Gravel and Tar Classic NZ",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2024": {
+          "race": "140 km (men); women raced 101 km",
+          "winner_female": "Kate McCarthy",
+          "winner_male": "Josh Burnett",
+          "winning_time_female": "3:01:34",
+          "winning_time_male": "3:33:29",
+          "source": "https://www.cyclingnewzealand.nz/news-2/news/burnett-mccarthy-claim-honours-in-uci-gravel-and-tar-race-in-manawatu/"
+        }
+      },
+      "latest_year": "2024"
+    }
   }
 }

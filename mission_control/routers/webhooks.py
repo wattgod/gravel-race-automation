@@ -34,6 +34,10 @@ _ANSWER_SOURCES = ("goal_2027", "athlete_review", "athlete_exit", "plan_debrief"
 # Neither a goal nor a lead: a leaving athlete and a plan buyer's debrief.
 # Their record is built from scratch and a resubmission replaces it.
 _NOT_LEAD_SOURCES = ("athlete_exit", "plan_debrief")
+# A pick'em entry's racing answer (workers/pickem-intake: "xl", "200",
+# "lottery", "no", ...). The worker sends race_slug only for a distance.
+_PICKEM_ANSWER_RE = re.compile(r"^[a-z0-9_]{1,24}$")
+_PICKEM_RACE_KEYS = ("race_slug", "race_name", "prep_kit_url", "pickem_race_slug")
 # Subject for the resent first email after a rider corrects their answers.
 _REVISED_SUBJECTS = {"goal_2027": "your 2027 goal, revised"}
 # XC Ski Labs' goal_2027 day-0 subject reads "your season, on paper" (a ski
@@ -386,6 +390,21 @@ async def subscriber_webhook(
             source_data["wb_trail"] = source_data["viewed_races"]
     elif source_data.get("race_name"):
         source_data["wb_race"] = source_data["race_name"]
+    if source == "pickem":
+        # A pick'em entry is not a page visit, so welcome's "saw you on the
+        # <race> page" opener would be wrong. race_name stays: the countdown
+        # and debrief emails name the race from it.
+        source_data.pop("wb_race", None)
+        _answer = str(body.get("racing", "")).strip().lower()
+        if _PICKEM_ANSWER_RE.match(_answer):
+            source_data["pickem_racing"] = _answer
+        _game = str(body.get("game", "")).strip().lower()
+        if _SLUG_RE.match(_game):
+            source_data["pickem_game"] = _game
+        if source_data.get("race_slug"):
+            # Remembered so a later "No" can take back only the race the
+            # pick'em gave, never one the rider told us somewhere else.
+            source_data["pickem_race_slug"] = source_data["race_slug"]
     if any(source_data.get(k) for k in ("wb_guide", "wb_trail", "wb_race")):
         source_data["any_context"] = "1"
     # Seasonal sensitivity — PER BRAND, the calendars are inverted:
@@ -487,6 +506,9 @@ async def subscriber_webhook(
         "training_guide": "new_subscriber",
         "bikepacking_guide": "new_subscriber",
         "race_watch": "race_watch",
+        # A pick'em opt-in is a lead: welcome, plus the countdown and debrief
+        # when they said they're racing (race_slug). Nothing for plan buyers.
+        "pickem": "new_subscriber",
         "goal_2027": "goal_2027",
         # A coached athlete filing their season review is not a lead: the only
         # email they get is the receipt, and they never enter nurture.
@@ -583,6 +605,20 @@ async def subscriber_webhook(
             except Exception:
                 logger.exception("resubmitted review resend failed for %s", email)
 
+    # A pick'em entry from someone already on the list (or a changed answer)
+    # would otherwise be refused by enroll() and the racing answer lost, or a
+    # stale "200" would keep the countdown coming after they said "No".
+    if source == "pickem":
+        for seq in get_sequences_for_trigger(trigger, brand):
+            existing = db.select_one(
+                "gg_sequence_enrollments",
+                match={"sequence_id": seq["id"], "contact_email": email},
+            )
+            if existing:
+                db.update("gg_sequence_enrollments",
+                          {"source_data": _pickem_merge(existing.get("source_data") or {}, source_data)},
+                          match={"id": existing["id"]})
+
     # Enroll in matching sequences (brand-scoped)
     enrolled = []
     matching = get_sequences_for_trigger(trigger, brand=brand)
@@ -648,6 +684,33 @@ async def subscriber_webhook(
     if source_data.get("poster_token"):
         response["poster_token"] = source_data["poster_token"]
     return response
+
+
+def _pickem_merge(existing: dict, new: dict) -> dict:
+    """An existing record with a pick'em entry's answer folded in.
+
+    Only pick'em keys and the race change, and the race only when the pick'em
+    set it (or none is stored). A race the rider gave on another form (a prep
+    kit, a race watch) keeps its countdown; the pick'em just records its answer.
+    """
+    merged = dict(existing)
+    for key in ("pickem_game", "pickem_racing"):
+        if new.get(key):
+            merged[key] = new[key]
+    if existing.get("race_slug") and existing.get("race_slug") != existing.get("pickem_race_slug"):
+        return merged
+    if new.get("race_slug"):
+        for key in _PICKEM_RACE_KEYS:
+            if new.get(key):
+                merged[key] = new[key]
+            else:
+                merged.pop(key, None)
+    else:
+        if existing.get("race_slug") and existing.get("race_slug") == existing.get("pickem_race_slug"):
+            for key in _PICKEM_RACE_KEYS:
+                merged.pop(key, None)
+        merged.pop("pickem_race_slug", None)
+    return merged
 
 
 def _verify_svix_signature(raw_body: bytes, headers) -> bool:

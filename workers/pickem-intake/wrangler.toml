@@ -1,0 +1,17 @@
+name = "pickem-intake"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://gravelgodcycling.com,https://www.gravelgodcycling.com"
+# Mission Control base URL, the same one fueling-lead-intake posts to.
+MC_WEBHOOK_URL = "https://athlete-profiles-production.up.railway.app"
+
+[[kv_namespaces]]
+binding = "PICKEM"
+id = "e537fa942f6b4f0a8bd4beb8fa7e75ae"
+
+# Secrets (set via: wrangler secret put SECRET_NAME)
+# EXPORT_TOKEN      — bearer token for GET /export and POST /resync
+# MC_WEBHOOK_SECRET — Mission Control webhook bearer token (same value as
+#                     fueling-lead-intake's)

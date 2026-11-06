@@ -7,11 +7,9 @@ ALLOWED_ORIGINS = "https://gravelgodcycling.com,https://www.gravelgodcycling.com
 # Mission Control base URL, the same one fueling-lead-intake posts to.
 MC_WEBHOOK_URL = "https://athlete-profiles-production.up.railway.app"
 
-# Create once with: npx wrangler kv namespace create PICKEM
-# then paste the printed id below.
 [[kv_namespaces]]
 binding = "PICKEM"
-id = "REPLACE_WITH_PICKEM_KV_ID"
+id = "e537fa942f6b4f0a8bd4beb8fa7e75ae"
 
 # Secrets (set via: wrangler secret put SECRET_NAME)
 # EXPORT_TOKEN      — bearer token for GET /export and POST /resync

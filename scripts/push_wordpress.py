@@ -2846,9 +2846,11 @@ SEASON_POWER_RANKINGS_REDIRECT_RULES = season_power_rankings_redirect_rules()
 # the file is missing, so these need an explicit rule.
 # tests/test_tire_picks_integrity.py keeps this list in step with race-data.
 TIRE_GUIDES_WITHDRAWN = (
-    "atlas-mountain-race", "badlands", "chequamegon-mtb", "colorado-trail-race",
-    "fuego-mtb", "leadville-100", "little-sugar-mtb", "torino-nice-rally",
-    "tour-divide", "trans-am-bike-race", "transcontinental-race",
+    "atlas-mountain-race", "badlands", "berryman-epic", "chequamegon-mtb",
+    "colorado-trail-race", "fools-gold-gravel-grinder", "fuego-mtb",
+    "leadville-100", "little-sugar-mtb", "ouachita-challenge",
+    "torino-nice-rally", "tour-divide", "trans-am-bike-race",
+    "transcontinental-race", "vapor-trail-125",
 )
 TIRE_GUIDES_WITHDRAWN_RULE = (
     "RewriteRule ^race/(" + "|".join(TIRE_GUIDES_WITHDRAWN)
@@ -3114,6 +3116,10 @@ RewriteRule ^race/[a-z0-9-]+-vs-gravel-suisse/?$ /race/the-majestics-gravel/ [R=
 RewriteRule ^race/gravel-suisse/?$ /race/the-majestics-gravel/ [R=301,L]
 RewriteRule ^race/gravel-suisse\\.md$ /race/the-majestics-gravel.md [R=301,L]
 RewriteRule ^race/gravel-suisse/(.*)$ /race/the-majestics-gravel/$1 [R=301,L]
+# Its photos still sit in /race-photos/gravel-suisse/ on the server; serve them
+# at the new path until they are copied there.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^race-photos/the-majestics-gravel/(gravel-suisse-[a-z0-9.-]+)$ /race-photos/gravel-suisse/$1 [L]
 # Border Wars was renamed Homegrown Gravel Adventure for 2025 (data/duplicate-merges.json).
 RewriteRule ^race/border-wars-vs-[a-z0-9-]+/?$ /race/homegrown-gravel-adventure/ [R=301,L]
 RewriteRule ^race/[a-z0-9-]+-vs-border-wars/?$ /race/homegrown-gravel-adventure/ [R=301,L]

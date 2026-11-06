@@ -150,7 +150,7 @@
     },
     "guide_variables": {
       "race_name": "Berryman Epic",
-      "race_distance": "65 miles",
+      "race_distance": "50 miles",
       "race_elevation": "4,500 feet",
       "race_date": "Spring or Fall",
       "race_location": "Potosi, Missouri",
@@ -396,63 +396,6 @@
         }
       },
       "latest_year": "2024"
-    },
-    "tire_recommendations": {
-      "generated_at": "2026-11-06",
-      "primary": [
-        {
-          "rank": 1,
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 45,
-          "msrp_usd": 69.9,
-          "weight_grams": 540,
-          "crr_watts": 38.0,
-          "why": "Technical terrain dominator. Aggressive grip when the course gets rowdy."
-        },
-        {
-          "rank": 2,
-          "tire_id": "maxxis-reaver",
-          "name": "Maxxis Reaver",
-          "brand": "Maxxis",
-          "recommended_width_mm": 45,
-          "msrp_usd": 79.99,
-          "weight_grams": 520,
-          "crr_watts": 35.0,
-          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
-        },
-        {
-          "rank": 3,
-          "tire_id": "wtb-resolute",
-          "name": "WTB Resolute",
-          "brand": "WTB",
-          "recommended_width_mm": 42,
-          "msrp_usd": 64.95,
-          "weight_grams": 460,
-          "crr_watts": 36.5,
-          "why": "Aggressive chevron tread. Fast center with confident cornering."
-        }
-      ],
-      "front_rear_split": {
-        "applicable": false
-      },
-      "race_surface_profile": "technical",
-      "recommended_width_mm": 45,
-      "pressure_psi": {
-        "140_160lb_dry": "30-34",
-        "140_160lb_mixed": "26-30",
-        "140_160lb_wet": "24-28",
-        "160_180lb_dry": "32-36",
-        "160_180lb_mixed": "30-34",
-        "160_180lb_wet": "28-32",
-        "180_200lb_dry": "36-40",
-        "180_200lb_mixed": "32-36",
-        "180_200lb_wet": "30-34",
-        "200pluslb_dry": "38-42",
-        "200pluslb_mixed": "36-40",
-        "200pluslb_wet": "34-38"
-      }
     },
     "youtube_data": {
       "researched_at": "2026-02-23",

@@ -1,9 +1,9 @@
 {
   "specialized-pathfinder-pro": {
-    "total_appearances": 387,
-    "primary_picks": 220,
-    "front_rear_picks": 167,
-    "avg_rank": 1.2,
+    "total_appearances": 363,
+    "primary_picks": 207,
+    "front_rear_picks": 156,
+    "avg_rank": 1.3,
     "most_common_width": 38,
     "races": [
       {
@@ -231,22 +231,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "border-wars",
-        "name": "Border Wars",
-        "rank": 1,
-        "width_mm": 38,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "border-wars",
-        "name": "Border Wars",
-        "rank": 0,
-        "width_mm": 38,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
         "slug": "burgr-95",
         "name": "BURGR 95",
         "rank": 1,
@@ -300,22 +284,6 @@
         "rank": 2,
         "width_mm": 42,
         "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "carpathian-gravel",
-        "name": "Carpathian Gravel",
-        "rank": 1,
-        "width_mm": 38,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "carpathian-gravel",
-        "name": "Carpathian Gravel",
-        "rank": 0,
-        "width_mm": 38,
-        "position": "rear",
         "surface": "mixed"
       },
       {
@@ -607,22 +575,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "dirty-french",
-        "name": "Dirty French",
-        "rank": 1,
-        "width_mm": 38,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "dirty-french",
-        "name": "Dirty French",
-        "rank": 0,
-        "width_mm": 38,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
         "slug": "dirty-hector",
         "name": "Dirty Hector",
         "rank": 1,
@@ -855,14 +807,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "fools-gold-gravel-grinder",
-        "name": "Fools Gold Gravel Grinder",
-        "rank": 2,
-        "width_mm": 42,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "forbidden-gravel",
         "name": "Forbidden Gravel",
         "rank": 2,
@@ -932,14 +876,6 @@
         "rank": 0,
         "width_mm": 38,
         "position": "rear",
-        "surface": "mixed"
-      },
-      {
-        "slug": "gran-fondo-ozarks",
-        "name": "Gran Fondo Ozarks",
-        "rank": 2,
-        "width_mm": 42,
-        "position": "primary",
         "surface": "mixed"
       },
       {
@@ -1151,22 +1087,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "gravel-suisse",
-        "name": "Gravel Suisse",
-        "rank": 1,
-        "width_mm": 38,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "gravel-suisse",
-        "name": "Gravel Suisse",
-        "rank": 0,
-        "width_mm": 38,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
         "slug": "gravel-unravel-bon-jon-pass-out",
         "name": "Gravel Unravel - Bon Jon Pass Out",
         "rank": 2,
@@ -1305,22 +1225,6 @@
       {
         "slug": "hart-hills",
         "name": "Hart Hills",
-        "rank": 0,
-        "width_mm": 38,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
-        "slug": "haute-route-gravel",
-        "name": "Haute Route Gravel",
-        "rank": 1,
-        "width_mm": 38,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "haute-route-gravel",
-        "name": "Haute Route Gravel",
         "rank": 0,
         "width_mm": 38,
         "position": "rear",
@@ -1572,22 +1476,6 @@
         "rank": 2,
         "width_mm": 42,
         "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "king-of-the-lake",
-        "name": "King of the Lake",
-        "rank": 1,
-        "width_mm": 38,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "king-of-the-lake",
-        "name": "King of the Lake",
-        "rank": 0,
-        "width_mm": 38,
-        "position": "rear",
         "surface": "mixed"
       },
       {
@@ -1879,22 +1767,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "nicolet-hot-days",
-        "name": "Nicolet Hot Days",
-        "rank": 1,
-        "width_mm": 38,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "nicolet-hot-days",
-        "name": "Nicolet Hot Days",
-        "rank": 0,
-        "width_mm": 38,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
         "slug": "niseko-gravel",
         "name": "Niseko Gravel",
         "rank": 1,
@@ -2015,30 +1887,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "ouachita-challenge",
-        "name": "Ouachita Challenge",
-        "rank": 2,
-        "width_mm": 42,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "ouray-gravel-grinder",
-        "name": "Ouray Gravel Grinder",
-        "rank": 1,
-        "width_mm": 38,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "ouray-gravel-grinder",
-        "name": "Ouray Gravel Grinder",
-        "rank": 0,
-        "width_mm": 38,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
         "slug": "parker-dam-gravel-grinder",
         "name": "Parker Dam Gravel Grinder",
         "rank": 1,
@@ -2113,22 +1961,6 @@
       {
         "slug": "prairie-burn-100",
         "name": "Prairie Burn 100",
-        "rank": 0,
-        "width_mm": 38,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
-        "slug": "purgatory-road-race",
-        "name": "Purgatory Road Race",
-        "rank": 1,
-        "width_mm": 38,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "purgatory-road-race",
-        "name": "Purgatory Road Race",
         "rank": 0,
         "width_mm": 38,
         "position": "rear",
@@ -2551,22 +2383,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "switchgrass",
-        "name": "Switchgrass",
-        "rank": 1,
-        "width_mm": 38,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "switchgrass",
-        "name": "Switchgrass",
-        "rank": 0,
-        "width_mm": 38,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
         "slug": "takelma-gravel-grinder",
         "name": "Takelma Gravel Grinder",
         "rank": 2,
@@ -2628,6 +2444,22 @@
         "rank": 2,
         "width_mm": 42,
         "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "the-majestics-gravel",
+        "name": "The Majestics Gravel",
+        "rank": 1,
+        "width_mm": 38,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "the-majestics-gravel",
+        "name": "The Majestics Gravel",
+        "rank": 0,
+        "width_mm": 38,
+        "position": "rear",
         "surface": "mixed"
       },
       {
@@ -2927,22 +2759,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "vapor-trail-125",
-        "name": "Vapor Trail 125",
-        "rank": 1,
-        "width_mm": 42,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "vapor-trail-125",
-        "name": "Vapor Trail 125",
-        "rank": 0,
-        "width_mm": 42,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
         "slug": "veneto-gravel",
         "name": "Veneto Gravel",
         "rank": 1,
@@ -2977,17 +2793,9 @@
       {
         "slug": "waukon-100",
         "name": "Waukon 100",
-        "rank": 1,
+        "rank": 2,
         "width_mm": 42,
         "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "waukon-100",
-        "name": "Waukon 100",
-        "rank": 0,
-        "width_mm": 42,
-        "position": "rear",
         "surface": "mixed"
       },
       {
@@ -3105,8 +2913,8 @@
     ]
   },
   "panaracer-gravelking-sk": {
-    "total_appearances": 199,
-    "primary_picks": 199,
+    "total_appearances": 187,
+    "primary_picks": 187,
     "front_rear_picks": 0,
     "avg_rank": 2.3,
     "most_common_width": 40,
@@ -3224,14 +3032,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "border-wars",
-        "name": "Border Wars",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "burgr-95",
         "name": "BURGR 95",
         "rank": 2,
@@ -3260,14 +3060,6 @@
         "name": "Canmore Crux",
         "rank": 3,
         "width_mm": 43,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "carpathian-gravel",
-        "name": "Carpathian Gravel",
-        "rank": 2,
-        "width_mm": 40,
         "position": "primary",
         "surface": "mixed"
       },
@@ -3424,14 +3216,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "dirty-french",
-        "name": "Dirty French",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "dirty-hector",
         "name": "Dirty Hector",
         "rank": 2,
@@ -3544,14 +3328,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "fools-gold-gravel-grinder",
-        "name": "Fools Gold Gravel Grinder",
-        "rank": 3,
-        "width_mm": 43,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "forbidden-gravel",
         "name": "Forbidden Gravel",
         "rank": 3,
@@ -3588,14 +3364,6 @@
         "name": "Glenwood Gravel",
         "rank": 2,
         "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "gran-fondo-ozarks",
-        "name": "Gran Fondo Ozarks",
-        "rank": 3,
-        "width_mm": 43,
         "position": "primary",
         "surface": "mixed"
       },
@@ -3704,14 +3472,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "gravel-suisse",
-        "name": "Gravel Suisse",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "gravel-unravel-bon-jon-pass-out",
         "name": "Gravel Unravel - Bon Jon Pass Out",
         "rank": 3,
@@ -3786,14 +3546,6 @@
       {
         "slug": "hart-hills",
         "name": "Hart Hills",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "haute-route-gravel",
-        "name": "Haute Route Gravel",
         "rank": 2,
         "width_mm": 40,
         "position": "primary",
@@ -3924,14 +3676,6 @@
         "name": "Kettle Mettle",
         "rank": 3,
         "width_mm": 43,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "king-of-the-lake",
-        "name": "King of the Lake",
-        "rank": 2,
-        "width_mm": 40,
         "position": "primary",
         "surface": "mixed"
       },
@@ -4088,14 +3832,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "nicolet-hot-days",
-        "name": "Nicolet Hot Days",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "niseko-gravel",
         "name": "Niseko Gravel",
         "rank": 2,
@@ -4160,22 +3896,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "ouachita-challenge",
-        "name": "Ouachita Challenge",
-        "rank": 3,
-        "width_mm": 43,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "ouray-gravel-grinder",
-        "name": "Ouray Gravel Grinder",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "parker-dam-gravel-grinder",
         "name": "Parker Dam Gravel Grinder",
         "rank": 2,
@@ -4210,14 +3930,6 @@
       {
         "slug": "prairie-burn-100",
         "name": "Prairie Burn 100",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "purgatory-road-race",
-        "name": "Purgatory Road Race",
         "rank": 2,
         "width_mm": 40,
         "position": "primary",
@@ -4456,6 +4168,14 @@
         "surface": "mixed"
       },
       {
+        "slug": "the-majestics-gravel",
+        "name": "The Majestics Gravel",
+        "rank": 2,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
         "slug": "the-mane-event-gravel",
         "name": "The Mane Event Gravel",
         "rank": 3,
@@ -4616,14 +4336,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "vapor-trail-125",
-        "name": "Vapor Trail 125",
-        "rank": 3,
-        "width_mm": 43,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "veneto-gravel",
         "name": "Veneto Gravel",
         "rank": 2,
@@ -4706,8 +4418,8 @@
     ]
   },
   "vittoria-terreno-mix": {
-    "total_appearances": 140,
-    "primary_picks": 140,
+    "total_appearances": 132,
+    "primary_picks": 132,
     "front_rear_picks": 0,
     "avg_rank": 3.0,
     "most_common_width": 40,
@@ -4801,14 +4513,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "border-wars",
-        "name": "Border Wars",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "burgr-95",
         "name": "BURGR 95",
         "rank": 3,
@@ -4827,14 +4531,6 @@
       {
         "slug": "camp-michaux-gravel-grinder",
         "name": "Camp Michaux Gravel Grinder",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "carpathian-gravel",
-        "name": "Carpathian Gravel",
         "rank": 3,
         "width_mm": 40,
         "position": "primary",
@@ -4955,14 +4651,6 @@
       {
         "slug": "dirty-dino",
         "name": "Dirty Dino",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "dirty-french",
-        "name": "Dirty French",
         "rank": 3,
         "width_mm": 40,
         "position": "primary",
@@ -5161,14 +4849,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "gravel-suisse",
-        "name": "Gravel Suisse",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "gravel-unravel-why-not-chee",
         "name": "Gravel Unravel - Why-Not-Chee",
         "rank": 3,
@@ -5227,14 +4907,6 @@
       {
         "slug": "hart-hills",
         "name": "Hart Hills",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "haute-route-gravel",
-        "name": "Haute Route Gravel",
         "rank": 3,
         "width_mm": 40,
         "position": "primary",
@@ -5329,14 +5001,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "king-of-the-lake",
-        "name": "King of the Lake",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "la-resistance",
         "name": "La Resistance",
         "rank": 3,
@@ -5425,14 +5089,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "nicolet-hot-days",
-        "name": "Nicolet Hot Days",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "niseko-gravel",
         "name": "Niseko Gravel",
         "rank": 3,
@@ -5473,14 +5129,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "ouray-gravel-grinder",
-        "name": "Ouray Gravel Grinder",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "parker-dam-gravel-grinder",
         "name": "Parker Dam Gravel Grinder",
         "rank": 3,
@@ -5515,14 +5163,6 @@
       {
         "slug": "prairie-burn-100",
         "name": "Prairie Burn 100",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "purgatory-road-race",
-        "name": "Purgatory Road Race",
         "rank": 3,
         "width_mm": 40,
         "position": "primary",
@@ -5705,6 +5345,14 @@
         "surface": "mixed"
       },
       {
+        "slug": "the-majestics-gravel",
+        "name": "The Majestics Gravel",
+        "rank": 3,
+        "width_mm": 40,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
         "slug": "the-rad",
         "name": "The Rad",
         "rank": 3,
@@ -5835,9 +5483,9 @@
     ]
   },
   "rene-herse-snoqualmie-pass": {
-    "total_appearances": 103,
+    "total_appearances": 95,
     "primary_picks": 0,
-    "front_rear_picks": 103,
+    "front_rear_picks": 95,
     "avg_rank": 0,
     "most_common_width": 44,
     "races": [
@@ -5882,14 +5530,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "barry-roubaix",
-        "name": "Barry-Roubaix Killer Gravel Road Race",
-        "rank": 0,
-        "width_mm": 44,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
         "slug": "battenkill",
         "name": "Battenkill",
         "rank": 0,
@@ -5922,14 +5562,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "border-wars",
-        "name": "Border Wars",
-        "rank": 0,
-        "width_mm": 44,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
         "slug": "burgr-95",
         "name": "BURGR 95",
         "rank": 0,
@@ -5948,14 +5580,6 @@
       {
         "slug": "camp-michaux-gravel-grinder",
         "name": "Camp Michaux Gravel Grinder",
-        "rank": 0,
-        "width_mm": 44,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "carpathian-gravel",
-        "name": "Carpathian Gravel",
         "rank": 0,
         "width_mm": 44,
         "position": "front",
@@ -6202,14 +5826,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "gravel-suisse",
-        "name": "Gravel Suisse",
-        "rank": 0,
-        "width_mm": 44,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
         "slug": "gravel-unravel-why-not-chee",
         "name": "Gravel Unravel - Why-Not-Chee",
         "rank": 0,
@@ -6220,14 +5836,6 @@
       {
         "slug": "gravelista",
         "name": "Gravelista",
-        "rank": 0,
-        "width_mm": 44,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "gray-duck-grit",
-        "name": "Gray Duck Grit",
         "rank": 0,
         "width_mm": 44,
         "position": "front",
@@ -6330,14 +5938,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "king-of-the-lake",
-        "name": "King of the Lake",
-        "rank": 0,
-        "width_mm": 44,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
         "slug": "la-resistance",
         "name": "La Resistance",
         "rank": 0,
@@ -6410,14 +6010,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "nicolet-hot-days",
-        "name": "Nicolet Hot Days",
-        "rank": 0,
-        "width_mm": 44,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
         "slug": "niseko-gravel",
         "name": "Niseko Gravel",
         "rank": 0,
@@ -6442,14 +6034,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "ouray-gravel-grinder",
-        "name": "Ouray Gravel Grinder",
-        "rank": 0,
-        "width_mm": 44,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
         "slug": "parker-dam-gravel-grinder",
         "name": "Parker Dam Gravel Grinder",
         "rank": 0,
@@ -6460,14 +6044,6 @@
       {
         "slug": "prairie-burn-100",
         "name": "Prairie Burn 100",
-        "rank": 0,
-        "width_mm": 44,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "purgatory-road-race",
-        "name": "Purgatory Road Race",
         "rank": 0,
         "width_mm": 44,
         "position": "front",
@@ -6586,6 +6162,14 @@
         "surface": "mixed"
       },
       {
+        "slug": "the-majestics-gravel",
+        "name": "The Majestics Gravel",
+        "rank": 0,
+        "width_mm": 44,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
         "slug": "thunder-bay-thriller",
         "name": "Thunder Bay Thriller",
         "rank": 0,
@@ -6668,15 +6252,23 @@
     ]
   },
   "vittoria-terreno-dry": {
-    "total_appearances": 72,
+    "total_appearances": 69,
     "primary_picks": 0,
-    "front_rear_picks": 72,
+    "front_rear_picks": 69,
     "avg_rank": 0,
     "most_common_width": 40,
     "races": [
       {
         "slug": "ardenne-gravel-stages",
         "name": "Ardenne Gravel Stages",
+        "rank": 0,
+        "width_mm": 40,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
+        "slug": "barry-roubaix",
+        "name": "Barry-Roubaix Killer Gravel Road Race",
         "rank": 0,
         "width_mm": 40,
         "position": "front",
@@ -6741,14 +6333,6 @@
       {
         "slug": "dead-swede-gravel",
         "name": "Dead Swede Gravel",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "dirty-french",
-        "name": "Dirty French",
         "rank": 0,
         "width_mm": 40,
         "position": "front",
@@ -6851,8 +6435,8 @@
         "surface": "mixed"
       },
       {
-        "slug": "haute-route-gravel",
-        "name": "Haute Route Gravel",
+        "slug": "gray-duck-grit",
+        "name": "Gray Duck Grit",
         "rank": 0,
         "width_mm": 40,
         "position": "front",
@@ -7107,14 +6691,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "switchgrass",
-        "name": "Switchgrass",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
         "slug": "texas-hell-week",
         "name": "Texas Hell Week",
         "rank": 0,
@@ -7211,22 +6787,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "vapor-trail-125",
-        "name": "Vapor Trail 125",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "waukon-100",
-        "name": "Waukon 100",
-        "rank": 0,
-        "width_mm": 40,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
         "slug": "whiskey-off-road",
         "name": "Whiskey Off-Road",
         "rank": 0,
@@ -7253,10 +6813,10 @@
     ]
   },
   "continental-terra-trail": {
-    "total_appearances": 17,
-    "primary_picks": 16,
+    "total_appearances": 16,
+    "primary_picks": 15,
     "front_rear_picks": 1,
-    "avg_rank": 2.6,
+    "avg_rank": 2.5,
     "most_common_width": 40,
     "races": [
       {
@@ -7356,14 +6916,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "switchgrass",
-        "name": "Switchgrass",
-        "rank": 3,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "unbound-100",
         "name": "Unbound Gravel 100",
         "rank": 1,
@@ -7398,9 +6950,9 @@
     ]
   },
   "irc-boken-double-cross": {
-    "total_appearances": 100,
-    "primary_picks": 52,
-    "front_rear_picks": 48,
+    "total_appearances": 96,
+    "primary_picks": 50,
+    "front_rear_picks": 46,
     "avg_rank": 1.1,
     "most_common_width": 42,
     "races": [
@@ -7533,22 +7085,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "fools-gold-gravel-grinder",
-        "name": "Fools Gold Gravel Grinder",
-        "rank": 1,
-        "width_mm": 42,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "fools-gold-gravel-grinder",
-        "name": "Fools Gold Gravel Grinder",
-        "rank": 0,
-        "width_mm": 42,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
         "slug": "forbidden-gravel",
         "name": "Forbidden Gravel",
         "rank": 1,
@@ -7559,22 +7095,6 @@
       {
         "slug": "forbidden-gravel",
         "name": "Forbidden Gravel",
-        "rank": 0,
-        "width_mm": 42,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
-        "slug": "gran-fondo-ozarks",
-        "name": "Gran Fondo Ozarks",
-        "rank": 1,
-        "width_mm": 42,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "gran-fondo-ozarks",
-        "name": "Gran Fondo Ozarks",
         "rank": 0,
         "width_mm": 42,
         "position": "rear",
@@ -7909,22 +7429,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "ouachita-challenge",
-        "name": "Ouachita Challenge",
-        "rank": 1,
-        "width_mm": 42,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "ouachita-challenge",
-        "name": "Ouachita Challenge",
-        "rank": 0,
-        "width_mm": 42,
-        "position": "rear",
-        "surface": "mixed"
-      },
-      {
         "slug": "race-to-valhalla",
         "name": "Race to Valhalla",
         "rank": 1,
@@ -8189,6 +7693,22 @@
         "surface": "mixed"
       },
       {
+        "slug": "waukon-100",
+        "name": "Waukon 100",
+        "rank": 1,
+        "width_mm": 42,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "waukon-100",
+        "name": "Waukon 100",
+        "rank": 0,
+        "width_mm": 42,
+        "position": "rear",
+        "surface": "mixed"
+      },
+      {
         "slug": "worthersee-gravel-race",
         "name": "Wörthersee Gravel Race",
         "rank": 1,
@@ -8207,9 +7727,9 @@
     ]
   },
   "panaracer-gravelking-tlc": {
-    "total_appearances": 56,
+    "total_appearances": 54,
     "primary_picks": 0,
-    "front_rear_picks": 56,
+    "front_rear_picks": 54,
     "avg_rank": 0,
     "most_common_width": 43,
     "races": [
@@ -8286,24 +7806,8 @@
         "surface": "mixed"
       },
       {
-        "slug": "fools-gold-gravel-grinder",
-        "name": "Fools Gold Gravel Grinder",
-        "rank": 0,
-        "width_mm": 43,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
         "slug": "forbidden-gravel",
         "name": "Forbidden Gravel",
-        "rank": 0,
-        "width_mm": 43,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
-        "slug": "gran-fondo-ozarks",
-        "name": "Gran Fondo Ozarks",
         "rank": 0,
         "width_mm": 43,
         "position": "front",
@@ -8502,14 +8006,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "ouachita-challenge",
-        "name": "Ouachita Challenge",
-        "rank": 0,
-        "width_mm": 43,
-        "position": "front",
-        "surface": "mixed"
-      },
-      {
         "slug": "race-to-valhalla",
         "name": "Race to Valhalla",
         "rank": 0,
@@ -8654,6 +8150,14 @@
         "surface": "mixed"
       },
       {
+        "slug": "waukon-100",
+        "name": "Waukon 100",
+        "rank": 0,
+        "width_mm": 43,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
         "slug": "worthersee-gravel-race",
         "name": "Wörthersee Gravel Race",
         "rank": 0,
@@ -8664,8 +8168,8 @@
     ]
   },
   "pirelli-cinturato-gravel-m": {
-    "total_appearances": 31,
-    "primary_picks": 27,
+    "total_appearances": 29,
+    "primary_picks": 25,
     "front_rear_picks": 4,
     "avg_rank": 2.0,
     "most_common_width": 40,
@@ -8871,14 +8375,6 @@
         "surface": "mixed"
       },
       {
-        "slug": "vapor-trail-125",
-        "name": "Vapor Trail 125",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
         "slug": "wasatch-all-road",
         "name": "Wasatch All-Road",
         "rank": 1,
@@ -8892,14 +8388,6 @@
         "rank": 0,
         "width_mm": 40,
         "position": "rear",
-        "surface": "mixed"
-      },
-      {
-        "slug": "waukon-100",
-        "name": "Waukon 100",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
         "surface": "mixed"
       },
       {
@@ -8921,20 +8409,12 @@
     ]
   },
   "schwalbe-g-one-bite": {
-    "total_appearances": 57,
-    "primary_picks": 45,
+    "total_appearances": 56,
+    "primary_picks": 44,
     "front_rear_picks": 12,
     "avg_rank": 1.0,
     "most_common_width": 45,
     "races": [
-      {
-        "slug": "berryman-epic",
-        "name": "Berryman Epic",
-        "rank": 1,
-        "width_mm": 45,
-        "position": "primary",
-        "surface": "technical"
-      },
       {
         "slug": "big-sugar",
         "name": "Big Sugar",
@@ -9386,20 +8866,12 @@
     ]
   },
   "maxxis-reaver": {
-    "total_appearances": 45,
-    "primary_picks": 45,
+    "total_appearances": 44,
+    "primary_picks": 44,
     "front_rear_picks": 0,
     "avg_rank": 2.0,
     "most_common_width": 45,
     "races": [
-      {
-        "slug": "berryman-epic",
-        "name": "Berryman Epic",
-        "rank": 2,
-        "width_mm": 45,
-        "position": "primary",
-        "surface": "technical"
-      },
       {
         "slug": "big-sugar",
         "name": "Big Sugar",
@@ -9755,20 +9227,12 @@
     ]
   },
   "wtb-resolute": {
-    "total_appearances": 19,
-    "primary_picks": 19,
+    "total_appearances": 18,
+    "primary_picks": 18,
     "front_rear_picks": 0,
     "avg_rank": 3.0,
     "most_common_width": 42,
     "races": [
-      {
-        "slug": "berryman-epic",
-        "name": "Berryman Epic",
-        "rank": 3,
-        "width_mm": 42,
-        "position": "primary",
-        "surface": "technical"
-      },
       {
         "slug": "big-sugar",
         "name": "Big Sugar",
@@ -10142,10 +9606,10 @@
     ]
   },
   "goodyear-connector": {
-    "total_appearances": 6,
-    "primary_picks": 6,
+    "total_appearances": 5,
+    "primary_picks": 5,
     "front_rear_picks": 0,
-    "avg_rank": 2.5,
+    "avg_rank": 2.6,
     "most_common_width": 40,
     "races": [
       {
@@ -10175,14 +9639,6 @@
       {
         "slug": "sea-otter-europe-gravel",
         "name": "Sea Otter Europe Gravel",
-        "rank": 2,
-        "width_mm": 40,
-        "position": "primary",
-        "surface": "mixed"
-      },
-      {
-        "slug": "switchgrass",
-        "name": "Switchgrass",
         "rank": 2,
         "width_mm": 40,
         "position": "primary",

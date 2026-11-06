@@ -534,4 +534,8 @@ class TestRealRaceData:
         # bwr-utah, bwr-asheville) moved to race-data-archived/duplicates/.
         # Four carried older copies of routes; every canonical page keeps its
         # own current route (data/duplicate-merges.json).
-        assert rwgps_count >= 179, f"Expected >=179 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 179->175 (Nov 6 2026): Purgatory Road Race,
+        # Switchgrass and Nicolet Hot Days were tombstoned and Border Wars
+        # merged into Homegrown Gravel Adventure (config/tombstones.json).
+        # Each carried a route that belonged to another event or edition.
+        assert rwgps_count >= 175, f"Expected >=175 current RWGPS routes, got {rwgps_count}"

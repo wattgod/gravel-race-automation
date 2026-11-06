@@ -148,12 +148,6 @@
       "position": "rear",
       "surface": "mixed"
     },
-    "border-wars": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
     "burgr-95": {
       "rank": 1,
       "width_mm": 38,
@@ -176,12 +170,6 @@
       "rank": 2,
       "width_mm": 42,
       "position": "primary",
-      "surface": "mixed"
-    },
-    "carpathian-gravel": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
       "surface": "mixed"
     },
     "castellon-gravel-race": {
@@ -304,12 +292,6 @@
       "position": "rear",
       "surface": "mixed"
     },
-    "dirty-french": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
     "dirty-hector": {
       "rank": 1,
       "width_mm": 38,
@@ -400,12 +382,6 @@
       "position": "rear",
       "surface": "mixed"
     },
-    "fools-gold-gravel-grinder": {
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "mixed"
-    },
     "forbidden-gravel": {
       "rank": 2,
       "width_mm": 42,
@@ -434,12 +410,6 @@
       "rank": 1,
       "width_mm": 38,
       "position": "rear",
-      "surface": "mixed"
-    },
-    "gran-fondo-ozarks": {
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary",
       "surface": "mixed"
     },
     "grasshopper-series": {
@@ -532,12 +502,6 @@
       "position": "rear",
       "surface": "mixed"
     },
-    "gravel-suisse": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
     "gravel-unravel-bon-jon-pass-out": {
       "rank": 2,
       "width_mm": 42,
@@ -599,12 +563,6 @@
       "surface": "mixed"
     },
     "hart-hills": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
-    "haute-route-gravel": {
       "rank": 1,
       "width_mm": 38,
       "position": "rear",
@@ -716,12 +674,6 @@
       "rank": 2,
       "width_mm": 42,
       "position": "primary",
-      "surface": "mixed"
-    },
-    "king-of-the-lake": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
       "surface": "mixed"
     },
     "king-price-race-to-sun": {
@@ -850,12 +802,6 @@
       "position": "primary",
       "surface": "mixed"
     },
-    "nicolet-hot-days": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
     "niseko-gravel": {
       "rank": 1,
       "width_mm": 38,
@@ -910,18 +856,6 @@
       "position": "rear",
       "surface": "mixed"
     },
-    "ouachita-challenge": {
-      "rank": 2,
-      "width_mm": 42,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "ouray-gravel-grinder": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
     "parker-dam-gravel-grinder": {
       "rank": 1,
       "width_mm": 38,
@@ -947,12 +881,6 @@
       "surface": "mixed"
     },
     "prairie-burn-100": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
-    "purgatory-road-race": {
       "rank": 1,
       "width_mm": 38,
       "position": "rear",
@@ -1132,12 +1060,6 @@
       "position": "rear",
       "surface": "mixed"
     },
-    "switchgrass": {
-      "rank": 1,
-      "width_mm": 38,
-      "position": "rear",
-      "surface": "mixed"
-    },
     "takelma-gravel-grinder": {
       "rank": 2,
       "width_mm": 42,
@@ -1166,6 +1088,12 @@
       "rank": 2,
       "width_mm": 42,
       "position": "primary",
+      "surface": "mixed"
+    },
+    "the-majestics-gravel": {
+      "rank": 1,
+      "width_mm": 38,
+      "position": "rear",
       "surface": "mixed"
     },
     "the-mane-event-gravel": {
@@ -1300,12 +1228,6 @@
       "position": "primary",
       "surface": "mixed"
     },
-    "vapor-trail-125": {
-      "rank": 1,
-      "width_mm": 42,
-      "position": "rear",
-      "surface": "mixed"
-    },
     "veneto-gravel": {
       "rank": 1,
       "width_mm": 38,
@@ -1325,9 +1247,9 @@
       "surface": "mixed"
     },
     "waukon-100": {
-      "rank": 1,
+      "rank": 2,
       "width_mm": 42,
-      "position": "rear",
+      "position": "primary",
       "surface": "mixed"
     },
     "west-coast-gravel": {

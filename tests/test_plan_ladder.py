@@ -106,7 +106,7 @@ class TestPublishedLinkCase:
                 marketplace_url="https://www.trainingpeaks.com/plan/659126",
             ),
         ])
-        html = build_plan_ladder(_rd(slug="gravel-suisse", name="Gravel Suisse"))
+        html = build_plan_ladder(_rd(slug="the-majestics-gravel", name="The Majestics Gravel"))
         assert 'href="https://www.trainingpeaks.com/plan/659126"' in html
 
 

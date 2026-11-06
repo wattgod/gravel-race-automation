@@ -8,7 +8,7 @@
     "vo2_power": 6,
     "threshold": 5,
     "technical": 6,
-    "heat_resilience": 6,
+    "heat_resilience": 0,
     "altitude": 4,
     "race_specificity": 9
   },
@@ -25,7 +25,7 @@
     },
     {
       "category": "Gravel_Specific",
-      "score": 73,
+      "score": 96,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
@@ -34,7 +34,7 @@
     },
     {
       "category": "Race_Simulation",
-      "score": 73,
+      "score": 96,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -43,8 +43,28 @@
       "workout_context": "Race-pace efforts that mimic H\u00e6rvejsl\u00f8bet \u2014 The Viking Gran Fondo's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
     },
     {
+      "category": "VO2max",
+      "score": 75,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "When someone attacks on mixed terrain, you have 10 seconds to respond or you're off the back. This builds that response."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 60,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "H\u00e6rvejsl\u00f8bet \u2014 The Viking Gran Fondo's mixed terrain rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
       "category": "Endurance",
-      "score": 63,
+      "score": 59,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
@@ -52,14 +72,22 @@
       "workout_context": "Every hard session works better with a bigger aerobic base. At 186 miles, base fitness is the difference between racing and surviving."
     },
     {
-      "category": "VO2max",
-      "score": 57,
+      "category": "Blended",
+      "score": 56,
       "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
       ],
-      "workout_context": "When someone attacks on mixed terrain, you have 10 seconds to respond or you're off the back. This builds that response."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 3,300ft of climbing on mixed terrain does to your power file on race day."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 56,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At H\u00e6rvejsl\u00f8bet \u2014 The Viking Gran Fondo, that number decides whether you bridge or get dropped."
     },
     {
       "category": "HVLI_Extended",
@@ -72,36 +100,8 @@
       "workout_context": "186 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
     },
     {
-      "category": "TT_Threshold",
-      "score": 45,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "H\u00e6rvejsl\u00f8bet \u2014 The Viking Gran Fondo's mixed terrain rewards steady threshold power. Surging and recovering costs more watts than just holding."
-    },
-    {
-      "category": "Blended",
-      "score": 42,
-      "workouts": [
-        "Z2 + VO2 Combo",
-        "Endurance with Spikes"
-      ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 3,300ft of climbing on mixed terrain does to your power file on race day."
-    },
-    {
-      "category": "Critical_Power",
-      "score": 42,
-      "workouts": [
-        "Above CP Repeats",
-        "W-Prime Depletion"
-      ],
-      "workout_context": "How long can you hold 105% FTP before you blow? At H\u00e6rvejsl\u00f8bet \u2014 The Viking Gran Fondo, that number decides whether you bridge or get dropped."
-    },
-    {
       "category": "Over_Under",
-      "score": 40,
+      "score": 53,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -110,7 +110,7 @@
     },
     {
       "category": "Anaerobic_Capacity",
-      "score": 36,
+      "score": 48,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
@@ -119,7 +119,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 35,
+      "score": 47,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -129,11 +129,9 @@
     }
   ],
   "race_overlay": {
-    "heat": "June in Flensburg, Germany to Viborg, Denmark can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before H\u00e6rvejsl\u00f8bet \u2014 The Viking Gran Fondo. Increase sodium intake 48 hours before race day.",
     "nutrition": "Ultra-distance fueling for 186 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 186 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
-    "altitude": "Moderate altitude at H\u00e6rvejsl\u00f8bet \u2014 The Viking Gran Fondo. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
     "terrain": "Mixed terrain at H\u00e6rvejsl\u00f8bet \u2014 The Viking Gran Fondo requires surface adaptability. Include weekly rides on mixed terrain to build confidence."
   },
   "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 186 miles of mixed terrain in Flensburg, Germany to Viborg, Denmark.",
-  "generated_at": "2026-03-06"
+  "generated_at": "2026-11-06"
 }

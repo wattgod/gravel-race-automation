@@ -32,7 +32,7 @@ ENDURE_PLAN_COPY = "Or train in Endure: $24/month, 14 days free"
 # Each has a single confirmed 2027 date, a distance and a climbing figure, so the
 # sign-up can be pre-filled. Pages whose date lapses drop the link on their own.
 ENDURE_PLAN_RACES = frozenset({
-    "unbound-200", "bwr-california", "bwr-arizona", "ukiah-mendo-gravel-epic",
+    "unbound-200", "ukiah-mendo-gravel-epic",
     "bootlegger-100", "the-gralloch", "low-gap-grasshopper", "huffmaster-grasshopper",
     "dirty-30", "bend-dirt-fest", "coast-to-coast", "sasquatch-duro",
     "oregon-coast-gravel-epic", "barry-roubaix", "hungry-bear-100",

@@ -365,36 +365,42 @@
       "primary": [
         {
           "rank": 1,
-          "tire_id": "continental-terra-speed-40",
-          "name": "Continental Terra Speed",
-          "brand": "Continental",
+          "tire_id": "hutchinson-caracal-race",
+          "name": "Hutchinson Caracal Race",
+          "brand": "Hutchinson",
           "recommended_width_mm": 40,
-          "msrp_usd": 74.99,
-          "weight_grams": 390,
-          "crr_watts": 28.5,
-          "why": "Rolls fast: 28.5W at 29 km/h in BRR testing."
+          "msrp_usd": null,
+          "weight_grams": 491,
+          "crr_watts": 14.9,
+          "tested_width_mm": 40,
+          "course_cost_watts": 16.02,
+          "why": "Rolls 14.9 W at 40mm on BRR's drum."
         },
         {
           "rank": 2,
-          "tire_id": "schwalbe-g-one-rs",
-          "name": "Schwalbe G-One RS",
-          "brand": "Schwalbe",
+          "tire_id": "continental-terra-competition-race-rapid",
+          "name": "Continental Terra Competition Race Rapid",
+          "brand": "Continental",
           "recommended_width_mm": 40,
-          "msrp_usd": 84.9,
-          "weight_grams": 380,
-          "crr_watts": 29.0,
-          "why": "Rolls fast: 29W at 29 km/h in BRR testing."
+          "msrp_usd": null,
+          "weight_grams": 430,
+          "crr_watts": 16.3,
+          "tested_width_mm": 40,
+          "course_cost_watts": 16.86,
+          "why": "Rolls 16.3 W at 40mm on BRR's drum."
         },
         {
           "rank": 3,
-          "tire_id": "challenge-getaway-pro",
-          "name": "Challenge Getaway Pro",
-          "brand": "Challenge",
-          "recommended_width_mm": 36,
-          "msrp_usd": 84.99,
-          "weight_grams": 310,
-          "crr_watts": 28.0,
-          "why": "Rolls fast: 28W at 29 km/h in BRR testing."
+          "tire_id": "hutchinson-touareg",
+          "name": "Hutchinson Touareg Race",
+          "brand": "Hutchinson",
+          "recommended_width_mm": 40,
+          "msrp_usd": 73.9,
+          "weight_grams": 471,
+          "crr_watts": 16.0,
+          "tested_width_mm": 40,
+          "course_cost_watts": 18.16,
+          "why": "Rolls 16 W at 40mm on BRR's drum."
         }
       ],
       "front_rear_split": {
@@ -403,18 +409,34 @@
       "race_surface_profile": "fast",
       "recommended_width_mm": 40,
       "pressure_psi": {
-        "140_160lb_dry": "36-40",
-        "140_160lb_mixed": "34-38",
-        "140_160lb_wet": "32-36",
-        "160_180lb_dry": "40-44",
-        "160_180lb_mixed": "36-40",
-        "160_180lb_wet": "34-38",
-        "180_200lb_dry": "42-46",
-        "180_200lb_mixed": "40-44",
-        "180_200lb_wet": "38-42",
-        "200pluslb_dry": "46-50",
-        "200pluslb_mixed": "42-46",
-        "200pluslb_wet": "40-44"
+        "gravel_category": 1,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "40mm": "40/41",
+            "45mm": "32/34"
+          },
+          "150": {
+            "40mm": "41/42",
+            "45mm": "33/35"
+          },
+          "170": {
+            "40mm": "41/43",
+            "45mm": "34/36"
+          },
+          "190": {
+            "40mm": "42/44",
+            "45mm": "35/36"
+          },
+          "210": {
+            "40mm": "43/45",
+            "45mm": "35/37"
+          },
+          "230": {
+            "40mm": "44/46",
+            "45mm": "36/38"
+          }
+        }
       }
     },
     "youtube_data": {

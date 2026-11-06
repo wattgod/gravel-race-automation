@@ -246,56 +246,84 @@
       "primary": [
         {
           "rank": 1,
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
           "brand": "Schwalbe",
-          "recommended_width_mm": 45,
-          "msrp_usd": 69.9,
-          "weight_grams": 540,
-          "crr_watts": 38.0,
-          "why": "Technical terrain dominator. Aggressive grip when the course gets rowdy."
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 592,
+          "crr_watts": 16.7,
+          "tested_width_mm": 50,
+          "course_cost_watts": 18.46,
+          "why": "Rolls 16.7 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
         },
         {
           "rank": 2,
-          "tire_id": "maxxis-reaver",
-          "name": "Maxxis Reaver",
-          "brand": "Maxxis",
-          "recommended_width_mm": 45,
-          "msrp_usd": 79.99,
-          "weight_grams": 520,
-          "crr_watts": 35.0,
-          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 573,
+          "crr_watts": 19.2,
+          "tested_width_mm": 50,
+          "course_cost_watts": 20.08,
+          "why": "Rolls 19.2 W at 50mm on BRR's drum. 4mm shoulder knobs for loose corners."
         },
         {
           "rank": 3,
-          "tire_id": "wtb-resolute",
-          "name": "WTB Resolute",
-          "brand": "WTB",
-          "recommended_width_mm": 42,
-          "msrp_usd": 64.95,
-          "weight_grams": 460,
-          "crr_watts": 36.5,
-          "why": "Aggressive chevron tread. Fast center with confident cornering."
+          "tire_id": "schwalbe-g-one-rx-pro",
+          "name": "Schwalbe G-One RX Pro",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 657,
+          "crr_watts": 19.4,
+          "tested_width_mm": 50,
+          "course_cost_watts": 21.32,
+          "why": "Rolls 19.4 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
         }
       ],
       "front_rear_split": {
         "applicable": false
       },
       "race_surface_profile": "technical",
-      "recommended_width_mm": 45,
+      "recommended_width_mm": 50,
       "pressure_psi": {
-        "140_160lb_dry": "28-32",
-        "140_160lb_mixed": "25-29",
-        "140_160lb_wet": "23-27",
-        "160_180lb_dry": "31-35",
-        "160_180lb_mixed": "28-32",
-        "160_180lb_wet": "26-30",
-        "180_200lb_dry": "34-38",
-        "180_200lb_mixed": "31-35",
-        "180_200lb_wet": "29-33",
-        "200pluslb_dry": "37-41",
-        "200pluslb_mixed": "34-38",
-        "200pluslb_wet": "32-36"
+        "gravel_category": 4,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "45mm": "24/25",
+            "50mm": "20/21",
+            "55mm": "17/17"
+          },
+          "150": {
+            "45mm": "25/26",
+            "50mm": "20/21",
+            "55mm": "17/18"
+          },
+          "170": {
+            "45mm": "25/27",
+            "50mm": "21/22",
+            "55mm": "17/18"
+          },
+          "190": {
+            "45mm": "26/27",
+            "50mm": "21/22",
+            "55mm": "18/18"
+          },
+          "210": {
+            "45mm": "26/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "230": {
+            "45mm": "27/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          }
+        }
       }
     },
     "terrain": {

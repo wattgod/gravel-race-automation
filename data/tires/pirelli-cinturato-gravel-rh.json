@@ -1,0 +1,80 @@
+{
+  "id": "pirelli-cinturato-gravel-rh",
+  "name": "Pirelli Cinturato Gravel RH",
+  "brand": "Pirelli",
+  "casing": "SmartEVO GR",
+  "widths_mm": [
+    40,
+    45,
+    50,
+    55
+  ],
+  "widths_source": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/cinturato-gravel-rh",
+  "tread_type": "file",
+  "tubeless_ready": true,
+  "msrp_usd": null,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 39.0,
+      "year": 2026,
+      "model": "Pirelli Cinturato Gravel RH SmartEvo GR 40",
+      "rr_watts": 17.6,
+      "test_psi": 33,
+      "puncture_tread": 44.0,
+      "wet_grip": 85.0,
+      "knob_center_mm": 0.0,
+      "knob_edge_mm": 2.6,
+      "weight_g": 529.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-cinturato-gravel-rh-smartevo-gr"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-cinturato-gravel-rh-smartevo-gr"
+  },
+  "crr_watts_at_29kmh": {
+    "40": 17.6
+  },
+  "weight_grams": {
+    "40": 529
+  },
+  "puncture_resistance": "moderate",
+  "wet_traction": "good",
+  "mud_clearance": "low",
+  "strengths": [
+    "Wet grip 85 on BRR's wet test"
+  ],
+  "weaknesses": [],
+  "recommended_use": [
+    "wet roads",
+    "loose corners"
+  ],
+  "avoid_use": [
+    "mud"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "challenge-getaway-pro",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
+    "continental-terra-speed-40",
+    "hutchinson-caracal-race",
+    "panaracer-gravelking-tlc",
+    "panaracer-gravelking-zx-r",
+    "rene-herse-snoqualmie-pass",
+    "schwalbe-g-one-overland",
+    "schwalbe-g-one-rs-pro",
+    "schwalbe-g-one-rs",
+    "silca-protocol-rcg-1",
+    "specialized-pathfinder",
+    "ultradynamico-cava-race",
+    "vittoria-terreno-dry",
+    "vittoria-terreno-pro-t30",
+    "wtb-vulpine-s"
+  ],
+  "versions": []
+}

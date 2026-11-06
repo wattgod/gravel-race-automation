@@ -323,8 +323,11 @@ class TestSectionBuilders:
 
         html = build_pk_equipment(self.guide, raw, rd)
 
-        assert "Run 45mm or wider tires" in html
-        assert "Pathfinder Pro 47mm" in html
+        tr = rd["tire_recommendations"]
+        assert tr["recommended_width_mm"] >= tr["min_width_mm"] == 45
+        assert f"Run {tr['recommended_width_mm']}mm or wider tires" in html
+        top = tr["primary"][0]
+        assert f"{top['name']} {top['recommended_width_mm']}mm" in html
         assert "Run 40-45mm tires" not in html
 
     def test_equipment(self):

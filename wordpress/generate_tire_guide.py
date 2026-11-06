@@ -15,6 +15,7 @@ import argparse
 import html
 import json
 import logging
+import math
 import re
 import sys
 from datetime import datetime
@@ -91,58 +92,37 @@ SURFACE_TECHNICAL = "technical"
 SURFACE_MUDDY = "muddy"
 SURFACE_WET = "wet"
 
-# ── Scoring Constants ────────────────────────────────────────
-# Each constant is named for its purpose. Rationale documented inline.
+# ── Course Cost (lower wins) ─────────────────────────────────
+# Every candidate gets a cost in watts: its measured rolling resistance at the
+# pick width (BRR drum, data/tires/lab/) plus a watt price on whatever this
+# course punishes. "We'll pay 3 W for 20 more puncture points on flint" is the
+# kind of trade a fast rider makes on purpose; these constants make it
+# explicit. Only tires with a BRR test at a race width are candidates.
 
-# recommended_use match bonus: +10 per matching use case keyword.
-# Intentionally the largest single-criterion bonus because matching the tire's
-# intended use is the strongest signal.
-SCORE_USE_MATCH = 10
+# Puncture: watts per point below PUNCTURE_REF (BRR tread puncture score).
+PUNCTURE_REF = 56
+PUNCTURE_W_SHARP = 0.2      # sharp rock in the course text: 20 pts = 4 W
+PUNCTURE_W_LONG = 0.12      # 100+ miles: a flat costs more than a watt
+PUNCTURE_W_BASE = 0.08      # any gravel race: 20 pts = 1.6 W
 
-# avoid_use penalty: -15 per matching avoid condition.
-# Larger than SCORE_USE_MATCH so a single avoid outweighs a single match
-# (safety > performance).
-SCORE_AVOID_PENALTY = -15
+# Wet grip: watts per point below WET_REF (BRR wet grip, hard surface).
+WET_REF = 85
+WET_W = 0.08                # 30 pts = 2.4 W, only when the course is wet
 
-# CRR normalization: best gravel tires ~25W, worst ~45W at 29km/h (BRR data).
-# Score = (ceiling - crr) / 2 → range ~0 to +10.
-CRR_CEILING_WATTS = 45.0
+# Shoulder knobs for loose corners: watts per mm below KNOB_EDGE_REF.
+KNOB_EDGE_REF = 3.0
+KNOB_EDGE_W_ROUGH = 1.5     # tech rating 3
+KNOB_EDGE_W_TECH = 2.5      # tech rating 4+, or singletrack in the text
 
-# Puncture resistance bonuses: high is critical on flint/limestone courses.
-# Moderate gets partial credit. Based on BRR puncture test rankings.
-SCORE_PUNCTURE_HIGH = 12
-SCORE_PUNCTURE_MODERATE = 4
+# Center knobs for mud: watts per mm below MUD_KNOB_REF.
+MUD_KNOB_REF = 2.5
+MUD_KNOB_W = 3.0            # mud is the course
+MUD_KNOB_W_RISK = 1.5       # mud is a maybe ("occasional mud", clay)
 
-# Climbing weight normalization: lightest gravel tires ~280g, heaviest ~600g.
-# Score = (ceiling - weight) / divisor → range ~0 to +6.
-WEIGHT_CEILING_GRAMS = 600.0
-WEIGHT_DIVISOR = 50.0
-
-# Climbing ratio threshold: 80 ft/mile is roughly equivalent to a "hilly" course
-# (e.g., Unbound 200 = 80 ft/mi, SBT GRVL = 75 ft/mi, BWR = 100+ ft/mi).
-CLIMBING_RATIO_THRESHOLD = 80
-
-# Wet traction bonuses: "good" from BRR wet-grip test results.
-SCORE_WET_GOOD = 10
-SCORE_WET_FAIR = 4
-
-# Mud clearance bonuses: based on tread void volume.
-SCORE_MUD_HIGH = 12
-SCORE_MUD_MODERATE = 6
-SCORE_MUD_LOW = 2
-
-# Comfort: wider tires (>=45mm) provide more air volume for long-distance comfort.
-SCORE_COMFORT_WIDE = 3
-SCORE_COMFORT_DURABLE_HIGH = 4
-SCORE_COMFORT_DURABLE_MOD = 2
-
-# Terrain keyword direct match bonus.
-SCORE_TERRAIN_KEYWORD = 5
-
-# Price bonuses: all else equal, cheaper tires are better value.
-# Thresholds based on typical gravel tire MSRP range ($45-$90).
-SCORE_PRICE_CHEAP = 2  # <= $60
-SCORE_PRICE_MID = 1    # <= $70
+# Width below the course target, per mm (rough gravel rewards volume).
+WIDTH_SHORT_W = 0.4
+# Pick width has no BRR test of its own; the nearest tested width stands in.
+UNTESTED_WIDTH_W = 1.0
 
 # Distance threshold for "needs comfort" flag.
 # 100 miles is standard ultra-distance cutoff (Unbound 200, Almanzo 100).
@@ -152,33 +132,28 @@ COMFORT_DISTANCE_MI = 100
 # race-month days with any rain). Never sets the surface category.
 PRECIP_WET_THRESHOLD = 40
 
-# ── Pressure Table Constants ─────────────────────────────────
-# Base pressure for a 40mm tire at tech_rating 2 on a tubeless setup with
-# 21-25mm internal width rims. Sourced from SILCA tire pressure calculator
-# median for 170lb rider on gravel.
-PRESSURE_BASE_PSI = 38
+# ── Width Targets ────────────────────────────────────────────
+# What 2026 gravel races are won on: 45-50mm (Unbound 2026 XL won on a 50mm
+# G-One RX Pro; Unbound 2025 on a 50mm front / 45mm rear). On BRR's drum a
+# 50mm tire at its lower test pressure rolls within ~3 W of the 40mm version
+# of the same model, and often faster; on rough ground the volume wins.
+WIDTH_TARGETS = {1: 40, 2: 45, 3: 50, 4: 50}
 
-# Pressure adjusts -0.5 psi per mm of width above 40mm. Wider tires need
-# less pressure for same casing deflection. ~0.5 psi/mm matches SILCA model.
-PRESSURE_WIDTH_FACTOR = 0.5
-
-# Pressure adjusts -1.5 psi per tech_rating above 2. Lower pressure improves
-# grip on technical terrain. 1.5 psi/step keeps range reasonable (32-38 base).
-PRESSURE_TECH_FACTOR = 1.5
-
-# Absolute floor pressures: below these values, rim strikes become likely
-# on gravel regardless of tire width. Based on Stan's tubeless guidelines.
-PRESSURE_FLOOR_DRY = 22
-PRESSURE_FLOOR_MIXED = 20
-PRESSURE_FLOOR_WET = 18
-
-# ── Width Target Constants ───────────────────────────────────
-# Target width by tech_rating. Standard gravel widths: 35-50mm.
-# tech 1 (smooth): 38mm — fast rolling, low rolling resistance
-# tech 2 (mixed): 40mm — all-round standard gravel width
-# tech 3 (technical): 42mm — extra volume for rocks/roots
-# tech 4+ (extreme): 45mm — maximum grip and cushion
-WIDTH_TARGETS = {1: 38, 2: 40, 3: 42, 4: 45}
+# ── Pressure Model ───────────────────────────────────────────
+# Front psi = PRESSURE_A[category] * (system_lb / 180) ** PRESSURE_WEIGHT_EXP
+#             * exp(PRESSURE_W1 * ln(w/45) + PRESSURE_W2 * ln(w/45) ** 2)
+# rear = front * PRESSURE_REAR. Category is SILCA's gravel scale (1 smooth
+# hardpack .. 4 rough), from the tech rating. Fitted by least squares to
+# SILCA's public calculator (gravel 47/53 weight split, high-performance
+# tubeless casing, 17.5 mph) for 130-230 lb riders, 38-53mm tires: within
+# 0.5 psi everywhere. tests/test_tire_pressure_model.py holds the check points.
+PRESSURE_A = {1: 33.46, 2: 30.46, 3: 27.13, 4: 24.92}
+PRESSURE_WEIGHT_EXP = 0.2069
+PRESSURE_W1 = -1.7609
+PRESSURE_W2 = -0.6952
+PRESSURE_REAR = 1.0461
+BIKE_AND_KIT_LB = 25
+RIDER_WEIGHTS_LB = (130, 150, 170, 190, 210, 230)
 
 # ── Sealant Constants ────────────────────────────────────────
 # Sealant amounts per tire, based on manufacturer recommendations
@@ -187,9 +162,12 @@ SEALANT_WIDE = "90-120ml"    # >= 45mm
 SEALANT_MEDIUM = "60-90ml"   # >= 40mm
 SEALANT_NARROW = "50-70ml"   # < 40mm
 
-# CRR "fast rolling" threshold for why-text (W at 29km/h).
-# Tires below 30W are in the top tier per BRR rankings.
-CRR_FAST_THRESHOLD = 30
+# BRR tread puncture score worth naming as a reason.
+PUNCTURE_MODERATE_PTS = 40
+
+# Fast-rolling threshold for why lines (W, BRR low pressure). About the
+# fastest third of the gravel tires BRR has tested.
+CRR_FAST_THRESHOLD = 17.0
 
 
 # ── Data Loading ──────────────────────────────────────────────
@@ -399,25 +377,38 @@ def build_race_profile(rd: dict, raw_race: dict, weather: dict) -> dict:
     }
 
 
-# ── Filter-Then-Rank Scoring ─────────────────────────────────
+# ── Filter, Then Rank by Course Cost ─────────────────────────
+
+
+def is_technical(profile: dict) -> bool:
+    return profile["surface_category"] == SURFACE_TECHNICAL or profile["tech_rating"] >= 4
+
+
+def target_width(profile: dict) -> int:
+    """Course width target, raised to any sourced organizer floor."""
+    target = WIDTH_TARGETS.get(min(max(profile["tech_rating"], 1), 4), WIDTH_TARGETS[2])
+    return max(target, profile.get("min_width_mm") or 0)
 
 
 def filter_tires(tires: list, profile: dict) -> list:
-    """Filter out disqualified tires based on race profile.
+    """Tires that can be picked for this course.
 
-    Returns list of tires that are NOT disqualified.
+    Only tires BRR has tested at a race width are candidates: every pick
+    carries measured numbers or it isn't a pick.
     """
     filtered = []
     for tire in tires:
-        # Hard disqualification: race needs mud, tire has no mud clearance
-        if profile["needs_mud"] and tire.get("mud_clearance") == "none":
+        if not tire.get("lab_tested"):
             continue
-        # Hard disqualification: the course itself is wet, tire has poor wet traction
+        # Mud is the course: a tire needs real mud clearance
+        if profile["needs_mud"] and tire.get("mud_clearance") not in ("moderate", "high"):
+            continue
+        # The course itself is wet: no tire that grips poorly on wet ground
         if profile["surface_category"] == SURFACE_WET and \
            tire.get("wet_traction") == "poor":
             continue
-        # MTB crossover warning: tech_rating >= 5 with file tread
-        if profile["tech_rating"] >= 5 and tire.get("tread_type") == "file":
+        # Technical courses (tech 4+, or rough with singletrack): no file treads
+        if is_technical(profile) and tire.get("tread_type") == "file":
             continue
         # Sourced width floor (organizer guidance): tire must come that wide
         if not offers_min_width(tire, profile):
@@ -426,144 +417,69 @@ def filter_tires(tires: list, profile: dict) -> list:
     return filtered
 
 
-def score_tire(tire: dict, profile: dict) -> float:
-    """Score a tire against race profile using filter-then-rank criteria.
+def lab_test(tire: dict, width: int):
+    """BRR test for this width, else the nearest tested width (newest first)."""
+    tests = tire.get("brr_tests") or []
+    if not tests:
+        return None
+    return min(tests, key=lambda t: (abs(t["width_mm"] - width), -t["year"]))
 
-    Uses measurable data instead of subjective scoring profiles.
-    """
-    score = 0.0
-    cat = profile["surface_category"]
 
-    # 1. recommended_use overlap with race conditions
-    rec_use = tire.get("recommended_use", [])
-    avoid_use = tire.get("avoid_use", [])
-
-    # Map surface category to use keywords
-    use_keywords = {
-        SURFACE_FAST: ["fast gravel", "road-to-gravel", "smooth hardpack", "dry racing"],
-        SURFACE_MIXED: ["mixed gravel", "all-rounder", "variable conditions", "fast mixed"],
-        SURFACE_TECHNICAL: ["technical terrain", "rocky", "loose over hard", "mixed technical"],
-        SURFACE_MUDDY: ["mud", "wet", "clay", "saturated courses"],
-        SURFACE_WET: ["wet", "wet technical", "mixed wet"],
-    }
-
-    # Count recommended_use matches
-    target_uses = use_keywords.get(cat, use_keywords[SURFACE_MIXED])
-    for use in rec_use:
-        if any(kw in use.lower() for kw in [t.lower() for t in target_uses]):
-            score += SCORE_USE_MATCH
-
-    # 2. avoid_use overlap with race conditions → hard penalty
-    race_conditions = []
-    if profile["needs_mud"]:
-        race_conditions.extend(["mud", "wet"])
-    if profile["needs_wet"]:
-        race_conditions.append("wet")
+def puncture_weight(profile: dict) -> float:
     if profile["needs_puncture"]:
-        race_conditions.extend(["sharp rock"])
-    if profile["needs_speed"]:
-        race_conditions.extend(["smooth", "fast"])
-    for avoid in avoid_use:
-        if any(cond in avoid.lower() for cond in race_conditions):
-            score += SCORE_AVOID_PENALTY
-
-    # 3. Crr watts when speed matters (lower = better)
-    crr_data = tire.get("crr_watts_at_29kmh")
-    if profile["needs_speed"] and crr_data and isinstance(crr_data, dict):
-        # Pick CRR for the target width (same logic as recommend_width)
-        tr = profile["tech_rating"]
-        target_w = 45 if tr >= 4 else (42 if tr >= 3 else (40 if tr >= 2 else 38))
-        widths_avail = sorted(tire.get("widths_mm", [40]))
-        closest_w = min(widths_avail, key=lambda w: abs(w - target_w))
-        crr_val = crr_data.get(str(closest_w)) or next(iter(crr_data.values()), None)
-        if crr_val is not None:
-            # Normalize: 25W is excellent, 45W is terrible
-            # Score: (45 - crr) / 2 → range ~0 to 10
-            score += max(0, (CRR_CEILING_WATTS - crr_val) / 2.0)
-
-    # 4. Puncture resistance when surface is abrasive
-    if profile["needs_puncture"]:
-        pr = tire.get("puncture_resistance", "moderate")
-        if pr == "high":
-            score += SCORE_PUNCTURE_HIGH
-        elif pr == "moderate":
-            score += SCORE_PUNCTURE_MODERATE
-
-    # 5. Weight when climbing matters (elevation_ft / distance_mi ratio)
-    if profile["climbing_ratio"] > CLIMBING_RATIO_THRESHOLD:
-        weight_data = tire.get("weight_grams", {})
-        if weight_data:
-            avg_weight = sum(weight_data.values()) / len(weight_data)
-            score += max(0, (WEIGHT_CEILING_GRAMS - avg_weight) / WEIGHT_DIVISOR)
-
-    # 6. Wet traction when precip_chance > threshold
-    if profile["needs_wet"]:
-        wt = tire.get("wet_traction", "fair")
-        if wt == "good":
-            score += SCORE_WET_GOOD
-        elif wt == "fair":
-            score += SCORE_WET_FAIR
-
-    # 7. Mud clearance when mud keywords present (half weight for a mud risk)
-    if profile["needs_mud"] or profile.get("mud_risk"):
-        weight = 1.0 if profile["needs_mud"] else 0.5
-        mc = tire.get("mud_clearance", "none")
-        if mc == "high":
-            score += SCORE_MUD_HIGH * weight
-        elif mc == "moderate":
-            score += SCORE_MUD_MODERATE * weight
-        elif mc == "low":
-            score += SCORE_MUD_LOW * weight
-
-    # 8. Distance/comfort bonus for long races
+        return PUNCTURE_W_SHARP
     if profile["needs_comfort"]:
-        widths = tire.get("widths_mm", [40])
-        max_width = max(widths)
-        if max_width >= 45:
-            score += SCORE_COMFORT_WIDE
-        pr = tire.get("puncture_resistance", "moderate")
-        if pr == "high":
-            score += SCORE_COMFORT_DURABLE_HIGH
-        elif pr == "moderate":
-            score += SCORE_COMFORT_DURABLE_MOD
+        return PUNCTURE_W_LONG
+    return PUNCTURE_W_BASE
 
-    # 9. Direct terrain keyword matches against recommended_use
-    combined_text = profile.get("combined_text", "")
-    terrain_keywords = ["sharp rock", "chunky", "long distance", "durability",
-                        "comfort", "fast gravel", "smooth", "rocky", "loose",
-                        "technical", "singletrack", "mud", "wet", "clay"]
-    for kw in terrain_keywords:
-        if kw in combined_text:
-            for use in rec_use:
-                if kw in use.lower():
-                    score += SCORE_TERRAIN_KEYWORD
-                    break
 
-    # 10. Price bonus (value matters, all else equal)
-    msrp = tire.get("msrp_usd", 80)
-    if msrp <= 60:
-        score += SCORE_PRICE_CHEAP
-    elif msrp <= 70:
-        score += SCORE_PRICE_MID
+def course_cost(tire: dict, width: int, profile: dict) -> dict:
+    """Watts this tire costs on this course at this width (lower is better).
 
-    return score
+    Returns {"total": float, "parts": {name: watts}} so pages and tests can
+    show exactly why a tire ranks where it does.
+    """
+    test = lab_test(tire, width)
+    if test is None:
+        return {"total": float("inf"), "parts": {}, "test": None}
+    parts = {"rolling": test["rr_watts"]}
+    parts["puncture"] = puncture_weight(profile) * max(0.0, PUNCTURE_REF - test["puncture_tread"])
+    if profile["needs_wet"]:
+        parts["wet"] = WET_W * max(0.0, WET_REF - test["wet_grip"])
+    if is_technical(profile):
+        parts["corners"] = KNOB_EDGE_W_TECH * max(0.0, KNOB_EDGE_REF - test["knob_edge_mm"])
+    elif profile["tech_rating"] >= 3:
+        parts["corners"] = KNOB_EDGE_W_ROUGH * max(0.0, KNOB_EDGE_REF - test["knob_edge_mm"])
+    if profile["needs_mud"] or profile.get("mud_risk"):
+        w = MUD_KNOB_W if profile["needs_mud"] else MUD_KNOB_W_RISK
+        parts["mud"] = w * max(0.0, MUD_KNOB_REF - test["knob_center_mm"])
+    short = target_width(profile) - width
+    if short > 0 and profile["tech_rating"] >= 2:
+        parts["width"] = WIDTH_SHORT_W * short
+    if test["width_mm"] != width:
+        parts["untested_width"] = UNTESTED_WIDTH_W
+    return {"total": round(sum(parts.values()), 2),
+            "parts": {k: round(v, 2) for k, v in parts.items() if v},
+            "test": test}
+
+
+def score_tire(tire: dict, profile: dict) -> float:
+    """Higher is better: minus the course cost at the recommended width."""
+    width = recommend_width(profile["tech_rating"], tire, profile.get("min_width_mm"))
+    return -course_cost(tire, width, profile)["total"]
 
 
 def recommend_width(tech_rating: int, tire: dict, min_width: int = None) -> int:
-    """Recommend tire width based on technical rating and available widths.
+    """The offered width nearest the course target, never below a sourced floor.
 
-    min_width is a sourced floor (organizer guidance, kept in
-    tire_recommendations.min_width_mm): widths below it are never picked.
+    Ties go to the wider size: on gravel the extra volume is the safer miss.
     """
-    # Clamp tech_rating to known range, default to widest for extreme tech
-    target = WIDTH_TARGETS.get(min(tech_rating, 4), WIDTH_TARGETS[2])
-
+    target = WIDTH_TARGETS.get(min(max(tech_rating, 1), 4), WIDTH_TARGETS[2])
     widths = sorted(tire["widths_mm"])
     if min_width:
         target = max(target, min_width)
         widths = [w for w in widths if w >= min_width] or widths
-    closest = min(widths, key=lambda w: abs(w - target))
-    return closest
+    return min(widths, key=lambda w: (abs(w - target), -w))
 
 
 def offers_min_width(tire: dict, profile: dict) -> bool:
@@ -572,208 +488,154 @@ def offers_min_width(tire: dict, profile: dict) -> bool:
     return not floor or max(tire.get("widths_mm") or [0]) >= floor
 
 
-def get_top_tires(tires: list, profile: dict, n: int = 3) -> list:
-    """Filter, score, and return top N tires with recommended widths.
-
-    Uses filter-then-rank approach instead of subjective dot-product.
-    """
-    tech_rating = profile["tech_rating"]
-
-    # Step 1: Filter out disqualified tires
+def rank_tires(tires: list, profile: dict) -> list:
+    """Every candidate with its width and cost, cheapest first."""
     candidates = filter_tires(tires, profile)
     if not candidates:
-        logging.warning("All %d tires filtered out for surface=%s — falling back to full set",
+        logging.warning("All %d tires filtered out for surface=%s — falling back to lab-tested set",
                         len(tires), profile["surface_category"])
-        candidates = tires
-
-    # Step 2: Score and rank
-    scored = []
+        candidates = [t for t in tires if t.get("lab_tested")]
+    ranked = []
     for tire in candidates:
-        s = score_tire(tire, profile)
-        w = recommend_width(tech_rating, tire, profile.get("min_width_mm"))
-        scored.append({
-            "tire": tire,
-            "score": s,
-            "width": w,
-        })
+        w = recommend_width(profile["tech_rating"], tire, profile.get("min_width_mm"))
+        cost = course_cost(tire, w, profile)
+        ranked.append({"tire": tire, "width": w, "cost": cost,
+                       "score": -cost["total"]})
+    ranked.sort(key=lambda x: (x["cost"]["total"], x["tire"]["id"]))
+    return ranked
 
-    scored.sort(key=lambda x: x["score"], reverse=True)
-    return scored[:n]
+
+def is_file_tread(tire: dict) -> bool:
+    return tire.get("tread_type") == "file"
+
+
+def get_top_tires(tires: list, profile: dict, n: int = 3) -> list:
+    """The two cheapest tires on course cost, plus the cheapest with the other
+    tread (file vs knobs) when the first two share one, so every course gets
+    a real alternative instead of three versions of one answer."""
+    ranked = rank_tires(tires, profile)
+    picks = ranked[:max(n - 1, 0)]
+    rest = ranked[len(picks):]
+    if len(picks) == n - 1 and len({is_file_tread(p["tire"]) for p in picks}) == 1:
+        other = next((r for r in rest if is_file_tread(r["tire"]) != is_file_tread(picks[0]["tire"])), None)
+        if other:
+            return picks + [other]
+    return picks + rest[:n - len(picks)]
+
+
+def has_shoulder_grip(tire: dict, width: int) -> bool:
+    test = lab_test(tire, width)
+    return bool(test) and test["knob_center_mm"] >= 1.2 and test["knob_edge_mm"] >= 2.1
 
 
 def get_front_rear_split(tires: list, profile: dict, top_picks: list) -> dict:
-    """Determine front/rear split recommendation.
+    """Fast front, grippier rear on mixed and rough courses (tech 2-3).
 
-    - tech_rating 2-3: faster tire front, grippier rear
-    - tech_rating 4+: same aggressive tire front and rear
-    - tech_rating 1: same fast tire front and rear
+    The rear carries 53% of the weight on a gravel bike (SILCA's split) and
+    does the climbing and braking traction work, so it gets the knobs; the
+    front gets the faster file tread.
     """
     tech_rating = profile["tech_rating"]
-
-    if tech_rating < 2 or tech_rating >= 4:
-        # Same tire front and rear
+    if tech_rating < 2 or tech_rating >= 4 or len(top_picks) < 2:
         return {"applicable": False}
 
-    if len(top_picks) < 2:
+    ranked = rank_tires(tires, profile)
+    fronts = [r for r in ranked if r["tire"].get("tread_type") == "file"]
+    rears = [r for r in ranked if r["tire"].get("tread_type") in ("knobby", "aggressive")
+             and has_shoulder_grip(r["tire"], r["width"])]
+    if not fronts or not rears:
         return {"applicable": False}
-
-    # For mixed-terrain races (tech_rating 2-3):
-    # Look for a faster tire for front, grippier for rear
-    all_scored = []
-    candidates = filter_tires(tires, profile)
-    if not candidates:
-        candidates = tires
-    for tire in candidates:
-        s = score_tire(tire, profile)
-        w = recommend_width(tech_rating, tire, profile.get("min_width_mm"))
-        all_scored.append({"tire": tire, "score": s, "width": w})
-    all_scored.sort(key=lambda x: x["score"], reverse=True)
-
-    # Front: prefer faster rolling (lower Crr or file tread)
-    fast_tires = [t for t in all_scored if t["tire"].get("tread_type") == "file"]
-    # Rear: prefer grippier (knobby or aggressive)
-    grippy_tires = [t for t in all_scored if t["tire"].get("tread_type") in ("knobby", "aggressive")]
-
-    if not fast_tires or not grippy_tires:
-        return {"applicable": False}
-
-    front = fast_tires[0]
-    rear = grippy_tires[0]
-
-    # Don't recommend split if same tire
+    front, rear = fronts[0], rears[0]
     if front["tire"]["id"] == rear["tire"]["id"]:
         return {"applicable": False}
 
+    def side(r):
+        t = r["tire"]
+        return {"tire_id": t["id"], "name": t["name"], "brand": t["brand"],
+                "width_mm": r["width"], "msrp_usd": t.get("msrp_usd")}
+
+    rear_test = lab_test(rear["tire"], rear["width"])
     return {
         "applicable": True,
-        "front": {
-            "tire_id": front["tire"]["id"],
-            "name": front["tire"]["name"],
-            "brand": front["tire"]["brand"],
-            "width_mm": front["width"],
-            "msrp_usd": front["tire"].get("msrp_usd"),
-        },
-        "rear": {
-            "tire_id": rear["tire"]["id"],
-            "name": rear["tire"]["name"],
-            "brand": rear["tire"]["brand"],
-            "width_mm": rear["width"],
-            "msrp_usd": rear["tire"].get("msrp_usd"),
-        },
-        "rationale": "Faster front for reduced rolling resistance on straights, "
-                     "grippier rear for traction on loose climbs and corners",
+        "front": side(front),
+        "rear": side(rear),
+        "rationale": (f"The rear carries 53% of the weight and does the climbing "
+                      f"traction, so it gets the {rear_test['knob_center_mm']:g}mm "
+                      f"center knobs; the front rolls the faster file tread."),
     }
 
 
-def generate_why_text(tire: dict, profile: dict, race_name: str) -> str:
-    """Generate 'Why this tire' explanation referencing real measurable facts."""
-    parts = []
-    name = tire["name"]
-    race_short = race_name.split(" - ")[0] if " - " in race_name else race_name
+def sharp_term(profile: dict) -> str:
+    """What the course text says is sharp: "flint", "limestone", else "sharp rock"."""
+    text = profile.get("combined_text", "")
+    for noun in ("flint", "limestone", "shale", "chert"):
+        if re.search(rf"\b{noun}\b", text):
+            return noun
+    return "sharp rock"
 
-    # Reference Crr watts for recommended width
-    crr_data = tire.get("crr_watts_at_29kmh")
-    if crr_data and isinstance(crr_data, dict):
-        tr = profile.get("tech_rating", 2)
-        target_w = 45 if tr >= 4 else (42 if tr >= 3 else (40 if tr >= 2 else 38))
-        widths_avail = sorted(tire.get("widths_mm", [40]))
-        closest_w = min(widths_avail, key=lambda w: abs(w - target_w))
-        crr_val = crr_data.get(str(closest_w)) or next(iter(crr_data.values()), None)
-        if crr_val is not None:
-            if crr_val <= CRR_FAST_THRESHOLD:
-                parts.append(f"{crr_val}W rolling resistance (among the fastest tested)")
-            elif crr_val <= CRR_FAST_THRESHOLD + 5:
-                parts.append(f"{crr_val}W rolling resistance (fast for a knobby)")
-            else:
-                parts.append(f"{crr_val}W rolling resistance")
 
-    # Reference price
-    msrp = tire.get("msrp_usd")
-    if msrp:
-        parts.append(f"${msrp:.2f} MSRP")
-
-    # Reference weight for recommended width
-    weight_data = tire.get("weight_grams", {})
-    if weight_data:
-        # Pick weight for the target width (same logic as recommend_width)
-        tr = profile.get("tech_rating", 2)
-        target_w = 45 if tr >= 4 else (42 if tr >= 3 else (40 if tr >= 2 else 38))
-        widths_avail = sorted(tire.get("widths_mm", [40]))
-        closest_w = min(widths_avail, key=lambda w: abs(w - target_w))
-        w_key = str(closest_w)
-        w_val = weight_data.get(w_key) or next(iter(weight_data.values()))
-        parts.append(f"{w_val}g per tire ({w_key}mm)")
-
-    # Reference puncture resistance for sharp courses
-    if profile["needs_puncture"]:
-        pr = tire.get("puncture_resistance", "moderate")
-        if pr == "high":
-            parts.append("high puncture resistance for sharp surfaces")
-        elif pr == "low":
-            parts.append("low puncture protection — consider carefully for sharp surfaces")
-
-    # Reference wet traction for wet courses
-    if profile["needs_wet"]:
-        wt = tire.get("wet_traction", "fair")
-        if wt == "good":
-            parts.append("strong wet grip")
-        elif wt == "poor":
-            parts.append("limited wet traction — monitor forecast")
-
-    # Reference mud clearance for muddy courses
-    if profile["needs_mud"] or profile.get("mud_risk"):
-        mc = tire.get("mud_clearance", "none")
-        if mc == "high":
-            parts.append("excellent mud shedding")
-        elif mc == "moderate":
-            parts.append("decent mud clearance")
-
-    # Build the final text
-    if not parts:
-        parts = [tire.get("tagline", "Solid all-round choice")]
-
-    # Cap at 4 facts
-    facts = parts[:4]
-
-    if len(facts) >= 3:
-        return f"For {esc(race_short)}: {facts[0]}, {facts[1]}, {facts[2]}. {esc(tire.get('tagline', ''))}"
-    elif len(facts) == 2:
-        return f"For {esc(race_short)}: {facts[0]}, {facts[1]}. {esc(tire.get('tagline', ''))}"
+def pick_reasons(tire: dict, width: int, profile: dict) -> str:
+    """Why this tire fits this course, in measured numbers. Strengths only."""
+    test = lab_test(tire, width)
+    if test is None:
+        return "No lab data at this width."
+    if test["width_mm"] == width:
+        out = [f"Rolls {test['rr_watts']:g} W at {width}mm on BRR's drum"]
     else:
-        return f"For {esc(race_short)}: {facts[0]}. {esc(tire.get('tagline', ''))}"
+        out = [f"BRR tested the {test['width_mm']}mm: {test['rr_watts']:g} W"]
+    if profile["needs_puncture"] and test["puncture_tread"] >= PUNCTURE_MODERATE_PTS:
+        out.append(f"Puncture score {test['puncture_tread']:g} for the {sharp_term(profile)}")
+    if (profile["needs_mud"] or profile.get("mud_risk")) and test["knob_center_mm"] >= 1.5:
+        out.append(f"{test['knob_center_mm']:g}mm center knobs for mud")
+    elif (is_technical(profile) or profile["tech_rating"] >= 3) and test["knob_edge_mm"] >= 2.3:
+        out.append(f"{test['knob_edge_mm']:g}mm shoulder knobs for loose corners")
+    if profile["needs_wet"] and test["wet_grip"] >= 75:
+        out.append(f"Wet grip {test['wet_grip']:g}")
+    return ". ".join(out[:3]) + "."
+
+
+def generate_why_text(tire: dict, profile: dict, race_name: str) -> str:
+    """'Why this tire' line for the race tire guide."""
+    width = recommend_width(profile["tech_rating"], tire, profile.get("min_width_mm"))
+    return esc(pick_reasons(tire, width, profile))
 
 
 # ── Pressure Table ────────────────────────────────────────────
 
 
+def gravel_category(tech_rating: int) -> int:
+    """SILCA's gravel category (1 smooth hardpack .. 4 rough) from tech rating."""
+    return min(max(tech_rating or 2, 1), 4)
+
+
+def pressure_psi(rider_lb: float, width_mm: float, category: int) -> tuple:
+    """(front, rear) psi, tubeless race casing. See PRESSURE_A."""
+    system = rider_lb + BIKE_AND_KIT_LB
+    lw = math.log(width_mm / 45)
+    front = (PRESSURE_A[category] * (system / 180) ** PRESSURE_WEIGHT_EXP
+             * math.exp(PRESSURE_W1 * lw + PRESSURE_W2 * lw ** 2))
+    return front, front * PRESSURE_REAR
+
+
+def pressure_widths(rec_width: int) -> list:
+    """The course width plus one size either side, inside 38-55mm."""
+    return [w for w in (rec_width - 5, rec_width, rec_width + 5) if 38 <= w <= 55]
+
+
 def compute_pressure_table(tech_rating: int, rec_width: int) -> list:
-    """Compute tire pressure recommendations for 4 weight ranges x 3 conditions.
+    """Front/rear psi by rider weight (rows) and tire width (columns).
 
-    Returns list of dicts: [{weight_range, dry, mixed, wet}, ...]
-    Base pressures computed from tech_rating + recommended width.
+    Returns [{"rider_lb": 150, "cells": {45: (25, 26), ...}}, ...], whole psi.
     """
-    # Base pressure: wider tires and more technical terrain = lower pressure
-    base = PRESSURE_BASE_PSI
-    base -= (rec_width - 40) * PRESSURE_WIDTH_FACTOR
-    base -= (tech_rating - 2) * PRESSURE_TECH_FACTOR
-
-    weight_ranges = [
-        {"label": "140-160 lbs", "offset": -3},
-        {"label": "160-180 lbs", "offset": 0},
-        {"label": "180-200 lbs", "offset": 3},
-        {"label": "200+ lbs", "offset": 6},
-    ]
-
+    cat = gravel_category(tech_rating)
+    widths = pressure_widths(rec_width)
     rows = []
-    for wr in weight_ranges:
-        p = base + wr["offset"]
-        rows.append({
-            "weight_range": wr["label"],
-            "dry": f"{max(round(p), PRESSURE_FLOOR_DRY)}-{max(round(p + 4), PRESSURE_FLOOR_DRY + 4)}",
-            "mixed": f"{max(round(p - 3), PRESSURE_FLOOR_MIXED)}-{max(round(p + 1), PRESSURE_FLOOR_MIXED + 4)}",
-            "wet": f"{max(round(p - 5), PRESSURE_FLOOR_WET)}-{max(round(p - 1), PRESSURE_FLOOR_WET + 4)}",
-        })
-
+    for rider in RIDER_WEIGHTS_LB:
+        cells = {}
+        for w in widths:
+            f, r = pressure_psi(rider, w, cat)
+            cells[w] = (round(f), round(r))
+        rows.append({"rider_lb": rider, "cells": cells})
     return rows
 
 
@@ -827,54 +689,29 @@ def build_setup_strategy(tech_rating: int, rec_width: int, profile: dict) -> dic
 
 
 def get_condition_alternatives(tires: list, profile: dict, top_picks: list) -> dict:
-    """Find best wet and dry alternatives not already in top 3.
+    """Plan B tires for a wet day and a dry day, not already in the top 3.
 
-    Only show alternatives when the primary pick has a weakness in that condition.
+    Each is the cheapest tire on the same course cost with the day's
+    conditions switched on (wet) or off (dry, file treads only).
     """
     top_ids = {p["tire"]["id"] for p in top_picks}
-    tech_rating = profile["tech_rating"]
+    primary = top_picks[0]["tire"] if top_picks else {}
 
-    primary_tire = top_picks[0]["tire"] if top_picks else {}
-    primary_wet = primary_tire.get("wet_traction", "fair")
-    primary_mud = primary_tire.get("mud_clearance", "none")
-    primary_tread = primary_tire.get("tread_type", "knobby")
+    def best(day_profile, keep):
+        for r in rank_tires(tires, day_profile):
+            if r["tire"]["id"] not in top_ids and keep(r["tire"]):
+                return r
+        return None
 
-    # Wet alternative: only if primary has poor/fair wet traction
     wet_alt = None
-    if primary_wet in ("poor", "fair"):
-        best_score = -999
-        for tire in tires:
-            if tire["id"] in top_ids or not offers_min_width(tire, profile):
-                continue
-            if tire.get("wet_traction") != "good":
-                continue
-            s = score_tire(tire, profile)
-            # Boost wet-focused tires
-            s += 20
-            if s > best_score:
-                best_score = s
-                wet_alt = {"tire": tire, "score": s, "width": recommend_width(tech_rating, tire, profile.get("min_width_mm"))}
-
-    # Dry alternative: show whenever primary isn't already a file-tread tire
+    if primary.get("wet_traction") != "good":
+        wet_alt = best({**profile, "needs_wet": True},
+                       lambda t: t.get("wet_traction") == "good")
     dry_alt = None
-    if primary_tread != "file":
-        best_score = -999
-        for tire in tires:
-            if tire["id"] in top_ids or not offers_min_width(tire, profile):
-                continue
-            if tire.get("tread_type") != "file":
-                continue
-            s = score_tire(tire, profile)
-            # Boost speed-focused tires
-            crr_data = tire.get("crr_watts_at_29kmh")
-            if crr_data and isinstance(crr_data, dict):
-                crr_val = next(iter(crr_data.values()), None)
-                if crr_val and crr_val <= 30:
-                    s += 15
-            if s > best_score:
-                best_score = s
-                dry_alt = {"tire": tire, "score": s, "width": recommend_width(tech_rating, tire, profile.get("min_width_mm"))}
-
+    if primary.get("tread_type") != "file":
+        dry_alt = best({**profile, "needs_wet": False, "needs_mud": False,
+                        "mud_risk": False},
+                       lambda t: t.get("tread_type") == "file")
     return {"wet": wet_alt, "dry": dry_alt}
 
 
@@ -902,8 +739,8 @@ a:hover { text-decoration: underline; }
 }
 
 .tg-surface-box p,
-.tg-tire-tagline,
 .tg-tire-why,
+.tg-tire-cost,
 .tg-pressure-note,
 .tg-setup-item p,
 .tg-alt-card p {
@@ -1099,9 +936,9 @@ a:hover { text-decoration: underline; }
   margin-top: var(--gg-spacing-2xs);
 }
 .tg-tire-body { padding: 0 var(--gg-spacing-lg) var(--gg-spacing-lg); }
-.tg-tire-tagline {
-  font-family: var(--gg-font-editorial);
-  font-style: italic;
+.tg-tire-cost {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-xs);
   color: var(--gg-color-secondary-brown);
   margin-bottom: var(--gg-spacing-sm);
 }
@@ -1131,37 +968,6 @@ a:hover { text-decoration: underline; }
 .tg-badge-item--fast { border-color: var(--gg-color-teal); color: var(--gg-color-teal); }
 .tg-badge-item--high { border-color: var(--gg-color-gold); color: var(--gg-color-gold); }
 
-/* Strengths/weaknesses */
-.tg-pros-cons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gg-spacing-md);
-  margin-bottom: var(--gg-spacing-md);
-}
-@media (max-width: 480px) {
-  .tg-pros-cons { grid-template-columns: 1fr; }
-}
-.tg-pros h4, .tg-cons h4 {
-  font-family: var(--gg-font-data);
-  font-size: var(--gg-font-size-2xs);
-  font-weight: var(--gg-font-weight-bold);
-  letter-spacing: var(--gg-letter-spacing-wider);
-  text-transform: uppercase;
-  margin-bottom: var(--gg-spacing-xs);
-}
-.tg-pros h4 { color: var(--gg-color-teal); }
-.tg-cons h4 { color: var(--gg-color-secondary-brown); }
-.tg-pros ul, .tg-cons ul {
-  list-style: none;
-  padding: 0;
-}
-.tg-pros li, .tg-cons li {
-  font-family: var(--gg-font-data);
-  font-size: var(--gg-font-size-xs);
-  padding: 2px 0;
-}
-.tg-pros li::before { content: "+"; color: var(--gg-color-teal); font-weight: bold; margin-right: 6px; }
-.tg-cons li::before { content: "-"; color: var(--gg-color-secondary-brown); font-weight: bold; margin-right: 6px; }
 
 .tg-review-link {
   display: inline-block;
@@ -1529,67 +1335,41 @@ def build_tire_cards(top_picks: list, profile: dict, race_name: str,
         rank = i + 1
 
         why_text = generate_why_text(tire, profile, race_name)
+        cost = pick.get("cost") or course_cost(tire, width, profile)
+        test = cost["test"]
 
-        # Price badge — real MSRP
         msrp = tire.get("msrp_usd")
-        price_label = f"${msrp:.2f}" if msrp else "N/A"
+        price_label = f" &mdash; ${msrp:.2f}" if msrp else ""
 
-        # Crr badge — real watts
-        crr_data = tire.get("crr_watts_at_29kmh")
-        crr_label = "Not independently tested"
-        crr_class = ""
-        if crr_data and isinstance(crr_data, dict):
-            crr_val = next(iter(crr_data.values()), None)
-            if crr_val is not None:
-                crr_label = f"{crr_val}W @ 29km/h"
-                if crr_val <= 30:
-                    crr_class = "tg-badge-item--fast"
+        badges = []
+        if test:
+            fast = " tg-badge-item--fast" if test["rr_watts"] <= CRR_FAST_THRESHOLD else ""
+            badges.append((f"{test['rr_watts']:g} W @ {test['test_psi']} psi", fast))
+            tough = " tg-badge-item--high" if test["puncture_tread"] >= 45 else ""
+            badges.append((f"Puncture {test['puncture_tread']:g}", tough))
+            badges.append((f"Wet grip {test['wet_grip']:g}", ""))
+            if test["weight_g"]:
+                badges.append((f"{test['weight_g']:g} g", ""))
+        badges_html = "".join(f'<span class="tg-badge-item{c}">{esc(t)}</span>' for t, c in badges)
+        parts = ", ".join(f"{k.replace('_', ' ')} {v:g}" for k, v in cost["parts"].items())
+        cost_line = f"Course cost {cost['total']:g} W: {parts}" if test else ""
 
-        # Weight badge — real grams
-        weight_data = tire.get("weight_grams", {})
-        weight_label = "N/A"
-        if str(width) in weight_data:
-            weight_label = f"{weight_data[str(width)]}g ({width}mm)"
-        elif weight_data:
-            w_key = next(iter(weight_data.keys()))
-            weight_label = f"{weight_data[w_key]}g ({w_key}mm)"
-
-        # Puncture resistance badge
-        pr = tire.get("puncture_resistance", "moderate")
-        pr_class = "tg-badge-item--high" if pr == "high" else ""
-        pr_label = f"Protection: {pr.upper()}"
-
-        # Strengths/weaknesses
-        pros = "".join(f"<li>{esc(s)}</li>" for s in tire.get("strengths", []))
-        cons = "".join(f"<li>{esc(w)}</li>" for w in tire.get("weaknesses", []))
-
-        # BRR review link
-        brr_url = tire.get("brr_urls_by_width", {}).get(str(width))
-        if not brr_url:
-            brr_url = next(iter(tire.get("brr_urls_by_width", {}).values()), "")
         review_link = ""
-        if brr_url:
-            review_link = f'<a href="{esc(brr_url)}" target="_blank" rel="noopener" class="tg-review-link">Read BRR Review &rarr;</a>'
+        if test:
+            review_link = (f'<a href="{esc(test["url"])}" target="_blank" rel="noopener" '
+                           f'class="tg-review-link">BRR test, {test["width_mm"]}mm ({test["year"]}) &rarr;</a>')
 
         cards.append(f'''<div class="tg-tire-card">
       <div class="tg-tire-rank tg-tire-rank--{rank}">#{rank}</div>
       <div class="tg-tire-header">
         <span class="tg-tire-brand">{esc(tire['brand'])}</span>
         <h3 class="tg-tire-name">{tire_link(tire['id'], tire['name'])}</h3>
-        <span class="tg-tire-width">Recommended: {width}mm &mdash; {price_label}</span>
+        <span class="tg-tire-width">{width}mm{price_label}</span>
       </div>
       <div class="tg-tire-body">
-        <p class="tg-tire-tagline">{esc(tire.get('tagline', ''))}</p>
         <p class="tg-tire-why">{why_text}</p>
-        <div class="tg-badges">
-          <span class="tg-badge-item {crr_class}">Crr: {esc(crr_label)}</span>
-          <span class="tg-badge-item {pr_class}">{esc(pr_label)}</span>
-          <span class="tg-badge-item">Weight: {esc(weight_label)}</span>
-        </div>
-        <div class="tg-pros-cons">
-          <div class="tg-pros"><h4>Strengths</h4><ul>{pros}</ul></div>
-          <div class="tg-cons"><h4>Trade-offs</h4><ul>{cons}</ul></div>
-        </div>
+        <div class="tg-badges">{badges_html}</div>
+        <p class="tg-tire-cost">{esc(cost_line)}</p>
         {review_link}
       </div>
     </div>''')
@@ -1621,62 +1401,24 @@ def build_tire_cards(top_picks: list, profile: dict, race_name: str,
 
 def build_pressure_section(pressure_rows: list, tech_rating: int, rec_width: int,
                            raw_race: dict) -> str:
-    """Build Section 03: Tire Pressure Guide."""
-    terrain = raw_race.get("terrain", {})
-    if not isinstance(terrain, dict):
-        terrain = {"surface": str(terrain), "primary": str(terrain)}
-    surface_val = terrain.get("surface", "")
-    if isinstance(surface_val, dict):
-        surface_val = " ".join(str(k) for k in surface_val.keys())
-    primary_val = terrain.get("primary", "")
-    if isinstance(primary_val, dict):
-        primary_val = " ".join(str(k) for k in primary_val.keys())
-    surface = (str(surface_val) + " " + str(primary_val)).lower()
-
-    rows_html = ""
-    for row in pressure_rows:
-        rows_html += f'''<tr>
-      <td>{esc(row['weight_range'])}</td>
-      <td>{esc(row['dry'])} psi</td>
-      <td>{esc(row['mixed'])} psi</td>
-      <td>{esc(row['wet'])} psi</td>
-    </tr>'''
-
-    # Race-specific pressure notes
-    notes = []
-    if any(kw in surface for kw in ["limestone", "flint", "sharp"]):
-        notes.append("Sharp surfaces: err on the higher end to prevent pinch flats and rim damage.")
-    if any(kw in surface for kw in ["mud", "clay"]):
-        notes.append("Mud: drop 3-5 psi below 'wet' values for maximum traction.")
-    if any(kw in surface for kw in ["sand", "loose"]):
-        notes.append("Loose surfaces: lower pressure increases contact patch and traction.")
-    if tech_rating >= 4:
-        notes.append("Technical terrain: lower pressure improves grip but increases pinch flat risk. Find your balance.")
-
-    notes_html = ""
-    if notes:
-        notes_items = " ".join(notes)
-        notes_html = f'<p class="tg-pressure-note">{notes_items}</p>'
-
+    """Section 03: front / rear psi by rider weight and tire width."""
+    widths = list(pressure_rows[0]["cells"]) if pressure_rows else [rec_width]
+    head = "".join(f"<th>{w}mm</th>" for w in widths)
+    rows_html = "".join(
+        "<tr><td>{} lb</td>{}</tr>".format(
+            row["rider_lb"],
+            "".join(f"<td>{f} / {r}</td>" for f, r in (row["cells"][w] for w in widths)))
+        for row in pressure_rows)
+    cat = gravel_category(tech_rating)
     return f'''<section class="tg-section">
   <div class="tg-container">
     <span class="tg-section-num">03 / TIRE PRESSURE GUIDE</span>
-    <h2>Pressure Recommendations ({rec_width}mm)</h2>
+    <h2>Front / Rear Pressure (psi)</h2>
     <table class="tg-pressure-table">
-      <thead>
-        <tr>
-          <th>Rider Weight</th>
-          <th>Dry</th>
-          <th>Mixed</th>
-          <th>Wet</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows_html}
-      </tbody>
+      <thead><tr><th>Rider</th>{head}</tr></thead>
+      <tbody>{rows_html}</tbody>
     </table>
-    {notes_html}
-    <p class="tg-pressure-note">All pressures assume tubeless setup with 21-25mm internal width rims. Wider rims allow 2-3 PSI lower. Add 5-8 psi for tubes. Pressures are starting points &mdash; fine-tune during training rides on similar surfaces.</p>
+    <p class="tg-pressure-note">Tubeless race casing, {BIKE_AND_KIT_LB} lb of bike and kit, SILCA gravel category {cat}. Use the column for the width your tire measures on your rims. Our model is fitted to <a href="https://silca.cc/pages/pro-tire-pressure-calculator" target="_blank" rel="noopener">SILCA's calculator</a> and lands within 0.5 psi of it.</p>
   </div>
 </section>'''
 
@@ -1722,12 +1464,13 @@ def build_alternatives_section(alts: dict) -> str:
         w = alts["wet"]["width"]
         msrp = t.get("msrp_usd")
         price_str = f" &mdash; ${msrp:.2f}" if msrp else ""
-        brr_url = t.get("brr_urls_by_width", {}).get(str(w)) or next(iter(t.get("brr_urls_by_width", {}).values()), "")
-        review = f' <a href="{esc(brr_url)}" target="_blank" rel="noopener" style="color:var(--gg-color-teal)">Review &rarr;</a>' if brr_url else ""
+        test = lab_test(t, w)
+        reason = (f"{test['rr_watts']:g} W at {test['width_mm']}mm, wet grip {test['wet_grip']:g}, "
+                  f"puncture {test['puncture_tread']:g} (BRR).") if test else ""
         cards.append(f'''<div class="tg-alt-card">
       <div class="tg-alt-label">PLAN B: WET CONDITIONS</div>
       <h4>{tire_link(t['id'], t['name'])} ({w}mm){price_str}</h4>
-      <p>{esc(t.get('tagline', ''))}{review}</p>
+      <p>{esc(reason)}</p>
     </div>''')
 
     if alts.get("dry"):
@@ -1735,12 +1478,13 @@ def build_alternatives_section(alts: dict) -> str:
         w = alts["dry"]["width"]
         msrp = t.get("msrp_usd")
         price_str = f" &mdash; ${msrp:.2f}" if msrp else ""
-        brr_url = t.get("brr_urls_by_width", {}).get(str(w)) or next(iter(t.get("brr_urls_by_width", {}).values()), "")
-        review = f' <a href="{esc(brr_url)}" target="_blank" rel="noopener" style="color:var(--gg-color-teal)">Review &rarr;</a>' if brr_url else ""
+        test = lab_test(t, w)
+        reason = (f"{test['rr_watts']:g} W at {test['width_mm']}mm, wet grip {test['wet_grip']:g}, "
+                  f"puncture {test['puncture_tread']:g} (BRR).") if test else ""
         cards.append(f'''<div class="tg-alt-card">
       <div class="tg-alt-label">PLAN B: DRY CONDITIONS</div>
       <h4>{tire_link(t['id'], t['name'])} ({w}mm){price_str}</h4>
-      <p>{esc(t.get('tagline', ''))}{review}</p>
+      <p>{esc(reason)}</p>
     </div>''')
 
     return f'''<section class="tg-section">
@@ -1982,8 +1726,8 @@ def generate_tire_guide_page(rd: dict, raw_race: dict, weather: dict,
         top_picks = get_top_tires(tire_db, profile)
         front_rear = get_front_rear_split(tire_db, profile, top_picks)
 
-    # Step 4: Recommended width from #1 tire
-    rec_width = top_picks[0]["width"] if top_picks else 40
+    # Step 4: The course width (stored picks carry it; a sourced floor wins)
+    rec_width = enriched.get("recommended_width_mm") or target_width(profile)
 
     # Build page sections
     header = build_header(rd)

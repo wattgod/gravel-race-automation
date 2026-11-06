@@ -1,0 +1,113 @@
+{
+  "id": "tufo-gravel-thundero-hd",
+  "name": "Tufo Gravel Thundero HD",
+  "brand": "Tufo",
+  "widths_mm": [
+    36,
+    40,
+    44,
+    48
+  ],
+  "widths_source": "https://www.tufo.com/en/gravel/detail/gravel-thundero-hd/",
+  "tread_type": "knobby",
+  "tubeless_ready": true,
+  "msrp_usd": null,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 38.0,
+      "year": 2023,
+      "model": "Tufo Gravel Thundero HD 40",
+      "rr_watts": 19.2,
+      "test_psi": 36,
+      "puncture_tread": 40.0,
+      "wet_grip": 73.0,
+      "knob_center_mm": 1.4,
+      "knob_edge_mm": 2.2,
+      "weight_g": 461.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/tufo-gravel-thundero-hd"
+    },
+    {
+      "width_mm": 44,
+      "measured_width_mm": 42.0,
+      "year": 2025,
+      "model": "Tufo Gravel Thundero HD 44",
+      "rr_watts": 18.8,
+      "test_psi": 33,
+      "puncture_tread": 42.0,
+      "wet_grip": 76.0,
+      "knob_center_mm": 1.5,
+      "knob_edge_mm": 2.2,
+      "weight_g": 483.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/tufo-gravel-thundero-hd-44"
+    },
+    {
+      "width_mm": 48,
+      "measured_width_mm": 46.0,
+      "year": 2026,
+      "model": "Tufo Gravel Thundero HD 48",
+      "rr_watts": 19.2,
+      "test_psi": 31,
+      "puncture_tread": 43.0,
+      "wet_grip": 77.0,
+      "knob_center_mm": 1.4,
+      "knob_edge_mm": 2.4,
+      "weight_g": 550.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/tufo-gravel-thundero-hd-48"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/tufo-gravel-thundero-hd",
+    "44": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/tufo-gravel-thundero-hd-44",
+    "48": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/tufo-gravel-thundero-hd-48"
+  },
+  "crr_watts_at_29kmh": {
+    "40": 19.2,
+    "44": 18.8,
+    "48": 19.2
+  },
+  "weight_grams": {
+    "40": 461,
+    "44": 483,
+    "48": 550
+  },
+  "puncture_resistance": "moderate",
+  "wet_traction": "good",
+  "mud_clearance": "low",
+  "strengths": [
+    "Wet grip 76 on BRR's wet test"
+  ],
+  "weaknesses": [],
+  "recommended_use": [
+    "wet roads"
+  ],
+  "avoid_use": [
+    "mud"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "continental-terra-trail",
+    "donnelly-mso",
+    "goodyear-connector",
+    "goodyear-xplr-inter",
+    "hutchinson-touareg",
+    "irc-boken-double-cross",
+    "maxxis-rambler",
+    "michelin-power-gravel",
+    "panaracer-gravelking-sk",
+    "panaracer-gravelking-x1",
+    "pirelli-cinturato-gravel-h",
+    "pirelli-cinturato-gravel-m",
+    "schwalbe-g-one-r-pro",
+    "silca-protocol-rcg-3",
+    "specialized-pathfinder-pro",
+    "specialized-tracer",
+    "teravail-cannonball",
+    "tufo-gravel-thundero",
+    "vittoria-terreno-mix"
+  ],
+  "versions": []
+}

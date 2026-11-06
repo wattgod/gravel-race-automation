@@ -73,8 +73,8 @@ def test_tire_guide_widens_data_frame_without_stretching_prose():
     css = get_tire_guide_css()
     assert "max-width: 1200px" in _rule(css, ".tg-container")
     prose_group = """.tg-surface-box p,
-.tg-tire-tagline,
 .tg-tire-why,
+.tg-tire-cost,
 .tg-pressure-note,
 .tg-setup-item p,
 .tg-alt-card p"""

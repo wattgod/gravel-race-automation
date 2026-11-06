@@ -1,0 +1,74 @@
+{
+  "id": "rene-herse-hurricane-ridge",
+  "name": "Rene Herse Hurricane Ridge",
+  "brand": "Rene Herse",
+  "casing": "TC",
+  "widths_mm": [
+    42
+  ],
+  "widths_source": "https://www.renehersecycles.com/shop/components/tires/700c/700cx42-hurricane-ridge-tc/",
+  "tread_type": "aggressive",
+  "tubeless_ready": true,
+  "msrp_usd": null,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 42,
+      "measured_width_mm": 39.0,
+      "year": 2022,
+      "model": "Rene Herse Hurricane Ridge TC 42",
+      "rr_watts": 24.4,
+      "test_psi": 33,
+      "puncture_tread": 33.0,
+      "wet_grip": 58.0,
+      "knob_center_mm": 2.8,
+      "knob_edge_mm": 2.8,
+      "weight_g": 499.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/rene-herse-hurricane-ridge"
+    }
+  ],
+  "brr_urls_by_width": {
+    "42": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/rene-herse-hurricane-ridge"
+  },
+  "crr_watts_at_29kmh": {
+    "42": 24.4
+  },
+  "weight_grams": {
+    "42": 499
+  },
+  "puncture_resistance": "low",
+  "wet_traction": "poor",
+  "mud_clearance": "moderate",
+  "strengths": [],
+  "weaknesses": [
+    "Slow rolling: 24.4 W at 42mm on BRR's drum",
+    "Thin tread: puncture score 33",
+    "Wet grip 58 on BRR's wet test"
+  ],
+  "recommended_use": [
+    "loose corners",
+    "mud"
+  ],
+  "avoid_use": [
+    "fast smooth courses",
+    "sharp rock",
+    "wet roads"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "continental-dubnital",
+    "maxxis-reaver",
+    "pirelli-cinturato-gravel-s",
+    "schwalbe-g-one-bite",
+    "schwalbe-g-one-overland",
+    "schwalbe-g-one-rx-pro",
+    "schwalbe-g-one-ultrabite",
+    "teravail-washburn",
+    "tufo-gravel-swampero",
+    "vittoria-terreno-wet",
+    "wtb-resolute"
+  ],
+  "versions": []
+}

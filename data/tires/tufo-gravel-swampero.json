@@ -3,11 +3,15 @@
   "name": "Tufo Gravel Swampero",
   "brand": "Tufo",
   "widths_mm": [
+    36,
     40,
-    44
+    44,
+    48
   ],
+  "widths_source": "https://www.tufo.com/en/gravel/detail/gravel-swampero/",
   "tread_type": "mud",
   "tread_description": "Deep lug pattern designed for mud and wet clay",
+  "tagline": "Budget mud weapon. Deep lugs for when the course turns to soup.",
   "best_conditions": [
     "mud",
     "wet",
@@ -19,62 +23,75 @@
     "hardpack"
   ],
   "tubeless_ready": true,
+  "msrp_usd": 69.95,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 37.0,
+      "year": 2022,
+      "model": "Tufo Gravel Swampero 40",
+      "rr_watts": 20.1,
+      "test_psi": 36,
+      "puncture_tread": 31.0,
+      "wet_grip": 64.0,
+      "knob_center_mm": 2.1,
+      "knob_edge_mm": 2.7,
+      "weight_g": 433.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/tufo-gravel-swampero"
+    },
+    {
+      "width_mm": 44,
+      "measured_width_mm": 42.0,
+      "year": 2025,
+      "model": "Tufo Gravel Swampero 44",
+      "rr_watts": 20.2,
+      "test_psi": 33,
+      "puncture_tread": 36.0,
+      "wet_grip": 62.0,
+      "knob_center_mm": 2.1,
+      "knob_edge_mm": 2.8,
+      "weight_g": 473.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/tufo-gravel-swampero-44"
+    }
+  ],
   "brr_urls_by_width": {
     "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/tufo-gravel-swampero",
     "44": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/tufo-gravel-swampero-44"
   },
-  "tagline": "Budget mud weapon. Deep lugs for when the course turns to soup.",
-  "strengths": [
-    "Excellent mud grip",
-    "Affordable",
-    "Good clay shedding"
-  ],
-  "weaknesses": [
-    "Very slow on dry surfaces",
-    "Limited to mud use",
-    "Basic construction"
-  ],
-  "msrp_usd": 69.95,
-  "weight_grams": {
-    "40": 480,
-    "44": 530
+  "crr_watts_at_29kmh": {
+    "40": 20.1,
+    "44": 20.2
   },
-  "crr_watts_at_29kmh": null,
+  "weight_grams": {
+    "40": 433,
+    "44": 473
+  },
   "puncture_resistance": "moderate",
-  "wet_traction": "good",
+  "wet_traction": "poor",
   "mud_clearance": "high",
+  "strengths": [],
+  "weaknesses": [
+    "Wet grip 62 on BRR's wet test"
+  ],
   "recommended_use": [
-    "mud",
-    "wet",
-    "clay",
-    "budget mud"
+    "loose corners",
+    "mud"
   ],
   "avoid_use": [
-    "dry",
-    "smooth",
-    "hardpack",
-    "fast gravel"
+    "wet roads"
   ],
   "status": "active",
-  "race_appearances": {
-    "paris-to-ancaster": {
-      "rank": 2,
-      "width_mm": 44,
-      "position": "primary",
-      "surface": "muddy"
-    },
-    "rasputitsa": {
-      "rank": 1,
-      "width_mm": 44,
-      "position": "primary",
-      "surface": "muddy"
-    }
-  },
+  "race_appearances": {},
   "community_reviews": [],
   "comparable_tires": [
+    "continental-dubnital",
+    "pirelli-cinturato-gravel-s",
+    "rene-herse-hurricane-ridge",
+    "schwalbe-g-one-bite",
     "schwalbe-g-one-overland",
-    "schwalbe-g-one-ultrabite",
-    "vittoria-terreno-wet"
+    "schwalbe-g-one-rx-pro",
+    "schwalbe-g-one-ultrabite"
   ],
   "versions": [],
   "last_enriched": null

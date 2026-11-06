@@ -8,8 +8,10 @@
     45,
     50
   ],
+  "widths_source": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/cinturato-gravel-m",
   "tread_type": "knobby",
   "tread_description": "Mixed-terrain knobby with SpeedGRIP compound",
+  "tagline": "Mixed-terrain specialist. Balanced grip and speed for variable conditions.",
   "best_conditions": [
     "mixed",
     "loose gravel",
@@ -20,222 +22,88 @@
     "smooth pavement"
   ],
   "tubeless_ready": true,
-  "brr_urls_by_width": {
-    "35": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-m",
-    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-m",
-    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-m-45",
-    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-m"
-  },
-  "tagline": "Mixed-terrain specialist. Balanced grip and speed for variable conditions.",
-  "strengths": [
-    "Excellent mixed-terrain grip",
-    "Good puncture protection",
-    "Wide width range"
-  ],
-  "weaknesses": [
-    "Not the fastest on smooth roads",
-    "Heavier in wider widths",
-    "Can pack mud"
-  ],
   "msrp_usd": 73.99,
-  "weight_grams": {
-    "35": 380,
-    "40": 440,
-    "45": 500,
-    "50": 560
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 39.0,
+      "year": 2022,
+      "model": "Pirelli Cinturato Gravel M 40",
+      "rr_watts": 22.7,
+      "test_psi": 33,
+      "puncture_tread": 35.0,
+      "wet_grip": 72.0,
+      "knob_center_mm": 2.0,
+      "knob_edge_mm": 2.3,
+      "weight_g": 529.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-m"
+    },
+    {
+      "width_mm": 45,
+      "measured_width_mm": 45.0,
+      "year": 2023,
+      "model": "Pirelli Cinturato Gravel M 45",
+      "rr_watts": 21.7,
+      "test_psi": 31,
+      "puncture_tread": 31.0,
+      "wet_grip": 75.0,
+      "knob_center_mm": 1.9,
+      "knob_edge_mm": 2.2,
+      "weight_g": 564.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-m-45"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-m",
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-m-45"
   },
   "crr_watts_at_29kmh": {
-    "40": 34.0
+    "40": 22.7,
+    "45": 21.7
   },
-  "puncture_resistance": "high",
-  "wet_traction": "fair",
+  "weight_grams": {
+    "40": 529,
+    "45": 564
+  },
+  "puncture_resistance": "low",
+  "wet_traction": "good",
   "mud_clearance": "low",
+  "strengths": [
+    "Wet grip 75 on BRR's wet test"
+  ],
+  "weaknesses": [
+    "Thin tread: puncture score 31"
+  ],
   "recommended_use": [
-    "mixed gravel",
-    "all-rounder",
-    "loose gravel",
-    "variable conditions"
+    "wet roads"
   ],
   "avoid_use": [
-    "deep mud",
-    "smooth pavement"
+    "sharp rock",
+    "mud"
   ],
   "status": "active",
-  "race_appearances": {
-    "belgian-waffle-ride-kansas": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "big-sky-gravel": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "cohutta-gravel-grinder": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "edition-zero": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "gravel-del-fuego": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "gravel-grit-n-grind": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "gravel-worlds": {
-      "rank": 1,
-      "width_mm": 40,
-      "position": "rear",
-      "surface": "mixed"
-    },
-    "highlands-gravel-classic": {
-      "rank": 1,
-      "width_mm": 40,
-      "position": "rear",
-      "surface": "mixed"
-    },
-    "homegrown-gravel-adventure": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "king-price-race-to-sun": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "le-grand-du-nord": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "migration-gravel-race": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "montana-gravel-challenge": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "oregon-trail-gravel": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "radl-grvl": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "reliance-tennessee-gravel": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "rock-cobbler": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "tor-divide": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "trans-sylvania-epic": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "transrockies-gravel-royale": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "unbound-100": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "unbound-200": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "usa-cycling-gravel-nationals": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "vapor-trail-125": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "wasatch-all-road": {
-      "rank": 1,
-      "width_mm": 40,
-      "position": "rear",
-      "surface": "mixed"
-    },
-    "waukon-100": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "west-coast-gravel": {
-      "rank": 1,
-      "width_mm": 45,
-      "position": "rear",
-      "surface": "mixed"
-    }
-  },
+  "race_appearances": {},
   "community_reviews": [],
   "comparable_tires": [
     "continental-terra-trail",
     "donnelly-mso",
     "goodyear-connector",
+    "goodyear-xplr-inter",
     "hutchinson-touareg",
     "irc-boken-double-cross",
     "maxxis-rambler",
+    "michelin-power-gravel",
     "panaracer-gravelking-sk",
+    "panaracer-gravelking-x1",
+    "pirelli-cinturato-gravel-h",
+    "schwalbe-g-one-r-pro",
+    "silca-protocol-rcg-3",
     "specialized-pathfinder-pro",
+    "specialized-tracer",
     "teravail-cannonball",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero",
     "vittoria-terreno-mix"
   ],
   "versions": [],

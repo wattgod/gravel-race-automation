@@ -8,8 +8,10 @@
     45,
     50
   ],
+  "widths_source": "existing",
   "tread_type": "knobby",
   "tread_description": "Low-profile center with side bite, Dynamic:Silica4 compound",
+  "tagline": "Value all-rounder. Wide width range with solid puncture protection.",
   "best_conditions": [
     "mixed",
     "hardpack",
@@ -20,13 +22,15 @@
     "technical singletrack"
   ],
   "tubeless_ready": true,
-  "brr_urls_by_width": {
-    "35": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/goodyear-connector",
-    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/goodyear-connector",
-    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/goodyear-connector",
-    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/goodyear-connector"
-  },
-  "tagline": "Value all-rounder. Wide width range with solid puncture protection.",
+  "msrp_usd": 64.99,
+  "lab_tested": false,
+  "brr_tests": [],
+  "brr_urls_by_width": {},
+  "crr_watts_at_29kmh": {},
+  "weight_grams": {},
+  "puncture_resistance": "high",
+  "wet_traction": "fair",
+  "mud_clearance": "low",
   "strengths": [
     "Great value",
     "Wide size range",
@@ -37,19 +41,6 @@
     "Average grip",
     "Basic compound"
   ],
-  "msrp_usd": 64.99,
-  "weight_grams": {
-    "35": 370,
-    "40": 430,
-    "45": 490,
-    "50": 550
-  },
-  "crr_watts_at_29kmh": {
-    "40": 34.5
-  },
-  "puncture_resistance": "high",
-  "wet_traction": "fair",
-  "mud_clearance": "low",
   "recommended_use": [
     "mixed gravel",
     "gravel roads",
@@ -61,55 +52,27 @@
     "technical singletrack"
   ],
   "status": "active",
-  "race_appearances": {
-    "filthy-50": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "gravel-locos": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "iowa-wind-and-rock": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "sea-otter-europe-gravel": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "switchgrass": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    },
-    "wish-one-millau": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "mixed"
-    }
-  },
+  "race_appearances": {},
   "community_reviews": [],
   "comparable_tires": [
     "continental-terra-trail",
     "donnelly-mso",
+    "goodyear-xplr-inter",
     "hutchinson-touareg",
     "irc-boken-double-cross",
     "maxxis-rambler",
+    "michelin-power-gravel",
     "panaracer-gravelking-sk",
+    "panaracer-gravelking-x1",
+    "pirelli-cinturato-gravel-h",
     "pirelli-cinturato-gravel-m",
+    "schwalbe-g-one-r-pro",
+    "silca-protocol-rcg-3",
     "specialized-pathfinder-pro",
+    "specialized-tracer",
     "teravail-cannonball",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero",
     "vittoria-terreno-mix"
   ],
   "versions": [],

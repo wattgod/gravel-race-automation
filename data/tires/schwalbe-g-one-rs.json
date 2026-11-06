@@ -2,13 +2,16 @@
   "id": "schwalbe-g-one-rs",
   "name": "Schwalbe G-One RS",
   "brand": "Schwalbe",
+  "casing": "Super Race",
   "widths_mm": [
     35,
     40,
     45
   ],
+  "widths_source": "existing",
   "tread_type": "file",
   "tread_description": "Micro-knob file tread with ADDIX Race compound",
+  "tagline": "Race-day speed with better cornering than pure file treads.",
   "best_conditions": [
     "dry",
     "smooth",
@@ -19,62 +22,104 @@
     "wet"
   ],
   "tubeless_ready": true,
+  "msrp_usd": 84.9,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 35,
+      "measured_width_mm": 35.0,
+      "year": 2023,
+      "model": "Schwalbe G-One RS Super Race 35",
+      "rr_watts": 15.7,
+      "test_psi": 40,
+      "puncture_tread": 32.0,
+      "wet_grip": 61.0,
+      "knob_center_mm": 0.4,
+      "knob_edge_mm": 1.9,
+      "weight_g": 428.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs-35"
+    },
+    {
+      "width_mm": 40,
+      "measured_width_mm": 37.0,
+      "year": 2022,
+      "model": "Schwalbe G-One RS Super Race 40",
+      "rr_watts": 16.2,
+      "test_psi": 36,
+      "puncture_tread": 33.0,
+      "wet_grip": 61.0,
+      "knob_center_mm": 0.4,
+      "knob_edge_mm": 2.4,
+      "weight_g": 473.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs"
+    },
+    {
+      "width_mm": 45,
+      "measured_width_mm": 42.0,
+      "year": 2023,
+      "model": "Schwalbe G-One RS Super Race 45",
+      "rr_watts": 17.6,
+      "test_psi": 33,
+      "puncture_tread": 33.0,
+      "wet_grip": 60.0,
+      "knob_center_mm": 0.4,
+      "knob_edge_mm": 2.6,
+      "weight_g": 522.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs-45"
+    }
+  ],
   "brr_urls_by_width": {
-    "35": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs",
+    "35": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs-35",
     "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs",
     "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs-45"
   },
-  "tagline": "Race-day speed with better cornering than pure file treads.",
-  "strengths": [
-    "Very low rolling resistance",
-    "Good cornering grip for a file tread",
-    "ADDIX Race compound"
-  ],
-  "weaknesses": [
-    "Limited wet grip",
-    "Not for technical terrain",
-    "Wears fast on sharp surfaces"
-  ],
-  "msrp_usd": 84.9,
-  "weight_grams": {
-    "35": 340,
-    "40": 380,
-    "45": 430
-  },
   "crr_watts_at_29kmh": {
-    "40": 29.0
+    "35": 15.7,
+    "40": 16.2,
+    "45": 17.6
+  },
+  "weight_grams": {
+    "35": 428,
+    "40": 473,
+    "45": 522
   },
   "puncture_resistance": "low",
   "wet_traction": "poor",
   "mud_clearance": "none",
+  "strengths": [],
+  "weaknesses": [
+    "Thin tread: puncture score 33",
+    "Wet grip 60 on BRR's wet test"
+  ],
   "recommended_use": [
-    "fast gravel",
-    "road-to-gravel",
-    "smooth hardpack",
-    "dry racing"
+    "loose corners"
   ],
   "avoid_use": [
-    "wet",
-    "mud",
     "sharp rock",
-    "loose over hard"
+    "wet roads",
+    "mud"
   ],
   "status": "active",
-  "race_appearances": {
-    "scratch-ankle-gravel": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "fast"
-    }
-  },
+  "race_appearances": {},
   "community_reviews": [],
   "comparable_tires": [
     "challenge-getaway-pro",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
     "continental-terra-speed-40",
+    "hutchinson-caracal-race",
     "panaracer-gravelking-tlc",
+    "panaracer-gravelking-zx-r",
+    "pirelli-cinturato-gravel-rh",
     "rene-herse-snoqualmie-pass",
-    "vittoria-terreno-dry"
+    "schwalbe-g-one-rs-pro",
+    "silca-protocol-rcg-1",
+    "specialized-pathfinder",
+    "ultradynamico-cava-race",
+    "vittoria-terreno-dry",
+    "vittoria-terreno-pro-t30",
+    "wtb-vulpine-s"
   ],
   "versions": [],
   "last_enriched": null

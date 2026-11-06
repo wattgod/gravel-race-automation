@@ -1,0 +1,72 @@
+{
+  "id": "panaracer-gravelking-zx-r",
+  "name": "Panaracer GravelKing ZX R",
+  "brand": "Panaracer",
+  "widths_mm": [
+    40,
+    45,
+    50
+  ],
+  "widths_source": "https://panaracer.com/products/gravel/gravelking/gravelking-zx-r",
+  "tread_type": "file",
+  "tubeless_ready": true,
+  "msrp_usd": null,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 45,
+      "measured_width_mm": 43.0,
+      "year": 2026,
+      "model": "Panaracer GravelKing ZX R 45",
+      "rr_watts": 20.2,
+      "test_psi": 31,
+      "puncture_tread": 44.0,
+      "wet_grip": 71.0,
+      "knob_center_mm": 0.0,
+      "knob_edge_mm": 2.0,
+      "weight_g": 504.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/panaracer-gravel-king-zx-r"
+    }
+  ],
+  "brr_urls_by_width": {
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/panaracer-gravel-king-zx-r"
+  },
+  "crr_watts_at_29kmh": {
+    "45": 20.2
+  },
+  "weight_grams": {
+    "45": 504
+  },
+  "puncture_resistance": "moderate",
+  "wet_traction": "fair",
+  "mud_clearance": "none",
+  "strengths": [],
+  "weaknesses": [],
+  "recommended_use": [],
+  "avoid_use": [
+    "mud"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "challenge-getaway-pro",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
+    "continental-terra-speed-40",
+    "hutchinson-caracal-race",
+    "panaracer-gravelking-tlc",
+    "pirelli-cinturato-gravel-rh",
+    "rene-herse-snoqualmie-pass",
+    "schwalbe-g-one-rs-pro",
+    "schwalbe-g-one-rs",
+    "silca-protocol-rcg-1",
+    "specialized-pathfinder",
+    "ultradynamico-cava-race",
+    "vittoria-terreno-dry",
+    "vittoria-terreno-pro-t30",
+    "wtb-vulpine-s"
+  ],
+  "versions": []
+}

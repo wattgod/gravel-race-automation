@@ -1,0 +1,80 @@
+{
+  "id": "vittoria-terreno-pro-t30",
+  "name": "Vittoria Terreno Pro T30",
+  "brand": "Vittoria",
+  "widths_mm": [
+    40
+  ],
+  "widths_source": "existing",
+  "tread_type": "file",
+  "tubeless_ready": true,
+  "msrp_usd": null,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 38.0,
+      "year": 2026,
+      "model": "Vittoria Terreno Pro T30 Fine Loose 40",
+      "rr_watts": 22.2,
+      "test_psi": 36,
+      "puncture_tread": 48.0,
+      "wet_grip": 74.0,
+      "knob_center_mm": 0.6,
+      "knob_edge_mm": 2.3,
+      "weight_g": 589.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/vittoria-terreno-pro-t30"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/vittoria-terreno-pro-t30"
+  },
+  "crr_watts_at_29kmh": {
+    "40": 22.2
+  },
+  "weight_grams": {
+    "40": 589
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "fair",
+  "mud_clearance": "low",
+  "strengths": [
+    "Tough tread: puncture score 48"
+  ],
+  "weaknesses": [
+    "Slow rolling: 22.2 W at 40mm on BRR's drum"
+  ],
+  "recommended_use": [
+    "sharp rock",
+    "loose corners"
+  ],
+  "avoid_use": [
+    "fast smooth courses",
+    "mud"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "challenge-getaway-pro",
+    "continental-dubnital",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
+    "continental-terra-speed-40",
+    "hutchinson-caracal-race",
+    "michelin-power-gravel",
+    "panaracer-gravelking-tlc",
+    "panaracer-gravelking-zx-r",
+    "pirelli-cinturato-gravel-rh",
+    "rene-herse-snoqualmie-pass",
+    "schwalbe-g-one-rs-pro",
+    "schwalbe-g-one-rs",
+    "silca-protocol-rcg-1",
+    "specialized-pathfinder",
+    "ultradynamico-cava-race",
+    "vittoria-terreno-dry",
+    "wtb-vulpine-s"
+  ],
+  "versions": []
+}

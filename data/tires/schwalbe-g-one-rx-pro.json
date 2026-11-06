@@ -1,0 +1,253 @@
+{
+  "id": "schwalbe-g-one-rx-pro",
+  "name": "Schwalbe G-One RX Pro",
+  "brand": "Schwalbe",
+  "widths_mm": [
+    40,
+    45,
+    50
+  ],
+  "widths_source": "existing",
+  "tread_type": "aggressive",
+  "tubeless_ready": true,
+  "msrp_usd": 91.0,
+  "msrp_source": "https://www.schwalbetires.com/Schwalbe-G-One-RX-PRO",
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 38.0,
+      "year": 2025,
+      "model": "Schwalbe G-One RX Pro (transparent) 40",
+      "rr_watts": 17.1,
+      "test_psi": 36,
+      "puncture_tread": 35.0,
+      "wet_grip": 57.0,
+      "knob_center_mm": 1.7,
+      "knob_edge_mm": 2.7,
+      "weight_g": 521.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rx-pro-40"
+    },
+    {
+      "width_mm": 45,
+      "measured_width_mm": 42.0,
+      "year": 2025,
+      "model": "Schwalbe G-One RX Pro 45",
+      "rr_watts": 18.0,
+      "test_psi": 33,
+      "puncture_tread": 31.0,
+      "wet_grip": 55.0,
+      "knob_center_mm": 2.1,
+      "knob_edge_mm": 2.7,
+      "weight_g": 612.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rx-pro-45"
+    },
+    {
+      "width_mm": 50,
+      "measured_width_mm": 48.0,
+      "year": 2025,
+      "model": "Schwalbe G-One RX Pro 50",
+      "rr_watts": 19.4,
+      "test_psi": 28,
+      "puncture_tread": 32.0,
+      "wet_grip": 57.0,
+      "knob_center_mm": 2.2,
+      "knob_edge_mm": 3.1,
+      "weight_g": 657.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rx-pro-50"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rx-pro-40",
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rx-pro-45",
+    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rx-pro-50"
+  },
+  "crr_watts_at_29kmh": {
+    "40": 17.1,
+    "45": 18.0,
+    "50": 19.4
+  },
+  "weight_grams": {
+    "40": 521,
+    "45": 612,
+    "50": 657
+  },
+  "puncture_resistance": "low",
+  "wet_traction": "poor",
+  "mud_clearance": "moderate",
+  "strengths": [],
+  "weaknesses": [
+    "Thin tread: puncture score 31",
+    "Wet grip 55 on BRR's wet test"
+  ],
+  "recommended_use": [
+    "loose corners",
+    "mud"
+  ],
+  "avoid_use": [
+    "sharp rock",
+    "wet roads"
+  ],
+  "status": "active",
+  "race_appearances": {
+    "berryman-epic": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bootlegger-100": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "cowichan-crusher-gravel-fondo": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "crusher-in-the-tushar": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "gravel-brazil": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro-california": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro-france": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro-germany": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro-italy": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "iceman-cometh": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "kowtown-gravel": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "lauf-true-grit": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "monaco-gravel-race": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "noosa-gravel-enduro": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "paris-to-ancaster": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "pisgah-monster-cross": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "rasputitsa": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "river-city-gravel-fondo": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "sea-otter-gravel": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "southern-cross-gravel": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "the-gralloch": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "uci-gravel-worlds": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "vermont-overland": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "vuelta-altas-cumbres": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    }
+  },
+  "community_reviews": [],
+  "comparable_tires": [
+    "continental-dubnital",
+    "maxxis-reaver",
+    "pirelli-cinturato-gravel-s",
+    "rene-herse-hurricane-ridge",
+    "schwalbe-g-one-bite",
+    "schwalbe-g-one-overland",
+    "schwalbe-g-one-ultrabite",
+    "teravail-washburn",
+    "tufo-gravel-swampero",
+    "vittoria-terreno-wet",
+    "wtb-resolute"
+  ],
+  "versions": []
+}

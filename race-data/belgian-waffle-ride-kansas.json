@@ -9,13 +9,13 @@
       "elevation_ft": 8000,
       "location": "Lawrence, Kansas",
       "location_badge": "LAWRENCE, KANSAS",
-      "date": "No confirmed edition since 2025 — dropped from the BWR Quad-Tripel Crown for 2026 (replaced by Montana)",
+      "date": "No edition since 2023; not on the current BWR calendar",
       "terrain_types": [
         "Gravel roads"
       ],
       "field_size": "TBD",
       "registration": "Online",
-      "date_specific": "Status: DROPPED — no 2026 or 2027 edition; last held October 11, 2025",
+      "date_specific": "Status: DROPPED — not on the BWR calendar since 2023; last held October 14, 2023",
       "lat": 38.9719,
       "lng": -95.2359
     },
@@ -150,6 +150,12 @@
     },
     "citations": [
       {
+        "url": "https://www.belgianwaffleride.bike/blogs/news/results",
+        "category": "official",
+        "label": "BWR results archive (Kansas last listed 2023)",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://ridewithgps.com/routes/44736943",
         "category": "route",
         "label": "RideWithGPS: 2022 BWR KS WAFER (copy) By 2023 BELGIAN WAFFLE RIDE"
@@ -197,7 +203,7 @@
       "id": "belgian-waffle-ride",
       "name": "Belgian Waffle Ride"
     },
-    "status": "DROPPED - Not part of the 2026 BWR Quad-Tripel Crown (Arizona, California, Utah, Montana). Ran annually 2021-2025 in Lawrence, KS; Montana replaced Kansas as the fourth 2026 stop. No official 2026 or 2027 Kansas edition listed on belgianwaffleride.bike as of July 2026; the site's /pages/kansas URL now serves Montana content.",
+    "status": "DROPPED - Not part of the 2026 BWR Quad-Tripel Crown (Arizona, California, Utah, Montana). Ran 2021-2023 in Lawrence, KS; no Kansas edition in 2024 or 2025; Montana replaced Kansas as the fourth 2026 stop. No official 2026 or 2027 Kansas edition listed on belgianwaffleride.bike as of July 2026; the site's /pages/kansas URL now serves Montana content.",
     "tire_recommendations": {
       "generated_at": "2026-02-19",
       "primary": [
@@ -616,6 +622,16 @@
       "line": "No Kansas edition is on the current BWR calendar. The fitness this course demands transfers to any BWR start line."
     },
     "editions": [
+      {
+        "year": 2025,
+        "status": "not_held",
+        "source": "https://www.belgianwaffleride.bike/blogs/news/results"
+      },
+      {
+        "year": 2024,
+        "status": "not_held",
+        "source": "https://www.belgianwaffleride.bike/blogs/news/results"
+      },
       {
         "year": 2023,
         "date": "2023-10-14",

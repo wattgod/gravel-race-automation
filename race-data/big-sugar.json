@@ -14,7 +14,7 @@
       "location_badge": "BENTONVILLE, ARKANSAS",
       "county": "Benton County / McDonald County (crosses into Missouri)",
       "date": "Mid-October annually",
-      "date_specific": "2026: October 17 (SATURDAY, CONFIRMED — bigsugarclassic.com/gravel/; 2027 not yet announced)",
+      "date_specific": "2027: October 16 (Saturday, CONFIRMED — bigsugarclassic.com)",
       "terrain_types": [
         "Ozark gravel",
         "Punchy climbs",
@@ -184,6 +184,10 @@
     },
     "editions": [
       {
+        "year": 2026,
+        "date": "2026-10-17"
+      },
+      {
         "year": 2025,
         "date": "2025-10-18",
         "note": "100-mile course cut to 50 miles because of forecast storms.",
@@ -239,6 +243,12 @@
       }
     },
     "citations": [
+      {
+        "url": "https://www.bigsugarclassic.com/",
+        "category": "official",
+        "label": "Life Time Big Sugar Classic — 2027 date",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://ridewithgps.com/routes/52306059",
         "category": "route",
@@ -333,11 +343,6 @@
         "url": "https://granfondodailynews.com/2025/10/19/big-sugar-gravel-and-mud-results-sweet-victory-for-villafane-beers/",
         "category": "other",
         "label": "Granfondodailynews"
-      },
-      {
-        "url": "https://ir.lifetime.life/news-events/press-releases/detail/1099/life-time-announces-prize-purses-for-the-2025-editions-of-unbound-gravel-200-leadville-trail-100-mtb-and-big-sugar-gravel",
-        "category": "other",
-        "label": "Ir"
       }
     ],
     "results": {

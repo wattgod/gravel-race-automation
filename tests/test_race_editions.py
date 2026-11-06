@@ -227,3 +227,10 @@ def test_history_only_states_a_real_founding_year(founded, shown):
         assert shown in html
     else:
         assert "Founded in" not in html
+
+
+def test_correction_keeps_nothing_from_the_wrong_value():
+    race = {"vitals": {"date_specific": "Status: DROPPED — last held October 11, 2025"}}
+    assert set_date_specific(race, "Status: DROPPED — last held October 14, 2023",
+                             on=NOV_5, correction=True) == []
+    assert "editions" not in race

@@ -10,8 +10,8 @@
       "location": "Alberta, Canada",
       "location_badge": "ALBERTA, CANADA",
       "county": "Alberta",
-      "date": "Mid-June annually",
-      "date_specific": "2026: June 14",
+      "date": "Final edition held June 27, 2026",
+      "date_specific": "Status: DROPPED — the organizer called the June 27, 2026 edition the final one; no future edition announced; last held June 27, 2026",
       "terrain_types": [
         "Alberta prairie",
         "Canadian gravel",
@@ -119,6 +119,11 @@
       "reputation": "Regional Alberta event."
     },
     "editions": [
+      {
+        "year": 2026,
+        "note": "Billed as the final edition",
+        "source": "https://deadgoat.ca/ghostofthegravel/"
+      },
       {
         "year": 2025,
         "date": "2025-06-15",
@@ -641,6 +646,11 @@
         }
       },
       "latest_year": "2025"
+    },
+    "status": "DROPPED - The organizer (Dead Goat) billed the June 27, 2026 edition in Water Valley, AB as the final one; no future edition announced.",
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "Ghost of the Gravel ran for the last time in June 2026, and the organizer hasn't announced another. This plan still trains you for exactly this kind of day."
     }
   }
 }

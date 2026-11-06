@@ -5,7 +5,8 @@
 
 What the old ``date_specific`` recorded (a past confirmed date, "CANCELLED for
 2026", "last held July 28, 2024") moves into ``race.editions`` first; the page's
-Editions table shows it. Add the source citation separately, as usual.
+Editions table shows it. Pass --correction when the old value was simply
+wrong. Add the source citation separately, as usual.
 """
 
 import argparse
@@ -22,6 +23,8 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("slug")
     parser.add_argument("date_specific")
+    parser.add_argument("--correction", action="store_true",
+                        help="the old value was wrong: don't keep it as a past edition")
     args = parser.parse_args(argv)
 
     path = ROOT / "race-data" / f"{args.slug}.json"
@@ -31,7 +34,7 @@ def main(argv=None) -> int:
     data = json.loads(path.read_text())
     race = data["race"]
     old = race.get("vitals", {}).get("date_specific")
-    added = set_date_specific(race, args.date_specific)
+    added = set_date_specific(race, args.date_specific, correction=args.correction)
     bad = problems(race)
     if bad:
         print("\n".join(bad), file=sys.stderr)

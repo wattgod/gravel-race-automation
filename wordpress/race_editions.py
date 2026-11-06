@@ -131,16 +131,21 @@ def _place_editions(race: dict, editions: list[dict]) -> None:
             race["editions"] = editions
 
 
-def set_date_specific(race: dict, value: str, on: date | None = None) -> list[dict]:
+def set_date_specific(race: dict, value: str, on: date | None = None, *,
+                      correction: bool = False) -> list[dict]:
     """Write ``vitals.date_specific`` after moving the old value's editions into history.
 
     ``race`` is the profile's ``race`` dict. Old records for a year the new value
     also covers are corrections and are dropped. A dated record is kept only once
     its date has passed, so a moved-up future date never shows as a past edition.
+    ``correction=True`` means the old value was wrong: nothing is kept from it.
     Returns the entries added to ``race["editions"]``.
     """
     on = on or today()
     vitals = race.setdefault("vitals", {})
+    if correction:
+        vitals["date_specific"] = value
+        return []
     old = vitals.get("date_specific")
     new_years = {r["year"] for r in records(value, on)}
     if parse_edition(value).year:

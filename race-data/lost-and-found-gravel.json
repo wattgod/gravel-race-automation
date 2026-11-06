@@ -11,7 +11,7 @@
       "location_badge": "PORTOLA, CA",
       "county": "Plumas County",
       "date": "Mid-June annually",
-      "date_specific": "2027: June 12 (pattern — 2nd Saturday of June; 2026 edition ran June 13)",
+      "date_specific": "2027: June 19 (Saturday, CONFIRMED — sierratrails.org; festival June 18-20)",
       "terrain_types": [
         "Lost Sierra",
         "Sierra Nevada forest roads",
@@ -120,6 +120,13 @@
       ],
       "reputation": "Beloved regional CA gravel festival with a trail-building mission — three-time winner Serena Gordon calls it \"sort of the reason we ride and race bikes.\""
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-06-14",
+        "source": "https://www.bikereg.com/results/rr/21662/lost-and-found-gravel-grinder"
+      }
+    ],
     "course_description": {
       "character": "The 2026 Full Bull is a 99-mile Lost Sierra route with 5,946 feet of gain and 84% dirt. The organizer notes that published route distances are approximate within a few miles.",
       "suffering_zones": [],
@@ -380,6 +387,11 @@
         "url": "https://theradavist.com/2025-lost-and-found",
         "category": "community",
         "label": "theradavist.com: 2025 Lost And Found"
+      },
+      {
+        "url": "https://sierratrails.org/events/lost-and-found-gravel-race",
+        "category": "official",
+        "label": "Sierra Buttes Trail Stewardship: Lost and Found 2027"
       }
     ],
     "results": {
@@ -389,9 +401,17 @@
           "key_takeaways": [
             "Historical weather incidents (mud years, heat, wind): Date shift in prior years (e.g., 2024 to June 15) to accommodate snow melt at higher elevations."
           ]
+        },
+        "2025": {
+          "race": "Pro race",
+          "winner_female": "Karolina Migon",
+          "winner_male": "Peter Stetina",
+          "winning_time_female": "5:56:54",
+          "winning_time_male": "5:01:45",
+          "source": "https://gravelearthseries.com/2025/06/17/dust-determination-and-dominance-at-lost-and-found/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

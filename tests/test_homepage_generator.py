@@ -14,10 +14,11 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 
 from generate_homepage import (
-    CURRENT_YEAR,
+    BASE_CRITERIA_COUNT,
     DOORS,
     RANKINGS_URL,
     RATING_DIMS,
+    SEASON_YEAR,
     SERIES_UMBRELLA_SLUGS,
     TOP_RATED_COUNT,
     build_doors,
@@ -71,9 +72,21 @@ class TestData:
         assert all("slug" in r for r in race_index)
 
     def test_stats_keys(self, stats):
-        for key in ("race_count", "dimensions", "t1_count", "t2_count", "region_count"):
+        for key in ("race_count", "dimensions", "t1_count", "t2_count", "country_count"):
             assert key in stats
-        assert stats["dimensions"] == len(RATING_DIMS) == 15
+        assert "region_count" not in stats
+
+    def test_stats_dimensions(self, stats):
+        """14 base criteria; cultural impact is a bonus, not a criterion."""
+        assert len(RATING_DIMS) == 15
+        assert stats["dimensions"] == BASE_CRITERIA_COUNT == 14
+
+    def test_country_count_normalizes_states_and_abbreviations(self):
+        """'CO' and 'Colorado' are one country, not two regions."""
+        races = [{"location": "Elbert, CO"}, {"location": "Salida, Colorado"},
+                 {"location": "Southwest Nebraska (Curtis, Elwood, Cambridge, McCook)"},
+                 {"location": "Alberta, Canada"}, {"location": "Canmore, Alberta"}]
+        assert compute_stats(races)["country_count"] == 2
 
     def test_stats_counts_match_index(self, race_index, stats):
         assert stats["race_count"] == len(race_index)
@@ -101,6 +114,13 @@ class TestTopRated:
         assert [r["slug"] for r in get_top_rated(fake)] == ["real-race"]
         assert "grinduro" in SERIES_UMBRELLA_SLUGS
 
+    def test_excludes_races_not_running(self):
+        fake = [
+            {"slug": "on-a-break", "overall_score": 99, "discipline": "gravel", "status": "taking_a_break"},
+            {"slug": "running", "overall_score": 80, "discipline": "gravel", "status": "active"},
+        ]
+        assert [r["slug"] for r in get_top_rated(fake)] == ["running"]
+
     def test_excludes_profiles_whose_vitals_say_road(self, tmp_path):
         """race-index.json can label a road race gravel; the profile wins."""
         (tmp_path / "road-fondo.json").write_text(json.dumps({"race": {"vitals": {"discipline": "road"}}}))
@@ -126,7 +146,7 @@ class TestTopRated:
     def test_links_to_full_rankings(self, race_index):
         html = build_top_rated(race_index)
         assert RANKINGS_URL in html
-        assert f"/race/power-rankings-{CURRENT_YEAR}/" in RANKINGS_URL
+        assert f"/race/power-rankings-{SEASON_YEAR}/" in RANKINGS_URL
 
     def test_empty_index(self):
         html = build_top_rated([])
@@ -243,7 +263,8 @@ class TestRaceBand:
     def test_numbers_once(self, stats, race_index, homepage_html):
         hero = build_hero(stats, race_index)
         assert f"<dd>{stats['race_count']}</dd>" in hero
-        assert f"<dd>{stats['region_count']}</dd>" in hero
+        assert f"<dd>{stats['country_count']}</dd>" in hero
+        assert "<dt>Countries</dt>" in hero and "Regions" not in hero
         assert f"<dd>{stats['dimensions']}</dd>" in hero
         assert _body(homepage_html).count(f"<dd>{stats['race_count']}</dd>") == 1
 

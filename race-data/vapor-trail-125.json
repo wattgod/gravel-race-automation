@@ -73,7 +73,7 @@
     },
     "biased_opinion": {
       "verdict": "High-Altitude Mountain Century+ Challenge",
-      "summary": "Vapor Trail 125 is a 125-mile high-altitude gravel race in Leadville, Colorado—mountain terrain with extreme altitude (10,000ft+). The combination of 125 miles and extreme altitude is a serious challenge, but the moderate organization and regional field keep it in Tier 3. Leadville provides moderate access. Summer mountain weather at altitude adds complexity.",
+      "summary": "Vapor Trail 125 is a 125-mile high-altitude gravel race in Leadville, Colorado—mountain terrain with extreme altitude (10,000ft+). The combination of 125 miles and extreme altitude is a serious challenge, but the moderate organization and regional field keep it in Tier 2. Leadville provides moderate access. Summer mountain weather at altitude adds complexity.",
       "strengths": [
         "125-mile distance (significant challenge)",
         "Extreme altitude (10,000ft+)",
@@ -106,15 +106,22 @@
       "food": "Leadville has limited dining. Stock nutrition for 125 miles.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
-      "official_site": "Check Vapor Trail 125 website"
+      "official_site": ""
     },
     "history": {
-      "founded": null,
+      "founded": 2005,
       "founder": "Colorado organizers",
       "origin_story": "Colorado high-altitude gravel century+ event.",
       "notable_moments": [],
       "reputation": "Regional CO event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-09-06",
+        "source": "https://www.themountainmail.com/news/vapor-trail-sees-record-turn-out-two-new-course-records-set/article_b0e96418-ab4b-413a-b964-37185dcc944e.html"
+      }
+    ],
     "course_description": {
       "character": "High-altitude mountain gravel for 125 miles.",
       "suffering_zones": [
@@ -684,6 +691,26 @@
         "credit": "YouTube / Crash Bandito NL",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "125 mi",
+          "winner_female": "Jennah Jones",
+          "winner_male": "Cory Wallace",
+          "winning_time_female": "18:18:18",
+          "winning_time_male": "11:54:15",
+          "source": "https://seekingtimberline.com/vapor-trail-125-race/"
+        },
+        "2025": {
+          "race": "125 mi",
+          "winner_female": "Kait Boyle",
+          "winner_male": "Cory Wallace",
+          "winning_time_female": "15:08:20",
+          "source": "https://www.themountainmail.com/news/vapor-trail-sees-record-turn-out-two-new-course-records-set/article_b0e96418-ab4b-413a-b964-37185dcc944e.html"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

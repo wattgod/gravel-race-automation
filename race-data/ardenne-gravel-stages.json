@@ -93,7 +93,7 @@
       "bottom_line": "A solid regional Belgian multi-stage gravel race with hilly Ardennes terrain. Worth it for Belgian/European cyclists seeking a stage race experience. Not a destination race for international travelers."
     },
     "final_verdict": {
-      "score": "51 / 100",
+      "score": "56 / 100",
       "one_liner": "Three Belgian Ardennes stages, 165 miles, and 14,009 feet of climbing.",
       "should_you_race": "If you're in Belgium/Europe and want a multi-stage local event—yes, it's solid. If you're international—there are better options.",
       "alternatives": "For better Belgian events: Houffa Gravel. For similar multi-stage events: other European stage races.",
@@ -111,12 +111,22 @@
       "camping": "camping access, Sunday pasta party"
     },
     "history": {
-      "founded": null,
+      "founded": 2025,
       "founder": "Belgian organizers",
       "origin_story": "Regional Belgian multi-stage gravel event.",
       "notable_moments": [],
       "reputation": "Regional Belgian multi-stage event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-09-26",
+        "end_date": "2025-09-28",
+        "edition": 1,
+        "note": "Inaugural three-stage edition: Vielsalm, Engreux, Baraque de Fraiture.",
+        "source": "https://www.procyclingstats.com/national-race/ardenne-gravel-stages/2025/stage-3/startlist/results-v3"
+      }
+    ],
     "course_description": {
       "character": "Belgian Ardennes multi-stage gravel.",
       "suffering_zones": [
@@ -423,6 +433,16 @@
         "200pluslb_mixed": "41-45",
         "200pluslb_wet": "39-43"
       }
+    },
+    "results": {
+      "years": {
+        "2025": {
+          "race": "3 stages",
+          "winner_female": "Mariëlle Trouwborst",
+          "source": "https://mountainbiketeam.com/en/marielle-trouwborst-wins-3-day-ardenne-gravel-stages/"
+        }
+      },
+      "latest_year": "2025"
     }
   }
 }

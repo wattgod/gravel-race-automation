@@ -91,9 +91,8 @@ function gg_search_page_schema() {
         '@context' => 'https://schema.org',
         '@type' => 'CollectionPage',
         'name' => 'Find Your Gravel Race',
-        'description' => 'Search and filter 328 gravel races worldwide by tier, distance, region, terrain, and date. Find your next gravel adventure with the Gravel God race database.',
+        'description' => 'Search and filter rated gravel races worldwide by tier, distance, region, terrain, and date. Find your next gravel adventure with the Gravel God race database.',
         'url' => 'https://gravelgodcycling.com/gravel-races/',
-        'numberOfItems' => 328,
         'publisher' => [
             '@type' => 'Organization',
             'name' => 'Gravel God',

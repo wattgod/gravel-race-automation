@@ -3,7 +3,9 @@
   "@type": "SportsEvent",
   "name": "NorthCape 4000",
   "description": "",
-  "sport": "Gravel Cycling",
+  "sport": "Bikepacking",
+  "startDate": "2027-07-24",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Rovereto, Italy to North Cape, Norway",

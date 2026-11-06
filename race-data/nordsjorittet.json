@@ -5,7 +5,7 @@
       "name": "Nordsjørittet",
       "location": "Egersund to Sandnes, Norway",
       "date": "2026: June 13",
-      "date_specific": "2026: June 13",
+      "date_specific": "2027: June 12 (Saturday, CONFIRMED — nordsjorittet.no)",
       "distance_mi": 56,
       "elevation_ft": 4900,
       "discipline": "road",
@@ -36,7 +36,8 @@
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "display_tier": 2,
-      "display_tier_label": "TIER 2"
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "adventure": {
@@ -149,6 +150,24 @@
       "notable_editions": "Rapid growth to 12,500 riders; integration with Tour des Fjords Classic attracting pros like Kristoff.",
       "growth_trajectory": "Explosive popularity as cycling surges in Norway; added shorter routes and prep events for broader appeal."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-13",
+        "note": "Separate CX/gravel class added alongside the standard 88 km ride.",
+        "source": "https://www.kondis.no/resultater/resultater-nordsjorittet-2026/1573846"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-14",
+        "source": "https://www.sportsidioten.no/resultater/nordsjorittet-2025/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-06-08",
+        "source": "https://www.sportsidioten.no/resultater/resultater-nordsjorittet-2024/"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Norway's ultimate coastal crusher: massive, scenic, and welcoming for every pedal-pusher.",
       "best_for": "Community seekers, scenic adventurers, and fitness testers wanting big Norwegian vibes without elite pressure.",
@@ -156,6 +175,12 @@
       "pro_tip": "Opt for a gravel or hybrid bike; train for wind and join a team for the full social immersion."
     },
     "citations": [
+      {
+        "url": "https://www.nordsjorittet.no",
+        "category": "official",
+        "label": "Nordsjørittet — 2027 date",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://scanmagazine.co.uk/nordsjorittet-2/",
         "title": "Nordsjørittet & Tour des Fjords | Western Norway on two wheels",
@@ -193,6 +218,27 @@
       }
     ],
     "slug": "nordsjorittet",
-    "name": "Nordsjørittet"
+    "name": "Nordsjørittet",
+    "results": {
+      "years": {
+        "2025": {
+          "race": "88 km",
+          "winner_female": "Elise Hay Opsahl",
+          "winner_male": "Ole Jakob Haugen",
+          "winning_time_female": "3:04:41",
+          "winning_time_male": "2:34:12",
+          "source": "https://www.jbl.no/stor-bildeserie-disse-sleit-seg-opp-tubakken-i-dag/g/5-103-1164110"
+        },
+        "2026": {
+          "race": "88 km CX/Gravel",
+          "winner_female": "Kristin Eidsheim Sønnesyn",
+          "winner_male": "Fredrik Dversnes Lavik",
+          "winning_time_female": "2:50:27",
+          "winning_time_male": "2:21:31",
+          "source": "https://www.kondis.no/idrett/fredrik-dversnes-lavik-innfridde-i-nordsjorittet/1573855"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

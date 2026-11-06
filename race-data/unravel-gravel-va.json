@@ -73,7 +73,7 @@
     },
     "biased_opinion": {
       "verdict": "Virginia State Championship",
-      "summary": "Unravel Gravel is Virginia's state championship—piedmont terrain with significant elevation. The state championship status adds prestige, but the medium local field, regional organization, and limited national draw keep it in Tier 4.",
+      "summary": "Unravel Gravel is Virginia's state championship—piedmont terrain with significant elevation. The state championship status adds prestige, but the medium local field, regional organization, and limited national draw keep it in Tier 3.",
       "strengths": [
         "Virginia piedmont scenery",
         "State championship status",
@@ -102,7 +102,7 @@
       "food": "Cumberland has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Unravel Gravel website"
+      "official_site": ""
     },
     "history": {
       "founded": null,
@@ -111,6 +111,19 @@
       "notable_moments": [],
       "reputation": "VA state championship."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Held at Basye, VA; 80-mile Virginia state championship.",
+        "source": "https://www.webscorer.com/racedetails?did=618731&raceid=448354"
+      },
+      {
+        "year": 2024,
+        "date": "2024-10-20",
+        "note": "USAC Virginia State Gravel Grinder Championship.",
+        "source": "https://results.bikereg.com/race/19801"
+      }
+    ],
     "course_description": {
       "character": "Virginia piedmont gravel.",
       "suffering_zones": [
@@ -422,6 +435,17 @@
         "200pluslb_mixed": "38-42",
         "200pluslb_wet": "36-40"
       }
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "80 mi",
+          "winner_male": "Jeremiah Bishop",
+          "winning_time_male": "4:10:18",
+          "source": "https://www.webscorer.com/racedetails?did=618731&raceid=448354"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

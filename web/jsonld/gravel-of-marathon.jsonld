@@ -5,6 +5,7 @@
   "description": "Greece's first UCI gravel qualifier: three hard laps around Lake Marathon and 90 percent dirt.",
   "sport": "Gravel Cycling",
   "startDate": "2026-11-15",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Marathon, Attica, Greece",
@@ -16,7 +17,7 @@
   },
   "url": "https://gravelofmarathon.gr/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Bicycle Friendly Greece and the MBike team",
     "url": "https://gravelofmarathon.gr/"
   }

@@ -206,6 +206,14 @@
       "notable_moments": [],
       "reputation": "A brutally climbing-heavy debut that drew 700 riders from 28 countries."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 1,
+        "note": "Inaugural edition; first UCI Gravel World Series round in the Dolomites",
+        "source": "https://ucigravelworldseries.com/en/auronzo-di-cadore/"
+      }
+    ],
     "guide_variables": {
       "race_name": "Grand Tour 3 Cime Lavaredo",
       "race_distance": "133 km / 82.6 miles",
@@ -352,6 +360,19 @@
       "migration_notes": [
         "New catalog intake from the official 2026 UCI Gravel World Series calendar reconciliation."
       ]
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "133 km",
+          "winner_female": "Karolina Migon",
+          "winner_male": "Fabian Rabensteiner",
+          "winning_time_female": "4:12:57",
+          "winning_time_male": "4:36:21",
+          "source": "https://ucigravelworldseries.com/en/rabensteiner-and-migon-win-gt3-cime-lavaredo-debut-in-the-dolomites/"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

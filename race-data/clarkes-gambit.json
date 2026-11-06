@@ -11,7 +11,7 @@
       "location_badge": "NELLIGEN, NSW",
       "county": "Eurobodalla Shire",
       "date": "Late August annually",
-      "date_specific": "2026: August 21-23",
+      "date_specific": "2027: August 28-29 (CONFIRMED — graveleur.cc)",
       "terrain_types": [
         "Australian coastal",
         "Local event",
@@ -102,7 +102,7 @@
       "food": "Nelligen has very limited dining options. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Clarkes Gambit website",
+      "official_site": "",
       "camping": "camping at Steampacket Hotel[1][5]"
     },
     "history": {
@@ -112,6 +112,16 @@
       "notable_moments": [],
       "reputation": "Local Australian event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-08-21",
+        "end_date": "2026-08-23",
+        "edition": 5,
+        "note": "Moved from November to August. Hosted the NSW State Gravel Championships.",
+        "source": "https://auscycling.org.au/events/clarkes-gambit-2026"
+      }
+    ],
     "course_description": {
       "character": "Australian coastal gravel.",
       "suffering_zones": [
@@ -327,8 +337,9 @@
       },
       {
         "url": "https://graveleur.cc/clarkes-gambit-event-page",
-        "category": "other",
-        "label": "Graveleur"
+        "category": "official",
+        "label": "Graveleur: Clarke's Gambit event page (2027 date)",
+        "accessed": "2026-11-06"
       },
       {
         "url": "https://graveleur.cc/events/clarkes-gambit-2024",

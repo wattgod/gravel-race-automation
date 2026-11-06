@@ -26,6 +26,10 @@ import time
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+import sys  # noqa: E402
+sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+from race_facts import needs_date_check  # noqa: E402
+from season import today  # noqa: E402
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 SCRAPE_CACHE_DIR = PROJECT_ROOT / "data" / "scrape-cache"
 SCRAPE_EXTRACTS_DIR = PROJECT_ROOT / "data" / "scrape-extracts"
@@ -182,10 +186,8 @@ def load_official_sites(tier_filters: set | None = None,
 
         date_specific = race.get("vitals", {}).get("date_specific", "")
 
-        if stale_only:
-            m = re.match(r"(\d{4})", str(date_specific))
-            if not m or int(m.group(1)) >= 2026:
-                continue
+        if stale_only and not needs_date_check(race):
+            continue
 
         name = race.get("display_name", race.get("name", slug))
         result[slug] = {
@@ -241,7 +243,7 @@ OFFICIAL WEBSITE HTML:
 
 Return ONLY a JSON object with these fields (use null for anything not found):
 {{
-  "date_2026": "YYYY-MM-DD or Month DD format if found, null if not",
+  "next_edition_date": "YYYY-MM-DD of the next edition after {today().isoformat()}, null if not shown",
   "distance_mi": number or null,
   "elevation_ft": number or null,
   "registration_status": "open|closed|sold_out|lottery|coming_soon" or null,
@@ -260,7 +262,7 @@ Rules:
 - Only include data you can directly see in the HTML. Do not guess.
 - Distances: convert km to miles if needed (1 km = 0.621371 mi). Round to nearest integer.
 - Elevation: convert meters to feet if needed (1 m = 3.28084 ft). Round to nearest 100.
-- For 2026 dates: look for "2026" explicitly. If only a general date pattern visible, set date_2026 to null.
+- next_edition_date: only a date the page states, with its year, that falls after {today().isoformat()}. A past edition's date or a general pattern ("first Saturday in June") is null.
 - Return valid JSON only, no explanation."""
 
 
@@ -302,3 +304,10 @@ def save_extract(slug: str, data: dict) -> Path:
     path = SCRAPE_EXTRACTS_DIR / f"{slug}.json"
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
     return path
+
+
+def next_edition_date(extract: dict | None) -> str | None:
+    """The scraped next-edition date; reads extracts saved before the key
+    was renamed from ``date_2026``."""
+    extract = extract or {}
+    return extract.get("next_edition_date") or extract.get("date_2026")

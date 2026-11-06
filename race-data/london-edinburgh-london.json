@@ -6,7 +6,7 @@
       "slug": "london-edinburgh-london",
       "name": "London Edinburgh London",
       "date": "2026: July TBD",
-      "date_specific": "2026: July TBD",
+      "date_specific": "2029: TBD (next edition per londonedinburghlondon.com; last held 2025)",
       "distance_mi": 950,
       "elevation_ft": 42000,
       "location": "Chelmsford, Essex, UK",
@@ -41,7 +41,8 @@
       "editorial_tier": 2,
       "editorial_tier_label": "TIER 2",
       "display_tier": 2,
-      "display_tier_label": "TIER 2"
+      "display_tier_label": "TIER 2",
+      "discipline": "road"
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -160,6 +161,41 @@
       "founded": 1989,
       "notable_facts": "Flagship Audax UK event every four years, validated by Les Randonneurs Mondiaux. Grew from UK randonneuring roots as PBP counterpart. 2025 edition expects 2200 starters on refined 1539km route."
     },
+    "editions": [
+      {
+        "year": 2029,
+        "note": "Next edition",
+        "source": "https://londonedinburghlondon.com/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-08-03",
+        "end_date": "2025-08-08",
+        "note": "Storm Floris halted the ride north; riders were sent back south from Monday",
+        "source": "https://londonedinburghlondon.com/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-08-07",
+        "end_date": "2022-08-12",
+        "note": "Postponed from 2021 due to COVID-19; route extended to Dunfermline",
+        "source": "https://en.wikipedia.org/wiki/London%E2%80%93Edinburgh%E2%80%93London"
+      },
+      {
+        "year": 2017,
+        "date": "2017-07-30",
+        "end_date": "2017-08-04",
+        "note": "1,600 entrants from 55 nations",
+        "source": "https://en.wikipedia.org/wiki/London%E2%80%93Edinburgh%E2%80%93London"
+      },
+      {
+        "year": 2013,
+        "date": "2013-07-28",
+        "end_date": "2013-08-02",
+        "note": "Route looped through Scotland and crossed the Humber Bridge for the first time",
+        "source": "https://en.wikipedia.org/wiki/London%E2%80%93Edinburgh%E2%80%93London"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Ultimate UK ultra-randonnée: 950 miles self-supported to Edinburgh and back.",
       "who_should_ride": "Qualified ultra-endurance riders seeking non-competitive adventure across Britain. Ideal for those qualified via 600km brevets craving 128-hour self-reliance.",
@@ -180,7 +216,8 @@
       {
         "url": "https://londonedinburghlondon.com/",
         "category": "official",
-        "label": "Official Website"
+        "label": "London Edinburgh London: 2025 edition (3-8 August) and the 2029 edition",
+        "accessed": "2026-11-06"
       }
     ]
   }

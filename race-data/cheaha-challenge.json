@@ -11,7 +11,7 @@
       "location_badge": "JACKSONVILLE, AL",
       "county": "Calhoun County",
       "date": "Mid-May annually",
-      "date_specific": "2026: May 16",
+      "date_specific": "2027: May 15-16 (Saturday-Sunday, CONFIRMED — runsignup.com)",
       "terrain_types": [
         "Cheaha Mountain",
         "Mountain gravel",
@@ -102,10 +102,10 @@
       "food": "Small town with moderate dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
-      "official_site": "Check Alabama cycling calendars"
+      "official_site": ""
     },
     "history": {
-      "founded": null,
+      "founded": 1993,
       "founder": "Alabama organizers",
       "origin_story": "Regional Alabama gravel event.",
       "notable_moments": [],
@@ -319,6 +319,12 @@
       }
     },
     "citations": [
+      {
+        "url": "https://runsignup.com/Race/CheahaChallengeGranFondo/Page-15",
+        "category": "official",
+        "label": "Cheaha Challenge — 2027 date",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://ridewithgps.com/routes/53887891",
         "category": "route",
@@ -638,6 +644,25 @@
         "credit": "YouTube / road.cc",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "100 mi",
+          "winner_female": "Emma Drabbe",
+          "winner_male": "Andrew Knight",
+          "winning_time_female": "4:52:25",
+          "winning_time_male": "4:19:34",
+          "source": "https://granfondodailynews.com/2025/05/20/uci-gran-fondo-world-series-wieling-wins-vosges-knight-crushes-cheaha/"
+        },
+        "2024": {
+          "race": "100 mi",
+          "winner_female": "Lisa Houser",
+          "winner_male": "Andrew Knight",
+          "source": "https://ucigranfondoworldseries.com/en/andrew-knight-and-lisa-houser-best-climbers-on-alabama-roads/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

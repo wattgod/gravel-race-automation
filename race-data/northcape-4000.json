@@ -10,7 +10,7 @@
       "slug": "northcape-4000",
       "name": "NorthCape 4000",
       "date": "July 25, 2026",
-      "date_specific": "July 25, 2026",
+      "date_specific": "2027: July 24 (Rovereto start; Berlin start July 29; CONFIRMED — northcape4000.com)",
       "distance_mi": 2485,
       "elevation_ft": 98000,
       "location": "Rovereto, Italy to North Cape, Norway",
@@ -41,7 +41,8 @@
       "cultural_impact": 3,
       "overall_score": 77,
       "tier": 2,
-      "tier_label": "TIER 2"
+      "tier_label": "TIER 2",
+      "discipline": "bikepacking"
     },
     "biased_opinion_ratings": {
       "logistics": {
@@ -172,6 +173,13 @@
       "founded": 2017,
       "notable_facts": "First held in 2017 from Lake Garda area as annual summer ultra. Grew to most participated bikepacking event with 500 riders. Route evolves yearly for safety, passing gates like Munich, Berlin, Stockholm, Rovaniemi."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 9,
+        "source": "https://northcape4000.com"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Ultimate self-supported European traverse from Rovereto to North Cape redefines endurance adventure.",
       "who_should_ride": "Experienced ultracyclists craving 4000 km of raw bikepacking through 8 nations. Those seeking transformative solitude or 500-rider camaraderie.",
@@ -196,7 +204,8 @@
       {
         "url": "https://northcape4000.com",
         "category": "official",
-        "label": "Official Website"
+        "label": "NorthCape 4000 — 2027 Edition X start dates",
+        "accessed": "2026-11-05"
       }
     ]
   }

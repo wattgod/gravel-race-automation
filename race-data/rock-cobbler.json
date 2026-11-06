@@ -12,7 +12,7 @@
       "location_badge": "BAKERSFIELD, CALIFORNIA",
       "county": "Kern County",
       "date": "Early February annually",
-      "date_specific": "2026: February 7 (Saturday, CONFIRMED — rockcobbler.com; completed); 2027: February 6 (Saturday, PATTERN ESTIMATE — first Saturday of February, per 2026 date; official 2027 date not yet announced)",
+      "date_specific": "2027: February 6 (Saturday, CONFIRMED — rockcobbler.com)",
       "terrain_types": [
         "Central Valley gravel",
         "Rocky sections",
@@ -75,7 +75,7 @@
     },
     "biased_opinion": {
       "verdict": "Early Season California Classic",
-      "summary": "Rock Cobbler is California's early season gravel classic—the main Cobbler course runs 75-90 miles of Central Valley rocks, dirt, and Havilah climb (with shorter Pebbler and longer Boulder options; final routes/gain vary year to year and aren't announced until race week). Founded by Stephen Fry in 2012. 600+ riders. February timing means weather roulette: 2023 was rain/mud (25%+ DNF), 2024 was perfect. Bakersfield is affordable ($80-120 lodging). Chunky rocky sections reward technical skills. Peter Stetina & Lauren De Crescenzo won 2024. If you're California-based and want early season test, it's great value ($80-$120). If you're flying in, weather risk is real.",
+      "summary": "Rock Cobbler is California's early season gravel classic—the main Cobbler course runs 75-90 miles of Central Valley rocks, dirt, and Havilah climb (with shorter Pebbler and longer Boulder options; final routes/gain vary year to year and aren't announced until race week). Founded by Stephen Fry in 2014. 600+ riders. February timing means weather roulette: 2023 was rain/mud (25%+ DNF), 2024 was perfect. Bakersfield is affordable ($80-120 lodging). Chunky rocky sections reward technical skills. Peter Stetina & Lauren De Crescenzo won 2024. If you're California-based and want early season test, it's great value ($80-$120). If you're flying in, weather risk is real.",
       "strengths": [
         "Great value ($80-$120 entry)",
         "Early season (February) for California riders",
@@ -137,15 +137,35 @@
       }
     },
     "history": {
-      "founded": "2012",
+      "founded": 2014,
       "founder": "Stephen Fry",
-      "origin_story": "Rock Cobbler founded 2012 by Stephen Fry. California early season gravel classic. 600+ riders. Bakersfield Central Valley.",
+      "origin_story": "Rock Cobbler founded 2014 by Stephen Fry. California early season gravel classic. 600+ riders. Bakersfield Central Valley.",
       "notable_moments": [
         "2023: Rain/mud, 25%+ DNF",
         "2024: Perfect conditions, Peter Stetina & Lauren De Crescenzo win"
       ],
       "reputation": "California early season classic. Great value. February weather roulette."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-02-07",
+        "edition": 13,
+        "source": "https://rockcobbler.com/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-02-08",
+        "edition": 12,
+        "source": "https://results.tbgtiming.com/results.aspx?EId=1&RId=55&g=1"
+      },
+      {
+        "year": 2024,
+        "date": "2024-02-10",
+        "edition": 11,
+        "source": "https://results.tbgtiming.com/Results.aspx?EId=1&RId=44&c=10&g=1"
+      }
+    ],
     "research_metadata": {
       "data_confidence": "researched",
       "validation_status": "pending",
@@ -252,6 +272,12 @@
     ],
     "citations": [
       {
+        "url": "https://rodeo-labs.com/rock-cobbler-11-does-gravel-get-any-better/",
+        "category": "media",
+        "label": "Rodeo Labs: Rock Cobbler 11 (first held 2014)",
+        "accessed": "2026-11-06"
+      },
+      {
         "url": "https://ridewithgps.com/routes/45578777",
         "category": "route",
         "label": "RideWithGPS: 2024  Rock Cobbler - GBC"
@@ -285,6 +311,12 @@
         "url": "https://www.trainerroad.com/forum/t/rock-cobbler-2025/99924",
         "category": "community",
         "label": "TrainerRoad"
+      },
+      {
+        "url": "https://www.rockcobbler.com",
+        "category": "official",
+        "label": "Rock Cobbler — 2027 date",
+        "accessed": "2026-11-06"
       }
     ],
     "tire_recommendations": {
@@ -697,6 +729,25 @@
         "credit": "YouTube / Gravel Bike California",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "75 mi",
+          "winner_female": "Ruth Holcomb",
+          "winner_male": "Thomas Fuller",
+          "winning_time_female": "4:42:18",
+          "winning_time_male": "4:10:11",
+          "source": "https://www.granfondoguide.com/Contents/IndexFull/8988/fuller-and-holocomb-take-victory-at-13th-edition-of-rock-cobbler"
+        },
+        "2025": {
+          "race": "75 mi",
+          "winner_female": "Ruth Holcomb",
+          "winner_male": "Lance Haidet",
+          "source": "https://www.cyclingnews.com/news/cowboy-bar-part-of-unique-path-at-rock-cobbler-120-for-wins-by-lance-haidet-ruth-holcomb-gallery/"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

@@ -18,7 +18,7 @@ import argparse
 import html
 import json
 import re
-from datetime import date
+import sys
 from pathlib import Path
 
 # Import shared constants from the race page generator
@@ -34,32 +34,39 @@ from brand_tokens import (
     get_tokens_css,
     get_ga4_head_snippet,
 )
+from season import season_year
 from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
+
+sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+from race_facts import is_ranked, location_countries  # noqa: E402
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 RACE_INDEX_PATH = Path(__file__).parent.parent / "web" / "race-index.json"
 RACE_DATA_DIR = Path(__file__).parent.parent / "race-data"
 
-CURRENT_YEAR = date.today().year
+SEASON_YEAR = season_year()
 
-# All 15 scored criteria in race.gravel_god_rating (course + editorial dims,
-# plus the cultural_impact bonus dimension). Copy that states a criteria
-# count (stats["dimensions"], meta descriptions, JSON-LD) reads len() of
-# this list rather than hardcoding a number.
+# All 15 scored fields in race.gravel_god_rating: the 14 base criteria
+# (course + editorial) plus the cultural_impact bonus. The bonus is not a
+# criterion (it adds on top of the /70 base), so copy that states a criteria
+# count (stats["dimensions"], meta descriptions, JSON-LD) reads
+# BASE_CRITERIA_COUNT, never len(RATING_DIMS).
 RATING_DIMS = [
     "logistics", "length", "technicality", "elevation", "climate",
     "altitude", "adventure", "prestige", "race_quality", "experience",
     "community", "field_depth", "value", "expenses", "cultural_impact",
 ]
 
+BASE_CRITERIA_COUNT = len(RATING_DIMS) - 1  # 14; cultural_impact is a bonus
+
 # Series umbrella slugs — not individual races, never ranked on their own.
-SERIES_UMBRELLA_SLUGS = {"grasshopper-series", "grinduro", "gravel-earth"}
+SERIES_UMBRELLA_SLUGS = {"grasshopper-series", "grinduro"}
 
 TOP_RATED_COUNT = 5
 
-RANKINGS_URL = f"{SITE_BASE_URL}/race/power-rankings-{CURRENT_YEAR}/"
+RANKINGS_URL = f"{SITE_BASE_URL}/race/power-rankings-{SEASON_YEAR}/"
 GOAL_LEAD_URL = f"{SITE_BASE_URL}/goals/"
 
 # The four doors. Art is the Handbook's v6 character scenes (guide/art/),
@@ -97,19 +104,17 @@ def compute_stats(race_index: list) -> dict:
     race_count = len(race_index)
     t1_count = sum(1 for r in race_index if r.get("tier") == 1)
     t2_count = sum(1 for r in race_index if r.get("tier") == 2)
-    regions = set()
+    # Countries, not "regions": race_facts normalizes states, provinces and
+    # territories to their country, so "CO" and "Colorado" are one.
+    countries = set()
     for r in race_index:
-        loc = r.get("location", "")
-        if loc:
-            parts = [p.strip() for p in loc.split(",")]
-            if parts:
-                regions.add(parts[-1])
+        countries.update(location_countries(r.get("location", "")))
     return {
         "race_count": race_count,
-        "dimensions": len(RATING_DIMS),
+        "dimensions": BASE_CRITERIA_COUNT,
         "t1_count": t1_count,
         "t2_count": t2_count,
-        "region_count": len(regions),
+        "country_count": len(countries),
     }
 
 
@@ -137,6 +142,8 @@ def get_top_rated(race_index: list, limit: int = TOP_RATED_COUNT,
     for r in ranked:
         slug = r.get("slug", "")
         if (r.get("discipline") or "gravel") != "gravel" or slug in SERIES_UMBRELLA_SLUGS:
+            continue
+        if not is_ranked(r):
             continue
         if (_profile_discipline(slug, race_data_dir) or "gravel") != "gravel":
             continue
@@ -217,13 +224,13 @@ def build_top_rated(race_index: list) -> str:
 def build_hero(stats: dict, race_index: list) -> str:
     """The race database band: headline, search, the numbers once, top rated."""
     race_count = stats["race_count"]
-    region_count = stats["region_count"]
+    country_count = stats["country_count"]
     dimensions = stats["dimensions"]
 
     return f'''<section class="gg-hp-hero" id="race-database">
     <div class="gg-hp-hero-inner">
       <div class="gg-hp-hero-content">
-        <p class="gg-hp-hero-kicker">THE {CURRENT_YEAR} RACE DATABASE</p>
+        <p class="gg-hp-hero-kicker">THE {SEASON_YEAR} RACE DATABASE</p>
         <h1 id="hero-title">Every gravel race, rated.</h1>
         <form class="gg-hp-hero-search" action="{SITE_BASE_URL}/gravel-races/" method="get" role="search">
           <input type="text" name="q" class="gg-hp-hero-search-input" placeholder="Search races, locations, or what riders say..." aria-label="Search races" autocomplete="off">
@@ -238,7 +245,7 @@ def build_hero(stats: dict, race_index: list) -> str:
         </div>
         <dl class="gg-hp-hero-stats">
           <div class="gg-hp-hero-stat"><dt>Races</dt><dd>{race_count}</dd></div>
-          <div class="gg-hp-hero-stat"><dt>Regions</dt><dd>{region_count}</dd></div>
+          <div class="gg-hp-hero-stat"><dt>Countries</dt><dd>{country_count}</dd></div>
           <div class="gg-hp-hero-stat"><dt>Criteria</dt><dd>{dimensions}</dd></div>
         </dl>
       </div>
@@ -665,7 +672,7 @@ def generate_homepage(race_index: list) -> str:
     # a 34-race/9% undercount. Nearest 10 stays accurate to within single
     # digits while still not flapping on every single new race added.)
     stable_count = (stats['race_count'] // 10) * 10
-    title = f"{stable_count}+ Gravel, MTB & Ultra Races Rated for {CURRENT_YEAR} | Gravel God"
+    title = f"{stable_count}+ Gravel, MTB & Ultra Races Rated for {SEASON_YEAR} | Gravel God"
     meta_desc = (
         f"Find your next off-road cycling event. {stats['race_count']} races "
         f"worldwide, rated on {stats['dimensions']} criteria. Training plans and race intel."
@@ -761,7 +768,7 @@ def main():
 
     stats = compute_stats(race_index)
     print(f"Generated {output_file} ({len(html_content):,} bytes)")
-    print(f"  {stats['race_count']} races, {stats['t1_count']} T1, {stats['t2_count']} T2, {stats['region_count']} regions, {stats['dimensions']} dimensions")
+    print(f"  {stats['race_count']} races, {stats['t1_count']} T1, {stats['t2_count']} T2, {stats['country_count']} countries, {stats['dimensions']} dimensions")
 
 
 if __name__ == "__main__":

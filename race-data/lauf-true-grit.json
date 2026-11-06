@@ -218,6 +218,29 @@
     "history": {
       "founder": "GRO Promotions / GRO Races"
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-03-20",
+        "source": "https://my.raceresult.com/385080/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-03-14",
+        "source": "https://www.gravel-results.com/race/20391"
+      },
+      {
+        "year": 2024,
+        "date": "2024-03-23",
+        "source": "https://my.raceresult.com/281835/contact"
+      },
+      {
+        "year": 2023,
+        "date": "2023-03-18",
+        "note": "Gravel race ran one week after the mountain bike race for the first time",
+        "source": "https://www.mtbracenews.com/news/true-grit-epic-gravel"
+      }
+    ],
     "tire_recommendations": {
       "generated_at": "2026-02-19",
       "primary": [
@@ -636,6 +659,22 @@
         "credit": "YouTube / MTB yumyum",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "84 mi",
+          "winner_female": "Kae Takeshita",
+          "source": "https://www.gravel-results.com/race/20391"
+        },
+        "2023": {
+          "race": "84 mi",
+          "winner_female": "Allyson Sepp",
+          "winner_male": "Zach Calton",
+          "source": "https://www.mtbracenews.com/news/true-grit-epic-gravel"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

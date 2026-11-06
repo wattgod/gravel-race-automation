@@ -5,6 +5,7 @@
   "description": "Wilson Creek Gorge, Maple Sally Road, and 7,250 feet of climbing across the official 85-mile North Carolina long course.",
   "sport": "Gravel Cycling",
   "startDate": "2027-04-17",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Lenoir, North Carolina",
@@ -22,7 +23,7 @@
   },
   "url": "https://www.pisgahproductions.com/events/bootlegger-100/",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Pisgah Productions",
     "url": "https://www.pisgahproductions.com/events/bootlegger-100/"
   }

@@ -206,6 +206,14 @@
       "notable_moments": [],
       "reputation": "A promising Scandinavian qualifier with a distinctive castle-and-forest loop."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 1,
+        "note": "First edition as a UCI Gravel World Series qualifier.",
+        "source": "https://ucigravelworldseries.com/en/stokbro-nielsen-and-kasper-crowned-winners-at-inaugural-the-wolf-in-denmark/"
+      }
+    ],
     "guide_variables": {
       "race_name": "The Wolf",
       "race_distance": "165 km / 102.5 miles",
@@ -346,6 +354,19 @@
       "migration_notes": [
         "New catalog intake from the official 2026 UCI Gravel World Series calendar reconciliation."
       ]
+    },
+    "results": {
+      "years": {
+        "2026": {
+          "race": "156 km",
+          "winner_female": "Romy Kasper",
+          "winner_male": "Andreas Stokbro Nielsen",
+          "winning_time_female": "3:16:33",
+          "winning_time_male": "4:17:53",
+          "source": "https://ucigravelworldseries.com/en/stokbro-nielsen-and-kasper-crowned-winners-at-inaugural-the-wolf-in-denmark/"
+        }
+      },
+      "latest_year": "2026"
     }
   }
 }

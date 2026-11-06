@@ -5,6 +5,7 @@
   "description": "Central Oregon coast gravel with coastal and mountain terrain.",
   "sport": "Gravel Cycling",
   "startDate": "2027-04-24",
+  "eventStatus": "https://schema.org/EventScheduled",
   "location": {
     "@type": "Place",
     "name": "Waldport, Oregon",
@@ -22,7 +23,7 @@
   },
   "url": "https://www.mudslingerevents.com/oregon-coast-gravel-epic",
   "organizer": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": "Mudslinger Events",
     "url": "https://www.mudslingerevents.com/oregon-coast-gravel-epic"
   }

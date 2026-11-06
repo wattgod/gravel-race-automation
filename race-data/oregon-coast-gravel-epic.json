@@ -118,6 +118,19 @@
       "notable_moments": [],
       "reputation": "Growing regional Oregon coast event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-05-03",
+        "source": "https://obra.org/events/28774/results"
+      },
+      {
+        "year": 2024,
+        "date": "2024-05-04",
+        "note": "Held as the OBRA Gravel Championships.",
+        "source": "https://obra.org/events/28495/results"
+      }
+    ],
     "course_description": {
       "character": "The current Abomination long route is 61.6 miles with 6,733 feet of gain, using 65% unpaved logging roads and 35% pavement through the Siuslaw National Forest.",
       "suffering_zones": [
@@ -692,6 +705,19 @@
         "credit": "YouTube / Chip Weinert",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "Abomination long course",
+          "winner_female": "Chloë Spritz",
+          "winner_male": "Austen Davis",
+          "winning_time_female": "3:45:54",
+          "winning_time_male": "3:20:47",
+          "source": "https://obra.org/events/28774/results"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

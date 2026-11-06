@@ -11,7 +11,7 @@
       "location_badge": "ELBERT, CO",
       "county": "Elbert County",
       "date": "Early September annually",
-      "date_specific": "2026: September 5-7",
+      "date_specific": "2027: September 4-6 (CONFIRMED — madgravel.com)",
       "terrain_types": [
         "Colorado plains",
         "Rolling gravel",
@@ -107,16 +107,28 @@
       "food": "Elbert has limited dining. Stock nutrition.",
       "packet_pickup": "Day of typically",
       "parking": "At start/finish",
-      "official_site": "Check Mad Gravel website",
+      "official_site": "",
       "camping": "camping available at venue (bring family, camp)"
     },
     "history": {
-      "founded": null,
+      "founded": 2020,
       "founder": "Rattler Racing",
       "origin_story": "Regional CO plains gravel event.",
       "notable_moments": [],
       "reputation": "Regional CO event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-05-25",
+        "source": "https://results.bikereg.com/race/21449"
+      },
+      {
+        "year": 2023,
+        "date": "2023-05-29",
+        "source": "https://results.bikereg.com/race/16014"
+      }
+    ],
     "course_description": {
       "character": "Colorado plains gravel.",
       "suffering_zones": [
@@ -374,6 +386,13 @@
         "url": "https://www.reddit.com/r/unboundgravel/comments/1d8uzfw/unbound_200_after_all_your_tips_the_result/",
         "category": "community",
         "label": "Reddit"
+      },
+      {
+        "url": "https://madgravel.com",
+        "category": "official",
+        "label": "Mad Gravel official site (2027 date)",
+        "title": "Mad Gravel official site (2027 date)",
+        "accessed": "2026-11-05"
       }
     ],
     "tire_recommendations": {

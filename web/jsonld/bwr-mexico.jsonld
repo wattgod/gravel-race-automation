@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Belgian Waffle Ride Mexico",
+  "description": "The last Waffle of the year: 180 km of Quer\u00e9taro ranch roads and wine-country gravel, starting at 1,880 m.",
+  "sport": "Gravel Cycling",
+  "startDate": "2026-11-21",
+  "endDate": "2026-11-22",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "location": {
+    "@type": "Place",
+    "name": "Tequisquiapan, Quer\u00e9taro, Mexico",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tequisquiapan",
+      "addressRegion": "Quer\u00e9taro"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "99",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/LimitedAvailability"
+  },
+  "url": "https://belgianwaffleride.bike/pages/bwr-mexico",
+  "organizer": {
+    "@type": "Organization",
+    "name": "Monuments of Cycling (Belgian Waffle Ride), with local organizer Siddhartha Camil",
+    "url": "https://belgianwaffleride.bike/pages/bwr-mexico"
+  }
+}

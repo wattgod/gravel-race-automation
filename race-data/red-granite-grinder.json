@@ -132,7 +132,7 @@
       "ridewithgps_name": null
     },
     "history": {
-      "founded": "~2019",
+      "founded": 2019,
       "founder": "Shane Hitz",
       "origin_story": "IRONBULL developed Red Granite Grinder as a Central Wisconsin gravel event and moved the race to Athens before the current edition.",
       "notable_moments": [
@@ -141,6 +141,32 @@
       ],
       "reputation": "A regional Wisconsin fall race known for its 150-mile option, accessible shorter distances, and community finish."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-10-11",
+        "note": "Start/finish moved to Erbach Park in Athens.",
+        "source": "https://wausaupilotandreview.com/2025/10/01/ironbulls-red-granite-grinder-moves-race-site/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-10-12",
+        "note": "Held in downtown Wausau (400 Block).",
+        "source": "https://wausaupilotandreview.com/2024/10/06/ironbull-brings-unforgettable-cycling-experience-to-wausau/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-10-15",
+        "source": "https://wausaupilotandreview.com/2022/10/18/results-released-for-ironbulls-red-granite-grinder/"
+      },
+      {
+        "year": 2019,
+        "date": "2019-10-19",
+        "edition": 1,
+        "note": "Inaugural IRONBULL Red Granite Grinder, 140-mile longest route.",
+        "source": "https://wausaupilotandreview.com/2019/10/20/inaugural-ironbull-140-mile-bike-race-in-the-books-in-wausau/"
+      }
+    ],
     "guide_variables": {
       "race_name": "Red Granite Grinder",
       "race_distance": "150 miles",

@@ -209,6 +209,36 @@
       ],
       "reputation": "The halo event of bikepacking ultra-racing. The longest—arguably most challenging—mountain bike time trial on the planet."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-06-12",
+        "note": "Women's record set: 14 days, 10 hours, 2 minutes.",
+        "source": "https://bikepacking.com/tracker/2026-tour-divide-tracker/"
+      },
+      {
+        "year": 2025,
+        "date": "2025-06-13",
+        "note": "Route included a 140-mile fire detour in New Mexico.",
+        "source": "https://bikepacking.com/tracker/2025-tour-divide-tracker/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-06-14",
+        "note": "Course record set: 13 days, 2 hours, 16 minutes.",
+        "source": "https://bikepacking.com/tracker/2024-tour-divide-tracker/"
+      },
+      {
+        "year": 2023,
+        "date": "2023-06-09",
+        "source": "https://bikepacking.com/tracker/2023-tour-divide-tracker/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-06-10",
+        "source": "https://bikepacking.com/tracker/2022-tour-divide-tracker/"
+      }
+    ],
     "course_description": {
       "character": "A 2,745-mile expedition along the Continental Divide from Canada to Mexico. The route passes through 5 US states and 2 Canadian provinces, crossing the Divide 30+ times. Terrain ranges from glaciated Canadian Rockies to Wyoming's Red Desert to Colorado's 11,000+ foot passes to New Mexico's rocky Gila Wilderness. Surface is roughly 90% unpaved—mostly gravel and forest service roads with some singletrack and paved connectors. The character changes daily as you ride south through changing ecosystems, elevations, and climates.",
       "suffering_zones": [
@@ -416,10 +446,48 @@
             "Historical Note: Lachlan Morton completed an ITT in 2024 finishing 14 hours faster than Justinas but on a non-official attempt",
             "2024: Set new course record, first full-suspension bike winner",
             "2024: Second place, also broke Mike Hall's record (13d 22h 13m)"
-          ]
+          ],
+          "race": "2,700 mi",
+          "winner_female": "Meaghan Hackinen",
+          "winner_male": "Justinas Leveika",
+          "winning_time_female": "15d 23h 00m",
+          "winning_time_male": "13d 02h 16m",
+          "source": "https://bikepacking.com/tracker/2024-tour-divide-tracker/"
+        },
+        "2026": {
+          "race": "2,681 mi",
+          "winner_female": "Meaghan Hackinen",
+          "winner_male": "Victor Bosoni",
+          "winning_time_female": "14d 10h 02m",
+          "winning_time_male": "11d 08h 27m",
+          "source": "https://bikepacking.com/tracker/2026-tour-divide-tracker/"
+        },
+        "2025": {
+          "race": "2,700 mi",
+          "winner_female": "Nathalie Baillon",
+          "winner_male": "Robin Gemperle",
+          "winning_time_female": "16d 10h 17m",
+          "winning_time_male": "11d 19h 14m",
+          "source": "https://bikepacking.com/tracker/2025-tour-divide-tracker/"
+        },
+        "2023": {
+          "race": "2,700 mi",
+          "winner_female": "Lael Wilcox",
+          "winner_male": "Ulrich Bartholmoes",
+          "winning_time_female": "16d 20h 00m",
+          "winning_time_male": "14d 03h 23m",
+          "source": "https://bikepacking.com/tracker/2023-tour-divide-tracker/"
+        },
+        "2022": {
+          "race": "2,745 mi",
+          "winner_female": "Ana Jager",
+          "winner_male": "Sofiane Sehili",
+          "winning_time_female": "19d 00h 54m",
+          "winning_time_male": "14d 16h 36m",
+          "source": "https://bikepacking.com/tracker/2022-tour-divide-tracker/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

@@ -182,6 +182,14 @@
       ],
       "reputation": "The fall classic. Where the Grand Prix battles play out in the Ozark Mountains."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-10-18",
+        "note": "100-mile course cut to 50 miles because of forecast storms.",
+        "source": "https://www.endurancesportswire.com/sofia-gomez-villafane-and-matthew-beers-claim-victory-at-life-time-big-sugar-gravel-presented-by-kenetik/"
+      }
+    ],
     "course_description": {
       "character": "The current flagship is 99.6 miles with approximately 6,200 feet of gain on rarely maintained Ozark roads with loose rocky gravel, limited pavement, water crossings, and bridges.",
       "suffering_zones": [
@@ -339,9 +347,23 @@
           "key_takeaways": [
             "2024 Traffic: Record 2"
           ]
+        },
+        "2026": {
+          "race": "100 mi",
+          "winner_female": "Claire Maurer",
+          "winner_male": "Abraham Close",
+          "winning_time_female": "5:38:25",
+          "winning_time_male": "5:03:04",
+          "source": "https://www.granfondoguide.com/Contents/IndexFull/9407/2026-big-sugar-gravel-results-stella-hobbs-solos-as-tobias-kongstad-wins-big-sprint"
+        },
+        "2025": {
+          "race": "50 mi (shortened)",
+          "winner_female": "Sofía Gómez Villafañe",
+          "winner_male": "Matthew Beers",
+          "source": "https://www.endurancesportswire.com/sofia-gomez-villafane-and-matthew-beers-claim-victory-at-life-time-big-sugar-gravel-presented-by-kenetik/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "series": {
       "id": "life-time-grand-prix",

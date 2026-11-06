@@ -124,6 +124,20 @@
       ],
       "reputation": "The unofficial U.S. gravel season opener. Known for Bobby's finish-line hugs, unpredictable weather, iconic red clay, and one of gravel's strongest community vibes. The DFL (Dead F*cking Last) rider gets a giant steer skull trophy and massive celebration."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Elite fields raced 100 mi on Friday for the first time; open 100 mi on Saturday.",
+        "source": "https://granfondodailynews.com/2026/03/15/midsouth-gravel-results-freeburn-and-villafane-hit-oklahoma-red-paydirt"
+      },
+      {
+        "year": 2025,
+        "date": "2025-03-15",
+        "status": "cancelled",
+        "note": "Cancelled the night before because of wildfires and high winds around Stillwater.",
+        "source": "https://escapecollective.com/mid-south-2025-canceled/"
+      }
+    ],
     "course_description": {
       "character": "The current main route covers 106.9 miles and 6,506 feet of climbing. It is fast and tactical when dry and can become a mud slog when Oklahoma red clay is wet.",
       "suffering_zones": [
@@ -827,6 +841,19 @@
         "credit": "YouTube / Back of the Gravel Pack",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "100 mi",
+          "winner_female": "Sofia Gomez Villafane",
+          "winner_male": "Cobe Freeburn",
+          "winning_time_female": "5:18:44",
+          "winning_time_male": "4:31:54",
+          "source": "https://granfondodailynews.com/2026/03/15/midsouth-gravel-results-freeburn-and-villafane-hit-oklahoma-red-paydirt"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

@@ -185,6 +185,19 @@
       ],
       "reputation": "Where gravel royalty meets grassroots community. The event Rebecca built in her backyard."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "edition": 14,
+        "note": "Last edition under this name; Rebecca Rusch steps away after 2026",
+        "source": "https://www.cyclingwest.com/news/rebecca-rusch-to-step-away-from-rebeccas-private-idaho-after-2026-event/"
+      },
+      {
+        "year": 2023,
+        "edition": 11,
+        "source": "https://www.cyclingwest.com/racing/gravel-racing/rebeccas-private-idaho-qsr-race-winners-crowned/"
+      }
+    ],
     "course_description": {
       "character": "104 miles and 6,860 feet of climbing on a redesigned gravel route with a sustained 2,500-foot climb over Corral Creek Summit.",
       "suffering_zones": [
@@ -338,6 +351,12 @@
           "winner_female": "Eden Nykamp",
           "winning_time_male": "5:09:20.8",
           "winning_time_female": "6:11:17.0"
+        },
+        "2023": {
+          "race": "Queen's Stage Race overall",
+          "winner_female": "Sarah Max",
+          "winner_male": "Griffin Easter",
+          "source": "https://www.cyclingwest.com/racing/gravel-racing/rebeccas-private-idaho-qsr-race-winners-crowned/"
         }
       },
       "latest_year": "2024"

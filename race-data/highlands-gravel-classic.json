@@ -177,6 +177,36 @@
       ],
       "reputation": "The US gateway to UCI Gravel World Championships—short, sharp, and unforgiving."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-04-25",
+        "source": "https://cyclingflash.com/race/uci-gravel-world-series-highlands-gravel-classic-2026/result"
+      },
+      {
+        "year": 2025,
+        "date": "2025-04-26",
+        "source": "https://results.bikereg.com/race/20748"
+      },
+      {
+        "year": 2024,
+        "date": "2024-04-27",
+        "edition": 3,
+        "note": "Moved from late June to late April.",
+        "source": "https://cyclingflash.com/race/highlands-gravel-classic-2024/result"
+      },
+      {
+        "year": 2023,
+        "date": "2023-06-24",
+        "edition": 2,
+        "source": "https://www.cyclingnews.com/news/highlands-gravel-classic-returns-as-qualifier-for-uci-gravel-world-championship/"
+      },
+      {
+        "year": 2022,
+        "note": "First edition; first US UCI Gravel World Series qualifier.",
+        "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-race-fayetteville-us-2022/highlands-gravel-classic-70-mile-men/results/"
+      }
+    ],
     "course_description": {
       "character": "A concentrated smashfest through Ozark gravel. Tree canopy covers much of the course, providing shade but limiting descent visibility. The gravel is chunky and sharp—not smooth hardpack. Over a dozen climbs in 67 miles means you're either going up or bombing down. No recovery.",
       "suffering_zones": [
@@ -336,10 +366,48 @@
     "results": {
       "years": {
         "2024": {
-          "key_takeaways": []
+          "key_takeaways": [],
+          "race": "67 mi",
+          "winner_female": "Jenna Rinehart",
+          "winner_male": "Brennan Wertz",
+          "winning_time_female": "3:51:55",
+          "winning_time_male": "3:25:20",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-2024/highlands-gravel-classic/results/"
+        },
+        "2026": {
+          "race": "67 mi",
+          "winner_female": "Jenna Rinehart",
+          "winner_male": "Daxton Mock",
+          "winning_time_female": "3:50:17",
+          "winning_time_male": "3:25:37",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/uci-gravel-world-series-jenna-rinehart-and-daxton-mock-win-highlands-gravel-in-the-united-states/"
+        },
+        "2025": {
+          "race": "67 mi",
+          "winner_female": "Crystal Anthony",
+          "winner_male": "Skyler Taylor",
+          "winning_time_female": "3:59:28",
+          "winning_time_male": "3:29:10",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/highlands-gravel-classic/results/"
+        },
+        "2023": {
+          "race": "66 mi",
+          "winner_female": "Crystal Anthony",
+          "winner_male": "Ethan Overson",
+          "winning_time_female": "4:09:13",
+          "winning_time_male": "3:34:07",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-2023/world-series-11-highlands-gravel-classic/results/"
+        },
+        "2022": {
+          "race": "66 mi",
+          "winner_female": "Lenny Ramsey",
+          "winner_male": "Andrew Evans",
+          "winning_time_female": "4:37:27",
+          "winning_time_male": "4:05:30",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-race-fayetteville-us-2022/highlands-gravel-classic-70-miles-women/results/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

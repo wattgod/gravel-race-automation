@@ -118,6 +118,20 @@
       "notable_moments": [],
       "reputation": "Regional Alberta event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-06-15",
+        "note": "Doubled as the Canadian Gravel Championships.",
+        "source": "https://cyclingmagazine.ca/gravel/ghost-of-the-gravel-crowns-canadian-champions-in-albertas-backcountry/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-06-16",
+        "note": "Doubled as the Canadian Gravel Championships.",
+        "source": "https://www.cyclingnews.com/races/canadian-gravel-championships-2024/elite-men-and-women/results/"
+      }
+    ],
     "course_description": {
       "character": "Alberta prairie gravel.",
       "suffering_zones": [
@@ -606,6 +620,27 @@
         "credit": "YouTube / Kokanee RedBike",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2025": {
+          "race": "118 km",
+          "winner_female": "Devon Clarke",
+          "winner_male": "Benjamin Perry",
+          "winning_time_female": "3:58:49",
+          "winning_time_male": "3:25:43",
+          "source": "https://cyclingmagazine.ca/gravel/ghost-of-the-gravel-crowns-canadian-champions-in-albertas-backcountry/"
+        },
+        "2024": {
+          "race": "118 km",
+          "winner_female": "Katja Verkerk",
+          "winner_male": "Adam Roberge",
+          "winning_time_female": "4:37:45",
+          "winning_time_male": "3:44:31",
+          "source": "https://www.cyclingnews.com/races/canadian-gravel-championships-2024/elite-men-and-women/results/"
+        }
+      },
+      "latest_year": "2025"
+    }
   }
 }

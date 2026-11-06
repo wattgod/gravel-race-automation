@@ -114,12 +114,19 @@
       "official_site": ""
     },
     "history": {
-      "founded": null,
+      "founded": 2025,
       "founder": "Belgian organizers",
       "origin_story": "Regional Belgian gravel event.",
       "notable_moments": [],
       "reputation": "Regional Belgian event."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "note": "Run as Bolero Leuven Legacy Gravel; 2025 edition was branded Flanders Legacy Gravel.",
+        "source": "https://sporza.be/nl/2026/10/18/belgische-zeges-in-gravelwedstrijden-in-leuven-debutant-arnaud~1792347809526/"
+      }
+    ],
     "course_description": {
       "character": "Renamed for 2026 from Flanders Legacy Gravel to Leuven Legacy Gravel. Golazo's UCI Gravel World Series round starts in Heverlee, finishes at the Philipssite in Leuven, and is the first official qualifier for the 2027 Gravel Worlds in France. The organizer confirms 132 km / approximately 880 m for elite riders, men 19-59, and women 19-49, plus 86 km / approximately 560 m for men 60+ and women 50+. It describes rolling Brabantse Wouden terrain, punchy climbs, and iconic gravel sectors in quick succession. The final route map is pending and the GPX will be emailed shortly before the event, so no lap format or exact reuse of the 2024 Worlds course is claimed. Race day is Sunday, October 18, 2026.",
       "suffering_zones": [
@@ -405,10 +412,19 @@
         "2025": {
           "key_takeaways": [
             "Race history: First edition October 19, 2025"
-          ]
+          ],
+          "winner_female": "Wendy Oosterwoud",
+          "winner_male": "Aaron Van der Beken",
+          "source": "https://www.cyclingnews.com/races/uci-gravel-world-series-events-2025/flanders-legacy-gravel/results/"
+        },
+        "2026": {
+          "race": "124 km",
+          "winner_female": "Nathalie Bex",
+          "winner_male": "Kamiel Notebaert",
+          "source": "https://sporza.be/nl/2026/10/18/belgische-zeges-in-gravelwedstrijden-in-leuven-debutant-arnaud~1792347809526/"
         }
       },
-      "latest_year": "2025"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

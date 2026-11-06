@@ -116,6 +116,18 @@
       "notable_moments": [],
       "reputation": "Local Arizona event."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-08-02",
+        "source": "https://www.gravel-results.com/race/22805"
+      },
+      {
+        "year": 2024,
+        "date": "2024-08-03",
+        "source": "https://gravel-results.com/race/19993"
+      }
+    ],
     "course_description": {
       "character": "Arizona mountain gravel.",
       "suffering_zones": [
@@ -565,6 +577,19 @@
         ],
         "search_text": "The Flagstaff area features challenging climbs including Mount Eldon Lookout Road and Mars Hill. Mount Eldon's steep section is particularly demoralizing because riders can see the full extent of climbing ahead on the wide open road. The climb gains about 3000 feet over 15 miles and is described as destroying riders even when using mountain bikes with lower gearing compared to gravel bikes. However, the descent down Mount Eldon Lookout road is considered one of the best around. Mars Hill offers another punishing climb with the worst section just past the lookout. The area requires careful pacing on climbs and riders should be prepared for mechanical issues like flats. Night riding is possible but requires proper lighting. The terrain includes gravel roads with significant elevation changes through the Flagstaff area."
       }
+    },
+    "results": {
+      "years": {
+        "2024": {
+          "race": "100 mi",
+          "winner_female": "Kristin Wolf",
+          "winner_male": "Tyler Arnett",
+          "winning_time_female": "6:58:48",
+          "winning_time_male": "5:30:52",
+          "source": "https://gravel-results.com/race/19993"
+        }
+      },
+      "latest_year": "2024"
     }
   }
 }

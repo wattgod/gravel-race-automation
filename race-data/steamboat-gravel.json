@@ -262,18 +262,45 @@
       "official_site": "https://www.sbtgrvl.com/"
     },
     "history": {
-      "founder": "Amy Charity"
+      "founder": "Amy Charity",
+      "founded": 2019
     },
+    "editions": [
+      {
+        "year": 2024,
+        "date": "2024-08-18",
+        "note": "Held in August on new courses; 2025 was late June.",
+        "source": "https://www.cyclingwest.com/?p=37806"
+      }
+    ],
     "results": {
       "years": {
         "2024": {
-          "winning_time_male": "6:19:44",
+          "winning_time_male": "5:41:10",
           "key_takeaways": [
             "Keegan Swenson: Three consecutive wins (2022-2024), set and broke course records"
-          ]
+          ],
+          "race": "125 mi",
+          "winner_female": "Lauren Stephens",
+          "winner_male": "Keegan Swenson",
+          "winning_time_female": "6:17:17",
+          "source": "https://www.cyclingwest.com/?p=37806"
+        },
+        "2026": {
+          "winner_female": "Sofia Gomez Villafane",
+          "winner_male": "Keegan Swenson",
+          "source": "https://www.cyclingnews.com/pro-cycling/racing/keegan-swenson-wins-a-fourth-sbt-grvl-while-sofia-gomez-villafane-makes-late-catch-and-pass-of-sarah-lange-in-thrilling-elite-womens-race/"
+        },
+        "2025": {
+          "race": "117 mi",
+          "winner_female": "Melisa Rollins",
+          "winner_male": "Brennan Wertz",
+          "winning_time_female": "5:36:55",
+          "winning_time_male": "4:56:19",
+          "source": "https://www.endurancesportswire.com/wertz-and-rollins-claim-victory-at-2025-sbt-grvl-presented-by-wahoo/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

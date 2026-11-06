@@ -167,6 +167,29 @@
       "founded": 2013,
       "notable_facts": "Evolved into Gran Fondo World Tour opener with UCI CPTR status. Past editions sold out in 48 hours. Attracts pros like Vuelta a España stage winners for prestige."
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-02-06",
+        "end_date": "2026-02-08",
+        "edition": 9,
+        "source": "https://www.granfondoguide.com/Contents/IndexFull/8967/cycling-legend-haimar-zubeldia-returns-to-epic-gran-canaria-2026"
+      },
+      {
+        "year": 2025,
+        "date": "2025-02-08",
+        "end_date": "2025-02-09",
+        "edition": 8,
+        "source": "https://en.maspalomas24h.com/Article/7804/Italian-Luca-Chiesa-and-Swedish-Emma-Belforth-are-the-champions-of-the-Epic-Gran-Canaria"
+      },
+      {
+        "year": 2024,
+        "date": "2024-02-10",
+        "end_date": "2024-02-11",
+        "edition": 7,
+        "source": "https://www.granfondoguide.com/Contents/PopUp/7788/luca-chiesa-and-manuela-muresan-gran-fondo-world-champions-of-the-most-international-epic-gran-canaria-presented-by-riu-hotels"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Pre-season volcanic punchbowl opener that kicks off GFWT with island flair.",
       "who_should_ride": "Ambitious amateurs seeking early-year challenge with 2500-rider energy. Climbers eyeing time trials on Ayagaurers and Salto del Perro.",
@@ -194,6 +217,35 @@
         "label": "Epic Gran Canaria — 2027 date",
         "accessed": "2026-11-06"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2026": {
+          "race": "2 stages, 115 km + 75 km",
+          "winner_female": "Michela Santini",
+          "winner_male": "Mikel Demiri",
+          "winning_time_female": "2:35:44",
+          "winning_time_male": "2:12:45",
+          "source": "https://www.granfondoguide.com/Contents/IndexFull/8989/mikel-demiri-and-michela-santini-champions-of-epic-gran-canaria-2026"
+        },
+        "2025": {
+          "race": "2 stages, 115 km + 75 km",
+          "winner_female": "Emma Belforth",
+          "winner_male": "Luca Chiesa",
+          "winning_time_female": "3:12:32",
+          "winning_time_male": "2:47:34",
+          "source": "https://en.maspalomas24h.com/Article/7804/Italian-Luca-Chiesa-and-Swedish-Emma-Belforth-are-the-champions-of-the-Epic-Gran-Canaria"
+        },
+        "2024": {
+          "race": "2 stages, 115 km + 75 km",
+          "winner_female": "Manuela Muresan",
+          "winner_male": "Luca Chiesa",
+          "winning_time_female": "3:23:00",
+          "winning_time_male": "2:45:01",
+          "source": "https://www.granfondoguide.com/Contents/PopUp/7788/luca-chiesa-and-manuela-muresan-gran-fondo-world-champions-of-the-most-international-epic-gran-canaria-presented-by-riu-hotels"
+        }
+      },
+      "latest_year": "2026"
+    }
   }
 }

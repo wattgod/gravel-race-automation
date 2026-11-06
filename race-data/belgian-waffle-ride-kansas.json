@@ -614,6 +614,43 @@
     "taking_a_break": {
       "label": "TAKING A BREAK",
       "line": "No Kansas edition is on the current BWR calendar. The fitness this course demands transfers to any BWR start line."
+    },
+    "editions": [
+      {
+        "year": 2023,
+        "date": "2023-10-14",
+        "source": "https://www.belgianwaffleride.bike/blogs/news/results"
+      },
+      {
+        "year": 2022,
+        "date": "2022-10-16",
+        "source": "https://www.gravel-results.com/race/17918"
+      }
+    ],
+    "results": {
+      "years": {
+        "2023": {
+          "race": "123 mi",
+          "winner_female": "Cecily Decker",
+          "winner_male": "Torbjørn Røed",
+          "winning_time_female": "7:08:36",
+          "winning_time_male": "6:09:14",
+          "source": "https://www.cyclingnews.com/news/belgian-waffle-ride-cecily-decker-and-torbjorn-roed-win-in-kansas/"
+        },
+        "2022": {
+          "race": "111 mi",
+          "winner_female": "Rebecca Fahringer",
+          "winner_male": "Adam Roberge",
+          "winning_time_male": "6:14:56",
+          "source": "https://www.cyclingnews.com/races/belgian-waffle-ride-series-2024/race-history/"
+        },
+        "2021": {
+          "winner_female": "Tiffany Cromwell",
+          "winner_male": "Tanner Ward",
+          "source": "https://www.cyclingnews.com/races/belgian-waffle-ride-series-2024/race-history/"
+        }
+      },
+      "latest_year": "2023"
     }
   }
 }

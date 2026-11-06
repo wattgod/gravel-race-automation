@@ -178,6 +178,30 @@
       ],
       "reputation": "The world's hardest gravel race—where ultra-endurance meets extreme conditions."
     },
+    "editions": [
+      {
+        "year": 2025,
+        "date": "2025-08-31",
+        "note": "Start and finish in Granada; 816 km route with over 200 km of new terrain.",
+        "source": "https://bikepacking.com/tracker/badlands-2025/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-09-01",
+        "source": "https://badlands.cc/wp-content/uploads/2024/09/Badlands2024Results.pdf"
+      },
+      {
+        "year": 2023,
+        "date": "2023-09-03",
+        "source": "https://badlands.cc/wp-content/uploads/2023/09/Results-Badlands-2023.pdf"
+      },
+      {
+        "year": 2022,
+        "date": "2022-09-04",
+        "note": "Finished in Capileira.",
+        "source": "https://www.tour-magazin.de/en/event/everyman-race/unsupported-bikepacking-race-badlands-2022-winner-it-was-a-real-ordeal-in-the-end/"
+      }
+    ],
     "course_description": {
       "character": "An 800km expedition through Andalusia's extremes. Desert badlands that look like Mars, Europe's only true desert (Tabernas), and the 3,396m Pico Veleta climb. Self-supported means you carry what you need between remote villages. The combination of distance, elevation, heat, and self-reliance is unmatched in gravel racing.",
       "suffering_zones": [
@@ -338,10 +362,36 @@
         "2024": {
           "key_takeaways": [
             "2024: Cara Dixon - First female finisher, described it as \"the hardest ride of my life\""
-          ]
+          ],
+          "winner_female": "Cara Dixon",
+          "winner_male": "Alejandro Martínez",
+          "winning_time_female": "49:24",
+          "winning_time_male": "42:18",
+          "source": "https://polvu.cc/en/ganadores-badlands-2024/"
+        },
+        "2025": {
+          "race": "816 km",
+          "winner_female": "Svenja Betz",
+          "winner_male": "Rick Steffen",
+          "winning_time_female": "51:54",
+          "winning_time_male": "38:15",
+          "source": "https://bikepacking.com/tracker/badlands-2025/"
+        },
+        "2023": {
+          "race": "780 km",
+          "winner_female": "Cynthia Frazier",
+          "winner_male": "Rob Britton",
+          "winning_time_female": "45:34",
+          "winning_time_male": "38:20",
+          "source": "https://bikepacking.com/news/rob-britton-cynthia-fraser-2023-badlands-winners/"
+        },
+        "2022": {
+          "winner_male": "Sebastian Breuer",
+          "winning_time_male": "43:36",
+          "source": "https://www.tour-magazin.de/en/event/everyman-race/unsupported-bikepacking-race-badlands-2022-winner-it-was-a-real-ordeal-in-the-end/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2025"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

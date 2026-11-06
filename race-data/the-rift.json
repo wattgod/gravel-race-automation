@@ -192,6 +192,14 @@
         "Glacier-fed river crossings require dismount decisions"
       ]
     },
+    "editions": [
+      {
+        "year": 2026,
+        "date": "2026-07-17",
+        "end_date": "2026-07-18",
+        "source": "https://timataka.net/therift2026/"
+      }
+    ],
     "course_description": {
       "character": "Otherworldly. Black volcanic sand, lava fields, glacier views. It looks like Mars with better air.",
       "suffering_zones": [
@@ -360,10 +368,28 @@
       "years": {
         "2024": {
           "conditions": "For example, one comment warned that “the 200 [km] is brutal and it doesn’t let off”",
-          "key_takeaways": []
+          "key_takeaways": [],
+          "race": "elite",
+          "winner_female": "Cecily Decker",
+          "winner_male": "Simen Nordahl Svendsen",
+          "source": "https://www.cyclingnews.com/races/gravel-earth-global-events-2024/the-rift-gravel/results"
+        },
+        "2026": {
+          "race": "200 km elite",
+          "winner_female": "Haley Smith",
+          "winner_male": "Anton Stensby",
+          "winning_time_female": "7:25:50",
+          "winning_time_male": "6:16:51",
+          "source": "https://granfondodailynews.com/2026/07/19/stensby-smith-conquer-icelands-punishing-black-lava-fields-at-the-rift/"
+        },
+        "2025": {
+          "race": "elite",
+          "winner_female": "Rosa Klöser",
+          "winner_male": "Magnus Bak Klaris",
+          "source": "https://www.cyclingnews.com/races/gravel-earth-series-2025/the-rift-10-event-elite-men-women/results/"
         }
       },
-      "latest_year": "2024"
+      "latest_year": "2026"
     },
     "tire_recommendations": {
       "generated_at": "2026-02-19",

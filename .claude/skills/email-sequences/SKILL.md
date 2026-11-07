@@ -33,8 +33,9 @@ practical suggestion before asking for more.
 ## Hard constraints (non-negotiable)
 
 - **Product facts only** (when facts appear at all — mostly in replies):
-  course profile + FTP + real hours; 48h; ZWO + PDF; $15/wk one payment cap
-  $249; human rebuilds on reply; small coaching roster. Verify race numbers
+  course profile + FTP + real hours; 48h; ZWO + PDF; $15 for every week
+  until the race, one payment, 4-week minimum, no cap (`wordpress/pricing.py`);
+  human rebuilds on reply; small coaching roster. Verify race numbers
   against `race-data/<slug>.json`.
 - **Never:** fabricated anything, countdown timers, fake scarcity, defensive
   copy, identity-transformation promises, hype adjectives, banner/all-caps

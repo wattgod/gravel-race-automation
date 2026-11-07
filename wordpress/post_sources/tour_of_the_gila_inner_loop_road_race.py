@@ -32,12 +32,12 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "the-pileup": "Strava screenshot of Matti Rowe's ride \"Day 2: The Pile Up\", April 27, 2023, Gila National Forest, New Mexico: 85.85 mi, 3:43:18 moving time, 5,630 ft of climbing, 264 W weighted average power, 23.1 mi/h average and 54.6 mi/h max, with a 9th overall on one segment and three PRs. A cartoon Gravel God in a cowboy hat rides a bike in front.",
-    "silver-city": "A small pink stucco house with a white screen door, a string of red chiles by the door and prickly-pear cactuses by the steps; a cartoon Gravel God in a cowboy hat and shorts stands in the doorway.",
-    "woom-brooms": "Two riders pose with a bike on a sunny street: one in red Rio Grande kit, his head a grinning cartoon Gravel God in a cowboy hat, the other in a green jersey, helmet and sunglasses.",
+    "the-pileup": "Strava screenshot of Matti Rowe's ride \"Day 2: The Pile Up\", April 27, 2023, Gila National Forest, New Mexico: 85.85 mi, 3:43:18 moving time, 5,630 ft of climbing, 264 W weighted average power, 23.1 mi/h, with cartoon Gravel God's head as the profile picture and cartoon Gravel God riding his bike at the right.",
+    "silver-city": "A small pink stucco house with a white screen door, a string of red chiles by the door and prickly-pear cactuses by the steps; cartoon Gravel God, hands on hips, stands on the front step.",
+    "woom-brooms": "Two riders pose with a bike on a sunny street: one in red Rio Grande kit, his head a grinning cartoon Gravel God, the other in a green jersey, helmet and sunglasses.",
     "ethan-ow-ow-ow-scaled": "A shirtless rider with a mullet and sunglasses, seen from behind, his shoulder and upper back scraped raw with road rash.",
     "taj2-scaled": "A shirtless rider grins and flashes peace signs at the camera in front of a team tent and race bikes, a teammate in a red Rio Grande T-shirt standing behind him.",
-    "diesel-daddy": "A rider in red Rio Grande kit leans forward with his hands on his knees, his head a cartoon Gravel God in a cowboy hat, while a teammate sits on a low wall behind him with his head down.",
+    "diesel-daddy": "A rider in red Rio Grande kit leans forward with his hands on his knees, his head a cartoon Gravel God with a focused stare, while a teammate sits on a low wall behind him with his head down.",
 }
 
 DESCRIPTION = ("Tour of the Gila Inner Loop road race: an 80-man pile-up, a teammate's broken wrist, "

@@ -36,13 +36,13 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "the-switch": "Two white wall light switches, the left one off and the right one on, with a cartoon Gravel God in a cowboy hat shrugging between them.",
-    "the-switch-1": "Cartoon Gravel God in a cowboy hat grins beside an old beige punch-clock time recorder: \"Punch in.\"",
-    "the-switch-2": "Friends dance with sparklers at a night party under string lights; cartoon Gravel God, at the edge, asks: \"You know you have to train tomorrow, right?\"",
-    "ritual": "A candlelit wooden table with a skull, runes and a pentagram; cartoon Gravel God, seen from behind, says: \"Whoops wrong visual.\"",
-    "the-switch-3": "A bearded man in pajama pants and a yellow T-shirt lounges on a grey sofa with a laptop and a mug of beer, saying \"Back in 2010 I rode 5 hours a day.\" Cartoon Gravel God watches from the left.",
-    "the-switch-4": "A snowy waterfall under a night sky streaked with aurora, with the words \"The trouble is, you think you have time.\" in glowing red; a tiny cartoon Gravel God stands at the cliff edge.",
-    "the-switch-5": "Cartoon Gravel God in a cowboy hat rides a bike down a quiet paved country road at sunrise, under a sweep of high cloud.",
+    "the-switch": "Two white light switches on a wall, one off and one on; cartoon Gravel God stands between them with a shrug.",
+    "the-switch-1": "Cartoon Gravel God grins beside an old time clock showing twelve o'clock and says: \"Punch in.\"",
+    "the-switch-2": "Friends dance with sparklers under string lights at a night party; cartoon Gravel God stands at the edge and asks: \"You know you have to train tomorrow, right?\"",
+    "ritual": "A dark wooden table set with red candles, a skull and a carved pentagram, seen from behind cartoon Gravel God's head. A bubble says: \"Whoops wrong visual.\"",
+    "the-switch-3": "A man in a yellow T-shirt lounges on a grey sofa with a laptop and a beer and says: \"Back in 2010 I rode 5 hours a day.\" Cartoon Gravel God stands at the left, listening.",
+    "the-switch-4": "Black-and-white night photo of a wide waterfall under the northern lights, with tiny cartoon Gravel God on the snowy edge. Glowing red text: \"THE TROUBLE IS, YOU THINK YOU HAVE TIME.\"",
+    "the-switch-5": "Sunrise over farm fields with long rays across a paved country road; cartoon Gravel God rides toward the camera on the right.",
 }
 
 # Figures this module adds (excluded from the word-for-word text diff).

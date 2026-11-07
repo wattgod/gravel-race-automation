@@ -1,0 +1,292 @@
+{
+ "collection": "posts",
+ "slug": "your-eating-habits-are-killing-your-performance",
+ "images": [
+  {
+   "file": "img/im-stuffed.webp",
+   "name": "im-stuffed",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "I'm Stuffed.",
+   "figs": [
+    {
+     "box": [
+      20,
+      240,
+      300,
+      600
+     ],
+     "erase_box": [
+      0,
+      220,
+      318,
+      600
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "fit": "contain",
+     "face": "smile",
+     "psi": 67.5
+    }
+   ],
+   "alt": "Empty white plates and bowls on a white table, a fork and spoon on a wooden board; cartoon Gravel God, handlebar mustache, peeks up from the bottom corner and says: \"I'm Stuffed.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/screen-shot-2021-02-18-at-1-44-15-pm.webp",
+   "name": "screen-shot-2021-02-18-at-1-44-15-pm",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/screen-shot-2021-02-18-at-1-44-36-pm.webp",
+   "name": "screen-shot-2021-02-18-at-1-44-36-pm",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/uhh-i-only-have-one-water-bottle-left.webp",
+   "name": "uhh-i-only-have-one-water-bottle-left",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "I'm no arborist, but you look like you could use some water.",
+   "figs": [
+    {
+     "box": [
+      10,
+      225,
+      200,
+      600
+     ],
+     "erase_box": [
+      12,
+      212,
+      186,
+      600
+     ],
+     "pose": "lean_on_bike",
+     "face": "thinking",
+     "psi": 112.5
+    }
+   ],
+   "alt": "Cartoon Gravel God leans on his bike in a cracked desert beside a dead, dried-out tree and says: \"I'm no arborist, but you look like you could use some water.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/because.webp",
+   "name": "because",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "joke": "Because... Cycling at the highest levels IS NOT HEALTHY. And the effect of weight on cycling performance IS REAL.",
+   "figs": [
+    {
+     "box": [
+      40,
+      30,
+      270,
+      600
+     ],
+     "erase_box": [
+      5,
+      0,
+      310,
+      600
+     ],
+     "ride": "seated_climb",
+     "face": "focused",
+     "psi": 100,
+     "fit": "contain"
+    }
+   ],
+   "alt": "Cartoon Gravel God, handlebar mustache and white tee, rides toward the viewer beside bold text: \"Because... Cycling at the highest levels IS NOT HEALTHY. And the effect of weight on cycling performance IS REAL.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/not-a-pro.webp",
+   "name": "not-a-pro",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/mr-waffles.webp",
+   "name": "mr-waffles",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/in-3-weeks.webp",
+   "name": "in-3-weeks",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "joke": "DIAGNOSIS: In 3 weeks",
+   "figs": [
+    {
+     "box": [
+      210,
+      170,
+      400,
+      600
+     ],
+     "erase_box": [
+      160,
+      115,
+      510,
+      600
+     ],
+     "pose": "arms_crossed",
+     "face": "smile",
+     "psi": 80
+    }
+   ],
+   "alt": "Cartoon Gravel God, arms crossed, beside a stethoscope under the word \"DIAGNOSIS:\". A notepad reads: \"In 3 weeks: His FTP went up 10%, basically because he started eating to fuel performance instead of weighing a certain amount. If he tried to get to the same w/kg by dieting, he would have had to lose almost Nine pounds assuming he could have held the same power in his previous test.\"",
+   "match": "closest",
+   "note": "The stethoscope earpieces hung around the old cartoon's neck; they go with him. The tube and chest piece on the right stay.",
+   "insets": [
+    {
+     "src": [
+      0,
+      115,
+      155,
+      600
+     ],
+     "box": [
+      158,
+      115,
+      313,
+      600
+     ]
+    },
+    {
+     "src": [
+      0,
+      115,
+      155,
+      600
+     ],
+     "box": [
+      310,
+      115,
+      465,
+      600
+     ]
+    },
+    {
+     "src": [
+      0,
+      115,
+      60,
+      600
+     ],
+     "box": [
+      460,
+      115,
+      520,
+      600
+     ]
+    }
+   ]
+  },
+  {
+   "file": "img/car-spinning-wheels-pizza-1.webp",
+   "name": "car-spinning-wheels-pizza-1",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/hey-there.webp",
+   "name": "hey-there",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "Heeey!!! What are you doing later?",
+   "figs": [
+    {
+     "box": [
+      330,
+      90,
+      780,
+      580
+     ],
+     "erase_box": [
+      340,
+      95,
+      775,
+      575
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "fit": "contain",
+     "face": "wink",
+     "psi": 90
+    }
+   ],
+   "alt": "Glazed doughnuts lined up on a snowy car windshield under the wiper; cartoon Gravel God, handlebar mustache, leans in from above with a wink: \"Heeey!!! What are you doing later?\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/experiment.webp",
+   "name": "experiment",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "Removing your stomach? There's a new one.",
+   "figs": [
+    {
+     "box": [
+      905,
+      300,
+      1190,
+      600
+     ],
+     "erase_box": [
+      852,
+      238,
+      1200,
+      600
+     ],
+     "pose": "arms_crossed",
+     "crop": "bust",
+     "face": "smile",
+     "psi": 67.5
+    }
+   ],
+   "alt": "Two surgeons in blue scrubs operate under a surgical lamp; cartoon Gravel God, arms crossed, says: \"Removing your stomach? There's a new one.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/if-youre-into-fitness.webp",
+   "name": "if-youre-into-fitness",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "joke": "If you're into Fitness, You should be fittin' Dis ... In your mouth.",
+   "figs": [
+    {
+     "box": [
+      10,
+      60,
+      380,
+      595
+     ],
+     "erase_box": [
+      0,
+      55,
+      385,
+      600
+     ],
+     "ride": "manual",
+     "face": "grin",
+     "psi": 20,
+     "fit": "contain"
+    }
+   ],
+   "alt": "Cartoon Gravel God pops a wheelie on his bike beside the text \"If you're into Fitness, You should be fittin' Dis\", with arrows pointing at fruit, a bowl of rice and a sweet potato, and \"In your mouth.\"",
+   "match": "closest",
+   "note": "The original was an animated GIF with flashing arrows; the redraw is a still."
+  }
+ ]
+}

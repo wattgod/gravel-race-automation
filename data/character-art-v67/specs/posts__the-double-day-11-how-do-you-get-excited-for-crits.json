@@ -1,0 +1,10 @@
+{"collection": "posts", "slug": "the-double-day-11-how-do-you-get-excited-for-crits", "images": [
+ {"file": "img/boolin-1.webp", "name": "boolin-1", "verdict": "replace", "mode": "composite", "erase": "#ffffff",
+  "figs": [{"box": [22, 78, 145, 192], "mask": "box", "erase_box": [12, 68, 152, 200], "pose": "stand", "face": "smile", "psi": 90, "crop": "head", "fit": "contain", "anchor": "center"}],
+  "alt": "Strava screenshot of Matti Rowe's ride \"Dag 11: Det er på tid for Boolin'\", April 30, 2022, Silver City, New Mexico, with cartoon Gravel God's head as the profile picture: 49.43 mi, 1:58:38 moving time, 1,263 ft of climbing, 239 W weighted average power and a red criterium loop on the map.",
+  "match": "exact", "note": "Only the profile picture (old cartoon avatar) changes."},
+ {"file": "img/silver-city-boolin.webp", "name": "silver-city-boolin", "verdict": "replace", "mode": "composite", "erase": "clone",
+  "figs": [{"box": [965, 360, 1145, 795], "erase_box": [945, 345, 1150, 800], "pose": "drink", "face": "smile", "psi": 67.5}],
+  "alt": "TrainingPeaks file \"Gila St4 - Crit\", April 30, 2022: 1:58:43, 49.4 mi, 105 TSS; the selected 1:34:10 race portion shows 43.8 mi, 91 TSS, normalized power 275 W, IF 0.77 and 3.07 W/kg, with cartoon Gravel God standing over the power chart sipping a drink.",
+  "match": "closest", "note": "Original hand-to-mouth gesture is a drink pose."}
+]}

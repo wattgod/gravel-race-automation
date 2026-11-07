@@ -1,0 +1,96 @@
+{
+ "collection": "articles",
+ "slug": "keep-trusting-tss-blindly",
+ "images": [
+  {
+   "file": "img/080d85a9d12622ce.webp",
+   "verdict": "keep",
+   "why": "Article header screenshot with a real author photo."
+  },
+  {
+   "file": "img/346fb161dab51e46.webp",
+   "verdict": "keep",
+   "why": "Exit-ramp meme; no Gravel God."
+  },
+  {
+   "file": "img/af804a68fd8a7e47.webp",
+   "verdict": "keep",
+   "why": "Film still meme of a real actor; no Gravel God."
+  },
+  {
+   "file": "img/b8b035891e514a3c.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "flat",
+    "color": "#569395"
+   },
+   "insets": [
+    {
+     "src": [
+      880,
+      0,
+      1536,
+      1024
+     ],
+     "box": [
+      880,
+      0,
+      1536,
+      1024
+     ]
+    },
+    {
+     "src": [
+      0,
+      0,
+      262,
+      56
+     ],
+     "box": [
+      0,
+      0,
+      262,
+      56
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      300,
+      780,
+      1300,
+      1150
+     ],
+     "fill": "#d5a37d"
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      60,
+      120,
+      720,
+      1024
+     ],
+     "pose": "stand",
+     "face": "shout",
+     "psi": 112.5,
+     "crop": "bust",
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "2025 TSS IS DEAD?",
+   "match": "closest",
+   "note": "He stands behind the desk shouting at the monitor instead of lunging at the keyboard; the desk is redrawn flat."
+  },
+  {
+   "file": "img/d0f847b09c383ac6.webp",
+   "verdict": "keep",
+   "why": "Film still meme of a real actor; no Gravel God."
+  }
+ ]
+}

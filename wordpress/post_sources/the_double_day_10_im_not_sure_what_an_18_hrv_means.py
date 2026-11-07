@@ -34,10 +34,10 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "dode-hasene-1": "Strava activity \"Dag 9: Døde Hasene\", Friday, April 29, 2022, Grant County, New Mexico: 31.05 mi, 1:23:59 moving time, 1,726 ft, 270 W weighted average power, 22.2 mi/h average, with the route map south of Silver City and the elevation profile.",
-    "sheeeeeesh": "TrainingPeaks file \"Gila St3 - TT\", April 29, 2022: 1:25:10, 31.1 mi, 85 TSS, normalized power 279 W, IF 0.78, 3.14 W/kg and a \"Tyrone TT\" lap of 37:55.34, with power and heart-rate traces; cartoon Gravel God on a bike says \"Sheeeeeesh!\"",
+    "dode-hasene-1": "Strava activity \"Dag 9: Døde Hasene\", Friday, April 29, 2022, Grant County, New Mexico: 31.05 mi, 1:23:59 moving time, 1,726 ft, 270 W weighted average power, 22.2 mi/h average, with cartoon Gravel God's head as the profile picture and the route map south of Silver City.",
+    "sheeeeeesh": "TrainingPeaks file \"Gila St3 - TT\", April 29, 2022: 1:25:10, 31.1 mi, 85 TSS, normalized power 279 W, IF 0.78 and 3.14 W/kg, with power and heart-rate traces; cartoon Gravel God pops a wheelie over the chart, shouting \"Sheeeeeesh!\"",
     "img-9850": "A shirtless toddler in a camouflage cap, green shorts and pink clogs stands on a front walk with his hands raised, a flowering white shrub and a chain-link fence behind him.",
-    "soap-box": "Animated: cartoon Gravel God in a cowboy hat stands on a pink bar of soap ringed with bubbles, jabbing a finger as he speaks.",
+    "soap-box": "Cartoon Gravel God stands on a pink bar of soap ringed with bubbles, pointing as he speaks.",
 }
 
 DESCRIPTION = ("Day 10 of The Double: the Tour of the Gila's Tyrone time trial, a 36th place, "

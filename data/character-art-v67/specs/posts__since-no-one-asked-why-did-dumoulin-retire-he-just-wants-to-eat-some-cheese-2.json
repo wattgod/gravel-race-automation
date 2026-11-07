@@ -1,0 +1,175 @@
+{
+ "collection": "posts",
+ "slug": "since-no-one-asked-why-did-dumoulin-retire-he-just-wants-to-eat-some-cheese-2",
+ "images": [
+  {
+   "file": "img/phenotypes.webp",
+   "name": "phenotypes",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1085,
+      225,
+      1170,
+      340
+     ],
+     "erase_box": [
+      1070,
+      215,
+      1178,
+      342
+     ],
+     "ride": "cruise",
+     "face": "grin",
+     "psi": 20
+    }
+   ],
+   "alt": "Chalkboard of four power phenotypes (sprinter, pursuiter, allrounder, time trialist); a tiny cartoon Gravel God rides by the time trialist curve saying \"Guilty as charged!\"",
+   "joke": "Guilty as charged!",
+   "match": "exact"
+  },
+  {
+   "file": "img/holy-ftp.webp",
+   "name": "holy-ftp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      740,
+      370,
+      960,
+      600
+     ],
+     "erase_box": [
+      710,
+      360,
+      995,
+      600
+     ],
+     "pose": "stand",
+     "face": "focused",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "A black book titled \"the Holy FTP\" beside cartoon Gravel God's head and a speech bubble: \"Bend the knee.\"",
+   "joke": "Bend the knee.",
+   "match": "exact"
+  },
+  {
+   "file": "img/ftp-invitational-3.webp",
+   "name": "ftp-invitational-3",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      70,
+      330,
+      255,
+      600
+     ],
+     "erase_box": [
+      55,
+      320,
+      262,
+      600
+     ],
+     "pose": "arms_crossed",
+     "face": "grin",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "In a loud bar, a faceless rider in a green helmet and cartoon Gravel God trade speech bubbles: \"My FTP is 450*, what's yours? Also, what is your genital size?\" / Sick! That's super high. Yeah, last time I checked, mine was 570. Also, what? It's so loud in here!",
+   "joke": "\"My FTP is 450*, what's yours? Also, what is your genital size?\" / Sick! That's super high. Yeah, last time I checked, mine was 570. Also, what? It's so loud in here!",
+   "match": "exact"
+  },
+  {
+   "file": "img/ftp-invitational-4.webp",
+   "name": "ftp-invitational-4",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      70,
+      330,
+      255,
+      600
+     ],
+     "erase_box": [
+      55,
+      320,
+      262,
+      600
+     ],
+     "pose": "arms_crossed",
+     "face": "grin",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "In a loud bar, a faceless rider in a green helmet and cartoon Gravel God trade speech bubbles: What's your FTP? Mine is 450 - I saw it on my Garmin once. / Sick! What's your FRC tho? Mine is 55 kjs. FTP isn't everything, bro!",
+   "joke": "What's your FTP? Mine is 450 - I saw it on my Garmin once. / Sick! What's your FRC tho? Mine is 55 kjs. FTP isn't everything, bro!",
+   "match": "exact"
+  },
+  {
+   "file": "img/ftp-invitational-2.webp",
+   "name": "ftp-invitational-2",
+   "verdict": "keep",
+   "why": "Text burst graphic, no character."
+  },
+  {
+   "file": "img/ftp-invitational-1.webp",
+   "name": "ftp-invitational-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      570,
+      465,
+      715,
+      600
+     ],
+     "erase_box": [
+      550,
+      455,
+      730,
+      600
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 90,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "\"FTP Invitational\" poker tables labelled by category, with cartoon Gravel God's head and a bubble: \"Your FTP determines what poker table you're playing at. Your FRC determines how you play at the table.\"",
+   "joke": "Your FTP determines what poker table you're playing at. Your FRC determines how you play at the table.",
+   "match": "exact"
+  },
+  {
+   "file": "img/ftp-invitational-5.webp",
+   "name": "ftp-invitational-5",
+   "verdict": "keep",
+   "why": "Graphic of FTP on a wooden podium, no character."
+  }
+ ]
+}

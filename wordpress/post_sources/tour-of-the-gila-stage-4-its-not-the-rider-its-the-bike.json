@@ -119,49 +119,49 @@
  "renditions": {
   "mechanical": {
    "1x": {
-    "file": "mechanical.webp",
+    "file": "mechanical-v67.webp",
     "width": 1600,
     "height": 1077,
-    "bytes": 200976
+    "bytes": 188586
    },
    "phone": {
-    "file": "mechanical-m.webp",
+    "file": "mechanical-v67-m.webp",
     "width": 660,
     "height": 444,
-    "bytes": 51392
+    "bytes": 50646
    },
    "phone2x": {
-    "file": "mechanical-m@2x.webp",
+    "file": "mechanical-v67-m@2x.webp",
     "width": 1320,
-    "height": 888,
-    "bytes": 147204
+    "height": 889,
+    "bytes": 139490
    },
    "source_bytes": 3450711,
    "og": {
-    "file": "mechanical-og.jpg",
+    "file": "mechanical-v67-og.jpg",
     "width": 1200,
     "height": 630,
-    "bytes": 171103
+    "bytes": 165052
    }
   },
   "capilla": {
    "1x": {
-    "file": "capilla.webp",
+    "file": "capilla-v67.webp",
     "width": 1536,
     "height": 2048,
-    "bytes": 612734
+    "bytes": 560986
    },
    "phone": {
-    "file": "capilla-m.webp",
+    "file": "capilla-v67-m.webp",
     "width": 660,
     "height": 880,
-    "bytes": 133576
+    "bytes": 126038
    },
    "phone2x": {
-    "file": "capilla-m@2x.webp",
+    "file": "capilla-v67-m@2x.webp",
     "width": 1320,
     "height": 1760,
-    "bytes": 464340
+    "bytes": 427340
    },
    "source_bytes": 6236576
   },
@@ -230,22 +230,22 @@
   },
   "cooper-cheesin": {
    "1x": {
-    "file": "cooper-cheesin.webp",
+    "file": "cooper-cheesin-v67.webp",
     "width": 1600,
     "height": 1200,
-    "bytes": 565356
+    "bytes": 554522
    },
    "phone": {
-    "file": "cooper-cheesin-m.webp",
+    "file": "cooper-cheesin-v67-m.webp",
     "width": 660,
     "height": 495,
-    "bytes": 114340
+    "bytes": 113716
    },
    "phone2x": {
-    "file": "cooper-cheesin-m@2x.webp",
+    "file": "cooper-cheesin-v67-m@2x.webp",
     "width": 1320,
     "height": 990,
-    "bytes": 408672
+    "bytes": 397256
    },
    "source_bytes": 7428495
   }

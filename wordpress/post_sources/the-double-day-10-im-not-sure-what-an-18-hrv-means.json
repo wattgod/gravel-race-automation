@@ -77,7 +77,7 @@
   {
    "name": "soap-box",
    "url": "https://gravelgodcycling.com/wp-content/uploads/2022/04/soap-box.gif",
-   "kind": "gif",
+   "kind": "still",
    "width": 1440,
    "height": 810,
    "caption_html": "",
@@ -95,49 +95,49 @@
  "renditions": {
   "dode-hasene-1": {
    "1x": {
-    "file": "dode-hasene-1.webp",
+    "file": "dode-hasene-1-v67.webp",
     "width": 1600,
     "height": 900,
-    "bytes": 55084
+    "bytes": 53578
    },
    "phone": {
-    "file": "dode-hasene-1-m.webp",
+    "file": "dode-hasene-1-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 15454
+    "bytes": 15574
    },
    "phone2x": {
-    "file": "dode-hasene-1-m@2x.webp",
+    "file": "dode-hasene-1-v67-m@2x.webp",
     "width": 1320,
     "height": 742,
-    "bytes": 43284
+    "bytes": 41618
    },
    "source_bytes": 851700,
    "og": {
-    "file": "dode-hasene-1-og.jpg",
+    "file": "dode-hasene-1-v67-og.jpg",
     "width": 1200,
     "height": 630,
-    "bytes": 73154
+    "bytes": 71070
    }
   },
   "sheeeeeesh": {
    "1x": {
-    "file": "sheeeeeesh.webp",
+    "file": "sheeeeeesh-v67.webp",
     "width": 1600,
     "height": 859,
-    "bytes": 110796
+    "bytes": 93204
    },
    "phone": {
-    "file": "sheeeeeesh-m.webp",
+    "file": "sheeeeeesh-v67-m.webp",
     "width": 660,
     "height": 354,
-    "bytes": 30368
+    "bytes": 27398
    },
    "phone2x": {
-    "file": "sheeeeeesh-m@2x.webp",
+    "file": "sheeeeeesh-v67-m@2x.webp",
     "width": 1320,
-    "height": 708,
-    "bytes": 85074
+    "height": 709,
+    "bytes": 72514
    },
    "source_bytes": 796864
   },
@@ -158,30 +158,22 @@
   },
   "soap-box": {
    "1x": {
-    "file": "soap-box.webp",
+    "file": "soap-box-v67.webp",
     "width": 1440,
     "height": 810,
-    "bytes": 13770
+    "bytes": 9798
    },
    "phone": {
-    "file": "soap-box-m.webp",
+    "file": "soap-box-v67-m.webp",
     "width": 660,
     "height": 371,
-    "bytes": 5054
+    "bytes": 3496
    },
    "phone2x": {
-    "file": "soap-box-m@2x.webp",
+    "file": "soap-box-v67-m@2x.webp",
     "width": 1320,
     "height": 742,
-    "bytes": 12058
-   },
-   "mp4": {
-    "file": "soap-box.mp4",
-    "bytes": 63681
-   },
-   "webm": {
-    "file": "soap-box.webm",
-    "bytes": 20034
+    "bytes": 8842
    },
    "source_bytes": 686495
   }

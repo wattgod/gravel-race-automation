@@ -1,0 +1,72 @@
+{
+ "collection": "posts",
+ "slug": "the-double-day-9-gruppetto-gods",
+ "images": [
+  {
+   "file": "img/soppel.webp",
+   "name": "soppel",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      22,
+      88,
+      102,
+      188
+     ],
+     "erase_box": [
+      14,
+      80,
+      110,
+      192
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "fit": "contain",
+     "face": "smile",
+     "psi": 80
+    }
+   ],
+   "alt": "Strava activity \"Dag 8: Søppelbøtterild\", Thursday, April 28, 2022, Silver City, New Mexico: 87.09 mi, 3:57:54 moving time, 4,705 ft, 272 W weighted average power, 22.0 mi/h average, with the loop map north-east of Silver City and the elevation profile.",
+   "match": "exact",
+   "note": "Only the Strava profile picture was the old cartoon; it is the rig head now."
+  },
+  {
+   "file": "img/baesj.webp",
+   "name": "baesj",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      665,
+      250,
+      738,
+      405
+     ],
+     "erase_box": [
+      652,
+      228,
+      748,
+      418
+     ],
+     "ride": "cruise",
+     "psi": 100
+    }
+   ],
+   "alt": "TrainingPeaks file \"Gila St2\", April 28, 2022: 3:58:00, 87.1 mi, 249 TSS, normalized power 285 W, IF 0.79, 3.23 W/kg, with power and heart-rate traces; poop emojis dot the route map and cartoon Gravel God rides along it.",
+   "match": "exact"
+  },
+  {
+   "file": "img/9fda84aa-791b-4517-b663-a680c30692ce-scaled.webp",
+   "name": "9fda84aa-791b-4517-b663-a680c30692ce-scaled",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  }
+ ]
+}

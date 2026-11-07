@@ -322,7 +322,7 @@ def build_chapter_breadcrumb(chapter: dict, config: GuideConfig = GRAVEL_GUIDE) 
 
 
 def build_chapter_hero(chapter: dict, config: GuideConfig = GRAVEL_GUIDE) -> str:
-    """Build the hero section for a chapter page (the painted scene on the gravel guide)."""
+    """Build the hero section for a chapter page (the character scene on the gravel guide)."""
     num = chapter["number"]
     title = esc(chapter["title"])
     subtitle = esc(chapter.get("subtitle", ""))

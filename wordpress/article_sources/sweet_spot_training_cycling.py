@@ -41,7 +41,6 @@ from editorial_shell import (  # noqa: E402
     HeroImage,
     OgImage,
     Picture,
-    PlayOnceVideo,
     SvgFigure,
     TableCell,
     TableColumn,
@@ -58,31 +57,23 @@ IMG_DIR = OUTPUT_PATH.parent / "img"
 
 # ── Gravel God scenes (prototype 2026-10-09; Matt approved) ──
 SCENE_TOMBSTONE = Picture.from_stem(
-    "img/scene-tombstone",
-    "Cartoon Gravel God stands with his head bowed beside his gravel bike at a weathered, cracked headstone "
-    "engraved \"SWEET SPOT, 2004 – 2026\", with wilted flowers on the grave and a low desert sun behind.",
+    "img/scene-tombstone-v67",
+    "Cartoon Gravel God, a mustachioed rider in a white tee and denim shorts, stands eyes lowered behind his "
+    "gravel bike beside a weathered, cracked headstone engraved \"SWEET SPOT, 2004 – 2026\", with wilted "
+    "flowers on the grave in the desert.",
     1600, 1000, phone=(1130, 635),
 )
 SCENE_TABLET = Picture.from_stem(
-    "img/scene-tablet",
-    "Cartoon Gravel God stands on a rocky outcrop in the desert, arms straight up like Moses, holding a stone "
-    "tablet engraved \"86–92%\" while rays of light fan out behind it.",
+    "img/scene-tablet-v67",
+    "Cartoon Gravel God stands on a rocky outcrop in the desert, one arm raised like Moses to a stone tablet "
+    "engraved \"86–92%\" while rays of light fan out behind it.",
     1600, 1000, phone=(660, 825),
 )
 SCENE_BLACK_HOLE = Picture.from_stem(
-    "img/scene-black-hole",
-    "Cartoon Gravel God, a mustachioed rider in a white tee and denim shorts, pedals a black gravel bike down a "
-    "desert road that lifts off the ground and spirals into a swirling black hole in the sky; he glances back "
-    "over his shoulder, eyebrows raised in alarm.",
+    "img/scene-black-hole-v67",
+    "Cartoon Gravel God, a mustachioed rider in a white tee and denim shorts, rides a gravel bike away from the "
+    "viewer down a desert road that lifts off the ground and spirals into a swirling black hole in the sky.",
     1600, 1000, phone=(900, 760),
-)
-BLACK_HOLE_CLIP = PlayOnceVideo(
-    sources=(("img/scene-black-hole.webm", "video/webm"), ("img/scene-black-hole.mp4", "video/mp4")),
-    poster="img/scene-black-hole-poster.webp",
-    width=1280,
-    height=800,
-    phone_aspect="900/760",
-    phone_position="100% 0",
 )
 
 ARTICLE_LD = {
@@ -140,7 +131,7 @@ META = ArticleMeta(
     description="Sweet Spot training is made up, makes you slower, and science hates it. The evidence for polarized training is clear. 88-94% FTP is a marketing trick.",
     og_title="Sweet Spot Training Isn't That Sweet | Gravel God",
     og_description="It's made up, it makes you slower, science hates it, the name is weird, and its marketing makes us all dumber.",
-    og_image=OgImage(url=f"{URL}img/og-tombstone.jpg", width=1200, height=630),
+    og_image=OgImage(url=f"{URL}img/og-tombstone-v67.jpg", width=1200, height=630),
     headline="Sweet Spot Isn’t That Sweet",
     kicker="Training · Science · Opinion",
     dek="It’s made up, it makes you slower, science hates it, the name is weird, and its marketing makes us all dumber",
@@ -291,7 +282,7 @@ CHART_JS = """<script>
 </script>"""
 
 
-# ── Coggan's diagram, redrawn (replaces the AI cartoon unitless-graph.png) ──
+# ── Coggan's diagram, redrawn ──
 # Curves traced by eye from the diagram Hunter Allen credits to Coggan
 # (hunterallenpowerblog.com, "Power Training Zones 101", 2015): x = % of FTP
 # (40-150), y = arbitrary units (0-100).
@@ -444,8 +435,7 @@ COGGAN_FIGURE = SvgFigure(
         "Redrawn from the diagram Hunter Allen credits to Andy Coggan "
         '(<a href="https://www.hunterallenpowerblog.com/2015/05/power-training-zones-101.html" target="_blank" '
         'rel="noopener">Power Training Zones 101, 2015</a>). Curves traced by eye; the y-axis really is '
-        "&ldquo;arbitrary units&rdquo;. "
-        '<a href="img/unitless-graph.png" target="_blank" rel="noopener">The illustration this replaces</a>.'
+        "&ldquo;arbitrary units&rdquo;."
     ),
     marker="coggan",
 )
@@ -509,31 +499,32 @@ STUDIES = DataTable(
 )
 
 # ── Gravel God memes (2026-10-09; Matt: "I absolutely love the gravel god meme
-# formats"). Rendered in the dirt-craft-course repo; see docs/memes/README.md.
+# formats"). Redrawn 2026-11-01 with the v6.7 character rig
+# (data/character-art-v67/specs/articles__sweet-spot-training-cycling.json).
 # WebP only: the <img> fallback is the 1x WebP, so no PNG ships. Alt text is
-# docs/memes ALT.txt verbatim. Landscape memes run the full column so their
+# written for the v6.7 redraws. Landscape memes run the full column so their
 # small labels stay legible on desktop; phones get the recomposed -m crop.
 def _meme(name: str, alt: str, width: int, height: int, *, phone: tuple[int, int]) -> Picture:
-    return Picture.from_stem(f"img/memes/{name}", alt, width, height, ext="webp", webp=False, phone=phone)
+    return Picture.from_stem(f"img/memes/{name}-v67", alt, width, height, ext="webp", webp=False, phone=phone)
 
 
-MEME_SCOOBY_UNMASK = _meme("scooby-unmask", "Two-panel cartoon. Gravel God grabs the top of a bedsheet ghost labelled 'Training hack' and says 'Let's see who you really are'. With the sheet pulled off, the ghost turns out to be a red megaphone on a stand labelled 'Marketing'.", 1600, 1000, phone=(660, 1240))
-MEME_CLOWN_FTP = _meme("clown-ftp", "Four rows. On the left, numbered steps: 1 \"Use my best test ever.\" 2 \"Tested on a 20-minute climb.\" 3 \"Take an optimistic 95%.\" 4 \"Set my Sweet Spot at 235 W.\" On the right, Gravel God, a mustachioed rider in a white tee, paints his own face a step at a time: dabs of white, a full white face, blue diamond eyes, a red nose and smile, and finally an orange curly clown wig.", 1200, 1600, phone=(660, 1100))
+MEME_SCOOBY_UNMASK = _meme("scooby-unmask", "Two-panel cartoon. Under the words 'Let's see who you really are', Gravel God, a mustachioed rider in a white tee, points at the top of a bedsheet ghost labelled 'Training hack'. In the second panel he points at the pulled-off sheet: under it is a red megaphone on a stand labelled 'Marketing'.", 1600, 1000, phone=(660, 1240))
+MEME_CLOWN_FTP = _meme("clown-ftp", "Four rows. On the left, numbered steps: 1 \"Use my best test ever.\" 2 \"Tested on a 20-minute climb.\" 3 \"Take an optimistic 95%.\" 4 \"Set my Sweet Spot at 235 W.\" On the right, Gravel God, a mustachioed rider in a white tee, paints his own face a step at a time with a brush: dabs of white, more white, blue eye marks and a red nose, and finally an orange curly clown wig.", 1200, 1600, phone=(660, 1100))
 MEME_SPIDERMAN_THRESHOLD = _meme("spiderman-threshold", "Two identical cartoon Gravel Gods, mustachioed riders in white tees and denim shorts, stand in the desert pointing at each other. Over the left one: \"SWEET SPOT, 235 W, 94% of your tested FTP\". Over the right one: \"THRESHOLD, 235 W, 100–109% of your real threshold\".", 1600, 1000, phone=(660, 825))
 MEME_MIDWIT_SWEET_SPOT = _meme("midwit-sweet-spot", "Bell-curve meme with three cartoon Gravel Gods, a mustachioed rider in a white tee. At the low left tail he grins: \"just ride easy… and go hard sometimes\". At the hump he is sweating, eyes wide: \"Sweet spot maximizes TSS per hour, so if I do 3×20 at 94% four times a week…\". At the high right tail, eyes closed and calm in a soft gold glow: \"just ride easy… and go hard sometimes\". The axis reads \"How much you've thought about training zones\".", 1600, 1000, phone=(660, 990))
 MEME_SAME_PICTURE = _meme("same-picture", "Three-panel cartoon. Gravel God, labelled 'Your training plan', says 'Corporate needs you to find the differences between this picture and this picture.' The pictures read 'Sweet Spot ~90% FTP' and 'Threshold ~105% FTP', each with the same recovery-cost bar. Gravel God, labelled 'Your nervous system', answers: 'They're the same picture.' A note says that above LT1 the recovery cost is essentially identical (Seiler 2007).", 1600, 1100, phone=(660, 1560))
-MEME_SO_OVER_SO_BACK = _meme("so-over-so-back", "Two panels. \"It's so over\": Gravel God slumped on a crate under a rain cloud, \"Plateaued after a brief honeymoon of Sweet Spot gains.\" \"We're so back\": Gravel God with both fists in the air in front of sun rays, \"Polarized: roughly 75–90% below LT1, 15–20% above LT2.\"", 1600, 900, phone=(660, 1100))
-MEME_VIRGIN_CHAD = _meme("virgin-sweetspot-chad-polarized", "Two-panel comparison with Gravel God twice. Left, \"The Virgin Sweet Spot Rider\", small and hunched, sweating, with arrows: \"3×20 at 94% of a flattering FTP test\", \"FTP 5–10% optimistic, so it's really threshold\", \"always kinda tired\", \"every ride sorta hard\", \"stuck in the black hole\", \"plateaus after the noob gains\". Right, \"The Chad Polarized Rider\", striding and smiling, with arrows: \"75–90% of the time below LT1: chatting pace\", \"15–20% above LT2: hard days actually hard\", \"recovers between them\", \"very easy or very hard, rarely in between\", \"beats threshold-heavy in head-to-head trials\".", 1600, 1000, phone=(660, 1500))
+MEME_SO_OVER_SO_BACK = _meme("so-over-so-back", "Two panels. \"It's so over\": Gravel God slumped on the ground under a rain cloud, \"Plateaued after a brief honeymoon of Sweet Spot gains.\" \"We're so back\": Gravel God with one arm thrown up in front of sun rays, \"Polarized: roughly 75–90% below LT1, 15–20% above LT2.\"", 1600, 900, phone=(660, 1100))
+MEME_VIRGIN_CHAD = _meme("virgin-sweetspot-chad-polarized", "Two-panel comparison with Gravel God twice. Left, \"The Virgin Sweet Spot Rider\", small, grimacing and sweating, with arrows: \"3×20 at 94% of a flattering FTP test\", \"FTP 5–10% optimistic, so it's really threshold\", \"always kinda tired\", \"every ride sorta hard\", \"stuck in the black hole\", \"plateaus after the noob gains\". Right, \"The Chad Polarized Rider\", big, striding and grinning, with arrows: \"75–90% of the time below LT1: chatting pace\", \"15–20% above LT2: hard days actually hard\", \"recovers between them\", \"very easy or very hard, rarely in between\", \"beats threshold-heavy in head-to-head trials\".", 1600, 1000, phone=(660, 1500))
 MEME_GRU_NOOB_GAINS = _meme("gru-noob-gains", "Four-panel plan: Gravel God points at a flip chart. 1. \"Skip training all winter.\" 2. \"Buy a 10-week Sweet Spot plan.\" 3. \"FTP +30 W!\" 4. \"+30 W from any training at all\", and he turns to the viewer, startled and sweating.", 1600, 1200, phone=(660, 825))
-MEME_PANIK_KALM_PANIK = _meme("panik-kalm-panik", "Three-row panik/kalm meme with Gravel God's face. \"Interval 3 of 3×20 at 235 W.\" PANIK, sweating. \"Relax. It's only Sweet Spot. 94% of FTP.\" KALM, eyes half-closed and smiling. \"Your FTP right now: 215 W. 235 ÷ 215 = 109%.\" PANIK, sweating harder.", 1200, 1500, phone=(660, 990))
-MEME_FOUR_HORSEMEN = _meme("four-horsemen", "\"The four horsemen of too much Sweet Spot\": four portraits of Gravel God. \"Can't go really hard\": sweating under a chart where the effort falls short of the dashed target. \"Hungry all the time\": eating a bar among empty wrappers. \"Bad sleep\": heavy-lidded beside a clock at three. \"Grumpy a lot\": arms crossed under a small storm cloud.", 1600, 820, phone=(660, 1000))
-MEME_DRAKE_POLARIZED = _meme("drake-polarized", "Two-panel approve/reject meme with Gravel God. Top: eyes shut, head turned away, palm raised against \"Sorta-hard, every ride.\" Bottom: smiling and pointing at \"Very easy for hours. Very hard when it counts.\"", 1200, 1200, phone=(660, 660))
+MEME_PANIK_KALM_PANIK = _meme("panik-kalm-panik", "Three-row panik/kalm meme with Gravel God's face. \"Interval 3 of 3×20 at 235 W.\" PANIK, wide-eyed and sweating. \"Relax. It's only Sweet Spot. 94% of FTP.\" KALM, eyes closed. \"Your FTP right now: 215 W. 235 ÷ 215 = 109%.\" PANIK, sweating harder.", 1200, 1500, phone=(660, 990))
+MEME_FOUR_HORSEMEN = _meme("four-horsemen", "\"The four horsemen of too much Sweet Spot\": four portraits of Gravel God. \"Can't go really hard\": grimacing and sweating under a chart where the effort falls short of the dashed target. \"Hungry all the time\": eating a bar among empty wrappers. \"Bad sleep\": eyes half shut beside a clock at three. \"Grumpy a lot\": arms crossed and scowling under a small storm cloud.", 1600, 820, phone=(660, 1000))
+MEME_DRAKE_POLARIZED = _meme("drake-polarized", "Two-panel approve/reject meme with Gravel God. Top: eyes shut, head turned away, hand raised against \"Sorta-hard, every ride.\" Bottom: grinning and pointing at \"Very easy for hours. Very hard when it counts.\"", 1200, 1200, phone=(660, 660))
 MEME_GIGACHAD_YES = _meme("gigachad-yes", "Two panels. Left, a speech bubble: \"You named a training zone the G-Spot?\" Right, Gravel God in heroic low-angle profile on a dark sunburst backdrop, chin up, handlebar mustache, answering: \"Yes.\"", 1600, 900, phone=(660, 990))
 
 # Every shell figure on the page. Add a meme or another scene with one line.
 FIGURES = (
     COGGAN_FIGURE,
-    EssayFigure(SCENE_BLACK_HOLE, video=BLACK_HOLE_CLIP, marker="black-hole"),
+    EssayFigure(SCENE_BLACK_HOLE, marker="black-hole"),
     STUDIES,
     EssayFigure(SCENE_TABLET, marker="tablet"),
     EssayFigure(MEME_SCOOBY_UNMASK, after="supposed to be a hack to getting faster.</p>", width="column"),

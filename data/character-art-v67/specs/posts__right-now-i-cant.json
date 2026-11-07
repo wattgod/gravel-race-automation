@@ -1,0 +1,143 @@
+{
+ "collection": "posts",
+ "slug": "right-now-i-cant",
+ "images": [
+  {
+   "file": "img/never-see-it-coming.webp",
+   "name": "never-see-it-coming",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      1278,
+      490,
+      1360,
+      712
+     ],
+     "erase_box": [
+      1255,
+      470,
+      1375,
+      715
+     ],
+     "pose": "stand",
+     "face": "neutral",
+     "psi": 67.5,
+     "mask": "grabcut",
+     "pad": 6
+    }
+   ],
+   "alt": "A yellow-and-blue train blurs through a Dutch level crossing, barriers down and \"WACHT\" signs lit, while a tiny cartoon Gravel God stands beside the tracks.",
+   "match": "exact"
+  },
+  {
+   "file": "img/rontagen.webp",
+   "name": "rontagen",
+   "verdict": "keep",
+   "why": "Cartoon X-ray of beer cans; no Gravel God."
+  },
+  {
+   "file": "img/already-got-my-cardio-for-the-day-1.webp",
+   "name": "already-got-my-cardio-for-the-day-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#d8d7d4",
+   "figs": [
+    {
+     "box": [
+      1250,
+      260,
+      1460,
+      900
+     ],
+     "erase_box": [
+      1130,
+      215,
+      1600,
+      640
+     ],
+     "pose": "hands_hips",
+     "face": "smile",
+     "psi": 45
+    }
+   ],
+   "erase_extra": [
+    [
+     1130,
+     640,
+     1600,
+     900
+    ]
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      1130,
+      640,
+      1600,
+      900
+     ],
+     "fill": "#b39a77"
+    }
+   ],
+   "joke": "Already got my cardio for the day.",
+   "alt": "Cartoon Gravel God stands hands on hips at the foot of a white staircase in a bright hallway, saying: \"Already got my cardio for the day.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/already-got-my-cardio-for-the-day-1-2.webp",
+   "name": "already-got-my-cardio-for-the-day-1-2",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      520,
+      330,
+      1000,
+      900
+     ],
+     "erase_box": [
+      478,
+      315,
+      1112,
+      900
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "width",
+     "anchor": "top"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "text": "I'm telling you – life is a sham. Love doesn't exist and I wouldn't get your hopes up that anyone is going to adopt you.",
+     "box": [
+      975,
+      405,
+      1595,
+      895
+     ],
+     "tail": [
+      925,
+      650
+     ],
+     "size": 34,
+     "weight": 500,
+     "font": "mono"
+    }
+   ],
+   "joke": "I'm telling you – life is a sham. Love doesn't exist and I wouldn't get your hopes up that anyone is going to adopt you.",
+   "alt": "Four puppies peer over a concrete ledge at cartoon Gravel God, seen from behind, who tells them: \"I'm telling you – life is a sham. Love doesn't exist and I wouldn't get your hopes up that anyone is going to adopt you.\"",
+   "match": "exact"
+  }
+ ]
+}

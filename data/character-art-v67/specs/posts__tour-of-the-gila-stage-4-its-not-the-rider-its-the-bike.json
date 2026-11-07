@@ -1,0 +1,123 @@
+{
+ "collection": "posts",
+ "slug": "tour-of-the-gila-stage-4-its-not-the-rider-its-the-bike",
+ "images": [
+  {
+   "file": "img/mechanical.webp",
+   "name": "mechanical",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1110,
+      0,
+      1310,
+      290
+     ],
+     "erase_box": [
+      1070,
+      0,
+      1345,
+      295
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 90,
+     "crop": "head",
+     "fit": "height",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God's head on a rider in a red Rio Grande kit rolling past a tattoo shop.",
+   "match": "closest",
+   "note": "Head only from the rig on the original race photo."
+  },
+  {
+   "file": "img/capilla.webp",
+   "name": "capilla",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      540,
+      450,
+      920,
+      940
+     ],
+     "erase_box": [
+      430,
+      430,
+      1005,
+      945
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "head",
+     "fit": "height",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God's head on a rider in a red kit standing with his bike at a brick lookout above Silver City.",
+   "match": "closest",
+   "note": "Head only from the rig on the original photo."
+  },
+  {
+   "file": "img/theres-still-time-scaled.webp",
+   "name": "theres-still-time-scaled",
+   "verdict": "keep",
+   "why": "Photo of a bottle with a note."
+  },
+  {
+   "file": "img/dream-boat-scaled.webp",
+   "name": "dream-boat-scaled",
+   "verdict": "keep",
+   "why": "Real photo of Matti with his bike."
+  },
+  {
+   "file": "img/casserole-cook-book-scaled.webp",
+   "name": "casserole-cook-book-scaled",
+   "verdict": "keep",
+   "why": "Photo of a casserole cookbook."
+  },
+  {
+   "file": "img/cooper-cheesin.webp",
+   "name": "cooper-cheesin",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      640,
+      130,
+      815,
+      345
+     ],
+     "erase_box": [
+      610,
+      115,
+      845,
+      350
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "head",
+     "fit": "height",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Four Rio Grande teammates pose with their bikes in front of a house; cartoon Gravel God's head is on the second rider.",
+   "match": "closest",
+   "note": "Head only from the rig on the original team photo."
+  }
+ ]
+}

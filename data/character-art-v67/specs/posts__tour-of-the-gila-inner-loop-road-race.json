@@ -1,0 +1,170 @@
+{
+ "collection": "posts",
+ "slug": "tour-of-the-gila-inner-loop-road-race",
+ "images": [
+  {
+   "file": "img/the-pileup.webp",
+   "name": "the-pileup",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      45,
+      100,
+      205,
+      248
+     ],
+     "mask": "box",
+     "erase_box": [
+      38,
+      92,
+      212,
+      252
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 90,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "center"
+    },
+    {
+     "box": [
+      1230,
+      500,
+      1530,
+      1070
+     ],
+     "mask": "grabcut",
+     "pad": 8,
+     "erase_box": [
+      1205,
+      495,
+      1550,
+      1072
+     ],
+     "ride": "cruise",
+     "face": "grin",
+     "psi": 70
+    }
+   ],
+   "alt": "Strava screenshot of Matti Rowe's ride \"Day 2: The Pile Up\", April 27, 2023, Gila National Forest, New Mexico: 85.85 mi, 3:43:18 moving time, 5,630 ft of climbing, 264 W weighted average power, 23.1 mi/h, with cartoon Gravel God's head as the profile picture and cartoon Gravel God riding his bike at the right.",
+   "match": "exact"
+  },
+  {
+   "file": "img/silver-city.webp",
+   "name": "silver-city",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      650,
+      890,
+      950,
+      1560
+     ],
+     "mask": "grabcut",
+     "pad": 12,
+     "erase_box": [
+      625,
+      885,
+      970,
+      1565
+     ],
+     "pose": "hands_hips",
+     "face": "smile",
+     "psi": 90
+    }
+   ],
+   "alt": "A small pink stucco house with a white screen door, a string of red chiles by the door and prickly-pear cactuses by the steps; cartoon Gravel God, hands on hips, stands on the front step.",
+   "match": "exact"
+  },
+  {
+   "file": "img/woom-brooms.webp",
+   "name": "woom-brooms",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      330,
+      120,
+      990,
+      700
+     ],
+     "mask": "grabcut",
+     "pad": 12,
+     "erase_box": [
+      285,
+      80,
+      1030,
+      725
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 67.5,
+     "elev": 6,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "bottom",
+     "dx": -0.04
+    }
+   ],
+   "alt": "Two riders pose with a bike on a sunny street: one in red Rio Grande kit, his head a grinning cartoon Gravel God, the other in a green jersey, helmet and sunglasses.",
+   "match": "exact",
+   "note": "Only the pasted-on head changes; the body is a real photo."
+  },
+  {
+   "file": "img/ethan-ow-ow-ow-scaled.webp",
+   "name": "ethan-ow-ow-ow-scaled",
+   "verdict": "keep",
+   "why": "Real photo; no character."
+  },
+  {
+   "file": "img/taj2-scaled.webp",
+   "name": "taj2-scaled",
+   "verdict": "keep",
+   "why": "Real photo; no character."
+  },
+  {
+   "file": "img/diesel-daddy.webp",
+   "name": "diesel-daddy",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      140,
+      60,
+      1370,
+      1260
+     ],
+     "mask": "grabcut",
+     "pad": 12,
+     "erase_box": [
+      145,
+      95,
+      1365,
+      1205
+     ],
+     "pose": "stand",
+     "face": "focused",
+     "psi": 90,
+     "elev": 14,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "A rider in red Rio Grande kit leans forward with his hands on his knees, his head a cartoon Gravel God with a focused stare, while a teammate sits on a low wall behind him with his head down.",
+   "match": "exact",
+   "note": "Only the pasted-on head changes; the body is a real photo."
+  }
+ ]
+}

@@ -28,11 +28,11 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "um-no": "A speaker at a lectern addresses a seated audience: \"Thou shalt NEVER be bored!\" In the crowd, a cartoon Gravel God in a cowboy hat answers: \"Um...No\".",
+    "um-no": "A speaker lectures a packed room: \"Thou shalt NEVER be bored!\" Cartoon Gravel God, in the audience, answers: \"Um...No\"",
     "really": "Photo of riders in red Rio Grande kits in a road race. One rider says \"F**K it. I'm going to send it.\" while the bearded rider beside him replies \"Really???\"",
-    "volcano": "A laptop shows a planned workout: 1:05:00 planned, 0:20:00 done, TSS 41, IF 0.62, a steady Z2 description, and the post-activity comment \"I'm bored\". Beside it, a cartoon Gravel God stares with a volcano erupting behind his head.",
-    "boredom": "A boy in a superhero mask and cape reaches up; cartoon Gravel God asks him \"What is your superpower?\" and the boy answers \"Boredom.\"",
-    "1": "Cartoon Gravel God in a cowboy hat rides alone down an empty, straight desert highway toward distant buttes, a thought bubble above him holding a TV, a beer can, cheese, books and a cheering crowd.",
+    "volcano": "A volcano erupts behind cartoon Gravel God as he stares at a laptop showing a planned workout, next to a bucket of grass.",
+    "boredom": "Cartoon Gravel God asks a boy in a superhero cape and mask, \"What is your superpower?\" The boy answers: \"Boredom.\"",
+    "1": "Cartoon Gravel God rides toward us down an empty black-and-white desert highway, dreaming of TV, a beer, friends, books and cheese.",
 }
 
 # DRAFT for Matt: matter-of-fact statements of what the post argues;

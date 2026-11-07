@@ -1,0 +1,11637 @@
+{
+ "collection": "articles",
+ "slug": "sweet-spot-training-cycling",
+ "images": [
+  {
+   "file": "img/scene-tombstone.webp",
+   "verdict": "replace",
+   "joke": "RIP Sweet Spot, 2004 – 2026",
+   "match": "closest",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "note": "he stands eyes lowered behind his bike (lean_on_bike pose) rather than bowed beside it",
+   "figs": [
+    {
+     "box": [
+      250,
+      168,
+      550,
+      456
+     ],
+     "erase_box": [
+      252,
+      148,
+      548,
+      458
+     ],
+     "mask": "box",
+     "pose": "lean_on_bike",
+     "face": "sleepy",
+     "psi": 45,
+     "elev": 18
+    }
+   ]
+  },
+  {
+   "file": "img/scene-tablet.webp",
+   "verdict": "replace",
+   "joke": "86–92% held up like Moses",
+   "match": "closest",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "note": "the rig has no two-arms-up pose: one arm raised to the tablet (wave pose)",
+   "figs": [
+    {
+     "box": [
+      425,
+      176,
+      560,
+      446
+     ],
+     "erase_box": [
+      438,
+      183,
+      527,
+      447
+     ],
+     "mask": "box",
+     "pose": "wave",
+     "face": "grin",
+     "psi": 67.5
+    }
+   ]
+  },
+  {
+   "file": "img/scene-black-hole.webp",
+   "verdict": "replace",
+   "joke": "the road spirals into the black hole",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      425,
+      152,
+      520,
+      352
+     ],
+     "erase_box": [
+      430,
+      148,
+      512,
+      354
+     ],
+     "mask": "grabcut",
+     "pad": 4,
+     "ride": "cruise",
+     "psi": 247.5,
+     "elev": 8
+    }
+   ]
+  },
+  {
+   "file": "img/memes/clown-ftp.webp",
+   "verdict": "replace",
+   "joke": "Use my best test ever. / Tested on a 20-minute climb. / Take an optimistic 95%. / Set my Sweet Spot at 235 W.",
+   "match": "closest",
+   "mode": "composite",
+   "erase": "#e6dac5",
+   "note": "clown make-up drawn as flat dots over the rig face (white dabs, blue marks, red nose, orange wig)",
+   "figs": [
+    {
+     "box": [
+      700,
+      40,
+      1090,
+      396
+     ],
+     "erase_box": [
+      606,
+      6,
+      1188,
+      394
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      700,
+      440,
+      1090,
+      796
+     ],
+     "erase_box": [
+      606,
+      406,
+      1188,
+      794
+     ],
+     "pose": "stand",
+     "face": "neutral",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      700,
+      840,
+      1090,
+      1196
+     ],
+     "erase_box": [
+      606,
+      806,
+      1188,
+      1194
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      700,
+      1240,
+      1090,
+      1596
+     ],
+     "erase_box": [
+      606,
+      1206,
+      1188,
+      1594
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      606,
+      406,
+      1188,
+      794
+     ],
+     "fill": "#e9d2c3"
+    },
+    {
+     "type": "rect",
+     "box": [
+      606,
+      806,
+      1188,
+      1194
+     ],
+     "fill": "#e9ccbd"
+    },
+    {
+     "type": "rect",
+     "box": [
+      606,
+      1206,
+      1188,
+      1594
+     ],
+     "fill": "#e3bfb0"
+    },
+    {
+     "type": "line",
+     "box": [
+      1185,
+      390,
+      958,
+      165
+     ],
+     "fill": "#3b2a1e",
+     "width": 9
+    },
+    {
+     "type": "line",
+     "box": [
+      1185,
+      790,
+      958,
+      565
+     ],
+     "fill": "#3b2a1e",
+     "width": 9
+    },
+    {
+     "type": "line",
+     "box": [
+      1185,
+      1190,
+      958,
+      965
+     ],
+     "fill": "#3b2a1e",
+     "width": 9
+    },
+    {
+     "type": "line",
+     "box": [
+      1000,
+      207,
+      975,
+      182
+     ],
+     "fill": "#c9a24a",
+     "width": 11
+    },
+    {
+     "type": "line",
+     "box": [
+      1000,
+      607,
+      975,
+      582
+     ],
+     "fill": "#c9a24a",
+     "width": 11
+    },
+    {
+     "type": "line",
+     "box": [
+      1000,
+      1007,
+      975,
+      982
+     ],
+     "fill": "#c9a24a",
+     "width": 11
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "box": [
+      875,
+      86,
+      905,
+      100
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      912,
+      126,
+      936,
+      142
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      860,
+      484,
+      930,
+      502
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      851,
+      524,
+      877,
+      542
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      913,
+      524,
+      939,
+      542
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      881,
+      572,
+      909,
+      586
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      860,
+      884,
+      930,
+      902
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      851,
+      924,
+      877,
+      942
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      913,
+      924,
+      939,
+      942
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      881,
+      972,
+      909,
+      986
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      860,
+      1284,
+      930,
+      1302
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      851,
+      1324,
+      877,
+      1342
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      913,
+      1324,
+      939,
+      1342
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      881,
+      1372,
+      909,
+      1386
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      865,
+      895,
+      875,
+      909
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      913,
+      895,
+      923,
+      909
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      865,
+      922,
+      875,
+      937
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      913,
+      922,
+      923,
+      937
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      884,
+      926,
+      906,
+      947
+     ],
+     "text": " ",
+     "fill": "#d0312d",
+     "edge": "#8f1d1a"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      865,
+      1295,
+      875,
+      1309
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      913,
+      1295,
+      923,
+      1309
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      865,
+      1322,
+      875,
+      1337
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      913,
+      1322,
+      923,
+      1337
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      884,
+      1326,
+      906,
+      1347
+     ],
+     "text": " ",
+     "fill": "#d0312d",
+     "edge": "#8f1d1a"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      816,
+      1252,
+      852,
+      1288
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      809,
+      1285,
+      847,
+      1323
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      816,
+      1320,
+      852,
+      1356
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      938,
+      1252,
+      974,
+      1288
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      943,
+      1285,
+      981,
+      1323
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      938,
+      1320,
+      974,
+      1356
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      843,
+      1223,
+      881,
+      1261
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      875,
+      1214,
+      915,
+      1254
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      909,
+      1223,
+      947,
+      1261
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/drake-polarized.webp",
+   "verdict": "replace",
+   "joke": "Sorta-hard, every ride. / Very easy for hours. Very hard when it counts.",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "#e8d0a1",
+   "figs": [
+    {
+     "box": [
+      60,
+      70,
+      560,
+      596
+     ],
+     "erase_box": [
+      8,
+      8,
+      594,
+      594
+     ],
+     "pose": "wave",
+     "face": "blink",
+     "psi": 112.5,
+     "crop": "bust",
+     "fit": "contain",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      20,
+      650,
+      600,
+      1900
+     ],
+     "erase_box": [
+      8,
+      606,
+      594,
+      1192
+     ],
+     "pose": "point",
+     "face": "grin",
+     "psi": 22.5,
+     "anchor": "top",
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      8,
+      606,
+      594,
+      1192
+     ],
+     "fill": "#eed9a7"
+    }
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "text": " ",
+     "box": [
+      0,
+      1193,
+      1200,
+      1200
+     ],
+     "fill": "#3a2e25",
+     "pad": 0
+    }
+   ]
+  },
+  {
+   "file": "img/memes/four-horsemen.webp",
+   "verdict": "replace",
+   "joke": "THE FOUR HORSEMEN OF TOO MUCH SWEET SPOT: CAN'T GO REALLY HARD / HUNGRY ALL THE TIME / BAD SLEEP / GRUMPY A LOT",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "#e7d3c5",
+   "figs": [
+    {
+     "box": [
+      60,
+      380,
+      340,
+      752
+     ],
+     "erase_box": [
+      6,
+      134,
+      396,
+      751
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      430,
+      250,
+      780,
+      752
+     ],
+     "erase_box": [
+      404,
+      134,
+      796,
+      751
+     ],
+     "pose": "eat",
+     "face": "smile",
+     "psi": 67.5,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      840,
+      300,
+      1160,
+      752
+     ],
+     "erase_box": [
+      804,
+      134,
+      1196,
+      751
+     ],
+     "pose": "stand",
+     "face": "sleepy",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      1240,
+      300,
+      1560,
+      752
+     ],
+     "erase_box": [
+      1204,
+      134,
+      1594,
+      751
+     ],
+     "pose": "arms_crossed",
+     "face": "grimace",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "insets": [
+    {
+     "src": [
+      20,
+      600,
+      40,
+      620
+     ],
+     "box": [
+      6,
+      134,
+      396,
+      751
+     ]
+    },
+    {
+     "src": [
+      410,
+      170,
+      430,
+      190
+     ],
+     "box": [
+      404,
+      134,
+      796,
+      751
+     ]
+    },
+    {
+     "src": [
+      1150,
+      170,
+      1170,
+      190
+     ],
+     "box": [
+      804,
+      134,
+      1196,
+      751
+     ]
+    },
+    {
+     "src": [
+      1560,
+      170,
+      1580,
+      190
+     ],
+     "box": [
+      1204,
+      134,
+      1594,
+      751
+     ]
+    },
+    {
+     "src": [
+      36,
+      150,
+      358,
+      270
+     ],
+     "box": [
+      36,
+      150,
+      358,
+      270
+     ]
+    },
+    {
+     "src": [
+      818,
+      170,
+      942,
+      298
+     ],
+     "box": [
+      818,
+      170,
+      942,
+      298
+     ]
+    },
+    {
+     "src": [
+      1470,
+      200,
+      1556,
+      340
+     ],
+     "box": [
+      1470,
+      200,
+      1556,
+      340
+     ]
+    },
+    {
+     "src": [
+      1424,
+      200,
+      1470,
+      328
+     ],
+     "box": [
+      1424,
+      200,
+      1470,
+      328
+     ]
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "box": [
+      70,
+      420,
+      92.4,
+      456.4
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      320,
+      450,
+      342.4,
+      486.4
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      100,
+      520,
+      119.2,
+      551.2
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "shape": "rect",
+     "box": [
+      430,
+      660,
+      520,
+      700
+     ],
+     "text": " ",
+     "fill": "#8a6a4a"
+    },
+    {
+     "type": "bubble",
+     "shape": "rect",
+     "box": [
+      690,
+      670,
+      790,
+      710
+     ],
+     "text": " ",
+     "fill": "#2f8f86"
+    },
+    {
+     "type": "bubble",
+     "shape": "rect",
+     "box": [
+      470,
+      708,
+      570,
+      748
+     ],
+     "text": " ",
+     "fill": "#b23a2e"
+    },
+    {
+     "type": "bubble",
+     "shape": "rect",
+     "box": [
+      640,
+      712,
+      740,
+      750
+     ],
+     "text": " ",
+     "fill": "#c49a5e"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/gigachad-yes.webp",
+   "verdict": "replace",
+   "joke": "You named a training zone the G-Spot? / Yes.",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "#241d18",
+   "figs": [
+    {
+     "box": [
+      1090,
+      150,
+      1590,
+      900
+     ],
+     "erase_box": [
+      1062,
+      0,
+      1600,
+      900
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 135,
+     "elev": -12,
+     "crop": "bust",
+     "anchor": "bottom",
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      928,
+      68,
+      1547,
+      725
+     ],
+     "fill": "#5a473e"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/gru-noob-gains.webp",
+   "verdict": "replace",
+   "joke": "Skip training all winter. / Buy a 10-week Sweet Spot plan. / FTP +30 W! / +30 W from any training at all",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "#efe6d6",
+   "figs": [
+    {
+     "box": [
+      30,
+      78,
+      380,
+      598
+     ],
+     "erase_box": [
+      8,
+      60,
+      346,
+      595
+     ],
+     "pose": "point",
+     "face": "grin",
+     "psi": 22.5,
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      830,
+      78,
+      1180,
+      598
+     ],
+     "erase_box": [
+      808,
+      60,
+      1146,
+      595
+     ],
+     "pose": "point",
+     "face": "grin",
+     "psi": 22.5,
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      30,
+      678,
+      380,
+      1198
+     ],
+     "erase_box": [
+      8,
+      660,
+      346,
+      1195
+     ],
+     "pose": "point",
+     "face": "grin",
+     "psi": 22.5,
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      830,
+      678,
+      1180,
+      1198
+     ],
+     "erase_box": [
+      808,
+      660,
+      1146,
+      1195
+     ],
+     "pose": "point",
+     "face": "surprised",
+     "psi": 45,
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "erase_extra": [
+    [
+     340,
+     378,
+     450,
+     432
+    ],
+    [
+     1140,
+     378,
+     1250,
+     432
+    ],
+    [
+     340,
+     978,
+     450,
+     1032
+    ],
+    [
+     1140,
+     978,
+     1250,
+     1032
+    ]
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      8,
+      480,
+      346,
+      595
+     ],
+     "fill": "#daccb3"
+    },
+    {
+     "type": "rect",
+     "box": [
+      353,
+      378,
+      450,
+      432
+     ],
+     "fill": "#fbf8f2"
+    },
+    {
+     "type": "line",
+     "box": [
+      351,
+      374,
+      351,
+      436
+     ],
+     "fill": "#8d836b",
+     "width": 3
+    },
+    {
+     "type": "rect",
+     "box": [
+      808,
+      480,
+      1146,
+      595
+     ],
+     "fill": "#daccb3"
+    },
+    {
+     "type": "rect",
+     "box": [
+      1153,
+      378,
+      1250,
+      432
+     ],
+     "fill": "#fbf8f2"
+    },
+    {
+     "type": "line",
+     "box": [
+      1151,
+      374,
+      1151,
+      436
+     ],
+     "fill": "#8d836b",
+     "width": 3
+    },
+    {
+     "type": "rect",
+     "box": [
+      8,
+      1080,
+      346,
+      1195
+     ],
+     "fill": "#daccb3"
+    },
+    {
+     "type": "rect",
+     "box": [
+      353,
+      978,
+      450,
+      1032
+     ],
+     "fill": "#fbf8f2"
+    },
+    {
+     "type": "line",
+     "box": [
+      351,
+      974,
+      351,
+      1036
+     ],
+     "fill": "#8d836b",
+     "width": 3
+    },
+    {
+     "type": "rect",
+     "box": [
+      808,
+      1080,
+      1146,
+      1195
+     ],
+     "fill": "#daccb3"
+    },
+    {
+     "type": "rect",
+     "box": [
+      1153,
+      978,
+      1250,
+      1032
+     ],
+     "fill": "#fbf8f2"
+    },
+    {
+     "type": "line",
+     "box": [
+      1151,
+      974,
+      1151,
+      1036
+     ],
+     "fill": "#8d836b",
+     "width": 3
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "box": [
+      845,
+      715,
+      870.6,
+      756.6
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      1050,
+      708,
+      1075.6,
+      749.6
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/midwit-sweet-spot.webp",
+   "verdict": "replace",
+   "joke": "just ride easy… and go hard sometimes / Sweet spot maximizes TSS per hour, so if I do 3×20 at 94% four times a week…",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "#f5efe6",
+   "figs": [
+    {
+     "box": [
+      100,
+      520,
+      360,
+      874
+     ],
+     "erase_box": [
+      60,
+      500,
+      390,
+      886
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      630,
+      205,
+      970,
+      500
+     ],
+     "erase_box": [
+      690,
+      195,
+      910,
+      886
+     ],
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      1240,
+      520,
+      1500,
+      874
+     ],
+     "erase_box": [
+      1180,
+      466,
+      1560,
+      886
+     ],
+     "pose": "stand",
+     "face": "blink",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "erase_extra": [
+    [
+     410,
+     330,
+     1170,
+     886
+    ],
+    [
+     60,
+     860,
+     1560,
+     886
+    ]
+   ],
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      1200,
+      467,
+      1543,
+      814
+     ],
+     "fill": "#ebe0bf"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      1240,
+      507,
+      1503,
+      774
+     ],
+     "fill": "#e7d9ac"
+    },
+    {
+     "type": "line",
+     "box": [
+      48,
+      874,
+      48,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      54,
+      874,
+      54,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      60,
+      874,
+      60,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      66,
+      873,
+      66,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      72,
+      873,
+      72,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      78,
+      873,
+      78,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      84,
+      873,
+      84,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      90,
+      872,
+      90,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      96,
+      872,
+      96,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      102,
+      871,
+      102,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      108,
+      871,
+      108,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      114,
+      871,
+      114,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      120,
+      870,
+      120,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      126,
+      870,
+      126,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      132,
+      869,
+      132,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      138,
+      868,
+      138,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      144,
+      868,
+      144,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      150,
+      867,
+      150,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      156,
+      866,
+      156,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      162,
+      866,
+      162,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      168,
+      865,
+      168,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      174,
+      864,
+      174,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      180,
+      863,
+      180,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      186,
+      862,
+      186,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      192,
+      861,
+      192,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      198,
+      860,
+      198,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      204,
+      859,
+      204,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      210,
+      858,
+      210,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      216,
+      857,
+      216,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      222,
+      856,
+      222,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      228,
+      854,
+      228,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      234,
+      853,
+      234,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      240,
+      851,
+      240,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      246,
+      850,
+      246,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      252,
+      848,
+      252,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      258,
+      847,
+      258,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      264,
+      845,
+      264,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      270,
+      843,
+      270,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      276,
+      841,
+      276,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      282,
+      839,
+      282,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      288,
+      837,
+      288,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      294,
+      835,
+      294,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      300,
+      832,
+      300,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      306,
+      830,
+      306,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      312,
+      828,
+      312,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      318,
+      825,
+      318,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      324,
+      822,
+      324,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      330,
+      820,
+      330,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      336,
+      817,
+      336,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      342,
+      814,
+      342,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      348,
+      811,
+      348,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      354,
+      807,
+      354,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      360,
+      804,
+      360,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      366,
+      801,
+      366,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      372,
+      797,
+      372,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      378,
+      793,
+      378,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      384,
+      790,
+      384,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      390,
+      786,
+      390,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      396,
+      782,
+      396,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      402,
+      778,
+      402,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      408,
+      774,
+      408,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      414,
+      769,
+      414,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      420,
+      765,
+      420,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      426,
+      760,
+      426,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      432,
+      756,
+      432,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      438,
+      751,
+      438,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      444,
+      746,
+      444,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      450,
+      741,
+      450,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      456,
+      736,
+      456,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      462,
+      731,
+      462,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      468,
+      726,
+      468,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      474,
+      720,
+      474,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      480,
+      715,
+      480,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      486,
+      710,
+      486,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      492,
+      704,
+      492,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      498,
+      698,
+      498,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      504,
+      693,
+      504,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      510,
+      687,
+      510,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      516,
+      681,
+      516,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      522,
+      675,
+      522,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      528,
+      669,
+      528,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      534,
+      663,
+      534,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      540,
+      657,
+      540,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      546,
+      651,
+      546,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      552,
+      645,
+      552,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      558,
+      639,
+      558,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      564,
+      633,
+      564,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      570,
+      627,
+      570,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      576,
+      621,
+      576,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      582,
+      615,
+      582,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      588,
+      609,
+      588,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      594,
+      603,
+      594,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      600,
+      597,
+      600,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      606,
+      591,
+      606,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      612,
+      586,
+      612,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      618,
+      580,
+      618,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      624,
+      574,
+      624,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      630,
+      569,
+      630,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      636,
+      563,
+      636,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      642,
+      558,
+      642,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      648,
+      553,
+      648,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      654,
+      548,
+      654,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      660,
+      543,
+      660,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      666,
+      538,
+      666,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      672,
+      533,
+      672,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      678,
+      528,
+      678,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      684,
+      524,
+      684,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      690,
+      520,
+      690,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      696,
+      516,
+      696,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      702,
+      512,
+      702,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      708,
+      508,
+      708,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      714,
+      505,
+      714,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      720,
+      502,
+      720,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      726,
+      499,
+      726,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      732,
+      496,
+      732,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      738,
+      493,
+      738,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      744,
+      491,
+      744,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      750,
+      489,
+      750,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      756,
+      487,
+      756,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      762,
+      485,
+      762,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      768,
+      484,
+      768,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      774,
+      482,
+      774,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      780,
+      481,
+      780,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      786,
+      481,
+      786,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      792,
+      480,
+      792,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      798,
+      480,
+      798,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      804,
+      480,
+      804,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      810,
+      480,
+      810,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      816,
+      481,
+      816,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      822,
+      482,
+      822,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      828,
+      483,
+      828,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      834,
+      484,
+      834,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      840,
+      486,
+      840,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      846,
+      487,
+      846,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      852,
+      489,
+      852,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      858,
+      492,
+      858,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      864,
+      494,
+      864,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      870,
+      497,
+      870,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      876,
+      500,
+      876,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      882,
+      503,
+      882,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      888,
+      506,
+      888,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      894,
+      510,
+      894,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      900,
+      513,
+      900,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      906,
+      517,
+      906,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      912,
+      521,
+      912,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      918,
+      526,
+      918,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      924,
+      530,
+      924,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      930,
+      535,
+      930,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      936,
+      539,
+      936,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      942,
+      544,
+      942,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      948,
+      549,
+      948,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      954,
+      554,
+      954,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      960,
+      560,
+      960,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      966,
+      565,
+      966,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      972,
+      571,
+      972,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      978,
+      576,
+      978,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      984,
+      582,
+      984,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      990,
+      588,
+      990,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      996,
+      593,
+      996,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1002,
+      599,
+      1002,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1008,
+      605,
+      1008,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1014,
+      611,
+      1014,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1020,
+      617,
+      1020,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1026,
+      623,
+      1026,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1032,
+      629,
+      1032,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1038,
+      635,
+      1038,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1044,
+      641,
+      1044,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1050,
+      647,
+      1050,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1056,
+      653,
+      1056,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1062,
+      659,
+      1062,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1068,
+      665,
+      1068,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1074,
+      671,
+      1074,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1080,
+      677,
+      1080,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1086,
+      683,
+      1086,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1092,
+      689,
+      1092,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1098,
+      695,
+      1098,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1104,
+      700,
+      1104,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1110,
+      706,
+      1110,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1116,
+      711,
+      1116,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1122,
+      717,
+      1122,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1128,
+      722,
+      1128,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1134,
+      727,
+      1134,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1140,
+      733,
+      1140,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1146,
+      738,
+      1146,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1152,
+      743,
+      1152,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1158,
+      748,
+      1158,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1164,
+      753,
+      1164,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1170,
+      757,
+      1170,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1176,
+      762,
+      1176,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1182,
+      766,
+      1182,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1188,
+      771,
+      1188,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1194,
+      775,
+      1194,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1200,
+      779,
+      1200,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1206,
+      783,
+      1206,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1212,
+      787,
+      1212,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1218,
+      791,
+      1218,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1224,
+      795,
+      1224,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1230,
+      798,
+      1230,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1236,
+      802,
+      1236,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1242,
+      805,
+      1242,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1248,
+      808,
+      1248,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1254,
+      812,
+      1254,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1260,
+      815,
+      1260,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1266,
+      818,
+      1266,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1272,
+      821,
+      1272,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1278,
+      823,
+      1278,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1284,
+      826,
+      1284,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1290,
+      828,
+      1290,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1296,
+      831,
+      1296,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1302,
+      833,
+      1302,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1308,
+      836,
+      1308,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1314,
+      838,
+      1314,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1320,
+      840,
+      1320,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1326,
+      842,
+      1326,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1332,
+      844,
+      1332,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1338,
+      845,
+      1338,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1344,
+      847,
+      1344,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1350,
+      849,
+      1350,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1356,
+      850,
+      1356,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1362,
+      852,
+      1362,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1368,
+      853,
+      1368,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1374,
+      855,
+      1374,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1380,
+      856,
+      1380,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1386,
+      857,
+      1386,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1392,
+      859,
+      1392,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1398,
+      860,
+      1398,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1404,
+      861,
+      1404,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1410,
+      862,
+      1410,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1416,
+      863,
+      1416,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1422,
+      864,
+      1422,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1428,
+      864,
+      1428,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1434,
+      865,
+      1434,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1440,
+      866,
+      1440,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1446,
+      867,
+      1446,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1452,
+      867,
+      1452,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1458,
+      868,
+      1458,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1464,
+      869,
+      1464,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1470,
+      869,
+      1470,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1476,
+      870,
+      1476,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1482,
+      870,
+      1482,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1488,
+      871,
+      1488,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1494,
+      871,
+      1494,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1500,
+      872,
+      1500,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1506,
+      872,
+      1506,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1512,
+      872,
+      1512,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1518,
+      873,
+      1518,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1524,
+      873,
+      1524,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1530,
+      873,
+      1530,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1536,
+      874,
+      1536,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1542,
+      874,
+      1542,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1548,
+      874,
+      1548,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      1554,
+      874,
+      1554,
+      877
+     ],
+     "fill": "#dfd1c4",
+     "width": 7
+    },
+    {
+     "type": "line",
+     "box": [
+      44,
+      874.3,
+      56,
+      873.9,
+      68,
+      873.4,
+      80,
+      872.8,
+      92,
+      872.1,
+      104,
+      871.3,
+      116,
+      870.4,
+      128,
+      869.4,
+      140,
+      868.2,
+      152,
+      866.9,
+      164,
+      865.5,
+      176,
+      863.9,
+      188,
+      862.0,
+      200,
+      860.0,
+      212,
+      857.7,
+      224,
+      855.2,
+      236,
+      852.5,
+      248,
+      849.4,
+      260,
+      846.1,
+      272,
+      842.4,
+      284,
+      838.4,
+      296,
+      834.0,
+      308,
+      829.3,
+      320,
+      824.2,
+      332,
+      818.6,
+      344,
+      812.7,
+      356,
+      806.3,
+      368,
+      799.5,
+      380,
+      792.2,
+      392,
+      784.5,
+      404,
+      776.4,
+      416,
+      767.8,
+      428,
+      758.8,
+      440,
+      749.3,
+      452,
+      739.5,
+      464,
+      729.2,
+      476,
+      718.6,
+      488,
+      707.7,
+      500,
+      696.4,
+      512,
+      684.9,
+      524,
+      673.2,
+      536,
+      661.3,
+      548,
+      649.3,
+      560,
+      637.2,
+      572,
+      625.1,
+      584,
+      613.1,
+      596,
+      601.2,
+      608,
+      589.5,
+      620,
+      578.0,
+      632,
+      566.9,
+      644,
+      556.2,
+      656,
+      545.9,
+      668,
+      536.2,
+      680,
+      527.0,
+      692,
+      518.5,
+      704,
+      510.8,
+      716,
+      503.8,
+      728,
+      497.6,
+      740,
+      492.3,
+      752,
+      487.9,
+      764,
+      484.5,
+      776,
+      482.0,
+      788,
+      480.5,
+      800,
+      480.0,
+      812,
+      480.5,
+      824,
+      482.0,
+      836,
+      484.5,
+      848,
+      487.9,
+      860,
+      492.3,
+      872,
+      497.6,
+      884,
+      503.8,
+      896,
+      510.8,
+      908,
+      518.5,
+      920,
+      527.0,
+      932,
+      536.2,
+      944,
+      545.9,
+      956,
+      556.2,
+      968,
+      566.9,
+      980,
+      578.0,
+      992,
+      589.5,
+      1004,
+      601.2,
+      1016,
+      613.1,
+      1028,
+      625.1,
+      1040,
+      637.2,
+      1052,
+      649.3,
+      1064,
+      661.3,
+      1076,
+      673.2,
+      1088,
+      684.9,
+      1100,
+      696.4,
+      1112,
+      707.7,
+      1124,
+      718.6,
+      1136,
+      729.2,
+      1148,
+      739.5,
+      1160,
+      749.3,
+      1172,
+      758.8,
+      1184,
+      767.8,
+      1196,
+      776.4,
+      1208,
+      784.5,
+      1220,
+      792.2,
+      1232,
+      799.5,
+      1244,
+      806.3,
+      1256,
+      812.7,
+      1268,
+      818.6,
+      1280,
+      824.2,
+      1292,
+      829.3,
+      1304,
+      834.0,
+      1316,
+      838.4,
+      1328,
+      842.4,
+      1340,
+      846.1,
+      1352,
+      849.4,
+      1364,
+      852.5,
+      1376,
+      855.2,
+      1388,
+      857.7,
+      1400,
+      860.0,
+      1412,
+      862.0,
+      1424,
+      863.9,
+      1436,
+      865.5,
+      1448,
+      866.9,
+      1460,
+      868.2,
+      1472,
+      869.4,
+      1484,
+      870.4,
+      1496,
+      871.3,
+      1508,
+      872.1,
+      1520,
+      872.8,
+      1532,
+      873.4,
+      1544,
+      873.9,
+      1556,
+      874.3
+     ],
+     "fill": "#2f2620",
+     "width": 8
+    }
+   ]
+  },
+  {
+   "file": "img/memes/panik-kalm-panik.webp",
+   "verdict": "replace",
+   "joke": "Interval 3 of 3×20 at 235 W. PANIK / Relax. It’s only Sweet Spot. 94% of FTP. KALM / Your FTP right now: 215 W. 235 ÷ 215 = 109%. PANIK",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "#e9d2c3",
+   "figs": [
+    {
+     "box": [
+      690,
+      40,
+      1110,
+      494
+     ],
+     "erase_box": [
+      606,
+      6,
+      1190,
+      492
+     ],
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      690,
+      540,
+      1110,
+      994
+     ],
+     "erase_box": [
+      606,
+      506,
+      1190,
+      992
+     ],
+     "pose": "stand",
+     "face": "blink",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      690,
+      1040,
+      1110,
+      1494
+     ],
+     "erase_box": [
+      606,
+      1006,
+      1190,
+      1492
+     ],
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      606,
+      506,
+      1190,
+      992
+     ],
+     "fill": "#d6e4e0"
+    },
+    {
+     "type": "rect",
+     "box": [
+      606,
+      1006,
+      1190,
+      1492
+     ],
+     "fill": "#e2b3a3"
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "box": [
+      680,
+      120,
+      705.6,
+      161.6
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      1100,
+      140,
+      1125.6,
+      181.6
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      660,
+      1110,
+      688.8,
+      1156.8
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      1110,
+      1060,
+      1138.8,
+      1106.8
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      1060,
+      1150,
+      1084.0,
+      1189.0
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "caption",
+     "text": "PANIK",
+     "box": [
+      700,
+      330,
+      1100,
+      480
+     ],
+     "size": 150,
+     "weight": 900,
+     "color": "#f5efe6",
+     "stroke": "#2a211b"
+    },
+    {
+     "type": "caption",
+     "text": "KALM",
+     "box": [
+      700,
+      830,
+      1100,
+      980
+     ],
+     "size": 150,
+     "weight": 900,
+     "color": "#f5efe6",
+     "stroke": "#2a211b"
+    },
+    {
+     "type": "caption",
+     "text": "PANIK",
+     "box": [
+      700,
+      1330,
+      1100,
+      1480
+     ],
+     "size": 150,
+     "weight": 900,
+     "color": "#f5efe6",
+     "stroke": "#2a211b"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/same-picture.webp",
+   "verdict": "replace",
+   "joke": "Corporate needs you to find the differences between this picture and this picture. / They’re the same picture.",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "#d9cdb6",
+   "figs": [
+    {
+     "box": [
+      290,
+      96,
+      620,
+      546
+     ],
+     "erase_box": [
+      226,
+      90,
+      720,
+      545
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      730,
+      640,
+      1070,
+      1094
+     ],
+     "erase_box": [
+      680,
+      638,
+      1120,
+      1093
+     ],
+     "pose": "stand",
+     "face": "neutral",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "erase_extra": [
+    [
+     60,
+     390,
+     740,
+     545
+    ],
+    [
+     470,
+     1020,
+     1150,
+     1093
+    ]
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      60,
+      340,
+      740,
+      545
+     ],
+     "fill": "#c9bca0"
+    },
+    {
+     "type": "rect",
+     "box": [
+      470,
+      891,
+      1150,
+      1093
+     ],
+     "fill": "#c9bca0"
+    }
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "text": "Corporate needs you to find the\ndifferences between this picture and\nthis picture.",
+     "box": [
+      80,
+      405,
+      720,
+      540
+     ],
+     "size": 34,
+     "weight": 800,
+     "color": "#f3ead8",
+     "stroke": "#2a211b"
+    },
+    {
+     "type": "caption",
+     "text": "They’re the same picture.",
+     "box": [
+      440,
+      1030,
+      1160,
+      1092
+     ],
+     "size": 44,
+     "weight": 800,
+     "color": "#f3ead8",
+     "stroke": "#2a211b"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/scooby-unmask.webp",
+   "verdict": "replace",
+   "joke": "LET'S SEE WHO YOU REALLY ARE / TRAINING HACK / MARKETING",
+   "match": "closest",
+   "mode": "composite",
+   "erase": "#f6f4f0",
+   "note": "he points at the ghost and the sheet instead of gripping them",
+   "figs": [
+    {
+     "box": [
+      380,
+      236,
+      640,
+      958
+     ],
+     "no_erase": true,
+     "pose": "point",
+     "face": "focused",
+     "psi": 112.5,
+     "pad": 0
+    },
+    {
+     "box": [
+      1190,
+      330,
+      1410,
+      958
+     ],
+     "no_erase": true,
+     "pose": "point",
+     "face": "surprised",
+     "psi": 112.5,
+     "pad": 0
+    }
+   ],
+   "erase_extra": [
+    [
+     215,
+     252,
+     450,
+     336
+    ],
+    [
+     370,
+     336,
+     450,
+     372
+    ]
+   ],
+   "insets": [
+    {
+     "src": [
+      610,
+      226,
+      780,
+      962
+     ],
+     "box": [
+      440,
+      226,
+      610,
+      962
+     ]
+    },
+    {
+     "src": [
+      620,
+      252,
+      797,
+      256
+     ],
+     "box": [
+      273,
+      252,
+      450,
+      256
+     ]
+    },
+    {
+     "src": [
+      620,
+      256,
+      787,
+      260
+     ],
+     "box": [
+      283,
+      256,
+      450,
+      260
+     ]
+    },
+    {
+     "src": [
+      620,
+      260,
+      778,
+      264
+     ],
+     "box": [
+      292,
+      260,
+      450,
+      264
+     ]
+    },
+    {
+     "src": [
+      620,
+      264,
+      770,
+      268
+     ],
+     "box": [
+      300,
+      264,
+      450,
+      268
+     ]
+    },
+    {
+     "src": [
+      620,
+      268,
+      765,
+      272
+     ],
+     "box": [
+      305,
+      268,
+      450,
+      272
+     ]
+    },
+    {
+     "src": [
+      620,
+      272,
+      760,
+      276
+     ],
+     "box": [
+      310,
+      272,
+      450,
+      276
+     ]
+    },
+    {
+     "src": [
+      620,
+      276,
+      754,
+      280
+     ],
+     "box": [
+      316,
+      276,
+      450,
+      280
+     ]
+    },
+    {
+     "src": [
+      620,
+      280,
+      750,
+      284
+     ],
+     "box": [
+      320,
+      280,
+      450,
+      284
+     ]
+    },
+    {
+     "src": [
+      620,
+      284,
+      746,
+      288
+     ],
+     "box": [
+      324,
+      284,
+      450,
+      288
+     ]
+    },
+    {
+     "src": [
+      620,
+      288,
+      742,
+      292
+     ],
+     "box": [
+      328,
+      288,
+      450,
+      292
+     ]
+    },
+    {
+     "src": [
+      620,
+      292,
+      739,
+      296
+     ],
+     "box": [
+      331,
+      292,
+      450,
+      296
+     ]
+    },
+    {
+     "src": [
+      620,
+      296,
+      736,
+      300
+     ],
+     "box": [
+      334,
+      296,
+      450,
+      300
+     ]
+    },
+    {
+     "src": [
+      620,
+      300,
+      733,
+      304
+     ],
+     "box": [
+      337,
+      300,
+      450,
+      304
+     ]
+    },
+    {
+     "src": [
+      620,
+      304,
+      730,
+      308
+     ],
+     "box": [
+      340,
+      304,
+      450,
+      308
+     ]
+    },
+    {
+     "src": [
+      620,
+      308,
+      727,
+      312
+     ],
+     "box": [
+      343,
+      308,
+      450,
+      312
+     ]
+    },
+    {
+     "src": [
+      620,
+      312,
+      725,
+      316
+     ],
+     "box": [
+      345,
+      312,
+      450,
+      316
+     ]
+    },
+    {
+     "src": [
+      620,
+      316,
+      723,
+      320
+     ],
+     "box": [
+      347,
+      316,
+      450,
+      320
+     ]
+    },
+    {
+     "src": [
+      620,
+      320,
+      721,
+      324
+     ],
+     "box": [
+      349,
+      320,
+      450,
+      324
+     ]
+    },
+    {
+     "src": [
+      620,
+      324,
+      719,
+      328
+     ],
+     "box": [
+      351,
+      324,
+      450,
+      328
+     ]
+    },
+    {
+     "src": [
+      620,
+      328,
+      717,
+      332
+     ],
+     "box": [
+      353,
+      328,
+      450,
+      332
+     ]
+    },
+    {
+     "src": [
+      620,
+      332,
+      715,
+      336
+     ],
+     "box": [
+      355,
+      332,
+      450,
+      336
+     ]
+    },
+    {
+     "src": [
+      620,
+      336,
+      713,
+      340
+     ],
+     "box": [
+      357,
+      336,
+      450,
+      340
+     ]
+    },
+    {
+     "src": [
+      620,
+      340,
+      711,
+      344
+     ],
+     "box": [
+      359,
+      340,
+      450,
+      344
+     ]
+    },
+    {
+     "src": [
+      620,
+      344,
+      708,
+      348
+     ],
+     "box": [
+      362,
+      344,
+      450,
+      348
+     ]
+    },
+    {
+     "src": [
+      620,
+      348,
+      706,
+      352
+     ],
+     "box": [
+      364,
+      348,
+      450,
+      352
+     ]
+    },
+    {
+     "src": [
+      620,
+      352,
+      704,
+      356
+     ],
+     "box": [
+      366,
+      352,
+      450,
+      356
+     ]
+    },
+    {
+     "src": [
+      620,
+      356,
+      703,
+      360
+     ],
+     "box": [
+      367,
+      356,
+      450,
+      360
+     ]
+    },
+    {
+     "src": [
+      620,
+      360,
+      701,
+      364
+     ],
+     "box": [
+      369,
+      360,
+      450,
+      364
+     ]
+    },
+    {
+     "src": [
+      620,
+      364,
+      700,
+      368
+     ],
+     "box": [
+      370,
+      364,
+      450,
+      368
+     ]
+    },
+    {
+     "src": [
+      620,
+      368,
+      699,
+      372
+     ],
+     "box": [
+      371,
+      368,
+      450,
+      372
+     ]
+    },
+    {
+     "src": [
+      1490,
+      392,
+      1592,
+      962
+     ],
+     "box": [
+      1236,
+      392,
+      1338,
+      962
+     ]
+    },
+    {
+     "src": [
+      1490,
+      392,
+      1592,
+      962
+     ],
+     "box": [
+      1338,
+      392,
+      1440,
+      962
+     ]
+    },
+    {
+     "src": [
+      1490,
+      392,
+      1530,
+      962
+     ],
+     "box": [
+      1440,
+      392,
+      1480,
+      962
+     ]
+    },
+    {
+     "src": [
+      1490,
+      226,
+      1592,
+      392
+     ],
+     "box": [
+      1274,
+      226,
+      1376,
+      392
+     ]
+    },
+    {
+     "src": [
+      1490,
+      226,
+      1594,
+      392
+     ],
+     "box": [
+      1376,
+      226,
+      1480,
+      392
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "line",
+     "box": [
+      206,
+      255,
+      214,
+      253,
+      222,
+      252,
+      230,
+      251,
+      238,
+      251,
+      246,
+      251,
+      254,
+      251,
+      262,
+      253,
+      270,
+      254,
+      278,
+      257,
+      286,
+      260,
+      294,
+      264,
+      299.7,
+      266,
+      303.7,
+      269,
+      307.7,
+      272,
+      311.7,
+      275,
+      315.0,
+      278,
+      318.0,
+      281,
+      321.0,
+      284,
+      324.0,
+      287,
+      326.7,
+      290,
+      329.2,
+      293,
+      331.3,
+      296,
+      333.3,
+      299,
+      335.7,
+      302,
+      338.2,
+      305,
+      340.1,
+      308,
+      341.6,
+      311,
+      343.2,
+      314,
+      344.8,
+      317,
+      346.4,
+      320,
+      348.0,
+      323,
+      349.6,
+      326,
+      351.1,
+      329,
+      352.7,
+      332,
+      354.3,
+      335,
+      355.9,
+      338,
+      357.5,
+      341,
+      359.0,
+      344,
+      360.5,
+      347,
+      362.0,
+      350,
+      363.5,
+      353,
+      364.7,
+      356,
+      365.7,
+      359,
+      366.7,
+      362,
+      367.7,
+      365,
+      368.7,
+      368,
+      369.7,
+      371,
+      370.7,
+      374,
+      371.7,
+      377,
+      372.7,
+      380
+     ],
+     "fill": "#2f2620",
+     "width": 6
+    }
+   ]
+  },
+  {
+   "file": "img/memes/so-over-so-back.webp",
+   "verdict": "replace",
+   "joke": "IT'S SO OVER: Plateaued after a brief honeymoon of Sweet Spot gains. / WE'RE SO BACK: Polarized: roughly 75–90% below LT1, 15–20% above LT2.",
+   "match": "closest",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "note": "he sits on the ground (no crate); one arm up, not two (no two-arms-up pose)",
+   "figs": [
+    {
+     "box": [
+      270,
+      330,
+      690,
+      714
+     ],
+     "erase_box": [
+      250,
+      338,
+      570,
+      716
+     ],
+     "pose": "sit",
+     "face": "sleepy",
+     "psi": 67.5,
+     "pad": 0
+    },
+    {
+     "box": [
+      1060,
+      170,
+      1340,
+      712
+     ],
+     "erase_box": [
+      1090,
+      160,
+      1312,
+      714
+     ],
+     "pose": "wave",
+     "face": "laugh",
+     "psi": 90,
+     "pad": 0
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      246,
+      330,
+      580,
+      720
+     ],
+     "fill": "#cfd7db"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/spiderman-threshold.webp",
+   "verdict": "replace",
+   "joke": "SWEET SPOT 235 W, 94% of your tested FTP / THRESHOLD 235 W, 100–109% of your real threshold",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      470,
+      352,
+      800,
+      958
+     ],
+     "erase_box": [
+      505,
+      350,
+      780,
+      980
+     ],
+     "pose": "point",
+     "face": "surprised",
+     "psi": 22.5,
+     "pad": 0
+    },
+    {
+     "box": [
+      800,
+      352,
+      1130,
+      958
+     ],
+     "erase_box": [
+      820,
+      350,
+      1095,
+      980
+     ],
+     "pose": "point",
+     "face": "surprised",
+     "psi": 112.5,
+     "pad": 0
+    }
+   ]
+  },
+  {
+   "file": "img/memes/virgin-sweetspot-chad-polarized.webp",
+   "verdict": "replace",
+   "joke": "THE VIRGIN SWEET SPOT RIDER / THE CHAD POLARIZED RIDER (labels kept verbatim)",
+   "match": "closest",
+   "mode": "composite",
+   "erase": "#ebe6dc",
+   "note": "arrows redrawn to the new figures; virgin stands upright (no hunched pose)",
+   "figs": [
+    {
+     "box": [
+      360,
+      470,
+      540,
+      958
+     ],
+     "erase_box": [
+      6,
+      236,
+      794,
+      993
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 67.5,
+     "pad": 0
+    },
+    {
+     "box": [
+      1030,
+      226,
+      1410,
+      958
+     ],
+     "erase_box": [
+      806,
+      236,
+      1593,
+      993
+     ],
+     "pose": "walk",
+     "face": "grin",
+     "psi": 67.5,
+     "pad": 0
+    }
+   ],
+   "insets": [
+    {
+     "src": [
+      820,
+      900,
+      840,
+      920
+     ],
+     "box": [
+      806,
+      236,
+      1593,
+      993
+     ]
+    },
+    {
+     "src": [
+      20,
+      240,
+      246,
+      352
+     ],
+     "box": [
+      20,
+      240,
+      246,
+      352
+     ]
+    },
+    {
+     "src": [
+      530,
+      276,
+      784,
+      318
+     ],
+     "box": [
+      530,
+      276,
+      784,
+      318
+     ]
+    },
+    {
+     "src": [
+      16,
+      516,
+      256,
+      592
+     ],
+     "box": [
+      16,
+      516,
+      256,
+      592
+     ]
+    },
+    {
+     "src": [
+      566,
+      516,
+      784,
+      592
+     ],
+     "box": [
+      566,
+      516,
+      784,
+      592
+     ]
+    },
+    {
+     "src": [
+      16,
+      770,
+      318,
+      848
+     ],
+     "box": [
+      16,
+      770,
+      318,
+      848
+     ]
+    },
+    {
+     "src": [
+      542,
+      770,
+      784,
+      848
+     ],
+     "box": [
+      542,
+      770,
+      784,
+      848
+     ]
+    },
+    {
+     "src": [
+      816,
+      240,
+      1064,
+      352
+     ],
+     "box": [
+      816,
+      240,
+      1064,
+      352
+     ]
+    },
+    {
+     "src": [
+      1348,
+      320,
+      1584,
+      402
+     ],
+     "box": [
+      1348,
+      320,
+      1584,
+      402
+     ]
+    },
+    {
+     "src": [
+      816,
+      498,
+      1056,
+      608
+     ],
+     "box": [
+      816,
+      498,
+      1056,
+      608
+     ]
+    },
+    {
+     "src": [
+      1372,
+      690,
+      1584,
+      802
+     ],
+     "box": [
+      1372,
+      690,
+      1584,
+      802
+     ]
+    },
+    {
+     "src": [
+      816,
+      738,
+      1038,
+      880
+     ],
+     "box": [
+      816,
+      738,
+      1038,
+      880
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      236,
+      930,
+      620,
+      984
+     ],
+     "fill": "#d4cac0"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      1040,
+      928,
+      1458,
+      982
+     ],
+     "fill": "#cecfc8"
+    },
+    {
+     "type": "line",
+     "box": [
+      200,
+      352,
+      428,
+      505
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      428,
+      505,
+      420.9,
+      492.9
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      428,
+      505,
+      414.1,
+      503.0
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      690,
+      318,
+      482,
+      500
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      482,
+      500,
+      495.5,
+      496.3
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      482,
+      500,
+      487.5,
+      487.1
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      256,
+      572,
+      402,
+      600
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      402,
+      600,
+      390.8,
+      591.6
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      402,
+      600,
+      388.5,
+      603.6
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      566,
+      560,
+      482,
+      640
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      482,
+      640,
+      495.3,
+      635.7
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      482,
+      640,
+      486.9,
+      626.9
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      318,
+      805,
+      408,
+      822
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      408,
+      822,
+      396.7,
+      813.7
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      408,
+      822,
+      394.5,
+      825.6
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      570,
+      848,
+      470,
+      932
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      470,
+      932,
+      483.6,
+      928.6
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      470,
+      932,
+      475.7,
+      919.2
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1064,
+      330,
+      1192,
+      322
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1192,
+      322,
+      1179.0,
+      316.7
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1192,
+      322,
+      1179.8,
+      328.9
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1400,
+      402,
+      1262,
+      470
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1262,
+      470,
+      1276.0,
+      469.9
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1262,
+      470,
+      1270.6,
+      459.0
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1010,
+      608,
+      1082,
+      578
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1082,
+      578,
+      1068.0,
+      577.2
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1082,
+      578,
+      1072.7,
+      588.5
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1372,
+      735,
+      1286,
+      690
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1286,
+      690,
+      1294.3,
+      701.2
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1286,
+      690,
+      1300.0,
+      690.4
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1000,
+      880,
+      1150,
+      945
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1150,
+      945,
+      1140.9,
+      934.4
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      1150,
+      945,
+      1136.0,
+      945.6
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "box": [
+      400,
+      470,
+      419.2,
+      501.2
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      500,
+      462,
+      519.2,
+      493.2
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/clown-ftp-m.webp",
+   "verdict": "replace",
+   "joke": "Use my best test ever. / Tested on a 20-minute climb. / Take an optimistic 95%. / Set my Sweet Spot at 235 W. (phone)",
+   "match": "closest",
+   "mode": "composite",
+   "erase": "#e6dac5",
+   "note": "phone layout of clown-ftp",
+   "figs": [
+    {
+     "box": [
+      354,
+      27.5,
+      622,
+      271.5
+     ],
+     "erase_box": [
+      332,
+      6,
+      653,
+      272
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      354,
+      298.5,
+      622,
+      542.5
+     ],
+     "erase_box": [
+      332,
+      277,
+      653,
+      547
+     ],
+     "pose": "stand",
+     "face": "neutral",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      354,
+      573.5,
+      622,
+      817.5
+     ],
+     "erase_box": [
+      332,
+      552,
+      653,
+      822
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      354,
+      848.5,
+      622,
+      1092.5
+     ],
+     "erase_box": [
+      332,
+      827,
+      653,
+      1093
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "insets": [
+    {
+     "src": [
+      640,
+      12,
+      650,
+      22
+     ],
+     "box": [
+      332,
+      6,
+      653,
+      272
+     ]
+    },
+    {
+     "src": [
+      640,
+      283,
+      650,
+      293
+     ],
+     "box": [
+      332,
+      277,
+      653,
+      547
+     ]
+    },
+    {
+     "src": [
+      640,
+      558,
+      650,
+      568
+     ],
+     "box": [
+      332,
+      552,
+      653,
+      822
+     ]
+    },
+    {
+     "src": [
+      640,
+      833,
+      650,
+      843
+     ],
+     "box": [
+      332,
+      827,
+      653,
+      1093
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "line",
+     "box": [
+      650,
+      230,
+      531,
+      113
+     ],
+     "fill": "#3b2a1e",
+     "width": 6
+    },
+    {
+     "type": "line",
+     "box": [
+      650,
+      501,
+      531,
+      384
+     ],
+     "fill": "#3b2a1e",
+     "width": 6
+    },
+    {
+     "type": "line",
+     "box": [
+      650,
+      776,
+      531,
+      659
+     ],
+     "fill": "#3b2a1e",
+     "width": 6
+    },
+    {
+     "type": "line",
+     "box": [
+      560,
+      142,
+      543,
+      125
+     ],
+     "fill": "#c9a24a",
+     "width": 8
+    },
+    {
+     "type": "line",
+     "box": [
+      560,
+      413,
+      543,
+      396
+     ],
+     "fill": "#c9a24a",
+     "width": 8
+    },
+    {
+     "type": "line",
+     "box": [
+      560,
+      688,
+      543,
+      671
+     ],
+     "fill": "#c9a24a",
+     "width": 8
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "box": [
+      474.3,
+      59.0,
+      494.9,
+      68.6
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      499.7,
+      86.4,
+      516.1,
+      97.4
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      464.0,
+      328.6,
+      512.0,
+      340.9
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      457.8,
+      356.0,
+      475.7,
+      368.4
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      500.3,
+      356.0,
+      518.2,
+      368.4
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      478.4,
+      388.9,
+      497.6,
+      398.5
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      464.0,
+      603.6,
+      512.0,
+      615.9
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      457.8,
+      631.0,
+      475.7,
+      643.4
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      500.3,
+      631.0,
+      518.2,
+      643.4
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      478.4,
+      663.9,
+      497.6,
+      673.5
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      467.4,
+      611.1,
+      474.3,
+      620.7
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      500.3,
+      611.1,
+      507.2,
+      620.7
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      467.4,
+      629.6,
+      474.3,
+      639.9
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      500.3,
+      629.6,
+      507.2,
+      639.9
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      480.5,
+      632.4,
+      495.5,
+      646.8
+     ],
+     "text": " ",
+     "fill": "#d0312d",
+     "edge": "#8f1d1a"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      464.0,
+      878.6,
+      512.0,
+      890.9
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      457.8,
+      906.0,
+      475.7,
+      918.4
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      500.3,
+      906.0,
+      518.2,
+      918.4
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      478.4,
+      938.9,
+      497.6,
+      948.5
+     ],
+     "text": " ",
+     "fill": "#fbfaf6",
+     "edge": "#e9e4da"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      467.4,
+      886.1,
+      474.3,
+      895.7
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      500.3,
+      886.1,
+      507.2,
+      895.7
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      467.4,
+      904.6,
+      474.3,
+      914.9
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      500.3,
+      904.6,
+      507.2,
+      914.9
+     ],
+     "text": " ",
+     "fill": "#3d6fb6",
+     "edge": "#3d6fb6"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      480.5,
+      907.4,
+      495.5,
+      921.8
+     ],
+     "text": " ",
+     "fill": "#d0312d",
+     "edge": "#8f1d1a"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      433.8,
+      856.7,
+      458.5,
+      881.3
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      429.0,
+      879.3,
+      455.1,
+      905.3
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      433.8,
+      903.3,
+      458.5,
+      928.0
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      517.5,
+      856.7,
+      542.2,
+      881.3
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      520.9,
+      879.3,
+      547.0,
+      905.3
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      517.5,
+      903.3,
+      542.2,
+      928.0
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      452.3,
+      836.8,
+      478.4,
+      862.8
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      474.3,
+      830.6,
+      501.7,
+      858.0
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      497.6,
+      836.8,
+      523.7,
+      862.8
+     ],
+     "text": " ",
+     "fill": "#ef8a2c",
+     "edge": "#b85a14"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/panik-kalm-panik-m.webp",
+   "verdict": "replace",
+   "joke": "PANIK / KALM / PANIK (phone)",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "#e9d2c3",
+   "note": "phone layout of panik-kalm-panik",
+   "figs": [
+    {
+     "box": [
+      354,
+      26.5,
+      632,
+      327
+     ],
+     "erase_box": [
+      332,
+      6,
+      653,
+      328
+     ],
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      354,
+      352.5,
+      632,
+      653
+     ],
+     "erase_box": [
+      332,
+      332,
+      653,
+      658
+     ],
+     "pose": "stand",
+     "face": "blink",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      354,
+      682.5,
+      632,
+      983
+     ],
+     "erase_box": [
+      332,
+      662,
+      653,
+      984
+     ],
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "insets": [
+    {
+     "src": [
+      640,
+      14,
+      650,
+      24
+     ],
+     "box": [
+      332,
+      6,
+      653,
+      328
+     ]
+    },
+    {
+     "src": [
+      640,
+      340,
+      650,
+      350
+     ],
+     "box": [
+      332,
+      332,
+      653,
+      658
+     ]
+    },
+    {
+     "src": [
+      640,
+      670,
+      650,
+      680
+     ],
+     "box": [
+      332,
+      662,
+      653,
+      984
+     ]
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "box": [
+      347.228,
+      79.512,
+      364.19056,
+      107.07616
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      625.52,
+      92.764,
+      642.48256,
+      120.32816
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      333.976,
+      728.886,
+      353.05888,
+      759.89568
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      632.146,
+      695.756,
+      651.22888,
+      726.76568
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      599.016,
+      755.39,
+      614.9184,
+      781.2314
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "caption",
+     "text": "PANIK",
+     "box": [
+      360,
+      219,
+      626,
+      318
+     ],
+     "size": 99,
+     "weight": 900,
+     "color": "#f5efe6",
+     "stroke": "#2a211b"
+    },
+    {
+     "type": "caption",
+     "text": "KALM",
+     "box": [
+      360,
+      545,
+      626,
+      644
+     ],
+     "size": 99,
+     "weight": 900,
+     "color": "#f5efe6",
+     "stroke": "#2a211b"
+    },
+    {
+     "type": "caption",
+     "text": "PANIK",
+     "box": [
+      360,
+      875,
+      626,
+      974
+     ],
+     "size": 99,
+     "weight": 900,
+     "color": "#f5efe6",
+     "stroke": "#2a211b"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/four-horsemen-m.webp",
+   "verdict": "replace",
+   "joke": "THE FOUR HORSEMEN OF TOO MUCH SWEET SPOT (phone)",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "#e7d3c5",
+   "note": "phone layout of four-horsemen",
+   "figs": [
+    {
+     "box": [
+      62,
+      262,
+      272,
+      517
+     ],
+     "erase_box": [
+      6,
+      140,
+      327,
+      517
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      404,
+      180,
+      639,
+      517
+     ],
+     "erase_box": [
+      332,
+      140,
+      653,
+      517
+     ],
+     "pose": "eat",
+     "face": "smile",
+     "psi": 67.5,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      52,
+      640,
+      282,
+      948
+     ],
+     "erase_box": [
+      6,
+      571,
+      327,
+      948
+     ],
+     "pose": "stand",
+     "face": "sleepy",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      378,
+      640,
+      608,
+      948
+     ],
+     "erase_box": [
+      332,
+      571,
+      653,
+      948
+     ],
+     "pose": "arms_crossed",
+     "face": "grimace",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "insets": [
+    {
+     "src": [
+      305,
+      240,
+      322,
+      258
+     ],
+     "box": [
+      6,
+      140,
+      327,
+      517
+     ]
+    },
+    {
+     "src": [
+      340,
+      150,
+      358,
+      168
+     ],
+     "box": [
+      332,
+      140,
+      653,
+      517
+     ]
+    },
+    {
+     "src": [
+      300,
+      600,
+      320,
+      620
+     ],
+     "box": [
+      6,
+      571,
+      327,
+      948
+     ]
+    },
+    {
+     "src": [
+      620,
+      700,
+      645,
+      720
+     ],
+     "box": [
+      332,
+      571,
+      653,
+      948
+     ]
+    },
+    {
+     "src": [
+      32,
+      146,
+      298,
+      226
+     ],
+     "box": [
+      32,
+      146,
+      298,
+      226
+     ]
+    },
+    {
+     "src": [
+      14,
+      578,
+      116,
+      686
+     ],
+     "box": [
+      14,
+      578,
+      116,
+      686
+     ]
+    },
+    {
+     "src": [
+      530,
+      574,
+      618,
+      684
+     ],
+     "box": [
+      530,
+      574,
+      618,
+      684
+     ]
+    },
+    {
+     "src": [
+      512,
+      574,
+      530,
+      636
+     ],
+     "box": [
+      512,
+      574,
+      530,
+      636
+     ]
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "box": [
+      52,
+      300,
+      68.0,
+      326.0
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      255,
+      292,
+      271.0,
+      318.0
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      72,
+      372,
+      86.4,
+      395.4
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "shape": "rect",
+     "box": [
+      345,
+      452,
+      400,
+      474
+     ],
+     "text": " ",
+     "fill": "#8a6a4a"
+    },
+    {
+     "type": "bubble",
+     "shape": "rect",
+     "box": [
+      585,
+      458,
+      645,
+      480
+     ],
+     "text": " ",
+     "fill": "#2f8f86"
+    },
+    {
+     "type": "bubble",
+     "shape": "rect",
+     "box": [
+      370,
+      488,
+      430,
+      510
+     ],
+     "text": " ",
+     "fill": "#b23a2e"
+    },
+    {
+     "type": "bubble",
+     "shape": "rect",
+     "box": [
+      540,
+      490,
+      600,
+      512
+     ],
+     "text": " ",
+     "fill": "#c49a5e"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/gigachad-yes-m.webp",
+   "verdict": "replace",
+   "joke": "You named a training zone the G-Spot? / Yes. (phone)",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "#241d18",
+   "note": "phone layout of gigachad-yes",
+   "figs": [
+    {
+     "box": [
+      262,
+      390,
+      660,
+      984
+     ],
+     "erase_box": [
+      262,
+      356,
+      654,
+      984
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 135,
+     "elev": -12,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      198,
+      358,
+      650,
+      810
+     ],
+     "fill": "#5a473e"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/gru-noob-gains-m.webp",
+   "verdict": "replace",
+   "joke": "Skip training all winter. / Buy a 10-week Sweet Spot plan. / FTP +30 W! / +30 W from any training at all (phone)",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "#efe6d6",
+   "note": "phone layout of gru-noob-gains",
+   "figs": [
+    {
+     "box": [
+      -35,
+      60,
+      225,
+      409
+     ],
+     "erase_box": [
+      6,
+      40,
+      141,
+      409
+     ],
+     "pose": "point",
+     "face": "grin",
+     "psi": 22.5,
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      291,
+      60,
+      551,
+      409
+     ],
+     "erase_box": [
+      332,
+      40,
+      467,
+      409
+     ],
+     "pose": "point",
+     "face": "grin",
+     "psi": 22.5,
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      -35,
+      469,
+      225,
+      818
+     ],
+     "erase_box": [
+      6,
+      449,
+      141,
+      818
+     ],
+     "pose": "point",
+     "face": "grin",
+     "psi": 22.5,
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      291,
+      469,
+      551,
+      818
+     ],
+     "erase_box": [
+      332,
+      449,
+      467,
+      818
+     ],
+     "pose": "point",
+     "face": "surprised",
+     "psi": 45,
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "erase_extra": [
+    [
+     138,
+     262,
+     262,
+     300
+    ],
+    [
+     464,
+     262,
+     588,
+     300
+    ],
+    [
+     138,
+     671,
+     262,
+     709
+    ],
+    [
+     464,
+     671,
+     588,
+     709
+    ]
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      6,
+      330,
+      141,
+      409
+     ],
+     "fill": "#daccb3"
+    },
+    {
+     "type": "rect",
+     "box": [
+      147,
+      262,
+      262,
+      300
+     ],
+     "fill": "#fbf8f2"
+    },
+    {
+     "type": "line",
+     "box": [
+      145,
+      256,
+      145,
+      304
+     ],
+     "fill": "#887f65",
+     "width": 2
+    },
+    {
+     "type": "rect",
+     "box": [
+      332,
+      330,
+      467,
+      409
+     ],
+     "fill": "#daccb3"
+    },
+    {
+     "type": "rect",
+     "box": [
+      473,
+      262,
+      588,
+      300
+     ],
+     "fill": "#fbf8f2"
+    },
+    {
+     "type": "line",
+     "box": [
+      471,
+      256,
+      471,
+      304
+     ],
+     "fill": "#887f65",
+     "width": 2
+    },
+    {
+     "type": "rect",
+     "box": [
+      6,
+      739,
+      141,
+      818
+     ],
+     "fill": "#daccb3"
+    },
+    {
+     "type": "rect",
+     "box": [
+      147,
+      671,
+      262,
+      709
+     ],
+     "fill": "#fbf8f2"
+    },
+    {
+     "type": "line",
+     "box": [
+      145,
+      665,
+      145,
+      713
+     ],
+     "fill": "#887f65",
+     "width": 2
+    },
+    {
+     "type": "rect",
+     "box": [
+      332,
+      739,
+      467,
+      818
+     ],
+     "fill": "#daccb3"
+    },
+    {
+     "type": "rect",
+     "box": [
+      473,
+      671,
+      588,
+      709
+     ],
+     "fill": "#fbf8f2"
+    },
+    {
+     "type": "line",
+     "box": [
+      471,
+      665,
+      471,
+      713
+     ],
+     "fill": "#887f65",
+     "width": 2
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "box": [
+      352,
+      478,
+      366.4,
+      501.4
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      462,
+      470,
+      476.4,
+      493.4
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/midwit-sweet-spot-m.webp",
+   "verdict": "replace",
+   "joke": "just ride easy… and go hard sometimes / Sweet spot maximizes TSS per hour… (phone)",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "#f5efe6",
+   "note": "phone layout of midwit-sweet-spot",
+   "figs": [
+    {
+     "box": [
+      40,
+      615,
+      200,
+      889
+     ],
+     "erase_box": [
+      12,
+      588,
+      652,
+      889
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      255,
+      345,
+      405,
+      545
+     ],
+     "erase_box": [
+      222,
+      400,
+      438,
+      588
+     ],
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      468,
+      615,
+      628,
+      889
+     ],
+     "erase_box": [
+      280,
+      336,
+      380,
+      400
+     ],
+     "pose": "stand",
+     "face": "blink",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      440,
+      592,
+      652,
+      815
+     ],
+     "fill": "#ebe0bf"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      462,
+      614,
+      630,
+      793
+     ],
+     "fill": "#e7d9ac"
+    },
+    {
+     "type": "line",
+     "box": [
+      14,
+      886,
+      14,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      17,
+      886,
+      17,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      20,
+      886,
+      20,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      23,
+      886,
+      23,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      26,
+      885,
+      26,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      29,
+      885,
+      29,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      32,
+      885,
+      32,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      35,
+      884,
+      35,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      38,
+      884,
+      38,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      41,
+      883,
+      41,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      44,
+      883,
+      44,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      47,
+      882,
+      47,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      50,
+      882,
+      50,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      53,
+      881,
+      53,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      56,
+      880,
+      56,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      59,
+      880,
+      59,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      62,
+      879,
+      62,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      65,
+      878,
+      65,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      68,
+      877,
+      68,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      71,
+      876,
+      71,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      74,
+      875,
+      74,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      77,
+      874,
+      77,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      80,
+      873,
+      80,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      83,
+      872,
+      83,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      86,
+      870,
+      86,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      89,
+      869,
+      89,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      92,
+      868,
+      92,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      95,
+      866,
+      95,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      98,
+      864,
+      98,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      101,
+      863,
+      101,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      104,
+      861,
+      104,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      107,
+      859,
+      107,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      110,
+      857,
+      110,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      113,
+      855,
+      113,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      116,
+      852,
+      116,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      119,
+      850,
+      119,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      122,
+      847,
+      122,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      125,
+      845,
+      125,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      128,
+      842,
+      128,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      131,
+      839,
+      131,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      134,
+      836,
+      134,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      137,
+      833,
+      137,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      140,
+      830,
+      140,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      143,
+      826,
+      143,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      146,
+      823,
+      146,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      149,
+      819,
+      149,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      152,
+      815,
+      152,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      155,
+      811,
+      155,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      158,
+      807,
+      158,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      161,
+      803,
+      161,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      164,
+      799,
+      164,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      167,
+      794,
+      167,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      170,
+      789,
+      170,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      173,
+      784,
+      173,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      176,
+      780,
+      176,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      179,
+      774,
+      179,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      182,
+      769,
+      182,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      185,
+      764,
+      185,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      188,
+      758,
+      188,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      191,
+      753,
+      191,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      194,
+      747,
+      194,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      197,
+      741,
+      197,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      200,
+      735,
+      200,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      203,
+      729,
+      203,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      206,
+      723,
+      206,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      209,
+      717,
+      209,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      212,
+      711,
+      212,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      215,
+      705,
+      215,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      218,
+      698,
+      218,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      221,
+      692,
+      221,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      224,
+      686,
+      224,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      227,
+      679,
+      227,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      230,
+      673,
+      230,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      233,
+      666,
+      233,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      236,
+      660,
+      236,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      239,
+      654,
+      239,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      242,
+      647,
+      242,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      245,
+      641,
+      245,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      248,
+      635,
+      248,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      251,
+      629,
+      251,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      254,
+      622,
+      254,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      257,
+      616,
+      257,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      260,
+      611,
+      260,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      263,
+      605,
+      263,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      266,
+      599,
+      266,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      269,
+      594,
+      269,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      272,
+      589,
+      272,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      275,
+      583,
+      275,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      278,
+      579,
+      278,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      281,
+      574,
+      281,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      284,
+      569,
+      284,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      287,
+      565,
+      287,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      290,
+      561,
+      290,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      293,
+      557,
+      293,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      296,
+      554,
+      296,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      299,
+      551,
+      299,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      302,
+      548,
+      302,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      305,
+      545,
+      305,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      308,
+      542,
+      308,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      311,
+      540,
+      311,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      314,
+      538,
+      314,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      317,
+      537,
+      317,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      320,
+      536,
+      320,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      323,
+      535,
+      323,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      326,
+      534,
+      326,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      329,
+      534,
+      329,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      332,
+      534,
+      332,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      335,
+      534,
+      335,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      338,
+      535,
+      338,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      341,
+      536,
+      341,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      344,
+      537,
+      344,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      347,
+      539,
+      347,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      350,
+      541,
+      350,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      353,
+      543,
+      353,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      356,
+      546,
+      356,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      359,
+      549,
+      359,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      362,
+      552,
+      362,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      365,
+      555,
+      365,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      368,
+      559,
+      368,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      371,
+      562,
+      371,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      374,
+      567,
+      374,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      377,
+      571,
+      377,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      380,
+      575,
+      380,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      383,
+      580,
+      383,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      386,
+      585,
+      386,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      389,
+      590,
+      389,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      392,
+      596,
+      392,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      395,
+      601,
+      395,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      398,
+      607,
+      398,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      401,
+      613,
+      401,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      404,
+      618,
+      404,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      407,
+      624,
+      407,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      410,
+      631,
+      410,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      413,
+      637,
+      413,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      416,
+      643,
+      416,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      419,
+      649,
+      419,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      422,
+      656,
+      422,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      425,
+      662,
+      425,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      428,
+      669,
+      428,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      431,
+      675,
+      431,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      434,
+      681,
+      434,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      437,
+      688,
+      437,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      440,
+      694,
+      440,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      443,
+      701,
+      443,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      446,
+      707,
+      446,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      449,
+      713,
+      449,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      452,
+      719,
+      452,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      455,
+      725,
+      455,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      458,
+      731,
+      458,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      461,
+      737,
+      461,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      464,
+      743,
+      464,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      467,
+      749,
+      467,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      470,
+      755,
+      470,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      473,
+      760,
+      473,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      476,
+      766,
+      476,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      479,
+      771,
+      479,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      482,
+      776,
+      482,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      485,
+      781,
+      485,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      488,
+      786,
+      488,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      491,
+      791,
+      491,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      494,
+      795,
+      494,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      497,
+      800,
+      497,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      500,
+      804,
+      500,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      503,
+      809,
+      503,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      506,
+      813,
+      506,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      509,
+      817,
+      509,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      512,
+      820,
+      512,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      515,
+      824,
+      515,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      518,
+      828,
+      518,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      521,
+      831,
+      521,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      524,
+      834,
+      524,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      527,
+      837,
+      527,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      530,
+      840,
+      530,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      533,
+      843,
+      533,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      536,
+      846,
+      536,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      539,
+      848,
+      539,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      542,
+      851,
+      542,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      545,
+      853,
+      545,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      548,
+      855,
+      548,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      551,
+      858,
+      551,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      554,
+      860,
+      554,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      557,
+      861,
+      557,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      560,
+      863,
+      560,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      563,
+      865,
+      563,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      566,
+      867,
+      566,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      569,
+      868,
+      569,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      572,
+      870,
+      572,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      575,
+      871,
+      575,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      578,
+      872,
+      578,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      581,
+      873,
+      581,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      584,
+      875,
+      584,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      587,
+      876,
+      587,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      590,
+      877,
+      590,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      593,
+      878,
+      593,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      596,
+      878,
+      596,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      599,
+      879,
+      599,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      602,
+      880,
+      602,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      605,
+      881,
+      605,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      608,
+      881,
+      608,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      611,
+      882,
+      611,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      614,
+      883,
+      614,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      617,
+      883,
+      617,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      620,
+      884,
+      620,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      623,
+      884,
+      623,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      626,
+      884,
+      626,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      629,
+      885,
+      629,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      632,
+      885,
+      632,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      635,
+      885,
+      635,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      638,
+      886,
+      638,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      641,
+      886,
+      641,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      644,
+      886,
+      644,
+      889
+     ],
+     "fill": "#dfd1c4",
+     "width": 4
+    },
+    {
+     "type": "line",
+     "box": [
+      10,
+      886.8,
+      15,
+      886.4,
+      20,
+      886.0,
+      25,
+      885.5,
+      30,
+      884.9,
+      35,
+      884.3,
+      40,
+      883.5,
+      45,
+      882.7,
+      50,
+      881.7,
+      55,
+      880.7,
+      60,
+      879.5,
+      65,
+      878.1,
+      70,
+      876.6,
+      75,
+      874.9,
+      80,
+      873.0,
+      85,
+      870.9,
+      90,
+      868.6,
+      95,
+      866.1,
+      100,
+      863.3,
+      105,
+      860.2,
+      110,
+      856.8,
+      115,
+      853.2,
+      120,
+      849.2,
+      125,
+      844.9,
+      130,
+      840.2,
+      135,
+      835.2,
+      140,
+      829.8,
+      145,
+      824.0,
+      150,
+      817.8,
+      155,
+      811.3,
+      160,
+      804.3,
+      165,
+      797.0,
+      170,
+      789.3,
+      175,
+      781.2,
+      180,
+      772.7,
+      185,
+      763.9,
+      190,
+      754.7,
+      195,
+      745.2,
+      200,
+      735.5,
+      205,
+      725.5,
+      210,
+      715.2,
+      215,
+      704.8,
+      220,
+      694.2,
+      225,
+      683.5,
+      230,
+      672.8,
+      235,
+      662.1,
+      240,
+      651.5,
+      245,
+      640.9,
+      250,
+      630.6,
+      255,
+      620.4,
+      260,
+      610.6,
+      265,
+      601.1,
+      270,
+      592.1,
+      275,
+      583.5,
+      280,
+      575.4,
+      285,
+      567.9,
+      290,
+      561.1,
+      295,
+      554.9,
+      300,
+      549.5,
+      305,
+      544.8,
+      310,
+      541.0,
+      315,
+      537.9,
+      320,
+      535.8,
+      325,
+      534.4,
+      330,
+      534.0,
+      335,
+      534.4,
+      340,
+      535.8,
+      345,
+      537.9,
+      350,
+      541.0,
+      355,
+      544.8,
+      360,
+      549.5,
+      365,
+      554.9,
+      370,
+      561.1,
+      375,
+      567.9,
+      380,
+      575.4,
+      385,
+      583.5,
+      390,
+      592.1,
+      395,
+      601.1,
+      400,
+      610.6,
+      405,
+      620.4,
+      410,
+      630.6,
+      415,
+      640.9,
+      420,
+      651.5,
+      425,
+      662.1,
+      430,
+      672.8,
+      435,
+      683.5,
+      440,
+      694.2,
+      445,
+      704.8,
+      450,
+      715.2,
+      455,
+      725.5,
+      460,
+      735.5,
+      465,
+      745.2,
+      470,
+      754.7,
+      475,
+      763.9,
+      480,
+      772.7,
+      485,
+      781.2,
+      490,
+      789.3,
+      495,
+      797.0,
+      500,
+      804.3,
+      505,
+      811.3,
+      510,
+      817.8,
+      515,
+      824.0,
+      520,
+      829.8,
+      525,
+      835.2,
+      530,
+      840.2,
+      535,
+      844.9,
+      540,
+      849.2,
+      545,
+      853.2,
+      550,
+      856.8,
+      555,
+      860.2,
+      560,
+      863.3,
+      565,
+      866.1,
+      570,
+      868.6,
+      575,
+      870.9,
+      580,
+      873.0,
+      585,
+      874.9,
+      590,
+      876.6,
+      595,
+      878.1,
+      600,
+      879.5,
+      605,
+      880.7,
+      610,
+      881.7,
+      615,
+      882.7,
+      620,
+      883.5,
+      625,
+      884.3,
+      630,
+      884.9,
+      635,
+      885.5,
+      640,
+      886.0,
+      645,
+      886.4,
+      650,
+      886.8
+     ],
+     "fill": "#2f2620",
+     "width": 4
+    }
+   ]
+  },
+  {
+   "file": "img/memes/same-picture-m.webp",
+   "verdict": "replace",
+   "joke": "Corporate needs you to find the differences… / They’re the same picture. (phone)",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "#d9cdb6",
+   "note": "phone layout of same-picture",
+   "figs": [
+    {
+     "box": [
+      216,
+      70,
+      530,
+      497
+     ],
+     "erase_box": [
+      184,
+      64,
+      520,
+      497
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    },
+    {
+     "box": [
+      216,
+      1150,
+      530,
+      1554
+     ],
+     "erase_box": [
+      184,
+      1146,
+      520,
+      1554
+     ],
+     "pose": "stand",
+     "face": "neutral",
+     "psi": 90,
+     "crop": "bust",
+     "shadow": false,
+     "pad": 0
+    }
+   ],
+   "erase_extra": [
+    [
+     40,
+     355,
+     620,
+     497
+    ],
+    [
+     150,
+     240,
+     184,
+     497
+    ],
+    [
+     50,
+     1490,
+     610,
+     1554
+    ],
+    [
+     150,
+     1410,
+     184,
+     1554
+    ]
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      40,
+      310,
+      620,
+      497
+     ],
+     "fill": "#c9bca0"
+    },
+    {
+     "type": "rect",
+     "box": [
+      50,
+      1370,
+      610,
+      1554
+     ],
+     "fill": "#c9bca0"
+    },
+    {
+     "type": "rect",
+     "box": [
+      150,
+      1370,
+      520,
+      1554
+     ],
+     "fill": "#c9bca0"
+    },
+    {
+     "type": "rect",
+     "box": [
+      150,
+      240,
+      184,
+      310
+     ],
+     "fill": "#d9cdb6"
+    }
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "text": "Corporate needs you to find the\ndifferences between this picture\nand this picture.",
+     "box": [
+      60,
+      368,
+      610,
+      486
+     ],
+     "size": 30,
+     "weight": 800,
+     "color": "#f3ead8",
+     "stroke": "#2a211b"
+    },
+    {
+     "type": "caption",
+     "text": "They’re the same picture.",
+     "box": [
+      60,
+      1500,
+      600,
+      1550
+     ],
+     "size": 34,
+     "weight": 800,
+     "color": "#f3ead8",
+     "stroke": "#2a211b"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/scooby-unmask-m.webp",
+   "verdict": "replace",
+   "joke": "LET'S SEE WHO YOU REALLY ARE / TRAINING HACK / MARKETING (phone)",
+   "match": "closest",
+   "mode": "composite",
+   "erase": "#f6f4f0",
+   "note": "phone layout of scooby-unmask",
+   "figs": [
+    {
+     "box": [
+      330,
+      115,
+      560,
+      592
+     ],
+     "no_erase": true,
+     "pose": "point",
+     "face": "focused",
+     "psi": 112.5,
+     "pad": 0
+    },
+    {
+     "box": [
+      400,
+      735,
+      620,
+      1212
+     ],
+     "no_erase": true,
+     "pose": "point",
+     "face": "surprised",
+     "psi": 112.5,
+     "pad": 0
+    }
+   ],
+   "erase_extra": [
+    [
+     180,
+     124,
+     402,
+     183
+    ],
+    [
+     300,
+     183,
+     402,
+     196
+    ]
+   ],
+   "insets": [
+    {
+     "src": [
+      560,
+      100,
+      650,
+      612
+     ],
+     "box": [
+      380,
+      100,
+      470,
+      612
+     ]
+    },
+    {
+     "src": [
+      560,
+      100,
+      650,
+      612
+     ],
+     "box": [
+      470,
+      100,
+      560,
+      612
+     ]
+    },
+    {
+     "src": [
+      560,
+      124,
+      650,
+      127
+     ],
+     "box": [
+      221,
+      124,
+      402,
+      127
+     ]
+    },
+    {
+     "src": [
+      560,
+      127,
+      650,
+      130
+     ],
+     "box": [
+      228,
+      127,
+      402,
+      130
+     ]
+    },
+    {
+     "src": [
+      560,
+      130,
+      650,
+      133
+     ],
+     "box": [
+      234,
+      130,
+      402,
+      133
+     ]
+    },
+    {
+     "src": [
+      560,
+      133,
+      650,
+      136
+     ],
+     "box": [
+      239,
+      133,
+      402,
+      136
+     ]
+    },
+    {
+     "src": [
+      560,
+      136,
+      650,
+      139
+     ],
+     "box": [
+      243,
+      136,
+      402,
+      139
+     ]
+    },
+    {
+     "src": [
+      560,
+      139,
+      650,
+      142
+     ],
+     "box": [
+      246,
+      139,
+      402,
+      142
+     ]
+    },
+    {
+     "src": [
+      560,
+      142,
+      650,
+      145
+     ],
+     "box": [
+      250,
+      142,
+      402,
+      145
+     ]
+    },
+    {
+     "src": [
+      560,
+      145,
+      650,
+      148
+     ],
+     "box": [
+      253,
+      145,
+      402,
+      148
+     ]
+    },
+    {
+     "src": [
+      560,
+      148,
+      650,
+      151
+     ],
+     "box": [
+      256,
+      148,
+      402,
+      151
+     ]
+    },
+    {
+     "src": [
+      560,
+      151,
+      650,
+      154
+     ],
+     "box": [
+      259,
+      151,
+      402,
+      154
+     ]
+    },
+    {
+     "src": [
+      560,
+      154,
+      650,
+      157
+     ],
+     "box": [
+      261,
+      154,
+      402,
+      157
+     ]
+    },
+    {
+     "src": [
+      560,
+      157,
+      650,
+      160
+     ],
+     "box": [
+      263,
+      157,
+      402,
+      160
+     ]
+    },
+    {
+     "src": [
+      560,
+      160,
+      650,
+      163
+     ],
+     "box": [
+      265,
+      160,
+      402,
+      163
+     ]
+    },
+    {
+     "src": [
+      560,
+      163,
+      650,
+      166
+     ],
+     "box": [
+      266,
+      163,
+      402,
+      166
+     ]
+    },
+    {
+     "src": [
+      560,
+      166,
+      650,
+      169
+     ],
+     "box": [
+      268,
+      166,
+      402,
+      169
+     ]
+    },
+    {
+     "src": [
+      560,
+      169,
+      650,
+      172
+     ],
+     "box": [
+      270,
+      169,
+      402,
+      172
+     ]
+    },
+    {
+     "src": [
+      560,
+      172,
+      650,
+      175
+     ],
+     "box": [
+      272,
+      172,
+      402,
+      175
+     ]
+    },
+    {
+     "src": [
+      560,
+      175,
+      650,
+      178
+     ],
+     "box": [
+      274,
+      175,
+      402,
+      178
+     ]
+    },
+    {
+     "src": [
+      560,
+      178,
+      650,
+      181
+     ],
+     "box": [
+      276,
+      178,
+      402,
+      181
+     ]
+    },
+    {
+     "src": [
+      560,
+      181,
+      650,
+      184
+     ],
+     "box": [
+      277,
+      181,
+      402,
+      184
+     ]
+    },
+    {
+     "src": [
+      560,
+      184,
+      650,
+      187
+     ],
+     "box": [
+      279,
+      184,
+      402,
+      187
+     ]
+    },
+    {
+     "src": [
+      560,
+      187,
+      650,
+      190
+     ],
+     "box": [
+      279,
+      187,
+      402,
+      190
+     ]
+    },
+    {
+     "src": [
+      560,
+      190,
+      650,
+      193
+     ],
+     "box": [
+      281,
+      190,
+      402,
+      193
+     ]
+    },
+    {
+     "src": [
+      560,
+      193,
+      650,
+      196
+     ],
+     "box": [
+      282,
+      193,
+      402,
+      196
+     ]
+    },
+    {
+     "src": [
+      560,
+      840,
+      650,
+      1230
+     ],
+     "box": [
+      404,
+      840,
+      494,
+      1230
+     ]
+    },
+    {
+     "src": [
+      560,
+      840,
+      650,
+      1230
+     ],
+     "box": [
+      470,
+      840,
+      560,
+      1230
+     ]
+    },
+    {
+     "src": [
+      560,
+      700,
+      650,
+      840
+     ],
+     "box": [
+      410,
+      700,
+      500,
+      840
+     ]
+    },
+    {
+     "src": [
+      560,
+      700,
+      650,
+      840
+     ],
+     "box": [
+      470,
+      700,
+      560,
+      840
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "line",
+     "box": [
+      175,
+      127,
+      180,
+      126,
+      185,
+      125,
+      190,
+      124,
+      205,
+      124,
+      210,
+      125,
+      215,
+      126,
+      220,
+      127,
+      225,
+      129,
+      230,
+      131,
+      235,
+      133,
+      241.0,
+      136,
+      243.5,
+      138,
+      246.0,
+      140,
+      248.0,
+      142,
+      250.0,
+      144,
+      252.0,
+      146,
+      254.0,
+      148,
+      256.0,
+      150,
+      258.0,
+      152,
+      259.2,
+      154,
+      260.5,
+      156,
+      261.8,
+      158,
+      263.0,
+      160,
+      264.2,
+      162,
+      265.5,
+      164,
+      266.8,
+      166,
+      268.0,
+      168,
+      269.2,
+      170,
+      270.5,
+      172,
+      271.8,
+      174,
+      273.0,
+      176,
+      274.0,
+      178,
+      275.0,
+      180,
+      276.0,
+      182,
+      277.0,
+      184,
+      277.5,
+      186,
+      278.0,
+      188,
+      279.0,
+      190,
+      280.0,
+      192,
+      281.0,
+      194,
+      282.0,
+      196,
+      282.5,
+      198
+     ],
+     "fill": "#2f2620",
+     "width": 4
+    }
+   ]
+  },
+  {
+   "file": "img/memes/so-over-so-back-m.webp",
+   "verdict": "replace",
+   "joke": "IT'S SO OVER / WE'RE SO BACK (phone)",
+   "match": "closest",
+   "mode": "composite",
+   "erase": "telea",
+   "note": "phone layout of so-over-so-back",
+   "figs": [
+    {
+     "box": [
+      90,
+      222,
+      390,
+      474
+     ],
+     "erase_box": [
+      96,
+      203,
+      312,
+      474
+     ],
+     "pose": "sit",
+     "face": "sleepy",
+     "psi": 67.5,
+     "pad": 0
+    },
+    {
+     "box": [
+      376,
+      648,
+      572,
+      1030
+     ],
+     "erase_box": [
+      392,
+      638,
+      562,
+      1016
+     ],
+     "mask": "grabcut",
+     "pad": 9,
+     "pose": "wave",
+     "face": "laugh",
+     "psi": 90
+    }
+   ],
+   "erase_extra": [
+    [
+     396,
+     1008,
+     556,
+     1030
+    ]
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      96,
+      203,
+      312,
+      473
+     ],
+     "fill": "#cfd7db"
+    },
+    {
+     "type": "rect",
+     "box": [
+      96,
+      473,
+      312,
+      476
+     ],
+     "fill": "#b9c3cb"
+    }
+   ]
+  },
+  {
+   "file": "img/memes/spiderman-threshold-m.webp",
+   "verdict": "replace",
+   "joke": "SWEET SPOT / THRESHOLD, 235 W (phone)",
+   "match": "exact",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "note": "phone layout of spiderman-threshold",
+   "figs": [
+    {
+     "box": [
+      0,
+      278,
+      320,
+      806
+     ],
+     "erase_box": [
+      60,
+      272,
+      310,
+      815
+     ],
+     "pose": "point",
+     "face": "surprised",
+     "psi": 22.5,
+     "pad": 0
+    },
+    {
+     "box": [
+      340,
+      278,
+      660,
+      806
+     ],
+     "erase_box": [
+      350,
+      272,
+      600,
+      815
+     ],
+     "pose": "point",
+     "face": "surprised",
+     "psi": 112.5,
+     "pad": 0
+    }
+   ]
+  },
+  {
+   "file": "img/memes/virgin-sweetspot-chad-polarized-m.webp",
+   "verdict": "replace",
+   "joke": "THE VIRGIN SWEET SPOT RIDER / THE CHAD POLARIZED RIDER (phone)",
+   "match": "closest",
+   "mode": "composite",
+   "erase": "#ebe6dc",
+   "note": "phone layout of virgin-sweetspot-chad-polarized",
+   "figs": [
+    {
+     "box": [
+      110,
+      300,
+      260,
+      735
+     ],
+     "erase_box": [
+      6,
+      240,
+      296,
+      747
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 67.5,
+     "pad": 0
+    },
+    {
+     "box": [
+      355,
+      890,
+      600,
+      1460
+     ],
+     "erase_box": [
+      345,
+      820,
+      653,
+      1493
+     ],
+     "pose": "walk",
+     "face": "grin",
+     "psi": 67.5,
+     "pad": 0
+    }
+   ],
+   "insets": [
+    {
+     "src": [
+      620,
+      800,
+      640,
+      818
+     ],
+     "box": [
+      345,
+      820,
+      653,
+      1493
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      86,
+      681,
+      386,
+      724
+     ],
+     "fill": "#d4cac0"
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      360,
+      1430,
+      578,
+      1462
+     ],
+     "fill": "#cecfc8"
+    },
+    {
+     "type": "line",
+     "box": [
+      298,
+      128,
+      185,
+      312
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      185,
+      312,
+      196.8,
+      304.4
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      185,
+      312,
+      186.4,
+      298.1
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      298,
+      226,
+      195,
+      318
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      195,
+      318,
+      208.5,
+      314.1
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      195,
+      318,
+      200.3,
+      305.1
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      298,
+      335,
+      190,
+      345
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      190,
+      345,
+      203.1,
+      349.9
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      190,
+      345,
+      202.0,
+      337.8
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      298,
+      436,
+      200,
+      420
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      200,
+      420,
+      211.5,
+      428.0
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      200,
+      420,
+      213.4,
+      416.0
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      298,
+      540,
+      195,
+      600
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      195,
+      600,
+      209.0,
+      598.9
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      195,
+      600,
+      202.8,
+      588.4
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      298,
+      646,
+      185,
+      700
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      185,
+      700,
+      199.0,
+      700.1
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      185,
+      700,
+      193.7,
+      689.1
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      322,
+      868,
+      458,
+      935
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      458,
+      935,
+      449.4,
+      924.0
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      458,
+      935,
+      444.0,
+      934.9
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      294,
+      990,
+      455,
+      1040
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      455,
+      1040,
+      444.8,
+      1030.4
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      455,
+      1040,
+      441.2,
+      1042.1
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      296,
+      1105,
+      362,
+      1148
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      362,
+      1148,
+      354.8,
+      1136.0
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      362,
+      1148,
+      348.1,
+      1146.2
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      320,
+      1228,
+      455,
+      1240
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      455,
+      1240,
+      443.0,
+      1232.8
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      455,
+      1240,
+      441.9,
+      1244.9
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      302,
+      1360,
+      455,
+      1418
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      455,
+      1418,
+      445.4,
+      1407.8
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    },
+    {
+     "type": "line",
+     "box": [
+      455,
+      1418,
+      441.1,
+      1419.2
+     ],
+     "fill": "#2f2620",
+     "width": 3
+    }
+   ],
+   "texts": [
+    {
+     "type": "bubble",
+     "box": [
+      160,
+      300,
+      171.2,
+      318.2
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    },
+    {
+     "type": "bubble",
+     "box": [
+      232,
+      296,
+      243.2,
+      314.2
+     ],
+     "text": " ",
+     "fill": "#cfe6f0",
+     "edge": "#6f97a8"
+    }
+   ]
+  }
+ ]
+}

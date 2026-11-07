@@ -1,0 +1,175 @@
+{
+ "collection": "articles",
+ "slug": "youre-not-going-to-make-it",
+ "images": [
+  {
+   "file": "img/0576fd13f1bdbc0b.webp",
+   "verdict": "keep",
+   "why": "Real photo of Matti at a restaurant; no cartoon."
+  },
+  {
+   "file": "img/883d20a0d36e1981.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "closest",
+   "erase": "#fff3d7",
+   "figs": [
+    {
+     "box": [
+      420,
+      330,
+      860,
+      856
+     ],
+     "erase_box": [
+      470,
+      300,
+      960,
+      856
+     ],
+     "pose": "arms_crossed",
+     "crop": "bust",
+     "face": "neutral",
+     "psi": 90,
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "erase_extra": [
+    [
+     441,
+     300,
+     472,
+     390
+    ]
+   ],
+   "insets": [
+    {
+     "src": [
+      1076,
+      850,
+      1536,
+      1024
+     ],
+     "box": [
+      440,
+      850,
+      900,
+      1024
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      460,
+      140,
+      800,
+      194
+     ],
+     "fill": "#ffffff"
+    },
+    {
+     "type": "rect",
+     "box": [
+      285,
+      197,
+      960,
+      299
+     ],
+     "fill": "#dcc8a8"
+    },
+    {
+     "type": "rect",
+     "box": [
+      285,
+      299,
+      540,
+      306
+     ],
+     "fill": "#dcc8a8"
+    },
+    {
+     "type": "rect",
+     "box": [
+      285,
+      306,
+      470,
+      312
+     ],
+     "fill": "#dcc8a8"
+    },
+    {
+     "type": "rect",
+     "box": [
+      760,
+      299,
+      960,
+      306
+     ],
+     "fill": "#dcc8a8"
+    },
+    {
+     "type": "rect",
+     "box": [
+      880,
+      306,
+      960,
+      316
+     ],
+     "fill": "#dcc8a8"
+    },
+    {
+     "type": "rect",
+     "box": [
+      285,
+      194,
+      960,
+      197
+     ],
+     "fill": "#100700"
+    }
+   ],
+   "note": "The wall behind him is refilled flat (the cartoon kitchen lighting arc is approximated) and his hands on the table are replaced by bare table."
+  },
+  {
+   "file": "img/a6048a0a1e89452a.webp",
+   "verdict": "keep",
+   "why": "Photo of a pancake."
+  },
+  {
+   "file": "img/cf88c4523efa1abc.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      300,
+      470,
+      650,
+      678
+     ],
+     "erase_box": [
+      245,
+      478,
+      660,
+      678
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "psi": 270,
+     "fit": "width",
+     "anchor": "top"
+    }
+   ]
+  },
+  {
+   "file": "img/ec384334807720a6.webp",
+   "verdict": "keep",
+   "why": "Real photo of Matti; no cartoon."
+  }
+ ]
+}

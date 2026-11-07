@@ -10,4 +10,4 @@ Checks: `python3 -m pytest tests/test_endure_trial_offer.py tests/test_shared_fo
 
 This is a draft source change. No live site, catalog, profile, provider account or billing state was changed. Regenerate the affected site output through the existing generator before deployment; do not publish before Endure's entry handling is released and the owner approves the release.
 
-GGC's secondary race-page offer remains the separate, open draft [#535](https://github.com/wattgod/gravel-race-automation/pull/535), not part of main or this footer patch. Its observed `utm_source=gravel-god` remains supported by Endure. This change neither merges nor deploys that race-offer draft.
+GGC's secondary race-page offer shipped separately in [#535](https://github.com/wattgod/gravel-race-automation/pull/535) (merged 2026-11-07). Its `utm_source=gravel-god` remains supported by Endure. This footer patch doesn't change it.

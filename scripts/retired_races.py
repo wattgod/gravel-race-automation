@@ -70,6 +70,18 @@ def live_race_slugs(race_data_dir: Path = RACE_DATA_DIR) -> set[str]:
             if p.stem != "_schema"}
 
 
+def published_slugs(race_data_dir: Path = RACE_DATA_DIR) -> set[str]:
+    """Slugs the deploy still publishes under /race/: every race in
+    race-data/, plus the legacy prep-kit aliases generate_prep_kit.py keeps
+    building because leads were already sent those links."""
+    import sys
+    wordpress = str(PROJECT_ROOT / "wordpress")
+    if wordpress not in sys.path:
+        sys.path.insert(0, wordpress)
+    from generate_prep_kit import PREP_KIT_SLUG_ALIASES
+    return live_race_slugs(race_data_dir) | set(PREP_KIT_SLUG_ALIASES)
+
+
 def unconditional_rules(block: str) -> list[Rule]:
     """RewriteRules in order, skipping any guarded by a RewriteCond (those
     depend on the server's files, which a static read can't see)."""

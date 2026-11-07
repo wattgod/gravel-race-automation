@@ -1,10 +1,10 @@
 {
   "slug": "rooted-vermont",
   "race_name": "Rooted Vermont",
-  "distance_mi": 75.0,
+  "distance_mi": 86.0,
   "demands": {
     "durability": 4,
-    "climbing": 6,
+    "climbing": 8,
     "vo2_power": 4,
     "threshold": 8,
     "technical": 6,
@@ -21,20 +21,11 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "67ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "Gravel_Specific",
-      "score": 91,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Rooted Vermont's Vermont mountains, Rolling to mountainous gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 75 miles."
+      "workout_context": "93ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
-      "score": 82,
+      "score": 89,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -42,18 +33,17 @@
       "workout_context": "At Rooted Vermont, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "Race_Simulation",
-      "score": 82,
+      "category": "Gravel_Specific",
+      "score": 83,
       "workouts": [
-        "Breakaway Simulation",
-        "Variable Pace Chaos",
-        "Sector Simulation"
+        "Surge and Settle",
+        "Terrain Microbursts"
       ],
-      "workout_context": "Race-pace efforts that mimic Rooted Vermont's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before race day."
+      "workout_context": "Rooted Vermont's Vermont mountains, Rolling to mountainous gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 86 miles."
     },
     {
       "category": "G_Spot",
-      "score": 79,
+      "score": 78,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -62,27 +52,37 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Rooted Vermont. Train it until it feels boring."
     },
     {
+      "category": "Race_Simulation",
+      "score": 75,
+      "workouts": [
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
+      ],
+      "workout_context": "Race-pace efforts that mimic Rooted Vermont's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before race day."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 67,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "8,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
       "category": "Durability",
-      "score": 64,
+      "score": 58,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "75 miles on Vermont rolling to mountainous gravel burns energy faster than the distance suggests. Train the fade resistance now."
-    },
-    {
-      "category": "Mixed_Climbing",
-      "score": 55,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "5,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "At mile 60 of 86, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "Critical_Power",
-      "score": 55,
+      "score": 50,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -91,46 +91,46 @@
     },
     {
       "category": "VO2max",
-      "score": 52,
+      "score": 47,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "5,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "8,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 44,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 8,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
       "category": "Norwegian_Double",
-      "score": 48,
+      "score": 44,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
       ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 86 miles, sustainable FTP gains matter more than peak power."
     },
     {
       "category": "Anaerobic_Capacity",
-      "score": 42,
+      "score": 39,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
       ],
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on Vermont rolling to mountainous gravel. If you haven't trained them, you'll crack."
-    },
-    {
-      "category": "Blended",
-      "score": 36,
-      "workouts": [
-        "Z2 + VO2 Combo",
-        "Endurance with Spikes"
-      ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 5,000ft of climbing on Vermont rolling to mountainous gravel does to your power file on race day."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Rooted Vermont\u2019s 75 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
+    "nutrition": "Target 60\u201380g carbs/hour for Rooted Vermont\u2019s 86 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Rooted Vermont requires surface adaptability. Include weekly rides on vermont rolling to mountainous gravel to build confidence. Expect: vermont mountains, rolling to mountainous gravel, regional event."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 75 miles of vermont rolling to mountainous gravel in Richmond, Vermont.",
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and Gravel Specific to prepare you for 86 miles of vermont rolling to mountainous gravel in Richmond, Vermont.",
   "generated_at": "2026-11-06"
 }

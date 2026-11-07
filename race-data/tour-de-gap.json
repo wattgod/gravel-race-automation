@@ -5,13 +5,13 @@
     "display_name": "Tour de Gap",
     "tagline": "Hill ride over the Callahan Divide from Buffalo Gap, south of Abilene.",
     "vitals": {
-      "distance_mi": 65,
-      "elevation_ft": 3000,
+      "distance_mi": 62,
+      "elevation_ft": 1480,
       "location": "Buffalo Gap, Texas",
       "location_badge": "BUFFALO GAP, TX",
       "county": "Taylor County",
       "date": "Late July annually",
-      "date_specific": "2026: July 25",
+      "date_specific": "2027: July 24",
       "terrain_types": [
         "County roads",
         "Callahan Divide hills",
@@ -39,10 +39,10 @@
     },
     "terrain": {
       "primary": "Callahan Divide hills on Taylor County backroads",
-      "surface": "County roads through the hills of the Callahan Divide south of Abilene. Moderate climbing with rural scenery.",
+      "surface": "County roads through the hills of the Callahan Divide south of Abilene. Light climbing with rural scenery.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (3000 feet)",
+        "Gentle rolling (1,480 feet)",
         "Rural scenery",
         "Callahan Divide setting",
         "Multiple distances",
@@ -50,13 +50,13 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 46,
-      "tier": 3,
-      "tier_label": "TIER 3",
+      "overall_score": 44,
+      "tier": 4,
+      "tier_label": "TIER 4",
       "logistics": 2,
       "length": 3,
       "technicality": 2,
-      "elevation": 2,
+      "elevation": 1,
       "climate": 2,
       "altitude": 1,
       "adventure": 2,
@@ -69,15 +69,15 @@
       "expenses": 3,
       "score_note": "Regional MS event. Rolling hills terrain with moderate organization and regional field.",
       "discipline": "gravel",
-      "display_tier": 3
+      "display_tier": 4
     },
     "biased_opinion": {
       "verdict": "Callahan Divide Hill Ride South of Abilene",
-      "summary": "Tour de Gap is a regional event out of Buffalo Gap, Texas, about 13 miles south of Abilene. The hills of the Callahan Divide offer moderate climbing with rural scenery, but the moderate organization and regional field keep it firmly in Tier 3. Buffalo Gap is tiny; Abilene has the hotels. It's a solid regional event for Texas cyclists.",
+      "summary": "Tour de Gap is a regional event out of Buffalo Gap, Texas, about 13 miles south of Abilene. The hills of the Callahan Divide bring rural scenery but only 1,480 ft of climbing over 62 miles, and the moderate organization and regional field keep it in Tier 4. Buffalo Gap is tiny; Abilene has the hotels. It's a solid regional event for Texas cyclists.",
       "strengths": [
         "Callahan Divide hills",
         "43rd edition in 2026",
-        "Moderate climbing",
+        "Light climbing for a 100K",
         "Rural scenery",
         "Abilene-area cycling community"
       ],
@@ -91,7 +91,7 @@
       "bottom_line": "A solid regional Texas ride with hilly terrain. Worth it for Texas cyclists seeking a local summer event. Not a destination race for out-of-state travelers."
     },
     "final_verdict": {
-      "score": "46 / 100",
+      "score": "44 / 100",
       "one_liner": "Hill ride over the Callahan Divide from Buffalo Gap, south of Abilene.",
       "should_you_race": "If you're in Texas and want a local summer hill ride—yes, it's a solid regional event. If you're from out of state—there are better options.",
       "alternatives": "For a bigger Texas gravel event: Gravel Locos. For similar regional events: other Texas rides."
@@ -114,12 +114,13 @@
     "editions": [
       {
         "year": 2026,
+        "date": "2026-07-25",
         "edition": 43,
         "source": "https://tourdegap.com/schedule/"
       }
     ],
     "course_description": {
-      "character": "Hills of the Callahan Divide on South Taylor County backroads, with moderate climbing.",
+      "character": "Hills of the Callahan Divide on South Taylor County backroads, with light climbing.",
       "suffering_zones": [
         {
           "mile": 20,
@@ -129,7 +130,7 @@
           "named_section": "Early Rollers"
         },
         {
-          "mile": 35,
+          "mile": 31,
           "label": "Midpoint",
           "desc": "Halfway through the course.",
           "terrain_detail": "Midpoint",
@@ -149,8 +150,8 @@
     },
     "guide_variables": {
       "race_name": "Tour de Gap",
-      "race_distance": "65 miles",
-      "race_elevation": "3,000 feet",
+      "race_distance": "62 miles",
+      "race_elevation": "1,480 feet",
       "race_date": "Late July",
       "race_location": "Buffalo Gap, Texas",
       "race_terrain": "Callahan Divide hills on county roads",
@@ -158,7 +159,7 @@
       "race_challenges": [
         "Callahan Divide hills",
         "Late-July heat",
-        "Moderate elevation",
+        "Short, steep Belle Plains Rd climb",
         "Regional field",
         "Variable conditions"
       ],
@@ -258,8 +259,8 @@
       "marketplace_variables": {
         "race_name": "Tour de Gap",
         "race_hook": "Hill ride over the Callahan Divide from Buffalo Gap, south of Abilene.",
-        "race_hook_detail": "Regional event with moderate climbing.",
-        "distance": "65",
+        "race_hook_detail": "Regional event with light climbing.",
+        "distance": "62",
         "dark_mile": "35",
         "non_negotiable_1": "Rolling endurance",
         "non_negotiable_2": "Heat preparation",
@@ -274,15 +275,15 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The 100K at 62.5 miles hits solid gravel distance territory with multiple bailout options. Cutoff times give 5.5 hours from start to course closure at 1:00 p.m., creating reasonable pressure without being punitive for the distance. Similar distance to Crusher in the Tushar."
+        "explanation": "The 100K is 62 miles [9], inside the 60-100 band, with a 50K and an 11-mile ride for shorter days [9]. The course closes at 1:00 p.m., 5.5 hours after the 7:30 a.m. start [6], and riders too slow at the 40-mile checkpoint skip the second loop [10]."
       },
       "technicality": {
         "score": 2,
         "explanation": "Reever calls it \"a very hilly course--definitely designed for an upright\" after riding recumbent and hitting over 40 mph on descents. The Callahan Divide creates rolling challenge through South Taylor County backroads, but this reads more like power climbing than technical terrain navigation. Less technical than The Mid South."
       },
       "elevation": {
-        "score": 2,
-        "explanation": "The \"challenging hills of the Callahan Divide\" provide enough climbing that reever averaged 18.6 mph in 2015 while winner Oscar Salazar hit 24.47 mph in 2024. The descents allow 40+ mph speeds, indicating meaningful elevation changes without being mountainous. Less climbing than The Mid South."
+        "score": 1,
+        "explanation": "The 100K gains 1,480 ft across its four segments [10], under 2,000 ft for the day and the lightest band on the scale. The hardest pitch is the short Belle Plains Rd climb at mile 3, which averages 3% [10]; the rest is county roads and farm-to-market highways, finishing on freshly repaved FM89 back into Buffalo Gap [10]."
       },
       "climate": {
         "score": 2,
@@ -366,6 +367,24 @@
         "category": "reference",
         "label": "Wikipedia: Buffalo Gap, Texas (elevation 1,919 ft, USGS GNIS)",
         "accessed": "2026-11-06"
+      },
+      {
+        "url": "https://tourdegap.com/category/routes/",
+        "category": "route",
+        "label": "Tour de Gap routes: 100K (62 mile), 50K and 11-mile courses",
+        "accessed": "2026-11-06"
+      },
+      {
+        "url": "https://tourdegap.com/wp-content/uploads/2025/02/2026-tour-de-gap-100k-riders-guide.pdf",
+        "category": "official",
+        "label": "2026 Tour de Gap 100K rider's guide (segment distances and elevation gain)",
+        "accessed": "2026-11-06"
+      },
+      {
+        "url": "https://tourdegap.com/",
+        "category": "official",
+        "label": "Tour de Gap: \"Ride with us July 24, 2027\"",
+        "accessed": "2026-11-06"
       }
     ],
     "tire_recommendations": {
@@ -423,7 +442,7 @@
           "name": "Schwalbe G-One R Pro",
           "width_mm": 45
         },
-        "rationale": "The rear carries 53% of the weight and does the traction work on 3,000 ft of climbing, so it gets the 1.9mm center knobs; the front rolls the faster file tread."
+        "rationale": "The rear carries 53% of the weight and does the traction work on 1,480 ft of climbing, so it gets the 1.9mm center knobs; the front rolls the faster file tread."
       },
       "race_surface_profile": "mixed",
       "recommended_width_mm": 45,

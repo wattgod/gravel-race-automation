@@ -5,10 +5,10 @@
     "display_name": "Tour de Nebraska",
     "tagline": "Five days of supported gravel cruising through Nebraska's rolling farmland - more family reunion than race, and that's exactly the point.",
     "vitals": {
-      "distance_mi": 250,
-      "distance_note": "250+ miles over 5 days (35-59 mi daily)",
-      "elevation_ft": 3500,
-      "elevation_note": "Rolling terrain, estimated total across 5 days",
+      "distance_mi": 318,
+      "distance_note": "318 miles over 5 days on the standard routes (39-80 mi daily); day three also offers a 14-mile breakfast ride or a 108-mile century",
+      "elevation_ft": 7903,
+      "elevation_note": "Sum of the organizer's five 2027 route files with the standard day-three loop",
       "location": "Bridgeport, Nebraska (2027 loop via Potter, Scottsbluff and Alliance)",
       "location_badge": "BRIDGEPORT, NE",
       "date": "Late June annually",
@@ -20,17 +20,17 @@
       "county": "Morrill County"
     },
     "gravel_god_rating": {
-      "overall_score": 56,
-      "editorial_tier": 3,
-      "editorial_tier_label": "TIER 3",
-      "business_tier": 3,
-      "business_tier_label": "TIER 3",
-      "display_tier": 3,
-      "display_tier_label": "TIER 3",
+      "overall_score": 63,
+      "editorial_tier": 2,
+      "editorial_tier_label": "TIER 2",
+      "business_tier": 2,
+      "business_tier_label": "TIER 2",
+      "display_tier": 2,
+      "display_tier_label": "TIER 2",
       "logistics": 3,
-      "length": 2,
+      "length": 5,
       "technicality": 2,
-      "elevation": 2,
+      "elevation": 4,
       "climate": 3,
       "altitude": 1,
       "adventure": 2,
@@ -41,8 +41,8 @@
       "field_depth": 1,
       "value": 4,
       "expenses": 3,
-      "tier": 3,
-      "tier_label": "TIER 3",
+      "tier": 2,
+      "tier_label": "TIER 2",
       "discipline": "gravel"
     },
     "biased_opinion_ratings": {
@@ -51,16 +51,16 @@
         "explanation": "Western Nebraska is remote - Bridgeport sits in the Panhandle, the far end of the state from Omaha. However, the tour handles camping, luggage transport between sites, and daily SAG support, reducing individual logistics burden. Sandy H. calls it \"one of the most enjoyable bike tours in the Midwest\" partly due to the seamless organization."
       },
       "length": {
-        "score": 2,
-        "explanation": "Fixed-day distances of 39-69 miles are modest by gravel standards, and day three's Scottsbluff loop runs 14, 79 or 108 miles. The tour prioritizes accessibility with a \"no schedules, no deadlines\" philosophy and minimum 10 mph pace requirement. While the 5-day total exceeds 250 miles, per-day mileage fits in the recreational range rather than endurance athlete territory. More compact than Grinduro."
+        "score": 5,
+        "explanation": "Five days of touring add up to real mileage. The 2027 standard routes run 64, 67, 79, 69 and 39 miles, 318 in all [1], and day three swaps the 79-mile Torrington loop for a 14-mile breakfast ride or a 108-mile century if you want [1]. With \"no schedules, no deadlines\" [3], the miles come at touring pace."
       },
       "technicality": {
         "score": 2,
         "explanation": "Mostly maintained gravel roads suitable for various bike types. The optional gravel adventure includes single-lane minimum maintained roads (MMRs) and fresh gravel sections. Rosa Kloser noted \"Due to the SRAM Transmission system, I could push it in the mud without losing the derailleur\" during challenging sections, but routes remain intentionally accessible. Less technical than The Mid South."
       },
       "elevation": {
-        "score": 2,
-        "explanation": "JOM discovered \"there were 87 hills along the full 150-mile course\" in the region, noting \"they don't hold the remotest flicker of a candle to the hills of Lincoln, Nebraska.\" Koalb describes the terrain: \"You're going to be up and down over the whole course. None of the climbs are that big, but there are a ton of them.\" Less climbing than The Mid South."
+        "score": 4,
+        "explanation": "Lots of small rollers, no big climbs, and a real total. The organizer's 2027 route files add up to 7,903 ft over the five standard days [20]. No standard day tops 2,000 ft: day two from Potter to Scottsbluff climbs the most at 1,969 ft, and the closing 39 miles to Bridgeport only 979 ft [20]."
       },
       "climate": {
         "score": 3,
@@ -76,11 +76,11 @@
       },
       "prestige": {
         "score": 2,
-        "explanation": "Sandy H. calls it \"one of the most enjoyable bike tours in the Midwest\" with 4.7-star rider satisfaction, but it's overshadowed by Gravel Worlds in the gravel scene. Recognition remains primarily within the Nebraska cycling community despite 37 years of operation and exceptional organization."
+        "explanation": "Sandy H. calls it \"one of the most enjoyable bike tours in the Midwest\" with 4.7-star rider satisfaction, but it's overshadowed by Gravel Worlds in the gravel scene. Recognition remains primarily within the Nebraska cycling community despite a 39th edition in 2027 [1] and exceptional organization."
       },
       "race_quality": {
         "score": 5,
-        "explanation": "Exceptional organization with 37 years of refinement. Testimonials consistently praise the operation: \"This was the most expertly organized ride we've ever been on! The friendly, accommodating crew, fun breweries, good food and gorgeous camping spots were second to none!\" Rest stops every 15 miles, SAG support, shower trucks, luggage transport - professional-grade tour operation."
+        "explanation": "Exceptional organization, refined over 39 editions [1]. Testimonials consistently praise the operation: \"This was the most expertly organized ride we've ever been on! The friendly, accommodating crew, fun breweries, good food and gorgeous camping spots were second to none!\" Rest stops every 15 miles, SAG support, shower trucks, luggage transport - professional-grade tour operation."
       },
       "experience": {
         "score": 4,
@@ -126,9 +126,9 @@
     "distances": [
       {
         "name": "5-Day Tour",
-        "distance": "250+ miles total",
+        "distance": "318 miles total (standard routes)",
         "daily_breakdown": "Day 1: 64mi (Bridgeport to Potter), Day 2: 67mi (Potter to Scottsbluff), Day 3: 14, 79 or 108mi (Scottsbluff loop), Day 4: 69mi (Scottsbluff to Alliance), Day 5: 39mi (Alliance to Bridgeport)",
-        "elevationGain": "~3,500 ft total (rolling)",
+        "elevationGain": "7,903 ft total (organizer route files)",
         "description": "Multi-day supported tour across western Nebraska with optional gravel adventure component"
       },
       {
@@ -146,7 +146,7 @@
     "weather": "June Nebraska - highs 81-85F, potential for 100F+ heat, thunderstorm season, tornado risk, constant wind, June is wettest month",
     "uniqueCharacteristics": [
       "Multi-day supported tour (5 days) - NOT a race",
-      "37-year history (founded 1988)",
+      "39th edition in 2027 (founded 1988)",
       "Capped at 500 riders for community feel",
       "Optional Gravel Adventure limited to 30 spots",
       "Fully supported: SAG, shower trucks, luggage transport, rest stops every 15 miles",
@@ -157,12 +157,12 @@
       "Fundraiser for Nebraska Trails Foundation"
     ],
     "seriesAffiliation": "Independent",
-    "tier": "TIER 3",
+    "tier": "TIER 2",
     "popularity": "Regional favorite - loyal repeat rider community",
     "lastUpdated": "2026-01-13",
     "dataQuality": "Comprehensive - scored with GravelGod 14-Dimension system",
     "final_verdict": {
-      "score": "56 / 100",
+      "score": "63 / 100",
       "one_liner": "Nebraska's genteel summer camp for cyclists who want gravel adventure without the gravel commitment.",
       "should_you_race": "Perfect for riders wanting to dip their toes into multi-day touring without the suffer-fest. The main tour welcomes any bike and fitness level, while the 30-rider gravel component offers real Nebraska dirt roads for those ready to upgrade. Skip if you need competition or epic single climbs—this is about rolling hills, beer at camp, and discovering that Nebraska isn't actually flat.",
       "alternatives": "Gravel Worlds in Lincoln delivers the full Nebraska gravel experience with actual racing, while RAGBRAI offers similar supported touring with bigger crowds and more chaos. If you want the multi-day format but harder terrain, look at Dirty Kanza's multi-day events.",
@@ -172,7 +172,7 @@
       ]
     },
     "course_description": {
-      "character": "Tour de Nebraska is gravel touring disguised as vacation—250-plus miles of western Nebraska farmland and Panhandle bluffs where the wind never stops and the hills never quit. Five days of single-lane maintenance roads and well-worn dirt paths that look innocent on paper but grind you down with relentless undulation. The optional gravel adventure component turns those pastoral country roads into proper suffering, especially when fresh gravel meets crosswinds on exposed ridgelines.",
+      "character": "Tour de Nebraska is gravel touring disguised as vacation—318 miles of western Nebraska farmland and Panhandle bluffs where the wind never stops and the hills never quit. Five days of single-lane maintenance roads and well-worn dirt paths that look innocent on paper but grind you down with relentless undulation. The optional gravel adventure component turns those pastoral country roads into proper suffering, especially when fresh gravel meets crosswinds on exposed ridgelines.",
       "suffering_zones": [
         {
           "mile": 64,
@@ -200,13 +200,14 @@
           "desc": "The final 39 miles from Alliance back to Bridgeport feel longer than the previous four days combined. Your legs know they're supposed to be done, but Nebraska's rolling terrain has other plans."
         }
       ],
-      "signature_challenge": "The relentless undulation combined with Nebraska's ever-present wind creates a grinding war of attrition that looks deceptively easy on elevation profiles. It's not the climbs that break you—it's the fact that the road never actually flattens, the wind never stops, and over 250 miles those constant rollers compound into serious suffering."
+      "signature_challenge": "The relentless undulation combined with Nebraska's ever-present wind creates a grinding war of attrition that looks deceptively easy on elevation profiles. It's not the climbs that break you—it's the fact that the road never actually flattens, the wind never stops, and over 318 miles those constant rollers compound into serious suffering."
     },
     "citations": [
       {
         "url": "https://tourdenebraska.com/route-maps.html",
         "category": "official",
-        "label": "Tour de Nebraska 2027 route maps"
+        "label": "Tour de Nebraska 2027 route maps",
+        "accessed": "2026-11-06"
       },
       {
         "url": "https://bikepackingroots.org/project/great-plains-gravel-route-nebraska/",
@@ -300,9 +301,10 @@
         "label": "TrainerRoad"
       },
       {
-        "url": "https://www.tripadvisor.com/Hotels-g45696-McCook_Nebraska-Hotels.html",
-        "category": "other",
-        "label": "Tripadvisor"
+        "url": "https://ridewithgps.com/events/505060-2027-tour-de-nebraska",
+        "category": "official",
+        "label": "Tour de Nebraska 2027 route files (RideWithGPS event)",
+        "accessed": "2026-11-06"
       }
     ],
     "logistics": {
@@ -391,7 +393,7 @@
           "name": "Continental Dubnital Race Rapid",
           "width_mm": 50
         },
-        "rationale": "The rear carries 53% of the weight and does the traction work on 3,500 ft of climbing, so it gets the 2.3mm center knobs; the front rolls the faster file tread."
+        "rationale": "The rear carries 53% of the weight and does the traction work on 7,903 ft of climbing, so it gets the 2.3mm center knobs; the front rolls the faster file tread."
       },
       "race_surface_profile": "mixed",
       "recommended_width_mm": 45,

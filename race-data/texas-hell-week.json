@@ -5,8 +5,9 @@
     "display_name": "Texas Hell Week",
     "tagline": "A week of Hill Country group rides out of Fredericksburg, Texas.",
     "vitals": {
-      "distance_mi": 200,
-      "elevation_ft": 8000,
+      "distance_mi": 644.4,
+      "distance_note": "Seven daily A-routes of 62-102 mi, 644.4 mi in all; B routes run 40-72 mi and C routes 24-44 mi",
+      "elevation_ft": 33618,
       "location": "Fredericksburg, Texas",
       "location_badge": "FREDERICKSBURG, TX",
       "county": "Gillespie County",
@@ -42,7 +43,7 @@
       "surface": "Hill Country ranch roads over the Edwards Plateau: river valleys, creek and water crossings, open range and farmland. Moderate climbing each day.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling per day (8000 feet total)",
+        "2,934-5,778 ft per A-route day (33,618 ft over the week)",
         "Texas scenery",
         "Multi-day format",
         "Texas Hill Country setting",
@@ -50,14 +51,14 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 49,
+      "overall_score": 56,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 2,
-      "length": 4,
+      "length": 5,
       "technicality": 2,
-      "elevation": 2,
-      "climate": 1,
+      "elevation": 5,
+      "climate": 2,
       "altitude": 1,
       "adventure": 4,
       "prestige": 2,
@@ -67,7 +68,7 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 3,
-      "score_note": "Regional TX event. Multi-day format is significant but brutal summer heat and regional field.",
+      "score_note": "Regional Texas event. Seven straight days of A-route mileage carry the course scores; no timing and a small field hold the rest back.",
       "discipline": "gravel",
       "display_tier": 3
     },
@@ -91,7 +92,7 @@
       "bottom_line": "A serious week of Hill Country volume. Worth it for early-season miles. Not for anyone who wants a timed race or field depth."
     },
     "final_verdict": {
-      "score": "49 / 100",
+      "score": "56 / 100",
       "one_liner": "A week of Hill Country group rides out of Fredericksburg, Texas.",
       "should_you_race": "If you want a week of early-season miles—yes, it's a serious block. If you want a timed race or pro field depth—look elsewhere.",
       "alternatives": "For better multi-day events: other stage races. For similar regional events: other TX gravel races."
@@ -125,32 +126,32 @@
       "character": "Seven days of Hill Country ranch roads, with A, B and C routes each day.",
       "suffering_zones": [
         {
-          "mile": 50,
-          "label": "Day 1 Complete",
-          "desc": "First day done, heat already taking toll.",
-          "terrain_detail": "Day 1",
-          "named_section": "Day 1"
-        },
-        {
-          "mile": 100,
-          "label": "Day 2 Complete",
-          "desc": "Halfway through, cumulative heat fatigue.",
-          "terrain_detail": "Day 2",
+          "mile": 198,
+          "label": "Day 2: Mountain Home and Away",
+          "desc": "100.6 miles and 5,448 ft, with the climb out of Kerrville cresting at mile 83. Two days in, the week is already near 200 miles.",
+          "terrain_detail": "Guadalupe River valley to the Edwards Plateau",
           "named_section": "Day 2"
         },
         {
-          "mile": 150,
-          "label": "Day 3 Complete",
-          "desc": "Three days of heat, mental game critical.",
-          "terrain_detail": "Day 3",
-          "named_section": "Day 3"
+          "mile": 350,
+          "label": "Day 4: Luckenbach Day",
+          "desc": "The 62-mile rest day, with three 90-plus-mile A-routes on each side of it. Ride it easy.",
+          "terrain_detail": "Edwards Plateau loop via Luckenbach",
+          "named_section": "Day 4"
         },
         {
-          "mile": 200,
-          "label": "Final Day",
-          "desc": "Last day to finish.",
-          "terrain_detail": "Final day",
-          "named_section": "Final Day"
+          "mile": 543,
+          "label": "Day 6: Lauren's Racers Loop",
+          "desc": "101.9 miles and 5,778 ft, the most climbing of any A-route, on legs that already have 441 miles in them.",
+          "terrain_detail": "North and west of Fredericksburg",
+          "named_section": "Day 6"
+        },
+        {
+          "mile": 644,
+          "label": "Day 7: Comfort-Kerrville Loop",
+          "desc": "One more century: 101.1 miles and 5,322 ft to close the week.",
+          "terrain_detail": "Loop south of Fredericksburg",
+          "named_section": "Day 7"
         }
       ],
       "signature_challenge": "Stacking seven days of Hill Country climbing, with the Leakey Death Ride as the biggest day.",
@@ -159,8 +160,8 @@
     },
     "guide_variables": {
       "race_name": "Texas Hell Week",
-      "race_distance": "200 miles (multi-day)",
-      "race_elevation": "8,000 feet (total)",
+      "race_distance": "644 miles over seven days (A-routes)",
+      "race_elevation": "33,618 feet (A-route week total)",
       "race_date": "Late March",
       "race_location": "Fredericksburg, Texas",
       "race_terrain": "Texas Hill Country ranch roads",
@@ -269,7 +270,7 @@
         "race_name": "Texas Hell Week",
         "race_hook": "A week of Hill Country group rides out of Fredericksburg, Texas.",
         "race_hook_detail": "Daily A, B and C routes; no timing.",
-        "distance": "200",
+        "distance": 644.4,
         "dark_mile": "150",
         "non_negotiable_1": "Multi-day endurance",
         "non_negotiable_2": "Layering for variable weather",
@@ -283,20 +284,20 @@
         "explanation": "Fredericksburg location provides reasonable access with extensive lodging options including 20 hotels, 1500 B&Bs, and over 100 restaurants according to organizers. However, the event's resurrection under RAAM management shows organizational growing pains - field size dropped from 300+ historically to just 30 cyclists for the 2024 Stampede 200 portion."
       },
       "length": {
-        "score": 4,
-        "explanation": "Seven days of riding with three daily distance options creates serious volume - routes range from 30-107 miles daily with the bonus Leakey Death Ride hitting 107.5 miles and 6,494 feet of climbing. The format delivers 21 different routes over the week with organizers promising \"participants never ride the same road twice.\" Longer than Belgian Waffle Ride San Diego."
+        "score": 5,
+        "explanation": "The load is the week, not any one day: the seven daily A-routes run 62 to 102 miles and add up to 644.4 miles [1]. B routes of 40-72 miles and C routes of 24-44 miles let riders back off on any day, and Thursday's optional Leakey Death Ride out of Bandera is the longest single ride at 106.5 miles [1]."
       },
       "technicality": {
         "score": 2,
         "explanation": "Hill Country terrain features \"many cattle guards and water crossings\" with climbs ranging 100-800 feet through Edwards Plateau river valleys including the Guadalupe, Medina, and Frio. Courses include \"one short unpaved section\" on the Spicewood Loop, but RAAM organizers describe the terrain as \"moderately difficult\" and suitable for intermediate riders. Less technical than The Mid South."
       },
       "elevation": {
-        "score": 2,
-        "explanation": "Daily rides range from 1,360 to 6,494 feet of climbing with courses averaging 47-53 feet per mile of elevation gain. The associated Stampede 200 delivers 11,100 feet over 203 miles, while the Longhorn 500 hits 26,236 feet - substantial climbing concentrated in major ascents rather than constant rolling. Less climbing than The Mid South."
+        "score": 5,
+        "explanation": "Big in total, moderate on any one day. The 2026 A-routes climb 2,934 to 5,778 ft a day, 33,618 ft across the week, mostly in short climbs out of the Pedernales and Guadalupe river valleys [1]. The Leakey Death Ride packs 6,486 ft into 106.5 miles, with three big climbs on the way out [1]."
       },
       "climate": {
-        "score": 1,
-        "explanation": "Mid-March to mid-April timing hits wildflower season with Blue Bonnets and Indian Paint Brush in bloom, but Texas Hill Country weather remains unpredictable. Scott Mason, racing for over two decades, \"hopes to take time during the Texas Hell Week ride to enjoy the colorful Texas wildflowers\" during typically 50-80°F spring conditions with morning fog."
+        "score": 2,
+        "explanation": "Mild afternoons and cold starts, seven days running. March normals in Fredericksburg are a 47°F low and a 72°F high [11], so most rides start in layers and finish warm. The climb up Hasenwinkle Road out of the Guadalupe valley can be very hot and dry [1]."
       },
       "altitude": {
         "score": 1,
@@ -339,7 +340,8 @@
       {
         "url": "https://www.raamchallenge.com/route-descriptions",
         "category": "official",
-        "label": "Texas Hell Week routes (Hermann Sons Lodge, Fredericksburg)"
+        "label": "Texas Hell Week routes (Hermann Sons Lodge, Fredericksburg)",
+        "accessed": "2026-11-06"
       },
       {
         "url": "https://10best.usatoday.com/awards/texas-hell-week-fredericksburg-texas/",
@@ -385,6 +387,12 @@
         "url": "https://kavhelmets.com/blogs/kav-journal/best-cycling-races-and-events-in-the-us",
         "category": "community",
         "label": "kavhelmets.com: Best Cycling Races And Events In The Us"
+      },
+      {
+        "url": "https://climate-charts.com/USA-Stations/TX/USC00413329.html",
+        "category": "other",
+        "label": "Fredericksburg, Texas monthly climate normals (NOAA)",
+        "accessed": "2026-11-06"
       }
     ],
     "tire_recommendations": {
@@ -442,7 +450,7 @@
           "name": "Continental Dubnital Race Rapid",
           "width_mm": 50
         },
-        "rationale": "The rear carries 53% of the weight and does the traction work on 8,000 ft of climbing, so it gets the 2.3mm center knobs; the front rolls the faster file tread."
+        "rationale": "The rear carries 53% of the weight and does the traction work on 33,618 ft of A-route climbing, so it gets the 2.3mm center knobs; the front rolls the faster file tread."
       },
       "race_surface_profile": "mixed",
       "recommended_width_mm": 45,

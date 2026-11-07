@@ -2,14 +2,15 @@
   "@context": "https://schema.org",
   "@type": "SportsEvent",
   "name": "Rooted Vermont",
-  "description": "Vermont rolling to mountainous gravel in Morrisville.",
+  "description": "Vermont mountain gravel and Class 4 roads out of Cochran's Ski Area in Richmond.",
   "sport": "Gravel Cycling",
+  "eventStatus": "https://schema.org/EventPostponed",
   "location": {
     "@type": "Place",
-    "name": "Morrisville, Vermont",
+    "name": "Richmond, Vermont",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Morrisville",
+      "addressLocality": "Richmond",
       "addressRegion": "Vermont"
     }
   },

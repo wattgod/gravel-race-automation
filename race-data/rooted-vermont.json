@@ -3,13 +3,13 @@
     "name": "Rooted Vermont",
     "slug": "rooted-vermont",
     "display_name": "Rooted Vermont",
-    "tagline": "Vermont rolling to mountainous gravel in Morrisville.",
+    "tagline": "Vermont mountain gravel and Class 4 roads out of Cochran's Ski Area in Richmond.",
     "vitals": {
-      "distance_mi": 75,
-      "elevation_ft": 5000,
-      "location": "Morrisville, Vermont",
-      "location_badge": "MORRISVILLE, VT",
-      "county": "Lamoille County",
+      "distance_mi": 86,
+      "elevation_ft": 8000,
+      "location": "Richmond, Vermont",
+      "location_badge": "RICHMOND, VT",
+      "county": "Chittenden County",
       "date": "Summer or Fall annually",
       "date_specific": "2026: TBD",
       "terrain_types": [
@@ -24,8 +24,8 @@
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
-      "lat": 44.5615,
-      "lng": -72.5983
+      "lat": 44.3881,
+      "lng": -73.0056
     },
     "climate": {
       "primary": "Vermont summer/fall",
@@ -39,10 +39,10 @@
     },
     "terrain": {
       "primary": "Vermont rolling to mountainous gravel",
-      "surface": "Gravel roads through rolling to mountainous northern Vermont. Moderate to significant elevation with mountain and rural scenery.",
+      "surface": "Smooth dirt roads, rockier sections, short Class 4 jeep roads and pavement links through the hills south of Richmond. Significant elevation with mountain and rural scenery.",
       "technical_rating": 3,
       "features": [
-        "Moderate to significant climbing (5000 feet)",
+        "Significant climbing (8,000 feet)",
         "Mountain scenery",
         "Vermont setting",
         "Multiple distances",
@@ -50,13 +50,13 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 50,
+      "overall_score": 51,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 2,
       "length": 3,
       "technicality": 3,
-      "elevation": 3,
+      "elevation": 4,
       "climate": 2,
       "altitude": 1,
       "adventure": 3,
@@ -73,16 +73,16 @@
     },
     "biased_opinion": {
       "verdict": "Northern Vermont Regional Gravel",
-      "summary": "Rooted Vermont is a regional event in northern Vermont's Morrisville. The rolling to mountainous terrain offers moderate to significant climbing with mountain scenery, but the moderate organization and regional field keep it firmly in Tier 3. Morrisville provides moderate access. It's a solid regional event for Vermont cyclists.",
+      "summary": "Rooted Vermont is a regional event based at Cochran's Ski Area in Richmond, Vermont. The rolling to mountainous terrain packs 8,000 ft of climbing into 86 miles with mountain scenery, but the moderate organization and regional field keep it firmly in Tier 3. Richmond is a short drive from Burlington, so getting there is easy. It's a solid regional event for Vermont cyclists.",
       "strengths": [
         "Vermont mountain terrain",
-        "Moderate to significant climbing",
+        "8,000 ft of climbing",
         "Mountain scenery",
         "VT cycling community",
         "Northern Vermont setting"
       ],
       "weaknesses": [
-        "Northern VT access (moderate)",
+        "Class 4 sections some riders walk",
         "Moderate organization",
         "Regional field only",
         "Limited national recognition",
@@ -91,8 +91,8 @@
       "bottom_line": "A solid regional Vermont gravel race with mountain terrain. Worth it for Vermont cyclists seeking a local mountain event. Not a destination race for out-of-state travelers."
     },
     "final_verdict": {
-      "score": "50 / 100",
-      "one_liner": "Vermont rolling to mountainous gravel in Morrisville.",
+      "score": "51 / 100",
+      "one_liner": "Vermont mountain gravel and Class 4 roads out of Cochran's Ski Area in Richmond.",
       "should_you_race": "If you're in Vermont and want a local mountain gravel event—yes, it's a solid regional race. If you're from out of state—there are better options.",
       "alternatives": "For better Vermont events: Vermont Overland, Rasputitsa. For similar regional events: other VT gravel races.",
       "alternative_slugs": [
@@ -101,8 +101,8 @@
       ]
     },
     "logistics": {
-      "airport": "Burlington (BTV) 45 minutes",
-      "lodging_strategy": "Morrisville has limited lodging. Stowe or Burlington have more options.",
+      "airport": "Burlington (BTV) is the closest airport, a short drive from Richmond.",
+      "lodging_strategy": "Richmond has limited lodging. Burlington has more options.",
       "food": "Small town with limited dining. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
@@ -139,7 +139,7 @@
           "named_section": "Early Climbs"
         },
         {
-          "mile": 40,
+          "mile": 43,
           "label": "Midpoint",
           "desc": "Halfway through the course.",
           "terrain_detail": "Midpoint",
@@ -153,23 +153,23 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Vermont mountain climbing in northern Vermont.",
+      "signature_challenge": "The Wes White Hill climb out of Richmond, then four short Class 4 jeep road sections.",
       "ridewithgps_id": "40599549",
       "ridewithgps_name": "VT - Rooted Vermont 2022 Big Sip"
     },
     "guide_variables": {
       "race_name": "Rooted Vermont",
-      "race_distance": "75 miles",
-      "race_elevation": "5,000 feet",
+      "race_distance": "86 miles",
+      "race_elevation": "8,000 feet",
       "race_date": "Summer or Fall",
-      "race_location": "Morrisville, Vermont",
+      "race_location": "Richmond, Vermont",
       "race_terrain": "Vermont rolling to mountainous gravel",
       "race_weather": "VT variability",
       "race_challenges": [
         "Vermont mountain climbing",
         "Variable weather",
-        "Moderate to significant elevation",
-        "Northern VT access",
+        "8,000 ft of elevation",
+        "Class 4 jeep road sections",
         "Regional field"
       ],
       "altitude_section": false,
@@ -179,7 +179,7 @@
       {
         "requirement": "Climbing endurance",
         "by_when": "Week 8-10",
-        "why": "Vermont mountains require solid climbing fitness (5000 feet)."
+        "why": "Vermont mountains require solid climbing fitness (8,000 feet)."
       },
       {
         "requirement": "Variable weather preparation",
@@ -267,9 +267,9 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Rooted Vermont",
-        "race_hook": "Vermont rolling to mountainous gravel in Morrisville.",
+        "race_hook": "Vermont mountain gravel and Class 4 roads out of Cochran's Ski Area in Richmond.",
         "race_hook_detail": "Regional event with mountain terrain.",
-        "distance": "75",
+        "distance": "86",
         "dark_mile": "40",
         "non_negotiable_1": "Climbing endurance",
         "non_negotiable_2": "Variable weather preparation",
@@ -284,23 +284,23 @@
       },
       "length": {
         "score": 3,
-        "explanation": "The actual Sip of Sunshine long course runs 85 miles, not 75. Adam Roberge notes the \"relatively short course distance — 85 miles versus 100 or 200 — allows a lot more guys to be in the mix, so you need to go hard from the beginning.\" Elite winning times of 4:11-4:41 confirm it's substantial but manageable. Similar distance to Crusher in the Tushar."
+        "explanation": "Sip of Sunshine, the long course, is 86 miles [2], the middle of the 60-100 band, and the Little Sip is 48 [2]. Long-course finishing times in 2021 ran from 4:08 to 9:08 [2]: a hard half-day at the front and a full day at the back."
       },
       "technicality": {
         "score": 3,
         "explanation": "Katie Kantzes described \"technical single track with plenty of rocks and, of course, roots\" plus multiple Class IV sections at miles 20 and 50. Adam Roberge noted the race was \"decided on a section of steep fourth-class road with chicken-head gravel surface.\" The course features an \"uphill singletrack finish after blasting through soapy foam.\" Similar technical demands to Gravel Worlds."
       },
       "elevation": {
-        "score": 3,
-        "explanation": "The long course delivers 8,000-9,500 feet of climbing over 85 miles, with Katie Kantzes noting \"almost 9,000 feet of climbing with a massive kick in the teeth, cat 4 climb at only mile 3.\" Elite riders report \"long steady climbs\" and \"sections of steep and bouldery class 4 road\" throughout the Vermont terrain. Similar elevation profile to Gravel Worlds."
+        "score": 4,
+        "explanation": "Sip of Sunshine climbs 8,000 ft in 86 miles [2], squarely in the 6,000-10,000 ft band. Four short sections of class-4 jeep road or Vermont pavé add up to about 5 miles [2], steep and loose enough that some riders walk them."
       },
       "climate": {
         "score": 2,
-        "explanation": "FrankTuna prepared for \"upper 90s heat expected\" by planning \"4 water bottles and a gallon of sunscreen.\" Katie Kantzes enjoyed \"clear sunshine\" but other years have brought challenging conditions. Vermont summer heat combined with 9,000 feet of climbing creates serious hydration demands for August racing. More weather exposure than Belgian Waffle Ride San Diego."
+        "explanation": "FrankTuna prepared for \"upper 90s heat expected\" by planning \"4 water bottles and a gallon of sunscreen.\" Katie Kantzes enjoyed \"clear sunshine\" but other years have brought challenging conditions. Vermont summer heat combined with 8,000 feet of climbing creates serious hydration demands for August racing. More weather exposure than Belgian Waffle Ride San Diego."
       },
       "altitude": {
         "score": 1,
-        "explanation": "Morrisville sits around 900 feet above sea level - basically irrelevant for altitude considerations. Even Vermont's highest peaks barely crack 4000 feet, so you're never dealing with thin air or acclimatization issues. Pure sea-level lungs performance all day. Lower altitude than Gravel Worlds — no thin-air concerns."
+        "explanation": "The start at Cochran's Ski Area in Richmond sits low in the Winooski valley - basically irrelevant for altitude considerations. Even Vermont's highest peaks barely crack 4000 feet, so you're never dealing with thin air or acclimatization issues. Pure sea-level lungs performance all day. Lower altitude than Gravel Worlds — no thin-air concerns."
       },
       "adventure": {
         "score": 3,
@@ -312,7 +312,7 @@
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Race hasn't run since 2022 and left behind zero useful information about course details, aid stations, or actual logistics. It moved from Richmond to supposedly Morrisville and then disappeared entirely tells you everything about organizational consistency. Hard to rate quality when the event essentially doesn't exist anymore."
+        "explanation": "Race hasn't run since 2022, and what's left online is an old route page with little on actual logistics. That it went on pause after 2022 and never came back tells you everything about organizational consistency. Hard to rate quality when the event essentially doesn't exist anymore."
       },
       "experience": {
         "score": 3,
@@ -332,7 +332,7 @@
       },
       "expenses": {
         "score": 3,
-        "explanation": "Registration runs $60-100. Morrisville isn't a tourist trap, so lodging and food costs stay reasonable. Rural Vermont keeps things simple - no inflated resort pricing or big city premiums. Travel costs depend on where you're coming from, but at least you're not paying entry fees for a race that doesn't run. Similar expense level to Belgian Waffle Ride San Diego."
+        "explanation": "Registration runs $60-100. Richmond isn't a tourist trap, so food costs stay reasonable, though most lodging is in Burlington. Rural Vermont keeps things simple - no inflated resort pricing. Travel costs depend on where you're coming from, but at least you're not paying entry fees for a race that doesn't run. Similar expense level to Belgian Waffle Ride San Diego."
       }
     },
     "unsplash_photos": [
@@ -365,6 +365,17 @@
       }
     ],
     "citations": [
+      {
+        "url": "https://www.bikereg.com/52683",
+        "category": "registration",
+        "label": "Rooted Vermont registration"
+      },
+      {
+        "url": "https://www.rootedvermont.com/route",
+        "category": "official",
+        "label": "Rooted Vermont route (start/finish at Cochran's, Richmond)",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://ridewithgps.com/routes/40599549",
         "category": "route",
@@ -409,6 +420,12 @@
         "url": "https://www.state14.com/home/2019/10/7/riding-dirty-the-rise-of-gravel-riding-in-vermont",
         "category": "community",
         "label": "state14.com: Riding Dirty The Rise Of Gravel Riding In Vermont"
+      },
+      {
+        "url": "https://www.rootedvermont.com/",
+        "category": "official",
+        "label": "Rooted Vermont: \"We are pressing pause on 2023\"",
+        "accessed": "2026-11-06"
       }
     ],
     "tire_recommendations": {
@@ -466,7 +483,7 @@
           "name": "Schwalbe G-One R Pro",
           "width_mm": 50
         },
-        "rationale": "The rear carries 53% of the weight and does the traction work on 5,000 ft of climbing, so it gets the 2.1mm center knobs; the front rolls the faster file tread."
+        "rationale": "The rear carries 53% of the weight and does the traction work on 8,000 ft of climbing, so it gets the 2.1mm center knobs; the front rolls the faster file tread."
       },
       "race_surface_profile": "mixed",
       "recommended_width_mm": 50,
@@ -710,6 +727,10 @@
         }
       },
       "latest_year": "2022"
+    },
+    "taking_a_break": {
+      "label": "TAKING A BREAK",
+      "line": "Rooted Vermont paused after 2022, and nothing has been announced since."
     }
   }
 }

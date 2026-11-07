@@ -68,7 +68,7 @@
       "value": 3,
       "expenses": 3,
       "score_note": "Regional MO event. Technical Berryman Trail terrain is interesting but moderate organization and regional field.",
-      "discipline": "gravel",
+      "discipline": "mtb",
       "display_tier": 3
     },
     "biased_opinion": {
@@ -150,7 +150,7 @@
     },
     "guide_variables": {
       "race_name": "Berryman Epic",
-      "race_distance": "65 miles",
+      "race_distance": "50 miles",
       "race_elevation": "4,500 feet",
       "race_date": "Spring or Fall",
       "race_location": "Potosi, Missouri",
@@ -328,6 +328,11 @@
     },
     "citations": [
       {
+        "url": "https://www.trailforks.com/route/bt-epic-route/",
+        "category": "route",
+        "label": "BT Epic route (Berryman/Ozark Trail singletrack)"
+      },
+      {
         "url": "https://ridewithgps.com/routes/28761320",
         "category": "route",
         "label": "RideWithGPS: Berryman Epic "
@@ -391,91 +396,6 @@
         }
       },
       "latest_year": "2024"
-    },
-    "tire_recommendations": {
-      "generated_at": "2026-11-06",
-      "primary": [
-        {
-          "rank": 1,
-          "tire_id": "schwalbe-g-one-r-pro",
-          "name": "Schwalbe G-One R Pro",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 50,
-          "msrp_usd": 91.0,
-          "weight_grams": 592,
-          "crr_watts": 16.7,
-          "tested_width_mm": 50,
-          "course_cost_watts": 18.46,
-          "why": "Rolls 16.7 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
-        },
-        {
-          "rank": 2,
-          "tire_id": "continental-dubnital",
-          "name": "Continental Dubnital Race Rapid",
-          "brand": "Continental",
-          "recommended_width_mm": 50,
-          "msrp_usd": null,
-          "weight_grams": 573,
-          "crr_watts": 19.2,
-          "tested_width_mm": 50,
-          "course_cost_watts": 20.08,
-          "why": "Rolls 19.2 W at 50mm on BRR's drum. 4mm shoulder knobs for loose corners."
-        },
-        {
-          "rank": 3,
-          "tire_id": "schwalbe-g-one-rx-pro",
-          "name": "Schwalbe G-One RX Pro",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 50,
-          "msrp_usd": 91.0,
-          "weight_grams": 657,
-          "crr_watts": 19.4,
-          "tested_width_mm": 50,
-          "course_cost_watts": 21.32,
-          "why": "Rolls 19.4 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
-        }
-      ],
-      "front_rear_split": {
-        "applicable": false
-      },
-      "race_surface_profile": "technical",
-      "recommended_width_mm": 50,
-      "pressure_psi": {
-        "gravel_category": 4,
-        "bike_and_kit_lb": 25,
-        "by_rider_lb": {
-          "130": {
-            "45mm": "24/25",
-            "50mm": "20/21",
-            "55mm": "17/17"
-          },
-          "150": {
-            "45mm": "25/26",
-            "50mm": "20/21",
-            "55mm": "17/18"
-          },
-          "170": {
-            "45mm": "25/27",
-            "50mm": "21/22",
-            "55mm": "17/18"
-          },
-          "190": {
-            "45mm": "26/27",
-            "50mm": "21/22",
-            "55mm": "18/18"
-          },
-          "210": {
-            "45mm": "26/28",
-            "50mm": "22/23",
-            "55mm": "18/19"
-          },
-          "230": {
-            "45mm": "27/28",
-            "50mm": "22/23",
-            "55mm": "18/19"
-          }
-        }
-      }
     },
     "youtube_data": {
       "researched_at": "2026-02-23",

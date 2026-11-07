@@ -1,7 +1,7 @@
 {
   "slug": "nordic-chase-gravel",
   "race_name": "Nordic Chase Copenhagen to Oslo Gravel",
-  "distance_mi": 497.0,
+  "distance_mi": 493.0,
   "demands": {
     "durability": 10,
     "climbing": 10,
@@ -21,7 +21,7 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "497 miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
+      "workout_context": "493 miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
     },
     {
       "category": "Gravel_Specific",
@@ -30,7 +30,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Nordic Chase Copenhagen to Oslo Gravel's Nordic gravel roads, Forest tracks forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 497 miles."
+      "workout_context": "Nordic Chase Copenhagen to Oslo Gravel's Nordic gravel roads, Forest tracks forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 493 miles."
     },
     {
       "category": "Race_Simulation",
@@ -58,7 +58,7 @@
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "23,622ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "24,606ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "TT_Threshold",
@@ -68,7 +68,7 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "Nordic Chase Copenhagen to Oslo Gravel's long Nordic gravel and forest-road ultra rewards steady threshold power. Surging and recovering costs more watts than just holding."
+      "workout_context": "50ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "HVLI_Extended",
@@ -78,7 +78,7 @@
         "Multi-Hour Z2",
         "Back-to-Back Long"
       ],
-      "workout_context": "497 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+      "workout_context": "493 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
     },
     {
       "category": "Endurance",
@@ -87,7 +87,7 @@
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 497 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 493 miles, base fitness is the difference between racing and surviving."
     },
     {
       "category": "Blended",
@@ -96,7 +96,7 @@
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 23,622ft of climbing on long Nordic gravel and forest-road ultra does to your power file on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 24,606ft of climbing on long Nordic gravel and forest-road ultra does to your power file on race day."
     },
     {
       "category": "G_Spot",
@@ -115,7 +115,7 @@
         "SFR Low Cadence",
         "Force Repeats"
       ],
-      "workout_context": "Low-cadence force work for 23,622ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "Low-cadence force work for 24,606ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
       "category": "Critical_Power",
@@ -128,9 +128,9 @@
     }
   ],
   "race_overlay": {
-    "nutrition": "Ultra-distance fueling for 497 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 497 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
+    "nutrition": "Ultra-distance fueling for 493 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 493 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
     "terrain": "Mixed terrain at Nordic Chase Copenhagen to Oslo Gravel requires surface adaptability. Include weekly rides on long nordic gravel and forest-road ultra to build confidence. Expect: nordic gravel roads, forest tracks, quiet rural lanes."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 497 miles of long nordic gravel and forest-road ultra in Copenhagen, Denmark to Oslo, Norway.",
-  "generated_at": "2026-08-15"
+  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 493 miles of long nordic gravel and forest-road ultra in Copenhagen, Denmark to Oslo, Norway.",
+  "generated_at": "2026-11-06"
 }

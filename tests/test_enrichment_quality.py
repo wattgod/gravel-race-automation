@@ -110,9 +110,7 @@ class TestExplanationSpecificity:
     RE_SINGLE_PROPER = re.compile(r'(?<=[a-z.,;:]\s)[A-Z][a-z]{2,}')
     RE_QUOTED = re.compile(r'["\u201c\u201d\'].*?["\u201c\u201d\']')
 
-    KNOWN_EXCEPTIONS = {
-        "dirty-french",  # NYC restaurant, not a race
-    }
+    KNOWN_EXCEPTIONS: set = set()
 
     def test_explanations_have_specifics(self):
         """At least 10/14 explanations per profile must contain a number,
@@ -190,7 +188,6 @@ class TestCommunityPenetration:
 
     # Races where community penetration is inherently limited
     KNOWN_EXCEPTIONS = {
-        "dirty-french",  # NYC restaurant, not a race — data is bogus
         "la-dromoise-gravel",  # Small French race, minimal English community content
         "scratch-ankle-gravel",  # All search results were MIT Scratch, not the race (1.9KB)
         "wild-gravel",  # No sources about the race found (0.9KB)

@@ -3,19 +3,20 @@
     "name": "Texas Hell Week",
     "slug": "texas-hell-week",
     "display_name": "Texas Hell Week",
-    "tagline": "Multi-day Texas gravel summer challenge in Warda.",
+    "tagline": "A week of Hill Country group rides out of Fredericksburg, Texas.",
     "vitals": {
-      "distance_mi": 200,
-      "elevation_ft": 8000,
-      "location": "Warda, Texas",
-      "location_badge": "WARDA, TX",
-      "county": "Fayette County",
+      "distance_mi": 644.4,
+      "distance_note": "Seven daily A-routes of 62-102 mi, 644.4 mi in all; B routes run 40-72 mi and C routes 24-44 mi",
+      "elevation_ft": 33618,
+      "location": "Fredericksburg, Texas",
+      "location_badge": "FREDERICKSBURG, TX",
+      "county": "Gillespie County",
       "date": "Late March annually",
       "date_specific": "2026: March 22-28 (CONFIRMED — raamchallenge.com; based in Fredericksburg TX)",
       "terrain_types": [
-        "Texas rolling gravel",
-        "Multi-day event",
-        "Summer heat challenge",
+        "Texas Hill Country roads",
+        "Multi-day group rides",
+        "Late-March weather",
         "Regional event"
       ],
       "field_size": "100-200 riders",
@@ -24,40 +25,40 @@
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations daily",
       "cutoff_time": "Daily cutoffs",
-      "lat": 30.0552,
-      "lng": -96.9139
+      "lat": 30.2639,
+      "lng": -98.8747
     },
     "climate": {
-      "primary": "Texas summer",
-      "description": "Brutal summer heat and humidity over multiple days.",
+      "primary": "Texas Hill Country spring (late March)",
+      "description": "Late-March Hill Country weather: foggy mornings, warm afternoons, and no guarantee over seven straight days.",
       "challenges": [
-        "Extreme summer heat",
-        "High humidity",
+        "Unpredictable spring weather",
+        "Morning fog",
         "Multi-day exposure",
-        "Heat exhaustion risk"
+        "Cumulative fatigue"
       ]
     },
     "terrain": {
-      "primary": "Texas rolling gravel",
-      "surface": "Gravel roads through rolling Texas terrain over multiple days. Moderate elevation per day.",
+      "primary": "Texas Hill Country ranch roads",
+      "surface": "Hill Country ranch roads over the Edwards Plateau: river valleys, creek and water crossings, open range and farmland. Moderate climbing each day.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling per day (8000 feet total)",
+        "2,934-5,778 ft per A-route day (33,618 ft over the week)",
         "Texas scenery",
         "Multi-day format",
-        "Central Texas setting",
+        "Texas Hill Country setting",
         "Regional event"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 49,
+      "overall_score": 56,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 2,
-      "length": 4,
+      "length": 5,
       "technicality": 2,
-      "elevation": 2,
-      "climate": 1,
+      "elevation": 5,
+      "climate": 2,
       "altitude": 1,
       "adventure": 4,
       "prestige": 2,
@@ -67,39 +68,39 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 3,
-      "score_note": "Regional TX event. Multi-day format is significant but brutal summer heat and regional field.",
+      "score_note": "Regional Texas event. Seven straight days of A-route mileage carry the course scores; no timing and a small field hold the rest back.",
       "discipline": "gravel",
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Texas Summer Heat Endurance Test",
-      "summary": "Texas Hell Week is a multi-day gravel event in Warda, Texas—rolling terrain with brutal summer heat. The multi-day format and extreme heat create a serious challenge, but the moderate organization and regional field keep it in Tier 3. Warda provides moderate access. Summer heat and humidity are the defining challenges.",
+      "verdict": "Texas Hill Country Training Week",
+      "summary": "Texas Hell Week is a week of supported group rides based at Hermann Sons Lodge in Fredericksburg, in the Texas Hill Country. Each day offers A, B and C routes over ranch roads and river valleys. It's a training camp, not a race: no timing, a regional field and moderate organization keep it in Tier 3. Fredericksburg offers reasonable access and plenty of lodging. Seven straight days of volume is the defining challenge.",
       "strengths": [
         "Multi-day format (significant challenge)",
-        "Heat endurance test",
+        "Daily A/B/C route choice",
         "TX cycling community",
         "Adventure factor",
         "Regional pricing"
       ],
       "weaknesses": [
         "Central TX access (moderate)",
-        "Brutal summer heat (1/5 climate)",
+        "Unpredictable spring weather",
         "Moderate organization",
         "Regional field only",
-        "Heat exhaustion risk"
+        "No services on many routes"
       ],
-      "bottom_line": "A serious multi-day heat endurance test. Worth it for the challenge. Not a destination race for out-of-state travelers seeking organization or field depth."
+      "bottom_line": "A serious week of Hill Country volume. Worth it for early-season miles. Not for anyone who wants a timed race or field depth."
     },
     "final_verdict": {
-      "score": "49 / 100",
-      "one_liner": "Multi-day Texas gravel summer challenge in Warda.",
-      "should_you_race": "If you want a heat endurance test—yes, it's a serious challenge. If you want organization or pro field depth—look elsewhere.",
+      "score": "56 / 100",
+      "one_liner": "A week of Hill Country group rides out of Fredericksburg, Texas.",
+      "should_you_race": "If you want a week of early-season miles—yes, it's a serious block. If you want a timed race or pro field depth—look elsewhere.",
       "alternatives": "For better multi-day events: other stage races. For similar regional events: other TX gravel races."
     },
     "logistics": {
-      "airport": "Austin (AUS) 1 hour or Houston (IAH) 1.5 hours",
-      "lodging_strategy": "Warda has limited lodging. Nearby towns have options.",
-      "food": "Small town with limited dining. Stock nutrition.",
+      "airport": "Austin (AUS) or San Antonio (SAT) are the closest major airports.",
+      "lodging_strategy": "Fredericksburg has plenty of lodging, and the organizer lists an event hotel.",
+      "food": "Fredericksburg has plenty of restaurants. Many routes have no services after leaving town, so carry food and fluids.",
       "packet_pickup": "Day before",
       "parking": "At start/finish",
       "official_site": "",
@@ -122,54 +123,54 @@
       }
     ],
     "course_description": {
-      "character": "Rolling Texas gravel over multiple days with extreme summer heat.",
+      "character": "Seven days of Hill Country ranch roads, with A, B and C routes each day.",
       "suffering_zones": [
         {
-          "mile": 50,
-          "label": "Day 1 Complete",
-          "desc": "First day done, heat already taking toll.",
-          "terrain_detail": "Day 1",
-          "named_section": "Day 1"
-        },
-        {
-          "mile": 100,
-          "label": "Day 2 Complete",
-          "desc": "Halfway through, cumulative heat fatigue.",
-          "terrain_detail": "Day 2",
+          "mile": 198,
+          "label": "Day 2: Mountain Home and Away",
+          "desc": "100.6 miles and 5,448 ft, with the climb out of Kerrville cresting at mile 83. Two days in, the week is already near 200 miles.",
+          "terrain_detail": "Guadalupe River valley to the Edwards Plateau",
           "named_section": "Day 2"
         },
         {
-          "mile": 150,
-          "label": "Day 3 Complete",
-          "desc": "Three days of heat, mental game critical.",
-          "terrain_detail": "Day 3",
-          "named_section": "Day 3"
+          "mile": 350,
+          "label": "Day 4: Luckenbach Day",
+          "desc": "The 62-mile rest day, with three 90-plus-mile A-routes on each side of it. Ride it easy.",
+          "terrain_detail": "Edwards Plateau loop via Luckenbach",
+          "named_section": "Day 4"
         },
         {
-          "mile": 200,
-          "label": "Final Day",
-          "desc": "Last day to finish.",
-          "terrain_detail": "Final day",
-          "named_section": "Final Day"
+          "mile": 543,
+          "label": "Day 6: Lauren's Racers Loop",
+          "desc": "101.9 miles and 5,778 ft, the most climbing of any A-route, on legs that already have 441 miles in them.",
+          "terrain_detail": "North and west of Fredericksburg",
+          "named_section": "Day 6"
+        },
+        {
+          "mile": 644,
+          "label": "Day 7: Comfort-Kerrville Loop",
+          "desc": "One more century: 101.1 miles and 5,322 ft to close the week.",
+          "terrain_detail": "Loop south of Fredericksburg",
+          "named_section": "Day 7"
         }
       ],
-      "signature_challenge": "Multi-day endurance in extreme Texas summer heat and humidity.",
+      "signature_challenge": "Stacking seven days of Hill Country climbing, with the Leakey Death Ride as the biggest day.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "Texas Hell Week",
-      "race_distance": "200 miles (multi-day)",
-      "race_elevation": "8,000 feet (total)",
-      "race_date": "Summer",
-      "race_location": "Warda, Texas",
-      "race_terrain": "Texas rolling gravel",
-      "race_weather": "TX summer heat and humidity",
+      "race_distance": "644 miles over seven days (A-routes)",
+      "race_elevation": "33,618 feet (A-route week total)",
+      "race_date": "Late March",
+      "race_location": "Fredericksburg, Texas",
+      "race_terrain": "Texas Hill Country ranch roads",
+      "race_weather": "Hill Country spring variability",
       "race_challenges": [
         "Multi-day format",
-        "Extreme summer heat",
-        "High humidity",
-        "Heat exhaustion risk",
+        "Unpredictable spring weather",
+        "Creek and water crossings",
+        "No services on many routes",
         "Cumulative fatigue"
       ],
       "altitude_section": false,
@@ -182,14 +183,14 @@
         "why": "Multi-day format requires extensive endurance and recovery preparation."
       },
       {
-        "requirement": "Extreme heat acclimation",
+        "requirement": "Layering for variable weather",
         "by_when": "Week 4-6",
-        "why": "TX summer heat is brutal and requires serious heat training."
+        "why": "Late-March Hill Country weather swings from foggy mornings to warm afternoons, day after day."
       },
       {
-        "requirement": "Heat management strategy",
+        "requirement": "Self-supported fueling",
         "by_when": "Week 2-4",
-        "why": "Multi-day heat exposure requires careful heat management."
+        "why": "Many routes have no services after leaving Fredericksburg; carry food and fluids."
       }
     ],
     "research_metadata": {
@@ -258,22 +259,22 @@
         ],
         "race_specific": true,
         "topics": {
-          "heat": "Racing in extreme TX summer heat",
+          "heat": "Dressing for spring weather swings",
           "recovery": "Multi-day recovery strategies",
           "pacing": "Multi-day pacing discipline",
-          "fueling": "Nutrition for multi-day heat exposure"
+          "fueling": "Carrying food and fluids for seven days of riding"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Texas Hell Week",
-        "race_hook": "Multi-day Texas summer heat challenge.",
-        "race_hook_detail": "Regional event with extreme heat.",
-        "distance": "200",
+        "race_hook": "A week of Hill Country group rides out of Fredericksburg, Texas.",
+        "race_hook_detail": "Daily A, B and C routes; no timing.",
+        "distance": 644.4,
         "dark_mile": "150",
         "non_negotiable_1": "Multi-day endurance",
-        "non_negotiable_2": "Extreme heat acclimation",
-        "non_negotiable_3": "Heat management strategy",
+        "non_negotiable_2": "Layering for variable weather",
+        "non_negotiable_3": "Self-supported fueling",
         "trainingpeaks_url": null
       }
     },
@@ -283,20 +284,20 @@
         "explanation": "Fredericksburg location provides reasonable access with extensive lodging options including 20 hotels, 1500 B&Bs, and over 100 restaurants according to organizers. However, the event's resurrection under RAAM management shows organizational growing pains - field size dropped from 300+ historically to just 30 cyclists for the 2024 Stampede 200 portion."
       },
       "length": {
-        "score": 4,
-        "explanation": "Seven days of riding with three daily distance options creates serious volume - routes range from 30-107 miles daily with the bonus Leakey Death Ride hitting 107.5 miles and 6,494 feet of climbing. The format delivers 21 different routes over the week with organizers promising \"participants never ride the same road twice.\" Longer than Belgian Waffle Ride San Diego."
+        "score": 5,
+        "explanation": "The load is the week, not any one day: the seven daily A-routes run 62 to 102 miles and add up to 644.4 miles [1]. B routes of 40-72 miles and C routes of 24-44 miles let riders back off on any day, and Thursday's optional Leakey Death Ride out of Bandera is the longest single ride at 106.5 miles [1]."
       },
       "technicality": {
         "score": 2,
         "explanation": "Hill Country terrain features \"many cattle guards and water crossings\" with climbs ranging 100-800 feet through Edwards Plateau river valleys including the Guadalupe, Medina, and Frio. Courses include \"one short unpaved section\" on the Spicewood Loop, but RAAM organizers describe the terrain as \"moderately difficult\" and suitable for intermediate riders. Less technical than The Mid South."
       },
       "elevation": {
-        "score": 2,
-        "explanation": "Daily rides range from 1,360 to 6,494 feet of climbing with courses averaging 47-53 feet per mile of elevation gain. The associated Stampede 200 delivers 11,100 feet over 203 miles, while the Longhorn 500 hits 26,236 feet - substantial climbing concentrated in major ascents rather than constant rolling. Less climbing than The Mid South."
+        "score": 5,
+        "explanation": "Big in total, moderate on any one day. The 2026 A-routes climb 2,934 to 5,778 ft a day, 33,618 ft across the week, mostly in short climbs out of the Pedernales and Guadalupe river valleys [1]. The Leakey Death Ride packs 6,486 ft into 106.5 miles, with three big climbs on the way out [1]."
       },
       "climate": {
-        "score": 1,
-        "explanation": "Mid-March to mid-April timing hits wildflower season with Blue Bonnets and Indian Paint Brush in bloom, but Texas Hill Country weather remains unpredictable. Scott Mason, racing for over two decades, \"hopes to take time during the Texas Hell Week ride to enjoy the colorful Texas wildflowers\" during typically 50-80°F spring conditions with morning fog."
+        "score": 2,
+        "explanation": "Mild afternoons and cold starts, seven days running. March normals in Fredericksburg are a 47°F low and a 72°F high [11], so most rides start in layers and finish warm. The climb up Hasenwinkle Road out of the Guadalupe valley can be very hot and dry [1]."
       },
       "altitude": {
         "score": 1,
@@ -336,6 +337,12 @@
       }
     },
     "citations": [
+      {
+        "url": "https://www.raamchallenge.com/route-descriptions",
+        "category": "official",
+        "label": "Texas Hell Week routes (Hermann Sons Lodge, Fredericksburg)",
+        "accessed": "2026-11-06"
+      },
       {
         "url": "https://10best.usatoday.com/awards/texas-hell-week-fredericksburg-texas/",
         "category": "other",
@@ -380,6 +387,12 @@
         "url": "https://kavhelmets.com/blogs/kav-journal/best-cycling-races-and-events-in-the-us",
         "category": "community",
         "label": "kavhelmets.com: Best Cycling Races And Events In The Us"
+      },
+      {
+        "url": "https://climate-charts.com/USA-Stations/TX/USC00413329.html",
+        "category": "other",
+        "label": "Fredericksburg, Texas monthly climate normals (NOAA)",
+        "accessed": "2026-11-06"
       }
     ],
     "tire_recommendations": {
@@ -437,7 +450,7 @@
           "name": "Continental Dubnital Race Rapid",
           "width_mm": 50
         },
-        "rationale": "The rear carries 53% of the weight and does the traction work on 8,000 ft of climbing, so it gets the 2.3mm center knobs; the front rolls the faster file tread."
+        "rationale": "The rear carries 53% of the weight and does the traction work on 33,618 ft of A-route climbing, so it gets the 2.3mm center knobs; the front rolls the faster file tread."
       },
       "race_surface_profile": "mixed",
       "recommended_width_mm": 45,
@@ -477,6 +490,13 @@
           }
         }
       }
+    },
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": false,
+      "verified": "2026-11-06",
+      "source": "https://www.raamchallenge.com/route-descriptions",
+      "status_note": "A week of group training rides, not a race: no winners."
     }
   }
 }

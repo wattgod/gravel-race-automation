@@ -340,6 +340,11 @@
     },
     "citations": [
       {
+        "url": "https://www.cyclodromoise.com/",
+        "category": "official",
+        "label": "La Drômoise Gravel: not a timed race"
+      },
+      {
         "url": "https://www.biklo.ie/calendar/la-dromoise-gravel-2025-23",
         "category": "other",
         "label": "Biklo"
@@ -634,6 +639,13 @@
         "credit": "YouTube / Cyclomag ",
         "gif": true
       }
-    ]
+    ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": false,
+      "verified": "2026-11-06",
+      "source": "https://www.cyclodromoise.com/",
+      "status_note": "The gravel day is an untimed randonnée within the Drômoise weekend; no winners."
+    }
   }
 }

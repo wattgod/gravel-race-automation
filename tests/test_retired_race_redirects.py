@@ -81,6 +81,7 @@ def _live_paths() -> list[str]:
         f"race/{s}/training-plan/", f"race/{s}/tires/")]
     paths += [f"race/{a}-vs-{b}/" for a, b in select_pairs(INDEX)]
     paths += [h.lstrip("/") for h in _hubs()]
+    paths += [f"race/{a}/prep-kit/" for a in rr.published_slugs() - LIVE]
     paths += [f"race/calendar/{season_year()}/",
               f"race/power-rankings-{season_year()}/", "race/methodology/",
               "race/series/", "race/quiz/", "race/tier-1/"]
@@ -163,3 +164,11 @@ class TestServerCheck:
         ])
         assert rr.server_orphans(listing, LIVE, RULES) == [
             "/race/made-up-race.md", "/race/made-up-race/training-plan/"]
+
+    def test_legacy_prep_kit_alias_is_not_an_orphan(self):
+        # generate_prep_kit.py keeps building /race/the-mid-south/prep-kit/
+        # because leads were sent that link. Publish Site flagged it on
+        # 2026-11-07 when the check counted only race-data/ as published.
+        assert "the-mid-south" not in LIVE
+        assert rr.server_orphans(
+            "the-mid-south/prep-kit", rr.published_slugs(), RULES) == []

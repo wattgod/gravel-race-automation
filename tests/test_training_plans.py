@@ -378,9 +378,11 @@ class TestPricing:
 
     def test_example_calculations(self):
         section = build_pricing()
-        assert "6-week plan = $90" in section
-        assert "12-week plan = $180" in section
-        assert "16-week plan = $240" in section
+        assert "Race 6 weeks away = $90" in section
+        assert "12 weeks = $180" in section
+        assert "16 weeks = $240" in section
+        assert "week of training" not in section
+        assert "Weeks until your race, rounded up. Four-week minimum" in section
 
     def test_support_and_adjustment_boundary(self):
         section = build_pricing()
@@ -423,6 +425,15 @@ class TestFaq:
         assert "price calculated" in section.lower()
         assert "coaching" in section.lower()
         assert "database" in section.lower()
+
+    def test_price_answer_counts_weeks_until_the_race(self):
+        """The price counts rounded-up weeks until the race, not weeks of
+        training (a Thursday buyer can pay 9 weeks and fit 8 Monday weeks)."""
+        answer = dict(FAQ_ITEMS)["How is the price calculated?"]
+        assert "every week until your race, rounded up to whole weeks" in answer
+        assert "four-week minimum" in answer
+        assert "week of training" not in answer
+        assert "exactly what you need" not in answer
 
     def test_faq_toggle_button(self):
         section = build_faq()

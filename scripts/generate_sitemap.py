@@ -332,7 +332,7 @@ def generate_sitemap(race_index: list, output_path: Path, data_dir: Path = None,
         SubElement(url, 'changefreq').text = 'monthly'
         SubElement(url, 'priority').text = '0.6'
 
-    # Tires index + per-tire review pages
+    # Tires index + per-tire pages
     tire_page_slugs = load_tire_page_slugs(output_path.parent.parent)
     if tire_page_slugs or tire_slugs:
         url = SubElement(urlset, 'url')
@@ -562,7 +562,7 @@ def main():
     if tire_slugs:
         print(f"  Including {len(tire_slugs)} tire guide pages")
     if tire_page_slugs:
-        print(f"  Including {len(tire_page_slugs)} per-tire review pages")
+        print(f"  Including {len(tire_page_slugs)} per-tire pages")
     if tire_vs_slugs:
         print(f"  Including {len(tire_vs_slugs)} tire-vs-tire comparison pages")
     if course_slugs:

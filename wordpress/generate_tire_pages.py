@@ -647,6 +647,19 @@ a:hover { text-decoration: underline; }
 # ── HTML Builders ─────────────────────────────────────────────
 
 
+def page_title_and_description(tire: dict) -> tuple:
+    """We cite lab data and pick races; we don't test tires ourselves, so the
+    title never says "Review"."""
+    name = tire["name"]
+    if tire.get("lab_tested"):
+        return (f"{name}: Rolling Resistance, Race Picks & Pressure | Gravel God",
+                f"{name} gravel tire: rolling resistance from Bicycle Rolling "
+                f"Resistance lab tests, the races we pick it for, and pressure.")
+    return (f"{name}: Specs, Race Picks & Pressure | Gravel God",
+            f"{name} gravel tire: specs, the races we pick it for, and pressure. "
+            f"No lab test yet.")
+
+
 def build_header(tire: dict) -> str:
     widths = ", ".join(f"{w}mm" for w in tire["widths_mm"])
     tagline = tire.get("tagline")
@@ -656,11 +669,10 @@ def build_header(tire: dict) -> str:
     return f'''<header class="tp-header">
   <div class="tp-container">
     <div class="tp-breadcrumb">
-      <a href="/">Gravel God</a> / <a href="/tire/">Tires</a> / Tire Review
+      <a href="/">Gravel God</a> / <a href="/tire/">Tires</a> / {esc(tire["name"])}
     </div>
-    <span class="tp-badge">TIRE REVIEW</span>
     <span class="tp-tread-badge">{esc(tire["tread_type"].upper())} TREAD</span>
-    <h1>{esc(tire["name"])} Review</h1>{tagline_html}
+    <h1>{esc(tire["name"])}</h1>{tagline_html}
     <div class="tp-vitals">
       <div class="tp-vital"><strong>{esc(tire["brand"])}</strong>Brand</div>
       <div class="tp-vital"><strong>{widths}</strong>Widths</div>{msrp_html}
@@ -1269,7 +1281,7 @@ def build_json_ld(tire: dict, race_recs: list) -> str:
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Gravel God",
              "item": f"{SITE_BASE_URL}/"},
-            {"@type": "ListItem", "position": 2, "name": "Tire Reviews",
+            {"@type": "ListItem", "position": 2, "name": "Tires",
              "item": f"{SITE_BASE_URL}/tire/"},
             {"@type": "ListItem", "position": 3, "name": name,
              "item": url},
@@ -1328,8 +1340,8 @@ def generate_tire_page(tire: dict, race_recs: list, comparisons: list = ()) -> s
     inline_js = build_inline_js()
     json_ld = build_json_ld(tire, race_recs)
 
-    title = f"{esc(name)} Review: Best Gravel Races & Setup Guide | Gravel God"
-    meta_desc = f"{name} gravel tire review: specs, rolling resistance, race recommendations, and setup guide. See which races recommend this tire."
+    title, meta_desc = page_title_and_description(tire)
+    title = esc(title)
     canonical = f"{SITE_BASE_URL}/tire/{slug}/"
 
     tokens_css = get_tokens_css()

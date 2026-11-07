@@ -62,7 +62,6 @@ import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
-from unittest.mock import patch
 
 import pytest
 
@@ -1041,9 +1040,7 @@ def _coaching() -> str:
 
 def _homepage() -> str:
     import generate_homepage
-    fake_posts = [{"title": "Test Post", "url": "https://example.com", "snippet": "x"}]
-    with patch.object(generate_homepage, "fetch_substack_posts", return_value=fake_posts):
-        return generate_homepage.generate_homepage(_race_index())
+    return generate_homepage.generate_homepage(_race_index())
 
 
 def _race_page(slug: str):

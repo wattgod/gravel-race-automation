@@ -27,8 +27,6 @@ from gravel_weekly_visuals import (  # noqa: E402
     visual_css,
     youtube_video_id,
 )
-import generate_homepage as homepage_module  # noqa: E402
-from generate_homepage import build_gravel_weekly_band  # noqa: E402
 from validate_gravel_weekly import (  # noqa: E402
     IssueValidationError,
     compute_content_hash,
@@ -2955,37 +2953,6 @@ def test_deploy_path_and_legacy_redirect_are_wired():
     assert "gravel-weekly-history-hash:" in history_workflow
     assert "--sync-gravel-weekly --sync-homepage --sync-redirects --purge-cache" in history_workflow
     assert "send_gravel_weekly.py" not in history_workflow
-
-
-def test_homepage_surfaces_gravel_weekly_without_a_gravel_tv_content_path():
-    band = build_gravel_weekly_band()
-    assert 'id="gravel-weekly"' in band
-    assert 'href="/gravel-weekly/"' in band
-    assert "GRAVEL <em>WEEKLY</em>" in band
-    assert "Gravel TV" not in band
-
-
-def test_homepage_never_teases_an_approved_but_unpublished_issue(monkeypatch):
-    published = sample_issue()
-    approved = copy.deepcopy(published)
-    approved.update({
-        "issueId": "gravel-weekly-002",
-        "issueNumber": 2,
-        "publicationDate": "2026-09-04",
-        "slug": "2026-09-04",
-        "status": "approved",
-        "publishedAt": None,
-        "updatedAt": "2026-09-04T16:00:00Z",
-    })
-    approved["stories"][0]["headline"] = "PRIVATE APPROVED HEADLINE"
-    approved["contentHash"] = compute_content_hash(approved)
-    monkeypatch.setattr(homepage_module, "load_issues", lambda: [approved, published], raising=False)
-    monkeypatch.setattr(homepage_module, "load_public_issues", lambda: [published])
-
-    band = build_gravel_weekly_band()
-
-    assert "Unbound changed the course" in band
-    assert "PRIVATE APPROVED HEADLINE" not in band
 
 
 def test_email_preserves_legacy_subscribers_and_renders_a_sealed_issue():

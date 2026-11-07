@@ -104,6 +104,12 @@
       "position": "primary",
       "surface": "mixed"
     },
+    "core4": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "wet"
+    },
     "croatan-buck-fifty": {
       "rank": 3,
       "width_mm": 45,
@@ -176,6 +182,12 @@
       "position": "primary",
       "surface": "mixed"
     },
+    "gravel-desert": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
     "gravel-locos": {
       "rank": 3,
       "width_mm": 45,
@@ -213,6 +225,12 @@
       "surface": "technical"
     },
     "hellhole-gravel-grind": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "hibernator": {
       "rank": 3,
       "width_mm": 45,
       "position": "primary",
@@ -307,6 +325,18 @@
       "width_mm": 45,
       "position": "primary",
       "surface": "mixed"
+    },
+    "rule-of-three": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "santa-vall": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
     },
     "sea-otter-europe-gravel": {
       "rank": 3,

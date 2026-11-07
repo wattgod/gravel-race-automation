@@ -5,12 +5,6 @@
   "lesson_number": 3,
   "blocks": [
     {
-      "type": "hero_stat",
-      "value": "12-18 PSI",
-      "unit": "typical pressure gap",
-      "context": "between what road converts run on gravel and what actually grips — that gap is costing you speed, comfort, and flats"
-    },
-    {
       "type": "black_box",
       "title": "Incident Report",
       "content": "Rider lines up for a 100-mile gravel race on 42mm tires at 45 PSI. This is 10 PSI below their road pressure. They consider this \"low\" and feel they've adjusted for the surface.\n\nMile 8. Hardpack gravel with embedded rocks. Every rock transmits a sharp jolt through the bars. The tires bounce off the surface rather than conforming to it. The rider's contact patch — the area of tire actually touching the ground — is roughly the size of a thumbprint. On road at this pressure, that's fine. On gravel, it means the tire is riding on top of the surface instead of gripping it.\n\nMile 23. A sweeping left-hand turn on loose-over-hard. The tire skips across the loose marbles instead of pressing through them to the hard base beneath. The rider grabs the brakes — the front wheel washes. They save it, barely. Heart rate spikes to 175. Confidence drops.\n\nMile 41. A rocky descent with walnut-sized stones. At 45 PSI, the tire has zero compliance. Each stone is a binary event: the tire either rolls over it cleanly or deflects off it. One stone catches the rim. Pinch flat. They tube it — 12 minutes lost plus the CO2.\n\nMile 67. Second flat. Same mechanism. They're out of tubes and CO2.\n\nMile 67 to mile 78. Walking. Eleven miles.\n\nThe math is brutal. At 28-32 PSI on those same 42mm tires, the contact patch roughly doubles. The tire conforms around rocks instead of bouncing off them. Rolling resistance on rough surfaces actually DECREASES at lower pressure because the tire absorbs bumps instead of bouncing over them. The rim sits further from the ground, making pinch flats nearly impossible with tubeless setup.\n\nThe rider's pressure choice — made in a parking lot based on road instincts — cost them 90 minutes and a finish."
@@ -48,7 +42,7 @@
     },
     {
       "type": "prose",
-      "content": "### The Pressure Window\n\nEvery tire-rider-surface combination has a window:\n\n- **Ceiling**: the pressure above which you're bouncing more than gripping. Comfort degrades, traction drops, flat risk from rim impacts actually increases because the tire can't absorb the hit.\n- **Floor**: the pressure below which the tire squirms in corners, the sidewall folds under hard cornering loads, and rim strikes become possible even with tubeless setup.\n- **Sweet spot**: typically in the lower third of the window. This is where the tire is compliant enough to conform to the surface but stiff enough to corner predictably.\n\nThe window width varies:\n\n- **Hardpack gravel**: Window is 8-12 PSI wide. You have room to err.\n- **Loose-over-hard**: Window narrows to 5-8 PSI. Too high and you bounce on the marbles. Too low and the tire squirms.\n- **Sand or mud**: Window is narrow and low. You want maximum float — the floor is defined by rim protection, not cornering stability.\n- **Rocky/chunky**: Window shifts lower. The tire needs to absorb rock impacts, and the rim needs clearance from strikes.\n\nThe calculator below gives you a starting point. The drill teaches you to find your exact window by feel."
+      "content": "### The Pressure Window\n\nTire pressure is a range to explore within the limits set by your tire and rim manufacturers. Too much pressure can make the bike bounce across rough ground. Too little can make the tire squirm, strike the rim, or become unstable in a turn. Rider weight, load, tire construction, rim width, and terrain all matter.\n\nStart with a setup that you know works. On a familiar, low-risk route, change one variable at a time and write down what the bike did. If you feel rim strikes, tire roll, or unpredictable steering, stop and return to a known safe setting. A number from someone else's bike is only a starting question."
     },
     {
       "type": "process",
@@ -84,7 +78,7 @@
     },
     {
       "type": "prose",
-      "content": "### Tire Pressure Window Calculator\n\nStarting-point pressure recommendations based on your setup and terrain. These are STARTING POINTS — the drill below will help you refine to your personal sweet spot.\n\n**How it works:** Base pressure = (rider_weight * 0.18) adjusted by tire volume (width * rim_width), surface modifier (hardpack +3, loose -2, chunky -3, sand -5, mixed 0), and front/rear split (front = base - 2, rear = base + 1). Wider rims allow 1-2 PSI lower. These are tubeless assumptions — add 3-5 PSI for tubed setups.\n\n**Race Setup Card:** When connected to a race profile, pre-populates surface breakdown and adjusts for altitude and climate risk factors.\n\n_Interactive calculator coming soon — the numbers above are the method._"
+      "content": "### Build your field notes\n\nRecord your current setup and what you feel on a familiar, low-risk route. Use the observation to plan another controlled practice session."
     },
     {
       "type": "callout",
@@ -108,55 +102,39 @@
       "type": "drill",
       "title": "Traction Exploration",
       "time_minutes": 25,
-      "description": "Ten passes through the same gravel corner or section at progressively lower pressure. You'll map your personal traction envelope — where grip improves, where it peaks, and where it degrades.",
+      "description": "Compare a familiar tire setup with one small, manufacturer-compliant adjustment on a flat, traffic-free loop. Keep speed comfortable and stop if the tire squirms, strikes the rim, or steers unpredictably.",
       "variants": [
         {
           "level": "beginner",
-          "label": "Flat gravel loop with one consistent corner, slow pace",
+          "label": "One change on a familiar loop",
           "steps": [
-            "You need: a floor pump with an accurate gauge (digital preferred), a short gravel loop with at least one consistent corner, and 25 minutes.",
-            "Start at your current pressure. Write it down. Ride the loop once at a comfortable pace. Focus on the corner: how does the front tire feel? Does it skip, slide, or grip? Rate grip confidence 1-10.",
-            "Stop. Release 2 PSI from both tires (maintain front/rear split — drop both equally). Ride the loop again. Same pace, same corner. Rate grip confidence.",
-            "Repeat: drop 2 PSI, ride, rate. Do this for 10 total passes. You'll cover a range of roughly 20 PSI.",
-            "At some point, grip confidence will improve dramatically — this is the traction window opening up. Note the pressure where this happens.",
-            "At some lower point, the tire may start to feel squirmy or vague in the corner — the sidewall is flexing too much. Note this pressure too.",
-            "Your window is between these two points. Your sweet spot is in the lower third.",
-            "After the drill: pump back to the recommended pressure and ride for 10 minutes to confirm it feels right. Adjust by 1-2 PSI if needed.",
-            "Record your findings: tire model, width, surface type, rider weight, pressure window. This is the beginning of your personal pressure chart."
+            "Check the tire and rim pressure limits and inspect both tires before riding. Use a gauge you trust.",
+            "Write down your current front and rear pressures, tire model, load, surface, and weather.",
+            "Ride a familiar, low-speed loop. Note how the bike tracks through a gentle bend and over small bumps.",
+            "If the current setup is stable and you want to compare, make one small pressure adjustment within the manufacturer limits. Keep the same easy pace and line.",
+            "Stop immediately if a tire rolls, squirms, strikes the rim, or feels vague. Return to the known stable setup.",
+            "Write down what changed. Do not keep lowering pressure to find a supposed edge."
           ]
         },
         {
           "level": "intermediate",
-          "label": "Mixed-surface loop with corners and rough sections",
+          "label": "Compare conditions, not speed",
           "steps": [
-            "Same protocol as beginner, but on a loop that includes at least two surface types — hardpack and loose, or hardpack and chunky.",
-            "10 passes, 2 PSI drops per pass. But now you're rating TWO things: corner grip (1-10) and rough-section comfort (1-10).",
-            "You'll likely find that the optimal pressure for cornering and the optimal pressure for straight-line comfort are slightly different. Corner grip improves as you go lower. Straight-line comfort has a sweet spot — go too low and the tire starts feeling sluggish and vague.",
-            "Your race pressure is the compromise between these two: low enough for confident cornering, high enough for efficient straight-line riding.",
-            "Advanced note: if your race has long gravel road sections AND technical corners, consider adjusting pressure at aid stations. 2-3 PSI takes 30 seconds to release or add. Some races are worth the stop."
-          ]
-        },
-        {
-          "level": "race-pace",
-          "label": "Race-simulation loop at tempo effort",
-          "steps": [
-            "Same protocol, but ride each pass at tempo effort (76-87% FTP). Higher effort changes how you load the tires — more force through the pedals, more weight shift under power.",
-            "This is closer to race reality. At endurance pace, almost any pressure feels \"fine.\" At tempo on loose gravel, the wrong pressure makes itself known quickly — the rear tire breaks traction on power surges, or the front pushes in corners when you're breathing hard and riding less precisely.",
-            "5 passes at current pressure, then 5 passes at calculator-recommended pressure. Record average lap time for each set of 5.",
-            "Most riders find the lower pressure set is 2-4% faster at the same power. That's 5-10 minutes over a 100-mile race. Free time from air pressure.",
-            "Pair this with the weighted drop from Lesson 1 and the hip hinge from Lesson 2. Low pressure gives the tire more grip. The weighted drop and hinge give you the body position to use that grip. The combination is where real gravel speed lives."
+            "Repeat the same low-speed check on another familiar surface or after the weather changes.",
+            "Record comfort, steering feel, and any rim contact without trying to set a faster lap.",
+            "If conditions are too loose, wet, or crowded to compare safely, keep the setup you know and leave the test for another day."
           ]
         }
       ],
       "proof_gate": {
-        "description": "Can state your personal pressure window for 3 surface types without looking it up.",
-        "metric": "recall",
-        "target": "From memory, state your front and rear pressure for hardpack, loose-over-hard, and chunky gravel — within 2 PSI of your tested values"
+        "description": "You have a written tire setup and can describe how it behaved on a familiar route.",
+        "metric": "field notes",
+        "target": "Record pressure, tire/rim setup, conditions, and one handling observation without exceeding manufacturer limits"
       }
     },
     {
       "type": "prose",
-      "content": "### Building Your Pressure Chart\n\nAfter running the Traction Exploration drill on different surfaces, you'll have the data to build a personal pressure chart. This isn't theoretical — it's YOUR weight, YOUR tires, YOUR tested windows.\n\nA simple version:\n\n| Surface | Front PSI | Rear PSI |\n|---------|-----------|----------|\n| Hardpack | ___ | ___ |\n| Loose/marble | ___ | ___ |\n| Chunky/rocky | ___ | ___ |\n| Sand/mud | ___ | ___ |\n| Mixed (race default) | ___ | ___ |\n\nTape this to your top tube or photograph it on your phone. Before a race, check the course profile for dominant surface types and set pressure accordingly. In Lesson 8, we'll connect this to the race database — the tire pressure calculator will pull surface breakdown data from any of 757 race profiles and give you a race-specific starting pressure.\n\nFor now, build the chart from field testing. The numbers you discover through deliberate experimentation are worth more than any formula, including the calculator above. The calculator gets you in the ballpark. The drill gets you to the seat."
+      "content": "### Build your pressure notes\n\nAfter a ride, record the tire, rim, load, weather, surface, front and rear pressure, and how the bike handled. Leave room for a note about rim strikes or tire squirm.\n\n| Surface and conditions | Front PSI | Rear PSI | What I felt |\n|---|---:|---:|---|\n| Familiar hardpack | ___ | ___ | ___ |\n| Loose gravel | ___ | ___ | ___ |\n| Rough or rocky | ___ | ___ | ___ |\n| Wet conditions | ___ | ___ | ___ |\n\nBefore a race, use the course information you can verify and your own riding notes to choose a conservative setup within the tire and rim limits. Check it on a short ride when conditions change. The chart is a record of your bike, not a universal pressure prescription."
     },
     {
       "type": "prose",

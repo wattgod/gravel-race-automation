@@ -15,9 +15,9 @@
   ],
   "prices": [
     {
-      "id": "price_1TgsYhLoaHDbEqSqBkasPyQb",
+      "id": "price_1TvqP2LoaHDbEqSqALphvwyL",
       "course_id": "dirt-craft",
-      "amount": 2900
+      "amount": 4900
     },
     {
       "id": "price_1TgsYkLoaHDbEqSqZJEuBwdS",
@@ -32,9 +32,10 @@
   ],
   "payment_links": [
     {
-      "id": "plink_1TgsYjLoaHDbEqSqYVMLi2p0",
-      "url": "https://buy.stripe.com/00w00k3MyeNv5JtcABfjG01",
-      "course_id": "dirt-craft"
+      "id": "plink_1TvqSNLoaHDbEqSqNE5BwdRl",
+      "url": "https://buy.stripe.com/eVq8wQ6YKdJr1td8klfjG04",
+      "course_id": "dirt-craft",
+      "metadata": {"course_id": "dirt-craft"}
     },
     {
       "id": "plink_1TgsYlLoaHDbEqSqxt14vCKr",
@@ -45,7 +46,9 @@
       "id": "plink_1TgsYmLoaHDbEqSqxwbZRq9d",
       "url": "https://buy.stripe.com/4gMaEY5UGfRz3Bl7ghfjG03",
       "course_id": "gravel-hydration-mastery,dirt-craft",
-      "bundle": true
+      "bundle": true,
+      "amount": 3900,
+      "active": false
     }
   ]
 }

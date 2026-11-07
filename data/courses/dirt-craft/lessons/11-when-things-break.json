@@ -5,12 +5,6 @@
   "lesson_number": 11,
   "blocks": [
     {
-      "type": "hero_stat",
-      "value": "6 minutes",
-      "unit": "of actual repair work",
-      "context": "became an 11-mile walk and a DNF — because the rider hadn't practiced since the garage tutorial 6 months ago"
-    },
-    {
       "type": "black_box",
       "title": "Incident Report",
       "content": "Mile 68 of a 130-mile gravel race. Rear tire loses pressure over 30 seconds — classic tubeless puncture, small thorn still embedded. Rider has a plug kit in their saddle bag. They bought it 6 months ago and practiced once in the garage on a clean tire in good light.\n\nThey stop. Hands are shaking from 4 hours of riding. They fumble the plug tool, drop the insertion needle in the grass, find it, try to locate the puncture by sound. Can't hear the hiss over wind and their own breathing. Spin the wheel — sealant spray marks the hole. They push the plug in at the wrong angle, it doesn't seat. Pull it out, try again. This time it holds, but the tire is flat.\n\nThey reach for a CO2 cartridge. First cartridge: they don't seat the inflator head properly. Half the CO2 vents into the air. Tire reaches 15 PSI — not enough to seat the bead. Second cartridge: bead seats, but they're now at 38 PSI with no way to adjust and zero backup inflation.\n\nThey ride 3 miles. The plug fails — it was inserted crooked. Tire goes flat again. No more CO2. No frame pump. They walk 11 miles to the next aid station.\n\nThe repair itself required 6 minutes of calm, sequenced work. The rider spent 22 minutes in escalating panic and burned both cartridges. The mechanical didn't end their race. The lack of practiced, automatic repair sequence did."
@@ -215,50 +209,25 @@
     },
     {
       "type": "drill",
-      "title": "Timed Repair Drills",
+      "title": "Repair-kit rehearsal",
       "time_minutes": 20,
-      "description": "Practice each of the 3 critical repairs under progressively realistic conditions. Time every attempt. The goal is automatic motor sequence under stress — not just knowing the steps, but having hands that execute them without conscious thought.",
+      "description": "Learn where each tool is and practice the maker’s repair sequence without damaging a serviceable tire or chain.",
       "variants": [
         {
           "level": "beginner",
-          "label": "Garage, clean hands, no time pressure",
+          "label": "Flat, open practice area",
           "steps": [
-            "Set up in your garage or workshop with good lighting and a clean floor.",
-            "Repair 1 — Tubeless plug: Deflate your rear tire partially. Use a pick or awl to create a small hole in the tread (or use an old tire). Practice the full plug sequence. Time it. Target: under 5 minutes on first attempts, under 3 minutes within 3 sessions.",
-            "Repair 2 — Tube in tubeless: Fully unseat one bead, remove valve core, insert a tube, re-seat the bead, inflate. Time it. Target: under 12 minutes on first attempts, under 8 minutes within 3 sessions.",
-            "Repair 3 — Chain quick link: Use your chain tool to break the chain at a link. Remove 2 links. Reconnect with the quick link. Time it. Target: under 8 minutes on first attempts, under 5 minutes within 3 sessions.",
-            "Run all 3 in sequence. Total time is your baseline. Write it down.",
-            "Repeat monthly. If any repair exceeds the target time, add an extra session that month."
-          ]
-        },
-        {
-          "level": "intermediate",
-          "label": "Outdoors, on a trail, realistic conditions",
-          "steps": [
-            "Ride to a gravel trailhead or remote gravel road. Stop at an uneven, non-ideal spot — not your garage, not a picnic table.",
-            "Repair 1 — Tubeless plug: With dirty hands and the bike leaning against a fence or tree (no bike stand), execute the full plug sequence. Time it. Target: under 3 minutes.",
-            "Repair 2 — Tube in tubeless: Same conditions. Gravel under your knees, wind blowing, no clean surface. This is where you discover that sealant makes everything slippery. Time it. Target: under 8 minutes.",
-            "Repair 3 — Chain quick link: Greasy hands, no rag, chain dragging in the dirt. Time it. Target: under 5 minutes.",
-            "Note which repairs got slower in field conditions vs garage. That delta is your vulnerability — it's where panic will cost you the most time on race day."
-          ]
-        },
-        {
-          "level": "race-pace",
-          "label": "After a 2-hour ride, fatigued hands, timed",
-          "steps": [
-            "Ride 2 hours at sweet spot effort (88-93% FTP) with gravel sections and surges. Your forearms should be fatigued, grip strength diminished, fine motor control compromised.",
-            "Pull over immediately — no cool-down, no stretching, no shaking out your hands.",
-            "Start the clock. Execute all 3 repairs in sequence: plug, tube, chain. Total time target: 16 minutes (3 + 8 + 5).",
-            "Your hands will be shaking. Your fingers will feel thick and clumsy. This is exactly what mile 68 feels like. This is the point of the drill.",
-            "If total time exceeds 20 minutes, the sequence isn't automatic yet. Add a mid-ride repair practice to your next 3 long rides.",
-            "Track times across sessions. When fatigued time is within 20% of fresh time, the motor pattern is race-ready."
+            "Lay out your plug kit, spare tube, tire boot, inflation tool, chain tool, and compatible quick link. Check the manufacturer instructions.",
+            "Use an old or already damaged tire for plug practice. Do not puncture a good tire just to time a drill.",
+            "Rehearse tube installation and quick-link handling on an appropriate practice wheel or chain. Ask a mechanic to show you if any step is unfamiliar.",
+            "Check that your tire holds pressure and the drivetrain works before taking any repaired bike onto the road."
           ]
         }
       ],
       "proof_gate": {
-        "description": "All 3 repairs completed under target time, outdoors, after a ride — the full race-pace simulation.",
-        "metric": "timed",
-        "target": "Tubeless plug under 3 min, tube install under 8 min, chain link under 5 min — all outdoors, all after a 2+ hour ride"
+        "description": "A repeatable, controlled movement",
+        "metric": "observation",
+        "target": "Finish able to steer and brake smoothly; stop if control changes"
       }
     },
     {
@@ -331,7 +300,7 @@
     },
     {
       "type": "commitment",
-      "content": "Your commitment before Lesson 12: run The Calm Hands Sequence for all 3 repairs this week. Timed. Outdoors. After a ride. If any repair exceeds the target time, repeat it until your hands know the sequence without your brain."
+      "content": "Before the next lesson, lay out your repair kit and practice one suitable repair on old or already damaged equipment. Follow the tire, chain, and tool makers’ instructions. Check the repair before riding."
     },
     {
       "type": "callout",

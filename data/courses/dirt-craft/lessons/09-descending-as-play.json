@@ -5,264 +5,120 @@
   "lesson_number": 9,
   "blocks": [
     {
-      "type": "hero_stat",
-      "value": "45 sec",
-      "unit": "free time on a single descent",
-      "context": "between a rider who brakes constantly and one who manages speed through body position"
+      "type": "callout",
+      "style": "tip",
+      "content": "Choose a descending speed that leaves room to brake, steer, and stop within what you can see. This lesson practices position and early decisions; it does not use timed runs or an aero tuck to chase speed."
     },
     {
       "type": "black_box",
-      "title": "Incident Report",
-      "content": "Two riders crest the same climb together. Same legs, same bikes, same tires.\n\nRider A sits on the hoods, upright, hands hovering over the brake levers. The descent begins — 6% grade, packed gravel with scattered loose patches. Rider A brakes entering every loose section, releases, brakes again when speed rebuilds. Eleven brake events in 2.1 km. Each event scrubs 3-5 mph, each recovery costs 4-6 seconds. Rider A arrives at the bottom with forearms pumped, disc rotors hot, and 45 seconds of lost time.\n\nRider B drops into the drops at the crest. Lower center of mass, better brake leverage, 22% less frontal area. Weight shifts rearward as the gradient steepens. On smooth sections, Rider B tucks — forearms on the bar tops, chin low, pedals level. On loose sections, Rider B rises slightly off the saddle, absorbs through bent elbows and weighted feet. Two brake events total: once before a switchback, once before a cattle guard.\n\nRider B arrives at the bottom 45 seconds ahead, grinning, with cold rotors.\n\nThe gap wasn't fitness. It was hand position and technique."
+      "title": "A descent changes under the wheels",
+      "content": "A rider crests a familiar gravel descent and sees loose stones below a bend. The useful work begins at the crest: scan the visible road, choose a comfortable speed, and keep the hands ready to brake. There is no time bonus worth entering the loose section faster than you can steer or stop."
     },
     {
       "type": "sensation_target",
-      "label": "Controlled falling",
-      "content": "Gravity pulls the bike downhill. Your job is to guide it, not resist it.\n\nHere's the target sensation: you feel the bike accelerating under you like a sled on snow. Your hands rest in the drops — not gripping, just guiding. The brakes are there, but they're a precision tool, not a panic button. You use them the way a sculptor uses a chisel: deliberate, specific, brief.\n\nWhen it's right, descending feels like surfing. The terrain is the wave. You read it, you adjust, you flow with it. The speed feels earned, not scary, because you chose it through position instead of fighting it with brake pads.\n\nWhen it's wrong, you feel like you're being chased. Every bump is a threat. Your forearms burn. Your rotors howl. You arrive at the bottom exhausted from a section that should have been recovery.\n\nThe difference isn't courage. It's technique."
+      "label": "Stable feet, usable brakes",
+      "content": "On a gentle descent, keep your feet supported on the pedals, arms bent enough to absorb bumps, and both hands securely on the bars near the brake levers. Let the bike move beneath you without hanging your weight on the bars. If your position makes it harder to see, steer, or reach a brake, reset to a more upright, familiar stance."
     },
     {
       "type": "prose",
-      "content": "I spent years descending gravel like Rider A. Hands on the hoods, body upright, braking at every surface change. I told myself I was being \"safe.\" What I was actually being was slow AND less stable — upright position means higher center of mass, worse brake modulation, and more wind resistance that I then had to brake against.\n\nThe cruel irony of fearful descending: the things you do to feel safe make you less safe. Sitting upright catches more wind, which builds more speed between brake events, which requires harder braking, which reduces traction on loose surfaces. The death spiral is real, and it starts with hand position."
-    },
-    {
-      "type": "prose",
-      "content": "### The Drops Are Your Default Descent Position\n\nDrops give you four things at once: 8-12 cm lower center of mass, better brake leverage at the mechanical advantage point, 22% less frontal area, and bent elbows that act as suspension (Lesson 1). The CdA table in the accordion below shows exactly what that's worth in seconds per kilometer.\n\nIf drops are uncomfortable for more than 30 seconds, fix your bike fit first."
-    },
-    {
-      "type": "data_table",
-      "caption": "Weight Shift by Gradient — Hips Move Back as the Road Tips Down",
-      "headers": [
-        "Gradient",
-        "Weight F/R",
-        "Hip Position",
-        "Key Cue"
-      ],
-      "rows": [
-        [
-          "0-4%",
-          "45/55",
-          "Normal on saddle, pedals level",
-          "Standard drops"
-        ],
-        [
-          "4-8%",
-          "40/60",
-          "Hips back 2-3 cm on saddle",
-          "Rear tire stays loaded"
-        ],
-        [
-          "8-12%",
-          "35/65",
-          "Behind saddle, belly over BB",
-          "Arms extended, elbows bent"
-        ],
-        [
-          "12%+",
-          "30/70",
-          "Butt behind and above saddle",
-          "If rear wheel lifts, move back"
-        ]
-      ]
-    },
-    {
-      "type": "prose",
-      "content": "### The Aero Tuck\n\n30%+ drag reduction over standard drops. Forearms flat on the bar tops, chin low, knees against the top tube, pedals level and weighted. That's it.\n\nThe rule: tuck when you can see 5+ seconds of smooth, straight road ahead. The moment you're uncertain — drops, hands on levers. I tuck maybe 30% of a typical descent. The rest is drops. The tuck is a tool, not a permanent state."
-    },
-    {
-      "type": "prose",
-      "content": "### Your Body Is a Speed Dial\n\nFaster: get lower, tuck tighter. Slower: sit up, open your chest to the wind, spread your knees. On a moderate descent, that range is 5-8 mph without touching the brakes.\n\nWhy this matters: braking on gravel costs traction (the traction circle from Lesson 5). Every mph you manage through body position is grip you keep in reserve for the moments that actually need brakes."
-    },
-    {
-      "type": "prose",
-      "content": "### Line Choice: Surface First, Geometry Second\n\nOn pavement, the geometric racing line wins. On gravel, it might run through the loosest section. Gravel hierarchy:\n\n1. **Best surface.** Packed tire tracks, darker soil, smooth lines between ruts. The grippiest line is the fastest line, even if it's geometrically longer.\n2. **Fewest transitions.** Every surface change (packed to loose, dry to wet) costs traction. Minimize crossings.\n3. **Geometric efficiency.** Only after #1 and #2. On loose corners, the wide line through packed surface beats the tight apex through marbles.\n\nThis stacks directly on Lesson 4 (The Quiet Eye) and Lesson 8 (Reading Surfaces at Speed). Eyes 3-5 seconds ahead, reading surface, choosing grip."
+      "content": "### Read the descent before you commit\n\nAt the crest, look as far as the visible road allows. Find bends, surface changes, riders, traffic, and places where you could stop. Begin slowing before a blind section or a loose patch. Use both brakes gradually while the bike is mostly upright, then ease heavy pressure as you steer. Keep enough room to choose a different line if the gravel moves.\n\nThe drops can give some riders a secure grip and good brake access. Practice that hand position on easy ground first. If the hoods give you better control on your bike, stay there. No hand position makes a blind corner safe at speed."
     },
     {
       "type": "accordion",
       "items": [
         {
-          "title": "Aero Physics: CdA, Drag Reduction, and Wind Tunnel Data",
-          "blocks": [
-            {
-              "type": "data_table",
-              "caption": "Terminal Velocity and Time Savings by Body Position (6% Gravel Descent, 1 km, 75 kg Rider + 9 kg Bike)",
-              "headers": [
-                "Position",
-                "Approx CdA (m²)",
-                "Terminal Velocity",
-                "1 km Time",
-                "Time vs Hoods Upright"
-              ],
-              "rows": [
-                [
-                  "Hoods, upright",
-                  "0.45",
-                  "28 mph / 45 km/h",
-                  "80 sec",
-                  "—"
-                ],
-                [
-                  "Hoods, bent elbows",
-                  "0.40",
-                  "30 mph / 48 km/h",
-                  "75 sec",
-                  "5 sec faster"
-                ],
-                [
-                  "Drops, standard",
-                  "0.35",
-                  "32 mph / 52 km/h",
-                  "69 sec",
-                  "11 sec faster"
-                ],
-                [
-                  "Drops, tucked",
-                  "0.28",
-                  "36 mph / 58 km/h",
-                  "62 sec",
-                  "18 sec faster"
-                ]
-              ]
-            },
-            {
-              "type": "callout",
-              "content": "These numbers assume zero braking and a smooth surface — real descents involve braking zones, surface changes, and corners. But the pattern holds: Rider A on the hoods with constant braking loses 40-50 seconds per km of descent versus Rider B in the drops with selective braking. Over a race with 10+ km of total descending, that's 5-8 minutes of free time from position alone.",
-              "style": "tip"
-            }
-          ]
+          "title": "Body position changes with the road",
+          "content": "A steeper descent can shift more load toward the front wheel, especially under braking. Keep the feet supporting you and your arms available to absorb bumps. You may move your hips to stay balanced, but there is no gradient chart that tells every rider how far back to go. Moving too far behind the saddle can also make the front wheel harder to guide.\n\nChoose a position that keeps both wheels tracking, lets you see ahead, and leaves full access to the brakes. Ask a coach to check your position if you cannot find that balance on a gentle slope."
         }
       ]
     },
     {
-      "type": "callout",
-      "content": "Add The Position Ladder to your Race Setup Card (started in Lesson 3, expanded in Lesson 8). Write it on a stem note until it's automatic.",
-      "style": "tip"
-    },
-    {
-      "type": "prose",
-      "content": "Every gravel article tells you to 'relax and let the bike flow.' That's like telling someone afraid of heights to 'just don't look down.' Here's what actually works — a position sequence you can run mechanically, even when your brain is screaming."
-    },
-    {
       "type": "process",
       "title": "The Position Ladder",
-      "description": "Your descent body position protocol. Deploy at every crest before the road tips down.",
+      "description": "Move only as far into a lower stance as control and visibility allow. Climb back to the stable stance whenever conditions change.",
       "steps": [
         {
           "step": 1,
-          "action": "Drops as default",
-          "detail": "Hands in the drops, fingers on levers."
+          "action": "Start in your stable stance",
+          "detail": "Feet supported, arms bent, eyes on the visible road, hands ready to brake."
         },
         {
           "step": 2,
-          "action": "Elbows bent 20°, chin low",
-          "detail": "Arms are suspension, not scaffolding."
+          "action": "Choose the hand position you have practiced",
+          "detail": "Use hoods or drops only where you can steer and reach both levers securely."
         },
         {
           "step": 3,
-          "action": "Weight shift by gradient",
-          "detail": "<4% stay neutral. 4-8% hips back slightly. 8-12% butt behind saddle. >12% full attack position."
+          "action": "Adjust balance, not a number",
+          "detail": "Move the hips only enough to keep the bike tracking under you. Avoid hanging off the bars or far behind the saddle."
         },
         {
           "step": 4,
-          "action": "Tuck on smooth straights",
-          "detail": "Forearms horizontal, back flat. Only when you can see 5+ seconds ahead."
+          "action": "Open up for uncertainty",
+          "detail": "Sit or stand more upright when you need a better view, more brake access, or room to react."
         },
         {
           "step": 5,
-          "action": "Open up before corners",
-          "detail": "Exit tuck, hands ready on levers. Transition back to drops before the turn, not during."
+          "action": "Slow before the bend",
+          "detail": "Use both brakes smoothly on the approach; keep room for a wider line when the surface changes."
         }
       ]
     },
     {
       "type": "drill",
-      "title": "The Aero Progression",
-      "time_minutes": 30,
-      "description": "Same descent, five times, with progressive body positions. Time each run. Discover exactly how much free speed your position is worth — no extra watts required.",
+      "title": "Position and Visibility Check",
+      "time_minutes": 20,
+      "description": "Use a gentle, familiar descent with a clear runout and no traffic. Repeat at a comfortable speed to compare control and brake access, not elapsed time.",
       "variants": [
         {
           "level": "beginner",
-          "label": "Moderate gravel descent, 3-5% grade, 1-2 km",
+          "label": "One easy descent",
           "steps": [
-            "Find a gravel descent you know well — consistent surface, good visibility, no traffic. 3-5% grade, at least 1 km long.",
-            "Run 1: Hoods, upright. Normal posture, hands on top of hoods. Ride it the way you'd naturally descend. Time it.",
-            "Run 2: Hoods, bent elbows. Same position, but consciously bend your elbows 20 degrees and lower your torso. Time it.",
-            "Run 3: Drops. Hands in the drops, natural arm bend, lower torso. Time it. Note how brake access changes — you should feel MORE control, not less.",
-            "Run 4: Drops with tuck on straights. When the road is straight and surface is smooth, lower your torso further — forearms toward bar tops, chin down. Return to standard drops for any curve or surface change. Time it.",
-            "Run 5: Full race execution. Choose the right position for each section — tuck the straights, drops through turns, weight shift by gradient. Time it.",
-            "Compare times. The gap between Run 1 and Run 5 is your free speed — watts you never had to produce."
+            "Check the descent on foot or at an easy pace. Leave if the surface, sightline, or traffic makes it unsuitable.",
+            "Ride down once in the hand position you normally use. Notice where you can see and when you begin slowing.",
+            "If you have practiced riding in the drops, repeat at the same easy pace and compare grip and brake access.",
+            "Keep the position that gives you more control. Stop the session if either position makes steering or braking uncertain."
           ]
         },
         {
           "level": "intermediate",
-          "label": "Mixed-surface descent with turns, 4-8% grade",
+          "label": "One visible surface change",
           "steps": [
-            "Same five-run structure, but on a descent with surface transitions and at least 2-3 turns.",
-            "Run 1: Hoods upright. Count your brake events. Write the number down.",
-            "Run 2: Hoods, bent elbows. Count brake events again. Should already be fewer — lower position means less wind speed buildup between braking zones.",
-            "Run 3: Drops. Focus on brake modulation — how much LESS force you need to achieve the same deceleration with better lever position.",
-            "Run 4: Drops with selective tuck. Tuck ONLY on smooth straights where you can see 5+ seconds ahead. Count brake events.",
-            "Run 5: Race execution. Add line choice from the teaching section — surface first, geometry second. Time it. Count brake events.",
-            "You should see both faster times AND fewer brake events as positions progress. That's the whole point."
-          ]
-        },
-        {
-          "level": "race-pace",
-          "label": "Race-intensity descent, 6-10% with technical features",
-          "steps": [
-            "Warm up thoroughly. This variant pushes into higher speeds.",
-            "Run 1: Race-pace, hoods. Ride the descent as you would in a race from the hoods. Record time and max speed.",
-            "Run 2: Race-pace, drops. Focus on the weight shift protocol by gradient. Record time and max speed.",
-            "Run 3: Race-pace with tuck and line optimization. Full technique stack: drops, tuck on straights, weight shift by gradient, surface-first line choice. Record time and max speed.",
-            "Run 4: Recovery run — easy pace, drops position, focus on smoothness and reading the surface 5 seconds ahead.",
-            "Run 5: Final race-pace run. Integrate everything. This run should feel the smoothest AND be the fastest.",
-            "Review: compare Run 1 vs Run 5. The time gap represents technique-only speed gains. If Run 5 is your fastest and felt the most controlled, you're descending correctly."
+            "On a familiar easy descent, identify a visible change in surface before you roll in.",
+            "Choose a comfortable speed before that change, keeping both hands ready to brake.",
+            "After stopping safely, write down what you saw and whether your position left room to react. Do not time the run."
           ]
         }
       ],
       "proof_gate": {
-        "description": "Follow a faster descender through a gravel descent without falling back — not through bravery, but through less braking and better position.",
-        "metric": "comparative",
-        "target": "Maintain contact with a known faster descender through an entire gravel descent using technique (position, line choice, selective braking), not risk tolerance"
+        "description": "You can descend an easy, visible slope with secure hands, clear sightline, and unhurried braking.",
+        "metric": "controlled repetitions",
+        "target": "Repeatable control with no elapsed-time or maximum-speed target"
       }
     },
     {
       "type": "data_table",
-      "caption": "Brake or Carry — The Selective Braking Decision (Lesson 5's Speed-Set-Coast Applied to Descents)",
+      "caption": "What to do when a descent changes",
       "headers": [
         "Situation",
-        "Action",
-        "Why"
+        "First decision"
       ],
       "rows": [
         [
-          "Before turns",
-          "Brake on packed surface, release before the corner",
-          "Straight-line braking preserves traction for the turn (Lesson 5/6)"
+          "A bend or surface change is visible ahead",
+          "Look through it, slow on the approach, and keep a clear runout"
         ],
         [
-          "Before surface transitions",
-          "Scrub speed while still on good surface",
-          "Braking on loose gravel costs traction you need for stability"
+          "The exit is hidden",
+          "Reduce speed until you can stop within what you can see"
         ],
         [
-          "Blind crests / corners",
-          "Slow to sight-distance speed",
-          "Stop within what you can see, always"
+          "Your hand position limits brake access",
+          "Return to a position where you can use both brakes securely"
         ],
         [
-          "Packed surface, clear visibility",
-          "Let it run — tuck if straight",
-          "This is where position earns free speed"
-        ],
-        [
-          "Post-braking zone",
-          "Carry exit speed to next feature",
-          "Don't re-scrub what you already managed"
-        ],
-        [
-          "Committed line",
-          "No mid-line braking",
-          "Pick your line, trust it, ride it — mid-line braking breaks traction"
+          "A tire starts to push or skid",
+          "Avoid abrupt inputs, make room, and stop the drill when safe"
         ]
       ]
     },
@@ -282,35 +138,35 @@
     },
     {
       "type": "knowledge_check",
-      "question": "You're descending a gravel road at 25 mph. Ahead, you see the road kicks from 4% to 10% gradient, the surface transitions from packed to loose, and there's a right-hand sweeper 200 meters ahead. What's your sequence?",
+      "question": "A familiar gravel descent steepens before a bend, and the surface turns loose. What is the useful sequence?",
       "options": [
         {
-          "text": "Tuck to build speed before the steep section, then brake hard into the corner",
-          "correct": false
-        },
-        {
-          "text": "Brake now on the packed surface, shift weight rearward for the 10% section, move to drops if not already there, pick the packed line through the sweeper",
+          "text": "Look ahead, slow smoothly before the loose bend, and use a secure position with both brakes accessible",
           "correct": true
         },
         {
-          "text": "Maintain speed and ride the geometric racing line through the corner for maximum efficiency",
+          "text": "Tuck to gain speed, then brake hard while leaned into the bend",
           "correct": false
         },
         {
-          "text": "Sit up to use wind resistance as the primary braking force through the entire section",
+          "text": "Move as far behind the saddle as possible because the grade is steep",
+          "correct": false
+        },
+        {
+          "text": "Keep the same speed because the descent is familiar",
           "correct": false
         }
       ],
-      "explanation": "Brake while you still have traction — on the packed surface at 4% grade, before the loose section begins. Shift weight rearward as the gradient steepens to 10% (hips behind saddle, 35/65 weight distribution). Being in the drops gives you the best brake leverage and lowest center of mass for the steep loose section. Through the sweeper, pick the line with the best surface (packed tire tracks, darker soil), not the geometric apex — the fastest line on loose gravel is the grippiest line, even if it's longer. Tucking before a steep loose section with a corner builds speed you'll need to brake away on reduced-traction surface. Sitting upright works for gentle speed management but isn't precise enough for this sequence."
+      "explanation": "The known road has changed. Set a comfortable speed while you can see and steer, and use a position that keeps both brakes available. No fixed hip offset or aero target replaces that decision."
     },
     {
       "type": "commitment",
-      "content": "Your commitment before Lesson 10: ride a familiar descent 5 times using The Position Ladder. Time each run. Discover how much free speed lives in body position alone."
+      "content": "On your next easy descent, note where you first saw the bend, where you began slowing, and which hand position gave you the best control. Keep the run untimed."
     },
     {
       "type": "callout",
-      "content": "Next lesson: Pack Dynamics & Pacing by Terrain. You've found speed through position — now we find speed through strategy. How to draft on gravel (it's different from road), when to leave a group, and why the rider who paces by surface type finishes 20 minutes faster at the same average power.",
-      "style": "next"
+      "style": "next",
+      "content": "Next lesson: Pack Dynamics & Pacing by Terrain. You will use the same sightline and control checks when another rider is ahead of you."
     }
   ]
 }

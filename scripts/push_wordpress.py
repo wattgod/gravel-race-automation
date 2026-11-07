@@ -2849,8 +2849,8 @@ TIRE_GUIDES_WITHDRAWN = (
     "atlas-mountain-race", "badlands", "berryman-epic", "boulder-roubaix",
     "chequamegon-mtb", "colorado-trail-race", "fools-gold-gravel-grinder",
     "fuego-mtb", "leadville-100", "little-sugar-mtb", "ouachita-challenge",
-    "torino-nice-rally", "tour-divide", "trans-am-bike-race",
-    "transcontinental-race", "vapor-trail-125",
+    "torino-nice-rally", "tour-de-nebraska", "tour-divide",
+    "trans-am-bike-race", "transcontinental-race", "vapor-trail-125",
 )
 TIRE_GUIDES_WITHDRAWN_RULE = (
     "RewriteRule ^race/(" + "|".join(TIRE_GUIDES_WITHDRAWN)

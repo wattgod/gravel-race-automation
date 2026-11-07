@@ -1126,6 +1126,21 @@ class TestSections:
         assert 'id="train-for-race"' not in html
         assert 'data-measure-section="goal-strip"' not in html
 
+    def test_road_event_is_never_labelled_gravel(self, sample_race_data):
+        sample_race_data["race"]["gravel_god_rating"]["discipline"] = "road"
+        sample_race_data["race"]["eligibility"] = {
+            "status": "active",
+            "race_plan_eligible": False,
+        }
+        rd = normalize_race_data(sample_race_data)
+
+        html = generate_page(rd, [])
+
+        assert "Road event" in html
+        assert "Gravel event" not in html
+        assert '"sport":"Road Cycling"' in html
+        assert '<span class="gg-series-badge">ROAD</span>' in html
+
     def test_noncompetitive_event_suppresses_race_and_plan_surfaces(self, sample_race_data):
         sample_race_data["race"]["eligibility"] = {
             "status": "active",

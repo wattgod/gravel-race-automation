@@ -83,7 +83,8 @@ class TestCatalogContract:
     # only shrink.
     # Matt 2026-11-06: 18 of these moved to Roadie Labs and three fabricated
     # ones were tombstoned. Boulder Roubaix is a road race with no Roadie Labs
-    # page; Matt chose to keep it here labelled road.
+    # page; Matt chose to keep it here labelled road. Matt 2026-11-07: Tour
+    # de Nebraska's 2027 route is 0-1% unpaved, so it joins it, labelled road.
     PENDING_ROAD_DISPOSITION = {
         "boulder-roubaix",
         "bluewater-gran-fondo",
@@ -109,6 +110,7 @@ class TestCatalogContract:
         "seorak-granfondo",
         "sierra-nevada-limite",
         "struggle-dales",
+        "tour-de-nebraska",
         "tour-of-the-peak",
         "tour-of-thekkady",
         "velothon-berlin",

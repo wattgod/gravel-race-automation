@@ -52,6 +52,7 @@ from pricing import MIN_WEEKS, PRICE_PER_WEEK
 from endure_offer import ENDURE_PLAN_COPY, endure_plan_url
 from page_dates import race_updated_date
 from fact_consistency import check_race
+from race_calculator import build_race_calculator, get_race_calculator_css, race_calculator_context
 from season import UPCOMING, edition_display, edition_state, edition_year, parse_edition
 from season import today as season_today
 from generate_race_recap import has_results, newest_results_year
@@ -1006,6 +1007,7 @@ def normalize_race_data(data: dict) -> dict:
 
     return {
         'taking_a_break': race.get('taking_a_break'),
+        'calculator': race_calculator_context(race),
         'results': race.get('results') or {},
         'editions': race.get('editions') or [],
         'race_plan_eligible': eligibility.get('race_plan_eligible', True),
@@ -2996,6 +2998,7 @@ def build_toc(active_sections=None) -> str:
         ('verdict', '06 Final Verdict'),
         ('training', '07 Training'),
         ('train-for-race', '08 Train for This Race'),
+        ('race-calculator', 'Race Calculator'),
         ('logistics', '09 Race Logistics'),
         ('tires', '10 Tire Picks'),
         ('citations', '11 Sources'),
@@ -6825,6 +6828,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 /* Deterministic race-data changelog. The two-column shell exists only when
    this race has recent events, so empty feeds preserve the current layout. */
 .gg-neo-brutalist-page .gg-page-body-with-latest {{ display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: var(--gg-spacing-lg); align-items: start; }}
+.gg-neo-brutalist-page .gg-page-main {{ min-width: 0; }}
 .gg-neo-brutalist-page .gg-latest {{ border: var(--gg-border-standard); padding: var(--gg-spacing-md); margin-top: var(--gg-spacing-lg); }}
 .gg-neo-brutalist-page .gg-latest h2 {{ margin: 0 0 var(--gg-spacing-sm); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); letter-spacing: var(--gg-letter-spacing-ultra-wide); color: var(--gg-color-gold); }}
 .gg-neo-brutalist-page .gg-latest ol {{ list-style: none; padding: 0; margin: 0; }}
@@ -6912,7 +6916,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 }}
 /* TOC — mobile: collapsible dropdown */
 @media (max-width: 768px) {{
-  .gg-neo-brutalist-page .gg-page-body-with-latest {{ grid-template-columns: 1fr; }}
+  .gg-neo-brutalist-page .gg-page-body-with-latest {{ grid-template-columns: minmax(0, 1fr); }}
   .gg-neo-brutalist-page .gg-latest {{ grid-row: 1; margin-top: var(--gg-spacing-md); }}
   .gg-neo-brutalist-page .gg-toc {{ position: sticky; top: var(--gg-header-height, 56px); padding: 0; }}
   .gg-neo-brutalist-page .gg-toc-toggle {{
@@ -7674,9 +7678,14 @@ APPROVED_TOP_CSS = '''<style>
 </style>'''
 
 
+def _race_page_style_tags() -> str:
+    """One assembly path for inline pages and hashed shared stylesheets."""
+    return get_page_css() + APPROVED_TOP_CSS + '<style>' + get_race_calculator_css() + '</style>'
+
+
 def _extract_css_content() -> str:
-    """Extract raw CSS from get_page_css() (strip <style> tags)."""
-    raw = get_page_css() + APPROVED_TOP_CSS
+    """Extract assembled race-page CSS (strip <style> tags)."""
+    raw = _race_page_style_tags()
     return raw.replace('<style>', '').replace('</style>', '').strip()
 
 
@@ -7796,6 +7805,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     coaching = '' if suppress_plan_marketing else build_coaching_footnote(rd)
     goal_card = '' if suppress_plan_marketing else build_goal_card(rd)
     training = build_training_intelligence(rd)
+    race_calculator = build_race_calculator(rd)
     train_for_race = '' if suppress_plan_marketing else build_train_for_race(
         rd, email_capture, include_commerce=False)
     logistics_sec = build_logistics_section(rd)
@@ -7830,6 +7840,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         active.add('news')
     if train_for_race:
         active.add('train-for-race')
+    if race_calculator:
+        active.add('race-calculator')
     if citations_sec:
         active.add('citations')
     toc = build_toc(active)
@@ -7845,7 +7857,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         css = critical_css + '\n  ' + external_assets['css_tag']
         inline_js = external_assets['js_tag']
     else:
-        css = get_page_css() + APPROVED_TOP_CSS
+        css = _race_page_style_tags()
         inline_js = build_inline_js()
 
     # The approved first pass is locked: ratings, custom plan, coaching
@@ -7855,7 +7867,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 
     deep_sections = []
     for section in [course_overview, history, editions_sec, results_sec, pickem_cta, course_route, from_the_field,
-                    racer_reviews, training, train_for_race, logistics_sec,
+                    racer_reviews, training, train_for_race, race_calculator, logistics_sec,
                     tire_picks, news, similar, visible_faq, citations_sec]:
         if section:
             deep_sections.append(section)

@@ -1564,7 +1564,7 @@ class TestFullPage:
         assert "gg-ab-tests" in html
         assert 'data-ab="race_offer_price"' not in html
         assert 'data-ab="race_offer_cta"' not in html
-        assert 'data-cta="approved_custom_plan"' in html
+        assert 'data-cta="endure_trial"' in html
         assert 'data-cta="approved_coaching"' in html
 
     def test_deep_dive_keeps_training_intelligence_without_commerce(self, normalized_data):
@@ -1888,14 +1888,14 @@ class TestJsonLdSafety:
 
 
 class TestFunnelAttribution:
-    """Sep 2026: the custom-plan offer link names its entry surface and the
-    click handler reports the measured section, not 'unknown'."""
+    """The race-page offer link names its race and source, and the click
+    handler reports the measured section, not 'unknown'."""
 
-    def test_offer_link_carries_entry_surface(self, sample_race_data):
+    def test_offer_link_carries_race_and_source(self, sample_race_data):
         from wordpress.generate_neo_brutalist import build_custom_plan_offer
         rd = normalize_race_data(sample_race_data)
         html = build_custom_plan_offer(rd)
-        assert "training-plans/start/?race=test-gravel-100&amp;src=race_profile" in html  # esc() encodes the ampersand
+        assert "endurelabs.app/sign-up?race=test-gravel-100&amp;utm_source=gravel-god" in html  # esc() encodes the ampersand
 
     def test_cta_section_prefers_measured_section_name(self):
         src = (Path(__file__).parent.parent / "wordpress" / "generate_neo_brutalist.py").read_text()

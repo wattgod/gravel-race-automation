@@ -261,14 +261,18 @@ def selected_slugs(scope: str, slug: str | None, root: Path = ROOT) -> list[str]
     return sorted(available)
 
 
+# data-cta of the race-page plan offer (the Endure Labs trial since 2026-11).
+PLAN_CTA = "endure_trial"
+
+
 def verify_page_contract(text: str, slug: str, expected_plan_hrefs: list[str], expected_citation_hrefs: list[str] | None = None) -> None:
     parsed = Markup(); parsed.feed(text)
     forms = [f for f in parsed.forms if f.get("action") == CALCULATOR and f.get("method", "get").lower() == "get"]
     if parsed.calculators != 1 or len(forms) != 1 or forms[0]["fields"].get("source") != "gravel" or forms[0]["fields"].get("race") != slug:
         raise ValueError("Calculator navigation contract is missing")
-    actual = [a.get("href") for a in parsed.anchors if a.get("data-cta") == "approved_custom_plan"]
+    actual = [a.get("href") for a in parsed.anchors if a.get("data-cta") == PLAN_CTA]
     if actual != expected_plan_hrefs:
-        raise ValueError("Active custom-plan CTA changed")
+        raise ValueError("Active plan-offer CTA changed")
     marketplace = re.compile(r"https://(?:www\.)?trainingpeaks\.com/training-plans/[^\s\"\']*tp-[0-9]+")
     # Existing source citations are research references, not a mounted legacy
     # offer. Account for each exact source-backed citation occurrence; an extra
@@ -357,7 +361,7 @@ def prepare(destination: Path, scope: str, slug: str | None) -> None:
         run([*args, "--output-dir", str(validation / "blog")], receipts / (name + ".log"))
     run(["wordpress/generate_blog_index_page.py", "--output-dir", str(validation)], receipts / "blog-index.log")
     mirror_files(validation, ROOT / "wordpress/output")
-    # Same active custom-plan behavior as generate_page; no legacy TP ladder.
+    # Same active plan-offer behavior as generate_page; no legacy TP ladder.
     sys.path.insert(0, str(ROOT / "wordpress"))
     import generate_neo_brutalist as generator
     eligible_ctas = 0
@@ -367,9 +371,9 @@ def prepare(destination: Path, scope: str, slug: str | None) -> None:
             raise ValueError(f"Race {selected} has no valid vitals; repair its source profile")
         suppressed = rd["vitals"].get("course_status") == "source_blocked" or bool(rd.get("taking_a_break")) or not rd.get("race_plan_eligible", True)
         offer = Markup(); offer.feed("" if suppressed else generator.build_custom_plan_offer(rd))
-        hrefs = [a["href"] for a in offer.anchors if a.get("data-cta") == "approved_custom_plan"]
+        hrefs = [a["href"] for a in offer.anchors if a.get("data-cta") == PLAN_CTA]
         if not suppressed and not hrefs:
-            raise ValueError("Eligible source offer has no active custom-plan CTA")
+            raise ValueError("Eligible source offer has no active plan-offer CTA")
         eligible_ctas += bool(hrefs)
         verify_page_contract((package / "pages" / (selected + ".html")).read_text(), selected, hrefs,
                              [c["url"] for c in rd.get("citations", []) if isinstance(c, dict) and isinstance(c.get("url"), str)])

@@ -87,7 +87,9 @@ BRANDS = {
 # Questionnaire entry CTAs (data-cta values). Everything else on a race page
 # that fires cta_click — rate-it anchor, coaching, prep kit, official site,
 # tire guide — is not a plan-funnel step.
-PLAN_CTA_NAMES = {"approved_custom_plan", "tpp_hero_build", "tpp_preview_build",
+# endure_trial replaced approved_custom_plan on race pages 2026-11; the old
+# names stay so earlier days still count.
+PLAN_CTA_NAMES = {"endure_trial", "approved_custom_plan", "tpp_hero_build", "tpp_preview_build",
                   "tpp_footer_build", "hero_build", "pricing_build", "sticky_mobile",
                   "build_plan", "personalized_plan"}
 LEGACY_FORM_EVENTS = ["form_start", "form_submit"]

@@ -155,12 +155,20 @@ PRESSURE_REAR = 1.0461
 BIKE_AND_KIT_LB = 25
 RIDER_WEIGHTS_LB = (130, 150, 170, 190, 210, 230)
 
-# ── Sealant Constants ────────────────────────────────────────
-# Sealant amounts per tire, based on manufacturer recommendations
-# (Stan's, Orange Seal) for gravel tire volumes.
-SEALANT_WIDE = "90-120ml"    # >= 45mm
-SEALANT_MEDIUM = "60-90ml"   # >= 40mm
-SEALANT_NARROW = "50-70ml"   # < 40mm
+# ── Setup sources ────────────────────────────────────────────
+# Sealant per 700c tire, Stan's Original / Race Day chart (fetched 2026-11-06).
+STANS_SEALANT_URL = "https://stans.com/pages/how-much-sealant"
+STANS_SEALANT_ML = {40: 60, 45: 80, 50: 95}
+# Both Stan's and Schwalbe: sealant stays active 2-7 months.
+SCHWALBE_TUBELESS_URL = "https://www.schwalbe.com/en/technology-faq/tubeless/"
+# Gravel inserts listed on the makers' own pages: (name, url, grams, widths).
+INSERTS = (
+    ("Vittoria Air-Liner Light Gravel", "https://vittoria.com/products/air-liner-light-gravel",
+     45, (42, 50)),
+    ("Tannus Armour Tubeless", "https://tannus.com/products/armour-tubeless",
+     150, (33, 47)),
+)
+LONG_RACE_MI = 150
 
 # BRR tread puncture score worth naming as a reason.
 PUNCTURE_MODERATE_PTS = 40
@@ -555,13 +563,17 @@ def get_front_rear_split(tires: list, profile: dict, top_picks: list) -> dict:
                 "width_mm": r["width"], "msrp_usd": t.get("msrp_usd")}
 
     rear_test = lab_test(rear["tire"], rear["width"])
+    elev = profile.get("elevation_ft") or 0
+    climbing = f" on {elev:,.0f} ft of climbing" if elev >= 1000 else ""
+    loose = " and in the mud" if profile.get("needs_mud") or profile.get("mud_risk") else ""
     return {
         "applicable": True,
         "front": side(front),
         "rear": side(rear),
-        "rationale": (f"The rear carries 53% of the weight and does the climbing "
-                      f"traction, so it gets the {rear_test['knob_center_mm']:g}mm "
-                      f"center knobs; the front rolls the faster file tread."),
+        "rationale": (f"The rear carries 53% of the weight and does the traction "
+                      f"work{climbing}{loose}, so it gets the "
+                      f"{rear_test['knob_center_mm']:g}mm center knobs; the front "
+                      f"rolls the faster file tread."),
     }
 
 
@@ -642,47 +654,57 @@ def compute_pressure_table(tech_rating: int, rec_width: int) -> list:
 # ── Setup Strategy ────────────────────────────────────────────
 
 
+def sealant_ml(width_mm: int) -> int:
+    """Stan's per-tire volume for the nearest charted width (ties go wider)."""
+    nearest = min(STANS_SEALANT_ML, key=lambda w: (abs(w - width_mm), -w))
+    return STANS_SEALANT_ML[nearest]
+
+
 def build_setup_strategy(tech_rating: int, rec_width: int, profile: dict) -> dict:
-    """Build tire setup strategy recommendations."""
-    needs_puncture = profile.get("needs_puncture", False)
+    """Sealant, inserts and spares for this course at its width.
 
-    # Sealant amount based on width + puncture risk
-    if rec_width >= 45:
-        sealant = SEALANT_WIDE
-    elif rec_width >= 40:
-        sealant = SEALANT_MEDIUM
+    Returns {"items": [{"title", "lead", "body"}], "sources": [(label, url)]}.
+    Volumes, refresh intervals and insert claims come from the makers' pages
+    above; whether a course needs inserts or a boot is our call from the
+    course text (sharp rock) and tech rating.
+    """
+    sharp = profile.get("needs_puncture", False)
+    technical = is_technical(profile)
+    ml = sealant_ml(rec_width)
+    sources = [("Stan's sealant chart", STANS_SEALANT_URL),
+               ("Schwalbe tubeless FAQ", SCHWALBE_TUBELESS_URL)]
+    items = [{
+        "title": "Sealant",
+        "lead": f"{ml} ml per tire",
+        "body": (f"Stan's volume for a {rec_width}mm tire. Stan's and Schwalbe say "
+                 "sealant lasts 2 to 7 months, so refill if yours is older than 2."),
+    }]
+
+    if sharp or technical:
+        fits = [i for i in INSERTS if i[3][0] <= rec_width <= i[3][1]]
+        why = (f"the {sharp_term(profile)}" if sharp else "the technical sections")
+        named = " or ".join(f"{name} ({grams} g)" for name, _, grams, _ in fits)
+        body = (f"An insert protects the rim from {why} at these pressures and "
+                f"lets you ride out a flat.")
+        if named:
+            body += f" At {rec_width}mm: {named}."
+        if any(name.startswith("Tannus") for name, *_ in fits):
+            body += " Tannus says to run 0.1 to 0.5 bar (1.5 to 7 psi) less with its insert."
+        items.append({"title": "Inserts", "lead": "Run them", "body": body})
+        sources += [(name, url) for name, url, _, _ in fits]
     else:
-        sealant = SEALANT_NARROW
+        items.append({"title": "Inserts", "lead": "Skip them",
+                      "body": "No sharp rock or technical sections in the course notes."})
 
-    if needs_puncture:
-        sealant_note = "Use the higher end of the range. Sharp surfaces demand extra sealant."
-    else:
-        sealant_note = "Standard amount should work fine for this course."
-
-    # Tubeless strength
-    if tech_rating >= 3 or needs_puncture:
-        tubeless_rec = "Strongly recommended"
-        tubeless_note = "Technical terrain and sharp surfaces make tubeless essential. Self-sealing capability is critical."
-    else:
-        tubeless_rec = "Recommended"
-        tubeless_note = "Tubeless provides better comfort and puncture protection, even on smoother courses."
-
-    # Spare strategy
-    if needs_puncture:
-        spare = "Carry a tube, tire plugs, AND a tire boot. Sharp surfaces can cause cuts too large for sealant alone."
-    elif tech_rating >= 3:
-        spare = "Carry a tube and tire plugs. Technical terrain increases the chance of a sidewall cut."
-    else:
-        spare = "Carry a tube and tire plugs. Standard repair kit should handle most issues."
-
-    return {
-        "tubeless_rec": tubeless_rec,
-        "tubeless_note": tubeless_note,
-        "sealant": sealant,
-        "sealant_note": sealant_note,
-        "spare": spare,
-        "break_in": "Mount tires 2-3 days before race day. Ride at least 30 minutes to seat the bead, check for sealant leaks, and verify tire pressure holds overnight.",
-    }
+    long_race = (profile.get("distance_mi") or 0) >= LONG_RACE_MI
+    kit = ["plugs", "two tubes" if long_race else "a tube"]
+    if sharp:
+        kit.append("a boot for sidewall cuts")
+    kit.append("CO2 plus a mini pump" if long_race else "CO2")
+    items.append({"title": "Spares",
+                  "lead": f"{kit[0].capitalize()}, " + ", ".join(kit[1:-1]) + f" and {kit[-1]}",
+                  "body": ""})
+    return {"items": items, "sources": sources}
 
 
 # ── Condition Alternatives ────────────────────────────────────
@@ -1002,6 +1024,15 @@ a:hover { text-decoration: underline; }
   border-bottom: 1px solid var(--gg-color-tan);
 }
 .tg-pressure-table tr:nth-child(even) td { background: var(--gg-color-sand); }
+.tg-podium-title {
+  font-family: var(--gg-font-data);
+  font-size: var(--gg-font-size-sm);
+  letter-spacing: var(--gg-letter-spacing-wide);
+  text-transform: uppercase;
+  margin-top: var(--gg-spacing-lg);
+}
+.tg-podium-table td { vertical-align: top; }
+.tg-podium-detail { font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); }
 .tg-pressure-note {
   font-family: var(--gg-font-data);
   font-size: var(--gg-font-size-xs);
@@ -1013,7 +1044,7 @@ a:hover { text-decoration: underline; }
 /* Setup strategy */
 .tg-setup-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--gg-spacing-md);
 }
 @media (max-width: 640px) {
@@ -1325,8 +1356,56 @@ def tire_link(tire_id, name: str) -> str:
     return f'<a href="/tire/{esc(tire_id)}/" class="tg-tire-link">{esc(name)}</a>'
 
 
+PODIUM_PATH = Path(__file__).resolve().parent.parent / "data" / "tires" / "podium" / "setups.json"
+
+
+def load_podiums() -> dict:
+    """slug -> {"edition_year", "results_url", "entries"} from the sourced file."""
+    try:
+        return json.loads(PODIUM_PATH.read_text(encoding="utf-8"))["races"]
+    except (OSError, KeyError, json.JSONDecodeError):
+        return {}
+
+
+def podium_width(entry: dict) -> str:
+    f, r = entry.get("front_width_mm"), entry.get("rear_width_mm")
+    if not f and not r:
+        return "width not given"
+    if f == r or not r or not f:
+        return f"{f or r}mm"
+    return f"{f}mm front, {r}mm rear"
+
+
+def build_podium_block(podium: dict, tire_db: list) -> str:
+    """What the podium rode, each row linked to its source. Tire names link to
+    our page only when the source's name matches a database tire exactly."""
+    if not podium or not podium.get("entries"):
+        return ""
+    ids = {t["name"]: t["id"] for t in tire_db}
+    rows = []
+    for e in podium["entries"]:
+        detail = "; ".join(x for x in (podium_width(e), e.get("pressure"), e.get("note")) if x)
+        source = (f'<a href="{esc(e["source_url"])}" target="_blank" rel="noopener">'
+                  f'{esc(e["source_name"])}</a>')
+        if e["source_type"] == "brand":
+            source += " (brand)"
+        elif e["source_type"] == "rider":
+            source += " (rider)"
+        rows.append(
+            f'<tr><td>{esc(e["category"].title())} {esc(e["place"])}<br>'
+            f'<strong>{esc(e["rider"])}</strong></td>'
+            f'<td>{tire_link(ids.get(e["tire"]), e["tire"])}<br>'
+            f'<span class="tg-podium-detail">{esc(detail)}</span></td>'
+            f'<td>{source}</td></tr>')
+    return f'''<h3 class="tg-podium-title">What the {esc(podium["edition_year"])} Podium Ran</h3>
+    <table class="tg-pressure-table tg-podium-table">
+      <thead><tr><th>Rider</th><th>Tire</th><th>Source</th></tr></thead>
+      <tbody>{"".join(rows)}</tbody>
+    </table>'''
+
+
 def build_tire_cards(top_picks: list, profile: dict, race_name: str,
-                     front_rear: dict = None) -> str:
+                     front_rear: dict = None, podium_html: str = "") -> str:
     """Build Section 02: Top 3 Tire Recommendations with real data."""
     cards = []
     for i, pick in enumerate(top_picks):
@@ -1395,6 +1474,8 @@ def build_tire_cards(top_picks: list, profile: dict, race_name: str,
     <h2>Best Tires for {esc(race_name)}</h2>
     {''.join(cards)}
     {split_html}
+    {podium_html}
+    <p class="tg-pressure-note"><a href="/tire/#method">How we pick</a></p>
   </div>
 </section>'''
 
@@ -1424,31 +1505,23 @@ def build_pressure_section(pressure_rows: list, tech_rating: int, rec_width: int
 
 
 def build_setup_section(strategy: dict) -> str:
-    """Build Section 04: Setup Strategy."""
+    """Section 04: sealant, inserts and spares, with the makers' pages linked."""
+    items = "\n      ".join(
+        '<div class="tg-setup-item"><h4>{}</h4><p><strong>{}</strong></p>{}</div>'.format(
+            esc(i["title"]), esc(i["lead"]),
+            f"<p>{esc(i['body'])}</p>" if i["body"] else "")
+        for i in strategy["items"])
+    sources = ", ".join(
+        f'<a href="{esc(url)}" target="_blank" rel="noopener">{esc(label)}</a>'
+        for label, url in strategy["sources"])
     return f'''<section class="tg-section">
   <div class="tg-container">
     <span class="tg-section-num">04 / SETUP STRATEGY</span>
     <h2>Race-Day Tire Setup</h2>
     <div class="tg-setup-grid">
-      <div class="tg-setup-item">
-        <h4>Tubeless</h4>
-        <p><strong>{esc(strategy['tubeless_rec'])}</strong></p>
-        <p>{esc(strategy['tubeless_note'])}</p>
-      </div>
-      <div class="tg-setup-item">
-        <h4>Sealant</h4>
-        <p><strong>{esc(strategy['sealant'])}</strong></p>
-        <p>{esc(strategy['sealant_note'])}</p>
-      </div>
-      <div class="tg-setup-item">
-        <h4>Spare Strategy</h4>
-        <p>{esc(strategy['spare'])}</p>
-      </div>
-      <div class="tg-setup-item">
-        <h4>Pre-Race Break-In</h4>
-        <p>{esc(strategy['break_in'])}</p>
-      </div>
+      {items}
     </div>
+    <p class="tg-pressure-note">Sources: {sources}.</p>
   </div>
 </section>'''
 
@@ -1732,7 +1805,8 @@ def generate_tire_guide_page(rd: dict, raw_race: dict, weather: dict,
     # Build page sections
     header = build_header(rd)
     surface = build_surface_analysis(rd, raw_race, weather)
-    tire_cards = build_tire_cards(top_picks, profile, rd["name"], front_rear)
+    podium_html = build_podium_block(load_podiums().get(rd["slug"]), tire_db)
+    tire_cards = build_tire_cards(top_picks, profile, rd["name"], front_rear, podium_html)
 
     pressure_rows = compute_pressure_table(tech_rating, rec_width)
     pressure = build_pressure_section(pressure_rows, tech_rating, rec_width, raw_race)

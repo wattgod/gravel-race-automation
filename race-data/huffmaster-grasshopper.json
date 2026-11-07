@@ -272,6 +272,91 @@
         }
       },
       "latest_year": "2026"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-11-06",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 573,
+          "crr_watts": 19.2,
+          "tested_width_mm": 50,
+          "course_cost_watts": 22.12,
+          "why": "Rolls 19.2 W at 50mm on BRR's drum. 2.3mm center knobs for mud."
+        },
+        {
+          "rank": 2,
+          "tire_id": "schwalbe-g-one-rx-pro",
+          "name": "Schwalbe G-One RX Pro",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 657,
+          "crr_watts": 19.4,
+          "tested_width_mm": 50,
+          "course_cost_watts": 24.46,
+          "why": "Rolls 19.4 W at 50mm on BRR's drum. 2.2mm center knobs for mud."
+        },
+        {
+          "rank": 3,
+          "tire_id": "schwalbe-g-one-overland",
+          "name": "Schwalbe G-One Overland",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 50,
+          "msrp_usd": 69.9,
+          "weight_grams": 663,
+          "crr_watts": 20.0,
+          "tested_width_mm": 50,
+          "course_cost_watts": 26.09,
+          "why": "Rolls 20 W at 50mm on BRR's drum. 1.5mm center knobs for mud. Wet grip 79."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": false
+      },
+      "race_surface_profile": "muddy",
+      "recommended_width_mm": 50,
+      "pressure_psi": {
+        "gravel_category": 3,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "45mm": "26/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "150": {
+            "45mm": "27/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "170": {
+            "45mm": "28/29",
+            "50mm": "23/24",
+            "55mm": "19/20"
+          },
+          "190": {
+            "45mm": "28/29",
+            "50mm": "23/24",
+            "55mm": "19/20"
+          },
+          "210": {
+            "45mm": "29/30",
+            "50mm": "24/25",
+            "55mm": "20/20"
+          },
+          "230": {
+            "45mm": "29/31",
+            "50mm": "24/25",
+            "55mm": "20/21"
+          }
+        }
+      }
     }
   }
 }

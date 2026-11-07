@@ -72,9 +72,9 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "47-watts-1": "Cartoon Gravel God in a cowboy hat rides a gravel road through green farmland past an old wooden barn, with watt savings floating around him: \"-47 watts\", \"-17 watts\", \"-10 watts\" and \"-5 watts\".",
+    "47-watts-1": "Cartoon Gravel God rides a Kansas gravel road toward the camera, surrounded by labels: -47 WATTS, -10 WATTS, -17 WATTS, -5 WATTS.",
     "unbound-best-bike-split-scaled": "Best Bike Split screenshot of the race plan \"Unbound 200 (Gravel God)\" on the 2022 Unbound 200 course with the Default Gravel Bike: power, speed and elevation over 200 miles, a route map around Emporia, Kansas, and a race overview of 199.98 mi, 12:26:02, 16.08 mph, 156.72 W average and 161.64 W normalized power, IF 0.65, TSS 523, 1.92 W/kg.",
-    "47-watts-2": "Cartoon Gravel God in a cowboy hat stands on a grassy verge beside a wide, freshly graded white gravel road, puffing a cigar.",
+    "47-watts-2": "Cartoon Gravel God stands thinking on the grass beside a long white gravel road curving through farmland.",
 }
 
 DESCRIPTION = ("Best Bike Split estimates of how much time chain waxing, aero, tires, weight loss and fitness "

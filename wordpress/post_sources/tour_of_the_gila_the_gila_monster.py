@@ -33,14 +33,14 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "nobody-home": "Strava screenshot of Matti Rowe's ride \"Stage 5: Nobody Home\", 9:01 AM on Sunday, April 30, 2023, Silver City, New Mexico: 111.03 mi, 5:19:49 moving time, 9,255 ft of climbing, 242 W weighted average power, 3,951 kJ, 6:30:32 elapsed, weather clear and 20 °C; cartoon Gravel God in a cowboy hat shrugs in front of it.",
-    "gang": "Teammates in red Rio Grande kit sit in the dirt against an open car hatch after the stage, one standing behind with his arms raised; cartoon Gravel God's face in a cowboy hat is pasted on the rider sitting at left.",
+    "nobody-home": "Strava screenshot of Matti Rowe's ride \"Stage 5: Nobody Home\", 9:01 AM on Sunday, April 30, 2023, Silver City, New Mexico: 111.03 mi, 5:19:49 moving time, 9,255 ft of climbing, 242 W weighted average power, with cartoon Gravel God's head as the profile picture and the full cartoon Gravel God shrugging at the right.",
+    "gang": "Teammates in red Rio Grande kit sit in the dirt against an open car hatch after the stage, one standing behind with his arms raised; cartoon Gravel God's grinning head is pasted on the rider sitting at the left.",
     "701-cooper-st": "A pink stucco house on a sunny Silver City street, teammates in red loading a car at the curb and a tiny cartoon Gravel God riding up the road.",
     "tajjjj-scaled": "A young teammate in a white helmet, orange-lens sunglasses and the red Rio Grande jersey tips his glasses at the camera.",
     "salty-boii-scaled": "A rider bends over to show the seat of his black bib shorts caked in white salt, while teammates stand by a car on a dirt road.",
-    "sheeeee": "A rider in red Rio Grande kit, with cartoon Gravel God's face in a cowboy hat pasted on, strikes a dance pose on a dusty lot, arm flung out, a team van behind him.",
+    "sheeeee": "A rider in red Rio Grande kit, with cartoon Gravel God's shouting head pasted on, strikes a dance pose on a dusty lot, arm flung out, a team van behind him.",
     "sam-1-scaled": "Close-up from above of a sweaty, exhausted teammate in a red Rio Grande jersey sitting in the dirt, hugging his knees, bottles at his feet.",
-    "defeat": "A breakfast table with a full bowl of oatmeal, a can of Red Bull, a copper French press and a Starbucks mug; the top of cartoon Gravel God's cowboy hat peeks up from below the table edge.",
+    "defeat": "A breakfast table with a full bowl of oatmeal, a can of Red Bull, a copper French press and a Starbucks mug; the back of cartoon Gravel God's slicked-back head peeks up from below the table edge.",
     "james-scaled": "Seen from above, a shirtless rider in white sunglasses and a white helmet sits hunched in the dirt, arms wrapped around his knees.",
 }
 

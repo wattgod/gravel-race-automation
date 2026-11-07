@@ -26,16 +26,16 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "you-dont-need-to-bike-to-bike-fast": "A snowy forest trail; cartoon Gravel God in a cowboy hat stands arms crossed beside a pair of cross-country skis and poles and a mug of hot chocolate.",
-    "you-dont-need-to-bike-to-bike-fast-1": "Cartoon Gravel God on a theatre stage between red curtains, flanked by tomatoes on stands, declaims: \"You didn't even love her Jake! You won't get away with this...\" A woman at the edge of the stage calls: \"And...Scene.\"",
+    "you-dont-need-to-bike-to-bike-fast": "A snowy clearing in a spruce forest with a ski track: cartoon Gravel God stands arms crossed next to two pairs of cross-country skis and a mug of hot cocoa in the snow.",
+    "you-dont-need-to-bike-to-bike-fast-1": "Cartoon Gravel God stands on a red-curtained stage between thrown tomatoes, pointing and shouting: \"You didn't even love her Jake! You won't get away with this...\" A cartoon director at the edge says: \"And...Scene.\"",
     "you-dont-need-to-bike-to-bike-fast-2": "A big white question mark against a turquoise wall, with the text: \"How the hell was Jake Boyce so fast on skis when he never trained for Skiing but just rode his bike, and what the hell does this have to do with cycling training?\"",
-    "you-dont-need-to-bike-to-bike-fast-3": "Chalkboard titled \"Reasons Jake Boyce was faster\" with cartoon Gravel God: \"He stole the love of my life!\" is crossed out and replaced by \"1. Cycling training made him fitter\".",
-    "you-dont-need-to-bike-to-bike-fast-4": "Cartoon Gravel God beside a red classic Mustang with its hood up: a label \"Central\" points from his chest to the engine, and \"Periphery\" from his legs to the wheels.",
-    "you-dont-need-to-bike-to-bike-fast-5": "The same chalkboard, now with a second reason: \"He's a terrible human being\" crossed out and replaced by \"2. Jake was happy training. I hated it.\"",
+    "you-dont-need-to-bike-to-bike-fast-3": "Chalkboard titled \"Reasons Jake Boyce was faster\": \"He stole the love of my life!\" is crossed out and replaced by \"1. Cycling training made him fitter.\" Cartoon Gravel God's head looks on from the corner.",
+    "you-dont-need-to-bike-to-bike-fast-4": "Cartoon Gravel God stands beside a pink 1967 Mustang with its hood up, red dots on his chest and legs, and arrows labelled \"Central\" (to the engine) and \"Periphery\" (to the wheels).",
+    "you-dont-need-to-bike-to-bike-fast-5": "The chalkboard list grows: \"He's a terrible human being\" is crossed out, replaced by \"2. Jake was happy training. I hated it.\" Cartoon Gravel God's head grimaces in the corner.",
     "you-dont-need-to-bike-to-bike-fast-6": "Cartoon drawing of a hammer labelled \"Biking\" over a wooden table, nails driven into a plank labelled \"Fitness\".",
-    "you-dont-need-to-bike-to-bike-fast-7": "The chalkboard with a third reason: \"Jake should never have been born\" crossed out and replaced by \"3. Bike racing made Jake a good racer.\"",
+    "you-dont-need-to-bike-to-bike-fast-7": "The finished chalkboard list: \"Jake should never have been born\" is crossed out, replaced by \"3. Bike racing made Jake a good racer.\" Cartoon Gravel God's head grins in the corner.",
     "you-dont-need-to-bike-to-bike-fast-8": "Photo of a mass-start cross-country ski race climbing a snowy hill: an arrow labelled \"Jake\" points to a skier near the front, and \"Me (not pictured)\" points off the bottom-left edge.",
-    "you-dont-need-to-bike-to-bike-fast-9": "Cartoon Gravel God in a snowy forest beside a pair of yellow snowshoes crossed out in red: \"But NO SNOWSHOEING! ANYTHING BUT THAT.\"",
+    "you-dont-need-to-bike-to-bike-fast-9": "Cartoon Gravel God's head thinks: \"But NO SNOWSHOEING! ANYTHING BUT THAT.\" Beside him, a pair of yellow snowshoes in the snow is crossed out with a big red X.",
 }
 
 # DRAFT for Matt: matter-of-fact statements of what the post argues;

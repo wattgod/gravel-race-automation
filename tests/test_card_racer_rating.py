@@ -138,51 +138,6 @@ class TestStateHubCards:
 # ── Homepage Card Tests ──────────────────────────────────────
 
 
-class TestHomepageCards:
-    """Tests for racer rating in homepage featured race cards."""
-
-    @pytest.mark.skip(reason="racer rating dual-score columns not yet implemented in homepage")
-    def test_featured_card_has_score_columns(self):
-        from generate_homepage import build_featured_races, load_race_index
-        race_index = load_race_index()
-        html = build_featured_races(race_index)
-        assert "gg-hp-scores" in html
-        assert "gg-hp-score-col" in html
-        assert "gg-hp-score-label" in html
-
-    @pytest.mark.skip(reason="racer rating dual-score columns not yet implemented in homepage")
-    def test_featured_card_has_gg_label(self):
-        from generate_homepage import build_featured_races, load_race_index
-        race_index = load_race_index()
-        html = build_featured_races(race_index)
-        assert ">GG</span>" in html
-
-    @pytest.mark.skip(reason="racer rating dual-score columns not yet implemented in homepage")
-    def test_featured_card_has_racer_label(self):
-        from generate_homepage import build_featured_races, load_race_index
-        race_index = load_race_index()
-        html = build_featured_races(race_index)
-        assert ">RACER</span>" in html
-
-    @pytest.mark.skip(reason="racer rating dual-score columns not yet implemented in homepage")
-    def test_featured_card_empty_racer_shows_dash(self):
-        """When no racer rating data exists, show mdash not a fake CTA."""
-        from generate_homepage import build_featured_races, load_race_index
-        race_index = load_race_index()
-        html = build_featured_races(race_index)
-        # All races currently have no racer_pct in the index, so all show empty
-        assert "gg-hp-racer-score--empty" in html
-        assert "&mdash;" in html
-
-    def test_homepage_threshold_matches_brand_tokens(self):
-        """Homepage must use shared RACER_RATING_THRESHOLD, not hardcoded value."""
-        from generate_homepage import RACER_RATING_THRESHOLD as hp_threshold
-        assert hp_threshold == RACER_RATING_THRESHOLD
-        import generate_homepage
-        source = Path(generate_homepage.__file__).read_text()
-        assert "rr_total >= 5" not in source
-
-
 # ── Series Hub Card Tests ────────────────────────────────────
 
 
@@ -263,7 +218,7 @@ class TestCrossGeneratorConsistency:
 
     def test_all_generators_import_shared_threshold(self):
         """Every generator with racer rating must import from brand_tokens."""
-        for gen_name in ["generate_state_hubs", "generate_homepage", "generate_series_hubs"]:
+        for gen_name in ["generate_state_hubs", "generate_series_hubs"]:
             module = __import__(gen_name)
             source = Path(module.__file__).read_text()
             assert "from brand_tokens import" in source, f"{gen_name} doesn't import from brand_tokens"
@@ -280,7 +235,7 @@ class TestCrossGeneratorConsistency:
 
     def test_no_dishonest_rate_it_cta(self):
         """No generator should say 'RATE IT' — no rating form exists yet."""
-        for gen_name in ["generate_state_hubs", "generate_homepage", "generate_series_hubs"]:
+        for gen_name in ["generate_state_hubs", "generate_series_hubs"]:
             module = __import__(gen_name)
             source = Path(module.__file__).read_text()
             assert "RATE IT" not in source, (

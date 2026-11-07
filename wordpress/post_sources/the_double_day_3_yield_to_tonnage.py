@@ -41,9 +41,9 @@ OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
     "ut-pa-baeretur-1": "Strava screenshot of Matti Rowe's ride \"Dag 3: Ut på bæretur\", April 22, 2022, San Bernardino National Forest: 20.77 mi, 1:01:03 moving time, 1,070 ft of climbing, 260 W weighted average power, with the route map and elevation profile.",
-    "mega-lol": "Animated: a TrainingPeaks analysis of the time trial (a 20:50.23 selection, 9.09 mi) with big bubble letters \"LOL\" flashing in changing colours over the map, and cartoon Gravel God in a cowboy hat peeking in from the bottom left.",
-    "bufz-doge-fuchs": "Animated: two time-trial files stacked. Top, \"Rte 66 TT\", with cartoon Gravel God: 20:56.61, 9.10 mi, normalized power 328 W, 4.24 W/kg. Bottom, \"Entire Workout\", with a muscle-bound cartoon teammate in a cowboy hat holding a toaster: 18:34, 9.12 mi, 415 W, 5.08 W/kg. A yellow splash sweeps across.",
-    "nap-god": "Photo of the team house living room: a teammate asleep on the couch in the foreground, another sorting gear on the rug, Formula 1 on the TV, an air mattress with sleeping bags, and a cartoon Gravel God in a cowboy hat gesturing at the scene.",
+    "mega-lol": "A TrainingPeaks file from a 20.8-mile, 59 TSS time trial with a giant purple \"LOL\" across the map, and cartoon Gravel God laughing at it from the corner.",
+    "bufz-doge-fuchs": "Two time-trial files stacked. Top, \"Rte 66 TT\": 20:56.61, 9.10 mi, normalized power 328 W, 4.24 W/kg, with the mustached Gravel God character in a white tee peering in at top left. Bottom, \"Entire Workout\": 18:34, 9.12 mi, 415 W, 5.08 W/kg, with a muscle-bound teammate in a cowboy hat holding a toaster. A yellow splash sweeps across.",
+    "nap-god": "A cluttered living room after a race: one rider sorts kit on the floor, another naps on the couch in the foreground, and cartoon Gravel God stands at the left with a shrug.",
     "screen-shot-2022-04-22-at-5-17-43-pm": "FaceTime screenshot: a toddler leans in so close his face fills the screen, a second child peeks from behind, and Matti smiles in the small self-view corner.",
 }
 

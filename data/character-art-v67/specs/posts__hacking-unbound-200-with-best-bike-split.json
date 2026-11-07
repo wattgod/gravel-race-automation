@@ -1,0 +1,162 @@
+{
+ "collection": "posts",
+ "slug": "hacking-unbound-200-with-best-bike-split",
+ "images": [
+  {
+   "file": "img/47-watts-1.webp",
+   "name": "47-watts-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      900,
+      330,
+      1070,
+      870
+     ],
+     "erase_box": [
+      870,
+      325,
+      1125,
+      870
+     ],
+     "mask": "box",
+     "ride": "cruise",
+     "face": "grimace",
+     "psi": 80
+    }
+   ],
+   "alt": "Cartoon Gravel God rides a Kansas gravel road toward the camera, surrounded by labels: -47 WATTS, -10 WATTS, -17 WATTS, -5 WATTS.",
+   "joke": "-47 WATTS / -10 WATTS / -17 WATTS / -5 WATTS",
+   "match": "exact",
+   "erase_extra": [
+    [
+     680,
+     470,
+     900,
+     550
+    ],
+    [
+     1060,
+     590,
+     1260,
+     660
+    ],
+    [
+     720,
+     680,
+     910,
+     750
+    ],
+    [
+     980,
+     830,
+     1110,
+     890
+    ]
+   ],
+   "texts": [
+    {
+     "type": "caption",
+     "text": "-47 WATTS",
+     "box": [
+      690,
+      478,
+      900,
+      545
+     ],
+     "font": "serif",
+     "weight": 900,
+     "size": 46,
+     "color": "#1a1613",
+     "align": "left"
+    },
+    {
+     "type": "caption",
+     "text": "-10 WATTS",
+     "box": [
+      1070,
+      598,
+      1260,
+      655
+     ],
+     "font": "serif",
+     "weight": 900,
+     "size": 46,
+     "color": "#1a1613",
+     "align": "left"
+    },
+    {
+     "type": "caption",
+     "text": "-17 WATTS",
+     "box": [
+      730,
+      688,
+      910,
+      745
+     ],
+     "font": "serif",
+     "weight": 900,
+     "size": 46,
+     "color": "#1a1613",
+     "align": "left"
+    },
+    {
+     "type": "caption",
+     "text": "-5 WATTS",
+     "box": [
+      990,
+      838,
+      1110,
+      885
+     ],
+     "font": "serif",
+     "weight": 900,
+     "size": 30,
+     "color": "#1a1613",
+     "align": "left"
+    }
+   ]
+  },
+  {
+   "file": "img/unbound-best-bike-split-scaled.webp",
+   "name": "unbound-best-bike-split-scaled",
+   "verdict": "keep",
+   "why": "Best Bike Split screenshot."
+  },
+  {
+   "file": "img/47-watts-2.webp",
+   "name": "47-watts-2",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "figs": [
+    {
+     "box": [
+      1120,
+      190,
+      1360,
+      880
+     ],
+     "erase_box": [
+      1060,
+      190,
+      1420,
+      880
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 90,
+     "mask": "box",
+     "pad": 10,
+     "crop": "full",
+     "scale": 1.0
+    }
+   ],
+   "alt": "Cartoon Gravel God stands thinking on the grass beside a long white gravel road curving through farmland.",
+   "match": "exact"
+  }
+ ]
+}

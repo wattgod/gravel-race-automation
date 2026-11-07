@@ -958,9 +958,10 @@ class TestInShortOnPhone:
 
 
 MEMES = {
-    sweet_spot: ("scooby-unmask", "clown-ftp", "spiderman-threshold", "midwit-sweet-spot", "same-picture",
-                 "so-over-so-back", "virgin-sweetspot-chad-polarized", "gru-noob-gains", "panik-kalm-panik",
-                 "four-horsemen", "drake-polarized", "gigachad-yes"),
+    sweet_spot: tuple(f"{n}-v67" for n in (  # v6.7 character redraws
+        "scooby-unmask", "clown-ftp", "spiderman-threshold", "midwit-sweet-spot", "same-picture",
+        "so-over-so-back", "virgin-sweetspot-chad-polarized", "gru-noob-gains", "panik-kalm-panik",
+        "four-horsemen", "drake-polarized", "gigachad-yes")),
     training_app: ("pov-mile-82", "look-inside", "drake-fit", "starter-pack-fueling", "uno-draw-25",
                    "pigeon-compliance"),
 }
@@ -1044,7 +1045,7 @@ class TestSweetSpotArticle:
                 paths += fig.picture.files()
                 if fig.video:
                     paths += [s for s, _ in fig.video.sources] + [fig.video.poster]
-        assert len(paths) == 21 + 12 * 4  # scenes + twelve memes (1x, 2x, phone 1x/2x WebP)
+        assert len(paths) == 18 + 12 * 4  # scenes (no clip since the v6.7 redraw) + twelve memes (1x, 2x, phone 1x/2x WebP)
         for p in paths:
             assert (sweet_spot.IMG_DIR.parent / p).is_file(), p
 
@@ -1052,16 +1053,16 @@ class TestSweetSpotArticle:
         main = _main(SWEET_SPOT_INDEX.read_text(encoding="utf-8"))
         for old in ("black-hole.jpg", "g-spot-tablet.jpg", "sweet-spot-rip.png", 'src="img/unitless-graph.png"'):
             assert old not in main, old
-        assert main.count("<picture") == 3 + 12 and main.count("<video") == 1  # 3 scenes + 12 memes
+        assert main.count("<picture") == 3 + 12 and main.count("<video") == 0  # 3 scenes + 12 memes
         assert '<figure class="gg-svgfig gg-fig has-mini" id="fig-graph"' in main
         assert "data-draw-in" in main.split('id="fig-drift"', 1)[1].split(">", 1)[0]
 
     def test_og_image_is_the_tombstone_crop(self):
         html = SWEET_SPOT_INDEX.read_text(encoding="utf-8")
-        assert f'<meta property="og:image" content="{sweet_spot.URL}img/og-tombstone.jpg">' in html
+        assert f'<meta property="og:image" content="{sweet_spot.URL}img/og-tombstone-v67.jpg">' in html
         assert '<meta property="og:image:width" content="1200">' in html
         assert '<meta property="og:image:height" content="630">' in html
-        og = SWEET_SPOT_INDEX.parent / "img/og-tombstone.jpg"
+        og = SWEET_SPOT_INDEX.parent / "img/og-tombstone-v67.jpg"
         assert og.is_file() and og.stat().st_size <= 200_000
         assert og.read_bytes()[:3] == b"\xff\xd8\xff"  # JPEG
 

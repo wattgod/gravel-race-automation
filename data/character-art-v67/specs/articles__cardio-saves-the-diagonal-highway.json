@@ -1,0 +1,200 @@
+{
+ "collection": "articles",
+ "slug": "cardio-saves-the-diagonal-highway",
+ "images": [
+  {
+   "file": "img/4ce1af7e83d27301.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "gradient",
+    "top": "#85d5d1",
+    "bottom": "#f6ecd2"
+   },
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      380,
+      690,
+      705,
+      1024
+     ],
+     "fill": "#d8cbb2"
+    },
+    {
+     "type": "line",
+     "box": [
+      470,
+      700,
+      640,
+      1024
+     ],
+     "fill": "#f4f1ea",
+     "width": 16
+    }
+   ],
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      385,
+      1024
+     ],
+     "box": [
+      0,
+      0,
+      385,
+      1024
+     ]
+    },
+    {
+     "src": [
+      700,
+      0,
+      1024,
+      1024
+     ],
+     "box": [
+      700,
+      0,
+      1024,
+      1024
+     ]
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      400,
+      130,
+      700,
+      990
+     ],
+     "ride": "cruise",
+     "psi": 67.5,
+     "face": "focused"
+    }
+   ],
+   "match": "closest",
+   "note": "The strip behind him is a plain sky-to-road fade; the painted clouds and his shadow there could not be kept."
+  },
+  {
+   "file": "img/cf492724390cb860.webp",
+   "verdict": "replace",
+   "mode": "scene",
+   "scene": {
+    "pose": "lean_on_bike",
+    "face": "focused",
+    "rel": 120,
+    "elev": 5,
+    "k": 520,
+    "pos": [
+     0.45,
+     0.68
+    ],
+    "trees": [
+     [
+      40,
+      -6
+     ],
+     [
+      55,
+      7
+     ]
+    ],
+    "seed": 5
+   },
+   "match": "closest",
+   "note": "The painted superhero-cape roadside scene is redrawn as a rig gravel-road scene; the rig has no cape, and the cheering runner and pickup are gone."
+  },
+  {
+   "file": "img/7573ce7829700f91.webp",
+   "verdict": "replace",
+   "mode": "scene",
+   "scene": {
+    "pose": "hands_hips",
+    "rel": 200,
+    "elev": 5,
+    "k": 520,
+    "pos": [
+     0.5,
+     0.68
+    ],
+    "seed": 8
+   },
+   "match": "closest",
+   "note": "The painted shirtless-man-pushing-a-pickup scene is redrawn as a rig gravel-road scene with him seen from behind, hands on hips; the rig has no pickup or shirtless look."
+  },
+  {
+   "file": "img/9f7d312e9b85675d.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "flat",
+    "color": "#feffed"
+   },
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      0,
+      880,
+      470,
+      1024
+     ],
+     "fill": "#fed39d"
+    }
+   ],
+   "insets": [
+    {
+     "src": [
+      470,
+      60,
+      1024,
+      420
+     ],
+     "box": [
+      470,
+      60,
+      1024,
+      420
+     ]
+    },
+    {
+     "src": [
+      372,
+      420,
+      1024,
+      1024
+     ],
+     "box": [
+      372,
+      420,
+      1024,
+      1024
+     ]
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      0,
+      240,
+      420,
+      1024
+     ],
+     "pose": "stand",
+     "psi": 67.5,
+     "crop": "bust",
+     "fit": "width",
+     "anchor": "bottom",
+     "face": "neutral"
+    }
+   ],
+   "match": "closest",
+   "note": "The left third behind him is redrawn flat (sky, sun and sand) because his old hat and shoulders filled it."
+  }
+ ]
+}

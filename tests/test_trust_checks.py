@@ -138,18 +138,17 @@ class TestNotRunning:
             assert f'/race/{e["slug"]}/"' not in page, e["slug"]
 
     def test_homepage_top_lists_skip_not_running(self):
-        from generate_homepage import (build_sidebar, build_tabbed_rankings,
-                                       compute_stats, get_featured_races)
+        from generate_homepage import build_top_rated, get_top_rated
         idx = _index()
         inactive = {e["slug"] for e in idx if not is_ranked(e)}
-        assert not inactive & {r["slug"] for r in get_featured_races(idx)}
-        stats = compute_stats(idx)
-        sidebar = build_sidebar(stats, idx, [])
-        rankings = build_tabbed_rankings(idx)
-        for e in idx:
-            if e["slug"] in inactive:
-                assert e["name"] not in sidebar.split("TOP 5")[1].split("</ol>")[0], e["slug"]
-                assert f'/race/{e["slug"]}/"' not in rankings, e["slug"]
+        assert inactive, "fixture should include at least one race that is not running"
+        assert not inactive & {r["slug"] for r in get_top_rated(idx)}
+        # Rank the not-running races first: they must still be skipped.
+        boosted = [{**e, "overall_score": 1000} if e["slug"] in inactive else e for e in idx]
+        assert not inactive & {r["slug"] for r in get_top_rated(boosted)}
+        top = build_top_rated(boosted)
+        for slug in inactive:
+            assert f'/race/{slug}/"' not in top, slug
 
     def test_calendar_skips_not_running(self):
         from generate_calendar import build_calendar_page

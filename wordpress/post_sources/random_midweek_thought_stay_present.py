@@ -35,7 +35,7 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "stay-present": "A sunlit yoga studio with mats laid across a wooden floor, plants on the windowsills, and a cartoon Gravel God in a cowboy hat and denim shorts standing in the middle holding his road bike.",
+    "stay-present": "Cartoon Gravel God stands with his bike in the middle of a sunny, empty yoga studio.",
 }
 
 ANCHORS = {

@@ -32,18 +32,18 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "im-stuffed": "Empty white plates and bowls on a white table, a fork and spoon on a wooden board; cartoon Gravel God in a cowboy hat says: \"I'm Stuffed.\"",
+    "im-stuffed": "Empty white plates and bowls on a white table, a fork and spoon on a wooden board; cartoon Gravel God, handlebar mustache, peeks up from the bottom corner and says: \"I'm Stuffed.\"",
     "screen-shot-2021-02-18-at-1-44-15-pm": "Cyclingnews headline: \"Wout van Aert 2kg and 5 weeks away from full fitness. Belgian looking to lose cyclo-cross muscle during Tenerife altitude camp\", beside a photo of Van Aert, arms raised, in a Jumbo-Visma jersey.",
     "screen-shot-2021-02-18-at-1-44-36-pm": "Cyclingnews headline: \"Cimolai: I threw away two or three years of my career because of eating problems. 'You turn pro and think that being light is the only thing that matters'\", beside a head-and-shoulders photo of a rider in glasses.",
-    "uhh-i-only-have-one-water-bottle-left": "Cartoon Gravel God stands with his bike in a cracked desert beside a dead, dried-out tree and says: \"I'm no arborist, but you look like you could use some water.\"",
-    "because": "Cartoon Gravel God rides toward the viewer beside bold text: \"Because... Cycling at the highest levels IS NOT HEALTHY. And the effect of weight on cycling performance IS REAL.\"",
+    "uhh-i-only-have-one-water-bottle-left": "Cartoon Gravel God leans on his bike in a cracked desert beside a dead, dried-out tree and says: \"I'm no arborist, but you look like you could use some water.\"",
+    "because": "Cartoon Gravel God, handlebar mustache and white tee, rides toward the viewer beside bold text: \"Because... Cycling at the highest levels IS NOT HEALTHY. And the effect of weight on cycling performance IS REAL.\"",
     "not-a-pro": "Photo of Wout van Aert in a yellow and black Jumbo-Visma jersey with a large red X painted over it.",
     "mr-waffles": "A police-lineup height chart marked 54 to 69 behind a figure in a teal shirt whose face is a smiling cartoon waffle.",
-    "in-3-weeks": "Cartoon Gravel God, arms crossed, in front of a stethoscope under the word \"DIAGNOSIS:\". A notepad reads: \"In 3 weeks: His FTP went up 10%, basically because he started eating to fuel performance instead of weighing a certain amount. If he tried to get to the same w/kg by dieting, he would have had to lose almost Nine pounds assuming he could have held the same power in his previous test.\"",
+    "in-3-weeks": "Cartoon Gravel God, arms crossed, beside a stethoscope under the word \"DIAGNOSIS:\". A notepad reads: \"In 3 weeks: His FTP went up 10%, basically because he started eating to fuel performance instead of weighing a certain amount. If he tried to get to the same w/kg by dieting, he would have had to lose almost Nine pounds assuming he could have held the same power in his previous test.\"",
     "car-spinning-wheels-pizza-1": "Animated: a grey SUV whose wheels are whole pizzas, spinning in place.",
-    "hey-there": "Glazed doughnuts lined up on a snowy car windshield under the wiper; cartoon Gravel God leans in from above: \"Heeey!!! What are you doing later?\"",
+    "hey-there": "Glazed doughnuts lined up on a snowy car windshield under the wiper; cartoon Gravel God, handlebar mustache, leans in from above with a wink: \"Heeey!!! What are you doing later?\"",
     "experiment": "Two surgeons in blue scrubs operate under a surgical lamp; cartoon Gravel God, arms crossed, says: \"Removing your stomach? There's a new one.\"",
-    "if-youre-into-fitness": "Animated: cartoon Gravel God pops a wheelie on his bike beside the text \"If you're into Fitness, You should be fittin' Dis\", with flashing arrows pointing at fruit, a bowl of rice and a sweet potato, then \"In your mouth.\"",
+    "if-youre-into-fitness": "Cartoon Gravel God pops a wheelie on his bike beside the text \"If you're into Fitness, You should be fittin' Dis\", with arrows pointing at fruit, a bowl of rice and a sweet potato, and \"In your mouth.\"",
 }
 
 # Matter-of-fact restatements; section = 0-based h2 index.

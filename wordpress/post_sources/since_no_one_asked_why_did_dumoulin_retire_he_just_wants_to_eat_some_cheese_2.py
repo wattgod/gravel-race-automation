@@ -37,12 +37,12 @@ OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
     "ftp-invitational-5": "The letters FTP, wearing a gold crown, stand on top of the tallest column of a podium built from wooden blocks.",
-    "phenotypes": "Chalkboard chart titled \"Phenotypes\": four sketches of power against duration. Sprinter: very high power that drops off almost at once. Pursuiter: high power held a little longer, then a steep drop. Allrounder: moderate power that steps down gradually. Time trialist: lower peak power that levels off into a long, high plateau; cartoon Gravel God on a bike says \"Guilty as charged!\"",
-    "holy-ftp": "A black book titled \"the Holy FTP\", with cartoon Gravel God in a cowboy hat beside it saying: \"Bend the knee.\"",
-    "ftp-invitational-3": "A crowded beer hall. A faceless rider in a black-and-green kit says: \"My FTP is 450*, what's yours? Also, what is your genital size?\" Cartoon Gravel God answers: \"Sick! That's super high. Yeah, last time I checked, mine was 570. Also, what? It's so loud in here!\"",
-    "ftp-invitational-4": "A pub bar with beer taps. The faceless rider says: \"What's your FTP? Mine is 450 - I saw it on my Garmin once.\" Cartoon Gravel God answers: \"Sick! What's your FRC tho? Mine is 55 kjs. FTP isn't everything, bro!\"",
+    "phenotypes": "Chalkboard of four power phenotypes (sprinter, pursuiter, allrounder, time trialist); a tiny cartoon Gravel God rides by the time trialist curve saying \"Guilty as charged!\"",
+    "holy-ftp": "A black book titled \"the Holy FTP\" beside cartoon Gravel God's head and a speech bubble: \"Bend the knee.\"",
+    "ftp-invitational-3": "In a loud bar, a faceless rider in a green helmet and cartoon Gravel God trade speech bubbles: \"My FTP is 450*, what's yours? Also, what is your genital size?\" / Sick! That's super high. Yeah, last time I checked, mine was 570. Also, what? It's so loud in here!",
+    "ftp-invitational-4": "In a loud bar, a faceless rider in a green helmet and cartoon Gravel God trade speech bubbles: What's your FTP? Mine is 450 - I saw it on my Garmin once. / Sick! What's your FRC tho? Mine is 55 kjs. FTP isn't everything, bro!",
     "ftp-invitational-2": "A red, orange and yellow comic explosion with stars and the words: \"FTP still matters a HELL of a lot!\"",
-    "ftp-invitational-1": "\"FTP Invitational\": a staircase of poker tables rising from \"CAT 5\" through \"CAT 4>3\", \"CAT 3>2\", \"CAT 2>1\", \"Bad Pro\" and \"Good Pro\" to \"Bad WT\" and \"Good WT\". Cartoon Gravel God says: \"Your FTP determines what poker table you're playing at. Your FRC determines how you play at the table.\"",
+    "ftp-invitational-1": "\"FTP Invitational\" poker tables labelled by category, with cartoon Gravel God's head and a bubble: \"Your FTP determines what poker table you're playing at. Your FRC determines how you play at the table.\"",
 }
 
 # The "In short" rule (wp_post docstring); section = 0-based h2 index.

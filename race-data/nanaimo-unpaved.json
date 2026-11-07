@@ -133,9 +133,27 @@
     "course_description": {
       "character": "A three-distance coastal-forest gravel event from the Nanaimo MX venue, with the archived long route covering 110.8 km.",
       "suffering_zones": [
-        {"mile": 0, "label": "MX Venue Start", "desc": "All 2025 riders self-seeded for a mass start from the Nanaimo motocross venue.", "terrain_detail": "Venue roads into gravel", "named_section": "Nanaimo MX Association"},
-        {"mile": 30, "label": "Forest-Road Middle", "desc": "Remote Vancouver Island gravel and changing coastal traction created the race's central load.", "terrain_detail": "Forest and logging roads", "named_section": "Nanaimo backcountry"},
-        {"mile": 60, "label": "Esperto Return", "desc": "The long route returned toward the venue after more than 100 km of mixed forest road.", "terrain_detail": "Gravel and dirt", "named_section": "Nanaimo MX finish"}
+        {
+          "mile": 0,
+          "label": "MX Venue Start",
+          "desc": "All 2025 riders self-seeded for a mass start from the Nanaimo motocross venue.",
+          "terrain_detail": "Venue roads into gravel",
+          "named_section": "Nanaimo MX Association"
+        },
+        {
+          "mile": 30,
+          "label": "Forest-Road Middle",
+          "desc": "Remote Vancouver Island gravel and changing coastal traction created the race's central load.",
+          "terrain_detail": "Forest and logging roads",
+          "named_section": "Nanaimo backcountry"
+        },
+        {
+          "mile": 60,
+          "label": "Esperto Return",
+          "desc": "The long route returned toward the venue after more than 100 km of mixed forest road.",
+          "terrain_detail": "Gravel and dirt",
+          "named_section": "Nanaimo MX finish"
+        }
       ],
       "signature_challenge": "Managing coastal traction and self-sufficiency across a long island forest route.",
       "ridewithgps_id": null,
@@ -159,9 +177,21 @@
       "altitude_feet": null
     },
     "non_negotiables": [
-      {"requirement": "Official return announcement", "by_when": "Before building plans", "why": "Nanaimo is absent from the official 2026 schedule."},
-      {"requirement": "Current route and elevation", "by_when": "Before course-specific customization", "why": "Only archived 2025 distances are official."},
-      {"requirement": "Separate identity from West Coast Slugger", "by_when": "Always", "why": "The organizer calls the Port Alberni event new and never states that it is a Nanaimo rename."}
+      {
+        "requirement": "Official return announcement",
+        "by_when": "Before building plans",
+        "why": "Nanaimo is absent from the official 2026 schedule."
+      },
+      {
+        "requirement": "Current route and elevation",
+        "by_when": "Before course-specific customization",
+        "why": "Only archived 2025 distances are official."
+      },
+      {
+        "requirement": "Separate identity from West Coast Slugger",
+        "by_when": "Always",
+        "why": "The organizer calls the Port Alberni event new and never states that it is a Nanaimo rename."
+      }
     ],
     "research_metadata": {
       "data_confidence": "high",
@@ -179,29 +209,101 @@
       ]
     },
     "biased_opinion_ratings": {
-      "logistics": {"score": 3, "explanation": "Nanaimo has airport and ferry access, but Vancouver Island travel still takes more planning than a mainland local race."},
-      "length": {"score": 3, "explanation": "The archived 110.8 km Esperto route is 68.8 miles, inside the rubric's 60-100-mile band."},
-      "technicality": {"score": 3, "explanation": "The 110.8 km Esperto used forest and logging roads with coastal traction, without organizer claims of extreme singletrack."},
-      "elevation": {"score": 2, "explanation": "The organizer does not publish total gain on the archived page; a conservative 2 replaces the unsupported 3,500-foot claim."},
-      "climate": {"score": 3, "explanation": "Vancouver Island rain, cool starts, and changing forest traction are meaningful preparation constraints."},
-      "altitude": {"score": 1, "explanation": "The coastal Nanaimo setting does not create an altitude-training requirement."},
-      "adventure": {"score": 4, "explanation": "Remote Vancouver Island forest roads and coastal scenery give the event real destination character."},
-      "prestige": {"score": 2, "explanation": "BC Gravel Series affiliation is credible regionally, but two editions do not create national prestige."},
-      "race_quality": {"score": 4, "explanation": "The 2025 operation included a race bible, timed results, 3 routes, packet pickup, food, and awards."},
-      "experience": {"score": 4, "explanation": "The Vancouver Island setting and 3-distance event provide a memorable regional day beyond a barebones gravel start."},
-      "community": {"score": 3, "explanation": "The 2024 results list 107 riders and the BC Gravel Series has a local base, but the event's run was short."},
-      "field_depth": {"score": 2, "explanation": "The 2024 results show 107 riders, but not an elite or nationally deep field."},
-      "value": {"score": 3, "explanation": "The BC Gravel Series offered 3 routes, support, and food, but the archived page does not expose a verifiable final price."},
-      "expenses": {"score": 3, "explanation": "Ferry or flight costs to Vancouver Island make the total trip moderate even for nearby riders."}
+      "logistics": {
+        "score": 3,
+        "explanation": "Nanaimo has airport and ferry access, but Vancouver Island travel still takes more planning than a mainland local race."
+      },
+      "length": {
+        "score": 3,
+        "explanation": "The archived 110.8 km Esperto route is 68.8 miles, inside the rubric's 60-100-mile band."
+      },
+      "technicality": {
+        "score": 3,
+        "explanation": "The 110.8 km Esperto used forest and logging roads with coastal traction, without organizer claims of extreme singletrack."
+      },
+      "elevation": {
+        "score": 2,
+        "explanation": "The organizer does not publish total gain on the archived page; a conservative 2 replaces the unsupported 3,500-foot claim."
+      },
+      "climate": {
+        "score": 3,
+        "explanation": "Vancouver Island rain, cool starts, and changing forest traction are meaningful preparation constraints."
+      },
+      "altitude": {
+        "score": 1,
+        "explanation": "The coastal Nanaimo setting does not create an altitude-training requirement."
+      },
+      "adventure": {
+        "score": 4,
+        "explanation": "Remote Vancouver Island forest roads and coastal scenery give the event real destination character."
+      },
+      "prestige": {
+        "score": 2,
+        "explanation": "BC Gravel Series affiliation is credible regionally, but two editions do not create national prestige."
+      },
+      "race_quality": {
+        "score": 4,
+        "explanation": "The 2025 operation included a race bible, timed results, 3 routes, packet pickup, food, and awards."
+      },
+      "experience": {
+        "score": 4,
+        "explanation": "The Vancouver Island setting and 3-distance event provide a memorable regional day beyond a barebones gravel start."
+      },
+      "community": {
+        "score": 3,
+        "explanation": "The 2024 results list 107 riders and the BC Gravel Series has a local base, but the event's run was short."
+      },
+      "field_depth": {
+        "score": 2,
+        "explanation": "The 2024 results show 107 riders, but not an elite or nationally deep field."
+      },
+      "value": {
+        "score": 3,
+        "explanation": "The BC Gravel Series offered 3 routes, support, and food, but the archived page does not expose a verifiable final price."
+      },
+      "expenses": {
+        "score": 3,
+        "explanation": "Ferry or flight costs to Vancouver Island make the total trip moderate even for nearby riders."
+      }
     },
     "training_config": {
       "workout_modifications": {
-        "mixed_surface_endurance": {"enabled": true, "weeks": [8, 9, 10]},
-        "wet_traction": {"enabled": true, "weeks": [7, 8, 9, 10]},
-        "dress_rehearsal": {"enabled": true, "week": 10, "day": "Sunday", "duration_hours": {"ayahuasca": 3, "finisher": 4, "compete": 5, "podium": 6}}
+        "mixed_surface_endurance": {
+          "enabled": true,
+          "weeks": [
+            8,
+            9,
+            10
+          ]
+        },
+        "wet_traction": {
+          "enabled": true,
+          "weeks": [
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        "dress_rehearsal": {
+          "enabled": true,
+          "week": 10,
+          "day": "Sunday",
+          "duration_hours": {
+            "ayahuasca": 3,
+            "finisher": 4,
+            "compete": 5,
+            "podium": 6
+          }
+        }
       },
       "masterclass_topics": {
-        "priority_order": ["traction", "self_support", "pacing", "equipment"],
+        "priority_order": [
+          "traction",
+          "self_support",
+          "pacing",
+          "equipment"
+        ],
         "race_specific": true,
         "topics": {
           "traction": "Wet coastal gravel handling",
@@ -224,13 +326,121 @@
       }
     },
     "citations": [
-      {"url": "https://www.bcgravelseries.com/nanaimounpaved", "category": "official", "label": "Official archived 2025 event page"},
-      {"url": "https://www.bcgravelseries.com/post/2026-bc-gravel-series-registration-open", "category": "official", "label": "Official 2026 BC Gravel Series schedule"},
-      {"url": "https://www.webscorer.com/race?raceid=352386", "category": "results", "label": "Nanaimo Unpaved 2024 timed results"}
+      {
+        "url": "https://www.bcgravelseries.com/nanaimounpaved",
+        "category": "official",
+        "label": "Official archived 2025 event page"
+      },
+      {
+        "url": "https://www.bcgravelseries.com/post/2026-bc-gravel-series-registration-open",
+        "category": "official",
+        "label": "Official 2026 BC Gravel Series schedule"
+      },
+      {
+        "url": "https://www.webscorer.com/race?raceid=352386",
+        "category": "results",
+        "label": "Nanaimo Unpaved 2024 timed results"
+      }
     ],
     "taking_a_break": {
       "label": "NOT ON THE 2026 CALENDAR",
       "line": "Last held June 15, 2025. It is not on the 2026 series calendar."
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-11-06",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "hutchinson-caracal-race",
+          "name": "Hutchinson Caracal Race",
+          "brand": "Hutchinson",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 668,
+          "crr_watts": 15.8,
+          "tested_width_mm": 50,
+          "course_cost_watts": 18.31,
+          "why": "Rolls 15.8 W at 50mm on BRR's drum."
+        },
+        {
+          "rank": 2,
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 592,
+          "crr_watts": 16.7,
+          "tested_width_mm": 50,
+          "course_cost_watts": 18.46,
+          "why": "Rolls 16.7 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
+        },
+        {
+          "rank": 3,
+          "tire_id": "specialized-pathfinder",
+          "name": "Specialized Pathfinder",
+          "brand": "Specialized",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 567,
+          "crr_watts": 17.0,
+          "tested_width_mm": 50,
+          "course_cost_watts": 19.3,
+          "why": "Rolls 17 W at 50mm on BRR's drum."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "hutchinson-caracal-race",
+          "name": "Hutchinson Caracal Race",
+          "width_mm": 50
+        },
+        "rear": {
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
+          "width_mm": 50
+        },
+        "rationale": "The rear carries 53% of the weight and does the traction work, so it gets the 2.1mm center knobs; the front rolls the faster file tread."
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 50,
+      "pressure_psi": {
+        "gravel_category": 3,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "45mm": "26/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "150": {
+            "45mm": "27/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "170": {
+            "45mm": "28/29",
+            "50mm": "23/24",
+            "55mm": "19/20"
+          },
+          "190": {
+            "45mm": "28/29",
+            "50mm": "23/24",
+            "55mm": "19/20"
+          },
+          "210": {
+            "45mm": "29/30",
+            "50mm": "24/25",
+            "55mm": "20/20"
+          },
+          "230": {
+            "45mm": "29/31",
+            "50mm": "24/25",
+            "55mm": "20/21"
+          }
+        }
+      }
     }
   }
 }

@@ -1,0 +1,214 @@
+{
+ "collection": "posts",
+ "slug": "does-beer-make-you-slow",
+ "images": [
+  {
+   "file": "img/does-beer-make-you-slow.webp",
+   "name": "does-beer-make-you-slow",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      840,
+      170,
+      1080,
+      900
+     ],
+     "pose": "arms_crossed",
+     "face": "smile",
+     "psi": 100,
+     "crop": "full",
+     "erase_box": [
+      690,
+      175,
+      1135,
+      600
+     ]
+    }
+   ],
+   "alt": "Close-up of golden beer and foam filling the frame, with cartoon Gravel God, handlebar mustache and white tee, standing arms crossed in front of it.",
+   "match": "exact"
+  },
+  {
+   "file": "img/thats-unexpected.webp",
+   "name": "thats-unexpected",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      90,
+      120,
+      470,
+      500
+     ],
+     "mask": "box",
+     "erase_box": [
+      40,
+      110,
+      545,
+      560
+     ],
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain"
+    }
+   ],
+   "joke": "Wait, so drinking poison makes me feel great? That's Unexpected.",
+   "alt": "Cartoon Gravel God's head, eyebrows up, beside a speech bubble: \"Wait, so drinking poison makes me feel great? That's Unexpected.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/dont-drink.webp",
+   "name": "dont-drink",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      480,
+      165,
+      690,
+      590
+     ],
+     "pose": "point",
+     "face": "shout",
+     "psi": 90
+    }
+   ],
+   "joke": "Don't freaking drink",
+   "alt": "Chalkboard headed \"Don't freaking drink\" in red neon letters: four glasses of beer, each crossed out with a red no sign, around cartoon Gravel God, pointing and shouting.",
+   "match": "exact"
+  },
+  {
+   "file": "img/fitness-progression-sober-1.webp",
+   "name": "fitness-progression-sober-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1060,
+      425,
+      1195,
+      600
+     ],
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 112.5,
+     "crop": "bust"
+    }
+   ],
+   "joke": "Oh.",
+   "alt": "The same chalkboard chart titled \"Fitness progression\" with a beer mug: the eight white sober steps, and below them seven yellow steps that start at the second step and climb about half as steeply. Cartoon Gravel God in the corner says \"Oh.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/dont-drink-1.webp",
+   "name": "dont-drink-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      455,
+      500,
+      545,
+      600
+     ],
+     "erase_box": [
+      470,
+      480,
+      525,
+      600
+     ],
+     "ride": "cruise",
+     "face": "surprised",
+     "psi": 40,
+     "mask": "grabcut"
+    }
+   ],
+   "joke": "It's a disaster.",
+   "alt": "A huge wave and fiery meteors bear down on a coastal town; a tiny cartoon Gravel God on a bike in the foreground says: \"It's a disaster.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/why-cyclists-drink.webp",
+   "name": "why-cyclists-drink",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      740,
+      20,
+      1110,
+      600
+     ],
+     "pose": "arms_crossed",
+     "face": "thinking",
+     "psi": 100,
+     "crop": "bust",
+     "fit": "contain"
+    }
+   ],
+   "joke": "Why cyclists drink: 1. It's fun. 2. Athletes think training allows them certain liberties, like happy hour. 3. Humans suck at grasping the effect of small choices over time.",
+   "alt": "Chalkboard titled \"Why cyclists drink\" beside cartoon Gravel God, arms crossed: \"1. It's fun. 2. Athletes think training allows them certain liberties, like happy hour. 3. Humans suck at grasping the effect of small choices over time.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/it-depends.webp",
+   "name": "it-depends",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      500,
+      150,
+      680,
+      670
+     ],
+     "mask": "box",
+     "erase_box": [
+      440,
+      55,
+      700,
+      350
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90
+    }
+   ],
+   "joke": "It... (That's a Depends diaper)",
+   "alt": "Cartoon Gravel God shrugging, with an arrow labelled \"It...\" pointing at his shorts; small text in the corner reads \"(That's a Depends diaper)\".",
+   "match": "closest",
+   "note": "The rig has no diaper: he wears his jorts; the arrow and both lines of text are kept.",
+   "erase_extra": [
+    [
+     530,
+     350,
+     700,
+     598
+    ],
+    [
+     440,
+     430,
+     700,
+     598
+    ]
+   ]
+  }
+ ]
+}

@@ -32,7 +32,7 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "dag-seks": "Google Maps route from Redlands, California, to Silver City, New Mexico, via Phoenix and Tucson: 9 hr 19 min, 624 miles, with two longer alternatives (9 hr 36 min, 646 miles; 11 hr 14 min, 680 miles); cartoon Gravel God in a cowboy hat rides a bike across the map.",
+    "dag-seks": "A Google map route from Redlands through Phoenix and Tucson to Silver City, New Mexico; cartoon Gravel God rides his bike over the California desert.",
     "boolin": "Black-and-white photo of a tightly packed criterium bunch leaning through a corner on a palm-lined street, with the word \"Boolin\" in glowing red neon letters above it.",
     "67261683480-135b1b38-4acb-4334-a87b-0d311e27fa14-scaled": "Two young children grin up at the camera on a carpeted floor: a shirtless little boy on the left and a girl in a checked sundress baring her teeth on the right.",
 }

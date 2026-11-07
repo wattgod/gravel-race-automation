@@ -103,6 +103,8 @@ jobs:
           # those redirects land on 404s after the September rollover.
           python3 wordpress/generate_calendar.py
           python3 wordpress/generate_power_rankings.py
+          # Pick'em pages (/race/pickem/{game}/) also ship with --sync-pages.
+          python3 wordpress/generate_pickem.py
           python3 wordpress/generate_series_hubs.py
           python3 wordpress/generate_homepage.py
           # Methodology and the tier hubs ship with --sync-pages, insights,

@@ -20,6 +20,7 @@ Usage:
 """
 
 import argparse
+import functools
 import hashlib
 import html
 import json
@@ -53,6 +54,7 @@ from fact_consistency import check_race
 from season import UPCOMING, edition_display, edition_state, edition_year, parse_edition
 from season import today as season_today
 from generate_race_recap import has_results, newest_results_year
+from pickem import game_for_race
 
 sys.path.append(str(Path(__file__).resolve().parent.parent / "scripts"))
 from race_facts import edition_event_status, may_estimate, organizer_type  # noqa: E402
@@ -3321,6 +3323,22 @@ def build_results(rd: dict) -> str:
       {note_html}
     </div>
   </section>'''
+
+
+@functools.lru_cache(maxsize=None)
+def _pickem_game(slug: str):
+    return game_for_race(slug)
+
+
+def build_pickem_cta(rd: dict) -> str:
+    """Link to the race's pick'em, next to Results. Renders only for a race
+    with a game file in data/pickem/ (race_slug match), so a second race
+    needs only its own JSON."""
+    game = _pickem_game(rd.get('slug') or '')
+    if not game:
+        return ''
+    return (f'<div class="gg-pickem-cta"><a class="gg-btn gg-btn--secondary" '
+            f'href="{esc(game["path"])}" data-cta="pickem">Pick the {esc(game["edition"])} podium</a></div>')
 
 
 def _build_riders_report(groups: list[tuple[list[dict], str]]) -> str:
@@ -7276,6 +7294,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-earlier-rows {{ margin-top: 12px; }}
 .gg-neo-brutalist-page .gg-earlier-rows summary {{ padding: 12px 0; cursor: pointer; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-editions-status {{ font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-pickem-cta {{ margin: var(--gg-spacing-md) 0; }}
 .gg-neo-brutalist-page .gg-results-note {{ margin-top: var(--gg-spacing-sm); font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); line-height: 1.5; }}
 
 /* Riders Report callout */
@@ -7739,6 +7758,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     history = build_history(rd)
     editions_sec = build_editions(rd)
     results_sec = build_results(rd)
+    pickem_cta = build_pickem_cta(rd)
     course_route = build_course_route(rd)
     from_the_field = build_from_the_field(rd)
     ratings = build_ratings(rd)
@@ -7813,7 +7833,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     spine = '\n\n  '.join(section for section in spine_sections if section)
 
     deep_sections = []
-    for section in [course_overview, history, editions_sec, results_sec, course_route, from_the_field,
+    for section in [course_overview, history, editions_sec, results_sec, pickem_cta, course_route, from_the_field,
                     racer_reviews, training, train_for_race, logistics_sec,
                     tire_picks, news, similar, visible_faq, citations_sec]:
         if section:

@@ -1,0 +1,70 @@
+{
+ "collection": "posts",
+ "slug": "the-double-day-2-thiccc-is-kwik",
+ "images": [
+  {
+   "file": "img/faenskap.webp",
+   "name": "faenskap",
+   "verdict": "keep",
+   "why": "Strava screenshot; the avatar is a real photo."
+  },
+  {
+   "file": "img/weeeak.webp",
+   "name": "weeeak",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1030,
+      318,
+      1150,
+      762
+     ],
+     "erase_box": [
+      952,
+      308,
+      1218,
+      770
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "A TrainingPeaks file for Redlands Stage 2, Oak Glen (4:13:49, 96.2 mi, 286 TSS) with its route map and power graph; cartoon Gravel God stands beside it with his back turned."
+  },
+  {
+   "file": "img/hallaigjen.webp",
+   "name": "hallaigjen",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "closest",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1230,
+      180,
+      1480,
+      1180
+     ],
+     "erase_box": [
+      1085,
+      0,
+      1536,
+      1200
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 80
+    }
+   ],
+   "alt": "Two small kids play doctor in a bedroom, the boy wearing a toy stethoscope; cartoon Gravel God stands grinning against the wall behind them.",
+   "note": "The old sticker was see-through over window blinds; the fill behind the new figure is a soft blur, not the blinds."
+  }
+ ]
+}

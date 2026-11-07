@@ -1,0 +1,197 @@
+{
+ "collection": "articles",
+ "slug": "how-many-miles-did-you-go",
+ "images": [
+  {
+   "file": "img/239b45452d80f264.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      340,
+      560,
+      700,
+      1024
+     ],
+     "erase_box": [
+      325,
+      555,
+      712,
+      1024
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "psi": 270,
+     "fit": "width",
+     "anchor": "top"
+    }
+   ],
+   "match": "exact"
+  },
+  {
+   "file": "img/a403ba451c889818.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      235,
+      320,
+      350,
+      550
+     ],
+     "erase_box": [
+      225,
+      295,
+      362,
+      555
+     ],
+     "ride": "attack",
+     "face": "grimace",
+     "psi": 110
+    }
+   ],
+   "match": "exact"
+  },
+  {
+   "file": "img/de59c1b8b526c8a4.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "How many miles you go?",
+   "figs": [
+    {
+     "box": [
+      540,
+      230,
+      1024,
+      940
+     ],
+     "erase_box": [
+      548,
+      170,
+      1024,
+      925
+     ],
+     "pose": "lean_on_bike",
+     "face": "smile",
+     "psi": 112.5
+    }
+   ],
+   "erase_extra": [
+    [
+     130,
+     30,
+     905,
+     222
+    ],
+    [
+     225,
+     195,
+     335,
+     285
+    ]
+   ],
+   "match": "exact",
+   "texts": [
+    {
+     "type": "bubble",
+     "shape": "rect",
+     "text": "How many miles you go?",
+     "box": [
+      146,
+      42,
+      890,
+      207
+     ],
+     "tail": [
+      274,
+      282
+     ],
+     "font": "mono",
+     "weight": 400,
+     "size": 46,
+     "fill": "#f4e8cc"
+    }
+   ],
+   "note": "The speech bubble is redrawn with the same words.",
+   "insets": [
+    {
+     "src": [
+      440,
+      330,
+      548,
+      515
+     ],
+     "box": [
+      548,
+      330,
+      656,
+      515
+     ]
+    },
+    {
+     "src": [
+      440,
+      330,
+      548,
+      515
+     ],
+     "box": [
+      656,
+      330,
+      764,
+      515
+     ]
+    },
+    {
+     "src": [
+      440,
+      330,
+      548,
+      515
+     ],
+     "box": [
+      764,
+      330,
+      872,
+      515
+     ]
+    },
+    {
+     "src": [
+      440,
+      330,
+      548,
+      515
+     ],
+     "box": [
+      872,
+      330,
+      980,
+      515
+     ]
+    },
+    {
+     "src": [
+      440,
+      330,
+      548,
+      515
+     ],
+     "box": [
+      980,
+      330,
+      1088,
+      515
+     ]
+    }
+   ]
+  }
+ ]
+}

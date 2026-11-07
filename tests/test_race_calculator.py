@@ -72,10 +72,10 @@ def test_actual_form_preserves_exact_primary_identity_without_health_values():
     form, values = handoff(page())
     assert form["action"] == ENDURE_CALCULATOR_URL
     assert form["method"] == "get"
-    assert values == {"source": "gravel", "race": "barry-roubaix", "edition": "2026", "distance": "62-mile"}
+    assert values == {"source": "gravel", "race": "barry-roubaix", "edition": "2026", "distance": "100-mile"}
     url = form["action"] + "?" + urlencode(values)
     assert urlparse(url).netloc == "endurelabs.app"
-    assert parse_qs(urlparse(url).query)["distance"] == ["62-mile"]
+    assert parse_qs(urlparse(url).query)["distance"] == ["100-mile"]
     assert set(values) == {"source", "race", "edition", "distance"}
     assert not Tags(calculator(page())).matching("iframe")
 
@@ -294,8 +294,8 @@ def test_one_distance_is_text_not_a_dropdown():
     tags = Tags(calculator(page()))
     assert not tags.matching("select")
     assert not tags.matching("option")
-    assert '<span class="gg-race-calculator-value">62 mi</span>' in calculator(page())
-    assert {"type": "hidden", "name": "distance", "value": "62-mile"} in tags.matching("input")
+    assert '<span class="gg-race-calculator-value">100 mi</span>' in calculator(page())
+    assert {"type": "hidden", "name": "distance", "value": "100-mile"} in tags.matching("input")
 
 
 def test_no_distance_shows_only_the_button():

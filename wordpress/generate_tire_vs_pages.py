@@ -3,7 +3,9 @@
 Generate tire-vs-tire comparison pages at /tire/{tire-a}-vs-{tire-b}/.
 
 Targets high-intent search queries like "Continental Terra Speed vs Terra Trail"
-with radar chart, specs comparison, race recommendation overlap, verdict, and FAQ.
+with the two tires' BRR lab tests head to head, specs, race picks and FAQ.
+Everything compared is measured by BRR or labelled as our call; no
+hand-written tagline, strengths or weaknesses reach the page.
 
 Usage:
     python wordpress/generate_tire_vs_pages.py
@@ -13,14 +15,11 @@ Usage:
 import argparse
 import html as html_mod
 import json
-import math
 import sys
-from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from brand_tokens import (
-    COLORS,
     SITE_BASE_URL,
     get_font_face_css,
     get_preload_hints,
@@ -31,95 +30,89 @@ from season import season_year
 from cookie_consent import get_consent_banner_html
 
 from generate_tire_guide import load_tire_database
+from generate_tire_pages import (
+    RANK_MEASURES,
+    _join,
+    _num,
+    biggest_class,
+    lab_meta,
+    lab_pool,
+    number_sections,
+    ordinal,
+    rating_label,
+    tests_by_class,
+    tire_ranks,
+)
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output" / "tire"
 SEASON_YEAR = season_year()
 
-# Radar chart dimensions for tire comparison
-RADAR_VARS = [
-    "rolling_resistance", "puncture_resistance", "wet_traction",
-    "mud_clearance", "weight", "durability", "versatility",
-]
-RADAR_LABELS = ["CRR", "PUNCT", "WET", "MUD", "WEIGHT", "DUR", "VERS"]
-
-COMPARE_COLORS = [
-    {"stroke": COLORS["primary_brown"], "fill": "rgba(89,71,60,0.18)"},
-    {"stroke": COLORS["teal"], "fill": "rgba(23,128,121,0.18)"},
-]
-
 
 def esc(text) -> str:
     return html_mod.escape(str(text)) if text else ""
-
-
-def _json_str(text) -> str:
-    return json.dumps(str(text))[1:-1] if text else ""
 
 
 def tire_slug(tire: dict) -> str:
     return tire["id"]
 
 
-# ── Scoring ───────────────────────────────────────────────────
+# ── Head to head: both tires ranked in the BRR width class they share ──
+
+# What leading on each lab measure means, for the verdict and the FAQ.
+LEADS = {
+    "rr_watts": "rolls faster",
+    "puncture_tread": "resists punctures better",
+    "wet_grip": "grips better in the wet",
+    "weight_g": "weighs less",
+}
 
 
-def _rating_to_num(value: str) -> int:
-    """Convert qualitative ratings to 1-5 numeric scale."""
+def head_to_head(tire_a: dict, tire_b: dict):
+    """Both tires' BRR ranks at one tested width, measure by measure, with the
+    leader on each. The width class is the shared one holding the most tested
+    tires, as tire_ranks() picks for a single tire. None unless both tires
+    were tested at the same width there."""
+    if not (tire_a.get("lab_tested") and tire_b.get("lab_tested")):
+        return None
+    shared = set(tests_by_class(tire_a)) & set(tests_by_class(tire_b))
+    if not shared:
+        return None
+    cls = biggest_class(shared, lab_pool())
+    ranks = [tire_ranks(t, cls) for t in (tire_a, tire_b)]
+    if None in ranks or ranks[0]["test"]["width_mm"] != ranks[1]["test"]["width_mm"]:
+        return None
+    by_key = [{r["key"]: r for r in x["rows"]} for x in ranks]
+    rows = []
+    for key, label, _noun, unit, lower in RANK_MEASURES:
+        a, b = by_key[0].get(key), by_key[1].get(key)
+        if not (a or b):
+            continue
+        leader = None
+        if a and b and a["value"] != b["value"]:
+            leader = 0 if (a["value"] < b["value"]) == lower else 1
+        rows.append({"key": key, "label": label, "unit": unit,
+                     "cells": (a, b), "leader": leader})
     return {
-        "high": 5, "good": 5,
-        "moderate": 3, "fair": 3,
-        "low": 1, "poor": 1,
-        "none": 0,
-    }.get(value, 2)
-
-
-def compute_tire_scores(tire: dict) -> dict:
-    """Compute 7-dimension radar scores (1-5 scale) for a tire."""
-    # Rolling resistance: lower watts = higher score.
-    # BRR drum at low pressure: best ~15W, worst ~31W among gravel tires
-    crr_data = tire.get("crr_watts_at_29kmh") or {}
-    crr_vals = [v for v in crr_data.values() if isinstance(v, (int, float))]
-    if crr_vals:
-        avg_crr = sum(crr_vals) / len(crr_vals)
-        crr_score = max(1, min(5, round(5 - (avg_crr - 15) / 4)))
-    else:
-        crr_score = 3
-
-    # Puncture, wet, mud from qualitative ratings
-    punct = _rating_to_num(tire.get("puncture_resistance", ""))
-    wet = _rating_to_num(tire.get("wet_traction", ""))
-    mud = _rating_to_num(tire.get("mud_clearance", ""))
-
-    # Weight: lighter = higher score. BRR-measured, lightest ~360g, heaviest ~670g
-    weight_data = tire.get("weight_grams", {})
-    weight_vals = [v for v in weight_data.values() if isinstance(v, (int, float))]
-    if weight_vals:
-        avg_weight = sum(weight_vals) / len(weight_vals)
-        weight_score = max(1, min(5, round(5 - (avg_weight - 360) / 75)))
-    else:
-        weight_score = 3
-
-    # Durability: derived from puncture + tread type
-    dur_base = punct
-    if tire.get("tread_type") in ("knobby", "aggressive", "mud"):
-        dur_base = min(5, dur_base + 1)
-    durability = max(1, min(5, dur_base))
-
-    # Versatility: count of recommended_use keywords, scaled to 1-5
-    uses = len(tire.get("recommended_use", []))
-    versatility = max(1, min(5, round(uses / 1.5)))
-
-    return {
-        "rolling_resistance": crr_score,
-        "puncture_resistance": punct,
-        "wet_traction": wet,
-        "mud_clearance": mud,
-        "weight": weight_score,
-        "durability": durability,
-        "versatility": versatility,
+        "width": ranks[0]["test"]["width_mm"],
+        "class_label": ranks[0]["class_label"],
+        "tests": (ranks[0]["test"], ranks[1]["test"]),
+        "rows": rows,
+        "pool": max(r["of"] for x in ranks for r in x["rows"]),
     }
+
+
+def verdict_sentence(tire_a: dict, tire_b: dict, h2h: dict) -> str:
+    """'In BRR's 40mm tests, A rolls faster and weighs less; B grips better in the wet.'"""
+    names = (tire_a["name"], tire_b["name"])
+    parts = []
+    for i in (0, 1):
+        leads = [LEADS[r["key"]] for r in h2h["rows"] if r["leader"] == i]
+        if leads:
+            parts.append(f"{names[i]} {_join(leads)}")
+    found = "; ".join(parts) or "the two measure the same on every lab measure"
+    return f"In BRR's {_num(h2h['width'], 'mm')} tests, {found}."
 
 
 # ── Pair Selection ────────────────────────────────────────────
@@ -168,80 +161,17 @@ def select_tire_pairs(tire_db: list) -> list:
             pairs.add(tuple(sorted([a["id"], b["id"]])))
 
     # Publish a comparison only when it compares measured numbers that people
-    # would look up: both tires BRR-tested at a shared width, and at least one
-    # of them picked for a race. Missing pairs 301 to the first tire's page.
+    # would look up: both tires BRR-tested at the same width, ranked in one
+    # width class, and at least one of them picked for a race. Missing pairs
+    # 301 to the first tire's page.
     by_id = {t["id"]: t for t in tire_db}
-
-    def tested(t):
-        return {x["width_mm"] for x in t.get("brr_tests") or []}
 
     def worth_a_page(pair):
         a, b = by_id[pair[0]], by_id[pair[1]]
-        return (a.get("lab_tested") and b.get("lab_tested") and tested(a) & tested(b)
-                and (a.get("race_appearances") or b.get("race_appearances")))
+        return bool((a.get("race_appearances") or b.get("race_appearances"))
+                    and head_to_head(a, b))
 
     return sorted(p for p in pairs if worth_a_page(p))
-
-
-# ── SVG Builder ───────────────────────────────────────────────
-
-
-def build_radar_svg(tire_a: dict, tire_b: dict, scores_a: dict, scores_b: dict) -> str:
-    """Overlaid 7-point radar chart for two tires."""
-    vw, vh = 440, 340
-    cx, cy, r = 220, 160, 120
-    n = len(RADAR_VARS)
-
-    parts = [f'<svg viewBox="0 0 {vw} {vh}" class="tvs-radar-svg" role="img" '
-             f'aria-label="Radar comparison of {esc(tire_a["name"])} vs {esc(tire_b["name"])}">']
-
-    # Grid rings
-    for scale in [0.2, 0.4, 0.6, 0.8, 1.0]:
-        pts = []
-        for i in range(n):
-            angle = (2 * math.pi * i / n) - math.pi / 2
-            pts.append(f"{cx + r * scale * math.cos(angle):.1f},{cy + r * scale * math.sin(angle):.1f}")
-        parts.append(f'  <polygon points="{" ".join(pts)}" fill="none" stroke="{COLORS["tan"]}" stroke-width="0.8"/>')
-
-    # Axis lines + labels
-    for i in range(n):
-        angle = (2 * math.pi * i / n) - math.pi / 2
-        lx = cx + (r + 18) * math.cos(angle)
-        ly = cy + (r + 18) * math.sin(angle)
-        parts.append(f'  <line x1="{cx}" y1="{cy}" x2="{cx + r * math.cos(angle):.1f}" '
-                     f'y2="{cy + r * math.sin(angle):.1f}" stroke="{COLORS["tan"]}" stroke-width="0.5"/>')
-        anchor = "middle"
-        if lx < cx - 10:
-            anchor = "end"
-        elif lx > cx + 10:
-            anchor = "start"
-        parts.append(f'  <text x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anchor}" '
-                     f'font-family="Sometype Mono,monospace" font-size="9" '
-                     f'fill="{COLORS["secondary_brown"]}" dominant-baseline="middle">{RADAR_LABELS[i]}</text>')
-
-    # Tire polygons
-    for idx, (tire, scores) in enumerate([(tire_a, scores_a), (tire_b, scores_b)]):
-        pts = []
-        for i, var in enumerate(RADAR_VARS):
-            val = scores.get(var, 1) / 5
-            angle = (2 * math.pi * i / n) - math.pi / 2
-            pts.append(f"{cx + r * val * math.cos(angle):.1f},{cy + r * val * math.sin(angle):.1f}")
-        c = COMPARE_COLORS[idx]
-        parts.append(f'  <polygon points="{" ".join(pts)}" fill="{c["fill"]}" '
-                     f'stroke="{c["stroke"]}" stroke-width="2.5">'
-                     f'<title>{esc(tire["name"])}</title></polygon>')
-
-    # Legend
-    ly = vh - 30
-    for idx, tire in enumerate([tire_a, tire_b]):
-        lx = 60 + idx * 220
-        c = COMPARE_COLORS[idx]
-        parts.append(f'  <rect x="{lx}" y="{ly}" width="14" height="14" fill="{c["stroke"]}"/>')
-        parts.append(f'  <text x="{lx + 20}" y="{ly + 11}" font-family="Sometype Mono,monospace" '
-                     f'font-size="11" fill="{COLORS["dark_brown"]}">{esc(tire["name"][:30])}</text>')
-
-    parts.append("</svg>")
-    return "\n".join(parts)
 
 
 # ── Race Overlap ──────────────────────────────────────────────
@@ -270,170 +200,122 @@ def get_race_overlap(tire_races: dict, id_a: str, id_b: str) -> dict:
 # ── HTML Builders ─────────────────────────────────────────────
 
 
-def build_verdict(tire_a: dict, tire_b: dict, scores_a: dict, scores_b: dict) -> str:
-    """Build 'Choose A if...' / 'Choose B if...' verdict."""
-    a_bullets = []
-    b_bullets = []
+def _knobs(test: dict) -> str:
+    if test.get("knob_center_mm") is None and test.get("knob_edge_mm") is None:
+        return "&mdash;"
+    return f'{_num(test.get("knob_center_mm"))} / {_num(test.get("knob_edge_mm"), "mm")}'
 
-    dim_advice = {
-        "rolling_resistance": ("You prioritize speed and low rolling resistance", "You prioritize speed and low rolling resistance"),
-        "puncture_resistance": ("Flat protection is critical for your course", "Flat protection is critical for your course"),
-        "wet_traction": ("You expect wet or slick conditions", "You expect wet or slick conditions"),
-        "mud_clearance": ("Mud is likely on your course", "Mud is likely on your course"),
-        "weight": ("You want the lightest possible setup", "You want the lightest possible setup"),
-        "durability": ("Durability and longevity matter most", "Durability and longevity matter most"),
-        "versatility": ("You need one tire for many different conditions", "You need one tire for many different conditions"),
-    }
 
-    for var in RADAR_VARS:
-        sa = scores_a.get(var, 0)
-        sb = scores_b.get(var, 0)
-        advice = dim_advice.get(var, ("", ""))
-        if sa > sb and advice[0]:
-            a_bullets.append(advice[0])
-        elif sb > sa and advice[1]:
-            b_bullets.append(advice[1])
+def _test_link(test: dict) -> str:
+    year = esc(test.get("year")) or "BRR"
+    if not test.get("url"):
+        return year
+    return f'<a href="{esc(test["url"])}" target="_blank" rel="noopener">{year} &rarr;</a>'
 
-    # Add tread-type specific advice
-    if tire_a.get("tread_type") != tire_b.get("tread_type"):
-        tread_a = tire_a.get("tread_type", "")
-        tread_b = tire_b.get("tread_type", "")
-        if tread_a == "file":
-            a_bullets.append("Your course is primarily smooth hardpack or pavement")
-        elif tread_a in ("aggressive", "mud"):
-            a_bullets.append("Your course has technical, loose, or muddy sections")
-        if tread_b == "file":
-            b_bullets.append("Your course is primarily smooth hardpack or pavement")
-        elif tread_b in ("aggressive", "mud"):
-            b_bullets.append("Your course has technical, loose, or muddy sections")
 
-    # Price comparison
-    price_a = tire_a.get("msrp_usd", 0)
-    price_b = tire_b.get("msrp_usd", 0)
-    if price_a and price_b and abs(price_a - price_b) > 5:
-        if price_a < price_b:
-            a_bullets.append(f"Budget matters (${price_a:.0f} vs ${price_b:.0f})")
-        else:
-            b_bullets.append(f"Budget matters (${price_b:.0f} vs ${price_a:.0f})")
+def build_ranks_section(tire_a: dict, tire_b: dict, h2h: dict, verdict: str) -> str:
+    """The verdict and each lab measure head to head, with both tires' ranks."""
 
-    a_lis = "\n      ".join(f"<li>{esc(b)}</li>" for b in a_bullets[:5])
-    b_lis = "\n      ".join(f"<li>{esc(b)}</li>" for b in b_bullets[:5])
+    def cell(row, i):
+        r = row["cells"][i]
+        if not r:
+            return "<td>&mdash;</td>"
+        cls = ' class="tvs-winner-cell"' if row["leader"] == i else ""
+        return (f'<td{cls}>{_num(r["value"], r["unit"])}'
+                f'<span class="tvs-rank">{ordinal(r["rank"])} of {r["of"]}</span></td>')
 
-    total_a = sum(scores_a.values())
-    total_b = sum(scores_b.values())
-
-    if total_a > total_b:
-        winner_line = f'<p class="tvs-winner">{esc(tire_a["name"])} scores higher in our composite rating, but the best choice depends on your specific race conditions.</p>'
-    elif total_b > total_a:
-        winner_line = f'<p class="tvs-winner">{esc(tire_b["name"])} scores higher in our composite rating, but the best choice depends on your specific race conditions.</p>'
-    else:
-        winner_line = '<p class="tvs-winner">Both tires score equally in our composite rating — your race conditions should decide.</p>'
-
+    test_a, test_b = h2h["tests"]
+    rows = "".join(f'<tr><td>{row["label"]}</td>{cell(row, 0)}{cell(row, 1)}</tr>'
+                   for row in h2h["rows"])
+    rows += (f'<tr><td>Measured width</td><td>{_num(test_a.get("measured_width_mm"), "mm")}</td>'
+             f'<td>{_num(test_b.get("measured_width_mm"), "mm")}</td></tr>'
+             f'<tr><td>Knobs center / edge</td><td>{_knobs(test_a)}</td><td>{_knobs(test_b)}</td></tr>'
+             f'<tr><td>BRR test</td><td>{_test_link(test_a)}</td><td>{_test_link(test_b)}</td></tr>')
+    meta = lab_meta()
     return f'''<section class="tvs-section">
   <div class="tvs-container">
-    <span class="tvs-section-num">04 / VERDICT</span>
-    <h2>The Verdict</h2>
-    {winner_line}
-    <div class="tvs-verdict-grid">
-      <div class="tvs-verdict-card tvs-verdict-a">
-        <h3>Choose {esc(tire_a["name"][:25])} if...</h3>
-        <ul>{a_lis}</ul>
-      </div>
-      <div class="tvs-verdict-card tvs-verdict-b">
-        <h3>Choose {esc(tire_b["name"][:25])} if...</h3>
-        <ul>{b_lis}</ul>
-      </div>
-    </div>
+    <span class="tvs-section-num">01 / HOW THEY RANK</span>
+    <h2>How They Rank</h2>
+    <p class="tvs-verdict">{esc(verdict)}</p>
+    <table class="tvs-specs-table tvs-rank-table">
+      <thead><tr><th>Lab measure</th><th>{esc(tire_a["name"])}</th><th>{esc(tire_b["name"])}</th></tr></thead>
+      <tbody>{rows}</tbody>
+    </table>
+    <p class="tvs-lab-source">Ranked among the {h2h["pool"]} tires in our database BRR tested at {esc(h2h["class_label"])}. {esc(meta["protocol"])} Source: <a href="{esc(meta["source"])}" target="_blank" rel="noopener">bicyclerollingresistance.com</a>.</p>
   </div>
 </section>'''
 
 
-def build_faq(tire_a: dict, tire_b: dict, scores_a: dict, scores_b: dict) -> tuple:
-    """Build FAQ HTML and JSON-LD. Returns (html, jsonld_str)."""
-    name_a = tire_a["name"]
-    name_b = tire_b["name"]
+# The FAQ answers each lab measure from the numbers: (question, where measured).
+FAQ_MEASURES = {
+    "rr_watts": ("Is {a} or {b} faster?", "in BRR's {w} rolling resistance test"),
+    "puncture_tread": ("Which is more puncture resistant, {a} or {b}?",
+                       "in BRR's {w} tread puncture test"),
+    "wet_grip": ("Which grips better in the wet, {a} or {b}?", "in BRR's {w} wet grip test"),
+    "weight_g": ("Which is lighter, {a} or {b}?", "as weighed by BRR at {w}"),
+}
 
+
+def faq_pairs(tire_a: dict, tire_b: dict, h2h: dict) -> list:
+    """(question, answer) pairs, every answer read off BRR's numbers or
+    named as our call."""
+    names = (tire_a["name"], tire_b["name"])
+    width = _num(h2h["width"], "mm")
     pairs = []
 
-    # Q1: Which is faster?
-    crr_a = scores_a.get("rolling_resistance", 0)
-    crr_b = scores_b.get("rolling_resistance", 0)
-    faster = name_a if crr_a >= crr_b else name_b
-    pairs.append((
-        f"Is {name_a} or {name_b} faster?",
-        f"{faster} has lower rolling resistance based on BicycleRollingResistance.com test data. "
-        f"On smooth hardpack, this translates to measurable watts saved. However, on loose or "
-        f"technical terrain, grip often matters more than pure rolling speed."
-    ))
+    for row in h2h["rows"]:
+        if None in row["cells"]:
+            continue
+        question, where = FAQ_MEASURES[row["key"]]
+        where = where.format(w=width)
+        vals = [_num(c["value"], row["unit"]) for c in row["cells"]]
+        if row["leader"] is None:
+            answer = f"Neither: both measured {vals[0]} {where}."
+        else:
+            i = row["leader"]
+            answer = (f"{names[i]} {LEADS[row['key']]}: {vals[i]} against "
+                      f"{vals[1 - i]} for {names[1 - i]} {where}.")
+        pairs.append((question.format(a=names[0], b=names[1]), answer))
 
-    # Q2: Which has better puncture protection?
-    punct_a = scores_a.get("puncture_resistance", 0)
-    punct_b = scores_b.get("puncture_resistance", 0)
-    tougher = name_a if punct_a >= punct_b else name_b
-    pairs.append((
-        f"Which tire is more puncture resistant, {name_a} or {name_b}?",
-        f"{tougher} offers better puncture protection. For courses with sharp flint, "
-        f"limestone, or goathead thorns, puncture resistance should be weighted heavily "
-        f"in your tire decision."
-    ))
+    mud = [t.get("mud_clearance") for t in (tire_a, tire_b)]
+    if all(mud):
+        answer = (f"Mud clearance is our call; BRR doesn't test it. We rate it "
+                  f"{rating_label(mud[0])} for {names[0]} and {rating_label(mud[1])} for {names[1]}.")
+        tests = h2h["tests"]
+        if all(t.get(k) is not None for t in tests for k in ("knob_center_mm", "knob_edge_mm")):
+            answer += (f" BRR measured knobs (center / edge) of {_knobs(tests[0])} on "
+                       f"{names[0]} and {_knobs(tests[1])} on {names[1]}.")
+        pairs.append((f"Which is better in mud, {names[0]} or {names[1]}?", answer))
 
-    # Q3: Which is better for mud?
-    mud_a = scores_a.get("mud_clearance", 0)
-    mud_b = scores_b.get("mud_clearance", 0)
-    if mud_a == mud_b and mud_a == 0:
-        pairs.append((
-            f"Can I use {name_a} or {name_b} in mud?",
-            f"Neither tire is designed for muddy conditions. Both lack the open tread pattern "
-            f"needed for mud clearance. If mud is expected, consider a dedicated mud tire "
-            f"like the Schwalbe G-One Ultrabite."
-        ))
-    else:
-        muddier = name_a if mud_a >= mud_b else name_b
-        pairs.append((
-            f"Which is better in mud, {name_a} or {name_b}?",
-            f"{muddier} handles mud better thanks to its tread design and mud clearance. "
-            f"For races with predicted rain or notorious mud sections, this difference matters."
-        ))
+    prices = [t.get("msrp_usd") for t in (tire_a, tire_b)]
+    if all(prices):
+        if prices[0] == prices[1]:
+            answer = f"Neither: both list at ${prices[0]:.2f} MSRP."
+        else:
+            i = 0 if prices[0] < prices[1] else 1
+            answer = (f"{names[i]} costs less: ${prices[i]:.2f} MSRP against "
+                      f"${prices[1 - i]:.2f} for {names[1 - i]}.")
+        pairs.append((f"Which costs less, {names[0]} or {names[1]}?", answer))
 
-    # Q4: Which is lighter?
-    weight_a = scores_a.get("weight", 0)
-    weight_b = scores_b.get("weight", 0)
-    lighter = name_a if weight_a >= weight_b else name_b
-    pairs.append((
-        f"Which is lighter, {name_a} or {name_b}?",
-        f"{lighter} is the lighter tire. Weight savings help most on climbs — "
-        f"roughly 1 second per kilometer of climbing per 100g saved at race effort."
-    ))
+    return pairs
 
-    # Q5: Price comparison
-    price_a = tire_a.get("msrp_usd", 0)
-    price_b = tire_b.get("msrp_usd", 0)
-    if price_a and price_b:
-        cheaper = name_a if price_a <= price_b else name_b
-        pairs.append((
-            f"Which is a better value, {name_a} or {name_b}?",
-            f"At ${min(price_a, price_b):.2f} vs ${max(price_a, price_b):.2f} MSRP, "
-            f"{cheaper} is the more budget-friendly option. Factor in expected tire life "
-            f"and your race calendar when evaluating total cost of ownership."
-        ))
 
-    # Build FAQ HTML
-    faq_items = []
-    for q, a in pairs:
-        faq_items.append(f'''<div class="tvs-faq-item">
+def build_faq(tire_a: dict, tire_b: dict, h2h: dict) -> tuple:
+    """Build FAQ HTML and JSON-LD. Returns (html, jsonld_str)."""
+    pairs = faq_pairs(tire_a, tire_b, h2h)
+    faq_items = "".join(f'''<div class="tvs-faq-item">
       <h4>{esc(q)}</h4>
       <p>{esc(a)}</p>
-    </div>''')
+    </div>''' for q, a in pairs)
 
     faq_html = f'''<section class="tvs-section">
   <div class="tvs-container">
-    <span class="tvs-section-num">05 / FAQ</span>
+    <span class="tvs-section-num">04 / FAQ</span>
     <h2>Frequently Asked Questions</h2>
-    {"".join(faq_items)}
+    {faq_items}
   </div>
 </section>'''
 
-    # Build FAQ JSON-LD
     faq_ld = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -446,8 +328,8 @@ def build_faq(tire_a: dict, tire_b: dict, scores_a: dict, scores_b: dict) -> tup
             for q, a in pairs
         ],
     }
-
-    return faq_html, json.dumps(faq_ld, indent=2)
+    # "</" would close the <script> early; "<\/" is the same JSON.
+    return faq_html, json.dumps(faq_ld, indent=2).replace("</", "<\\/")
 
 
 # ── Review Comparison ─────────────────────────────────────────
@@ -646,12 +528,6 @@ a:hover { text-decoration: underline; }
   margin: 8px 0;
 }
 @media (min-width: 640px) { .tvs-header h1 { font-size: 32px; } }
-.tvs-header-sub {
-  font-family: var(--gg-font-editorial);
-  font-size: 14px;
-  color: var(--gg-color-warm-brown);
-  font-style: italic;
-}
 
 /* Section styling */
 .tvs-section {
@@ -677,8 +553,27 @@ a:hover { text-decoration: underline; }
   margin-bottom: 20px;
 }
 
-/* Radar chart */
-.tvs-radar-svg { width: 100%; max-width: 440px; height: auto; margin: 0 auto; display: block; }
+/* How they rank */
+.tvs-verdict {
+  font-family: var(--gg-font-editorial);
+  font-size: 20px;
+  line-height: 1.4;
+  margin: 0 0 16px;
+}
+.tvs-rank-table td:nth-child(n+2) { white-space: nowrap; }
+.tvs-rank {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--gg-color-secondary-brown);
+}
+.tvs-lab-source {
+  font-family: var(--gg-font-data);
+  font-size: 12px;
+  color: var(--gg-color-secondary-brown);
+  margin: 8px 0 0;
+}
+.tvs-rank-table a { font-weight: 700; }
 
 /* Specs comparison table */
 .tvs-specs-table {
@@ -716,8 +611,8 @@ a:hover { text-decoration: underline; }
   margin-bottom: 8px;
 }
 .tvs-overlap-label--both { color: var(--gg-color-teal); }
-.tvs-overlap-label--a { color: """ + COLORS["primary_brown"] + """; }
-.tvs-overlap-label--b { color: """ + COLORS["teal"] + """; }
+.tvs-overlap-label--a { color: var(--gg-color-primary-brown); }
+.tvs-overlap-label--b { color: var(--gg-color-teal); }
 .tvs-overlap-list {
   display: flex;
   flex-wrap: wrap;
@@ -733,43 +628,6 @@ a:hover { text-decoration: underline; }
   color: var(--gg-color-near-black);
 }
 .tvs-overlap-chip:hover { border-color: var(--gg-color-teal); text-decoration: none; }
-
-/* Verdict */
-.tvs-winner {
-  font-family: var(--gg-font-editorial);
-  font-size: 14px;
-  color: var(--gg-color-secondary-brown);
-  margin-bottom: 20px;
-  font-style: italic;
-}
-.tvs-verdict-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-@media (max-width: 640px) { .tvs-verdict-grid { grid-template-columns: 1fr; } }
-.tvs-verdict-card {
-  background: var(--gg-color-white);
-  border: 2px solid var(--gg-color-tan);
-  padding: 20px;
-}
-.tvs-verdict-a { border-top: 3px solid """ + COLORS["primary_brown"] + """; }
-.tvs-verdict-b { border-top: 3px solid """ + COLORS["teal"] + """; }
-.tvs-verdict-card h3 {
-  font-family: var(--gg-font-data);
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-}
-.tvs-verdict-card ul { list-style: none; padding: 0; }
-.tvs-verdict-card li {
-  font-family: var(--gg-font-data);
-  font-size: 12px;
-  padding: 3px 0;
-}
-.tvs-verdict-card li::before { content: "\\2192"; margin-right: 8px; color: var(--gg-color-teal); }
 
 /* FAQ */
 .tvs-faq-item {
@@ -829,6 +687,7 @@ a:hover { text-decoration: underline; }
 .tvs-btn--outline:hover { background: var(--gg-color-warm-paper); color: var(--gg-color-near-black); text-decoration: none; }
 
 @media (max-width: 480px) {
+  .tvs-specs-table th, .tvs-specs-table td { padding: 8px 10px; }
   .tvs-email-capture-row { flex-direction: column; gap: 8px; }
   .tvs-email-capture-input { border-right: 2px solid var(--gg-color-tan); }
 }
@@ -845,8 +704,8 @@ a:hover { text-decoration: underline; }
   padding: 24px;
   text-align: center;
 }
-.tvs-review-card--a { border-top: 3px solid """ + COLORS["primary_brown"] + """; }
-.tvs-review-card--b { border-top: 3px solid """ + COLORS["teal"] + """; }
+.tvs-review-card--a { border-top: 3px solid var(--gg-color-primary-brown); }
+.tvs-review-card--b { border-top: 3px solid var(--gg-color-teal); }
 .tvs-review-card-name {
   font-family: var(--gg-font-data);
   font-size: 14px;
@@ -914,65 +773,34 @@ a:hover { text-decoration: underline; }
 
 
 def build_specs_comparison(tire_a: dict, tire_b: dict) -> str:
-    """Side-by-side specs table."""
-    rows = []
+    """What BRR doesn't measure: price and widths from the brands, and our
+    calls, labelled as ours."""
+    ours = " (our call)"
+    pair = (tire_a, tire_b)
 
-    def _compare_row(label, val_a, val_b, lower_wins=False):
-        """Build a table row, highlighting the winner."""
-        cls_a = cls_b = ""
-        try:
-            na, nb = float(val_a.replace("g", "").replace("W", "").replace("$", "")), float(val_b.replace("g", "").replace("W", "").replace("$", ""))
-            if lower_wins:
-                if na < nb: cls_a = ' class="tvs-winner-cell"'
-                elif nb < na: cls_b = ' class="tvs-winner-cell"'
-            else:
-                if na > nb: cls_a = ' class="tvs-winner-cell"'
-                elif nb > na: cls_b = ' class="tvs-winner-cell"'
-        except (ValueError, AttributeError):
-            pass
-        return f"<tr><td>{label}</td><td{cls_a}>{val_a}</td><td{cls_b}>{val_b}</td></tr>"
+    def row(label, cells, classes=("", "")):
+        tds = "".join(f"<td{c}>{v}</td>" for v, c in zip(cells, classes))
+        return f"<tr><td>{label}</td>{tds}</tr>"
 
-    # Price
-    if tire_a.get("msrp_usd") or tire_b.get("msrp_usd"):
-        pa = f"${tire_a['msrp_usd']:.2f}" if tire_a.get("msrp_usd") else "—"
-        pb = f"${tire_b['msrp_usd']:.2f}" if tire_b.get("msrp_usd") else "—"
-        rows.append(_compare_row("MSRP", pa, pb, lower_wins=True))
+    prices = [t.get("msrp_usd") for t in pair]
+    price_cls = ["", ""]
+    if all(prices) and prices[0] != prices[1]:
+        price_cls[0 if prices[0] < prices[1] else 1] = ' class="tvs-winner-cell"'
 
-    # Widths
-    wa = ", ".join(f"{w}" for w in tire_a["widths_mm"])
-    wb = ", ".join(f"{w}" for w in tire_b["widths_mm"])
-    rows.append(f"<tr><td>Widths (mm)</td><td>{wa}</td><td>{wb}</td></tr>")
-
-    # Weight and rolling resistance at a width both tires were lab-tested at
-    crr_a = tire_a.get("crr_watts_at_29kmh") or {}
-    crr_b = tire_b.get("crr_watts_at_29kmh") or {}
-    tested_common = sorted(set(crr_a) & set(crr_b), key=int)
-    if tested_common:
-        cw = tested_common[len(tested_common) // 2]  # Pick middle width
-        wa_g = tire_a.get("weight_grams", {}).get(cw)
-        wb_g = tire_b.get("weight_grams", {}).get(cw)
-        wa_s = f"{wa_g}g" if isinstance(wa_g, (int, float)) else "—"
-        wb_s = f"{wb_g}g" if isinstance(wb_g, (int, float)) else "—"
-        rows.append(_compare_row(f"Weight ({cw}mm)", wa_s, wb_s, lower_wins=True))
-        rows.append(_compare_row(f"Rolling resistance ({cw}mm)", f"{crr_a[cw]}W", f"{crr_b[cw]}W",
-                                 lower_wins=True))
-
-    # Qualitative ratings
-    def _rating_label(v):
-        return {"high": "High", "good": "Good", "moderate": "Moderate", "fair": "Fair",
-                "low": "Low", "poor": "Poor", "none": "None"}.get(v, "N/A")
-
-    rows.append(f"<tr><td>Tread Type</td><td>{esc(tire_a.get('tread_type', '').title())}</td><td>{esc(tire_b.get('tread_type', '').title())}</td></tr>")
-    rows.append(f"<tr><td>Puncture</td><td>{_rating_label(tire_a.get('puncture_resistance', ''))}</td><td>{_rating_label(tire_b.get('puncture_resistance', ''))}</td></tr>")
-    rows.append(f"<tr><td>Wet Traction</td><td>{_rating_label(tire_a.get('wet_traction', ''))}</td><td>{_rating_label(tire_b.get('wet_traction', ''))}</td></tr>")
-    rows.append(f"<tr><td>Mud Clearance</td><td>{_rating_label(tire_a.get('mud_clearance', ''))}</td><td>{_rating_label(tire_b.get('mud_clearance', ''))}</td></tr>")
+    rows = [
+        row("MSRP", [f"${p:.2f}" if p else "&mdash;" for p in prices], price_cls),
+        row("Widths", [", ".join(str(w) for w in t["widths_mm"]) + "mm" for t in pair]),
+        row("Tubeless", ["Yes" if t.get("tubeless_ready") else "No" for t in pair]),
+        row("Tread type" + ours, [esc(t.get("tread_type", "").title()) or "&mdash;" for t in pair]),
+        row("Mud clearance" + ours, [esc(rating_label(t.get("mud_clearance", ""))) for t in pair]),
+    ]
 
     return f'''<section class="tvs-section">
   <div class="tvs-container">
-    <span class="tvs-section-num">02 / SPECS COMPARISON</span>
-    <h2>Head-to-Head Specs</h2>
+    <span class="tvs-section-num">02 / SPECS</span>
+    <h2>Specs</h2>
     <table class="tvs-specs-table">
-      <thead><tr><th>Spec</th><th>{esc(tire_a["name"][:25])}</th><th>{esc(tire_b["name"][:25])}</th></tr></thead>
+      <thead><tr><th>Spec</th><th>{esc(tire_a["name"])}</th><th>{esc(tire_b["name"])}</th></tr></thead>
       <tbody>{"".join(rows)}</tbody>
     </table>
   </div>
@@ -990,7 +818,7 @@ def build_race_overlap_section(tire_a: dict, tire_b: dict, overlap: dict) -> str
             f'<a href="/race/{esc(r["slug"])}/tires/" class="tvs-overlap-chip">{esc(r["name"])}</a>'
             for r in overlap["both"][:15]
         )
-        parts.append(f'''<div class="tvs-overlap-label tvs-overlap-label--both">BOTH RECOMMENDED ({len(overlap["both"])})</div>
+        parts.append(f'''<div class="tvs-overlap-label tvs-overlap-label--both">BOTH PICKED ({len(overlap["both"])})</div>
     <div class="tvs-overlap-list">{chips}</div>''')
 
     if overlap["only_a"]:
@@ -998,7 +826,7 @@ def build_race_overlap_section(tire_a: dict, tire_b: dict, overlap: dict) -> str
             f'<a href="/race/{esc(r["slug"])}/tires/" class="tvs-overlap-chip">{esc(r["name"])}</a>'
             for r in overlap["only_a"][:10]
         )
-        parts.append(f'''<div class="tvs-overlap-label tvs-overlap-label--a">ONLY {esc(tire_a["name"][:20]).upper()} ({len(overlap["only_a"])})</div>
+        parts.append(f'''<div class="tvs-overlap-label tvs-overlap-label--a">ONLY {esc(tire_a["name"]).upper()} ({len(overlap["only_a"])})</div>
     <div class="tvs-overlap-list">{chips}</div>''')
 
     if overlap["only_b"]:
@@ -1006,13 +834,13 @@ def build_race_overlap_section(tire_a: dict, tire_b: dict, overlap: dict) -> str
             f'<a href="/race/{esc(r["slug"])}/tires/" class="tvs-overlap-chip">{esc(r["name"])}</a>'
             for r in overlap["only_b"][:10]
         )
-        parts.append(f'''<div class="tvs-overlap-label tvs-overlap-label--b">ONLY {esc(tire_b["name"][:20]).upper()} ({len(overlap["only_b"])})</div>
+        parts.append(f'''<div class="tvs-overlap-label tvs-overlap-label--b">ONLY {esc(tire_b["name"]).upper()} ({len(overlap["only_b"])})</div>
     <div class="tvs-overlap-list">{chips}</div>''')
 
     return f'''<section class="tvs-section">
   <div class="tvs-container">
-    <span class="tvs-section-num">03 / RACE RECOMMENDATIONS</span>
-    <h2>Where Each Tire Is Recommended</h2>
+    <span class="tvs-section-num">03 / RACE PICKS</span>
+    <h2>Where We Pick Them</h2>
     <div class="tvs-race-overlap">{"".join(parts)}</div>
   </div>
 </section>'''
@@ -1114,8 +942,10 @@ def build_json_ld(tire_a: dict, tire_b: dict) -> str:
 
 
 def generate_vs_page(tire_a: dict, tire_b: dict, tire_races: dict) -> str:
-    scores_a = compute_tire_scores(tire_a)
-    scores_b = compute_tire_scores(tire_b)
+    h2h = head_to_head(tire_a, tire_b)
+    if h2h is None:
+        raise ValueError(f"{tire_a['id']} vs {tire_b['id']}: no BRR test at a shared width")
+    verdict = verdict_sentence(tire_a, tire_b, h2h)
     overlap = get_race_overlap(tire_races, tire_a["id"], tire_b["id"])
 
     name_a = tire_a["name"]
@@ -1123,12 +953,14 @@ def generate_vs_page(tire_a: dict, tire_b: dict, tire_races: dict) -> str:
     slug_a = tire_slug(tire_a)
     slug_b = tire_slug(tire_b)
 
-    radar = build_radar_svg(tire_a, tire_b, scores_a, scores_b)
-    specs = build_specs_comparison(tire_a, tire_b)
-    race_overlap = build_race_overlap_section(tire_a, tire_b, overlap)
-    verdict = build_verdict(tire_a, tire_b, scores_a, scores_b)
-    faq_html, faq_ld = build_faq(tire_a, tire_b, scores_a, scores_b)
-    review_comparison = build_review_comparison(tire_a, tire_b)
+    faq_html, faq_ld = build_faq(tire_a, tire_b, h2h)
+    sections = number_sections("\n".join(part for part in (
+        build_ranks_section(tire_a, tire_b, h2h, verdict),
+        build_specs_comparison(tire_a, tire_b),
+        build_race_overlap_section(tire_a, tire_b, overlap),
+        faq_html,
+        build_review_comparison(tire_a, tire_b),
+    ) if part), prefix="tvs")
     email_capture = build_email_capture()
     inline_js = build_inline_js()
 
@@ -1137,7 +969,7 @@ def generate_vs_page(tire_a: dict, tire_b: dict, tire_races: dict) -> str:
 <script type="application/ld+json">{faq_ld}</script>'''
 
     title = f"{esc(name_a)} vs {esc(name_b)}: Which Gravel Tire Is Right? | Gravel God"
-    meta_desc = f"{name_a} vs {name_b} comparison: rolling resistance, puncture protection, weight, race recommendations, and verdict."
+    meta_desc = verdict
     canonical = f"{SITE_BASE_URL}/tire/{slug_a}-vs-{slug_b}/"
 
     tokens_css = get_tokens_css()
@@ -1176,26 +1008,14 @@ def generate_vs_page(tire_a: dict, tire_b: dict, tire_races: dict) -> str:
 <header class="tvs-header">
   <div class="tvs-container">
     <div class="tvs-breadcrumb">
-      <a href="/">Gravel God</a> / <a href="/gravel-races/">Races</a> / Tire Comparison
+      <a href="/">Gravel God</a> / <a href="/tire/">Tires</a> / Tire Comparison
     </div>
     <span class="tvs-badge">TIRE COMPARISON</span>
     <h1>{esc(name_a)} vs {esc(name_b)}</h1>
-    <p class="tvs-header-sub">Which gravel tire is right for your next race?</p>
   </div>
 </header>
 <main>
-<section class="tvs-section">
-  <div class="tvs-container">
-    <span class="tvs-section-num">01 / RADAR COMPARISON</span>
-    <h2>Performance Profile</h2>
-    {radar}
-  </div>
-</section>
-{specs}
-{race_overlap}
-{verdict}
-{faq_html}
-{review_comparison}
+{sections}
 <section class="tvs-section">
   <div class="tvs-container">
     {email_capture}

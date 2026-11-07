@@ -798,15 +798,23 @@ def ordinal(n: int) -> str:
     return f"{n}{suffix}"
 
 
-def tire_ranks(tire: dict):
+def biggest_class(classes, pool: dict):
+    """The width class holding the most tested tires (ties go wider)."""
+    return max(classes, key=lambda c: (sum(1 for tests in pool.values() if c in tests), c))
+
+
+def tire_ranks(tire: dict, cls=None):
     """Rank the tire's BRR test against every lab-tested tire in one width
-    class: the class with the most tested tires (ties go wider). None when the
-    tire has no lab test."""
+    class: `cls` when given (a VS page ranks both tires in the class they
+    share), else the class with the most tested tires. None when the tire has
+    no lab test there."""
     mine = tests_by_class(tire) if tire.get("lab_tested") else {}
+    if cls is not None:
+        mine = {cls: mine[cls]} if cls in mine else {}
     if not mine:
         return None
     pool = {**lab_pool(), tire["id"]: mine}
-    cls = max(mine, key=lambda c: (sum(1 for tests in pool.values() if c in tests), c))
+    cls = biggest_class(mine, pool)
     test = mine[cls]
     rows = []
     for key, label, noun, unit, lower in RANK_MEASURES:
@@ -816,7 +824,7 @@ def tire_ranks(tire: dict):
         others = [tests[cls][key] for tid, tests in pool.items()
                   if tid != tire["id"] and cls in tests and tests[cls].get(key) is not None]
         better = sum(1 for o in others if (o < value if lower else o > value))
-        rows.append({"label": label, "noun": noun, "value": value, "unit": unit,
+        rows.append({"key": key, "label": label, "noun": noun, "value": value, "unit": unit,
                      "rank": better + 1, "of": len(others) + 1})
     if not rows:
         return None
@@ -1479,11 +1487,11 @@ def build_json_ld(tire: dict, race_recs: list, description: str = "") -> str:
 # ── Full Page Assembly ────────────────────────────────────────
 
 
-def number_sections(html: str) -> str:
+def number_sections(html: str, prefix: str = "tp") -> str:
     """Renumber the "NN / LABEL" section tags in page order, so an optional
     section (Who Raced It) never leaves a gap."""
     counter = iter(range(1, 100))
-    return re.sub(r'(<span class="tp-section-num">)\d{2}( / )',
+    return re.sub(rf'(<span class="{prefix}-section-num">)\d{{2}}( / )',
                   lambda m: f"{m.group(1)}{next(counter):02d}{m.group(2)}", html)
 
 

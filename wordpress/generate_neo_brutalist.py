@@ -2998,7 +2998,7 @@ def build_toc(active_sections=None) -> str:
         ('verdict', '06 Final Verdict'),
         ('training', '07 Training'),
         ('train-for-race', '08 Train for This Race'),
-        ('race-calculator', '08a Race Calculator'),
+        ('race-calculator', 'Race Calculator'),
         ('logistics', '09 Race Logistics'),
         ('tires', '10 Tire Picks'),
         ('citations', '11 Sources'),

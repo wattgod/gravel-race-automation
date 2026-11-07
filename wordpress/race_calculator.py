@@ -125,41 +125,41 @@ def build_race_calculator(rd):
     valid = [option for option in options[:40] if isinstance(option, dict)
              and isinstance(option.get("key"), str) and len(option["key"]) <= 120
              and _KEY.fullmatch(option["key"]) and isinstance(option.get("label"), str)]
-    if valid:
+    if len(valid) > 1:
         choices = "".join('<option value="' + esc(option["key"]) + '">' + esc(option["label"]) + '</option>' for option in valid)
         choice = '<label for="gg-calculator-distance">Distance</label><select id="gg-calculator-distance" name="distance">' + choices + '</select>'
+    elif valid:
+        # One distance is not a choice: show it, and carry it as form state.
+        choice = ('<span class="gg-race-calculator-label">Distance</span><span class="gg-race-calculator-value">'
+                  + esc(valid[0]["label"]) + '</span><input type="hidden" name="distance" value="' + esc(valid[0]["key"]) + '">')
     else:
-        choice = '<p class="gg-race-calculator-unknown">Choose your distance in Endure Labs.</p>'
-    note = ("Confirm this race's edition and course availability in Endure Labs." if context.get("source_blocked")
-            else "Confirm course availability for your selected edition in Endure Labs.")
-    return '''<section id="race-calculator" class="gg-race-calculator" aria-labelledby="gg-calculator-title" data-measure-section="race-calculator">
-  <div class="gg-race-calculator-heading"><span class="gg-race-calculator-kicker">Endure Labs</span><h2 id="gg-calculator-title">Race calculator</h2></div>
-  <p class="gg-race-calculator-intro">For ''' + esc(str(rd.get("name") or "this race")) + ''', start with your training history in Endure Labs. Then choose conditions and practical race scenarios for a ballpark finish estimate.</p>
-  <form action="''' + ENDURE_CALCULATOR_URL + '''" method="get" class="gg-race-calculator-form">
-    ''' + fields + choice + '''
-    <button type="submit" class="gg-race-calculator-button" data-cta="race_calculator_open">Open in Endure Labs <span aria-hidden="true">↗</span></button>
-  </form>
-  <p class="gg-race-calculator-note">''' + esc(note) + '''</p>
-</section>'''
+        choice = ''
+    return '''<section id="race-calculator" class="gg-section gg-fade-section gg-race-calculator" aria-labelledby="gg-calculator-title" data-measure-section="race-calculator">
+    <div class="gg-section-header">
+      <h2 id="gg-calculator-title" class="gg-section-title">Race Calculator</h2>
+    </div>
+    <div class="gg-section-body">
+      <p class="gg-race-calculator-intro">For ''' + esc(str(rd.get("name") or "this race")) + ''', start with your training history in Endure Labs. Then choose conditions and practical race scenarios for a ballpark finish estimate.</p>
+      <form action="''' + ENDURE_CALCULATOR_URL + '''" method="get" class="gg-race-calculator-form">
+        ''' + fields + choice + '''
+        <button type="submit" class="gg-race-calculator-button" data-cta="race_calculator_open">Open in Endure Labs <span aria-hidden="true">↗</span></button>
+      </form>
+    </div>
+  </section>'''
 
 
 def get_race_calculator_css():
-    """GG×Glyph control surface; host fonts and token chain stay intact."""
+    """The calculator is a standard race-page section; only its form needs styles."""
     return '''
-.gg-neo-brutalist-page .gg-race-calculator { margin: var(--gg-spacing-xl) 0; padding: var(--gg-spacing-lg); border: var(--gg-border-standard); background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); scroll-margin-top: calc(var(--gg-header-height, 80px) + var(--gg-spacing-4xl)); }
-.gg-neo-brutalist-page .gg-race-calculator-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: var(--gg-spacing-sm); }
-.gg-neo-brutalist-page .gg-race-calculator-heading h2 { margin: 0; font-family: var(--gg-font-data); font-size: var(--gg-font-size-lg); }
-.gg-neo-brutalist-page .gg-race-calculator-kicker { font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); font-weight: var(--gg-font-weight-bold); letter-spacing: var(--gg-letter-spacing-wide); }
-.gg-neo-brutalist-page .gg-race-calculator-intro { margin: var(--gg-spacing-md) 0; font-family: var(--gg-font-editorial); overflow-wrap: anywhere; }
-.gg-neo-brutalist-page .gg-race-calculator-form { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--gg-spacing-sm); font-family: var(--gg-font-data); }
-.gg-neo-brutalist-page .gg-race-calculator-form label { font-size: var(--gg-font-size-sm); }
+.gg-neo-brutalist-page .gg-race-calculator { scroll-margin-top: calc(var(--gg-header-height, 80px) + var(--gg-spacing-4xl)); }
+.gg-neo-brutalist-page .gg-race-calculator-intro { margin: 0 0 var(--gg-spacing-md); font-family: var(--gg-font-editorial); overflow-wrap: anywhere; }
+.gg-neo-brutalist-page .gg-race-calculator-form { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--gg-spacing-sm); font-family: var(--gg-font-data); color: var(--gg-color-dark-brown); }
+.gg-neo-brutalist-page .gg-race-calculator-form label, .gg-neo-brutalist-page .gg-race-calculator-label { font-size: var(--gg-font-size-sm); }
+.gg-neo-brutalist-page .gg-race-calculator-value { font-weight: var(--gg-font-weight-bold); overflow-wrap: anywhere; }
 .gg-neo-brutalist-page .gg-race-calculator-form select { width: 100%; min-width: 0; min-height: var(--gg-spacing-2xl); padding: var(--gg-spacing-xs) var(--gg-spacing-sm); border: var(--gg-border-standard); border-radius: 0; background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); font: inherit; }
-.gg-neo-brutalist-page .gg-race-calculator-button { min-height: var(--gg-spacing-2xl); padding: var(--gg-spacing-xs) var(--gg-spacing-md); border: var(--gg-border-standard); border-radius: 0; background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); font: inherit; font-weight: var(--gg-font-weight-bold); cursor: pointer; transition: transform 150ms ease; }
+.gg-neo-brutalist-page .gg-race-calculator-button { justify-self: start; min-height: var(--gg-spacing-2xl); padding: var(--gg-spacing-xs) var(--gg-spacing-md); border: var(--gg-border-standard); border-radius: 0; background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); font: inherit; font-weight: var(--gg-font-weight-bold); cursor: pointer; transition: transform 150ms ease; }
 .gg-neo-brutalist-page .gg-race-calculator-button:hover { transform: translateY(-1px); }
 .gg-neo-brutalist-page .gg-race-calculator-form :focus-visible { outline: var(--gg-border-width-standard) solid var(--gg-color-teal); outline-offset: var(--gg-spacing-2xs); }
-.gg-neo-brutalist-page .gg-race-calculator-note, .gg-neo-brutalist-page .gg-race-calculator-unknown { margin: var(--gg-spacing-md) 0 0; font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); }
-.gg-neo-brutalist-page .gg-race-calculator-note { border-top: var(--gg-border-width-subtle) dotted var(--gg-color-secondary-brown); padding-top: var(--gg-spacing-sm); }
-.gg-neo-brutalist-page .gg-race-calculator-unknown { grid-column: 1 / 3; margin: 0; }
-@media (max-width: 640px) { .gg-neo-brutalist-page .gg-race-calculator-form { grid-template-columns: 1fr; } .gg-neo-brutalist-page .gg-race-calculator-unknown { grid-column: auto; } .gg-neo-brutalist-page .gg-race-calculator-button { width: 100%; } }
+@media (max-width: 640px) { .gg-neo-brutalist-page .gg-race-calculator-form { grid-template-columns: auto minmax(0, 1fr); } .gg-neo-brutalist-page .gg-race-calculator-button { grid-column: 1 / -1; width: 100%; } }
 @media (prefers-reduced-motion: reduce) { .gg-neo-brutalist-page .gg-race-calculator-button { transition: none; } .gg-neo-brutalist-page .gg-race-calculator-button:hover { transform: none; } }
 '''

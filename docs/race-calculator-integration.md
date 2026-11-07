@@ -2,8 +2,8 @@
 
 The race page now mounts a calculator entry in the actual `generate_page`
 deep-content list, after “Train for This Race”, with a matching table-of-contents link.
-The deliberate `08a` TOC subsection preserves the existing 09–11 section numbers.
-It remains 08a when training marketing is suppressed; a real-page test covers
+It is an unnumbered section, like Editions and Results, so the existing 09–11
+section numbers stay put. It stays in the TOC when training marketing is suppressed; a real-page test covers
 source-blocked, paused and ineligible profiles so the utility remains available.
 It does not use the retired, unmounted preparation strip and does not require
 a race-pack preview. The locked first-pass page spine is unchanged.
@@ -22,8 +22,9 @@ own history only after authentication. If that exact edition has no usable
 course, it must explain the gap before estimating. In particular, the public
 2026 Unbound 200 pilot route must never be relabelled as a 2027 course.
 Source-blocked GGC profiles continue to omit edition and distance rather than
-asserting unavailable current-course metadata. The public note asks the rider
-to confirm edition-specific course availability.
+asserting unavailable current-course metadata. Endure Labs, not a note on
+GGC, tells the rider when an edition has no usable course (Matti, 2026-11-07:
+helper text cut).
 
 This handoff copy describes the flow being implemented, not evidence of a
 completed hosted release. Publish it only with the matching authenticated
@@ -52,7 +53,8 @@ the edition and course file. It must never save an event implicitly.
 The form requires no JavaScript, third-party iframe, cross-site session or
 personal query parameters. No mass, power, email or other health input exists
 on this public entry. A selected distance is native form state, not a fixed
-primary-course hyperlink. Existing consent/analytics/header infrastructure
+primary-course hyperlink: a dropdown when the race has two or more distances,
+plain text plus a hidden field when it has one, nothing when it has none. Existing consent/analytics/header infrastructure
 remains in the generator.
 
 ## Unknown and legacy profiles

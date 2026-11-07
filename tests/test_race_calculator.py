@@ -98,7 +98,7 @@ def test_source_blocked_profile_does_not_handoff_its_historical_edition_or_dista
     data["race"]["vitals"]["course_status"] = "source_blocked"
     fragment = calculator(page(data))
     assert handoff(page(data))[1] == {"source": "gravel", "race": "barry-roubaix"}
-    assert "Confirm this race&#x27;s edition and course availability" in fragment
+    assert "Confirm" not in fragment
 
 
 def test_card_exists_without_a_race_pack():
@@ -122,7 +122,7 @@ def test_calculator_stays_available_when_training_marketing_is_suppressed():
         text = generate_page(rd)
         assert 'data-plan-marketing="suppressed"' in text
         assert 'data-toc-target="train-for-race"' not in text
-        assert 'data-toc-target="race-calculator">08a Race Calculator</a>' in text
+        assert 'data-toc-target="race-calculator">Race Calculator</a>' in text
         assert handoff(text)[0]["action"] == ENDURE_CALCULATOR_URL
 
 
@@ -171,7 +171,7 @@ def test_bad_distance_keys_and_labels_cannot_inject_markup_or_query_fields():
     data = raw_race()
     data["race"]["distances"] = [{"key": 'long&weight=100', "name": '</option><script>bad()</script>', "distance_mi": 100}]
     fragment = calculator(page(data))
-    assert Tags(fragment).matching("option")[0]["value"] == "100-mile"
+    assert handoff(fragment)[1]["distance"] == "100-mile"
     assert not Tags(fragment).matching("script")
     assert "&lt;script&gt;" in fragment
     assert "weight" not in handoff(fragment)[1]
@@ -221,9 +221,7 @@ def test_real_external_asset_pipeline_contains_scoped_css_and_reduced_motion():
     assert ".gg-neo-brutalist-page .gg-race-calculator" in css
     assert "@media (prefers-reduced-motion: reduce)" in css
     assert "transition: transform 150ms ease" in css
-    kicker = re.search(r"\.gg-neo-brutalist-page \.gg-race-calculator-kicker \{([^}]*)\}", css)
-    assert kicker, "calculator brand kicker styling missing"
-    assert not re.search(r"text-transform\s*:\s*uppercase", kicker.group(1))
+    assert "gg-race-calculator-kicker" not in css
     text = page(external_assets={"css_tag": '<link rel="stylesheet" href="/test.css">', "js_tag": '<script src="/test.js"></script>'})
     assert 'id="race-calculator"' in text
     assert 'href="/test.css"' in text
@@ -251,7 +249,7 @@ def test_calculator_copy_has_no_fake_result_or_slop():
     fragment = calculator(page())
     assert not check_text(fragment)
     assert "Open in Endure Labs" in fragment
-    assert "Confirm course availability for your selected edition in Endure Labs." in fragment
+    assert "Confirm" not in fragment
     assert "finish-range" not in fragment
     assert "confidence" not in fragment
 
@@ -265,8 +263,7 @@ def test_athlete_first_handoff_describes_history_before_scenarios_and_estimate()
     assert "power and weather choices" not in fragment
     # This is still a public identity handoff: no athlete or physics controls.
     tags = Tags(fragment)
-    assert {x["name"] for x in tags.matching("input")} == {"source", "race", "edition"}
-    assert [x["name"] for x in tags.matching("select")] == ["distance"]
+    assert {x["name"] for x in tags.matching("input")} == {"source", "race", "edition", "distance"}
 
 
 def test_unbound_current_edition_is_not_replaced_by_historical_pilot_route():
@@ -278,6 +275,33 @@ def test_unbound_current_edition_is_not_replaced_by_historical_pilot_route():
     data["race"]["vitals"]["course_status"] = "source_blocked"
     fragment = calculator(page(data))
     assert handoff(fragment)[1] == {"source": "gravel", "race": "unbound-200"}
-    assert "Confirm this race&#x27;s edition and course availability" in fragment
+    assert "Confirm" not in fragment
     assert "2026" not in fragment
     assert "verified course" not in fragment.lower()
+
+
+def test_calculator_is_a_standard_unnumbered_section():
+    """Matti, 2026-11-07: same header as every other section, no kicker, no note."""
+    fragment = calculator(page())
+    assert '<section id="race-calculator" class="gg-section ' in fragment
+    assert '<h2 id="gg-calculator-title" class="gg-section-title">Race Calculator</h2>' in fragment
+    assert "gg-section-kicker" not in fragment
+    assert "gg-race-calculator-kicker" not in fragment
+    assert "gg-race-calculator-note" not in fragment
+
+
+def test_one_distance_is_text_not_a_dropdown():
+    tags = Tags(calculator(page()))
+    assert not tags.matching("select")
+    assert not tags.matching("option")
+    assert '<span class="gg-race-calculator-value">62 mi</span>' in calculator(page())
+    assert {"type": "hidden", "name": "distance", "value": "62-mile"} in tags.matching("input")
+
+
+def test_no_distance_shows_only_the_button():
+    fragment = build_race_calculator({"name": "Test", "calculator": {"slug": "test", "edition": None, "distances": []}})
+    tags = Tags(fragment)
+    assert not tags.matching("select")
+    assert "Distance" not in fragment
+    assert "Choose your distance" not in fragment
+    assert len(tags.matching("button")) == 1

@@ -2846,9 +2846,9 @@ SEASON_POWER_RANKINGS_REDIRECT_RULES = season_power_rankings_redirect_rules()
 # the file is missing, so these need an explicit rule.
 # tests/test_tire_picks_integrity.py keeps this list in step with race-data.
 TIRE_GUIDES_WITHDRAWN = (
-    "atlas-mountain-race", "badlands", "berryman-epic", "chequamegon-mtb",
-    "colorado-trail-race", "fools-gold-gravel-grinder", "fuego-mtb",
-    "leadville-100", "little-sugar-mtb", "ouachita-challenge",
+    "atlas-mountain-race", "badlands", "berryman-epic", "boulder-roubaix",
+    "chequamegon-mtb", "colorado-trail-race", "fools-gold-gravel-grinder",
+    "fuego-mtb", "leadville-100", "little-sugar-mtb", "ouachita-challenge",
     "torino-nice-rally", "tour-divide", "trans-am-bike-race",
     "transcontinental-race", "vapor-trail-125",
 )

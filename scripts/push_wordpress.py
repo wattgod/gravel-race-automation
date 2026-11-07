@@ -4409,7 +4409,7 @@ def sync_tire_guides(tire_guide_dir: str):
             print("  (tire guide reconcile skipped: could not list remote)")
         elif len(stale) > STALE_TIRE_GUIDE_LIMIT:
             print(f"✗ Tire guide reconcile refused: {len(stale)} stale guides "
-                  f"(limit {STALE_TIRE_GUIDE_LIMIT}); check the build")
+                  f"(limit {STALE_TIRE_GUIDE_LIMIT}); check the build: {' '.join(stale)}")
         elif stale:
             # slugs are regex-validated ([a-z0-9-]) so no quoting needed.
             targets = " ".join(f"{s}/tires" for s in stale)

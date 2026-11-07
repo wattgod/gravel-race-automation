@@ -538,4 +538,7 @@ class TestRealRaceData:
         # Switchgrass and Nicolet Hot Days were tombstoned and Border Wars
         # merged into Homegrown Gravel Adventure (config/tombstones.json).
         # Each carried a route that belonged to another event or edition.
-        assert rwgps_count >= 175, f"Expected >=175 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 175->174 (Nov 6 2026): Barry-Roubaix's route was
+        # the 62-mile course; the profile now follows the 100-mile flagship
+        # and no official 100-mile route is published.
+        assert rwgps_count >= 174, f"Expected >=174 current RWGPS routes, got {rwgps_count}"

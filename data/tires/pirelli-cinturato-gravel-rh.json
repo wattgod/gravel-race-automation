@@ -54,7 +54,14 @@
     "mud"
   ],
   "status": "active",
-  "race_appearances": {},
+  "race_appearances": {
+    "core4": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "wet"
+    }
+  },
   "community_reviews": [],
   "comparable_tires": [
     "challenge-getaway-pro",

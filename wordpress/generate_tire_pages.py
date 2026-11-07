@@ -13,6 +13,7 @@ Usage:
 import argparse
 import html as html_mod
 import json
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -211,13 +212,6 @@ a:hover { text-decoration: underline; }
   margin: 8px 0;
 }
 @media (min-width: 640px) { .tp-header h1 { font-size: 36px; } }
-.tp-header-sub {
-  font-family: var(--gg-font-editorial);
-  font-size: 14px;
-  color: var(--gg-color-warm-brown);
-  font-style: italic;
-  margin-top: 4px;
-}
 .tp-vitals {
   display: flex;
   flex-wrap: wrap;
@@ -285,26 +279,6 @@ a:hover { text-decoration: underline; }
 }
 .tp-specs-table tr:nth-child(even) td { background: var(--gg-color-sand); }
 
-/* Chips */
-.tp-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin: 8px 0 16px;
-}
-.tp-chip {
-  font-family: var(--gg-font-data);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border: 2px solid var(--gg-color-tan);
-}
-.tp-chip--good { border-color: var(--gg-color-teal); color: var(--gg-color-teal); }
-.tp-chip--warn { border-color: var(--gg-color-gold); color: var(--gg-color-gold); }
-.tp-chip--bad { border-color: var(--gg-color-secondary-brown); color: var(--gg-color-secondary-brown); }
-
 /* Race list */
 .tp-race-list { list-style: none; padding: 0; }
 .tp-race-item {
@@ -365,32 +339,37 @@ a:hover { text-decoration: underline; }
 .tp-lab-source a { color: var(--gg-color-teal); }
 .tp-ratings-table { margin-top: 20px; }
 
-/* Strengths / Weaknesses */
-.tp-pros-cons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin: 16px 0;
+/* How it ranks, where we pick it, who raced it */
+.tp-verdict {
+  font-family: var(--gg-font-editorial);
+  font-size: 20px;
+  line-height: 1.4;
+  margin: 0 0 16px;
 }
-@media (max-width: 480px) { .tp-pros-cons { grid-template-columns: 1fr; } }
-.tp-pros h4, .tp-cons h4 {
+.tp-rank-table td:nth-child(n+2), .tp-course-table td:nth-child(2) {
   font-family: var(--gg-font-data);
-  font-size: 10px;
+  white-space: nowrap;
+}
+.tp-sub {
+  font-family: var(--gg-font-data);
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin: 24px 0 8px;
 }
-.tp-pros h4 { color: var(--gg-color-teal); }
-.tp-cons h4 { color: var(--gg-color-secondary-brown); }
-.tp-pros ul, .tp-cons ul { list-style: none; padding: 0; }
-.tp-pros li, .tp-cons li {
+.tp-race-more { margin-top: 16px; border: 2px solid var(--gg-color-near-black); }
+.tp-race-more summary {
   font-family: var(--gg-font-data);
   font-size: 12px;
-  padding: 2px 0;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  cursor: pointer;
 }
-.tp-pros li::before { content: "+"; color: var(--gg-color-teal); font-weight: bold; margin-right: 6px; }
-.tp-cons li::before { content: "-"; color: var(--gg-color-secondary-brown); font-weight: bold; margin-right: 6px; }
+.tp-race-more .tp-race-list { padding: 0 16px; }
+.tp-podium-detail { font-size: 12px; color: var(--gg-color-secondary-brown); }
 
 /* Email capture */
 .tp-email-capture {
@@ -647,23 +626,30 @@ a:hover { text-decoration: underline; }
 # ── HTML Builders ─────────────────────────────────────────────
 
 
-def page_title_and_description(tire: dict) -> tuple:
+def page_title(tire: dict) -> str:
     """We cite lab data and pick races; we don't test tires ourselves, so the
     title never says "Review"."""
-    name = tire["name"]
     if tire.get("lab_tested"):
-        return (f"{name}: Rolling Resistance, Race Picks & Pressure | Gravel God",
-                f"{name} gravel tire: rolling resistance from Bicycle Rolling "
-                f"Resistance lab tests, the races we pick it for, and pressure.")
-    return (f"{name}: Specs, Race Picks & Pressure | Gravel God",
-            f"{name} gravel tire: specs, the races we pick it for, and pressure. "
-            f"No lab test yet.")
+        return f"{tire['name']}: Rolling Resistance, Race Picks & Pressure | Gravel God"
+    return f"{tire['name']}: Specs, Race Picks & Pressure | Gravel God"
+
+
+def page_description(tire: dict, ranks, race_recs: list) -> str:
+    """The verdict, for search results: lab ranks first, then our picks."""
+    rank1, top3 = pick_counts(race_recs)
+    if rank1:
+        picks = f"Our #1 pick at {rank1} gravel races."
+    elif top3:
+        picks = f"In our top 3 at {top3} gravel races."
+    else:
+        picks = "Not one of our race picks yet."
+    if ranks:
+        return f"{tire['name']} in BRR lab tests: {rank_sentence(ranks)}. {picks}"
+    return f"{tire['name']}: No lab test yet. {picks}"
 
 
 def build_header(tire: dict) -> str:
     widths = ", ".join(f"{w}mm" for w in tire["widths_mm"])
-    tagline = tire.get("tagline")
-    tagline_html = f'\n    <p class="tp-header-sub">{esc(tagline)}</p>' if tagline else ""
     msrp_html = (f'\n      <div class="tp-vital"><strong>${tire["msrp_usd"]:.2f}</strong>MSRP</div>'
                  if tire.get("msrp_usd") else "")
     return f'''<header class="tp-header">
@@ -672,7 +658,7 @@ def build_header(tire: dict) -> str:
       <a href="/">Gravel God</a> / <a href="/tire/">Tires</a> / {esc(tire["name"])}
     </div>
     <span class="tp-tread-badge">{esc(tire["tread_type"].upper())} TREAD</span>
-    <h1>{esc(tire["name"])}</h1>{tagline_html}
+    <h1>{esc(tire["name"])}</h1>
     <div class="tp-vitals">
       <div class="tp-vital"><strong>{esc(tire["brand"])}</strong>Brand</div>
       <div class="tp-vital"><strong>{widths}</strong>Widths</div>{msrp_html}
@@ -753,7 +739,7 @@ def build_specs_section(tire: dict) -> str:
 
     return f'''<section class="tp-section">
   <div class="tp-container">
-    <span class="tp-section-num">01 / LAB DATA</span>
+    <span class="tp-section-num">02 / LAB DATA</span>
     <h2>Lab Data by Width</h2>
     {lab_html}
     <table class="tp-specs-table tp-ratings-table">
@@ -764,98 +750,266 @@ def build_specs_section(tire: dict) -> str:
 </section>'''
 
 
-def build_use_cases_section(tire: dict) -> str:
-    rec_chips = "".join(
-        f'<span class="tp-chip tp-chip--good">{esc(u)}</span>'
-        for u in tire.get("recommended_use", [])
-    )
-    avoid_chips = "".join(
-        f'<span class="tp-chip tp-chip--bad">{esc(u)}</span>'
-        for u in tire.get("avoid_use", [])
-    )
+# ── How it ranks: each BRR test against every lab-tested tire ─
 
-    pros = "".join(f"<li>{esc(s)}</li>" for s in tire.get("strengths", []))
-    cons = "".join(f"<li>{esc(w)}</li>" for w in tire.get("weaknesses", []))
-    h4 = ('<h4 style="font-family:var(--gg-font-data);font-size:10px;font-weight:700;'
-          'letter-spacing:2px;text-transform:uppercase;color:var(--gg-color-{c});'
-          'margin-bottom:4px">{t}</h4>')
-    blocks = []
-    if rec_chips:
-        blocks.append(h4.format(c="teal", t="RECOMMENDED FOR") + f'<div class="tp-chips">{rec_chips}</div>')
-    if avoid_chips:
-        blocks.append(h4.format(c="secondary-brown", t="AVOID IN") + f'<div class="tp-chips">{avoid_chips}</div>')
-    cols = []
-    if pros:
-        cols.append(f'<div class="tp-pros"><h4>Strengths</h4><ul>{pros}</ul></div>')
-    if cons:
-        cols.append(f'<div class="tp-cons"><h4>Weaknesses</h4><ul>{cons}</ul></div>')
-    if cols:
-        blocks.append(f'<div class="tp-pros-cons">{"".join(cols)}</div>')
-    if not blocks:
-        return ""
+WIDTH_CLASSES = (  # (nominal mm, min, max, label)
+    (40, 35, 42, "35–42mm"),
+    (45, 43, 47, "43–47mm"),
+    (50, 48, 60, "48mm and wider"),
+)
+RANK_MEASURES = (  # (test key, table label, sentence noun, unit, lower is better)
+    ("rr_watts", "Rolling resistance", "rolling resistance", " W", True),
+    ("puncture_tread", "Puncture (tread)", "puncture resistance", "", False),
+    ("wet_grip", "Wet grip", "wet grip", "", False),
+    ("weight_g", "Weight", "weight", " g", True),
+)
+_lab_pool = None
 
+
+def width_class(width_mm):
+    for nominal, lo, hi, _ in WIDTH_CLASSES:
+        if width_mm and lo <= width_mm <= hi:
+            return nominal
+    return None
+
+
+def tests_by_class(tire: dict) -> dict:
+    """One BRR test per width class: the one nearest the class's nominal width."""
+    out = {}
+    for t in tire.get("brr_tests", []):
+        cls = width_class(t.get("width_mm"))
+        if cls and (cls not in out
+                    or abs(t["width_mm"] - cls) < abs(out[cls]["width_mm"] - cls)):
+            out[cls] = t
+    return out
+
+
+def lab_pool() -> dict:
+    """tire id -> tests by width class, for every lab-tested tire in the database."""
+    global _lab_pool
+    if _lab_pool is None:
+        _lab_pool = {t["id"]: tests_by_class(t) for t in load_tire_database()
+                     if t.get("lab_tested")}
+    return _lab_pool
+
+
+def ordinal(n: int) -> str:
+    suffix = "th" if 10 <= n % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+    return f"{n}{suffix}"
+
+
+def tire_ranks(tire: dict):
+    """Rank the tire's BRR test against every lab-tested tire in one width
+    class: the class with the most tested tires (ties go wider). None when the
+    tire has no lab test."""
+    mine = tests_by_class(tire) if tire.get("lab_tested") else {}
+    if not mine:
+        return None
+    pool = {**lab_pool(), tire["id"]: mine}
+    cls = max(mine, key=lambda c: (sum(1 for tests in pool.values() if c in tests), c))
+    test = mine[cls]
+    rows = []
+    for key, label, noun, unit, lower in RANK_MEASURES:
+        value = test.get(key)
+        if value is None:
+            continue
+        others = [tests[cls][key] for tid, tests in pool.items()
+                  if tid != tire["id"] and cls in tests and tests[cls].get(key) is not None]
+        better = sum(1 for o in others if (o < value if lower else o > value))
+        rows.append({"label": label, "noun": noun, "value": value, "unit": unit,
+                     "rank": better + 1, "of": len(others) + 1})
+    if not rows:
+        return None
+    label = next(lbl for nominal, _, _, lbl in WIDTH_CLASSES if nominal == cls)
+    return {"width_class": cls, "class_label": label, "test": test, "rows": rows}
+
+
+def _join(words: list) -> str:
+    return words[0] if len(words) == 1 else ", ".join(words[:-1]) + " and " + words[-1]
+
+
+def rank_sentence(ranks: dict) -> str:
+    """'top third for wet grip; bottom third for puncture resistance'."""
+    top = [r["noun"] for r in ranks["rows"] if r["rank"] <= r["of"] / 3]
+    bottom = [r["noun"] for r in ranks["rows"] if r["rank"] > r["of"] * 2 / 3]
+    parts = []
+    if top:
+        parts.append(f"top third for {_join(top)}")
+    if bottom:
+        parts.append(f"bottom third for {_join(bottom)}")
+    return "; ".join(parts) or "middle third on every lab measure"
+
+
+def build_ranks_section(ranks) -> str:
+    if not ranks:
+        body = '<p class="tp-verdict">No lab test yet.</p>'
+    else:
+        phrase = rank_sentence(ranks)
+        test = ranks["test"]
+        rows = "".join(
+            f'<tr><td>{r["label"]}</td><td>{_num(r["value"], r["unit"])}</td>'
+            f'<td>{ordinal(r["rank"])} of {r["of"]}</td></tr>'
+            for r in ranks["rows"])
+        pool = max(r["of"] for r in ranks["rows"])
+        width = _num(test["width_mm"], "mm")
+        test_link = (f'<a href="{esc(test["url"])}" target="_blank" rel="noopener">{width} test</a>'
+                     if test.get("url") else f"{width} test")
+        body = f'''<p class="tp-verdict">{esc(phrase[0].upper() + phrase[1:])}.</p>
+    <table class="tp-specs-table tp-rank-table">
+      <thead><tr><th>Lab measure</th><th>Result</th><th>Rank</th></tr></thead>
+      <tbody>{rows}</tbody>
+    </table>
+    <p class="tp-lab-source">BRR's {test_link}, ranked among the {pool} tires in our database BRR tested at {esc(ranks["class_label"])}.</p>'''
     return f'''<section class="tp-section">
   <div class="tp-container">
-    <span class="tp-section-num">02 / BEST FOR</span>
-    <h2>When to Use This Tire</h2>
-    {"".join(blocks)}
+    <span class="tp-section-num">01 / HOW IT RANKS</span>
+    <h2>How It Ranks</h2>
+    {body}
   </div>
 </section>'''
 
 
-def build_race_recommendations_section(tire: dict, race_recs: list) -> str:
-    if not race_recs:
-        return f'''<section class="tp-section">
-  <div class="tp-container">
-    <span class="tp-section-num">03 / RACE RECOMMENDATIONS</span>
-    <h2>Races Where This Tire Shines</h2>
-    <p style="font-family:var(--gg-font-data);font-size:13px;color:var(--gg-color-secondary-brown)">
-      No races currently recommend this tire as a primary pick. Check individual race tire guides for the latest recommendations.
-    </p>
-  </div>
-</section>'''
+# ── Where we pick it: the race picks, summarized ──────────────
 
-    # Sort: primary rank 1 first, then other primaries, then front/rear
-    def sort_key(r):
-        if r["position"] == "primary":
-            return (0, r["rank"])
-        return (1, 0)
+PROFILE_LABELS = (("mixed", "Mixed surface"), ("technical", "Technical"),
+                  ("muddy", "Muddy"), ("wet", "Wet"), ("fast", "Fast"))
+_race_meta = None
 
-    sorted_recs = sorted(race_recs, key=sort_key)
 
-    items = []
-    for rec in sorted_recs:
-        if rec["position"] == "primary" and rec["rank"] == 1:
-            rank_class = "tp-race-rank tp-race-rank--1"
-            rank_text = "#1"
-        elif rec["position"] == "primary":
-            rank_class = "tp-race-rank"
-            rank_text = f"#{rec['rank']}"
-        else:
-            rank_class = "tp-race-rank tp-race-rank--fr"
-            rank_text = rec["position"].upper()[:2]
+def race_meta() -> dict:
+    """slug -> name, tier and surface profile for every race with tire picks."""
+    global _race_meta
+    if _race_meta is None:
+        _race_meta = {}
+        for path in RACE_DATA_DIR.glob("*.json"):
+            try:
+                race = json.loads(path.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                continue
+            race = race.get("race", race)
+            picks = race.get("tire_recommendations") or {}
+            if not picks.get("primary"):
+                continue
+            rating = race.get("gravel_god_rating") or {}
+            _race_meta[path.stem] = {"name": race.get("name") or path.stem,
+                                     "tier": rating.get("tier"),
+                                     "profile": picks.get("race_surface_profile") or "mixed"}
+    return _race_meta
 
-        why_html = f'<div class="tp-race-why">{esc(rec["why"])}</div>' if rec.get("why") else ""
-        items.append(f'''<li class="tp-race-item">
+
+def _race_item(rec: dict) -> str:
+    if rec["position"] == "primary" and rec["rank"] == 1:
+        rank_class, rank_text = "tp-race-rank tp-race-rank--1", "#1"
+    elif rec["position"] == "primary":
+        rank_class, rank_text = "tp-race-rank", f"#{rec['rank']}"
+    else:
+        rank_class, rank_text = "tp-race-rank tp-race-rank--fr", rec["position"].upper()[:2]
+    why_html = f'<div class="tp-race-why">{esc(rec["why"])}</div>' if rec.get("why") else ""
+    return f'''<li class="tp-race-item">
       <span class="{rank_class}">{rank_text}</span>
       <div class="tp-race-info">
         <a href="/race/{esc(rec["slug"])}/tires/" class="tp-race-name">{esc(rec["name"])}</a>
         {why_html}
       </div>
       <span class="tp-race-width">{rec["width"]}mm</span>
-    </li>''')
+    </li>'''
 
-    primary_count = sum(1 for r in race_recs if r["position"] == "primary")
-    rank1_count = sum(1 for r in race_recs if r["position"] == "primary" and r["rank"] == 1)
+
+RACE_LIST_OPEN_MAX = 12
+
+
+def pick_counts(race_recs: list) -> tuple:
+    """(#1 picks, top-3 picks) across the race guides."""
+    primary = [r for r in race_recs if r["position"] == "primary"]
+    return sum(1 for r in primary if r["rank"] == 1), len(primary)
+
+
+def build_where_we_pick_section(race_recs: list) -> str:
+    races = race_meta()
+    rank1, top3 = pick_counts(race_recs)
+    split = len(race_recs) - top3
+    if rank1:
+        summary = f"#1 pick at {rank1} of {len(races)} races; top 3 at {top3}."
+    elif top3:
+        summary = f"Top 3 at {top3} of {len(races)} races, never #1."
+    else:
+        summary = f"Not in our top 3 at any of the {len(races)} races."
+    if split:
+        summary += f" Front/rear split at {split}."
+
+    courses = ""
+    if top3:
+        picked = {r["slug"] for r in race_recs if r["position"] == "primary"}
+        rows = []
+        for key, label in PROFILE_LABELS:
+            slugs = [slug for slug, meta in races.items() if meta["profile"] == key]
+            if slugs:
+                rows.append(f"<tr><td>{label}</td>"
+                            f"<td>{sum(1 for slug in slugs if slug in picked)} of {len(slugs)}</td></tr>")
+        courses = f'''<table class="tp-specs-table tp-course-table">
+      <thead><tr><th>Course</th><th>Top 3 at</th></tr></thead>
+      <tbody>{"".join(rows)}</tbody>
+    </table>'''
+
+    ordered = sorted(race_recs, key=lambda r: (r["position"] != "primary", r.get("rank") or 9, r["name"]))
+    if len(ordered) <= RACE_LIST_OPEN_MAX:
+        lists = f'<ul class="tp-race-list">{"".join(_race_item(r) for r in ordered)}</ul>' if ordered else ""
+    else:
+        top_tier = [r for r in ordered if races.get(r["slug"], {}).get("tier") == 1]
+        lists = (f'<h3 class="tp-sub">Tier 1 races</h3>'
+                 f'<ul class="tp-race-list">{"".join(_race_item(r) for r in top_tier)}</ul>'
+                 if top_tier else "")
+        lists += (f'<details class="tp-race-more"><summary>All {len(ordered)} races</summary>'
+                  f'<ul class="tp-race-list">{"".join(_race_item(r) for r in ordered)}</ul></details>')
 
     return f'''<section class="tp-section">
   <div class="tp-container">
-    <span class="tp-section-num">03 / RACE RECOMMENDATIONS</span>
-    <h2>Races Where This Tire Shines</h2>
-    <p style="font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-secondary-brown);margin-bottom:16px">
-      Recommended in {len(race_recs)} race tire guides &mdash; #{" "}1 pick in {rank1_count}, top 3 in {primary_count}.
-    </p>
-    <ul class="tp-race-list">{"".join(items)}</ul>
+    <span class="tp-section-num">03 / RACE PICKS</span>
+    <h2>Where We Pick It</h2>
+    <p class="tp-verdict">{esc(summary)}</p>
+    {courses}
+    {lists}
+  </div>
+</section>'''
+
+
+# ── Who raced it: sourced podium setups ───────────────────────
+
+
+def build_who_raced_section(tire: dict) -> str:
+    """Podium riders on this tire, from the sourced podium file. A row counts
+    only when the source names this exact tire."""
+    from generate_tire_guide import load_podiums, podium_width
+    races = race_meta()
+    rows = []
+    for slug, podium in sorted(load_podiums().items()):
+        for e in podium.get("entries", []):
+            if e.get("tire") != tire["name"]:
+                continue
+            detail = "; ".join(x for x in (podium_width(e), e.get("pressure"), e.get("note")) if x)
+            source = (f'<a href="{esc(e["source_url"])}" target="_blank" rel="noopener">'
+                      f'{esc(e["source_name"])}</a>')
+            if e.get("source_type") in ("brand", "rider"):
+                source += f' ({esc(e["source_type"])})'
+            race_name = races.get(slug, {}).get("name", slug)
+            rows.append(
+                f'<tr><td><a href="/race/{esc(slug)}/tires/">{esc(race_name)} '
+                f'{esc(podium["edition_year"])}</a><br>{esc(e["category"].title())} {esc(e["place"])}</td>'
+                f'<td><strong>{esc(e["rider"])}</strong><br>'
+                f'<span class="tp-podium-detail">{esc(detail)}</span></td>'
+                f'<td>{source}</td></tr>')
+    if not rows:
+        return ""
+    return f'''<section class="tp-section">
+  <div class="tp-container">
+    <span class="tp-section-num">04 / PODIUMS</span>
+    <h2>Who Raced It</h2>
+    <div class="tp-table-scroll">
+    <table class="tp-specs-table">
+      <thead><tr><th>Race</th><th>Rider</th><th>Source</th></tr></thead>
+      <tbody>{"".join(rows)}</tbody>
+    </table>
+    </div>
   </div>
 </section>'''
 
@@ -1268,7 +1422,7 @@ def build_inline_js() -> str:
 </script>'''
 
 
-def build_json_ld(tire: dict, race_recs: list) -> str:
+def build_json_ld(tire: dict, race_recs: list, description: str = "") -> str:
     slug = tire_slug(tire)
     name = tire["name"]
     url = f"{SITE_BASE_URL}/tire/{slug}/"
@@ -1294,7 +1448,7 @@ def build_json_ld(tire: dict, race_recs: list) -> str:
         "@type": "Product",
         "name": name,
         "brand": {"@type": "Brand", "name": tire["brand"]},
-        "description": tire.get("tagline", ""),
+        "description": description,
         "url": url,
     }
     if tire.get("msrp_usd"):
@@ -1325,24 +1479,42 @@ def build_json_ld(tire: dict, race_recs: list) -> str:
 # ── Full Page Assembly ────────────────────────────────────────
 
 
+def number_sections(html: str) -> str:
+    """Renumber the "NN / LABEL" section tags in page order, so an optional
+    section (Who Raced It) never leaves a gap."""
+    counter = iter(range(1, 100))
+    return re.sub(r'(<span class="tp-section-num">)\d{2}( / )',
+                  lambda m: f"{m.group(1)}{next(counter):02d}{m.group(2)}", html)
+
+
 def generate_tire_page(tire: dict, race_recs: list, comparisons: list = ()) -> str:
     slug = tire_slug(tire)
     name = tire["name"]
 
+    ranks = tire_ranks(tire)
+    title = esc(page_title(tire))
+    meta_desc = page_description(tire, ranks, race_recs)
+
     header = build_header(tire)
-    specs = build_specs_section(tire)
-    use_cases = build_use_cases_section(tire)
-    races = build_race_recommendations_section(tire, race_recs)
+    sections = [
+        build_ranks_section(ranks),
+        build_specs_section(tire),
+        build_where_we_pick_section(race_recs),
+        build_who_raced_section(tire),
+    ]
     community_reviews = build_community_reviews_section(tire)
     email_capture = build_email_capture()
     internal_links = build_internal_links_section(tire, race_recs, comparisons)
     footer = build_footer_cta(tire)
     inline_js = build_inline_js()
-    json_ld = build_json_ld(tire, race_recs)
-
-    title, meta_desc = page_title_and_description(tire)
-    title = esc(title)
+    json_ld = build_json_ld(tire, race_recs, meta_desc)
     canonical = f"{SITE_BASE_URL}/tire/{slug}/"
+
+    main_html = number_sections("\n".join(x for x in sections + [community_reviews, f'''<section class="tp-section">
+  <div class="tp-container">
+    {email_capture}
+  </div>
+</section>''', internal_links] if x))
 
     tokens_css = get_tokens_css()
     font_css = get_font_face_css(font_path_prefix="/race/assets/fonts")
@@ -1379,16 +1551,7 @@ def generate_tire_page(tire: dict, race_recs: list, comparisons: list = ()) -> s
 <body>
 {header}
 <main>
-{specs}
-{use_cases}
-{races}
-{community_reviews}
-<section class="tp-section">
-  <div class="tp-container">
-    {email_capture}
-  </div>
-</section>
-{internal_links}
+{main_html}
 </main>
 {footer}
 {inline_js}

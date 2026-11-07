@@ -86,6 +86,21 @@ class TestVerifyScript:
         assert result.returncode == 0
         assert "VERIFY_OK" in result.stdout
 
+    def test_spaces_and_literal_shell_metacharacters_are_not_evaluated(self, tmp_path):
+        # Empty substitution syntax contains no command, even if quoting regresses.
+        base = tmp_path / "release spaces ; ' \" $literal $() `` [x] *"
+        base.mkdir()
+        result = self._run(base, ["a ' [x];.md"], True, {"a ' [x];.md": "literal content"})
+        assert result.returncode == 0, result.stderr
+        assert "VERIFY_OK" in result.stdout
+
+    def test_missing_directory_diagnostic_keeps_literal_metacharacters(self, tmp_path):
+        base = tmp_path / "missing spaces ; ' \" $literal $() `` [x] *"
+        script = pw._build_verify_script(str(base), [], False)
+        result = subprocess.run(["bash", "-c", script], capture_output=True, text=True)
+        assert result.returncode == 1
+        assert result.stdout.strip() == "MISSING_DIR:" + str(base)
+
     def test_truncated_html_fails(self, tmp_path):
         result = self._run(
             tmp_path, ["a/index.html"], True,
@@ -171,6 +186,31 @@ class TestPromoteScript:
         assert (remote / "b.md").read_text() == "md content"
         assert not staging.exists()
         assert exit_path.read_text().strip() == "0"
+
+    def test_every_path_handles_spaces_quotes_and_literal_shell_syntax(self, tmp_path):
+        # No executable command is embedded in these names.
+        root = tmp_path / "release spaces ; ' \" $literal $() `` [x] *"
+        staging, remote = root / "stage ' $()", root / "live \" ``"
+        staging.mkdir(parents=True)
+        remote.mkdir()
+        (staging / "new ' [x];.md").write_text("new content")
+        (remote / "existing.md").write_text("keep me")
+        log_path, exit_path = root / "log ' $() ``.txt", root / "exit \" [x].txt"
+        script = pw._build_promote_script(str(staging), str(remote), str(log_path), str(exit_path))
+        result = subprocess.run(["bash", "-c", script], capture_output=True, text=True)
+        assert result.returncode == 0, result.stderr
+        assert exit_path.read_text().strip() == "0"
+        assert (remote / "new ' [x];.md").read_text() == "new content"
+        assert (remote / "existing.md").read_text() == "keep me"
+        assert not staging.exists()
+        assert log_path.exists()
+
+    def test_home_prefix_still_expands_but_suffix_stays_literal(self):
+        suffix = "literal spaces ; ' \" $literal $() `` [x] *"
+        expr = pw._remote_path_expr("~/" + suffix)
+        result = subprocess.run(["bash", "-c", "printf '%s' " + expr], capture_output=True, text=True)
+        assert result.returncode == 0, result.stderr
+        assert result.stdout == str(Path.home() / suffix)
 
     def test_never_deletes_sibling_live_content(self, tmp_path):
         """The core safety property: a race dir holds both index.html and

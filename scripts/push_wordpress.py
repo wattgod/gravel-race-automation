@@ -33,6 +33,7 @@ try:
         generate_redirect_section as generate_road_migration_redirect_section,
         load_approved_map as load_approved_road_migration_map,
     )
+    from scripts import retired_races
 except ModuleNotFoundError:
     # Direct invocation (`python scripts/push_wordpress.py`) places scripts/
     # rather than the repository root on sys.path.
@@ -43,6 +44,9 @@ except ModuleNotFoundError:
         generate_redirect_section as generate_road_migration_redirect_section,
         load_approved_map as load_approved_road_migration_map,
     )
+    import retired_races
+
+generate_retired_race_section = retired_races.generate_section
 
 load_dotenv()
 
@@ -2237,6 +2241,19 @@ def _release_deploy_lock(host: str, user: str, port: str) -> None:
         pass
 
 
+def _remote_path_expr(path: str) -> str:
+    """One literal shell word, preserving only the supported leading ~/ expansion.
+
+    Quote the suffix separately so spaces and shell syntax stay data while
+    Bash still expands an unquoted tilde prefix. Other paths are literal.
+    """
+    if path == "~":
+        return "~"
+    if path.startswith("~/"):
+        return "~/" + shlex.quote(path[2:])
+    return shlex.quote(path)
+
+
 def _build_verify_script(base: str, relpaths: list, check_total_count: bool,
                           sizes: dict = None) -> str:
     """Shell script (run via `ssh ... bash -s`, script text piped over
@@ -2267,12 +2284,10 @@ if [ "$actual_count" != "{len(relpaths)}" ]; then
   status=1
 fi
 '''
-    # `base` is always our own generated constant (DEPLOY_STAGING_ROOT +
-    # kind + timestamp, or the hardcoded remote_base path) — never user
-    # input — so it's used unquoted, the same way the rest of this file
-    # does, to keep server-side `~` expansion working.
+    # Assign one shell-safe word before use; a supported leading ~/ still expands.
     return f"""set -u
-cd {base} || {{ echo "MISSING_DIR:{base}"; exit 1; }}
+base={_remote_path_expr(base)}
+cd -- "$base" || {{ printf '%s\\n' "MISSING_DIR:$base"; exit 1; }}
 status=0
 {count_check}
 relpaths=( {relpaths_arr} )
@@ -2335,23 +2350,19 @@ def _build_promote_script(staging: str, remote_base: str, log_path: str, exit_pa
     moved it into remote_base, leaving a stray script file live on every
     single successful deploy.
 
-    `remote_base`/`staging`/`log_path`/`exit_path` are assigned to shell
-    variables via an UNQUOTED assignment first (so a leading `~` still
-    expands there), then referenced as "$remote_base" etc. everywhere else.
-    Embedding one of these directly inside a double-quoted string (e.g.
-    `destdir="{remote_base}/..."`) would NOT expand its leading `~` — bash
-    only tilde-expands an unquoted `~` — so files would silently land under
-    a literal "~" subdirectory instead of the real path."""
+    Paths are assigned as shell-safe words with leading ~/ expansion kept,
+    then referenced as quoted variables. No path suffix is evaluated as code.
+    """
     return f"""set -uo pipefail
-remote_base={remote_base}
-staging={staging}
-log_path={log_path}
-exit_path={exit_path}
+remote_base={_remote_path_expr(remote_base)}
+staging={_remote_path_expr(staging)}
+log_path={_remote_path_expr(log_path)}
+exit_path={_remote_path_expr(exit_path)}
 script_path="$staging/.promote.sh"
 (
   set -euo pipefail
   mkdir -p "$remote_base"
-  cd "$staging"
+  cd -- "$staging"
   rm -f "$script_path"
   rmdir "$staging/.promote-lock" 2>/dev/null || true
   find . -type f -print0 | while IFS= read -r -d '' f; do
@@ -2858,7 +2869,9 @@ TIRE_GUIDES_WITHDRAWN_RULE = (
 )
 
 
-REDIRECT_BLOCK = """\
+# REDIRECT_BLOCK = hand-written rules + the generated retired-race section
+# (scripts/retired_races.py) + the self-healing fallbacks, which must stay last.
+_REDIRECT_RULES_HAND_WRITTEN = """\
 # BEGIN Gravel God Redirects
 <IfModule mod_rewrite.c>
 RewriteEngine On
@@ -3328,6 +3341,9 @@ RewriteRule ^race/homepage/?$ / [R=301,L]
 # pages built from it go to the one tire page.
 RewriteRule ^tire/(?:[a-z0-9-]+-vs-)?specialized-pathfinder-pro-47(?:-vs-[a-z0-9-]+)?/?$ /tire/specialized-pathfinder-pro/ [R=301,L]
 
+"""
+
+_REDIRECT_RULES_FALLBACKS = """\
 # Dead-reference self-healing (2026-07-22 link audit: 215 stale /tires/ +
 # 24 undeployed VS URLs sat in the sitemap 404ing). If the page exists on
 # disk these rules never fire; if it doesn't, 301 to the parent race page
@@ -3468,7 +3484,51 @@ RewriteRule ^feed/?$ /feed/races.xml [R=301,L]
 # END Gravel God Redirects
 """
 
+RETIRED_RACE_REDIRECT_SECTION = generate_retired_race_section(
+    _REDIRECT_RULES_HAND_WRITTEN + _REDIRECT_RULES_FALLBACKS)
+REDIRECT_BLOCK = (_REDIRECT_RULES_HAND_WRITTEN + RETIRED_RACE_REDIRECT_SECTION
+                  + "\n" + _REDIRECT_RULES_FALLBACKS)
+
 REDIRECT_MARKER = "# BEGIN Gravel God Redirects"
+
+
+def check_retired_races():
+    """Fail if the server still serves a page for a race that isn't in
+    race-data/ and that no redirect rule catches.
+
+    The deploy only adds files, so deleting race-data/{slug}.json without a
+    tombstone leaves /race/{slug}/ live with stale content (eight races sat
+    like that from Aug to Nov 2026). Lists each race's fingerprints on the
+    server (.md mirror and sub-page folders) and checks them against
+    REDIRECT_BLOCK. Read-only.
+    """
+    ssh = get_ssh_credentials()
+    if not ssh:
+        return False
+    host, user, port = ssh
+    remote_base = "~/www/gravelgodcycling.com/public_html/race"
+    subs = " ".join(f"*/{s}" for s in retired_races.SUB_PAGES)
+    listing = subprocess.run(
+        ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+         f"cd {remote_base} && {{ ls -1d *.md {subs} 2>/dev/null; true; }}"],
+        capture_output=True, text=True, timeout=60)
+    entries = listing.stdout.split()
+    if listing.returncode != 0 or len(entries) < 100:
+        print(f"✗ Retired-race check could not list /race/ "
+              f"(rc={listing.returncode}, {len(entries)} entries)")
+        return False
+    orphans = retired_races.server_orphans(
+        listing.stdout, retired_races.live_race_slugs(),
+        retired_races.unconditional_rules(REDIRECT_BLOCK))
+    if orphans:
+        print(f"✗ {len(orphans)} live URLs belong to races no longer in race-data/ "
+              "and no redirect catches them. Add each race to config/tombstones.json "
+              "with a redirect, then --sync-redirects:")
+        for path in orphans:
+            print(f"   {path}")
+        return False
+    print(f"✓ No retired race serves a page ({len(entries)} race files checked)")
+    return True
 
 
 def sync_redirects():
@@ -5860,6 +5920,11 @@ if __name__ == "__main__":
         help="Deploy redirect rules to .htaccess"
     )
     parser.add_argument(
+        "--check-retired-races", action="store_true",
+        help="Fail if the server serves a page for a race not in race-data/ "
+             "that no redirect catches (read-only)"
+    )
+    parser.add_argument(
         "--sync-noindex", action="store_true",
         help="Deploy noindex mu-plugin to wp-content/mu-plugins/"
     )
@@ -6121,6 +6186,9 @@ if __name__ == "__main__":
         if args.purge_cache:
             args.purge_cache = False
             _dry_run_skipped.append("--purge-cache")
+        if args.check_retired_races:
+            args.check_retired_races = False
+            _dry_run_skipped.append("--check-retired-races")
         if args.json:
             _dry_run_skipped.append(f"--json {args.json}")
             args.json = None
@@ -6144,7 +6212,7 @@ if __name__ == "__main__":
                       args.sync_insights, args.sync_whitepaper, args.sync_surge_check, args.sync_embed, args.sync_rss,
                       args.sync_llms_txt, args.sync_markdown, args.ping_indexnow,
                       args.sync_legal, args.sync_consent, args.sync_tire_pages,
-                      args.sync_latest, args.purge_cache])
+                      args.sync_latest, args.purge_cache, args.check_retired_races])
     if not has_action:
         parser.error("Provide a sync flag (--sync-pages, --sync-index, etc.), --deploy-content, or --deploy-all")
 
@@ -6218,6 +6286,8 @@ if __name__ == "__main__":
         _run("sync-favicons", sync_favicons, args.favicon_dir)
     if args.sync_redirects:
         _run("sync-redirects", sync_redirects)
+    if args.check_retired_races:
+        _run("check-retired-races", check_retired_races)
     if args.sync_noindex:
         _run("sync-noindex", sync_noindex)
     if args.sync_headings:

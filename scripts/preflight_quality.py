@@ -19,6 +19,7 @@ import json
 import re
 import subprocess
 import sys
+import urllib.error
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -1216,23 +1217,24 @@ def check_meta_descriptions():
 
 
 def check_questionnaire_parity():
-    """Verify the live Elementor questionnaire page matches the repo file.
+    """Verify the actual legacy or intentional two-step questionnaire flow.
 
-    The /questionnaire/ page does NOT deploy from the repo (it's an
-    Elementor HTML widget) — it silently missed two shipped commits in
-    June 2026 because nothing compared the two. Network-dependent: warns
-    (not fails) if the live site is unreachable.
+    Transport unavailability retains the existing warn-only policy; HTTP
+    failures, unexpected redirects and artifact drift fail the check.
     """
     print("\n── Questionnaire Parity (live vs repo) ──")
     try:
         from check_questionnaire_parity import check_parity
         findings = check_parity()
-    except Exception as e:
+    except urllib.error.URLError as e:
         warn("Questionnaire parity", f"check could not run: {e}")
+        return
+    except Exception as exc:
+        check("Questionnaire parity validator", False, f"Validator failed: {type(exc).__name__}")
         return
 
     check(
-        "Questionnaire parity (live Elementor page matches repo)",
+        "Questionnaire parity (deployed flow matches repo)",
         not findings,
         "; ".join(findings[:5]) + (f" (+{len(findings) - 5} more)" if len(findings) > 5 else ""),
     )

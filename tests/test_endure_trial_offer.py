@@ -16,7 +16,9 @@ def test_signup_has_source_campaign_and_no_entitlement_bypass():
     query = parse_qs(url.query)
     assert query["utm_campaign"] == ["endure_trial"]
     assert query["utm_medium"] == ["referral"]
-    assert set(query) == {"utm_source", "utm_medium", "utm_campaign", "utm_content"}
+    assert query["source"] == ["ggc"]
+    assert query["intent"] == ["training"]
+    assert set(query) == {"source", "intent", "utm_source", "utm_medium", "utm_campaign", "utm_content"}
 
 def test_offer_discloses_card_conversion_cancellation_and_eligibility():
     text = offer.get_endure_offer_html()
@@ -44,3 +46,10 @@ def test_legacy_cms_footer_has_readable_colors_without_design_token_variables():
     assert "background:var(--gg-color-dark-brown,#3a2e25)" in text
     assert ".endure-trial-offer h4 {color:inherit;" in text
     assert ".endure-trial-offer nav {color:inherit;" in text
+
+
+def test_standard_trial_length_matches_endure_card_trial_policy():
+    text = offer.get_endure_offer_html()
+    assert "Try Endure for 14 days" in text
+    assert "14 days free. Card required." in text
+    assert "7 days free" not in text

@@ -4,6 +4,7 @@ from datetime import date, timedelta
 from urllib.parse import urlencode
 
 SIGNUP_URL = "https://endurelabs.app/sign-up?" + urlencode({
+    "source": "ggc", "intent": "training",
     "utm_source": "gravel-god", "utm_medium": "referral",
     "utm_campaign": "endure_trial", "utm_content": "site_footer",
 })

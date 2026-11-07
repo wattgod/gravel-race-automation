@@ -176,8 +176,8 @@
       "position": "primary"
     },
     {
-      "tire_id": "pirelli-cinturato-gravel-h",
-      "name": "Pirelli Cinturato Gravel H",
+      "tire_id": "hutchinson-touareg",
+      "name": "Hutchinson Touareg Race",
       "rank": 3,
       "width_mm": 45,
       "position": "primary"
@@ -321,6 +321,29 @@
       "position": "primary"
     }
   ],
+  "berryman-epic": [
+    {
+      "tire_id": "schwalbe-g-one-r-pro",
+      "name": "Schwalbe G-One R Pro",
+      "rank": 1,
+      "width_mm": 50,
+      "position": "primary"
+    },
+    {
+      "tire_id": "continental-dubnital",
+      "name": "Continental Dubnital Race Rapid",
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary"
+    },
+    {
+      "tire_id": "schwalbe-g-one-rx-pro",
+      "name": "Schwalbe G-One RX Pro",
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary"
+    }
+  ],
   "big-sky-gravel": [
     {
       "tire_id": "hutchinson-caracal-race",
@@ -431,6 +454,52 @@
     {
       "tire_id": "schwalbe-g-one-rx-pro",
       "name": "Schwalbe G-One RX Pro",
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary"
+    }
+  ],
+  "border-wars": [
+    {
+      "tire_id": "continental-terra-competition-race-rapid",
+      "name": "Continental Terra Competition Race Rapid",
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 2,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-touareg",
+      "name": "Hutchinson Touareg Race",
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary"
+    }
+  ],
+  "boulder-roubaix": [
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 1,
+      "width_mm": 50,
+      "position": "primary"
+    },
+    {
+      "tire_id": "schwalbe-g-one-r-pro",
+      "name": "Schwalbe G-One R Pro",
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary"
+    },
+    {
+      "tire_id": "specialized-pathfinder",
+      "name": "Specialized Pathfinder",
       "rank": 3,
       "width_mm": 50,
       "position": "primary"
@@ -663,6 +732,29 @@
       "name": "Specialized Pathfinder",
       "rank": 3,
       "width_mm": 50,
+      "position": "primary"
+    }
+  ],
+  "carpathian-gravel": [
+    {
+      "tire_id": "continental-terra-competition-race-rapid",
+      "name": "Continental Terra Competition Race Rapid",
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 2,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-touareg",
+      "name": "Hutchinson Touareg Race",
+      "rank": 3,
+      "width_mm": 45,
       "position": "primary"
     }
   ],
@@ -1218,6 +1310,29 @@
       "position": "primary"
     }
   ],
+  "dirty-french": [
+    {
+      "tire_id": "continental-terra-competition-race-rapid",
+      "name": "Continental Terra Competition Race Rapid",
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 2,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "pirelli-cinturato-gravel-h",
+      "name": "Pirelli Cinturato Gravel H",
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary"
+    }
+  ],
   "dirty-hector": [
     {
       "tire_id": "continental-terra-competition-race-rapid",
@@ -1632,6 +1747,29 @@
       "position": "primary"
     }
   ],
+  "fools-gold-gravel-grinder": [
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 1,
+      "width_mm": 50,
+      "position": "primary"
+    },
+    {
+      "tire_id": "schwalbe-g-one-r-pro",
+      "name": "Schwalbe G-One R Pro",
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary"
+    },
+    {
+      "tire_id": "specialized-pathfinder",
+      "name": "Specialized Pathfinder",
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary"
+    }
+  ],
   "forbidden-gravel": [
     {
       "tire_id": "hutchinson-caracal-race",
@@ -1813,6 +1951,29 @@
       "name": "Hutchinson Touareg Race",
       "rank": 3,
       "width_mm": 45,
+      "position": "primary"
+    }
+  ],
+  "gran-fondo-ozarks": [
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 1,
+      "width_mm": 50,
+      "position": "primary"
+    },
+    {
+      "tire_id": "schwalbe-g-one-r-pro",
+      "name": "Schwalbe G-One R Pro",
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary"
+    },
+    {
+      "tire_id": "specialized-pathfinder",
+      "name": "Specialized Pathfinder",
+      "rank": 3,
+      "width_mm": 50,
       "position": "primary"
     }
   ],
@@ -2345,6 +2506,29 @@
       "position": "primary"
     }
   ],
+  "gravel-suisse": [
+    {
+      "tire_id": "continental-terra-competition-race-rapid",
+      "name": "Continental Terra Competition Race Rapid",
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 2,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-touareg",
+      "name": "Hutchinson Touareg Race",
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary"
+    }
+  ],
   "gravel-tour-hlinsko": [
     {
       "tire_id": "hutchinson-caracal-race",
@@ -2499,8 +2683,8 @@
       "position": "primary"
     },
     {
-      "tire_id": "pirelli-cinturato-gravel-h",
-      "name": "Pirelli Cinturato Gravel H",
+      "tire_id": "hutchinson-touareg",
+      "name": "Hutchinson Touareg Race",
       "rank": 3,
       "width_mm": 45,
       "position": "primary"
@@ -2777,6 +2961,29 @@
     {
       "tire_id": "hutchinson-touareg",
       "name": "Hutchinson Touareg Race",
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary"
+    }
+  ],
+  "haute-route-gravel": [
+    {
+      "tire_id": "continental-terra-competition-race-rapid",
+      "name": "Continental Terra Competition Race Rapid",
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 2,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "pirelli-cinturato-gravel-h",
+      "name": "Pirelli Cinturato Gravel H",
       "rank": 3,
       "width_mm": 45,
       "position": "primary"
@@ -3400,6 +3607,29 @@
       "name": "Specialized Pathfinder",
       "rank": 3,
       "width_mm": 50,
+      "position": "primary"
+    }
+  ],
+  "king-of-the-lake": [
+    {
+      "tire_id": "continental-terra-competition-race-rapid",
+      "name": "Continental Terra Competition Race Rapid",
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 2,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-touareg",
+      "name": "Hutchinson Touareg Race",
+      "rank": 3,
+      "width_mm": 45,
       "position": "primary"
     }
   ],
@@ -4070,6 +4300,29 @@
       "position": "primary"
     }
   ],
+  "nicolet-hot-days": [
+    {
+      "tire_id": "continental-terra-competition-race-rapid",
+      "name": "Continental Terra Competition Race Rapid",
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 2,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-touareg",
+      "name": "Hutchinson Touareg Race",
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary"
+    }
+  ],
   "niseko-gravel": [
     {
       "tire_id": "continental-terra-competition-race-rapid",
@@ -4392,6 +4645,52 @@
       "position": "primary"
     }
   ],
+  "ouachita-challenge": [
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 1,
+      "width_mm": 50,
+      "position": "primary"
+    },
+    {
+      "tire_id": "schwalbe-g-one-r-pro",
+      "name": "Schwalbe G-One R Pro",
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary"
+    },
+    {
+      "tire_id": "specialized-pathfinder",
+      "name": "Specialized Pathfinder",
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary"
+    }
+  ],
+  "ouray-gravel-grinder": [
+    {
+      "tire_id": "continental-terra-competition-race-rapid",
+      "name": "Continental Terra Competition Race Rapid",
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 2,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-touareg",
+      "name": "Hutchinson Touareg Race",
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary"
+    }
+  ],
   "paris-to-ancaster": [
     {
       "tire_id": "continental-dubnital",
@@ -4554,6 +4853,29 @@
     }
   ],
   "prairie-burn-100": [
+    {
+      "tire_id": "continental-terra-competition-race-rapid",
+      "name": "Continental Terra Competition Race Rapid",
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 2,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "hutchinson-touareg",
+      "name": "Hutchinson Touareg Race",
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary"
+    }
+  ],
+  "purgatory-road-race": [
     {
       "tire_id": "continental-terra-competition-race-rapid",
       "name": "Continental Terra Competition Race Rapid",
@@ -5496,6 +5818,29 @@
       "position": "primary"
     }
   ],
+  "switchgrass": [
+    {
+      "tire_id": "continental-terra-competition-race-rapid",
+      "name": "Continental Terra Competition Race Rapid",
+      "rank": 1,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "challenge-getaway-pro",
+      "name": "Challenge Getaway Pro",
+      "rank": 2,
+      "width_mm": 45,
+      "position": "primary"
+    },
+    {
+      "tire_id": "pirelli-cinturato-gravel-h",
+      "name": "Pirelli Cinturato Gravel H",
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary"
+    }
+  ],
   "takelma-gravel-grinder": [
     {
       "tire_id": "hutchinson-caracal-race",
@@ -5677,29 +6022,6 @@
       "name": "Specialized Pathfinder",
       "rank": 3,
       "width_mm": 50,
-      "position": "primary"
-    }
-  ],
-  "the-majestics-gravel": [
-    {
-      "tire_id": "continental-terra-competition-race-rapid",
-      "name": "Continental Terra Competition Race Rapid",
-      "rank": 1,
-      "width_mm": 45,
-      "position": "primary"
-    },
-    {
-      "tire_id": "hutchinson-caracal-race",
-      "name": "Hutchinson Caracal Race",
-      "rank": 2,
-      "width_mm": 45,
-      "position": "primary"
-    },
-    {
-      "tire_id": "hutchinson-touareg",
-      "name": "Hutchinson Touareg Race",
-      "rank": 3,
-      "width_mm": 45,
       "position": "primary"
     }
   ],
@@ -6417,6 +6739,29 @@
     }
   ],
   "uwharrie-forest-gravel-grinder": [
+    {
+      "tire_id": "hutchinson-caracal-race",
+      "name": "Hutchinson Caracal Race",
+      "rank": 1,
+      "width_mm": 50,
+      "position": "primary"
+    },
+    {
+      "tire_id": "schwalbe-g-one-r-pro",
+      "name": "Schwalbe G-One R Pro",
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary"
+    },
+    {
+      "tire_id": "specialized-pathfinder",
+      "name": "Specialized Pathfinder",
+      "rank": 3,
+      "width_mm": 50,
+      "position": "primary"
+    }
+  ],
+  "vapor-trail-125": [
     {
       "tire_id": "hutchinson-caracal-race",
       "name": "Hutchinson Caracal Race",

@@ -101,6 +101,16 @@ def test_regular_publishes_ship_the_sitemap():
     assert "--sync-sitemap" in wf
 
 
+def test_publish_ships_race_finder_data_and_real_dates():
+    wf = (ROOT / ".github" / "workflows" / "publish-site.yml").read_text(encoding="utf-8")
+    # The race finder reads uploads/race-index.json; scores and tiers go stale
+    # on it unless the publish pushes the committed index.
+    assert "--sync-index" in wf
+    # page_dates.py needs full history for each race's last-changed date.
+    checkout = wf.split("name: Checkout Gravel God source", 1)[1].split("- name:", 1)[0]
+    assert "fetch-depth: 0" in checkout
+
+
 def test_race_page_money_path_check_follows_the_direct_links():
     sys.path.insert(0, str(ROOT / "scripts"))
     import immune_check

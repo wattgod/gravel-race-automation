@@ -54,6 +54,49 @@ def race_guides(race_index: list) -> dict:
             for t, rs in sorted(by_tier.items())}
 
 
+def build_method_section() -> str:
+    """How picks, widths and pressures are made, read from the constants the
+    generators use, so the published method can't drift from the code."""
+    import generate_tire_guide as g
+    lab = json.loads((PROJECT_ROOT / "data" / "tires" / "lab" / "brr-cx-gravel.json")
+                     .read_text(encoding="utf-8"))
+    brr = f'<a href="{esc(lab["source"])}" target="_blank" rel="noopener">bicyclerollingresistance.com</a>'
+    silca = ('<a href="https://silca.cc/pages/pro-tire-pressure-calculator" '
+             'target="_blank" rel="noopener">SILCA\'s calculator</a>')
+    widths = g.WIDTH_TARGETS
+    rows = [
+        ("Rolling", "BRR watts at the pick width", "Always"),
+        ("Puncture", f"{g.PUNCTURE_W_BASE:g} W per point below {g.PUNCTURE_REF}; "
+                     f"{g.PUNCTURE_W_LONG:g} W at {g.COMFORT_DISTANCE_MI}+ miles; "
+                     f"{g.PUNCTURE_W_SHARP:g} W with sharp rock", "Always"),
+        ("Wet grip", f"{g.WET_W:g} W per point below {g.WET_REF}",
+         f"Wet courses, or rain on {g.PRECIP_WET_THRESHOLD}%+ of race-month days"),
+        ("Shoulder knobs", f"{g.KNOB_EDGE_W_ROUGH:g} W per mm below {g.KNOB_EDGE_REF:g}mm; "
+                           f"{g.KNOB_EDGE_W_TECH:g} W on technical courses", "Rough courses"),
+        ("Center knobs", f"{g.MUD_KNOB_W:g} W per mm below {g.MUD_KNOB_REF:g}mm; "
+                         f"{g.MUD_KNOB_W_RISK:g} W if mud is possible", "Mud"),
+        ("Width", f"{g.WIDTH_SHORT_W:g} W per mm below the course width", "Mixed and rough courses"),
+        ("Untested size", f"{g.UNTESTED_WIDTH_W:g} W", "BRR didn't test that width"),
+    ]
+    table = "".join(f"<tr><td>{esc(a)}</td><td>{esc(b)}</td><td>{esc(c)}</td></tr>"
+                    for a, b, c in rows)
+    return f'''<h2 id="method">How We Pick</h2>
+  <div class="gg-tidx-method">
+    <p><strong>Measured.</strong> Rolling resistance, tread puncture score, wet grip, knob height, weight and width come from {brr}'s gravel test table, saved {esc(lab["fetched"])}. {esc(lab["protocol"])} We don't test tires ourselves, and a tire BRR hasn't tested at 38mm or wider is never picked.</p>
+    <p><strong>Our call.</strong> Tread type, mud clearance, what each course punishes (read from its course notes and weather), and the watt prices below.</p>
+    <p><strong>Width.</strong> Smooth courses get {widths[1]}mm, mixed {widths[2]}mm, rough and technical {widths[3]}mm, or the organizer's minimum if that's wider.</p>
+    <p><strong>Score.</strong> Each tire costs its rolling watts plus a watt price for what the course punishes. Lowest total wins. Picks 1 and 2 are the two cheapest; pick 3 is the cheapest with the other tread (file or knobs). Technical courses get no file treads; mud courses get only tires with real mud clearance.</p>
+    <table class="gg-tidx-table">
+      <thead><tr><th>Charge</th><th>Price</th><th>When</th></tr></thead>
+      <tbody>{table}</tbody>
+    </table>
+    <p><strong>Pressure.</strong> Front and rear psi come from our model fitted to {silca}: rider weight plus {g.BIKE_AND_KIT_LB} lb of bike and kit, tire width, and SILCA's gravel category from the course's tech rating. It lands within 0.5 psi of SILCA for 130 to 230 lb riders on 38 to 53mm tires.</p>
+    <p><strong>Podiums.</strong> Where a bike check, race report or brand race page says what a podium rider ran, the race's tire guide lists it next to our picks with the source linked. Brand pages are marked as brand. We leave widths and pressures blank unless the source states them.</p>
+    <p><strong>Setup.</strong> Sealant volumes are Stan's; insert weights and fits are Vittoria's and Tannus's. Whether a course needs inserts is our call from its course notes.</p>
+    <p><strong>What it misses.</strong> BRR's free table has no sidewall strength, so a tough casing can rank below a lighter one on a sharp course.</p>
+  </div>'''
+
+
 def build_tire_index_page(race_index: list, tires: list) -> str:
     guides = race_guides(race_index)
     guide_count = sum(len(rs) for rs in guides.values())
@@ -119,7 +162,13 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-tidx-list li {{ break-inside: avoid; padding: 6px 0; border-bottom: 2px solid var(--gg-color-tan); display: flex; justify-content: space-between; gap: 8px; }}
 .gg-tidx-list a {{ color: var(--gg-color-dark-brown); text-decoration: none; font-family: var(--gg-font-editorial); font-weight: 700; }}
 .gg-tidx-list a:hover {{ color: var(--gg-color-teal); }}
-{get_mega_footer_css()}
+.gg-tidx-page h2 {{ scroll-margin-top: calc(var(--gg-header-height, 64px) + 12px); }}
+.gg-tidx-method {{ max-width: 760px; }}
+.gg-tidx-method p {{ font-size: 14px; line-height: 1.6; margin: 0 0 14px; }}
+.gg-tidx-method a {{ color: var(--gg-color-teal); }}
+.gg-tidx-table {{ width: 100%; border-collapse: collapse; font-size: 13px; margin: 4px 0 18px; }}
+.gg-tidx-table th, .gg-tidx-table td {{ text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 2px solid var(--gg-color-tan); }}
+.gg-tidx-table th {{ font-size: 11px; letter-spacing: 1px; text-transform: uppercase; border-bottom: 3px solid var(--gg-color-dark-brown); }}{get_mega_footer_css()}
   </style>
   {get_ga4_head_snippet()}
 </head>
@@ -136,6 +185,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
     <ul class="gg-tidx-list">
       {tire_items}
     </ul>
+
+  {build_method_section()}
 </div>
 {get_mega_footer_html()}
 {get_site_header_js()}

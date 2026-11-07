@@ -1055,3 +1055,115 @@ class TestWidthRecommendationsHardened(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+# ── Setup block: sourced volumes, course-driven inserts and spares ──
+
+import generate_tire_guide as _g  # noqa: E402
+
+
+def _setup_profile(**kw):
+    p = {"needs_puncture": False, "tech_rating": 2, "features_list": [], "surface_category": "mixed",
+         "combined_text": "", "distance_mi": 100}
+    p.update(kw)
+    return p
+
+
+def test_sealant_volume_comes_from_stans_chart():
+    assert [_g.sealant_ml(w) for w in (40, 45, 50)] == [60, 80, 95]
+    assert _g.sealant_ml(47) == 80 and _g.sealant_ml(48) == 95
+
+
+def test_inserts_only_when_the_course_is_sharp_or_technical():
+    calm = _g.build_setup_strategy(2, 45, _setup_profile())
+    sharp = _g.build_setup_strategy(3, 50, _setup_profile(needs_puncture=True,
+                                                          combined_text="sharp flint"))
+    calm_insert = next(i for i in calm["items"] if i["title"] == "Inserts")
+    sharp_insert = next(i for i in sharp["items"] if i["title"] == "Inserts")
+    assert calm_insert["lead"] == "Skip them"
+    assert sharp_insert["lead"] == "Run them" and "flint" in sharp_insert["body"]
+    # Only inserts that fit 50mm are named and linked (Tannus tops out at 47mm).
+    assert "Air-Liner Light Gravel" in sharp_insert["body"]
+    assert "Tannus" not in sharp_insert["body"]
+    assert any("vittoria.com" in url for _, url in sharp["sources"])
+
+
+def test_tannus_pressure_note_only_where_tannus_fits():
+    s = _g.build_setup_strategy(4, 45, _setup_profile(tech_rating=4, needs_puncture=True))
+    body = next(i for i in s["items"] if i["title"] == "Inserts")["body"]
+    assert "Tannus Armour Tubeless (150 g)" in body and "0.1 to 0.5 bar" in body
+
+
+def test_spares_follow_distance_and_rock():
+    def spares(**kw):
+        s = _g.build_setup_strategy(2, 45, _setup_profile(**kw))
+        return next(i for i in s["items"] if i["title"] == "Spares")["lead"]
+    assert spares() == "Plugs, a tube and CO2"
+    assert spares(needs_puncture=True) == "Plugs, a tube, a boot for sidewall cuts and CO2"
+    assert spares(distance_mi=200) == "Plugs, two tubes and CO2 plus a mini pump"
+
+
+def test_setup_section_links_every_source():
+    s = _g.build_setup_strategy(3, 50, _setup_profile(needs_puncture=True))
+    html = _g.build_setup_section(s)
+    for _, url in s["sources"]:
+        assert f'href="{url}"' in html
+    assert "Tubeless" not in html and "Break-In" not in html
+
+
+def test_split_reason_names_this_courses_climbing():
+    import json
+    rec = json.loads((PROJECT_ROOT / "race-data" / "unbound-200.json").read_text())
+    split = rec["race"]["tire_recommendations"]["front_rear_split"]
+    assert "11,000 ft of climbing" in split["rationale"]
+
+
+# ── Podium setups: sourced, per rider, linked ──
+
+def test_podium_entries_are_sourced_per_rider():
+    import json
+    import re as _re
+    data = json.loads(_g.PODIUM_PATH.read_text())
+    assert data["races"], "podium file is empty"
+    for slug, race in data["races"].items():
+        assert (PROJECT_ROOT / "race-data" / f"{slug}.json").exists(), slug
+        assert race["results_url"].startswith("https://"), slug
+        riders = [(e["category"], e["place"]) for e in race["entries"]]
+        assert len(riders) == len(set(riders)), f"{slug}: duplicate placing"
+        for e in race["entries"]:
+            assert e["category"] in ("men", "women")
+            assert e["source_url"].startswith("https://")
+            assert e["source_type"] in ("independent", "brand", "rider")
+            assert e["evidence"] and e["rider"] and e["tire"]
+            for k in ("front_width_mm", "rear_width_mm"):
+                assert e[k] is None or 28 <= e[k] <= 60
+
+
+def test_podium_block_links_sources_and_marks_brand_pages():
+    import json
+    data = json.loads(_g.PODIUM_PATH.read_text())["races"]
+    db = load_tire_database()
+    html = _g.build_podium_block(data["unbound-xl"], db)
+    assert "Schwalbe</a> (brand)" in html
+    assert 'href="/tire/schwalbe-g-one-rx-pro/"' in html
+    assert "1.9 bar front and rear" in html
+    unb = _g.build_podium_block(data["unbound-200"], db)
+    assert "width not given" in unb and "Cyclingnews</a>" in unb
+    # A name that isn't an exact database tire isn't linked.
+    assert "Vittoria Terreno T30</a>" not in unb
+    assert _g.build_podium_block(None, db) == ""
+
+
+def _guide_inputs(slug):
+    import json
+    data = json.loads((RACE_DATA_DIR / f"{slug}.json").read_text())
+    rd = normalize_race_data(data)
+    rd["slug"] = slug
+    return rd, data.get("race", data), load_weather_data(slug), load_tire_database()
+
+
+def test_guides_with_podium_data_show_it():
+    import json
+    for slug in json.loads(_g.PODIUM_PATH.read_text())["races"]:
+        html = _g.generate_tire_guide_page(*_guide_inputs(slug))
+        assert "Podium Ran" in html, slug

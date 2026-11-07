@@ -74,3 +74,21 @@ def test_sitemap_lists_the_index(tmp_path):
     out.parent.mkdir()
     gs.generate_sitemap([], out)
     assert "<loc>https://gravelgodcycling.com/tire/</loc>" in out.read_text()
+
+
+def test_method_section_publishes_the_constants_the_scorer_uses():
+    import generate_tire_guide as g
+    html = gti.build_method_section()
+    assert 'id="method"' in html
+    for value in (g.PUNCTURE_REF, g.PUNCTURE_W_SHARP, g.WET_REF, g.KNOB_EDGE_REF,
+                  g.MUD_KNOB_REF, g.WIDTH_SHORT_W, g.UNTESTED_WIDTH_W, g.BIKE_AND_KIT_LB):
+        assert f"{value:g}" in html, value
+    for width in g.WIDTH_TARGETS.values():
+        assert f"{width}mm" in html
+    assert "bicyclerollingresistance.com" in html
+    assert "We don't test tires ourselves" in html
+
+
+def test_tire_guides_link_the_method():
+    import generate_tire_guide as g
+    assert 'href="/tire/#method"' in g.build_tire_cards([], {"tech_rating": 2}, "X", {"applicable": False})

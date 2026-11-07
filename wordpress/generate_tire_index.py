@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Generate the tires index at /tire/.
 
-/tire/ is already the breadcrumb parent of every /tire/{slug}/ review page
+/tire/ is already the breadcrumb parent of every /tire/{slug}/ page
 (generate_tire_pages.py BreadcrumbList). The index links every race tire guide
-(/race/{slug}/tires/, grouped by tier) and every tire review page. /tires/ and
+(/race/{slug}/tires/, grouped by tier) and every tire page. /tires/ and
 /race/tires/ 301 here (scripts/push_wordpress.py REDIRECT_BLOCK).
 
-Output: wordpress/output/tire/index.html, beside the review pages.
+Output: wordpress/output/tire/index.html, beside the tire pages.
 generate_tire_pages.py writes it too, so --sync-tire-pages always ships it.
 
 Usage:
@@ -120,8 +120,8 @@ def build_tire_index_page(race_index: list, tires: list) -> str:
 
     canonical = f"{SITE_BASE_URL}/tire/"
     title = f"Gravel Tire Guides {SEASON_YEAR}: {guide_count} Races, {len(tires)} Tires | Gravel God"
-    description = (f"Tire picks and pressures for {guide_count} gravel races, plus reviews "
-                   f"of {len(tires)} gravel tires.")
+    description = (f"Tire picks and pressures for {guide_count} gravel races, plus lab data "
+                   f"and race picks for {len(tires)} gravel tires.")
     jsonld = json.dumps([
         {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_BASE_URL}/"},
@@ -181,7 +181,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   <h2 id="races">Tires by Race <span class="gg-tidx-count">{guide_count}</span></h2>
     {tiers_html}
 
-  <h2 id="reviews">Tire Reviews <span class="gg-tidx-count">{len(tires)}</span></h2>
+  <h2 id="reviews">Tires <span class="gg-tidx-count">{len(tires)}</span></h2>
     <ul class="gg-tidx-list">
       {tire_items}
     </ul>

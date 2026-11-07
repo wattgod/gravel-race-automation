@@ -1205,8 +1205,8 @@ def generate_vs_page(tire_a: dict, tire_b: dict, tire_races: dict) -> str:
 <footer class="tvs-footer-cta">
   <div class="tvs-container">
     <div class="tvs-footer-cta-inner">
-      <a href="/tire/{slug_a}/" class="tvs-btn tvs-btn--primary">{esc(name_a[:20])} Review</a>
-      <a href="/tire/{slug_b}/" class="tvs-btn tvs-btn--outline">{esc(name_b[:20])} Review</a>
+      <a href="/tire/{slug_a}/" class="tvs-btn tvs-btn--primary">{esc(name_a)}</a>
+      <a href="/tire/{slug_b}/" class="tvs-btn tvs-btn--outline">{esc(name_b)}</a>
     </div>
   </div>
 </footer>

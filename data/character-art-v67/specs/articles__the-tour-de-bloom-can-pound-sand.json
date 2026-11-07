@@ -1,0 +1,138 @@
+{
+ "collection": "articles",
+ "slug": "the-tour-de-bloom-can-pound-sand",
+ "images": [
+  {
+   "file": "img/0465e4a872aceb4a.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "Can we talk?",
+   "figs": [
+    {
+     "box": [
+      560,
+      260,
+      860,
+      945
+     ],
+     "erase_box": [
+      480,
+      285,
+      920,
+      990
+     ],
+     "pose": "phone",
+     "face": "neutral",
+     "psi": 80
+    }
+   ],
+   "match": "closest",
+   "note": "The rig has no cross-legged sit; he stands looking at his phone."
+  },
+  {
+   "file": "img/b3e7ccfd846bceb4.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "CAT 4 -> CAT 3",
+   "figs": [
+    {
+     "box": [
+      40,
+      230,
+      440,
+      860
+     ],
+     "erase_box": [
+      0,
+      190,
+      485,
+      878
+     ],
+     "pose": "thumbs_up",
+     "face": "grin",
+     "psi": 80
+    },
+    {
+     "box": [
+      800,
+      330,
+      1450,
+      900
+     ],
+     "erase_box": [
+      790,
+      430,
+      1536,
+      885
+     ],
+     "pose": "sit",
+     "face": "grimace",
+     "psi": 110
+    }
+   ],
+   "erase_extra": [
+    [
+     880,
+     265,
+     1130,
+     435
+    ],
+    [
+     760,
+     700,
+     900,
+     900
+    ]
+   ],
+   "match": "closest",
+   "note": "No arms-up victory pose in the rig: thumbs up on the Cat 4 box, then sitting slumped for Cat 3."
+  },
+  {
+   "file": "img/d4f4ecf37c387704.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "joke": "Option 1 / Option 2",
+   "figs": [
+    {
+     "box": [
+      20,
+      150,
+      330,
+      1010
+     ],
+     "erase_box": [
+      0,
+      135,
+      345,
+      1024
+     ],
+     "pose": "arms_crossed",
+     "face": "thinking",
+     "psi": 80
+    },
+    {
+     "box": [
+      1180,
+      150,
+      1520,
+      1010
+     ],
+     "erase_box": [
+      1155,
+      135,
+      1536,
+      1024
+     ],
+     "pose": "thumbs_up",
+     "face": "grin",
+     "psi": 80
+    }
+   ],
+   "match": "closest",
+   "note": "No overalls in the rig; both versions wear his tee and shorts."
+  }
+ ]
+}

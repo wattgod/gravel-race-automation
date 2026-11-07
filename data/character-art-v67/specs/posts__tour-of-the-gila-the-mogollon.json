@@ -1,0 +1,289 @@
+{
+ "collection": "posts",
+ "slug": "tour-of-the-gila-the-mogollon",
+ "images": [
+  {
+   "file": "img/got-any-meelahrs.webp",
+   "name": "got-any-meelahrs",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      20,
+      90,
+      180,
+      260
+     ],
+     "erase_box": [
+      10,
+      80,
+      190,
+      270
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "head",
+     "fit": "contain",
+     "shadow": false
+    },
+    {
+     "box": [
+      1150,
+      560,
+      1560,
+      1100
+     ],
+     "erase_box": [
+      1110,
+      530,
+      1590,
+      1100
+     ],
+     "ride": "manual",
+     "face": "grin",
+     "psi": 20,
+     "fit": "contain"
+    }
+   ],
+   "alt": "Strava ride summary for Stage 1: \"Got any MeeLahrs in Der?\" (74.21 mi, 2,910 ft), with cartoon Gravel God as the profile picture and popping a wheelie in the corner.",
+   "joke": "Stage 1: \"Got any MeeLahrs in Der?\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/do-you-even-lift-bro.webp",
+   "name": "do-you-even-lift-bro",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      60,
+      860,
+      400,
+      1980
+     ],
+     "erase_box": [
+      -52.8,
+      760.1,
+      492.8,
+      2018.3
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 67.5,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "Cartoon Gravel God stands on a sunny wooden porch next to a weight machine and a bench, thinking.",
+   "match": "exact"
+  },
+  {
+   "file": "img/abq-burritoes-scaled.webp",
+   "name": "abq-burritoes-scaled",
+   "verdict": "keep",
+   "why": "Photo of tortillas."
+  },
+  {
+   "file": "img/the-food-basket.webp",
+   "name": "the-food-basket",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      0,
+      720,
+      330,
+      1200
+     ],
+     "erase_box": [
+      -41.4,
+      659.4,
+      386.4,
+      1210.2
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "elev": 8,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "Cartoon Gravel God, seen from behind in the foreground, faces a man in the Food Basket parking lot.",
+   "match": "exact"
+  },
+  {
+   "file": "img/porch-treadmill.webp",
+   "name": "porch-treadmill",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      760,
+      470,
+      1010,
+      950
+     ],
+     "erase_box": [
+      693.4,
+      424.7,
+      1071.6,
+      970.1
+     ],
+     "pose": "hands_hips",
+     "face": "thinking",
+     "psi": 135,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "Cartoon Gravel God stands hands on hips looking at a treadmill and a bike trainer set up on a brick porch.",
+   "match": "exact"
+  },
+  {
+   "file": "img/straight-zonked.webp",
+   "name": "straight-zonked",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      620,
+      430,
+      920,
+      760
+     ],
+     "erase_box": [
+      490,
+      470,
+      1015,
+      770
+     ],
+     "pose": "sit",
+     "face": "sleepy",
+     "psi": 45,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God sits on a hotel bed, half asleep, with bikes and gear around the room.",
+   "match": "closest",
+   "note": "Rig has no lying-down pose; he sits on the bed instead of lying on it."
+  },
+  {
+   "file": "img/ethan-anger-haircut-scaled.webp",
+   "name": "ethan-anger-haircut-scaled",
+   "verdict": "keep",
+   "why": "Photo of a teammate."
+  },
+  {
+   "file": "img/jesus-candles.webp",
+   "name": "jesus-candles",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      500,
+      600,
+      1050,
+      1200
+     ],
+     "erase_box": [
+      385.6,
+      564.0,
+      1154.4,
+      1212.0
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "elev": 8,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "Cartoon Gravel God, seen from behind, faces shelves full of religious prayer candles in a store.",
+   "match": "exact"
+  },
+  {
+   "file": "img/numbasssss-scaled.webp",
+   "name": "numbasssss-scaled",
+   "verdict": "keep",
+   "why": "Photo of race numbers."
+  },
+  {
+   "file": "img/701-cooper.webp",
+   "name": "701-cooper",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      620,
+      640,
+      800,
+      1150
+     ],
+     "erase_box": [
+      561.8,
+      577.0,
+      853.2,
+      1171.0
+     ],
+     "pose": "thumbs_up",
+     "face": "grin",
+     "psi": 90,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "Cartoon Gravel God gives a thumbs up in front of a small pink house behind a chain-link fence.",
+   "match": "exact"
+  },
+  {
+   "file": "img/superman.webp",
+   "name": "superman",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      0,
+      1140,
+      115,
+      1350
+     ],
+     "erase_box": [
+      0,
+      1120,
+      125,
+      1360
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "A rider in red raises both arms on the Tour of the Gila podium while cartoon Gravel God watches from the crowd at the left edge.",
+   "match": "exact"
+  }
+ ]
+}

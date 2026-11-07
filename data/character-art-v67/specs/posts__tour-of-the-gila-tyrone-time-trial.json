@@ -1,0 +1,111 @@
+{
+ "collection": "posts",
+ "slug": "tour-of-the-gila-tyrone-time-trial",
+ "images": [
+  {
+   "file": "img/screenshot-2023-04-29-at-14-55-07.webp",
+   "name": "screenshot-2023-04-29-at-14-55-07",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      45,
+      100,
+      170,
+      245
+     ],
+     "erase_box": [
+      35,
+      95,
+      178,
+      252
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "head",
+     "fit": "contain",
+     "shadow": false
+    }
+   ],
+   "alt": "Strava ride summary for Day 3: More Blessings (35.03 mi, 1:43:45, 2,441 ft) with cartoon Gravel God as the profile picture.",
+   "match": "exact"
+  },
+  {
+   "file": "img/untitled-design-5.webp",
+   "name": "untitled-design-5",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      600,
+      40,
+      850,
+      330
+     ],
+     "erase_box": [
+      550,
+      30,
+      895,
+      335
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "head",
+     "fit": "height",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God's head on a rider in a red kit sitting on a time trial bike with a disc wheel in a team tent area.",
+   "match": "closest",
+   "note": "Head only from the rig on the original photo."
+  },
+  {
+   "file": "img/untitled-design-7.webp",
+   "name": "untitled-design-7",
+   "verdict": "keep",
+   "why": "Photo of teammates working on bikes."
+  },
+  {
+   "file": "img/untitled-design-6.webp",
+   "name": "untitled-design-6",
+   "verdict": "keep",
+   "why": "Real photo of Matti."
+  },
+  {
+   "file": "img/untitled-design-8.webp",
+   "name": "untitled-design-8",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      30,
+      420,
+      320,
+      2300
+     ],
+     "erase_box": [
+      -41.4,
+      301.12,
+      386.4,
+      2080.96
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "Cartoon Gravel God, seen from behind, in a busy kitchen where people are cooking.",
+   "match": "exact"
+  }
+ ]
+}

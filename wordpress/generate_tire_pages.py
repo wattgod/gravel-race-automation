@@ -2,7 +2,7 @@
 """
 Generate per-tire SEO pages at /tire/{tire-slug}/.
 
-Each page shows tire specs, race recommendations, BRR links, email capture,
+Each page shows BRR lab data, race recommendations, email capture,
 and internal links to every race tire guide where the tire is recommended.
 
 Usage:
@@ -351,26 +351,19 @@ a:hover { text-decoration: underline; }
   flex-shrink: 0;
 }
 
-/* BRR links */
-.tp-brr-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 12px 0;
-}
-.tp-brr-link {
+/* Lab data */
+.tp-table-scroll { overflow-x: auto; margin: 16px 0 0; }
+.tp-table-scroll .tp-specs-table { margin: 0; }
+.tp-lab-table th, .tp-lab-table td { padding: 8px 10px; white-space: nowrap; }
+.tp-lab-table a { color: var(--gg-color-teal); font-weight: 700; }
+.tp-lab-source {
   font-family: var(--gg-font-data);
   font-size: 12px;
-  font-weight: 700;
-  color: var(--gg-color-teal);
-  border: 2px solid var(--gg-color-teal);
-  padding: 6px 14px;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: background 0.2s;
+  color: var(--gg-color-secondary-brown);
+  margin: 8px 0 0;
 }
-.tp-brr-link:hover { background: var(--gg-color-teal); color: var(--gg-color-white); text-decoration: none; }
+.tp-lab-source a { color: var(--gg-color-teal); }
+.tp-ratings-table { margin-top: 20px; }
 
 /* Strengths / Weaknesses */
 .tp-pros-cons {
@@ -656,7 +649,10 @@ a:hover { text-decoration: underline; }
 
 def build_header(tire: dict) -> str:
     widths = ", ".join(f"{w}mm" for w in tire["widths_mm"])
-    msrp = f"${tire['msrp_usd']:.2f}" if tire.get("msrp_usd") else "N/A"
+    tagline = tire.get("tagline")
+    tagline_html = f'\n    <p class="tp-header-sub">{esc(tagline)}</p>' if tagline else ""
+    msrp_html = (f'\n      <div class="tp-vital"><strong>${tire["msrp_usd"]:.2f}</strong>MSRP</div>'
+                 if tire.get("msrp_usd") else "")
     return f'''<header class="tp-header">
   <div class="tp-container">
     <div class="tp-breadcrumb">
@@ -664,47 +660,93 @@ def build_header(tire: dict) -> str:
     </div>
     <span class="tp-badge">TIRE REVIEW</span>
     <span class="tp-tread-badge">{esc(tire["tread_type"].upper())} TREAD</span>
-    <h1>{esc(tire["name"])} Review</h1>
-    <p class="tp-header-sub">{esc(tire.get("tagline", ""))}</p>
+    <h1>{esc(tire["name"])} Review</h1>{tagline_html}
     <div class="tp-vitals">
       <div class="tp-vital"><strong>{esc(tire["brand"])}</strong>Brand</div>
-      <div class="tp-vital"><strong>{widths}</strong>Widths</div>
-      <div class="tp-vital"><strong>{msrp}</strong>MSRP</div>
+      <div class="tp-vital"><strong>{widths}</strong>Widths</div>{msrp_html}
       <div class="tp-vital"><strong>{"Yes" if tire.get("tubeless_ready") else "No"}</strong>Tubeless</div>
     </div>
   </div>
 </header>'''
 
 
-def build_specs_section(tire: dict) -> str:
-    rows = []
-    for w in tire["widths_mm"]:
-        weight = tire.get("weight_grams", {}).get(str(w), "—")
-        crr_data = tire.get("crr_watts_at_29kmh") or {}
-        crr = crr_data.get(str(w), "—")
-        crr_str = f"{crr}W" if isinstance(crr, (int, float)) else "—"
-        weight_str = f"{weight}g" if isinstance(weight, (int, float)) else "—"
-        rows.append(f"<tr><td>{w}mm</td><td>{weight_str}</td><td>{crr_str}</td></tr>")
+LAB_SNAPSHOT = PROJECT_ROOT / "data" / "tires" / "lab" / "brr-cx-gravel.json"
+_lab_meta = None
 
-    pr_label = rating_label(tire.get("puncture_resistance", ""))
-    wt_label = rating_label(tire.get("wet_traction", ""))
-    mc_label = rating_label(tire.get("mud_clearance", ""))
+
+def lab_meta() -> dict:
+    """Source URL and test protocol of the BRR snapshot the lab numbers come from."""
+    global _lab_meta
+    if _lab_meta is None:
+        snap = json.loads(LAB_SNAPSHOT.read_text(encoding="utf-8"))
+        _lab_meta = {"source": snap["source"], "protocol": snap["protocol"]}
+    return _lab_meta
+
+
+def _num(v, unit: str = "") -> str:
+    """40.0 -> '40', 38.5 -> '38.5'; missing -> an em dash."""
+    if v is None or v == "":
+        return "&mdash;"
+    return f"{float(v):g}{unit}"
+
+
+def build_lab_row(t: dict) -> str:
+    knobs = (f'{_num(t.get("knob_center_mm"))} / {_num(t.get("knob_edge_mm"), "mm")}'
+             if t.get("knob_center_mm") is not None or t.get("knob_edge_mm") is not None
+             else "&mdash;")
+    rr = (f'{_num(t["rr_watts"], "W")} @ {_num(t.get("test_psi"), " psi")}'
+          if t.get("rr_watts") is not None else "&mdash;")
+    year = esc(t.get("year")) or "BRR"
+    link = (f'<a href="{esc(t["url"])}" target="_blank" rel="noopener">{year} &rarr;</a>'
+            if t.get("url") else year)
+    return (f'<tr><td>{_num(t["width_mm"], "mm")}</td>'
+            f'<td>{_num(t.get("measured_width_mm"), "mm")}</td>'
+            f'<td>{_num(t.get("weight_g"), "g")}</td>'
+            f'<td>{rr}</td>'
+            f'<td>{_num(t.get("puncture_tread"))}</td>'
+            f'<td>{_num(t.get("wet_grip"))}</td>'
+            f'<td>{knobs}</td>'
+            f'<td>{link}</td></tr>')
+
+
+def build_specs_section(tire: dict) -> str:
+    tested = bool(tire.get("lab_tested"))
+    if tested:
+        meta = lab_meta()
+        rows = "".join(build_lab_row(t) for t in tire.get("brr_tests", []))
+        lab_html = f'''<div class="tp-table-scroll">
+    <table class="tp-specs-table tp-lab-table">
+      <thead><tr><th>Width</th><th>Measured</th><th>Weight</th><th>Rolling resistance</th><th>Puncture (tread)</th><th>Wet grip</th><th>Knobs center / edge</th><th>BRR test</th></tr></thead>
+      <tbody>{rows}</tbody>
+    </table>
+    </div>
+    <p class="tp-lab-source">Source: <a href="{esc(meta["source"])}" target="_blank" rel="noopener">bicyclerollingresistance.com</a>. {esc(meta["protocol"])}</p>'''
+    else:
+        lab_html = '<p class="tp-lab-source">Not lab-tested at race widths.</p>'
+
+    # Puncture and wet labels are read off the lab numbers when there are any;
+    # otherwise they are our call, like mud clearance and tread type.
+    ours = " (our call)"
+    ratings = [
+        ("Puncture resistance" + ("" if tested else ours), tire.get("puncture_resistance")),
+        ("Wet traction" + ("" if tested else ours), tire.get("wet_traction")),
+        ("Mud clearance" + ours, tire.get("mud_clearance")),
+    ]
+    rating_rows = "".join(
+        f'<tr><td>{label}</td><td style="color:{rating_color(value)}">{esc(rating_label(value))}</td></tr>'
+        for label, value in ratings if value
+    )
+    if tire.get("tread_type"):
+        rating_rows += f'<tr><td>Tread type{ours}</td><td>{esc(tire["tread_type"].title())}</td></tr>'
 
     return f'''<section class="tp-section">
   <div class="tp-container">
-    <span class="tp-section-num">01 / SPECIFICATIONS</span>
-    <h2>Specs by Width</h2>
-    <table class="tp-specs-table">
-      <thead><tr><th>Width</th><th>Weight</th><th>CRR (29km/h)</th></tr></thead>
-      <tbody>{"".join(rows)}</tbody>
-    </table>
-    <table class="tp-specs-table" style="margin-top:12px">
+    <span class="tp-section-num">01 / LAB DATA</span>
+    <h2>Lab Data by Width</h2>
+    {lab_html}
+    <table class="tp-specs-table tp-ratings-table">
       <thead><tr><th>Rating</th><th>Value</th></tr></thead>
-      <tbody>
-        <tr><td>Puncture Resistance</td><td style="color:{rating_color(tire.get('puncture_resistance',''))}">{pr_label}</td></tr>
-        <tr><td>Wet Traction</td><td style="color:{rating_color(tire.get('wet_traction',''))}">{wt_label}</td></tr>
-        <tr><td>Mud Clearance</td><td style="color:{rating_color(tire.get('mud_clearance',''))}">{mc_label}</td></tr>
-      </tbody>
+      <tbody>{rating_rows}</tbody>
     </table>
   </div>
 </section>'''
@@ -722,19 +764,29 @@ def build_use_cases_section(tire: dict) -> str:
 
     pros = "".join(f"<li>{esc(s)}</li>" for s in tire.get("strengths", []))
     cons = "".join(f"<li>{esc(w)}</li>" for w in tire.get("weaknesses", []))
+    h4 = ('<h4 style="font-family:var(--gg-font-data);font-size:10px;font-weight:700;'
+          'letter-spacing:2px;text-transform:uppercase;color:var(--gg-color-{c});'
+          'margin-bottom:4px">{t}</h4>')
+    blocks = []
+    if rec_chips:
+        blocks.append(h4.format(c="teal", t="RECOMMENDED FOR") + f'<div class="tp-chips">{rec_chips}</div>')
+    if avoid_chips:
+        blocks.append(h4.format(c="secondary-brown", t="AVOID IN") + f'<div class="tp-chips">{avoid_chips}</div>')
+    cols = []
+    if pros:
+        cols.append(f'<div class="tp-pros"><h4>Strengths</h4><ul>{pros}</ul></div>')
+    if cons:
+        cols.append(f'<div class="tp-cons"><h4>Weaknesses</h4><ul>{cons}</ul></div>')
+    if cols:
+        blocks.append(f'<div class="tp-pros-cons">{"".join(cols)}</div>')
+    if not blocks:
+        return ""
 
     return f'''<section class="tp-section">
   <div class="tp-container">
     <span class="tp-section-num">02 / BEST FOR</span>
     <h2>When to Use This Tire</h2>
-    <h4 style="font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gg-color-teal);margin-bottom:4px">RECOMMENDED FOR</h4>
-    <div class="tp-chips">{rec_chips}</div>
-    <h4 style="font-family:var(--gg-font-data);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gg-color-secondary-brown);margin-bottom:4px">AVOID IN</h4>
-    <div class="tp-chips">{avoid_chips}</div>
-    <div class="tp-pros-cons">
-      <div class="tp-pros"><h4>Strengths</h4><ul>{pros}</ul></div>
-      <div class="tp-cons"><h4>Weaknesses</h4><ul>{cons}</ul></div>
-    </div>
+    {"".join(blocks)}
   </div>
 </section>'''
 
@@ -792,27 +844,6 @@ def build_race_recommendations_section(tire: dict, race_recs: list) -> str:
       Recommended in {len(race_recs)} race tire guides &mdash; #{" "}1 pick in {rank1_count}, top 3 in {primary_count}.
     </p>
     <ul class="tp-race-list">{"".join(items)}</ul>
-  </div>
-</section>'''
-
-
-def build_brr_section(tire: dict) -> str:
-    brr = tire.get("brr_urls_by_width", {})
-    if not brr:
-        return ""
-
-    links = []
-    for width, url in sorted(brr.items(), key=lambda x: int(x[0]) if x[0].isdigit() else 0):
-        links.append(f'<a href="{esc(url)}" target="_blank" rel="noopener" class="tp-brr-link">{width}mm Review &rarr;</a>')
-
-    return f'''<section class="tp-section">
-  <div class="tp-container">
-    <span class="tp-section-num">04 / TEST DATA</span>
-    <h2>BicycleRollingResistance.com Reviews</h2>
-    <p style="font-family:var(--gg-font-data);font-size:12px;color:var(--gg-color-secondary-brown);margin-bottom:12px">
-      Independent rolling resistance, puncture, and wet grip test data.
-    </p>
-    <div class="tp-brr-links">{"".join(links)}</div>
   </div>
 </section>'''
 
@@ -946,7 +977,7 @@ def build_community_reviews_section(tire: dict) -> str:
     if total == 0:
         return f'''<section class="tp-section">
   <div class="tp-container">
-    <span class="tp-section-num">05 / COMMUNITY REVIEWS</span>
+    <span class="tp-section-num">04 / COMMUNITY REVIEWS</span>
     <h2>Community Reviews</h2>
     <p class="tp-rev-empty">No community reviews yet. Be the first to rate the {esc(name)}.</p>
     {form}
@@ -962,7 +993,7 @@ def build_community_reviews_section(tire: dict) -> str:
         cards = [c for c in cards if c]  # filter empty (invalid stars)
         return f'''<section class="tp-section">
   <div class="tp-container">
-    <span class="tp-section-num">05 / COMMUNITY REVIEWS</span>
+    <span class="tp-section-num">04 / COMMUNITY REVIEWS</span>
     <h2>Community Reviews</h2>
     <p class="tp-rev-pending">{total} review{"s" if total != 1 else ""} so far &mdash; {needed} more needed to display the community rating.</p>
     {"".join(cards)}
@@ -987,7 +1018,7 @@ def build_community_reviews_section(tire: dict) -> str:
 
     return f'''<section class="tp-section">
   <div class="tp-container">
-    <span class="tp-section-num">05 / COMMUNITY REVIEWS</span>
+    <span class="tp-section-num">04 / COMMUNITY REVIEWS</span>
     <h2>Community Reviews</h2>
     <div class="tp-rev-summary">
       <span class="tp-rev-avg">{avg:.1f}</span>
@@ -1047,7 +1078,7 @@ def build_internal_links_section(tire: dict, race_recs: list,
                else "Compare This Tire")
     return f'''<section class="tp-section">
   <div class="tp-container">
-    <span class="tp-section-num">06 / RELATED TIRE GUIDES</span>
+    <span class="tp-section-num">05 / RELATED TIRE GUIDES</span>
     <h2>{heading}</h2>
     <div class="tp-internal-links">{"".join(links)}</div>
   </div>
@@ -1290,7 +1321,6 @@ def generate_tire_page(tire: dict, race_recs: list, comparisons: list = ()) -> s
     specs = build_specs_section(tire)
     use_cases = build_use_cases_section(tire)
     races = build_race_recommendations_section(tire, race_recs)
-    brr = build_brr_section(tire)
     community_reviews = build_community_reviews_section(tire)
     email_capture = build_email_capture()
     internal_links = build_internal_links_section(tire, race_recs, comparisons)
@@ -1340,7 +1370,6 @@ def generate_tire_page(tire: dict, race_recs: list, comparisons: list = ()) -> s
 {specs}
 {use_cases}
 {races}
-{brr}
 {community_reviews}
 <section class="tp-section">
   <div class="tp-container">

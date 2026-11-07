@@ -1,0 +1,37 @@
+{
+ "collection": "posts",
+ "slug": "random-midweek-thought-stay-present",
+ "images": [
+  {
+   "file": "img/stay-present.webp",
+   "name": "stay-present",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      640,
+      110,
+      950,
+      670
+     ],
+     "erase_box": [
+      564.32,
+      59.78,
+      1015.68,
+      693.74
+     ],
+     "pose": "straddle",
+     "face": "smile",
+     "psi": 90,
+     "fit": "contain",
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "Cartoon Gravel God stands with his bike in the middle of a sunny, empty yoga studio.",
+   "match": "exact"
+  }
+ ]
+}

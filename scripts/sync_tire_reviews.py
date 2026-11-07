@@ -4,12 +4,16 @@ Sync tire reviews from Cloudflare KV to per-tire JSON files.
 
 Pulls reviews from the tire-review-intake Worker's KV namespace
 via Cloudflare REST API, strips PII (email), and appends to each
-tire's community_reviews array.
+tire's community_reviews array as unapproved. Tire pages show approved
+reviews only, so nothing goes live until it's approved here.
 
 Usage:
     python scripts/sync_tire_reviews.py              # sync all
     python scripts/sync_tire_reviews.py --dry-run     # preview
     python scripts/sync_tire_reviews.py --tire maxxis-rambler  # single tire
+    python scripts/sync_tire_reviews.py --pending     # list reviews waiting
+    python scripts/sync_tire_reviews.py --approve ID [ID ...]
+    python scripts/sync_tire_reviews.py --reject ID [ID ...]
 """
 from __future__ import annotations
 
@@ -149,8 +153,54 @@ def sanitize_review(review: dict) -> dict:
     for field in REVIEW_FIELDS:
         if field in review:
             clean[field] = review[field]
-    clean["approved"] = True
+    clean["approved"] = False
     return clean
+
+
+def _tire_files() -> list[Path]:
+    return sorted(TIRE_DIR.glob("*.json"))
+
+
+def _write_tire(path: Path, tire_data: dict) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(tire_data, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+
+
+def pending_reviews() -> list[tuple[str, dict]]:
+    """(tire_id, review) for every synced review not yet approved."""
+    out = []
+    for path in _tire_files():
+        tire = json.loads(path.read_text(encoding="utf-8"))
+        for r in tire.get("community_reviews", []):
+            if not r.get("approved"):
+                out.append((tire.get("id", path.stem), r))
+    return out
+
+
+def moderate(review_ids: list[str], approve: bool) -> int:
+    """Approve, or reject and delete, reviews by review_id. A rejected id is
+    kept in rejected_review_ids so the next sync doesn't pull it back in."""
+    wanted = set(review_ids)
+    done = set()
+    for path in _tire_files():
+        tire = json.loads(path.read_text(encoding="utf-8"))
+        reviews = tire.get("community_reviews", [])
+        hits = [r for r in reviews if r.get("review_id") in wanted]
+        if not hits:
+            continue
+        if approve:
+            for r in hits:
+                r["approved"] = True
+        else:
+            tire["community_reviews"] = [r for r in reviews if r not in hits]
+            rejected = set(tire.get("rejected_review_ids", []))
+            tire["rejected_review_ids"] = sorted(rejected | {r["review_id"] for r in hits})
+        _write_tire(path, tire)
+        done |= {r["review_id"] for r in hits}
+    for rid in sorted(wanted - done):
+        print(f"  Not found: {rid}")
+    return len(done)
 
 
 def sync(tire_filter: str | None = None, dry_run: bool = False) -> None:
@@ -199,7 +249,7 @@ def sync(tire_filter: str | None = None, dry_run: bool = False) -> None:
         tire_data = json.loads(tire_path.read_text(encoding="utf-8"))
         existing_ids = {
             r["review_id"] for r in tire_data.get("community_reviews", [])
-        }
+        } | set(tire_data.get("rejected_review_ids", []))
 
         # Filter to only new review keys
         new_keys = []
@@ -247,9 +297,7 @@ def sync(tire_filter: str | None = None, dry_run: bool = False) -> None:
             tire_data["community_reviews"] = []
         tire_data["community_reviews"].extend(new_reviews)
 
-        with open(tire_path, "w", encoding="utf-8") as f:
-            json.dump(tire_data, f, indent=2, ensure_ascii=False)
-            f.write("\n")
+        _write_tire(tire_path, tire_data)
 
         synced += len(new_reviews)
         print(f"  {tire_id}: +{len(new_reviews)} review(s) (total: {len(tire_data['community_reviews'])})")
@@ -257,14 +305,30 @@ def sync(tire_filter: str | None = None, dry_run: bool = False) -> None:
     print(f"\nDone. Synced {synced} new review(s), skipped {skipped}, rejected {rejected}.")
     if dry_run:
         print("  (dry-run — no files written)")
+    elif synced:
+        print("  New reviews stay hidden until approved: run with --pending.")
 
 
 def main():
     parser = argparse.ArgumentParser(description="Sync tire reviews from Cloudflare KV")
     parser.add_argument("--dry-run", action="store_true", help="Preview without writing")
     parser.add_argument("--tire", default=None, help="Sync a single tire by ID (e.g. maxxis-rambler)")
+    parser.add_argument("--pending", action="store_true", help="List synced reviews waiting for approval")
+    parser.add_argument("--approve", nargs="+", metavar="REVIEW_ID", help="Publish these reviews")
+    parser.add_argument("--reject", nargs="+", metavar="REVIEW_ID", help="Delete these reviews for good")
     args = parser.parse_args()
-    sync(tire_filter=args.tire, dry_run=args.dry_run)
+    if args.pending:
+        rows = pending_reviews()
+        for tire_id, r in rows:
+            print(f"{r['review_id']}  {tire_id}  {r.get('stars')}★  "
+                  f"{r.get('race_used_at') or '-'}  {r.get('review_text') or ''}")
+        print(f"{len(rows)} waiting. Approve with --approve ID, reject with --reject ID.")
+    elif args.approve or args.reject:
+        n = moderate(args.approve or args.reject, approve=bool(args.approve))
+        print(f"{'Approved' if args.approve else 'Rejected'} {n}. "
+              f"Rebuild and sync /tire/ pages to publish the change.")
+    else:
+        sync(tire_filter=args.tire, dry_run=args.dry_run)
 
 
 if __name__ == "__main__":

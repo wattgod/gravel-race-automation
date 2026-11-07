@@ -1,0 +1,159 @@
+{
+ "collection": "posts",
+ "slug": "the-tyranny-of-irony-in-cycling",
+ "images": [
+  {
+   "file": "img/trollmann-1.webp",
+   "name": "trollmann-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      1080,
+      250,
+      1420,
+      900
+     ],
+     "erase_box": [
+      1040,
+      232,
+      1448,
+      900
+     ],
+     "mask": "grabcut",
+     "pad": 8,
+     "ride": "cruise",
+     "face": "focused",
+     "psi": 100
+    }
+   ],
+   "alt": "Black-and-white photo of a misty gravel road through a forest; a green cartoon troll in a loincloth lurks at the roadside while cartoon Gravel God, handlebar mustache, rides toward the camera.",
+   "match": "exact"
+  },
+  {
+   "file": "img/hitchhiker.webp",
+   "name": "hitchhiker",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      60,
+      0,
+      1000,
+      900
+     ],
+     "erase_box": [
+      0,
+      0,
+      1045,
+      900
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "psi": 270,
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "Cartoon Gravel God, seen from behind, stands at the edge of a long dirt road through the trees, a car's headlights far in the distance.",
+   "match": "exact"
+  },
+  {
+   "file": "img/hourglass.webp",
+   "name": "hourglass",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      985,
+      250,
+      1600,
+      900
+     ],
+     "erase_box": [
+      975,
+      240,
+      1600,
+      900
+     ],
+     "mask": "box",
+     "pose": "stand",
+     "crop": "head",
+     "face": "thinking",
+     "psi": 180,
+     "fit": "contain"
+    }
+   ],
+   "alt": "Cartoon Gravel God, handlebar mustache, in profile, stares at an antique brass hourglass with sand running from the top bulb.",
+   "match": "exact"
+  },
+  {
+   "file": "img/shit-on-cycling.webp",
+   "name": "shit-on-cycling",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      30,
+      130,
+      310,
+      840
+     ],
+     "erase_box": [
+      0,
+      92,
+      338,
+      848
+     ],
+     "mask": "grabcut",
+     "pad": 8,
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 67.5
+    }
+   ],
+   "alt": "Cartoon Gravel God, handlebar mustache, stands by a bicycle propped against a stained wall, watching a white dog squat to relieve itself on the pavement.",
+   "match": "exact"
+  },
+  {
+   "file": "img/pyramid.webp",
+   "name": "pyramid",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      715,
+      832,
+      805,
+      900
+     ],
+     "erase_box": [
+      722,
+      832,
+      792,
+      900
+     ],
+     "pose": "walk_bike",
+     "psi": 80
+    }
+   ],
+   "alt": "The pyramids of Giza under a blue sky, a camel caravan crossing the sand in front, with a tiny cartoon Gravel God in a white tee walking his bicycle among the camels.",
+   "match": "exact"
+  }
+ ]
+}

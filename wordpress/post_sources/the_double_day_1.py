@@ -35,8 +35,8 @@ OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
     "day-1": "Strava screenshot of Matti Rowe's ride \"Dag 1: Takknemlig for jobben min\", April 20, 2022, Highland, California: 60.15 mi, 2:36:28 moving time, 2,421 ft of climbing, 297 W weighted average power, with the route map and elevation profile.",
-    "lolz": "TrainingPeaks file \"Redlands - Highland\", April 20, 2022: 2:36:21, 60.2 mi, 200 TSS; a 2:15:08 selection shows 326 W normalized power and 3.46 W/kg. A cartoon Gravel God in a cowboy hat stands beside the stats, hand on chin.",
-    "best-part": "Two children grinning over baskets of grilled cheese and fries at a patio table, a salad and a beer in the foreground, with a small cartoon Gravel God in a cowboy hat standing by a bike behind them.",
+    "lolz": "A TrainingPeaks ride file for Redlands - Highland (2:36:21, 60.2 mi, 200 TSS) with its map and power chart, and cartoon Gravel God standing beside the stats looking thoughtful.",
+    "best-part": "Two laughing kids at a patio table loaded with fries, a grilled cheese and a big salad, with cartoon Gravel God standing behind them by a bike.",
 }
 
 DESCRIPTION = ("Day 1 of The Double: the Highland Circuit Race, 20 laps of a circuit with a big hill, "

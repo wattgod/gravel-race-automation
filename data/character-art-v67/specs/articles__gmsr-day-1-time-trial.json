@@ -1,0 +1,123 @@
+{
+ "collection": "articles",
+ "slug": "gmsr-day-1-time-trial",
+ "images": [
+  {
+   "file": "img/9ef9436af67cfd10.webp",
+   "mode": "rebuild",
+   "bg": {
+    "type": "flat",
+    "color": "#67422a"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      540,
+      760
+     ],
+     "box": [
+      0,
+      0,
+      540,
+      760
+     ]
+    },
+    {
+     "src": [
+      1300,
+      0,
+      1536,
+      1024
+     ],
+     "box": [
+      1300,
+      0,
+      1536,
+      1024
+     ]
+    },
+    {
+     "src": [
+      1140,
+      720,
+      1370,
+      1000
+     ],
+     "box": [
+      1140,
+      720,
+      1370,
+      1000
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      0,
+      760,
+      1140,
+      1024
+     ],
+     "fill": "#8a6550"
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      560,
+      300,
+      1140,
+      980
+     ],
+     "pose": "sit",
+     "face": "smile",
+     "psi": 60
+    }
+   ],
+   "joke": "(no words: cosy by the fire with a coffee and a book)",
+   "match": "closest",
+   "note": "The rig has no armchair, scarf, flannel, coffee or book: he sits on the floor by the fire; fireplace, window and pumpkin kept.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/d90b5f6ee975bf9e.webp",
+   "mode": "composite",
+   "erase": "#000000",
+   "figs": [
+    {
+     "box": [
+      1000,
+      20,
+      1360,
+      960
+     ],
+     "erase_box": [
+      1183,
+      0,
+      1536,
+      1024
+     ],
+     "pad": 0,
+     "pose": "arms_crossed",
+     "face": "smile",
+     "psi": 80
+    }
+   ],
+   "joke": "Hog Cranking / Competitive Edging / Whack in the back / Jet lagged heater / Cracked on (bad) / Cracked (good) / Fent Lean / Facts / Clap back / Big chungus",
+   "match": "exact",
+   "erase_extra": [
+    [
+     1155,
+     0,
+     1210,
+     92
+    ]
+   ],
+   "verdict": "replace"
+  }
+ ]
+}

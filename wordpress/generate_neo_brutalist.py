@@ -20,6 +20,7 @@ Usage:
 """
 
 import argparse
+import functools
 import hashlib
 import html
 import json
@@ -53,6 +54,7 @@ from fact_consistency import check_race
 from season import UPCOMING, edition_display, edition_state, edition_year, parse_edition
 from season import today as season_today
 from generate_race_recap import has_results, newest_results_year
+from pickem import game_for_race
 
 sys.path.append(str(Path(__file__).resolve().parent.parent / "scripts"))
 from race_facts import edition_event_status, may_estimate, organizer_type  # noqa: E402
@@ -3323,6 +3325,22 @@ def build_results(rd: dict) -> str:
   </section>'''
 
 
+@functools.lru_cache(maxsize=None)
+def _pickem_game(slug: str):
+    return game_for_race(slug)
+
+
+def build_pickem_cta(rd: dict) -> str:
+    """Link to the race's pick'em, next to Results. Renders only for a race
+    with a game file in data/pickem/ (race_slug match), so a second race
+    needs only its own JSON."""
+    game = _pickem_game(rd.get('slug') or '')
+    if not game:
+        return ''
+    return (f'<div class="gg-pickem-cta"><a class="gg-btn gg-btn--secondary" '
+            f'href="{esc(game["path"])}" data-cta="pickem">Pick the {esc(game["edition"])} podium</a></div>')
+
+
 def _build_riders_report(groups: list[tuple[list[dict], str]]) -> str:
     """Build a single RIDERS REPORT callout box from one or more item groups.
 
@@ -5849,34 +5867,37 @@ def build_tire_picks(rd: dict) -> str:
             f'<span class="gg-tire-badge">{esc(surface.upper())}</span>'
         )
 
+    def tire_name_html(tire_id, name):
+        # Every database tire has a /tire/{id}/ page (generate_tire_pages.py).
+        if not tire_id:
+            return esc(name)
+        return f'<a href="/tire/{esc(tire_id)}/" class="gg-tire-link">{esc(name)}</a>'
+
     picks_html = []
     for t in primary[:3]:
         rank = t.get('rank', '')
         name = t.get('name', '')
         w = t.get('recommended_width_mm', '')
         price = t.get('msrp_usd')
-        crr = t.get('crr_watts')
         why = t.get('why', '')
 
-        price_str = f'${price:.0f}' if price else ''
-        crr_str = f'{crr:.0f}W' if crr else ''
-
+        # Rolling resistance stays out of the meta line: a bare "32W" means
+        # nothing here. The why line cites it, with units, when it's the reason.
         meta_parts = []
         if w:
             meta_parts.append(f'{w}mm')
-        if price_str:
-            meta_parts.append(price_str)
-        if crr_str:
-            meta_parts.append(crr_str)
+        if price:
+            meta_parts.append(f'${price:.0f}')
         meta = ' · '.join(meta_parts)
+        meta_html = f'<div class="gg-tire-meta">{esc(meta)}</div>' if meta else ''
 
         why_html = f'<div class="gg-tire-why">{esc(why)}</div>' if why else ''
         picks_html.append(
             f'<div class="gg-tire-pick">'
             f'<div class="gg-tire-rank">{esc(str(rank))}</div>'
             f'<div class="gg-tire-info">'
-            f'<div class="gg-tire-name">{esc(name)}</div>'
-            f'<div class="gg-tire-meta">{esc(meta)}</div>'
+            f'<div class="gg-tire-name">{tire_name_html(t.get("tire_id"), name)}</div>'
+            f'{meta_html}'
             f'{why_html}'
             f'</div>'
             f'</div>'
@@ -5894,9 +5915,11 @@ def build_tire_picks(rd: dict) -> str:
             f'<div class="gg-tire-split">'
             f'<span class="gg-tire-split-label">FRONT/REAR SPLIT</span> '
             f'<span class="gg-tire-split-combo">'
-            f'{esc(front.get("name", ""))} {esc(str(front.get("width_mm", "")))}mm'
+            f'{tire_name_html(front.get("tire_id"), front.get("name", ""))} '
+            f'{esc(str(front.get("width_mm", "")))}mm'
             f' / '
-            f'{esc(rear.get("name", ""))} {esc(str(rear.get("width_mm", "")))}mm'
+            f'{tire_name_html(rear.get("tire_id"), rear.get("name", ""))} '
+            f'{esc(str(rear.get("width_mm", "")))}mm'
             f'</span>'
             f'{rationale_html}'
             f'</div>'
@@ -7016,6 +7039,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-tire-rank {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xl); font-weight: 700; color: var(--gg-color-gold); min-width: 28px; text-align: center; line-height: 1; padding-top: 2px; }}
 .gg-neo-brutalist-page .gg-tire-info {{ flex: 1; }}
 .gg-neo-brutalist-page .gg-tire-name {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-tire-link {{ color: inherit; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }}
+.gg-neo-brutalist-page .gg-tire-link:hover {{ color: var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-tire-meta {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); margin-top: 2px; }}
 .gg-neo-brutalist-page .gg-tire-why {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-primary-brown); margin-top: 4px; line-height: var(--gg-line-height-relaxed); }}
 .gg-neo-brutalist-page .gg-tire-split {{ border: var(--gg-border-subtle); padding: 12px 16px; background: var(--gg-color-warm-paper); margin-top: 16px; }}
@@ -7269,6 +7294,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-earlier-rows {{ margin-top: 12px; }}
 .gg-neo-brutalist-page .gg-earlier-rows summary {{ padding: 12px 0; cursor: pointer; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-editions-status {{ font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-pickem-cta {{ margin: var(--gg-spacing-md) 0; }}
 .gg-neo-brutalist-page .gg-results-note {{ margin-top: var(--gg-spacing-sm); font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); line-height: 1.5; }}
 
 /* Riders Report callout */
@@ -7732,6 +7758,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     history = build_history(rd)
     editions_sec = build_editions(rd)
     results_sec = build_results(rd)
+    pickem_cta = build_pickem_cta(rd)
     course_route = build_course_route(rd)
     from_the_field = build_from_the_field(rd)
     ratings = build_ratings(rd)
@@ -7806,7 +7833,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     spine = '\n\n  '.join(section for section in spine_sections if section)
 
     deep_sections = []
-    for section in [course_overview, history, editions_sec, results_sec, course_route, from_the_field,
+    for section in [course_overview, history, editions_sec, results_sec, pickem_cta, course_route, from_the_field,
                     racer_reviews, training, train_for_race, logistics_sec,
                     tire_picks, news, similar, visible_faq, citations_sec]:
         if section:

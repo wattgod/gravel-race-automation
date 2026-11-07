@@ -1,0 +1,178 @@
+{
+ "collection": "articles",
+ "slug": "if-you-cant-be-bothered-to-train-a6f",
+ "images": [
+  {
+   "file": "img/1d749d5c1102bd0d.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "Cereal, muffins and bagels in an IV drip bag",
+   "figs": [
+    {
+     "box": [
+      680,
+      120,
+      1340,
+      900
+     ],
+     "erase_box": [
+      640,
+      0,
+      1360,
+      900
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "fit": "contain",
+     "face": "sleepy",
+     "psi": 157.5
+    }
+   ],
+   "match": "closest",
+   "note": "The old head was drawn out of focus behind the bag; the rig head is sharp."
+  },
+  {
+   "file": "img/2b7617c7ff8e892d.webp",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/31623a350081379a.webp",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/781b5674dc759306.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "What did I have for breakfast? I shared a bagel with a trashcan.",
+   "figs": [
+    {
+     "box": [
+      30,
+      110,
+      610,
+      900
+     ],
+     "erase_box": [
+      0,
+      30,
+      615,
+      900
+     ],
+     "pose": "stand",
+     "crop": "head",
+     "fit": "contain",
+     "face": "grin",
+     "psi": 67.5
+    }
+   ],
+   "match": "exact"
+  },
+  {
+   "file": "img/9762f90fb4412f82.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "joke": "You sit on a throne of lies.",
+   "figs": [
+    {
+     "box": [
+      1335,
+      180,
+      1600,
+      900
+     ],
+     "erase_box": [
+      1340,
+      120,
+      1600,
+      900
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 135
+    }
+   ],
+   "erase_extra": [
+    [
+     1195,
+     120,
+     1340,
+     398
+    ],
+    [
+     1272,
+     395,
+     1345,
+     472
+    ]
+   ],
+   "match": "exact"
+  },
+  {
+   "file": "img/c6707a7f96af222f.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "Ice cream truck",
+   "figs": [
+    {
+     "box": [
+      830,
+      300,
+      1200,
+      900
+     ],
+     "erase_box": [
+      852,
+      380,
+      1175,
+      900
+     ],
+     "pose": "eat",
+     "face": "grin",
+     "psi": 80
+    }
+   ],
+   "match": "closest",
+   "note": "No ice cream cone or bare belly in the rig; he eats from his hand."
+  },
+  {
+   "file": "img/ebb3e1a93d43e54c.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "I will have literally EVERYTHING on your menu.",
+   "figs": [
+    {
+     "box": [
+      790,
+      370,
+      1610,
+      900
+     ],
+     "erase_box": [
+      815,
+      370,
+      1585,
+      900
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "psi": 270,
+     "fit": "width",
+     "anchor": "top"
+    }
+   ],
+   "match": "exact"
+  },
+  {
+   "file": "img/edde24b378e98eca.webp",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  }
+ ]
+}

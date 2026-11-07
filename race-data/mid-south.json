@@ -114,7 +114,7 @@
     "history": {
       "founded": 2013,
       "founder": "Bobby and Crystal Wintle (owners of District Bicycles, 712 South Main)",
-      "origin_story": "Started in 2013 as 'Land Run 100' with 121 riders, 107 miles, 6,000+ ft elevation. Bobby discovered 'every direction two miles out of Stillwater we've got some of the best dirt roads on planet Earth.' Opened District Bicycles in Sept 2008. Renamed to 'The Mid South' in 2013. The finish-line hug tradition started year one—Bobby hugs every single finisher. 'I still need my Bobby Hug!' is a common refrain from returning riders who travel 1,000+ miles just for this race. The event grew explosively to 2,500+ today.",
+      "origin_story": "Started in 2013 as 'Land Run 100' with 121 riders, 107 miles, 6,000+ ft elevation. Bobby discovered 'every direction two miles out of Stillwater we've got some of the best dirt roads on planet Earth.' Opened District Bicycles in Sept 2008. Renamed to 'The Mid South' in 2020. The finish-line hug tradition started year one—Bobby hugs every single finisher. 'I still need my Bobby Hug!' is a common refrain from returning riders who travel 1,000+ miles just for this race. The event grew explosively to 2,500+ today.",
       "notable_moments": [
         "2019: Fast, dry conditions encouraged tactical pack racing",
         "2024: Record-fast edition with average speeds over 20mph for front groups",
@@ -136,6 +136,54 @@
         "status": "cancelled",
         "note": "Called off the night before: wildfires and high winds around Stillwater.",
         "source": "https://escapecollective.com/mid-south-2025-canceled/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-03-16",
+        "source": "https://results.bikereg.com/race/20058"
+      },
+      {
+        "year": 2023,
+        "note": "First non-binary category",
+        "source": "https://blog.bikeflights.com/post/711969132943409153/2023-the-mid-south-recap"
+      },
+      {
+        "year": 2022,
+        "edition": 10,
+        "source": "https://blog.bikeflights.com/post/678823515311472640/2022-the-mid-south-recap"
+      },
+      {
+        "year": 2020,
+        "date": "2020-03-14",
+        "note": "Renamed from Land Run 100 to The Mid South; muddy",
+        "source": "https://theradavist.com/land-run-100-changes-name-to-the-mid-south-for-2020"
+      },
+      {
+        "year": 2018,
+        "note": "Clear and dry; nearly 800 riders finished",
+        "source": "https://velo.outsideonline.com/road/road-racing/monuments-of-gravel-the-mid-south/"
+      },
+      {
+        "year": 2017,
+        "date": "2017-03-11",
+        "note": "Freezing rain; fewer than 200 of about 1,000 registrants finished",
+        "source": "https://velo.outsideonline.com/road/road-racing/monuments-of-gravel-the-mid-south/"
+      },
+      {
+        "year": 2016,
+        "date": "2016-03-12",
+        "note": "First 50K run added; thick mud",
+        "source": "https://www.midsouthgravel.com/results"
+      },
+      {
+        "year": 2015,
+        "date": "2015-03-14",
+        "source": "https://results.raceroster.com/v3/events/q3qgkepnkcnw36f4/race/347834"
+      },
+      {
+        "year": 2013,
+        "note": "First Land Run 100: 121 riders, 107 miles",
+        "source": "https://theradavist.com/land-run-100-changes-name-to-the-mid-south-for-2020"
       }
     ],
     "course_description": {
@@ -473,60 +521,99 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "schwalbe-g-one-ultrabite",
-          "name": "Schwalbe G-One Ultrabite",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 40,
-          "msrp_usd": 69.9,
-          "weight_grams": 500,
-          "crr_watts": 42.0,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip. strong mud clearance"
+          "tire_id": "continental-terra-competition-race-rapid",
+          "name": "Continental Terra Competition Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 45,
+          "msrp_usd": null,
+          "weight_grams": 482,
+          "crr_watts": 15.8,
+          "tested_width_mm": 45,
+          "course_cost_watts": 19.04,
+          "why": "Rolls 15.8 W at 45mm on BRR's drum. Wet grip 82."
         },
         {
           "rank": 2,
-          "tire_id": "tufo-gravel-swampero",
-          "name": "Tufo Gravel Swampero",
-          "brand": "Tufo",
-          "recommended_width_mm": 40,
-          "msrp_usd": 69.95,
-          "weight_grams": 480,
-          "crr_watts": null,
-          "why": "excellent wet grip. strong mud clearance"
+          "tire_id": "challenge-getaway-pro",
+          "name": "Challenge Getaway Pro",
+          "brand": "Challenge",
+          "recommended_width_mm": 45,
+          "msrp_usd": 84.99,
+          "weight_grams": 562,
+          "crr_watts": 17.8,
+          "tested_width_mm": 45,
+          "course_cost_watts": 22.21,
+          "why": "Rolls 17.8 W at 45mm on BRR's drum."
         },
         {
           "rank": 3,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 460,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip. strong mud clearance"
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 573,
+          "crr_watts": 19.2,
+          "tested_width_mm": 50,
+          "course_cost_watts": 22.26,
+          "why": "Rolls 19.2 W at 50mm on BRR's drum. 2.3mm center knobs for mud."
         }
       ],
       "front_rear_split": {
-        "applicable": false
+        "applicable": true,
+        "front": {
+          "tire_id": "continental-terra-competition-race-rapid",
+          "name": "Continental Terra Competition Race Rapid",
+          "width_mm": 45
+        },
+        "rear": {
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "width_mm": 50
+        },
+        "rationale": "The rear carries 53% of the weight and does the traction work on 6,506 ft of climbing and in the mud, so it gets the 2.3mm center knobs; the front rolls the faster file tread."
       },
-      "race_surface_profile": "muddy",
-      "recommended_width_mm": 40,
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 45,
       "pressure_psi": {
-        "140_160lb_dry": "35-39",
-        "140_160lb_mixed": "32-36",
-        "140_160lb_wet": "30-34",
-        "160_180lb_dry": "38-42",
-        "160_180lb_mixed": "35-39",
-        "160_180lb_wet": "33-37",
-        "180_200lb_dry": "41-45",
-        "180_200lb_mixed": "38-42",
-        "180_200lb_wet": "36-40",
-        "200pluslb_dry": "44-48",
-        "200pluslb_mixed": "41-45",
-        "200pluslb_wet": "39-43"
+        "gravel_category": 2,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "40mm": "36/38",
+            "45mm": "30/31",
+            "50mm": "24/25"
+          },
+          "150": {
+            "40mm": "37/39",
+            "45mm": "30/32",
+            "50mm": "25/26"
+          },
+          "170": {
+            "40mm": "38/39",
+            "45mm": "31/32",
+            "50mm": "26/27"
+          },
+          "190": {
+            "40mm": "39/40",
+            "45mm": "32/33",
+            "50mm": "26/27"
+          },
+          "210": {
+            "40mm": "39/41",
+            "45mm": "32/34",
+            "50mm": "27/28"
+          },
+          "230": {
+            "40mm": "40/42",
+            "45mm": "33/34",
+            "50mm": "27/28"
+          }
+        }
       }
     },
     "youtube_data": {
@@ -857,6 +944,86 @@
           "winning_time_female": "5:18:44",
           "winning_time_male": "4:31:54",
           "source": "https://granfondodailynews.com/2026/03/15/midsouth-gravel-results-freeburn-and-villafane-hit-oklahoma-red-paydirt"
+        },
+        "2013": {
+          "race": "107 mi",
+          "winner_female": "Monica Ward",
+          "winner_male": "Austin Morris",
+          "source": "https://velo.outsideonline.com/road/road-racing/monuments-of-gravel-the-mid-south/"
+        },
+        "2014": {
+          "race": "107 mi",
+          "winner_female": "Monica Ward",
+          "winner_male": "Bob Cummings",
+          "source": "https://velo.outsideonline.com/road/road-racing/monuments-of-gravel-the-mid-south/"
+        },
+        "2015": {
+          "race": "107 mi",
+          "winner_female": "Desiree White",
+          "winner_male": "Bryce Hylton",
+          "winning_time_female": "9:10:57",
+          "winning_time_male": "7:53:52",
+          "source": "https://results.raceroster.com/v3/events/q3qgkepnkcnw36f4/race/347834"
+        },
+        "2016": {
+          "race": "100 mi",
+          "winner_female": "Katherine Strempke",
+          "winner_male": "Austin Morris",
+          "winning_time_female": "8:21:23",
+          "winning_time_male": "7:01:18",
+          "source": "https://onlineraceresults.com/race/view_plain_text.php?race_id=52236"
+        },
+        "2017": {
+          "race": "100 mi",
+          "winner_female": "Karen Pritchard",
+          "winner_male": "Rob Bell",
+          "source": "https://velo.outsideonline.com/road/road-racing/monuments-of-gravel-the-mid-south/"
+        },
+        "2018": {
+          "race": "100 mi",
+          "winner_female": "Amanda Nauman",
+          "winner_male": "Mat Stephens",
+          "source": "https://www.cxmagazine.com/gravel-results-2018-land-run-100-oklahoma-mat-stephens-amanda-nauman"
+        },
+        "2019": {
+          "race": "100 mi",
+          "winner_female": "Nina Laughlin",
+          "winner_male": "Payson McElveen",
+          "winning_time_female": "5:32:30",
+          "winning_time_male": "5:04:08",
+          "source": "https://www.cyclingnews.com/races/the-mid-south-2020/preview/"
+        },
+        "2020": {
+          "race": "100 mi",
+          "winner_female": "Hannah Finchamp",
+          "winner_male": "Payson McElveen",
+          "winning_time_female": "7:49:10",
+          "winning_time_male": "6:23:05",
+          "source": "https://www.cxmagazine.com/2020-mid-south-gravel-results-women-finchamp-nauman-mud"
+        },
+        "2022": {
+          "race": "100 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "Cole Paton",
+          "winning_time_female": "5:08:40",
+          "winning_time_male": "4:52:26",
+          "source": "https://velo.outsideonline.com/news/gravel/cole-paton-blazes-to-victory-at-the-mid-south?scope=anon"
+        },
+        "2023": {
+          "race": "100 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "Payson McElveen",
+          "winning_time_female": "4:54:03",
+          "winning_time_male": "4:34:03",
+          "source": "https://velo.outsideonline.com/gravel/lauren-de-crescenzo-payson-mcelveen-win-again-at-the-mid-south/?scope=anon"
+        },
+        "2024": {
+          "race": "100 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "Torbjørn Røed",
+          "winning_time_female": "4:47:42",
+          "winning_time_male": "4:26:54",
+          "source": "https://www.cyclingnews.com/news/de-crescenzo-roed-win-titles-at-mid-south-grave-mcgill-stites-score-uci-wins-in-greece/"
         }
       },
       "latest_year": "2026"

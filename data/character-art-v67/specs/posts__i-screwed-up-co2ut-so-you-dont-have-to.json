@@ -1,0 +1,208 @@
+{
+ "collection": "posts",
+ "slug": "i-screwed-up-co2ut-so-you-dont-have-to",
+ "images": [
+  {
+   "file": "img/co2ut-podium-1.webp",
+   "name": "co2ut-podium-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      80,
+      220,
+      310,
+      960
+     ],
+     "erase_box": [
+      50,
+      200,
+      335,
+      965
+     ],
+     "pose": "thumbs_up",
+     "face": "grin",
+     "psi": 80,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God gives a thumbs up on the second step of the CO2UT podium next to the winner and third place.",
+   "match": "exact"
+  },
+  {
+   "file": "img/untitled-design-16.webp",
+   "name": "untitled-design-16",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      600,
+      240,
+      780,
+      470
+     ],
+     "erase_box": [
+      550,
+      220,
+      815,
+      470
+     ],
+     "pose": "stand",
+     "face": "focused",
+     "psi": 90,
+     "crop": "head",
+     "fit": "height",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God's head on a rider in a red Rio Grande kit, packed into the start corral of a gravel race.",
+   "match": "closest",
+   "note": "Only the head is the rig; the body is the original race photo (he was a head-swap there too)."
+  },
+  {
+   "file": "img/swedish-engineering.webp",
+   "name": "swedish-engineering",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      390,
+      10,
+      600,
+      575
+     ],
+     "erase_box": [
+      340,
+      0,
+      645,
+      585
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 90,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God stands thinking behind a gravel bike folded in half after a crash, next to a white car.",
+   "match": "exact"
+  },
+  {
+   "file": "img/diesel-daddy-1.webp",
+   "name": "diesel-daddy-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      590,
+      0,
+      810,
+      300
+     ],
+     "erase_box": [
+      540,
+      0,
+      865,
+      305
+     ],
+     "pose": "stand",
+     "face": "focused",
+     "psi": 90,
+     "crop": "head",
+     "fit": "height",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God's head on a rider in a red Rio Grande kit pedalling a gravel bike through the desert.",
+   "match": "closest",
+   "note": "Head only from the rig on the original race photo."
+  },
+  {
+   "file": "img/untitled-design-15.webp",
+   "name": "untitled-design-15",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1100,
+      760,
+      1560,
+      1200
+     ],
+     "erase_box": [
+      1040,
+      720,
+      1600,
+      1200
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "elev": 8,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Two teammates sprawl on a hotel bed after the race while cartoon Gravel God, seen from behind in the corner, watches.",
+   "match": "exact"
+  },
+  {
+   "file": "img/img-2460.webp",
+   "name": "img-2460",
+   "verdict": "keep",
+   "why": "Photo of a teammate."
+  },
+  {
+   "file": "img/co2ut-finish.webp",
+   "name": "co2ut-finish",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      545,
+      400,
+      700,
+      580
+     ],
+     "erase_box": [
+      520,
+      380,
+      722,
+      592
+     ],
+     "pose": "stand",
+     "face": "grimace",
+     "psi": 90,
+     "crop": "head",
+     "fit": "height",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God's head on a rider crossing under the orange CO2UT finish arch.",
+   "match": "closest",
+   "note": "Head only from the rig on the original race photo."
+  },
+  {
+   "file": "img/missed-podium.webp",
+   "name": "missed-podium",
+   "verdict": "keep",
+   "why": "Phone screenshot of a group chat."
+  }
+ ]
+}

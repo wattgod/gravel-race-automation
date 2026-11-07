@@ -245,6 +245,60 @@
         "status": "cancelled",
         "note": "Covid pandemic. Thessaloniki had been announced as the finish.",
         "source": "https://ridefar.info/races/transcontinental-race/transcontinental-race-no-9-2023/"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://ridefar.info/races/transcontinental-race/tcr-2020-21/"
+      },
+      {
+        "year": 2019,
+        "edition": 7,
+        "note": "First east-to-west route, Burgas to Brest",
+        "source": "https://www.lostdot.cc/results/tcrno7"
+      },
+      {
+        "year": 2018,
+        "date": "2018-07-29",
+        "edition": 6,
+        "note": "Start moved to Sunday evening",
+        "source": "https://ridefar.info/races/transcontinental-race/tcr-no6/"
+      },
+      {
+        "year": 2017,
+        "date": "2017-07-28",
+        "edition": 5,
+        "note": "First edition after founder Mike Hall's death",
+        "source": "https://ridefar.info/races/transcontinental-race/tcr-no5/"
+      },
+      {
+        "year": 2016,
+        "date": "2016-07-29",
+        "edition": 4,
+        "note": "Finish moved from Istanbul to Canakkale, Turkey",
+        "source": "https://ridefar.info/races/transcontinental-race/tcr-no4/"
+      },
+      {
+        "year": 2015,
+        "date": "2015-07-25",
+        "edition": 3,
+        "note": "First start from Geraardsbergen, Belgium",
+        "source": "https://ridefar.info/races/transcontinental-race/tcr-no3/"
+      },
+      {
+        "year": 2014,
+        "date": "2014-08-09",
+        "edition": 2,
+        "note": "London start; 87 riders started",
+        "source": "https://ridefar.info/races/transcontinental-race/tcr-no2/"
+      },
+      {
+        "year": 2013,
+        "date": "2013-08-03",
+        "edition": 1,
+        "note": "London to Istanbul; 30 riders started",
+        "source": "https://ridefar.info/races/transcontinental-race/tcr-no1/"
       }
     ],
     "course_description": {
@@ -460,77 +514,53 @@
           "winning_time_female": "11d 07h 39m",
           "winning_time_male": "8d 16h 30m",
           "source": "https://www.lostdot.cc/results/tcrno9"
+        },
+        "2013": {
+          "race": "3,200 km",
+          "winner_female": "Juliana Buhring",
+          "winner_male": "Kristof Allegaert",
+          "source": "https://en.wikipedia.org/wiki/Transcontinental_Race"
+        },
+        "2014": {
+          "race": "3,600 km",
+          "winner_female": "Pippa Handley",
+          "winner_male": "Kristof Allegaert",
+          "source": "https://en.wikipedia.org/wiki/Transcontinental_Race"
+        },
+        "2015": {
+          "race": "4,200 km",
+          "winner_female": "Jayne Wadsworth",
+          "winner_male": "Josh Ibbett",
+          "source": "https://en.wikipedia.org/wiki/Transcontinental_Race"
+        },
+        "2016": {
+          "race": "3,800 km",
+          "winner_female": "Emily Chappell",
+          "winner_male": "Kristof Allegaert",
+          "source": "https://en.wikipedia.org/wiki/Transcontinental_Race"
+        },
+        "2017": {
+          "race": "4,000 km",
+          "winner_female": "Melissa Pritchard",
+          "winner_male": "James Hayden",
+          "source": "https://en.wikipedia.org/wiki/Transcontinental_Race"
+        },
+        "2018": {
+          "race": "3,900 km",
+          "winner_female": "Ede Harrison",
+          "winner_male": "James Hayden",
+          "winning_time_female": "13d 19h 32m",
+          "winning_time_male": "8d 23h 59m",
+          "source": "https://dotwatcher.cc/results/2018/transcontinental-race-2018"
+        },
+        "2019": {
+          "race": "4,000 km",
+          "winner_female": "Fiona Kolbinger",
+          "winner_male": "Ben Davies",
+          "source": "https://www.lostdot.cc/results/tcrno7"
         }
       },
       "latest_year": "2026"
-    },
-    "tire_recommendations": {
-      "generated_at": "2026-02-27",
-      "primary": [
-        {
-          "rank": 1,
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 40,
-          "msrp_usd": 69.9,
-          "weight_grams": 480,
-          "crr_watts": 38.0,
-          "why": "Reliable all-rounder for the TCR's mixed surfaces. Excellent wet grip for Alpine storms, tough enough for gravel parcours, and fast enough on paved roads. The go-to tire for riders who want one setup for the entire continent."
-        },
-        {
-          "rank": 2,
-          "tire_id": "maxxis-reaver",
-          "name": "Maxxis Reaver",
-          "brand": "Maxxis",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 460,
-          "crr_watts": 35.0,
-          "why": "Technical all-rounder. EXO+ casing handles Balkan rough roads and Albanian gravel parcours without puncture anxiety."
-        },
-        {
-          "rank": 3,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
-          "brand": "Pirelli",
-          "recommended_width_mm": 40,
-          "msrp_usd": 73.99,
-          "weight_grams": 430,
-          "crr_watts": null,
-          "why": "Excellent wet grip for Alpine conditions. Low rolling resistance on pavement for the 70-80% of the race on paved roads."
-        }
-      ],
-      "front_rear_split": {
-        "applicable": true,
-        "front": {
-          "tire_id": "vittoria-terreno-dry",
-          "name": "Vittoria Terreno Dry",
-          "width_mm": 40
-        },
-        "rear": {
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
-          "width_mm": 40
-        },
-        "rationale": "Faster front for reduced rolling resistance on the 70-80% paved road sections, grippier rear for traction on loose gravel parcours climbs and wet Alpine descents."
-      },
-      "race_surface_profile": "technical",
-      "recommended_width_mm": 40,
-      "pressure_psi": {
-        "140_160lb_dry": "34-38",
-        "140_160lb_mixed": "30-34",
-        "140_160lb_wet": "28-32",
-        "160_180lb_dry": "36-40",
-        "160_180lb_mixed": "34-38",
-        "160_180lb_wet": "32-36",
-        "180_200lb_dry": "40-44",
-        "180_200lb_mixed": "36-40",
-        "180_200lb_wet": "34-38",
-        "200pluslb_dry": "42-46",
-        "200pluslb_mixed": "40-44",
-        "200pluslb_wet": "38-42"
-      }
     },
     "research_metadata": {
       "research_strength": {

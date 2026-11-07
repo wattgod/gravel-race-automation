@@ -30,13 +30,13 @@ OUTPUT_PATH = wp_post.output_path(SLUG)
 
 _TP = "TrainingPeaks workout window"
 ALT = {
-    "faster-dammit": "Black-and-white photo of a dirt road along a vast crop field under a cloudy sky: a rider in black leads, and cartoon Gravel God in a cowboy hat pedals a few lengths behind.",
+    "faster-dammit": "Black-and-white photo of a dirt road along a vast crop field under a cloudy sky: a rider in black leads, and cartoon Gravel God pedals hard a few lengths behind.",
     "recovery-makes-you-fast": "Chalkboard sketch of fitness over time: from the starting-fitness line, the curve dips during \"Train\", bottoms out and climbs during \"Rest\", and ends above the dashed starting line at \"Ending fitness\".",
     "lagging-outcome": "A 2022 year calendar in dark mode with handwritten notes: \"Training a lot here\" points to February 6, \"When you think you'll get much faster\" to March 1, and \"When you do\" to June 6.",
     "progress-is-not-linear": "Chalkboard sketch: a jagged line labelled \"Actual progress\" zigzags up and down around a straight dashed arrow labelled \"Expected progress\", both rising to the right.",
     "search-for-answers": "A calendar fortnight, June 20 to July 2, with every day except Sundays filled with the same entry: the Strava logo and \"KOM Attempt\".",
-    "overtraining": "A young man at a bar, arm out, says: \"So I trained 1400 hours last year, lost my job, wife, and couldn't get out of bed for three months!\" Cartoon Gravel God, cigar in his mouth, listens at the right.",
-    "recovery-makes-you-fast-fitness-is-a-lagging-outcome-dont-search-for-answers-overtraining-doesnt-make-you-special-1": "A pale bedroom seen from behind cartoon Gravel God's cowboy hat, surrounded by floating items: a yellow road bike, a calendar with crossed-off days, a TrainingPeaks workout window, a stack of pancakes with syrup, a water bottle and a \"Choco Bar\".",
+    "overtraining": "A young man at a bar, arm out, says: \"So I trained 1400 hours last year, lost my job, wife, and couldn't get out of bed for three months!\" Cartoon Gravel God, arms crossed, listens with a skeptical look.",
+    "recovery-makes-you-fast-fitness-is-a-lagging-outcome-dont-search-for-answers-overtraining-doesnt-make-you-special-1": "A pale bedroom seen from behind cartoon Gravel God's head, surrounded by floating items: a yellow road bike, a calendar with crossed-off days, a TrainingPeaks workout, pancakes, a water bottle and a choco bar.",
     "what-is-a-watt": "Cartoon Gravel God, seen from behind, rides a dirt track through tall grass and hillside farmland and asks: \"Watts? What the hell is a watt?\"",
     "screen-shot-2022-02-08-at-10-25-42-am": f"{_TP}, Saturday, February 19, 2022: \"Day Off\", no time, distance or TSS. Description: \"Don't touch your bike. Sleep more. Get a nap if you can. Get off your screens. Relax harder.\"",
     "screen-shot-2022-02-08-at-10-29-24-am": f"{_TP}, Saturday, February 19, 2022: \"Cafe Ride\", 1:00:00, 30 TSS, IF 0.55. Description: \"Z1 - EASY spin, light on the pedals.\" Pre-activity comment: 30 TSS is a recovery ride; the biggest mistake athletes make is making recovery days too hard, and the ride should feel stupidly easy.",
@@ -48,8 +48,8 @@ ALT = {
     "screen-shot-2022-02-09-at-3-37-17-pm": f"{_TP}, Saturday, February 19, 2022: \"30/30's\", 1:14:00, 75 TSS, IF 0.78. Description: 15m progressive warm-up, 3 sets of 5x30sec ON (all out) / 30 sec easy with 5m between sets, finishing with 5x 10s standing sprints. Pre-activity comment begins: keep the cadence high on the 30 sec ON.",
     "screen-shot-2022-02-09-at-3-42-41-pm": f"{_TP}, Monday, February 14, 2022: \"Schneider 0\", 1:22:00, 113 TSS, IF 0.91. Description: 15-20m warm-up Z1-Z2, a ramp of 1 min steps from Z2 to Z4 and 30 sec at Z5, 1x10min high-cadence Z3 at 100-120 rpm, then small-geared sprints from 10 mph or less.",
     "screen-shot-2022-02-09-at-3-46-46-pm": f"{_TP}, Thursday, February 10, 2022: \"Kjøkkenvask - Svake Knær\", 4:00:00, 252 TSS, IF 0.80. Description: 60m L1/L2 warm-up, 3x5min Z3 at cadence over 100, 30min Z2, 1x8min Z4, 30min Z2, 8x3min Z5 with 2min Z1, 30min Z2, 1x8 min Z4, cool down.",
-    "iv": "Cartoon Gravel God in a cowboy hat, in profile, gazes up at an IV drip bag hanging in a blurred hospital room.",
-    "time-to-party-1": "A packed nightclub under a disco ball: confetti falls, sparkler fountains burn beside the stage, and cartoon Gravel God grins in the crowd with a cigar.",
+    "iv": "Cartoon Gravel God, handlebar mustache, in near profile, gazes at an IV drip bag hanging in a blurred hospital room.",
+    "time-to-party-1": "A packed nightclub under a disco ball: confetti falls, sparkler fountains burn beside the stage, and cartoon Gravel God laughs in the crowd.",
 }
 
 # The "In short" rule (wp_post docstring); section = 0-based h2 index.

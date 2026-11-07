@@ -167,6 +167,12 @@
         "date": "2025-05-10",
         "note": "New start and finish at Exeter Racecourse",
         "source": "https://findarace.com/events/dartmoor-legend-ultra"
+      },
+      {
+        "year": 2022,
+        "date": "2022-07-09",
+        "note": "First edition run, starting from Princetown",
+        "source": "https://www.webscorer.com/race?raceid=282631"
       }
     ],
     "final_verdict": {
@@ -214,6 +220,19 @@
       }
     ],
     "slug": "dartmoor-legend-ultra",
-    "name": "Dartmoor Legend Ultra Sportive"
+    "name": "Dartmoor Legend Ultra Sportive",
+    "results": {
+      "years": {
+        "2022": {
+          "race": "200 mi",
+          "winner_female": "Victoria Wyeth",
+          "winner_male": "Jamie Cornfield",
+          "winning_time_female": "15:43:28",
+          "winning_time_male": "13:30:28",
+          "source": "https://www.webscorer.com/race?raceid=282631"
+        }
+      },
+      "latest_year": "2022"
+    }
   }
 }

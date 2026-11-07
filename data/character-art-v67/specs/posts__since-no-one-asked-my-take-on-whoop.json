@@ -1,0 +1,38 @@
+{
+ "collection": "posts",
+ "slug": "since-no-one-asked-my-take-on-whoop",
+ "images": [
+  {
+   "file": "img/whoop-header.webp",
+   "name": "whoop-header",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      110,
+      285,
+      255,
+      600
+     ],
+     "erase_box": [
+      62,
+      276,
+      288,
+      600
+     ],
+     "pose": "arms_crossed",
+     "face": "smile",
+     "psi": 60,
+     "mask": "grabcut",
+     "pad": 8,
+     "fit": "height"
+    }
+   ],
+   "joke": "Pop Quiz: Do you need more data? A: No.",
+   "alt": "A blue wall of floating ones and zeros; cartoon Gravel God stands arms crossed under a bubble: \"Pop Quiz: Do you need more data? A: No.\""
+  }
+ ]
+}

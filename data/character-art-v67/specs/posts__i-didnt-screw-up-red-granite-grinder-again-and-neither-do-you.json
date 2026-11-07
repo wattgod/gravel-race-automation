@@ -1,0 +1,344 @@
+{
+ "collection": "posts",
+ "slug": "i-didnt-screw-up-red-granite-grinder-again-and-neither-do-you",
+ "images": [
+  {
+   "file": "img/strava-rgg.webp",
+   "name": "strava-rgg",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      30,
+      25,
+      165,
+      175
+     ],
+     "erase_box": [
+      0,
+      15,
+      195,
+      180
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain"
+    }
+   ],
+   "alt": "Strava screenshot of Matti Rowe's ride \"Red Granite Grinder - Første plass!\" (cartoon Gravel God avatar), 6:20 AM on Saturday, October 15, 2022, Town of Stettin, Wisconsin: 148.43 mi, 8:54:42 moving time, 6,017 ft of climbing, 267 W weighted average power, 7,548 kJ, 9:24:38 elapsed, with the course map around Wausau and the elevation profile; KOMs listed below.",
+   "match": "exact"
+  },
+  {
+   "file": "img/rgg-course-split.webp",
+   "name": "rgg-course-split",
+   "verdict": "replace",
+   "mode": "scene",
+   "scene": {
+    "ride": "cruise",
+    "face": "focused",
+    "rel": 40,
+    "elev": 5,
+    "k": 270,
+    "pos": [
+     0.55,
+     0.62
+    ],
+    "trees": [
+     [
+      24,
+      9
+     ],
+     [
+      28,
+      11
+     ],
+     [
+      31,
+      8.5
+     ],
+     [
+      36,
+      10
+     ],
+     [
+      40,
+      9
+     ],
+     [
+      44,
+      11
+     ],
+     [
+      48,
+      9.5
+     ],
+     [
+      52,
+      12
+     ]
+    ],
+    "palette": "green",
+    "seed": 4
+   },
+   "alt": "Cartoon Gravel God, in his white tee and jorts, rides a black gravel bike along a tree-lined gravel road, focused.",
+   "match": "closest",
+   "note": "The real race photo (other riders, his kit, the forest) could not be cleaned without smears, so it is redrawn as a rig scene: he rides a gravel road; rider 730 beside him is missing."
+  },
+  {
+   "file": "img/sram-grx-axs.webp",
+   "name": "sram-grx-axs",
+   "verdict": "keep",
+   "why": "Photo of a derailleur box on a garage floor; no Gravel God."
+  },
+  {
+   "file": "img/fred-flinstone.webp",
+   "name": "fred-flinstone",
+   "verdict": "replace",
+   "mode": "scene",
+   "scene": {
+    "ride": "foot_down",
+    "face": "grimace",
+    "rel": 55,
+    "elev": 6,
+    "k": 270,
+    "pos": [
+     0.5,
+     0.62
+    ],
+    "trees": [
+     [
+      24,
+      9
+     ],
+     [
+      28,
+      11
+     ],
+     [
+      31,
+      8.5
+     ],
+     [
+      36,
+      10
+     ],
+     [
+      40,
+      9
+     ],
+     [
+      44,
+      11
+     ],
+     [
+      48,
+      9.5
+     ],
+     [
+      52,
+      12
+     ]
+    ],
+    "seed": 6
+   },
+   "alt": "Cartoon Gravel God, in his white tee and jorts, puts a foot down to slow his bike on a gravel road through the trees, wincing.",
+   "match": "closest",
+   "note": "The real race photo (other riders, his kit, the forest) could not be cleaned without smears, so it is redrawn as a rig scene: he stops on a tree-lined gravel road; the fallen leaves and snow are missing."
+  },
+  {
+   "file": "img/forest-tacoma.webp",
+   "name": "forest-tacoma",
+   "verdict": "keep",
+   "why": "Photo of a truck and a rider; no Gravel God."
+  },
+  {
+   "file": "img/two-specs.webp",
+   "name": "two-specs",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      560,
+      525,
+      672,
+      862
+     ],
+     "erase_box": [
+      538,
+      500,
+      692,
+      868
+     ],
+     "ride": "cruise",
+     "face": "focused",
+     "psi": 85,
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "A long, wet gravel road through the forest: two tiny riders appear far up the road behind cartoon Gravel God, riding in his white tee and jorts.",
+   "match": "closest",
+   "note": "Real race photo: the pasted-head rider is replaced by the rig character riding his own bike in tee and jorts; the real photo, other riders and scenery stay, but his real kit and bike are gone."
+  },
+  {
+   "file": "img/last-billy-goat-1.webp",
+   "name": "last-billy-goat-1",
+   "verdict": "replace",
+   "mode": "scene",
+   "scene": {
+    "ride": "seated_climb",
+    "face": "grimace",
+    "rel": 25,
+    "elev": 3,
+    "k": 270,
+    "pos": [
+     0.55,
+     0.6
+    ],
+    "profile": [
+     [
+      "climb",
+      20,
+      60,
+      0.09
+     ]
+    ],
+    "trees": [
+     [
+      24,
+      9
+     ],
+     [
+      28,
+      11
+     ],
+     [
+      31,
+      8.5
+     ],
+     [
+      36,
+      10
+     ],
+     [
+      40,
+      9
+     ],
+     [
+      44,
+      11
+     ],
+     [
+      48,
+      9.5
+     ],
+     [
+      52,
+      12
+     ]
+    ],
+    "palette": "green",
+    "seed": 7
+   },
+   "alt": "Cartoon Gravel God, in his white tee and jorts, grinds seated up a steep gravel climb, grimacing.",
+   "match": "closest",
+   "note": "The real race photo (other riders, his kit, the forest) could not be cleaned without smears, so it is redrawn as a rig scene: he rides a gravel road; the two riders beside him and the autumn valley are missing."
+  },
+  {
+   "file": "img/rgg-win.webp",
+   "name": "rgg-win",
+   "verdict": "replace",
+   "mode": "scene",
+   "scene": {
+    "ride": "no_hands",
+    "face": "laugh",
+    "rel": 48,
+    "elev": 5,
+    "k": 300,
+    "pos": [
+     0.45,
+     0.6
+    ],
+    "trees": [
+     [
+      44,
+      9
+     ],
+     [
+      47,
+      11
+     ],
+     [
+      24,
+      10
+     ]
+    ],
+    "signs": [
+     {
+      "s": 32.8,
+      "off": 3.1,
+      "lines": [
+       "FINISH"
+      ],
+      "turn": -10
+     }
+    ],
+    "cones": [
+     [
+      37.5,
+      2.5
+     ],
+     [
+      40.5,
+      2.5
+     ]
+    ]
+   },
+   "alt": "Cartoon Gravel God rides no-handed past a FINISH sign and cones, laughing.",
+   "match": "closest",
+   "note": "The real race photo (other riders, his kit, the forest) could not be cleaned without smears, so it is redrawn as a rig scene: he rides a gravel road; the downtown plaza and spectators are missing; a FINISH sign stands in."
+  },
+  {
+   "file": "img/img-3900.webp",
+   "name": "img-3900",
+   "verdict": "keep",
+   "why": "Photo of two men and a hunting blind; no Gravel God."
+  },
+  {
+   "file": "img/0c2e846d-50ec-4e5d-a8e1-8a85e5043d03.webp",
+   "name": "0c2e846d-50ec-4e5d-a8e1-8a85e5043d03",
+   "verdict": "keep",
+   "why": "Photo of an older couple; no Gravel God."
+  },
+  {
+   "file": "img/img-3816.webp",
+   "name": "img-3816",
+   "verdict": "keep",
+   "why": "Old family photo; no Gravel God."
+  },
+  {
+   "file": "img/shane.webp",
+   "name": "shane",
+   "verdict": "keep",
+   "why": "Photo of a bikepacker; no Gravel God."
+  },
+  {
+   "file": "img/img-2670.webp",
+   "name": "img-2670",
+   "verdict": "keep",
+   "why": "Real family photo of Matti; no cartoon."
+  },
+  {
+   "file": "img/rgg-finish.webp",
+   "name": "rgg-finish",
+   "verdict": "keep",
+   "why": "Real photo of Matti at the finish; no cartoon."
+  }
+ ]
+}

@@ -39,9 +39,9 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "untitled-design-10": "Strava activity \"Stage 4: Circle Rhizzing\", Saturday, April 29, 2023, Silver City, New Mexico: 48.98 mi, 1:59:25 moving time, 2,500 ft, 239 W weighted average power, 24.6 mi/h average; cartoon Gravel God in a cowboy hat puffs a cigar on the right.",
-    "untitled-design-11": "Cartoon Gravel God in a cowboy hat stands on a sidewalk beside a sky-blue adobe building painted with a big black-and-white lizard curled in a circle and a white bear, under a deep blue sky.",
-    "untitled-design-14": "A mustached man in a tan cap with blue mirrored sunglasses takes a selfie on a porch hung with dried red chiles, while a man with cartoon Gravel God's face and cowboy hat leans on a white post behind him, holding a coffee cup.",
+    "untitled-design-10": "Strava activity \"Stage 4: Circle Rhizzing\", Saturday, April 29, 2023, Silver City, New Mexico: 48.98 mi, 1:59:25 moving time, 2,500 ft, 239 W weighted average power, 24.6 mi/h average; cartoon Gravel God, handlebar mustache and white tee, stands at the right edge sipping a drink, and his head is the profile picture.",
+    "untitled-design-11": "Cartoon Gravel God, hands on hips, stands on a sidewalk beside a sky-blue adobe building painted with a big black-and-white lizard curled in a circle and a white bear, under a deep blue sky.",
+    "untitled-design-14": "A mustached man in a tan cap with blue mirrored sunglasses takes a selfie on a porch hung with dried red chiles, while a man with cartoon Gravel God's head leans on a white post behind him holding a mug.",
 }
 
 DESCRIPTION = ("The Tour of the Gila's Silver City criterium: 90 minutes of laps on a rough, hilly circuit, "

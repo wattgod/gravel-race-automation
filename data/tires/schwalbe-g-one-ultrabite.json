@@ -8,8 +8,10 @@
     45,
     50
   ],
+  "widths_source": "existing",
   "tread_type": "mud",
   "tread_description": "Widely spaced tall knobs for mud shedding, ADDIX SpeedGrip",
+  "tagline": "The mud tire. When the course is saturated, this is what you mount.",
   "best_conditions": [
     "mud",
     "wet",
@@ -22,133 +24,60 @@
     "dry hardpack"
   ],
   "tubeless_ready": true,
-  "brr_urls_by_width": {
-    "38": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-ultrabite",
-    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-ultrabite",
-    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-ultrabite",
-    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-ultrabite"
-  },
-  "tagline": "The mud tire. When the course is saturated, this is what you mount.",
-  "strengths": [
-    "Excellent mud shedding",
-    "Strong wet grip",
-    "Wide width range"
-  ],
-  "weaknesses": [
-    "Very slow on dry surfaces",
-    "Buzzy on pavement",
-    "Heavy"
-  ],
   "msrp_usd": 69.9,
-  "weight_grams": {
-    "38": 450,
-    "40": 500,
-    "45": 560,
-    "50": 620
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 37.0,
+      "year": 2020,
+      "model": "Schwalbe G-One Ultrabite TLE SpeedGrip 40",
+      "rr_watts": 26.0,
+      "test_psi": 36,
+      "puncture_tread": 36.0,
+      "wet_grip": 60.0,
+      "knob_center_mm": 2.3,
+      "knob_edge_mm": 3.3,
+      "weight_g": 564.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-ultrabite"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-ultrabite"
   },
   "crr_watts_at_29kmh": {
-    "40": 42.0
+    "40": 26.0
   },
-  "puncture_resistance": "high",
-  "wet_traction": "good",
+  "weight_grams": {
+    "40": 564
+  },
+  "puncture_resistance": "moderate",
+  "wet_traction": "poor",
   "mud_clearance": "high",
+  "strengths": [],
+  "weaknesses": [
+    "Slow rolling: 26 W at 40mm on BRR's drum",
+    "Wet grip 60 on BRR's wet test"
+  ],
   "recommended_use": [
-    "mud",
-    "wet",
-    "clay",
-    "saturated courses"
+    "loose corners",
+    "mud"
   ],
   "avoid_use": [
-    "smooth pavement",
-    "fast gravel",
-    "dry hardpack"
+    "fast smooth courses",
+    "wet roads"
   ],
   "status": "active",
-  "race_appearances": {
-    "crystal-bear": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "muddy"
-    },
-    "dirty-30": {
-      "rank": 1,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "muddy"
-    },
-    "dirty-reiver": {
-      "rank": 1,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "muddy"
-    },
-    "gravel-worlds": {
-      "rank": 1,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "muddy"
-    },
-    "iowa-wind-and-rock": {
-      "rank": 1,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "muddy"
-    },
-    "melting-mann": {
-      "rank": 1,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "muddy"
-    },
-    "mid-south": {
-      "rank": 1,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "muddy"
-    },
-    "paris-to-ancaster": {
-      "rank": 1,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "muddy"
-    },
-    "rasputitsa": {
-      "rank": 2,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "muddy"
-    },
-    "seven": {
-      "rank": 1,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "muddy"
-    },
-    "southern-cross-gravel": {
-      "rank": 1,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "muddy"
-    },
-    "swamp-fox-gravel-fondo": {
-      "rank": 1,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "muddy"
-    },
-    "unbound-100": {
-      "rank": 1,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "muddy"
-    }
-  },
+  "race_appearances": {},
   "community_reviews": [],
   "comparable_tires": [
+    "continental-dubnital",
+    "pirelli-cinturato-gravel-s",
+    "rene-herse-hurricane-ridge",
+    "schwalbe-g-one-bite",
     "schwalbe-g-one-overland",
-    "tufo-gravel-swampero",
-    "vittoria-terreno-wet"
+    "schwalbe-g-one-rx-pro",
+    "tufo-gravel-swampero"
   ],
   "versions": [],
   "last_enriched": null

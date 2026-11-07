@@ -28,15 +28,15 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "try-new-things": "Cartoon Gravel God in a cowboy hat, seen from behind, stands at a fork in a snowy dirt road through bare trees: the left sign reads \"Try new things\", the right \"Don't grow\".",
-    "looking-like-a-moron": "Cartoon Gravel God in a cowboy hat grins beside the words: \"Because I was scared of looking like a moron.\"",
-    "damn-kids": "A cyclocross rider races through snow past a Shimano banner and a cheering crowd; cartoon Gravel God rides alongside on his bike: \"Damn kids!.\"",
-    "still-open": "Cartoon Gravel God, seen from behind, stands at night at the lit door of a late-night shop with full shelves: \"You guys still open?\"",
-    "try-new-things-1": "A mountain biker rides a dusty desert singletrack through scrub; cartoon Gravel God follows on a road bike: \"Uggggh I don't have to steer on Zwift.\"",
-    "still-havent-done-cyclocross": "Cartoon Gravel God in a cowboy hat: \"Why? I never did cyclocross, EVEN TO THIS DAY!\" A small figure asks \"Y tho?\" and he answers \"I didn't want to look like a clown.\"",
-    "foreclosed-identity": "Cartoon Gravel God, arms crossed, on a hazy farm road beside the text: \"Because allowing your identity to foreclose around a rigid cycling identity prevents the acquisition of skills, abilities, and experiences that will make you better at bikes in general, which indirectly benefits performance in your preferred cycling discipline.\"",
-    "profile-look": "Cartoon Gravel God in a cowboy hat, in profile, gazing off to the right against a plain white background.",
-    "good-beats-world-class": "Cartoon Gravel God in a wheat field beside the text: \"Because in most things, good is just as good as world-class, not because being good within a discipline is close to world-class, but because being good in many disciplines makes you world-class compared to most people.\"",
+    "try-new-things": "Cartoon Gravel God, seen from behind, at a fork in a snowy trail: one sign says \"TRY NEW THINGS\", the other \"DON'T GROW\".",
+    "looking-like-a-moron": "Cartoon Gravel God grins beside the words \"Because I was scared of looking like a moron.\"",
+    "damn-kids": "A cyclocross racer climbs a snowy course past a crowd; cartoon Gravel God rides alongside shouting \"Damn kids!.\"",
+    "still-open": "Cartoon Gravel God, seen from behind at night, asks a lit-up convenience store \"You guys still open?\"",
+    "try-new-things-1": "Cartoon Gravel God rides a sandy desert trail behind a mountain biker, groaning \"Uggggh I don't have to steer on Zwift.\"",
+    "still-havent-done-cyclocross": "Cartoon Gravel God, thoughtful, with speech bubbles: \"Why? I never did cyclocross, EVEN TO THIS DAY!\", a small figure asks \"Y tho?\", and he answers \"I didn't want to look like a clown.\"",
+    "foreclosed-identity": "Cartoon Gravel God, arms crossed, stands on a farm road beside text: \"Because allowing your identity to foreclose around a rigid cycling identity prevents the acquisition of skills, abilities, and experiences that will make you better at bikes in general, which indirectly benefits performance in your preferred cycling discipline.\"",
+    "profile-look": "Cartoon Gravel God in profile, head and shoulders, looking off to the right.",
+    "good-beats-world-class": "Cartoon Gravel God grins beside text: \"Because in most things, good is just as good as world-class, not because being good within a discipline is close to world-class, but because being good in many disciplines makes you world-class compared to most people.\"",
     "practice-what-you-preach": "Photo of a young girl in a pink heart shirt rolling her eyes beside a kitchen counter scattered with pink flowers: \"So you don't practice what you preach? You really are a Dad.\"",
 }
 

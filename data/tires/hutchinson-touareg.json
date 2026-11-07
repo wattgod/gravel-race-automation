@@ -1,13 +1,16 @@
 {
   "id": "hutchinson-touareg",
-  "name": "Hutchinson Touareg",
+  "name": "Hutchinson Touareg Race",
   "brand": "Hutchinson",
+  "casing": "Race TLR",
   "widths_mm": [
     40,
     45
   ],
+  "widths_source": "existing",
   "tread_type": "knobby",
   "tread_description": "Multi-directional knob pattern with Hardskin reinforcement",
+  "tagline": "French engineering. Hardskin reinforcement handles sharp gravel roads.",
   "best_conditions": [
     "mixed",
     "loose gravel",
@@ -17,55 +20,666 @@
     "deep mud"
   ],
   "tubeless_ready": true,
-  "brr_urls_by_width": {
-    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/hutchinson-touareg",
-    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/hutchinson-touareg-45"
-  },
-  "tagline": "French engineering. Hardskin reinforcement handles sharp gravel roads.",
-  "strengths": [
-    "Hardskin puncture protection",
-    "Good in variable conditions",
-    "Durable"
-  ],
-  "weaknesses": [
-    "Heavier",
-    "Can be stiff initially",
-    "Not the fastest"
-  ],
   "msrp_usd": 73.9,
-  "weight_grams": {
-    "40": 450,
-    "45": 510
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 40.0,
+      "year": 2026,
+      "model": "Hutchinson Touareg Race TLR 40",
+      "rr_watts": 16.0,
+      "test_psi": 33,
+      "puncture_tread": 29.0,
+      "wet_grip": 69.0,
+      "knob_center_mm": 1.5,
+      "knob_edge_mm": 2.0,
+      "weight_g": 471.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/hutchinson-touareg-race"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/hutchinson-touareg-race"
   },
   "crr_watts_at_29kmh": {
-    "40": 35.0
+    "40": 16.0
   },
-  "puncture_resistance": "high",
+  "weight_grams": {
+    "40": 471
+  },
+  "puncture_resistance": "low",
   "wet_traction": "fair",
   "mud_clearance": "low",
+  "strengths": [
+    "Rolls fast: 16 W at 40mm on BRR's drum"
+  ],
+  "weaknesses": [
+    "Thin tread: puncture score 29"
+  ],
   "recommended_use": [
-    "mixed gravel",
-    "sharp rock",
-    "long distance",
-    "durability"
+    "fast gravel"
   ],
   "avoid_use": [
-    "deep mud"
+    "sharp rock",
+    "mud"
   ],
   "status": "active",
-  "race_appearances": {},
+  "race_appearances": {
+    "114-gravel-race": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "albia-holy-cow": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "alentejo-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "back-forty-highlander": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "bald-eagle-gravel-grinder": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "barry-roubaix": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "battenkill": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "beaver-dam-gravel-grinder": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "bohemian-border-bash": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "border-wars": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "burgr-95": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "burnt-bridge-classic": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "camp-michaux-gravel-grinder": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "carpathian-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "castellon-gravel-race": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "cedar-blitz": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "chino-grinder": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "cirrem": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "collegiate-gravel-nationals": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "cow-pie-classic": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "cowboy-crusher": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "dalby-grit": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "de-ronde-van-grampian": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "dirty-dino": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "dirty-hector": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "dunoon-dirt-dash": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "dusty-gravel-lacs-de-leau-dheure": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "dusty-gravel-series-andenne": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "eislek-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "essential-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "fairfield-harvest-rush": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "farmers-daughter": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "fast-fitty": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "flanders-legacy-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "galactic-grinder": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "ghost-of-the-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "giro-sardegna-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "glenwood-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "grasshopper-series": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravel-fever": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravel-one-fifty": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravel-revival": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravel-roll-pecan-shaker": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravel-suisse": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravel-unravel-why-not-chee": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gravelista": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "gray-duck-grit": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "grinduro-canada": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "haldon-heroic": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "hardwood-hustle": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "hart-hills": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "heathland-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "hegau-gravel-race": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "hell-of-hunterdon": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "heywood-ride": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "holly-shelter-gravel-grinder": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "houffa-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "iowa-state-gravel-tt-championship": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "kalona-horseshoe": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "king-of-the-lake": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "la-resistance": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "little-apple-100": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "mad-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "mammoth-tuff": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "marly-grav": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "mid-state-gravel-grinder": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "muck-n-mac-fest": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "nicolet-hot-days": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "niseko-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "omg-oxford-ms-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "ottawa-valley-gravel-experience": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "ouray-gravel-grinder": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "parker-dam-gravel-grinder": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "prairie-burn-100": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "purgatory-road-race": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "raid-rockingham": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "real-west-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "reliance-deep-woods": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "rose-city-rampage": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "ruby-roubaix": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "rust-buster-gravel-fondo": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "salty-lizard": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "scratch-ankle-gravel": {
+      "rank": 3,
+      "width_mm": 40,
+      "position": "primary",
+      "surface": "fast"
+    },
+    "serenissima-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "silver-city-century": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "soldier-cutoff-hillduro": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "sunday-creek-classic": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "the-crusher": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "the-equalizer": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "thunder-bay-thriller": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "tour-de-gap": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "trough-creek-gravel-grinder": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "turnhout-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "uncle-johns-gravel-race": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "veneto-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "wild-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "wild-horse-gravel": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "wollombi-gravel-fest": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "yorkshire-coast-dirt-dash": {
+      "rank": 3,
+      "width_mm": 45,
+      "position": "primary",
+      "surface": "mixed"
+    }
+  },
   "community_reviews": [],
   "comparable_tires": [
     "continental-terra-trail",
     "donnelly-mso",
     "goodyear-connector",
+    "goodyear-xplr-inter",
     "irc-boken-double-cross",
     "maxxis-rambler",
+    "michelin-power-gravel",
     "panaracer-gravelking-sk",
+    "panaracer-gravelking-x1",
+    "pirelli-cinturato-gravel-h",
     "pirelli-cinturato-gravel-m",
-    "specialized-pathfinder-pro-47",
+    "schwalbe-g-one-r-pro",
+    "silca-protocol-rcg-3",
     "specialized-pathfinder-pro",
+    "specialized-tracer",
     "teravail-cannonball",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero",
     "vittoria-terreno-mix"
   ],
   "versions": [],

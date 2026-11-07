@@ -346,60 +346,99 @@
       "latest_year": "2026"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
-          "brand": "Schwalbe",
+          "tire_id": "continental-terra-competition-race-rapid",
+          "name": "Continental Terra Competition Race Rapid",
+          "brand": "Continental",
           "recommended_width_mm": 45,
-          "msrp_usd": 69.9,
-          "weight_grams": 540,
-          "crr_watts": 38.0,
-          "why": "excellent wet grip"
+          "msrp_usd": null,
+          "weight_grams": 482,
+          "crr_watts": 15.8,
+          "tested_width_mm": 45,
+          "course_cost_watts": 15.8,
+          "why": "Rolls 15.8 W at 45mm on BRR's drum."
         },
         {
           "rank": 2,
-          "tire_id": "maxxis-reaver",
-          "name": "Maxxis Reaver",
-          "brand": "Maxxis",
+          "tire_id": "hutchinson-caracal-race",
+          "name": "Hutchinson Caracal Race",
+          "brand": "Hutchinson",
           "recommended_width_mm": 45,
-          "msrp_usd": 79.99,
-          "weight_grams": 520,
-          "crr_watts": 35.0,
-          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+          "msrp_usd": null,
+          "weight_grams": 566,
+          "crr_watts": 16.3,
+          "tested_width_mm": 45,
+          "course_cost_watts": 17.26,
+          "why": "Rolls 16.3 W at 45mm on BRR's drum."
         },
         {
           "rank": 3,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
-          "brand": "Pirelli",
+          "tire_id": "hutchinson-touareg",
+          "name": "Hutchinson Touareg Race",
+          "brand": "Hutchinson",
           "recommended_width_mm": 45,
-          "msrp_usd": 73.99,
-          "weight_grams": 470,
-          "crr_watts": null,
-          "why": "excellent wet grip"
+          "msrp_usd": 73.9,
+          "weight_grams": 471,
+          "crr_watts": 16.0,
+          "tested_width_mm": 40,
+          "course_cost_watts": 19.16,
+          "why": "BRR tested the 40mm: 16 W."
         }
       ],
       "front_rear_split": {
-        "applicable": false
+        "applicable": true,
+        "front": {
+          "tire_id": "continental-terra-competition-race-rapid",
+          "name": "Continental Terra Competition Race Rapid",
+          "width_mm": 45
+        },
+        "rear": {
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
+          "width_mm": 45
+        },
+        "rationale": "The rear carries 53% of the weight and does the traction work on 4,100 ft of climbing, so it gets the 1.9mm center knobs; the front rolls the faster file tread."
       },
-      "race_surface_profile": "technical",
+      "race_surface_profile": "mixed",
       "recommended_width_mm": 45,
       "pressure_psi": {
-        "140_160lb_dry": "30-34",
-        "140_160lb_mixed": "26-30",
-        "140_160lb_wet": "24-28",
-        "160_180lb_dry": "32-36",
-        "160_180lb_mixed": "30-34",
-        "160_180lb_wet": "28-32",
-        "180_200lb_dry": "36-40",
-        "180_200lb_mixed": "32-36",
-        "180_200lb_wet": "30-34",
-        "200pluslb_dry": "38-42",
-        "200pluslb_mixed": "36-40",
-        "200pluslb_wet": "34-38"
+        "gravel_category": 2,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "40mm": "36/38",
+            "45mm": "30/31",
+            "50mm": "24/25"
+          },
+          "150": {
+            "40mm": "37/39",
+            "45mm": "30/32",
+            "50mm": "25/26"
+          },
+          "170": {
+            "40mm": "38/39",
+            "45mm": "31/32",
+            "50mm": "26/27"
+          },
+          "190": {
+            "40mm": "39/40",
+            "45mm": "32/33",
+            "50mm": "26/27"
+          },
+          "210": {
+            "40mm": "39/41",
+            "45mm": "32/34",
+            "50mm": "27/28"
+          },
+          "230": {
+            "40mm": "40/42",
+            "45mm": "33/34",
+            "50mm": "27/28"
+          }
+        }
       }
     },
     "youtube_data": {

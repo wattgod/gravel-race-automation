@@ -7,8 +7,10 @@
     40,
     50
   ],
+  "widths_source": "existing",
   "tread_type": "knobby",
   "tread_description": "Multi-Surface Optimization tread with 120tpi casing",
+  "tagline": "Original gravel tire. MSO pattern pioneered the mixed-surface category.",
   "best_conditions": [
     "mixed",
     "hardpack",
@@ -19,12 +21,15 @@
     "sharp rocks"
   ],
   "tubeless_ready": true,
-  "brr_urls_by_width": {
-    "36": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/donnelly-xplor-mso",
-    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/donnelly-xplor-mso-40",
-    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/donnelly-xplor-mso-40"
-  },
-  "tagline": "Original gravel tire. MSO pattern pioneered the mixed-surface category.",
+  "msrp_usd": 69.95,
+  "lab_tested": false,
+  "brr_tests": [],
+  "brr_urls_by_width": {},
+  "crr_watts_at_29kmh": {},
+  "weight_grams": {},
+  "puncture_resistance": "moderate",
+  "wet_traction": "fair",
+  "mud_clearance": "low",
   "strengths": [
     "Proven tread pattern",
     "Good in variable conditions",
@@ -35,18 +40,6 @@
     "Not the fastest",
     "Can wear quickly"
   ],
-  "msrp_usd": 69.95,
-  "weight_grams": {
-    "36": 360,
-    "40": 410,
-    "50": 500
-  },
-  "crr_watts_at_29kmh": {
-    "40": 34.0
-  },
-  "puncture_resistance": "moderate",
-  "wet_traction": "fair",
-  "mud_clearance": "low",
   "recommended_use": [
     "mixed gravel",
     "variable conditions",
@@ -59,100 +52,26 @@
   ],
   "status": "active",
   "race_appearances": {},
-  "community_reviews": [
-    {
-      "review_id": "seed-donnelly-mso-4",
-      "tire_id": "donnelly-mso",
-      "tire_name": "Donnelly X'Plor MSO",
-      "stars": 4,
-      "width_ridden": 40,
-      "pressure_psi": 24,
-      "conditions": [
-        "dry"
-      ],
-      "race_used_at": "Barry-Roubaix",
-      "would_recommend": "yes",
-      "review_text": "Fast and predictable. Ran 36mm at a shorter gravel race and they felt planted. Would go wider for anything with real off-road sections though.",
-      "submitted_at": "2026-02-14T01:00:00.000Z",
-      "approved": true
-    },
-    {
-      "review_id": "seed-donnelly-mso-2",
-      "tire_id": "donnelly-mso",
-      "tire_name": "Donnelly X'Plor MSO",
-      "stars": 5,
-      "width_ridden": 36,
-      "pressure_psi": 23,
-      "conditions": [
-        "dry",
-        "mixed"
-      ],
-      "race_used_at": "Gravel Worlds",
-      "would_recommend": "yes",
-      "review_text": "One of the OG gravel tires and still competitive. Great cornering knobs with a fast center. Used 50mm at Gravel Worlds for extra cushion and loved them.",
-      "submitted_at": "2026-02-07T13:00:00.000Z",
-      "approved": true
-    },
-    {
-      "review_id": "seed-donnelly-mso-1",
-      "tire_id": "donnelly-mso",
-      "tire_name": "Donnelly X'Plor MSO",
-      "stars": 5,
-      "width_ridden": 50,
-      "pressure_psi": 32,
-      "conditions": [
-        "mixed"
-      ],
-      "race_used_at": "Dirty Kanza",
-      "would_recommend": "yes",
-      "review_text": "Classic gravel tire for a reason. The 40mm MSO is the perfect balance of speed and grip. Ran it at the original Dirty Kanza and it is still my go-to for unpredictable conditions.",
-      "submitted_at": "2026-02-04T21:00:00.000Z",
-      "approved": true
-    },
-    {
-      "review_id": "seed-donnelly-mso-5",
-      "tire_id": "donnelly-mso",
-      "tire_name": "Donnelly X'Plor MSO",
-      "stars": 3,
-      "width_ridden": 36,
-      "pressure_psi": 35,
-      "conditions": [
-        "mud"
-      ],
-      "race_used_at": "Mid South",
-      "would_recommend": "no",
-      "review_text": "Love these in dry to mixed but they are not mud tires. Center section gets slippery fast in real mud. Learned this at Mid South the hard way.",
-      "submitted_at": "2026-01-28T10:00:00.000Z",
-      "approved": true
-    },
-    {
-      "review_id": "seed-donnelly-mso-3",
-      "tire_id": "donnelly-mso",
-      "tire_name": "Donnelly X'Plor MSO",
-      "stars": 4,
-      "width_ridden": 40,
-      "pressure_psi": 30,
-      "conditions": [
-        "wet"
-      ],
-      "race_used_at": "Big Sugar",
-      "would_recommend": "yes",
-      "review_text": "Surprisingly good in the wet for a file-center tire. The side knobs hook up well on loose corners. Not the cheapest option but quality construction.",
-      "submitted_at": "2026-01-22T08:00:00.000Z",
-      "approved": true
-    }
-  ],
+  "community_reviews": [],
   "comparable_tires": [
     "continental-terra-trail",
     "goodyear-connector",
+    "goodyear-xplr-inter",
     "hutchinson-touareg",
     "irc-boken-double-cross",
     "maxxis-rambler",
+    "michelin-power-gravel",
     "panaracer-gravelking-sk",
+    "panaracer-gravelking-x1",
+    "pirelli-cinturato-gravel-h",
     "pirelli-cinturato-gravel-m",
-    "specialized-pathfinder-pro-47",
+    "schwalbe-g-one-r-pro",
+    "silca-protocol-rcg-3",
     "specialized-pathfinder-pro",
+    "specialized-tracer",
     "teravail-cannonball",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero",
     "vittoria-terreno-mix"
   ],
   "versions": [],

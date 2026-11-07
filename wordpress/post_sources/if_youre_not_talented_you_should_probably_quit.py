@@ -43,24 +43,24 @@ DESCRIPTION = ("The post accepts that talent is real but argues that lab tests a
                "potential, and that the value lies in committing to improve.")  # <=160 chars
 
 ALT = {
-    "dont-quit-your-day-job-9": "Cartoon Gravel God in a cowboy hat stands with his road bike in the middle of a country highway, a white coach bus right behind him.",
-    "dont-quit-your-day-job": "Cartoon Gravel God in a cowboy hat points out from a doorway into an empty office corridor lined with cubicles: \"Don't Quit your day job!\"",
-    "dont-quit-your-day-job-1": "Cartoon Gravel God stands with his bike in front of an oncoming blue city bus, headlights on: \"My VO2 max2 is 12ml/kg? Take me to Jesus.\"",
+    "dont-quit-your-day-job-9": "Cartoon Gravel God stands with his road bike in front of a big white coach bus on a country road.",
+    "dont-quit-your-day-job": "Cartoon Gravel God points down an empty office corridor of cubicles, saying: \"Don't Quit your day job!\"",
+    "dont-quit-your-day-job-1": "Cartoon Gravel God stands with his bike in the road in front of an oncoming city bus, saying: \"My VO2 max2 is 12ml/kg? Take me to Jesus.\"",
     "dont-quit-your-day-job-2": "Chalkboard list titled \"(Very!) Rude awakenings\": 1. getting into my first choice college, then my SAT scores came back; 2. I thought Suzy would consider dating me, but then she looked at me; 3. pre-med for a semester before professors realized I could barely add; 4. I thought I could be an Olympian in cross country skiing until I figured out I have the lung capacity of a line cook.",
-    "dont-quit-your-day-job-3": "A snowy, misty field with a bare tree: tiny cartoon Gravel God stands with his bike beside a seated woman playing guitar, who sings: \"I've looked at love from both sides now...\"",
+    "dont-quit-your-day-job-3": "A bare tree in a snowy white field; tiny cartoon Gravel God rides past a woman with a guitar who sings: \"I've looked at love from both sides now...\"",
     "dont-quit-your-day-job-4": "A toddler in a red shirt holding a small basketball yells up at the camera: \"Sweet Lord, are you feeding me some new age sop about 'If I just try hard enough anything is possible? My 23-year-old cousin literally has that tattoo on his arm, and he's a waiter at Subway.\"",
-    "dont-quit-your-day-job-5": "Chalkboard definition with cartoon Gravel God at the right: \"Talent (tay-lahnt), noun. 1. A natural aptitude for something aka. good without trying. 2. Hypersensitivity to stimulus e.g. you look at a bike and you get fitter.\"",
-    "reason-to-live": "Animated: a rock ledge jutting over a fjord at sunset, snowy mountains beyond, a person sitting at its tip; cartoon Gravel God rides his bike out along the ledge to join them.",
+    "dont-quit-your-day-job-5": "A chalkboard: \"TALENT (tay-lahnt) noun. 1. A natural aptitude for something aka good without trying. 2. Hypersensitivity to stimulus e.g. you look at a bike and you get fitter.\" Cartoon Gravel God stands below, arms crossed.",
+    "reason-to-live": "Tiny cartoon Gravel God rides out onto the tip of a rock ledge high above a fjord at sunset.",
     "mr-waffles-1": "A mugshot height chart marked 54 to 69 inches, the subject's face hidden behind a Danish flag.",
     "the-great-dane-2018-3": "Animated: a power-profile chart, \"The Great Dane 2018\", 1/1/2018-12/31/2018, bars for 5 sec to 120 min against category bands from \"Fair - Cat 5\" to \"World Champion\". Labels: 1 min 560 w, 5 min 438 w, 20 min 353 w, 120 min 242 w; weight 195 lbs. A figure with a Danish flag for a face stands at the left.",
     "mr-waffles": "Animated: icons of fast food, a stressed office worker, a beer and a couch are crossed out one by one in red, while a thumbs-up over a cycle of arrows and a thumbs-up over a bed remain.",
     "the-great-dane-2018-5": "Animated: the same power-profile chart for \"The Great Dane 2021\", \"This year\": 1 min 704 w, 5 min 458 w, 20 min 403 w with \"WTF!\" and \"+50 watts\", 120 min 298 w with \"WTF!\" and \"+56 watts\"; weight 175 lbs (-20 lbs). The bars are higher than in 2018.",
     "dont-quit-your-day-job-6": "Photo of Phil Gaimon in a cycling kit and helmet, holding his bike, cut out and floating in the middle of an ornate red bookshop staircase.",
-    "gaimon-jealousy-3": "Side-by-side comparison. Left, Phil Gaimon in a Cookie Monster hat with a microphone: \"2 books, Funny, 36k Twitter, World Tour, 89 ml/kg, Skinny\". Right, a green cartoon Gravel God: \"0 books, Wife thinks he's funny, 0 Twitter, Barely CAT 1, loser ml/kg, Norwegian\".",
+    "gaimon-jealousy-3": "Phil Gaimon in a Cookie Monster beanie beside \"2 books, Funny, 36k Twitter, World Tour, 39 ml/kg, Skinny\"; cartoon Gravel God, arms crossed, beside \"0 books, Wife thinks he's funny, 0 Twitter, Barely CAT 1, loser ml/kg, Norwegian\".",
     "dont-quit-your-day-job-7": "Screenshot of a tweet by Phil Gaimon (@philgaimon), Aug 14, 2017: \"Key difference: I've love a chance to show every amateur cycling why they can't be pro, if it meant I could win their money in the process\".",
     "philg-claptrap": "Book excerpt: \"There's always a young kid who's the best in the neighborhood\" ... \"I also make sure to drop the shit out of them at least once, to punch them in the face with reality before it's too late\" ... \"I told him that I did 465 watts for fourteen minutes at 147 pounds\".",
-    "dont-quit-your-day-job-8": "Cartoon Gravel God, arms crossed, beside the text: \"Weird. But Phil said if you can't hold 475 watts for 14 minutes at 147 pounds you should just quit.\"",
-    "reuse-your-trainingpeaks-training-plan": "A winding mountain road through dry hills, tilt-shift style: tiny cartoon Gravel God and another cyclist ride side by side at the bottom.",
+    "dont-quit-your-day-job-8": "Cartoon Gravel God, arms crossed, beside the words: \"Weird. But Phil said if you can't hold 475 watts for 14 minutes at 147 pounds you should just quit.\"",
+    "reuse-your-trainingpeaks-training-plan": "A winding road through hills in tilt-shift blur; tiny cartoon Gravel God stands with his bike at the roadside as a cyclist rides by.",
 }
 
 # The "In short" rule (wp_post docstring); section = 0-based h2 index.

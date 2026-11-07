@@ -1,0 +1,252 @@
+{
+ "collection": "articles",
+ "slug": "shit-nutritionists-say-eat-more-food",
+ "images": [
+  {
+   "file": "img/bbd13fbd6131b642.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      600,
+      120,
+      820,
+      945
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 90
+    }
+   ],
+   "match": "closest",
+   "bg": {
+    "type": "flat",
+    "color": "#fdebce"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      260,
+      520,
+      1000
+     ],
+     "box": [
+      0,
+      260,
+      520,
+      1000
+     ]
+    },
+    {
+     "src": [
+      560,
+      920,
+      860,
+      980
+     ],
+     "box": [
+      560,
+      920,
+      860,
+      980
+     ]
+    }
+   ],
+   "note": "Food scale and bathroom scale kept from the original; he stands on the scale in his tee and jorts instead of jeans, no hat to tip."
+  },
+  {
+   "file": "img/91119c55cd4ab4b1.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      990,
+      0,
+      1235,
+      321
+     ],
+     "erase_box": [
+      950,
+      0,
+      1240,
+      321
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 112.5,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "match": "exact"
+  },
+  {
+   "file": "img/1c989a71833736c4.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      300,
+      190,
+      560,
+      920
+     ],
+     "pose": "eat",
+     "face": "grin",
+     "psi": 90
+    }
+   ],
+   "match": "closest",
+   "note": "Rig has no squat; he stands eating in the open fridge doorway, fridge shelves behind him replaced by a plain lit interior.",
+   "bg": {
+    "type": "gradient",
+    "top": "#2b3a4a",
+    "bottom": "#1f2a36"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      200,
+      1024
+     ],
+     "box": [
+      0,
+      0,
+      200,
+      1024
+     ]
+    },
+    {
+     "src": [
+      640,
+      0,
+      1024,
+      1024
+     ],
+     "box": [
+      640,
+      0,
+      1024,
+      1024
+     ]
+    },
+    {
+     "src": [
+      200,
+      880,
+      640,
+      1024
+     ],
+     "box": [
+      200,
+      880,
+      640,
+      1024
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      205,
+      130,
+      640,
+      890
+     ],
+     "fill": "#cfe7ee"
+    }
+   ]
+  },
+  {
+   "file": "img/d4653c634bbf178a.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      330,
+      40,
+      560,
+      910
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 90
+    }
+   ],
+   "match": "closest",
+   "note": "Stands behind the table of beer and fried food, in jorts instead of jeans.",
+   "bg": {
+    "type": "flat",
+    "color": "#f1e4c4"
+   },
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      160,
+      0,
+      232,
+      905
+     ],
+     "fill": "#456767"
+    }
+   ],
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      160,
+      1024
+     ],
+     "box": [
+      0,
+      0,
+      160,
+      1024
+     ]
+    },
+    {
+     "src": [
+      0,
+      905,
+      1024,
+      1024
+     ],
+     "box": [
+      0,
+      905,
+      1024,
+      1024
+     ]
+    },
+    {
+     "src": [
+      680,
+      760,
+      1024,
+      1024
+     ],
+     "box": [
+      680,
+      760,
+      1024,
+      1024
+     ]
+    }
+   ]
+  }
+ ]
+}

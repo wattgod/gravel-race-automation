@@ -410,71 +410,99 @@
       "latest_year": "2026"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "pirelli-cinturato-gravel-m",
-          "name": "Pirelli Cinturato Gravel M",
-          "brand": "Pirelli",
-          "recommended_width_mm": 40,
-          "msrp_usd": 73.99,
-          "weight_grams": 440,
-          "crr_watts": 34.0,
-          "why": "high puncture protection for sharp surfaces"
+          "tire_id": "hutchinson-caracal-race",
+          "name": "Hutchinson Caracal Race",
+          "brand": "Hutchinson",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 668,
+          "crr_watts": 15.8,
+          "tested_width_mm": 50,
+          "course_cost_watts": 19.15,
+          "why": "Rolls 15.8 W at 50mm on BRR's drum. Puncture score 49 for the sharp rock."
         },
         {
           "rank": 2,
-          "tire_id": "specialized-pathfinder-pro",
-          "name": "Specialized Pathfinder Pro",
+          "tire_id": "specialized-pathfinder",
+          "name": "Specialized Pathfinder",
           "brand": "Specialized",
-          "recommended_width_mm": 42,
-          "msrp_usd": 54.99,
-          "weight_grams": 420,
-          "crr_watts": 32.0,
-          "why": "high puncture protection for sharp surfaces"
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 567,
+          "crr_watts": 17.0,
+          "tested_width_mm": 50,
+          "course_cost_watts": 20.5,
+          "why": "Rolls 17 W at 50mm on BRR's drum. Puncture score 46 for the sharp rock."
         },
         {
           "rank": 3,
-          "tire_id": "continental-terra-trail",
-          "name": "Continental Terra Trail",
-          "brand": "Continental",
-          "recommended_width_mm": 40,
-          "msrp_usd": 74.99,
-          "weight_grams": 450,
-          "crr_watts": 33.5,
-          "why": "high puncture protection for sharp surfaces"
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 592,
+          "crr_watts": 16.7,
+          "tested_width_mm": 50,
+          "course_cost_watts": 21.1,
+          "why": "Rolls 16.7 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
         }
       ],
       "front_rear_split": {
         "applicable": true,
         "front": {
-          "tire_id": "vittoria-terreno-dry",
-          "name": "Vittoria Terreno Dry",
-          "width_mm": 40
+          "tire_id": "hutchinson-caracal-race",
+          "name": "Hutchinson Caracal Race",
+          "width_mm": 50
         },
         "rear": {
-          "tire_id": "pirelli-cinturato-gravel-m",
-          "name": "Pirelli Cinturato Gravel M",
-          "width_mm": 40
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
+          "width_mm": 50
         },
-        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+        "rationale": "The rear carries 53% of the weight and does the traction work on 4,850 ft of climbing, so it gets the 2.1mm center knobs; the front rolls the faster file tread."
       },
       "race_surface_profile": "mixed",
-      "recommended_width_mm": 40,
+      "recommended_width_mm": 50,
       "pressure_psi": {
-        "140_160lb_dry": "34-38",
-        "140_160lb_mixed": "30-34",
-        "140_160lb_wet": "28-32",
-        "160_180lb_dry": "36-40",
-        "160_180lb_mixed": "34-38",
-        "160_180lb_wet": "32-36",
-        "180_200lb_dry": "40-44",
-        "180_200lb_mixed": "36-40",
-        "180_200lb_wet": "34-38",
-        "200pluslb_dry": "42-46",
-        "200pluslb_mixed": "40-44",
-        "200pluslb_wet": "38-42"
+        "gravel_category": 3,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "45mm": "26/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "150": {
+            "45mm": "27/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "170": {
+            "45mm": "28/29",
+            "50mm": "23/24",
+            "55mm": "19/20"
+          },
+          "190": {
+            "45mm": "28/29",
+            "50mm": "23/24",
+            "55mm": "19/20"
+          },
+          "210": {
+            "45mm": "29/30",
+            "50mm": "24/25",
+            "55mm": "20/20"
+          },
+          "230": {
+            "45mm": "29/31",
+            "50mm": "24/25",
+            "55mm": "20/21"
+          }
+        }
       }
     },
     "youtube_data": {

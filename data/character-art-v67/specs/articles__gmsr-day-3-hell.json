@@ -1,0 +1,135 @@
+{
+ "collection": "articles",
+ "slug": "gmsr-day-3-hell",
+ "images": [
+  {
+   "file": "img/9062254d64990c07.webp",
+   "mode": "rebuild",
+   "bg": {
+    "type": "gradient",
+    "top": "#daf4fe",
+    "bottom": "#a8a8a8"
+   },
+   "insets": [
+    {
+     "src": [
+      0,
+      0,
+      240,
+      1024
+     ],
+     "box": [
+      0,
+      0,
+      240,
+      1024
+     ]
+    },
+    {
+     "src": [
+      1015,
+      0,
+      1536,
+      1024
+     ],
+     "box": [
+      1015,
+      0,
+      1536,
+      1024
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      240,
+      200,
+      1015,
+      470
+     ],
+     "fill": "#727e6c"
+    },
+    {
+     "type": "rect",
+     "box": [
+      240,
+      470,
+      1015,
+      560
+     ],
+     "fill": "#667331"
+    },
+    {
+     "type": "rect",
+     "box": [
+      240,
+      560,
+      1015,
+      1024
+     ],
+     "fill": "#a8a8a8"
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      400,
+      120,
+      920,
+      990
+     ],
+     "pose": "drink",
+     "face": "grin",
+     "psi": 67.5
+    }
+   ],
+   "joke": "(no words: grinning with a beer by his bike)",
+   "match": "closest",
+   "note": "Stands drinking instead of sitting on a stool with a Miller Lite; middle of the background is flat colour, the tree and rear of the bike kept.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/168c208ee530f04b.webp",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      1000,
+      20,
+      1360,
+      960
+     ],
+     "erase_box": [
+      1183,
+      0,
+      1536,
+      1024
+     ],
+     "pad": 0,
+     "pose": "arms_crossed",
+     "face": "smile",
+     "psi": 80
+    }
+   ],
+   "joke": "Hog Cranking / Competitive Edging / Whack in the back / Jet lagged heater / Cracked on (bad) / Cracked (good) / Fent Lean / Facts / Clap back / Big chungus / Deadass / Deadass diddling / Brain rot / Hellah sus / I'm on a cut / He crashed out hard / Aura farming / Dummy Dubs / Homie wipe your ass / New Cole arc loading",
+   "match": "exact",
+   "erase_extra": [
+    [
+     1155,
+     0,
+     1210,
+     92
+    ]
+   ],
+   "verdict": "replace"
+  },
+  {
+   "file": "img/c671a85e2d3e120e.webp",
+   "verdict": "keep",
+   "why": "Photo of hand pen drawings of two real people; not the Gravel God cartoon."
+  }
+ ]
+}

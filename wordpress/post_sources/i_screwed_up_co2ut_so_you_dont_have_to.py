@@ -36,13 +36,13 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "co2ut-podium-1": "A race podium under a finish-line banner: the winner in a black T-shirt and denim shorts on the top step, a rider in a blue Go4Graham skinsuit on third, and cartoon Gravel God in a cowboy hat photoshopped onto the second step with a cigar in his mouth.",
-    "untitled-design-16": "The CO2UT start: a packed field of gravel riders at the line, with cartoon Gravel God's face in a cowboy hat pasted on a rider in red Rio Grande kit.",
-    "swedish-engineering": "A black Cervélo gravel bike hangs sideways off a hitch bike rack on a white car at the roadside, its wheel arm sprung open, while cartoon Gravel God in a cowboy hat ponders it, hand on chin.",
-    "diesel-daddy-1": "Race photo of a rider in red Rio Grande kit, number 2036, on a dirt road with mountains behind, cartoon Gravel God's face in a cowboy hat pasted over his; another rider follows.",
-    "untitled-design-15": "Two teammates lounge on a motel bed, one shirtless with his hands behind his head, the other smiling at his phone, under a framed black-and-white rafting photo; the top of cartoon Gravel God's cowboy hat pokes up in the corner.",
+    "co2ut-podium-1": "Cartoon Gravel God gives a thumbs up on the second step of the CO2UT podium next to the winner and third place.",
+    "untitled-design-16": "Cartoon Gravel God's head on a rider in a red Rio Grande kit, packed into the start corral of a gravel race.",
+    "swedish-engineering": "Cartoon Gravel God stands thinking behind a gravel bike folded in half after a crash, next to a white car.",
+    "diesel-daddy-1": "Cartoon Gravel God's head on a rider in a red Rio Grande kit pedalling a gravel bike through the desert.",
+    "untitled-design-15": "Two teammates sprawl on a hotel bed after the race while cartoon Gravel God, seen from behind in the corner, watches.",
     "img-2460": "Animated: a curly-haired teammate with a moustache, in a black Rio Grande quarter-zip, brushes his teeth in a motel room, then twirls the ends of his moustache.",
-    "co2ut-finish": "Rider 2036 in red Rio Grande kit rolls under an inflatable orange-and-blue Grand Junction Sports Commission finish arch, cartoon Gravel God's face in a cowboy hat pasted over his.",
+    "co2ut-finish": "Cartoon Gravel God's head on a rider crossing under the orange CO2UT finish arch.",
     "missed-podium": "Team Rio Grande 2023 group chat: Zack writes \"@Matti Rowe you missed your podium !!\", Matti answers \"Wut\", Zack: \"Yea 50+ you were second\", then \"Sorry that was a joke I don't know how old you are but yea he called you\", and Tyrel: \"Grvl God\".",
 }
 

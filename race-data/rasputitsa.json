@@ -136,9 +136,9 @@
       }
     },
     "history": {
-      "founded": "2016",
+      "founded": 2014,
       "founder": "Unknown",
-      "origin_story": "Rasputitsa founded 2016. Named for Russian word meaning 'mud season'. Vermont early season mud fest. 600+ riders. Burke Northeast Kingdom. Self-supported. 10th anniversary 2026.",
+      "origin_story": "Rasputitsa founded 2014. Named for Russian word meaning 'mud season'. Vermont early season mud fest. 600+ riders. Burke Northeast Kingdom. Self-supported. 10th anniversary 2026.",
       "notable_moments": [
         "2023: Mud, cold (40-50°F)",
         "2024: Rain, heavy mud (10th-anniversary edition run April 20, 2024 per Jay Peak Resort event page)",
@@ -157,6 +157,26 @@
         "edition": 10,
         "note": "Moved back to Jay Peak Resort from Burke",
         "source": "https://www.wcax.com/2023/10/24/rasputitsa-gravel-race-return-jay-peak-resort/"
+      },
+      {
+        "year": 2023,
+        "date": "2023-04-29",
+        "source": "https://veloptimum.net/courses/epreuves/23/4avr/Rasputitsa.htm"
+      },
+      {
+        "year": 2022,
+        "date": "2022-04-30",
+        "source": "https://theradavist.com/2022-rasputitsa-dirt-gravel-cycling-event"
+      },
+      {
+        "year": 2019,
+        "date": "2019-04-27",
+        "source": "https://veloptimum.net/courses/epreuves/19/4avr/Rasputitsa.htm"
+      },
+      {
+        "year": 2017,
+        "date": "2017-04-22",
+        "source": "https://canadiancyclist.com/dailynews.php?id=32414&title=rasputitsa-spring-classic-results"
       }
     ],
     "research_metadata": {
@@ -378,65 +398,122 @@
           "winner_female": "Lea Davison",
           "winner_male": "Ian Boswell",
           "source": "https://cxhairs.substack.com/p/freeroading-report-belgian-waffle"
+        },
+        "2016": {
+          "race": "45 mi",
+          "winner_female": "Lyne Bessette",
+          "winner_male": "Ansel Dickey",
+          "winning_time_female": "2:18:11",
+          "winning_time_male": "2:03:47",
+          "source": "https://pedalmag.com/rasputitsa-gravel-race-report-results-photos-bessette-wins-surch-takes-second/"
+        },
+        "2017": {
+          "race": "45 mi",
+          "winner_female": "Lyne Bessette",
+          "winner_male": "Jeremy Martin",
+          "winning_time_female": "2:12:00",
+          "winning_time_male": "1:59:47",
+          "source": "https://canadiancyclist.com/dailynews.php?id=32414&title=rasputitsa-spring-classic-results"
+        },
+        "2019": {
+          "winner_male": "Raphael Auclair",
+          "winning_time_male": "2:12:19",
+          "source": "https://veloptimum.net/courses/epreuves/19/4avr/Rasputitsa.htm"
+        },
+        "2023": {
+          "race": "100 km",
+          "winner_female": "Sarah Lange",
+          "winner_male": "Christopher Prendergast",
+          "winning_time_female": "3:15:38",
+          "winning_time_male": "2:57:08",
+          "source": "https://veloptimum.net/courses/epreuves/23/4avr/Rasputitsa.htm"
         }
       },
       "latest_year": "2024"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "tufo-gravel-swampero",
-          "name": "Tufo Gravel Swampero",
-          "brand": "Tufo",
-          "recommended_width_mm": 44,
-          "msrp_usd": 69.95,
-          "weight_grams": 530,
-          "crr_watts": null,
-          "why": "excellent wet grip. strong mud clearance"
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 573,
+          "crr_watts": 19.2,
+          "tested_width_mm": 50,
+          "course_cost_watts": 22.12,
+          "why": "Rolls 19.2 W at 50mm on BRR's drum. 2.3mm center knobs for mud."
         },
         {
           "rank": 2,
-          "tire_id": "schwalbe-g-one-ultrabite",
-          "name": "Schwalbe G-One Ultrabite",
+          "tire_id": "schwalbe-g-one-rx-pro",
+          "name": "Schwalbe G-One RX Pro",
           "brand": "Schwalbe",
-          "recommended_width_mm": 45,
-          "msrp_usd": 69.9,
-          "weight_grams": 560,
-          "crr_watts": 42.0,
-          "why": "excellent wet grip. strong mud clearance"
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 657,
+          "crr_watts": 19.4,
+          "tested_width_mm": 50,
+          "course_cost_watts": 24.46,
+          "why": "Rolls 19.4 W at 50mm on BRR's drum. 2.2mm center knobs for mud."
         },
         {
           "rank": 3,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 45,
-          "msrp_usd": 79.99,
-          "weight_grams": 520,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip. strong mud clearance"
+          "tire_id": "schwalbe-g-one-overland",
+          "name": "Schwalbe G-One Overland",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 50,
+          "msrp_usd": 69.9,
+          "weight_grams": 663,
+          "crr_watts": 20.0,
+          "tested_width_mm": 50,
+          "course_cost_watts": 26.39,
+          "why": "Rolls 20 W at 50mm on BRR's drum. 1.5mm center knobs for mud. Wet grip 79."
         }
       ],
       "front_rear_split": {
         "applicable": false
       },
       "race_surface_profile": "muddy",
-      "recommended_width_mm": 44,
+      "recommended_width_mm": 50,
       "pressure_psi": {
-        "140_160lb_dry": "30-34",
-        "140_160lb_mixed": "27-31",
-        "140_160lb_wet": "25-29",
-        "160_180lb_dry": "33-37",
-        "160_180lb_mixed": "30-34",
-        "160_180lb_wet": "28-32",
-        "180_200lb_dry": "36-40",
-        "180_200lb_mixed": "33-37",
-        "180_200lb_wet": "31-35",
-        "200pluslb_dry": "39-43",
-        "200pluslb_mixed": "36-40",
-        "200pluslb_wet": "34-38"
+        "gravel_category": 4,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "45mm": "24/25",
+            "50mm": "20/21",
+            "55mm": "17/17"
+          },
+          "150": {
+            "45mm": "25/26",
+            "50mm": "20/21",
+            "55mm": "17/18"
+          },
+          "170": {
+            "45mm": "25/27",
+            "50mm": "21/22",
+            "55mm": "17/18"
+          },
+          "190": {
+            "45mm": "26/27",
+            "50mm": "21/22",
+            "55mm": "18/18"
+          },
+          "210": {
+            "45mm": "26/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "230": {
+            "45mm": "27/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          }
+        }
       }
     },
     "youtube_data": {

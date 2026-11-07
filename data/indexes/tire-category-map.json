@@ -1,42 +1,104 @@
 {
   "tread-file": [
     "challenge-getaway-pro",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
     "continental-terra-speed-40",
+    "hutchinson-caracal-race",
     "panaracer-gravelking-tlc",
+    "panaracer-gravelking-zx-r",
+    "pirelli-cinturato-gravel-rh",
     "rene-herse-snoqualmie-pass",
+    "schwalbe-g-one-rs-pro",
     "schwalbe-g-one-rs",
-    "vittoria-terreno-dry"
+    "silca-protocol-rcg-1",
+    "specialized-pathfinder",
+    "ultradynamico-cava-race",
+    "vittoria-terreno-dry",
+    "vittoria-terreno-pro-t30",
+    "wtb-vulpine-s"
   ],
   "brand-challenge": [
     "challenge-getaway-pro"
   ],
-  "use-fast-gravel": [
-    "challenge-getaway-pro",
-    "continental-terra-speed-40",
-    "panaracer-gravelking-tlc",
-    "rene-herse-snoqualmie-pass",
-    "schwalbe-g-one-rs",
-    "vittoria-terreno-dry"
-  ],
-  "use-endurance": [
-    "challenge-getaway-pro",
-    "continental-terra-trail",
-    "donnelly-mso",
-    "goodyear-connector",
-    "hutchinson-touareg",
-    "maxxis-rambler",
-    "rene-herse-snoqualmie-pass",
-    "specialized-pathfinder-pro-47",
-    "teravail-cannonball"
-  ],
   "price-80-plus": [
     "challenge-getaway-pro",
+    "continental-dubnital",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
+    "goodyear-xplr-inter",
+    "hutchinson-caracal-race",
+    "michelin-power-gravel",
+    "panaracer-gravelking-x1",
+    "panaracer-gravelking-zx-r",
+    "pirelli-cinturato-gravel-h",
+    "pirelli-cinturato-gravel-rh",
+    "rene-herse-hurricane-ridge",
     "rene-herse-snoqualmie-pass",
-    "schwalbe-g-one-rs"
+    "schwalbe-g-one-r-pro",
+    "schwalbe-g-one-rs-pro",
+    "schwalbe-g-one-rs",
+    "schwalbe-g-one-rx-pro",
+    "silca-protocol-rcg-1",
+    "silca-protocol-rcg-3",
+    "specialized-pathfinder",
+    "specialized-tracer",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero",
+    "ultradynamico-cava-race",
+    "vittoria-terreno-pro-t30",
+    "wtb-vulpine-s"
+  ],
+  "tread-aggressive": [
+    "continental-dubnital",
+    "maxxis-reaver",
+    "pirelli-cinturato-gravel-s",
+    "rene-herse-hurricane-ridge",
+    "schwalbe-g-one-bite",
+    "schwalbe-g-one-rx-pro",
+    "teravail-washburn",
+    "vittoria-terreno-wet",
+    "wtb-resolute"
   ],
   "brand-continental": [
+    "continental-dubnital",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
     "continental-terra-speed-40",
     "continental-terra-trail"
+  ],
+  "use-wet-mud": [
+    "continental-dubnital",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
+    "donnelly-mso",
+    "hutchinson-caracal-race",
+    "pirelli-cinturato-gravel-h",
+    "pirelli-cinturato-gravel-m",
+    "pirelli-cinturato-gravel-rh",
+    "pirelli-cinturato-gravel-s",
+    "rene-herse-hurricane-ridge",
+    "schwalbe-g-one-bite",
+    "schwalbe-g-one-overland",
+    "schwalbe-g-one-rx-pro",
+    "schwalbe-g-one-ultrabite",
+    "specialized-pathfinder-pro",
+    "specialized-pathfinder",
+    "tufo-gravel-swampero",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero",
+    "vittoria-terreno-wet"
+  ],
+  "use-fast-gravel": [
+    "continental-terra-competition-race-rapid",
+    "continental-terra-speed-40",
+    "hutchinson-caracal-race",
+    "hutchinson-touareg",
+    "silca-protocol-rcg-1"
   ],
   "price-65-80": [
     "continental-terra-speed-40",
@@ -59,64 +121,55 @@
     "continental-terra-trail",
     "donnelly-mso",
     "goodyear-connector",
+    "goodyear-xplr-inter",
     "hutchinson-touareg",
     "irc-boken-double-cross",
     "maxxis-rambler",
+    "michelin-power-gravel",
     "panaracer-gravelking-sk",
+    "panaracer-gravelking-x1",
+    "pirelli-cinturato-gravel-h",
     "pirelli-cinturato-gravel-m",
-    "specialized-pathfinder-pro-47",
+    "schwalbe-g-one-r-pro",
+    "silca-protocol-rcg-3",
     "specialized-pathfinder-pro",
+    "specialized-tracer",
     "teravail-cannonball",
-    "vittoria-terreno-mix"
-  ],
-  "use-all-rounder": [
-    "continental-terra-trail",
-    "donnelly-mso",
-    "goodyear-connector",
-    "hutchinson-touareg",
-    "irc-boken-double-cross",
-    "panaracer-gravelking-sk",
-    "pirelli-cinturato-gravel-m",
-    "specialized-pathfinder-pro",
-    "teravail-cannonball",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero",
     "vittoria-terreno-mix"
   ],
   "brand-donnelly": [
     "donnelly-mso"
   ],
-  "use-wet-mud": [
+  "use-all-rounder": [
     "donnelly-mso",
-    "pirelli-cinturato-gravel-s",
-    "schwalbe-g-one-bite",
-    "schwalbe-g-one-overland",
-    "schwalbe-g-one-ultrabite",
-    "tufo-gravel-swampero",
-    "vittoria-terreno-wet"
+    "goodyear-connector",
+    "vittoria-terreno-mix"
   ],
-  "brand-goodyear": [
+  "use-endurance": [
+    "donnelly-mso",
     "goodyear-connector"
   ],
-  "use-budget": [
+  "brand-goodyear": [
     "goodyear-connector",
-    "irc-boken-double-cross",
-    "panaracer-gravelking-sk",
-    "panaracer-gravelking-tlc",
-    "specialized-pathfinder-pro-47",
-    "specialized-pathfinder-pro",
-    "tufo-gravel-swampero"
+    "goodyear-xplr-inter"
+  ],
+  "use-budget": [
+    "goodyear-connector"
   ],
   "price-under-65": [
     "goodyear-connector",
     "irc-boken-double-cross",
     "panaracer-gravelking-sk",
     "panaracer-gravelking-tlc",
-    "specialized-pathfinder-pro-47",
     "specialized-pathfinder-pro",
     "teravail-cannonball",
     "teravail-washburn",
     "wtb-resolute"
   ],
   "brand-hutchinson": [
+    "hutchinson-caracal-race",
     "hutchinson-touareg"
   ],
   "brand-irc": [
@@ -126,37 +179,32 @@
     "maxxis-rambler",
     "maxxis-reaver"
   ],
-  "tread-aggressive": [
-    "maxxis-reaver",
-    "pirelli-cinturato-gravel-s",
-    "schwalbe-g-one-bite",
-    "teravail-washburn",
-    "vittoria-terreno-wet",
-    "wtb-resolute"
-  ],
-  "use-technical": [
-    "maxxis-reaver",
-    "pirelli-cinturato-gravel-s",
-    "schwalbe-g-one-bite",
-    "teravail-washburn",
-    "vittoria-terreno-wet",
-    "wtb-resolute"
+  "brand-michelin": [
+    "michelin-power-gravel"
   ],
   "brand-panaracer": [
     "panaracer-gravelking-sk",
-    "panaracer-gravelking-tlc"
+    "panaracer-gravelking-tlc",
+    "panaracer-gravelking-x1",
+    "panaracer-gravelking-zx-r"
   ],
   "brand-pirelli": [
+    "pirelli-cinturato-gravel-h",
     "pirelli-cinturato-gravel-m",
+    "pirelli-cinturato-gravel-rh",
     "pirelli-cinturato-gravel-s"
   ],
   "brand-rene-herse": [
+    "rene-herse-hurricane-ridge",
     "rene-herse-snoqualmie-pass"
   ],
   "brand-schwalbe": [
     "schwalbe-g-one-bite",
     "schwalbe-g-one-overland",
+    "schwalbe-g-one-r-pro",
+    "schwalbe-g-one-rs-pro",
     "schwalbe-g-one-rs",
+    "schwalbe-g-one-rx-pro",
     "schwalbe-g-one-ultrabite"
   ],
   "tread-mud": [
@@ -164,23 +212,39 @@
     "schwalbe-g-one-ultrabite",
     "tufo-gravel-swampero"
   ],
+  "brand-silca": [
+    "silca-protocol-rcg-1",
+    "silca-protocol-rcg-3"
+  ],
   "brand-specialized": [
-    "specialized-pathfinder-pro-47",
-    "specialized-pathfinder-pro"
+    "specialized-pathfinder-pro",
+    "specialized-pathfinder",
+    "specialized-tracer"
   ],
   "brand-teravail": [
     "teravail-cannonball",
     "teravail-washburn"
   ],
+  "use-technical": [
+    "teravail-washburn",
+    "vittoria-terreno-wet"
+  ],
   "brand-tufo": [
-    "tufo-gravel-swampero"
+    "tufo-gravel-swampero",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero"
+  ],
+  "brand-ultradynamico": [
+    "ultradynamico-cava-race"
   ],
   "brand-vittoria": [
     "vittoria-terreno-dry",
     "vittoria-terreno-mix",
+    "vittoria-terreno-pro-t30",
     "vittoria-terreno-wet"
   ],
   "brand-wtb": [
-    "wtb-resolute"
+    "wtb-resolute",
+    "wtb-vulpine-s"
   ]
 }

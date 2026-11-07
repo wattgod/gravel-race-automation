@@ -211,6 +211,62 @@
         "year": 2022,
         "date": "2022-07-09",
         "source": "https://www.cyclingwest.com/crusher-in-the-tushar/2022-crusher-in-the-tushar-recap-brief-results/"
+      },
+      {
+        "year": 2021,
+        "date": "2021-07-10",
+        "note": "First edition under Life Time ownership",
+        "source": "https://www.gravelstoke.com/gravel-cycling-gear-blog/2021-crusher-in-the-tushar-gravel-race-results"
+      },
+      {
+        "year": 2020,
+        "date": "2020-07-11",
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://www.gravelcyclist.com/training-rides/crusher-in-the-tushar-cancels-2020-event-amidst-covid-19-pandemic/"
+      },
+      {
+        "year": 2019,
+        "date": "2019-07-13",
+        "edition": 9,
+        "source": "https://www.cyclingwest.com/news/2019-crusher-in-the-tushar-report/"
+      },
+      {
+        "year": 2018,
+        "date": "2018-07-14",
+        "source": "https://www.cyclingwest.com/crusher-in-the-tushar/de-crescenzo-calton-take-2018-crusher-titles/"
+      },
+      {
+        "year": 2017,
+        "date": "2017-07-08",
+        "source": "https://www.cyclingwest.com/news/crusher-tushar-2017-holcomb-wins-womens-category-squire-3-peats-mens-report-results-photos/"
+      },
+      {
+        "year": 2016,
+        "date": "2016-07-09",
+        "edition": 6,
+        "note": "Women's course record",
+        "source": "https://www.cyclingwest.com/crusher-in-the-tushar/squire-and-mccutcheon-crush-the-crusher-in-the-tushar/"
+      },
+      {
+        "year": 2015,
+        "date": "2015-07-11",
+        "note": "Course records for men and women",
+        "source": "https://www.cyclingwest.com/crusher-in-the-tushar/squire-farina-win-crusher-tushar/"
+      },
+      {
+        "year": 2012,
+        "date": "2012-07-14",
+        "edition": 2,
+        "note": "Women's course record",
+        "source": "https://www.cyclingnews.com/races/crusher-in-the-tushar-2012/results/"
+      },
+      {
+        "year": 2011,
+        "date": "2011-07-16",
+        "edition": 1,
+        "note": "First edition, about 180 starters",
+        "source": "https://www.cyclingwest.com/racing/gravel-racing/the-crusher-lives-up-to-its-name/"
       }
     ],
     "status": "DROPPED - Life Time retired Crusher in the Tushar permanently in an email to past participants, reported by Cycling West on November 5, 2026. Wildfires cancelled the 2024 and 2026 editions; 2025 was the last edition held. Course stats (69.9 mi, 10,000+ ft, Beaver to Eagle Point) describe that last edition.",
@@ -385,65 +441,166 @@
           "winning_time_female": "4:56:23",
           "winning_time_male": "4:02:24",
           "source": "https://www.cyclingwest.com/crusher-in-the-tushar/2022-crusher-in-the-tushar-recap-brief-results/"
+        },
+        "2011": {
+          "race": "70 mi",
+          "winner_female": "Clara Hughes",
+          "winner_male": "Tyler Wren",
+          "source": "https://www.cyclingwest.com/racing/gravel-racing/the-crusher-lives-up-to-its-name/"
+        },
+        "2012": {
+          "race": "69 mi",
+          "winner_female": "Gretchen Reeves",
+          "winner_male": "Tyler Wren",
+          "winning_time_female": "5:18:41",
+          "winning_time_male": "4:28:58",
+          "source": "https://www.cyclingnews.com/races/crusher-in-the-tushar-2012/results/"
+        },
+        "2013": {
+          "race": "69 mi",
+          "winner_female": "Gretchen Reeves",
+          "winner_male": "Levi Leipheimer",
+          "source": "https://www.cyclingwest.com/racing/gravel-racing/leipheimer-and-reeves-win-crusher-in-the-tushar/"
+        },
+        "2014": {
+          "race": "69 mi",
+          "winner_female": "Joey Lythgoe",
+          "winner_male": "Levi Leipheimer",
+          "source": "https://www.cxmagazine.com/gravel-preview-2019-crushar-tushar-riders-watch-women-men"
+        },
+        "2015": {
+          "race": "69 mi",
+          "winner_female": "Robin Farina",
+          "winner_male": "Robert Squire",
+          "winning_time_female": "5:01:48",
+          "winning_time_male": "4:09:59",
+          "source": "https://www.cyclingwest.com/crusher-in-the-tushar/squire-farina-win-crusher-tushar/"
+        },
+        "2016": {
+          "race": "69 mi",
+          "winner_female": "Mindy McCutcheon",
+          "winner_male": "Robert Squire",
+          "winning_time_female": "4:53:16",
+          "winning_time_male": "4:12:31",
+          "source": "https://www.cyclingwest.com/crusher-in-the-tushar/squire-and-mccutcheon-crush-the-crusher-in-the-tushar/"
+        },
+        "2017": {
+          "race": "69 mi",
+          "winner_female": "Janel Holcomb",
+          "winner_male": "Robert Squire",
+          "winning_time_male": "4:13:39",
+          "source": "https://www.cyclingwest.com/news/crusher-tushar-2017-holcomb-wins-womens-category-squire-3-peats-mens-report-results-photos/"
+        },
+        "2018": {
+          "race": "69 mi",
+          "winner_female": "Lauren De Crescenzo",
+          "winner_male": "Zach Calton",
+          "winning_time_female": "4:56:49",
+          "winning_time_male": "4:14:42",
+          "source": "https://www.cyclingwest.com/crusher-in-the-tushar/de-crescenzo-calton-take-2018-crusher-titles/"
+        },
+        "2019": {
+          "race": "69 mi",
+          "winner_female": "Evelyn Dong",
+          "winner_male": "Alex Grant",
+          "winning_time_female": "5:02:14",
+          "winning_time_male": "4:15:08",
+          "source": "https://www.cyclingwest.com/news/2019-crusher-in-the-tushar-report/"
+        },
+        "2021": {
+          "race": "69 mi",
+          "winner_female": "Sofía Gómez Villafañe",
+          "winner_male": "Peter Stetina",
+          "winning_time_female": "5:19:12",
+          "winning_time_male": "4:13:48",
+          "source": "https://www.gravelstoke.com/gravel-cycling-gear-blog/2021-crusher-in-the-tushar-gravel-race-results"
         }
       },
       "latest_year": "2025"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
           "brand": "Schwalbe",
-          "recommended_width_mm": 45,
-          "msrp_usd": 69.9,
-          "weight_grams": 540,
-          "crr_watts": 38.0,
-          "why": "Technical terrain dominator. Aggressive grip when the course gets rowdy."
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 592,
+          "crr_watts": 16.7,
+          "tested_width_mm": 50,
+          "course_cost_watts": 18.46,
+          "why": "Rolls 16.7 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
         },
         {
           "rank": 2,
-          "tire_id": "maxxis-reaver",
-          "name": "Maxxis Reaver",
-          "brand": "Maxxis",
-          "recommended_width_mm": 45,
-          "msrp_usd": 79.99,
-          "weight_grams": 520,
-          "crr_watts": 35.0,
-          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 573,
+          "crr_watts": 19.2,
+          "tested_width_mm": 50,
+          "course_cost_watts": 20.08,
+          "why": "Rolls 19.2 W at 50mm on BRR's drum. 4mm shoulder knobs for loose corners."
         },
         {
           "rank": 3,
-          "tire_id": "wtb-resolute",
-          "name": "WTB Resolute",
-          "brand": "WTB",
-          "recommended_width_mm": 42,
-          "msrp_usd": 64.95,
-          "weight_grams": 460,
-          "crr_watts": 36.5,
-          "why": "Aggressive chevron tread. Fast center with confident cornering."
+          "tire_id": "schwalbe-g-one-rx-pro",
+          "name": "Schwalbe G-One RX Pro",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 657,
+          "crr_watts": 19.4,
+          "tested_width_mm": 50,
+          "course_cost_watts": 21.32,
+          "why": "Rolls 19.4 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
         }
       ],
       "front_rear_split": {
         "applicable": false
       },
       "race_surface_profile": "technical",
-      "recommended_width_mm": 45,
+      "recommended_width_mm": 50,
       "pressure_psi": {
-        "140_160lb_dry": "30-34",
-        "140_160lb_mixed": "26-30",
-        "140_160lb_wet": "24-28",
-        "160_180lb_dry": "32-36",
-        "160_180lb_mixed": "30-34",
-        "160_180lb_wet": "28-32",
-        "180_200lb_dry": "36-40",
-        "180_200lb_mixed": "32-36",
-        "180_200lb_wet": "30-34",
-        "200pluslb_dry": "38-42",
-        "200pluslb_mixed": "36-40",
-        "200pluslb_wet": "34-38"
+        "gravel_category": 4,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "45mm": "24/25",
+            "50mm": "20/21",
+            "55mm": "17/17"
+          },
+          "150": {
+            "45mm": "25/26",
+            "50mm": "20/21",
+            "55mm": "17/18"
+          },
+          "170": {
+            "45mm": "25/27",
+            "50mm": "21/22",
+            "55mm": "17/18"
+          },
+          "190": {
+            "45mm": "26/27",
+            "50mm": "21/22",
+            "55mm": "18/18"
+          },
+          "210": {
+            "45mm": "26/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "230": {
+            "45mm": "27/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          }
+        }
       }
     },
     "youtube_data": {

@@ -75,7 +75,7 @@ def test_every_article_in_blog_index_has_a_card(page):
 
 def test_sweet_spot_card_uses_its_current_og_image(page):
     card = next(c for c in _cards(page) if "/articles/sweet-spot-training-cycling/" in c)
-    assert f'src="{SITE}/articles/sweet-spot-training-cycling/img/og-tombstone.jpg"' in card
+    assert f'src="{SITE}/articles/sweet-spot-training-cycling/img/og-tombstone-v67.jpg"' in card
     assert "sweet-spot-rip.png" not in page
 
 

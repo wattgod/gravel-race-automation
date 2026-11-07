@@ -1,0 +1,112 @@
+{
+  "id": "schwalbe-g-one-rs-pro",
+  "name": "Schwalbe G-One RS Pro",
+  "brand": "Schwalbe",
+  "widths_mm": [
+    40,
+    45,
+    50
+  ],
+  "widths_source": "existing",
+  "tread_type": "file",
+  "tubeless_ready": true,
+  "msrp_usd": 91.0,
+  "msrp_source": "https://www.schwalbetires.com/Schwalbe-G-One-RS-PRO",
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 38.0,
+      "year": 2025,
+      "model": "Schwalbe G-One RS Pro (black) 40",
+      "rr_watts": 15.7,
+      "test_psi": 36,
+      "puncture_tread": 29.0,
+      "wet_grip": 74.0,
+      "knob_center_mm": 0.4,
+      "knob_edge_mm": 2.4,
+      "weight_g": 447.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs-pro-40"
+    },
+    {
+      "width_mm": 45,
+      "measured_width_mm": 43.0,
+      "year": 2025,
+      "model": "Schwalbe G-One RS Pro (black) 45",
+      "rr_watts": 19.2,
+      "test_psi": 31,
+      "puncture_tread": 32.0,
+      "wet_grip": 69.0,
+      "knob_center_mm": 0.5,
+      "knob_edge_mm": 2.6,
+      "weight_g": 547.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs-pro-45"
+    },
+    {
+      "width_mm": 50,
+      "measured_width_mm": 48.0,
+      "year": 2025,
+      "model": "Schwalbe G-One RS Pro (transparent) 50",
+      "rr_watts": 18.2,
+      "test_psi": 28,
+      "puncture_tread": 40.0,
+      "wet_grip": 74.0,
+      "knob_center_mm": 0.4,
+      "knob_edge_mm": 2.4,
+      "weight_g": 576.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs-pro-50"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs-pro-40",
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs-pro-45",
+    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/schwalbe-g-one-rs-pro-50"
+  },
+  "crr_watts_at_29kmh": {
+    "40": 15.7,
+    "45": 19.2,
+    "50": 18.2
+  },
+  "weight_grams": {
+    "40": 447,
+    "45": 547,
+    "50": 576
+  },
+  "puncture_resistance": "low",
+  "wet_traction": "fair",
+  "mud_clearance": "none",
+  "strengths": [],
+  "weaknesses": [
+    "Thin tread: puncture score 32"
+  ],
+  "recommended_use": [
+    "loose corners"
+  ],
+  "avoid_use": [
+    "sharp rock",
+    "mud"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "challenge-getaway-pro",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
+    "continental-terra-speed-40",
+    "hutchinson-caracal-race",
+    "panaracer-gravelking-tlc",
+    "panaracer-gravelking-zx-r",
+    "pirelli-cinturato-gravel-rh",
+    "rene-herse-snoqualmie-pass",
+    "schwalbe-g-one-rs",
+    "silca-protocol-rcg-1",
+    "specialized-pathfinder",
+    "ultradynamico-cava-race",
+    "vittoria-terreno-dry",
+    "vittoria-terreno-pro-t30",
+    "wtb-vulpine-s"
+  ],
+  "versions": []
+}

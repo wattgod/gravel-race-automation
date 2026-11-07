@@ -1,0 +1,216 @@
+{
+  "checked": "2026-11-06",
+  "rules": "One entry per rider, from a per-rider bike check, race report, brand race page or the rider. Widths and pressures only where the source states them. source_type brand = the tire or bike maker published it.",
+  "races": {
+    "gravel-worlds": {
+      "edition_year": 2026,
+      "results_url": "https://www.slowtwitch.com/gravel/a-record-setting-day-at-gravel-worlds-sees-torbjorn-roed-sprint-to-the-win-ahead-of-keegan-swenson/",
+      "entries": [
+        {
+          "category": "women",
+          "place": 1,
+          "rider": "Geerike Schreurs",
+          "tire": "Specialized Pathfinder",
+          "front_width_mm": null,
+          "rear_width_mm": null,
+          "pressure": null,
+          "note": "pre-race bike check",
+          "source_name": "Slowtwitch",
+          "source_url": "https://slowtwitch.com/gravel/gravel-worlds-tech-the-machines-built-to-win",
+          "source_type": "independent",
+          "source_published": "2026-08-21",
+          "evidence": "she'll be riding aero Roval wheels with Pathfinder tires."
+        }
+      ]
+    },
+    "the-traka": {
+      "edition_year": 2026,
+      "results_url": "https://escapecollective.com/postlberger-and-gomez-villafane-triumph-at-the-traka-200/",
+      "entries": [
+        {
+          "category": "men",
+          "place": 1,
+          "rider": "Lukas Pöstlberger",
+          "tire": "Schwalbe G-One RX Pro",
+          "front_width_mm": 45,
+          "rear_width_mm": 45,
+          "pressure": null,
+          "note": null,
+          "source_name": "BikeRadar",
+          "source_url": "https://www.bikeradar.com/features/pro-bike/lukas-postlberger-rose-backroad-ff-traka-200-2026",
+          "source_type": "independent",
+          "source_published": "2026-05-02",
+          "evidence": "Pöstlberger opted for 45mm Schwalbe G-One RX Pro gravel tyres"
+        },
+        {
+          "category": "women",
+          "place": 1,
+          "rider": "Sofía Gómez Villafañe",
+          "tire": "Specialized Pathfinder",
+          "front_width_mm": 50,
+          "rear_width_mm": 50,
+          "pressure": null,
+          "note": null,
+          "source_name": "BikeRadar",
+          "source_url": "https://www.bikeradar.com/features/pro-bike/sofia-gomez-villafane-specialized-crux-traka-200",
+          "source_type": "independent",
+          "source_published": "2026-05-02",
+          "evidence": "Gómez Villafañe opted for 50mm Specialized Pathfinder gravel tyres"
+        }
+      ]
+    },
+    "uci-gravel-worlds": {
+      "edition_year": 2026,
+      "results_url": "https://escapecollective.com/magnus-bak-klaris-wins-gravel-world-title/",
+      "entries": [
+        {
+          "category": "men",
+          "place": 1,
+          "rider": "Magnus Bak Klaris",
+          "tire": "Schwalbe Thunder Burt",
+          "front_width_mm": null,
+          "rear_width_mm": null,
+          "pressure": null,
+          "note": null,
+          "source_name": "Schwalbe",
+          "source_url": "https://www.schwalbe.com/en/gravel-wm",
+          "source_type": "brand",
+          "source_published": null,
+          "evidence": "I opted for the Thunder Burt – an extremely fast and lightweight tire."
+        },
+        {
+          "category": "men",
+          "place": 2,
+          "rider": "Florian Vermeersch",
+          "tire": "Continental Terra Speed",
+          "front_width_mm": 45,
+          "rear_width_mm": 45,
+          "pressure": null,
+          "note": null,
+          "source_name": "Flow Mountain Bike",
+          "source_url": "https://flowmountainbike.com/?p=254490",
+          "source_type": "independent",
+          "source_published": "2026-10-14",
+          "evidence": "Florian Vermeersch | The defending gravel champ's Colnago ... fitted with 45mm Continental Terra Speed tyres"
+        }
+      ]
+    },
+    "unbound-200": {
+      "edition_year": 2026,
+      "results_url": "https://granfondodailynews.com/2026/05/31/unbound-2026-results-peanut-butter-mud-epic-conditions-and-early-heroes/",
+      "entries": [
+        {
+          "category": "men",
+          "place": 1,
+          "rider": "Mads Würtz Schmidt",
+          "tire": "Specialized Pathfinder",
+          "front_width_mm": null,
+          "rear_width_mm": null,
+          "pressure": null,
+          "note": null,
+          "source_name": "Cyclingnews",
+          "source_url": "https://www.cyclingnews.com/bikes/gravel/backwards-tyres-and-self-lubing-chains-we-peel-back-the-mud-at-the-unbound-gravel-finish-line-to-reveal-some-curious-tech-choices/",
+          "source_type": "independent",
+          "source_published": "2026-06-01",
+          "evidence": "These Pathfinder tyres are a popular choice, but it's unclear what size he chose."
+        },
+        {
+          "category": "men",
+          "place": 2,
+          "rider": "Matthew Beers",
+          "tire": "Specialized Pathfinder",
+          "front_width_mm": null,
+          "rear_width_mm": null,
+          "pressure": null,
+          "note": null,
+          "source_name": "Cyclingnews",
+          "source_url": "https://www.cyclingnews.com/bikes/gravel/backwards-tyres-and-self-lubing-chains-we-peel-back-the-mud-at-the-unbound-gravel-finish-line-to-reveal-some-curious-tech-choices/",
+          "source_type": "independent",
+          "source_published": "2026-06-01",
+          "evidence": "Matt Beers ran the Pathfinder tyres, which feature a smooth-rolling centre and file tread either side."
+        },
+        {
+          "category": "men",
+          "place": 3,
+          "rider": "Tobias Kongstad",
+          "tire": "Specialized Pathfinder",
+          "front_width_mm": null,
+          "rear_width_mm": null,
+          "pressure": null,
+          "note": null,
+          "source_name": "Cyclingnews",
+          "source_url": "https://www.cyclingnews.com/bikes/gravel/backwards-tyres-and-self-lubing-chains-we-peel-back-the-mud-at-the-unbound-gravel-finish-line-to-reveal-some-curious-tech-choices/",
+          "source_type": "independent",
+          "source_published": "2026-06-01",
+          "evidence": "Here's Tobias Kongstad's [Crux]... He too ran Pathfinder tyres, but in the already-mud-coloured tan wall options."
+        },
+        {
+          "category": "women",
+          "place": 1,
+          "rider": "Sofía Gómez Villafañe",
+          "tire": "Specialized Pathfinder",
+          "front_width_mm": 50,
+          "rear_width_mm": 50,
+          "pressure": null,
+          "note": null,
+          "source_name": "Velo",
+          "source_url": "https://velo.outsideonline.com/gravel/gravel-gear/winning-bikes-unbound-gravel-2026/",
+          "source_type": "independent",
+          "source_published": "2026-05-31",
+          "evidence": "Even with 50mm Pathfinders Villafañe had plenty of room to clear all of the rideable bits."
+        },
+        {
+          "category": "women",
+          "place": 3,
+          "rider": "Cecily Decker",
+          "tire": "Vittoria Terreno T30",
+          "front_width_mm": null,
+          "rear_width_mm": null,
+          "pressure": null,
+          "note": null,
+          "source_name": "Cyclingnews",
+          "source_url": "https://www.cyclingnews.com/bikes/gravel/backwards-tyres-and-self-lubing-chains-we-peel-back-the-mud-at-the-unbound-gravel-finish-line-to-reveal-some-curious-tech-choices/",
+          "source_type": "independent",
+          "source_published": "2026-06-01",
+          "evidence": "Lauren Stephens and Cecily Decker both opted for the same Vittoria Terreno T30 tyre in the brown finish."
+        }
+      ]
+    },
+    "unbound-xl": {
+      "edition_year": 2026,
+      "results_url": "https://granfondodailynews.com/2026/05/31/unbound-2026-results-peanut-butter-mud-epic-conditions-and-early-heroes/",
+      "entries": [
+        {
+          "category": "men",
+          "place": 1,
+          "rider": "Robin Gemperle",
+          "tire": "Schwalbe G-One RX Pro",
+          "front_width_mm": 50,
+          "rear_width_mm": 50,
+          "pressure": "1.9 bar front and rear",
+          "note": "32-inch prototype",
+          "source_name": "Schwalbe",
+          "source_url": "https://www.schwalbetires.com/blog/news/events/unbound-2026/",
+          "source_type": "brand",
+          "source_published": null,
+          "evidence": "Male 32\" Prototype · G-One RX Pro · Width 50 mm · 32\" Diameter · Front 1.9 bar · Rear 1.9 bar"
+        },
+        {
+          "category": "women",
+          "place": 1,
+          "rider": "Svenja Betz",
+          "tire": "Schwalbe G-One RS Pro",
+          "front_width_mm": 45,
+          "rear_width_mm": 45,
+          "pressure": "2.0 bar front, 2.1 bar rear",
+          "note": null,
+          "source_name": "Schwalbe",
+          "source_url": "https://www.schwalbetires.com/blog/news/events/unbound-2026/",
+          "source_type": "brand",
+          "source_published": null,
+          "evidence": "G-One RS Pro · Width 45 mm · Front 2.0 bar · Rear 2.1 bar"
+        }
+      ]
+    }
+  }
+}

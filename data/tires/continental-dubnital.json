@@ -1,0 +1,708 @@
+{
+  "id": "continental-dubnital",
+  "name": "Continental Dubnital Race Rapid",
+  "brand": "Continental",
+  "widths_mm": [
+    50
+  ],
+  "widths_source": "existing",
+  "tread_type": "aggressive",
+  "tubeless_ready": true,
+  "msrp_usd": null,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 50,
+      "measured_width_mm": 48.0,
+      "year": 2026,
+      "model": "Continental Dubnital Race Rapid 2.00 / 50",
+      "rr_watts": 19.2,
+      "test_psi": 28,
+      "puncture_tread": 45.0,
+      "wet_grip": 67.0,
+      "knob_center_mm": 2.3,
+      "knob_edge_mm": 4.0,
+      "weight_g": 573.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-dubnital-race-rapid-50"
+    }
+  ],
+  "brr_urls_by_width": {
+    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-dubnital-race-rapid-50"
+  },
+  "crr_watts_at_29kmh": {
+    "50": 19.2
+  },
+  "weight_grams": {
+    "50": 573
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "fair",
+  "mud_clearance": "moderate",
+  "strengths": [
+    "Tough tread: puncture score 45"
+  ],
+  "weaknesses": [],
+  "recommended_use": [
+    "sharp rock",
+    "loose corners",
+    "mud"
+  ],
+  "avoid_use": [],
+  "status": "active",
+  "race_appearances": {
+    "ardenne-gravel-stages": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "bear-100": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "berryman-epic": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "big-sugar": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bootlegger-100": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bwr-arizona": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bwr-california": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bwr-cedar-city": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bwr-montana": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "bwr-north-carolina": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "coast-to-coast": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "core4": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "wet"
+    },
+    "cowichan-crusher-gravel-fondo": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "croatan-buck-fifty": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "crusher-in-the-tushar": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "crystal-bear": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "d2r2": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "dead-swede-gravel": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "dirty-30": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "dirty-french": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "dirty-pecan": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "dirty-reiver": {
+      "rank": 1,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "dirty-sheets-gravel-grind": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "filthy-50": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "finnish-gravel": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "grassroots-gravel": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "gravel-brazil": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "gravel-burn": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "gravel-desert": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "gravel-locos": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "gravel-roubaix": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "gravel-weekend-tukums": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "gravel-worlds": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "grinduro-california": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro-france": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro-germany": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro-italy": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "grinduro": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "gunni-grinder": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "haute-route-gravel": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "heck-of-the-north": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "hellhole-gravel-grind": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "hibernator": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "huffmaster-grasshopper": {
+      "rank": 1,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "hungry-bear-100": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "iceman-cometh": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "iowa-wind-and-rock": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "jeroboam": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "karukinka": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "kowtown-gravel": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "la-epica-gravel-grinder": {
+      "rank": 1,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "lauf-true-grit": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "lone-wolf-gravel": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "lost-river-classic": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "low-gap-grasshopper": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "mixed"
+    },
+    "lowell-classic": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "marji-gesick": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "melting-mann": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "mid-south": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "monaco-gravel-race": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "noosa-gravel-enduro": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "old-fashioned-gravel": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "opelika-okey-dokey": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "paris-to-ancaster": {
+      "rank": 1,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "pickerel-buck40": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "pirinexus-360": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "pisgah-monster-cross": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "pony-express-120": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "pony-xpress": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "rasputitsa": {
+      "rank": 1,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "muddy"
+    },
+    "rebeccas-private-idaho": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "red-granite-grinder": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "river-city-gravel-fondo": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "rule-of-three": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "safari-gravel-race": {
+      "rank": 3,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "santa-vall": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "sea-otter-europe-gravel": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "sea-otter-gravel": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "seven": {
+      "rank": 1,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "southern-cross-gravel": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "spirit-world-100": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "spotted-horse-ultra": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "spring-valley-100": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "standard-deluxe-dirt-road-century": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "steamboat-gravel": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "swamp-fox-gravel-fondo": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "switchgrass": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "texas-hell-week": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "the-gralloch": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "the-rad": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "the-rift": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "the-traka": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "the-watermoo": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "total-tomahawk-terrain": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "tour-de-nebraska": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "trans-iowa": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "transcordilleras": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "uci-gravel-worlds": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "unbound-100": {
+      "rank": 1,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "unbound-200": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "unbound-xl": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "vermont-overland": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "vuelta-altas-cumbres": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "whiskey-off-road": {
+      "rank": 2,
+      "width_mm": 50,
+      "position": "primary",
+      "surface": "technical"
+    },
+    "wish-one-millau": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    },
+    "wyo-131": {
+      "rank": 0,
+      "width_mm": 50,
+      "position": "rear",
+      "surface": "mixed"
+    }
+  },
+  "community_reviews": [],
+  "comparable_tires": [
+    "maxxis-reaver",
+    "michelin-power-gravel",
+    "pirelli-cinturato-gravel-s",
+    "rene-herse-hurricane-ridge",
+    "schwalbe-g-one-bite",
+    "schwalbe-g-one-overland",
+    "schwalbe-g-one-rx-pro",
+    "schwalbe-g-one-ultrabite",
+    "teravail-washburn",
+    "tufo-gravel-swampero",
+    "vittoria-terreno-dry",
+    "vittoria-terreno-pro-t30",
+    "vittoria-terreno-wet",
+    "wtb-resolute"
+  ],
+  "versions": []
+}

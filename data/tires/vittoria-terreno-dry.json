@@ -7,8 +7,10 @@
     40,
     45
   ],
+  "widths_source": "existing",
   "tread_type": "file",
   "tread_description": "File tread with Graphene 2.0 compound for dry conditions",
+  "tagline": "Graphene-powered speed. Purpose-built for dry gravel racing.",
   "best_conditions": [
     "dry",
     "hardpack",
@@ -20,364 +22,73 @@
     "loose"
   ],
   "tubeless_ready": true,
-  "brr_urls_by_width": {
-    "38": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/vittoria-terreno-dry",
-    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/vittoria-terreno-dry",
-    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/vittoria-terreno-dry"
-  },
-  "tagline": "Graphene-powered speed. Purpose-built for dry gravel racing.",
-  "strengths": [
-    "Graphene 2.0 compound",
-    "Very low rolling resistance",
-    "Good dry grip"
-  ],
-  "weaknesses": [
-    "Poor wet traction",
-    "Not for mixed conditions",
-    "Moderate puncture protection"
-  ],
   "msrp_usd": 79.99,
-  "weight_grams": {
-    "38": 340,
-    "40": 370,
-    "45": 420
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 40.0,
+      "year": 2022,
+      "model": "Vittoria Terreno Dry TLR G+ 2.0 40",
+      "rr_watts": 26.6,
+      "test_psi": 33,
+      "puncture_tread": 50.0,
+      "wet_grip": 71.0,
+      "knob_center_mm": 0.5,
+      "knob_edge_mm": 2.3,
+      "weight_g": 460.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/vittoria-terreno-dry-tlr-40"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/vittoria-terreno-dry-tlr-40"
   },
   "crr_watts_at_29kmh": {
-    "40": 29.5
+    "40": 26.6
   },
-  "puncture_resistance": "moderate",
-  "wet_traction": "poor",
+  "weight_grams": {
+    "40": 460
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "fair",
   "mud_clearance": "none",
+  "strengths": [
+    "Tough tread: puncture score 50"
+  ],
+  "weaknesses": [
+    "Slow rolling: 26.6 W at 40mm on BRR's drum"
+  ],
   "recommended_use": [
-    "fast gravel",
-    "dry racing",
-    "smooth hardpack"
+    "sharp rock",
+    "loose corners"
   ],
   "avoid_use": [
-    "wet",
-    "mud",
-    "loose over hard"
+    "fast smooth courses",
+    "mud"
   ],
   "status": "active",
-  "race_appearances": {
-    "cohutta-gravel-grinder": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "filthy-50": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "gravel-burn": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "gravel-del-fuego": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "haute-route-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "highlands-gravel-classic": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "jeroboam": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "king-price-race-to-sun": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "le-grand-du-nord": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "mammoth-tuff": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "migration-gravel-race": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "oregon-trail-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "pirinexus-360": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "technical"
-    },
-    "pony-express-120": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "prairie-burn-100": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "radl-grvl": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "rebeccas-private-idaho": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "technical"
-    },
-    "red-granite-grinder": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "rock-cobbler": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "safari-gravel-race": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "santa-fe-century-gravelon": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "silver-city-century": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "spirit-world-100": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "spotted-horse-ultra": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "spring-valley-100": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "standard-deluxe-dirt-road-century": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "steamboat-gravel": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "switchgrass": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "the-rad": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "the-range": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "trans-sylvania-epic": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "transcontinental-race": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "technical"
-    },
-    "transrockies-gravel-royale": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "unbound-200": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "usa-cycling-gravel-nationals": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "vapor-trail-125": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "waukon-100": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "mixed"
-    },
-    "whiskey-off-road": {
-      "rank": 0,
-      "width_mm": 40,
-      "position": "front",
-      "surface": "technical"
-    }
-  },
-  "community_reviews": [
-    {
-      "review_id": "seed-vittoria-terreno-dry-4",
-      "tire_id": "vittoria-terreno-dry",
-      "tire_name": "Vittoria Terreno Dry",
-      "stars": 4,
-      "width_ridden": 40,
-      "pressure_psi": 24,
-      "conditions": [
-        "mixed"
-      ],
-      "race_used_at": "Belgian Waffle Ride",
-      "would_recommend": "yes",
-      "review_text": "Good dry tire that handles some mixed terrain. I ran 38mm at BWR California and they were fine on the varied surfaces. Would not choose these if rain was forecast though.",
-      "submitted_at": "2026-02-13T23:00:00.000Z",
-      "approved": true
-    },
-    {
-      "review_id": "seed-vittoria-terreno-dry-3",
-      "tire_id": "vittoria-terreno-dry",
-      "tire_name": "Vittoria Terreno Dry",
-      "stars": 4,
-      "width_ridden": 45,
-      "pressure_psi": 33,
-      "conditions": [
-        "dry"
-      ],
-      "race_used_at": "SBT GRVL",
-      "would_recommend": "yes",
-      "review_text": "Fast and grippy in dry conditions. The low-profile tread rolls well on pavement sections too. Not as versatile as the Mix but that is not its job.",
-      "submitted_at": "2026-02-08T23:00:00.000Z",
-      "approved": true
-    },
-    {
-      "review_id": "seed-vittoria-terreno-dry-5",
-      "tire_id": "vittoria-terreno-dry",
-      "tire_name": "Vittoria Terreno Dry",
-      "stars": 3,
-      "width_ridden": 45,
-      "pressure_psi": 25,
-      "conditions": [
-        "wet"
-      ],
-      "race_used_at": "Steamboat Gravel",
-      "would_recommend": "no",
-      "review_text": "Name says it all — these are dry tires. Tried them at a wet Steamboat Gravel and spent most of the race sliding. Know your conditions and choose accordingly.",
-      "submitted_at": "2026-02-06T01:00:00.000Z",
-      "approved": true
-    },
-    {
-      "review_id": "seed-vittoria-terreno-dry-2",
-      "tire_id": "vittoria-terreno-dry",
-      "tire_name": "Vittoria Terreno Dry",
-      "stars": 5,
-      "width_ridden": 38,
-      "pressure_psi": 23,
-      "conditions": [
-        "dry",
-        "mixed"
-      ],
-      "race_used_at": "Big Sugar",
-      "would_recommend": "yes",
-      "review_text": "My go-to for dry gravel races. Faster than the Terreno Mix with plenty of grip for hardpack and loose-over-hard. Ran 45mm at Big Sugar and loved them.",
-      "submitted_at": "2026-02-03T05:00:00.000Z",
-      "approved": true
-    },
-    {
-      "review_id": "seed-vittoria-terreno-dry-1",
-      "tire_id": "vittoria-terreno-dry",
-      "tire_name": "Vittoria Terreno Dry",
-      "stars": 5,
-      "width_ridden": 40,
-      "pressure_psi": 33,
-      "conditions": [
-        "dry"
-      ],
-      "race_used_at": "Unbound 200",
-      "would_recommend": "yes",
-      "review_text": "Built for dry gravel and it shows. The Graphene compound rolls fast and the tread pattern grips on hardpack. 40mm at Unbound in perfect conditions was chef's kiss.",
-      "submitted_at": "2026-01-17T23:00:00.000Z",
-      "approved": true
-    }
-  ],
+  "race_appearances": {},
+  "community_reviews": [],
   "comparable_tires": [
     "challenge-getaway-pro",
+    "continental-dubnital",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
     "continental-terra-speed-40",
+    "hutchinson-caracal-race",
+    "michelin-power-gravel",
     "panaracer-gravelking-tlc",
+    "panaracer-gravelking-zx-r",
+    "pirelli-cinturato-gravel-rh",
     "rene-herse-snoqualmie-pass",
-    "schwalbe-g-one-rs"
+    "schwalbe-g-one-rs-pro",
+    "schwalbe-g-one-rs",
+    "silca-protocol-rcg-1",
+    "specialized-pathfinder",
+    "ultradynamico-cava-race",
+    "vittoria-terreno-pro-t30",
+    "wtb-vulpine-s"
   ],
   "versions": [],
   "last_enriched": null

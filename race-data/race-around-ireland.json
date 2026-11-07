@@ -157,6 +157,33 @@
       "founded": 2009,
       "notable_facts": "First held in 2009 with Joe Barr winning in 108 hours; Christoph Strasser set the solo record of 93:16 in 2013. Nicole Reist became the first woman to lead all solo finishers in 2017. Qualifying event for Race Across America since inception."
     },
+    "editions": [
+      {
+        "year": 2018,
+        "date": "2018-08-26",
+        "source": "https://en.wikipedia.org/wiki/Race_Around_Ireland"
+      },
+      {
+        "year": 2012,
+        "date": "2012-09-09",
+        "source": "https://en.wikipedia.org/wiki/Race_Around_Ireland"
+      },
+      {
+        "year": 2011,
+        "date": "2011-09-11",
+        "source": "https://en.wikipedia.org/wiki/Race_Around_Ireland"
+      },
+      {
+        "year": 2010,
+        "date": "2010-09-12",
+        "source": "https://en.wikipedia.org/wiki/Race_Around_Ireland"
+      },
+      {
+        "year": 2009,
+        "date": "2009-09-15",
+        "source": "https://en.wikipedia.org/wiki/Race_Around_Ireland"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Brutal non-stop Irish coastal ultra for true endurance masochists.",
       "who_should_ride": "Experienced ultra soloists seeking RAAM qualifiers with 1,300+ mile road grind. Those thriving on self-supported adventure around Ireland's wild coasts.",
@@ -179,6 +206,76 @@
         "category": "official",
         "label": "Official Website"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2017": {
+          "race": "2,153 km",
+          "winner_female": "Nicole Reist",
+          "source": "https://www.irishcycling.com/archive/publish/sundry/Race_Around_Ireland_2017_-_Report_and_Results.shtml"
+        },
+        "2018": {
+          "race": "2,157 km",
+          "winner_male": "Joe Barr",
+          "winning_time_male": "104:03",
+          "source": "https://racearoundireland.com/wp-content/uploads/2018/09/RAI_IUC_2018_Results.pdf"
+        },
+        "2019": {
+          "race": "2,157 km",
+          "winner_male": "Pierre Bischoff",
+          "winning_time_male": "101:55",
+          "source": "https://racearoundireland.com/wp-content/uploads/2020/04/RAI_-IUC_2019_Results.pdf"
+        },
+        "2009": {
+          "race": "2,150 km",
+          "winner_male": "Joe Barr",
+          "winning_time_male": "108:12",
+          "source": "https://en.wikipedia.org/wiki/Race_Around_Ireland"
+        },
+        "2010": {
+          "race": "2,150 km",
+          "winner_male": "Bernd Paul",
+          "winning_time_male": "113:12",
+          "source": "https://racearoundireland.com/wp-content/uploads/2017/02/Final_Times_2010.pdf"
+        },
+        "2011": {
+          "race": "2,150 km",
+          "winner_male": "Valerio Zamboni",
+          "winning_time_male": "131:36",
+          "source": "https://racearoundireland.com/wp-content/uploads/2017/02/Final_Times_2011.pdf"
+        },
+        "2012": {
+          "race": "2,150 km",
+          "winner_male": "Bernd Paul",
+          "winning_time_male": "106:14",
+          "source": "https://racearoundireland.com/wp-content/uploads/2017/02/Final_Times_2012.pdf"
+        },
+        "2013": {
+          "race": "2,209 km",
+          "winner_male": "Christoph Strasser",
+          "winning_time_male": "93:16",
+          "source": "https://racearoundireland.com/wp-content/uploads/2017/02/Final-Times-2013.pdf"
+        },
+        "2014": {
+          "race": "2,212 km",
+          "winner_male": "Eduard Fuchs",
+          "winning_time_male": "101:11",
+          "source": "https://racearoundireland.com/wp-content/uploads/2017/02/Final_Times_2014.pdf"
+        },
+        "2015": {
+          "race": "2,150 km",
+          "winner_male": "Bernhard Steinberger",
+          "winning_time_male": "98:22",
+          "source": "https://en.wikipedia.org/wiki/Race_Around_Ireland"
+        },
+        "2016": {
+          "race": "2,150 km",
+          "winner_male": "Guido Löhr",
+          "winning_time_male": "106:50",
+          "source": "https://en.wikipedia.org/wiki/Race_Around_Ireland"
+        }
+      },
+      "latest_year": "2019"
+    }
   }
 }

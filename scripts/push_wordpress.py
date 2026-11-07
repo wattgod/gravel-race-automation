@@ -555,7 +555,7 @@ def sync_guide_cluster(cluster_dir: str):
         print(f"✗ Error uploading guide cluster pages: {e}")
         return None
 
-    # The chapter pages open on the painted scenes, served from /guide/media/.
+    # The chapter pages open on the character scenes, served from /guide/media/.
     art_dir = Path(__file__).resolve().parent.parent / "guide" / "art"
     art_files = sorted(f.name for f in art_dir.glob("*.webp")) if art_dir.exists() else []
     if art_files:
@@ -753,14 +753,14 @@ def sync_about(about_file: str):
         return None
 
     # Upload avatar image if present
-    avatar_path = html_path.parent / "matti-avatar.png"
+    avatar_path = html_path.parent / "matti-avatar-v67.png"  # v6.7 character redraw (new name: long cache)
     if avatar_path.exists():
         try:
             subprocess.run(
                 [
                     "scp", "-i", str(SSH_KEY), "-P", port,
                     str(avatar_path),
-                    f"{user}@{host}:{remote_base}/matti-avatar.png",
+                    f"{user}@{host}:{remote_base}/matti-avatar-v67.png",
                 ],
                 check=True,
                 capture_output=True,
@@ -768,7 +768,7 @@ def sync_about(about_file: str):
                 timeout=30,
             )
         except subprocess.CalledProcessError:
-            print("  ⚠ Could not upload matti-avatar.png (non-fatal)")
+            print("  ⚠ Could not upload matti-avatar-v67.png (non-fatal)")
 
     # Upload shared CSS/JS assets (about page references them via /race/assets/)
     assets_dir = html_path.parent / "assets"
@@ -2237,6 +2237,19 @@ def _release_deploy_lock(host: str, user: str, port: str) -> None:
         pass
 
 
+def _remote_path_expr(path: str) -> str:
+    """One literal shell word, preserving only the supported leading ~/ expansion.
+
+    Quote the suffix separately so spaces and shell syntax stay data while
+    Bash still expands an unquoted tilde prefix. Other paths are literal.
+    """
+    if path == "~":
+        return "~"
+    if path.startswith("~/"):
+        return "~/" + shlex.quote(path[2:])
+    return shlex.quote(path)
+
+
 def _build_verify_script(base: str, relpaths: list, check_total_count: bool,
                           sizes: dict = None) -> str:
     """Shell script (run via `ssh ... bash -s`, script text piped over
@@ -2267,12 +2280,10 @@ if [ "$actual_count" != "{len(relpaths)}" ]; then
   status=1
 fi
 '''
-    # `base` is always our own generated constant (DEPLOY_STAGING_ROOT +
-    # kind + timestamp, or the hardcoded remote_base path) — never user
-    # input — so it's used unquoted, the same way the rest of this file
-    # does, to keep server-side `~` expansion working.
+    # Assign one shell-safe word before use; a supported leading ~/ still expands.
     return f"""set -u
-cd {base} || {{ echo "MISSING_DIR:{base}"; exit 1; }}
+base={_remote_path_expr(base)}
+cd -- "$base" || {{ printf '%s\\n' "MISSING_DIR:$base"; exit 1; }}
 status=0
 {count_check}
 relpaths=( {relpaths_arr} )
@@ -2335,23 +2346,19 @@ def _build_promote_script(staging: str, remote_base: str, log_path: str, exit_pa
     moved it into remote_base, leaving a stray script file live on every
     single successful deploy.
 
-    `remote_base`/`staging`/`log_path`/`exit_path` are assigned to shell
-    variables via an UNQUOTED assignment first (so a leading `~` still
-    expands there), then referenced as "$remote_base" etc. everywhere else.
-    Embedding one of these directly inside a double-quoted string (e.g.
-    `destdir="{remote_base}/..."`) would NOT expand its leading `~` — bash
-    only tilde-expands an unquoted `~` — so files would silently land under
-    a literal "~" subdirectory instead of the real path."""
+    Paths are assigned as shell-safe words with leading ~/ expansion kept,
+    then referenced as quoted variables. No path suffix is evaluated as code.
+    """
     return f"""set -uo pipefail
-remote_base={remote_base}
-staging={staging}
-log_path={log_path}
-exit_path={exit_path}
+remote_base={_remote_path_expr(remote_base)}
+staging={_remote_path_expr(staging)}
+log_path={_remote_path_expr(log_path)}
+exit_path={_remote_path_expr(exit_path)}
 script_path="$staging/.promote.sh"
 (
   set -euo pipefail
   mkdir -p "$remote_base"
-  cd "$staging"
+  cd -- "$staging"
   rm -f "$script_path"
   rmdir "$staging/.promote-lock" 2>/dev/null || true
   find . -type f -print0 | while IFS= read -r -d '' f; do
@@ -2839,6 +2846,23 @@ def season_power_rankings_redirect_rules() -> str:
 SEASON_POWER_RANKINGS_REDIRECT_RULES = season_power_rankings_redirect_rules()
 
 
+# MTB and bikepacking races lost their gravel tire picks in the Nov 2026 tire
+# audit (2.2" MTB tires and paved routes are outside the gravel tire
+# database). Their old /race/{slug}/tires/ pages stay on disk because the tire
+# guide sync only adds, and the generic /tires/ fallback below only fires when
+# the file is missing, so these need an explicit rule.
+# tests/test_tire_picks_integrity.py keeps this list in step with race-data.
+TIRE_GUIDES_WITHDRAWN = (
+    "atlas-mountain-race", "badlands", "chequamegon-mtb", "colorado-trail-race",
+    "fuego-mtb", "leadville-100", "little-sugar-mtb", "torino-nice-rally",
+    "tour-divide", "trans-am-bike-race", "transcontinental-race",
+)
+TIRE_GUIDES_WITHDRAWN_RULE = (
+    "RewriteRule ^race/(" + "|".join(TIRE_GUIDES_WITHDRAWN)
+    + ")/tires/?$ /race/$1/ [R=301,L]"
+)
+
+
 REDIRECT_BLOCK = """\
 # BEGIN Gravel God Redirects
 <IfModule mod_rewrite.c>
@@ -3124,6 +3148,13 @@ RewriteRule ^race/gravel-tv/?$ /gravel-weekly/ [R=301,L]
 RewriteRule ^race/(about|articles|coaching|consulting|cookies|course|gravel-weekly|guide|insights|privacy|terms|training-plans)/?$ /$1/ [R=301,L]
 RewriteRule ^race/homepage/?$ / [R=301,L]
 
+# Tire guides withdrawn from MTB/bikepacking races (see TIRE_GUIDES_WITHDRAWN).
+""" + TIRE_GUIDES_WITHDRAWN_RULE + """
+# specialized-pathfinder-pro-47 was a duplicate entry for the 47mm Pathfinder
+# Pro, merged into specialized-pathfinder-pro (Nov 2026). Its page and the VS
+# pages built from it go to the one tire page.
+RewriteRule ^tire/(?:[a-z0-9-]+-vs-)?specialized-pathfinder-pro-47(?:-vs-[a-z0-9-]+)?/?$ /tire/specialized-pathfinder-pro/ [R=301,L]
+
 # Dead-reference self-healing (2026-07-22 link audit: 215 stale /tires/ +
 # 24 undeployed VS URLs sat in the sitemap 404ing). If the page exists on
 # disk these rules never fire; if it doesn't, 301 to the parent race page
@@ -3132,6 +3163,9 @@ RewriteRule ^race/homepage/?$ / [R=301,L]
 # misrouted by these generic fallbacks.
 RewriteCond %{DOCUMENT_ROOT}/race/$1/tires/index.html !-f
 RewriteRule ^race/([^/]+)/tires/?$ /race/$1/ [R=301,L]
+RewriteCond %{DOCUMENT_ROOT}/tire/$1-vs-$2/index.html !-f
+RewriteCond %{DOCUMENT_ROOT}/tire/$1/index.html -f
+RewriteRule ^tire/([a-z0-9-]+?)-vs-([a-z0-9-]+?)/?$ /tire/$1/ [R=301,L]
 RewriteCond %{DOCUMENT_ROOT}/race/$1-vs-$2/index.html !-f
 RewriteCond %{DOCUMENT_ROOT}/race/$1/index.html -f
 RewriteRule ^race/([^/]+?)-vs-([^/]+?)/?$ /race/$1/ [R=301,L]
@@ -4293,6 +4327,20 @@ def sync_tire_pages(tire_pages_dir: str):
     return len(dirs)
 
 
+STALE_TIRE_GUIDE_LIMIT = 30
+
+
+def stale_tire_guide_slugs(remote_listing: str, staged: set) -> list:
+    """Race slugs with a /race/{slug}/tires/ on the server but no guide in this
+    build. `remote_listing` is `ls -d */tires` output run inside /race/."""
+    slugs = set()
+    for line in remote_listing.split():
+        slug = line.rstrip("/").removesuffix("/tires")
+        if re.fullmatch(r"[a-z0-9][a-z0-9-]*", slug):
+            slugs.add(slug)
+    return sorted(slugs - set(staged))
+
+
 def sync_tire_guides(tire_guide_dir: str):
     """Upload tire guide pages to /race/{slug}/tires/ on SiteGround via tar+ssh.
 
@@ -4354,6 +4402,34 @@ def sync_tire_guides(tire_guide_dir: str):
         except Exception as e:
             print(f"✗ Error uploading tire guide pages: {e}")
             return None
+
+    # Reconcile: a race that lost its picks (MTB, road, removed) keeps a stale
+    # /race/{slug}/tires/ on the server until its folder is deleted. Once it's
+    # gone, the .htaccess fallback 301s /tires/ to the race page.
+    try:
+        listing = subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+             f"cd {remote_base} && ls -d */tires"],
+            capture_output=True, text=True, timeout=30)
+        stale = stale_tire_guide_slugs(listing.stdout, {f.stem for f in html_files})
+        if listing.returncode != 0:
+            print("  (tire guide reconcile skipped: could not list remote)")
+        elif len(stale) > STALE_TIRE_GUIDE_LIMIT:
+            print(f"✗ Tire guide reconcile refused: {len(stale)} stale guides "
+                  f"(limit {STALE_TIRE_GUIDE_LIMIT}); check the build: {' '.join(stale)}")
+        elif stale:
+            # slugs are regex-validated ([a-z0-9-]) so no quoting needed.
+            targets = " ".join(f"{s}/tires" for s in stale)
+            rm = subprocess.run(
+                ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+                 f"cd {remote_base} && rm -rf {targets}"],
+                capture_output=True, text=True, timeout=60)
+            if rm.returncode != 0:
+                print(f"✗ Tire guide reconcile rm FAILED: {rm.stderr.strip()}")
+            else:
+                print(f"  Removed {len(stale)} stale tire guides: {' '.join(stale)}")
+    except Exception as e:  # noqa: BLE001
+        print(f"  (tire guide reconcile skipped: {e})")
 
     wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
     print(f"✓ Uploaded {page_count} tire guide pages to {wp_url}/race/*/tires/")

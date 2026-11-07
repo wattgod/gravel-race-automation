@@ -4,10 +4,13 @@
   "brand": "Pirelli",
   "widths_mm": [
     40,
-    45
+    45,
+    50
   ],
+  "widths_source": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/cinturato-gravel-s",
   "tread_type": "aggressive",
   "tread_description": "Aggressive open knob pattern with SmartGRIP compound",
+  "tagline": "Soft-terrain specialist. Open knob pattern sheds mud and grips wet rock.",
   "best_conditions": [
     "technical",
     "loose",
@@ -19,385 +22,62 @@
     "fast roads"
   ],
   "tubeless_ready": true,
-  "brr_urls_by_width": {
-    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-s",
-    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-s"
-  },
-  "tagline": "Soft-terrain specialist. Open knob pattern sheds mud and grips wet rock.",
-  "strengths": [
-    "Excellent wet grip",
-    "Good mud shedding",
-    "Strong cornering"
-  ],
-  "weaknesses": [
-    "High rolling resistance",
-    "Slow on pavement",
-    "Wears faster on hard surfaces"
-  ],
   "msrp_usd": 73.99,
-  "weight_grams": {
-    "40": 430,
-    "45": 470
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 39.0,
+      "year": 2023,
+      "model": "Pirelli Cinturato Gravel S 40",
+      "rr_watts": 25.6,
+      "test_psi": 33,
+      "puncture_tread": 34.0,
+      "wet_grip": 65.0,
+      "knob_center_mm": 2.0,
+      "knob_edge_mm": 3.2,
+      "weight_g": 553.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-s"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/pirelli-gravel-s"
   },
-  "crr_watts_at_29kmh": null,
-  "puncture_resistance": "high",
-  "wet_traction": "good",
+  "crr_watts_at_29kmh": {
+    "40": 25.6
+  },
+  "weight_grams": {
+    "40": 553
+  },
+  "puncture_resistance": "low",
+  "wet_traction": "fair",
   "mud_clearance": "moderate",
+  "strengths": [],
+  "weaknesses": [
+    "Slow rolling: 25.6 W at 40mm on BRR's drum",
+    "Thin tread: puncture score 34"
+  ],
   "recommended_use": [
-    "technical terrain",
-    "wet",
-    "loose over hard",
-    "wet rock"
+    "loose corners",
+    "mud"
   ],
   "avoid_use": [
-    "smooth pavement",
-    "fast gravel",
-    "dry hardpack"
+    "fast smooth courses",
+    "sharp rock"
   ],
   "status": "active",
-  "race_appearances": {
-    "atlas-mountain-race": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "badlands": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "berryman-epic": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "big-sugar": {
-      "rank": 2,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "bootlegger-100": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "bwr-arizona": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "bwr-california": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "bwr-cedar-city": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "bwr-montana": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "bwr-north-carolina": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "canmore-crux": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "cheaha-challenge": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "chequamegon-mtb": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "colorado-trail-race": {
-      "rank": 1,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "cowichan-crusher-gravel-fondo": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "crooked-gravel": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "devils-cardigan": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "edition-zero": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "giro-sardegna-gravel": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "gravel-and-granite": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "gravel-brazil": {
-      "rank": 2,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "gravel-grit-n-grind": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "gravel-rocks": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "grinduro-california": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "grinduro-france": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "grinduro": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "gunni-grinder": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "heck-of-the-north": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "karukinka": {
-      "rank": 2,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "kettle-mettle": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "lauf-gritfest": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "lauf-true-grit": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "leadville-100": {
-      "rank": 1,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "little-sugar-mtb": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "lost-river-classic": {
-      "rank": 2,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "marji-gesick": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "monaco-gravel-race": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "noosa-gravel-enduro": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "pirinexus-360": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "pisgah-monster-cross": {
-      "rank": 2,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "rebeccas-private-idaho": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "river-city-gravel-fondo": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "sea-otter-gravel": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "the-gralloch": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "the-rift": {
-      "rank": 1,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "the-traka": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "tor-divide": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "torino-nice-rally": {
-      "rank": 1,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "tour-divide": {
-      "rank": 2,
-      "width_mm": 40,
-      "position": "rear",
-      "surface": "wet"
-    },
-    "transcontinental-race": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "transcordilleras": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "uci-gravel-dustman": {
-      "rank": 3,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "uci-gravel-worlds": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    },
-    "unbound-xl": {
-      "rank": 2,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "vermont-overland": {
-      "rank": 2,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "wet"
-    },
-    "vuelta-altas-cumbres": {
-      "rank": 3,
-      "width_mm": 45,
-      "position": "primary",
-      "surface": "technical"
-    }
-  },
+  "race_appearances": {},
   "community_reviews": [],
   "comparable_tires": [
+    "continental-dubnital",
     "maxxis-reaver",
+    "rene-herse-hurricane-ridge",
     "schwalbe-g-one-bite",
+    "schwalbe-g-one-overland",
+    "schwalbe-g-one-rx-pro",
+    "schwalbe-g-one-ultrabite",
     "teravail-washburn",
+    "tufo-gravel-swampero",
     "vittoria-terreno-wet",
     "wtb-resolute"
   ],

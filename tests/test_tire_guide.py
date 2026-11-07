@@ -36,6 +36,12 @@ from generate_tire_guide import (
     extract_negated_keywords,
     keyword_present,
     generate_tire_guide_page,
+    lab_test,
+    course_cost,
+    is_technical,
+    PUNCTURE_MODERATE_PTS,
+    KNOB_EDGE_REF,
+    RIDER_WEIGHTS_LB,
     SURFACE_FAST,
     SURFACE_MIXED,
     SURFACE_TECHNICAL,
@@ -58,9 +64,9 @@ class TestDatabaseValidation(unittest.TestCase):
 
     def test_required_fields_present(self):
         required = ["id", "name", "brand", "widths_mm", "tread_type",
-                     "best_conditions", "worst_conditions", "tubeless_ready",
-                     "brr_urls_by_width", "tagline", "strengths", "weaknesses",
-                     "msrp_usd", "weight_grams", "puncture_resistance",
+                     "tubeless_ready", "msrp_usd", "lab_tested", "brr_tests",
+                     "brr_urls_by_width", "crr_watts_at_29kmh", "weight_grams",
+                     "strengths", "weaknesses", "puncture_resistance",
                      "wet_traction", "mud_clearance", "recommended_use", "avoid_use"]
         for tire in self.tires:
             for field in required:
@@ -76,10 +82,13 @@ class TestDatabaseValidation(unittest.TestCase):
                 self.assertNotIn(field, tire,
                                  f"Tire '{tire['id']}' still has removed field '{field}'")
 
-    def test_msrp_positive(self):
+    def test_msrp_positive_or_unknown(self):
+        """A price we can't source is null, never a guess or a zero."""
         for tire in self.tires:
+            if tire["msrp_usd"] is None:
+                continue
             self.assertIsInstance(tire["msrp_usd"], (int, float),
-                                 f"Tire '{tire['id']}': msrp_usd must be numeric")
+                                 f"Tire '{tire['id']}': msrp_usd must be numeric or null")
             self.assertGreater(tire["msrp_usd"], 0,
                                f"Tire '{tire['id']}': msrp_usd must be > 0")
 
@@ -88,8 +97,9 @@ class TestDatabaseValidation(unittest.TestCase):
             wg = tire["weight_grams"]
             self.assertIsInstance(wg, dict,
                                  f"Tire '{tire['id']}': weight_grams must be dict")
-            self.assertGreater(len(wg), 0,
-                               f"Tire '{tire['id']}': weight_grams must not be empty")
+            if tire["lab_tested"]:
+                self.assertGreater(len(wg), 0,
+                                   f"Tire '{tire['id']}': lab-tested tire has no measured weight")
             for width_str, grams in wg.items():
                 self.assertIsInstance(grams, (int, float),
                                      f"Tire '{tire['id']}': weight for {width_str}mm must be numeric")
@@ -107,9 +117,10 @@ class TestDatabaseValidation(unittest.TestCase):
                 for width_str, watts in crr.items():
                     self.assertIsInstance(watts, (int, float),
                                          f"Tire '{tire['id']}': Crr for {width_str}mm must be numeric")
-                    self.assertGreater(watts, 20,
+                    # BRR drum at its low pressure: ~15-31 W for gravel tires
+                    self.assertGreater(watts, 10,
                                        f"Tire '{tire['id']}': Crr {watts}W seems too low")
-                    self.assertLess(watts, 60,
+                    self.assertLess(watts, 40,
                                     f"Tire '{tire['id']}': Crr {watts}W seems too high")
 
     def test_puncture_resistance_valid(self):
@@ -145,11 +156,14 @@ class TestDatabaseValidation(unittest.TestCase):
             self.assertGreater(len(tire["widths_mm"]), 0,
                                f"Tire '{tire['id']}': widths_mm must not be empty")
 
-    def test_recommended_use_not_empty(self):
+    def test_recommended_use_is_a_list(self):
+        """Lab-tested tires only list uses the numbers back, so a middling tire
+        can have none; untested tires keep our earlier read."""
         for tire in self.tires:
-            self.assertGreater(len(tire["recommended_use"]), 0,
-                               f"Tire '{tire['id']}': recommended_use must not be empty")
-
+            self.assertIsInstance(tire["recommended_use"], list, tire["id"])
+            if not tire["lab_tested"]:
+                self.assertGreater(len(tire["recommended_use"]), 0,
+                                   f"Tire '{tire['id']}': recommended_use must not be empty")
 
 class TestMatchingAlgorithm(unittest.TestCase):
     """Test that known races get appropriate tire categories."""
@@ -192,20 +206,31 @@ class TestMatchingAlgorithm(unittest.TestCase):
                       f"Smooth race got {tire['tread_type']} tire: {tire['name']}")
 
     def test_chunky_race_gets_puncture_protection(self):
-        """Unbound 200 (sharp limestone) should get high puncture resistance."""
-        tire, profile = self._get_top_tire("unbound-200")
-        self.assertIsNotNone(tire)
+        """Unbound 200 (sharp flint): the top pick's measured puncture score
+        clears the moderate bar, and the why line cites it."""
+        rd, raw, weather = self._load_race("unbound-200")
+        profile = build_race_profile(rd, raw, weather)
         self.assertTrue(profile["needs_puncture"],
                         "Unbound should need puncture protection")
-        self.assertEqual(tire["puncture_resistance"], "high",
-                         f"Chunky race got {tire['puncture_resistance']} protection: {tire['name']}")
+        top = get_top_tires(self.tires, profile)[0]
+        test = lab_test(top["tire"], top["width"])
+        self.assertGreaterEqual(test["puncture_tread"], PUNCTURE_MODERATE_PTS,
+                                f"Chunky race got puncture {test['puncture_tread']}: {top['tire']['name']}")
+        why = generate_why_text(top["tire"], profile, "Unbound")
+        self.assertIn(f"Puncture score {test['puncture_tread']:g}", why)
 
     def test_technical_race_gets_grip(self):
-        """Big Sugar (technical) should get aggressive/knobby tire."""
-        tire, profile = self._get_top_tire("big-sugar")
-        self.assertIsNotNone(tire)
-        self.assertIn(tire["tread_type"], ("aggressive", "knobby"),
-                      f"Technical race got {tire['tread_type']} tire: {tire['name']}")
+        """Big Sugar (technical): no file treads, and low shoulder knobs
+        still cost watts."""
+        rd, raw, weather = self._load_race("big-sugar")
+        profile = build_race_profile(rd, raw, weather)
+        self.assertTrue(is_technical(profile))
+        top = get_top_tires(self.tires, profile)
+        self.assertTrue(top)
+        self.assertFalse([p["tire"]["name"] for p in top if p["tire"]["tread_type"] == "file"])
+        for p in top:
+            if lab_test(p["tire"], p["width"])["knob_edge_mm"] < KNOB_EDGE_REF:
+                self.assertIn("corners", p["cost"]["parts"], p["tire"]["id"])
 
     def test_ultra_distance_prioritizes_durability(self):
         """Unbound 200 (200mi) should have needs_comfort=True."""
@@ -346,28 +371,27 @@ class TestWidthRecommendations(unittest.TestCase):
     def setUp(self):
         self.tires = load_tire_database()
 
-    def test_tech_rating_1_targets_38mm(self):
+    def test_tech_rating_1_targets_40mm(self):
         tire = {"widths_mm": [35, 38, 40, 45]}
-        self.assertEqual(recommend_width(1, tire), 38)
+        self.assertEqual(recommend_width(1, tire), 40)
 
-    def test_tech_rating_2_targets_40mm(self):
+    def test_tech_rating_2_targets_45mm(self):
         tire = {"widths_mm": [35, 40, 45]}
-        self.assertEqual(recommend_width(2, tire), 40)
+        self.assertEqual(recommend_width(2, tire), 45)
 
-    def test_tech_rating_3_targets_42mm(self):
-        tire = {"widths_mm": [38, 42, 47]}
-        self.assertEqual(recommend_width(3, tire), 42)
+    def test_tech_rating_3_targets_50mm(self):
+        tire = {"widths_mm": [38, 42, 47, 50]}
+        self.assertEqual(recommend_width(3, tire), 50)
 
-    def test_tech_rating_4_targets_45mm(self):
+    def test_tech_rating_4_targets_50mm(self):
         tire = {"widths_mm": [40, 45, 50]}
-        self.assertEqual(recommend_width(4, tire), 45)
+        self.assertEqual(recommend_width(4, tire), 50)
 
     def test_closest_available_when_target_missing(self):
         """If target width not available, pick closest."""
         tire = {"widths_mm": [38, 47]}
-        # tech_rating 3 targets 42, closest available is 38 or 47
-        result = recommend_width(3, tire)
-        self.assertIn(result, [38, 47])
+        # tech_rating 3 targets 50, closest available is 47
+        self.assertEqual(recommend_width(3, tire), 47)
 
     def test_single_width_tire(self):
         """Tire with only one width should return that width."""
@@ -469,8 +493,16 @@ class TestEnrichmentRoundTrip(unittest.TestCase):
             self.assertIn("recommended_width_mm", rec)
             self.assertIn("msrp_usd", rec)
             self.assertIn("why", rec)
-            self.assertIsNotNone(rec["msrp_usd"])
-            self.assertGreater(rec["msrp_usd"], 0)
+            self.assertIn("tested_width_mm", rec)
+            self.assertIn("course_cost_watts", rec)
+            if rec["msrp_usd"] is not None:
+                self.assertGreater(rec["msrp_usd"], 0)
+            tire = next(t for t in tire_db if t["id"] == rec["tire_id"])
+            self.assertTrue(tire["lab_tested"], rec["tire_id"])
+            self.assertEqual(rec["crr_watts"],
+                             lab_test(tire, rec["tested_width_mm"])["rr_watts"])
+        costs = [rec["course_cost_watts"] for rec in enrichment["primary"]]
+        self.assertEqual(costs, sorted(costs), "picks rank by course cost, cheapest first")
 
         # Verify JSON round-trip
         json_str = json.dumps(enrichment)
@@ -501,20 +533,21 @@ class TestHTMLGeneration(unittest.TestCase):
 
         # Should contain at least one tire name
         self.assertIn("tg-tire-name", html)
-        # Should contain real prices
-        self.assertIn("$", html)
-        # Should contain Crr watts
-        self.assertIn("@ 29km/h", html)
-        # Should contain weight in grams
-        self.assertRegex(html, r'\d+g')
+        # Unknown prices render as nothing, never a placeholder
+        self.assertNotIn("$None", html)
+        self.assertNotIn("N/A", html)
+        # Should contain measured rolling resistance with its tested width
+        self.assertRegex(html, r"Rolls \d+(\.\d)? W at \d+mm")
+        # Should show the course cost the ranking used, in watts
+        self.assertRegex(html, r"Course cost \d+(\.\d+)? W: rolling \d")
         # Should contain pressure table
         self.assertIn("tg-pressure-table", html)
         # Should contain BRR link
         self.assertIn("bicyclerollingresistance.com", html)
         # Should contain front/rear split section
         self.assertIn("FRONT / REAR SPLIT", html)
-        # Should contain rim width caveat
-        self.assertIn("21-25mm internal width rims", html)
+        # Should tell the rider which width column to use
+        self.assertIn("measures on your rims", html)
 
     def test_standalone_html_has_valid_structure(self):
         """Generated page should be valid HTML structure."""
@@ -569,6 +602,7 @@ class TestWhyText(unittest.TestCase):
         tire = self.tire_index["continental-terra-speed-40"]
         profile = {
             "surface_category": SURFACE_FAST,
+            "tech_rating": 1,
             "needs_puncture": False,
             "needs_wet": False,
             "needs_mud": False,
@@ -577,28 +611,34 @@ class TestWhyText(unittest.TestCase):
             "combined_text": "smooth gravel roads",
         }
         text = generate_why_text(tire, profile, "Test Race")
-        self.assertIn("28.5W", text, "Should reference actual Crr watts")
+        rr = lab_test(tire, 40)["rr_watts"]
+        self.assertIn(f"Rolls {rr:g} W at 40mm", text, "Should reference measured watts")
 
-    def test_why_text_includes_price(self):
-        """Why text should mention real MSRP."""
+    def test_why_text_cites_puncture_on_sharp_course(self):
+        """A sharp course gets the measured puncture score, named for the rock."""
         tire = self.tire_index["specialized-pathfinder-pro"]
         profile = {
             "surface_category": SURFACE_MIXED,
-            "needs_puncture": False,
+            "tech_rating": 2,
+            "needs_puncture": True,
             "needs_wet": False,
             "needs_mud": False,
             "needs_speed": False,
             "needs_comfort": False,
-            "combined_text": "mixed gravel",
+            "combined_text": "mixed gravel over sharp flint",
         }
         text = generate_why_text(tire, profile, "Test Race")
-        self.assertIn("$54.99", text, "Should reference actual MSRP")
+        score = lab_test(tire, recommend_width(2, tire))["puncture_tread"]
+        self.assertIn(f"Puncture score {score:g} for the flint", text)
+        self.assertNotIn("$", text, "Why lines cite measurements, not prices")
 
-    def test_why_text_includes_weight(self):
-        """Why text should mention weight in grams."""
-        tire = self.tire_index["continental-terra-speed-40"]
+    def test_why_text_cites_the_tested_width(self):
+        """When the recommended width wasn't tested, the number names the width it was measured at."""
+        tire = dict(self.tire_index["continental-terra-speed-40"])
+        tire["widths_mm"] = sorted(set(tire["widths_mm"]) | {50})
         profile = {
             "surface_category": SURFACE_FAST,
+            "tech_rating": 4,
             "needs_puncture": False,
             "needs_wet": False,
             "needs_mud": False,
@@ -606,9 +646,11 @@ class TestWhyText(unittest.TestCase):
             "needs_comfort": False,
             "combined_text": "smooth gravel",
         }
+        self.assertEqual(recommend_width(4, tire), 50)
+        nearest = lab_test(tire, 50)
+        self.assertNotEqual(nearest["width_mm"], 50)
         text = generate_why_text(tire, profile, "Test Race")
-        self.assertRegex(text, r'\d+g per tire', "Should reference weight in grams")
-
+        self.assertIn(f"BRR tested the {nearest['width_mm']}mm: {nearest['rr_watts']:g} W", text)
 
 class TestConditionAlternatives(unittest.TestCase):
     """Test Plan B tire recommendations."""
@@ -676,20 +718,22 @@ class TestPressureTable(unittest.TestCase):
     """Test pressure table generation."""
 
     def test_pressure_values_reasonable(self):
-        """Pressure values should be in reasonable range (18-50 psi)."""
-        rows = compute_pressure_table(tech_rating=2, rec_width=40)
-        self.assertEqual(len(rows), 4, "Should have 4 weight ranges")
+        """Front/rear psi per rider weight and width, in a sane range and order."""
+        rows = compute_pressure_table(tech_rating=2, rec_width=45)
+        self.assertEqual([r["rider_lb"] for r in rows], list(RIDER_WEIGHTS_LB))
         for row in rows:
-            for cond in ("dry", "mixed", "wet"):
-                val_str = row[cond]
-                # Parse range like "35-39"
-                parts = val_str.split("-")
-                low = int(parts[0])
-                high = int(parts[1])
-                self.assertGreaterEqual(low, 18, f"Pressure too low: {val_str}")
-                self.assertLessEqual(high, 50, f"Pressure too high: {val_str}")
-                self.assertLess(low, high, f"Low should be less than high: {val_str}")
-
+            widths = sorted(row["cells"])
+            self.assertIn(45, widths)
+            for w in widths:
+                front, rear = row["cells"][w]
+                self.assertGreaterEqual(front, 15, f"{row['rider_lb']}lb {w}mm front too low")
+                self.assertLessEqual(rear, 50, f"{row['rider_lb']}lb {w}mm rear too high")
+                self.assertGreaterEqual(rear, front, "rear carries 53% and runs higher")
+            fronts = [row["cells"][w][0] for w in widths]
+            self.assertEqual(fronts, sorted(fronts, reverse=True), "wider tire, lower psi")
+        for w in rows[0]["cells"]:
+            col = [r["cells"][w][0] for r in rows]
+            self.assertEqual(col, sorted(col), "heavier rider, higher psi")
 
 class TestScoreTireDirect(unittest.TestCase):
     """Direct tests on score_tire() to verify scoring logic produces correct rankings."""
@@ -718,19 +762,22 @@ class TestScoreTireDirect(unittest.TestCase):
         return profile
 
     def test_mud_tire_scores_highest_for_mud_profile(self):
-        """A mud-specific tire should outscore a fast tire on a mud profile."""
+        """Mud clearance is a gate, not a watt trade: a file tread can roll
+        faster on the drum, but it never reaches a mud course's picks."""
         profile = self._make_profile(
             SURFACE_MUDDY,
             needs_mud=True, needs_speed=False, needs_wet=True,
             combined_text="heavy mud clay saturated courses",
         )
-        # Vittoria Terreno Wet (mud) vs Continental Terra Speed (fast)
-        mud_tire = self.tire_index["vittoria-terreno-wet"]
+        mud_tire = self.tire_index["schwalbe-g-one-ultrabite"]
         fast_tire = self.tire_index["continental-terra-speed-40"]
-        mud_score = score_tire(mud_tire, profile)
-        fast_score = score_tire(fast_tire, profile)
-        self.assertGreater(mud_score, fast_score,
-                           f"Mud tire ({mud_score}) should outscore fast tire ({fast_score}) on mud profile")
+        kept = {t["id"] for t in filter_tires(self.tires, profile)}
+        self.assertIn(mud_tire["id"], kept)
+        self.assertNotIn(fast_tire["id"], kept)
+        top = get_top_tires(self.tires, profile)
+        self.assertTrue(top)
+        for p in top:
+            self.assertIn(p["tire"]["mud_clearance"], ("moderate", "high"), p["tire"]["id"])
 
     def test_fast_tire_scores_highest_for_fast_profile(self):
         """A fast tire should outscore a mud tire on a fast/smooth profile."""
@@ -740,52 +787,36 @@ class TestScoreTireDirect(unittest.TestCase):
             combined_text="smooth fast gravel dry racing",
         )
         fast_tire = self.tire_index["continental-terra-speed-40"]
-        mud_tire = self.tire_index["vittoria-terreno-wet"]
+        mud_tire = self.tire_index["schwalbe-g-one-ultrabite"]
         fast_score = score_tire(fast_tire, profile)
         mud_score = score_tire(mud_tire, profile)
         self.assertGreater(fast_score, mud_score,
                            f"Fast tire ({fast_score}) should outscore mud tire ({mud_score}) on fast profile")
 
-    def test_avoid_use_penalty_reduces_score(self):
-        """A tire with matching avoid_use should score lower than one without."""
+    def test_mud_cost_grows_as_center_knobs_shrink(self):
+        """On a mud course, short center knobs cost watts."""
         profile = self._make_profile(
             SURFACE_MUDDY,
             needs_mud=True, needs_speed=False,
             combined_text="mud clay bog",
         )
-        # Find a tire that avoids mud conditions
-        for tire in self.tires:
-            if any("mud" in a.lower() or "wet" in a.lower() for a in tire.get("avoid_use", [])):
-                avoid_score = score_tire(tire, profile)
-                # It should have a negative contribution from avoid_use
-                # Test that score is lower than a mud-friendly tire
-                mud_tire = self.tire_index["vittoria-terreno-wet"]
-                mud_score = score_tire(mud_tire, profile)
-                self.assertGreater(mud_score, avoid_score,
-                                   f"Tire avoiding mud ({tire['id']}: {avoid_score}) "
-                                   f"should score lower than mud tire ({mud_score})")
-                break
+        tall = self.tire_index["schwalbe-g-one-ultrabite"]
+        short = self.tire_index["continental-terra-speed-40"]
+        cost_tall = course_cost(tall, recommend_width(2, tall), profile)
+        cost_short = course_cost(short, recommend_width(2, short), profile)
+        self.assertGreater(cost_tall["test"]["knob_center_mm"], cost_short["test"]["knob_center_mm"])
+        self.assertGreater(cost_short["parts"]["mud"], cost_tall["parts"].get("mud", 0))
 
-    def test_crr_bonus_applied_when_speed_needed(self):
-        """Tires with low CRR should get bonus when needs_speed=True."""
+    def test_rolling_resistance_counts_watt_for_watt(self):
+        """Two watts less on the drum is two watts less course cost."""
         profile = self._make_profile(
             SURFACE_FAST,
             needs_speed=True,
             combined_text="smooth fast gravel",
         )
-        # Continental Terra Speed has CRR 28.5W (low = good)
-        fast_tire = self.tire_index["continental-terra-speed-40"]
-        score_with_speed = score_tire(fast_tire, profile)
-
-        profile_no_speed = self._make_profile(
-            SURFACE_FAST,
-            needs_speed=False,
-            combined_text="smooth fast gravel",
-        )
-        score_without_speed = score_tire(fast_tire, profile_no_speed)
-        self.assertGreater(score_with_speed, score_without_speed,
-                           "CRR bonus should increase score when needs_speed=True")
-
+        tire = self.tire_index["continental-terra-speed-40"]
+        faster = dict(tire, brr_tests=[dict(t, rr_watts=t["rr_watts"] - 2) for t in tire["brr_tests"]])
+        self.assertAlmostEqual(score_tire(faster, profile) - score_tire(tire, profile), 2.0, places=2)
 
 class TestRankingOrder(unittest.TestCase):
     """Verify that get_top_tires returns tires in descending score order."""
@@ -1007,18 +1038,132 @@ class TestWidthRecommendationsHardened(unittest.TestCase):
     """Tightened width tests with exact expected values."""
 
     def test_closest_available_picks_nearest(self):
-        """When target is 42mm and options are [38, 47], should pick 38 (closer by 1mm)."""
-        tire = {"widths_mm": [38, 47]}
-        # tech_rating 3 targets 42: |42-38|=4, |42-47|=5 → 38 is closer
-        result = recommend_width(3, tire)
-        self.assertEqual(result, 38, "38mm is 4mm from target 42, 47mm is 5mm away")
+        """When target is 45mm and options are [42, 49], should pick 42 (closer by 1mm)."""
+        tire = {"widths_mm": [42, 49]}
+        # tech_rating 2 targets 45: |45-42|=3, |45-49|=4 → 42 is closer
+        self.assertEqual(recommend_width(2, tire), 42)
 
-    def test_tech_rating_5_uses_45mm_target(self):
-        """Tech ratings above 4 should still target 45mm (clamped)."""
+    def test_tie_goes_to_the_wider_width(self):
+        tire = {"widths_mm": [43, 47]}
+        self.assertEqual(recommend_width(2, tire), 47)
+
+    def test_tech_rating_5_uses_50mm_target(self):
+        """Tech ratings above 4 clamp to the tech-4 target (50mm)."""
         tire = {"widths_mm": [40, 45, 50]}
-        result = recommend_width(5, tire)
-        self.assertEqual(result, 45, "Tech rating 5+ should target 45mm")
+        self.assertEqual(recommend_width(5, tire), 50, "Tech rating 5+ should target 50mm")
 
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+# ── Setup block: sourced volumes, course-driven inserts and spares ──
+
+import generate_tire_guide as _g  # noqa: E402
+
+
+def _setup_profile(**kw):
+    p = {"needs_puncture": False, "tech_rating": 2, "features_list": [], "surface_category": "mixed",
+         "combined_text": "", "distance_mi": 100}
+    p.update(kw)
+    return p
+
+
+def test_sealant_volume_comes_from_stans_chart():
+    assert [_g.sealant_ml(w) for w in (40, 45, 50)] == [60, 80, 95]
+    assert _g.sealant_ml(47) == 80 and _g.sealant_ml(48) == 95
+
+
+def test_inserts_only_when_the_course_is_sharp_or_technical():
+    calm = _g.build_setup_strategy(2, 45, _setup_profile())
+    sharp = _g.build_setup_strategy(3, 50, _setup_profile(needs_puncture=True,
+                                                          combined_text="sharp flint"))
+    calm_insert = next(i for i in calm["items"] if i["title"] == "Inserts")
+    sharp_insert = next(i for i in sharp["items"] if i["title"] == "Inserts")
+    assert calm_insert["lead"] == "Skip them"
+    assert sharp_insert["lead"] == "Run them" and "flint" in sharp_insert["body"]
+    # Only inserts that fit 50mm are named and linked (Tannus tops out at 47mm).
+    assert "Air-Liner Light Gravel" in sharp_insert["body"]
+    assert "Tannus" not in sharp_insert["body"]
+    assert any("vittoria.com" in url for _, url in sharp["sources"])
+
+
+def test_tannus_pressure_note_only_where_tannus_fits():
+    s = _g.build_setup_strategy(4, 45, _setup_profile(tech_rating=4, needs_puncture=True))
+    body = next(i for i in s["items"] if i["title"] == "Inserts")["body"]
+    assert "Tannus Armour Tubeless (150 g)" in body and "0.1 to 0.5 bar" in body
+
+
+def test_spares_follow_distance_and_rock():
+    def spares(**kw):
+        s = _g.build_setup_strategy(2, 45, _setup_profile(**kw))
+        return next(i for i in s["items"] if i["title"] == "Spares")["lead"]
+    assert spares() == "Plugs, a tube and CO2"
+    assert spares(needs_puncture=True) == "Plugs, a tube, a boot for sidewall cuts and CO2"
+    assert spares(distance_mi=200) == "Plugs, two tubes and CO2 plus a mini pump"
+
+
+def test_setup_section_links_every_source():
+    s = _g.build_setup_strategy(3, 50, _setup_profile(needs_puncture=True))
+    html = _g.build_setup_section(s)
+    for _, url in s["sources"]:
+        assert f'href="{url}"' in html
+    assert "Tubeless" not in html and "Break-In" not in html
+
+
+def test_split_reason_names_this_courses_climbing():
+    import json
+    rec = json.loads((PROJECT_ROOT / "race-data" / "unbound-200.json").read_text())
+    split = rec["race"]["tire_recommendations"]["front_rear_split"]
+    assert "11,000 ft of climbing" in split["rationale"]
+
+
+# ── Podium setups: sourced, per rider, linked ──
+
+def test_podium_entries_are_sourced_per_rider():
+    import json
+    import re as _re
+    data = json.loads(_g.PODIUM_PATH.read_text())
+    assert data["races"], "podium file is empty"
+    for slug, race in data["races"].items():
+        assert (PROJECT_ROOT / "race-data" / f"{slug}.json").exists(), slug
+        assert race["results_url"].startswith("https://"), slug
+        riders = [(e["category"], e["place"]) for e in race["entries"]]
+        assert len(riders) == len(set(riders)), f"{slug}: duplicate placing"
+        for e in race["entries"]:
+            assert e["category"] in ("men", "women")
+            assert e["source_url"].startswith("https://")
+            assert e["source_type"] in ("independent", "brand", "rider")
+            assert e["evidence"] and e["rider"] and e["tire"]
+            for k in ("front_width_mm", "rear_width_mm"):
+                assert e[k] is None or 28 <= e[k] <= 60
+
+
+def test_podium_block_links_sources_and_marks_brand_pages():
+    import json
+    data = json.loads(_g.PODIUM_PATH.read_text())["races"]
+    db = load_tire_database()
+    html = _g.build_podium_block(data["unbound-xl"], db)
+    assert "Schwalbe</a> (brand)" in html
+    assert 'href="/tire/schwalbe-g-one-rx-pro/"' in html
+    assert "1.9 bar front and rear" in html
+    unb = _g.build_podium_block(data["unbound-200"], db)
+    assert "width not given" in unb and "Cyclingnews</a>" in unb
+    # A name that isn't an exact database tire isn't linked.
+    assert "Vittoria Terreno T30</a>" not in unb
+    assert _g.build_podium_block(None, db) == ""
+
+
+def _guide_inputs(slug):
+    import json
+    data = json.loads((RACE_DATA_DIR / f"{slug}.json").read_text())
+    rd = normalize_race_data(data)
+    rd["slug"] = slug
+    return rd, data.get("race", data), load_weather_data(slug), load_tire_database()
+
+
+def test_guides_with_podium_data_show_it():
+    import json
+    for slug in json.loads(_g.PODIUM_PATH.read_text())["races"]:
+        html = _g.generate_tire_guide_page(*_guide_inputs(slug))
+        assert "Podium Ran" in html, slug

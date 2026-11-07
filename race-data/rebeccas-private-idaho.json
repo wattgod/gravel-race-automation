@@ -196,6 +196,41 @@
         "year": 2023,
         "edition": 11,
         "source": "https://www.cyclingwest.com/racing/gravel-racing/rebeccas-private-idaho-qsr-race-winners-crowned/"
+      },
+      {
+        "year": 2022,
+        "note": "Tenth anniversary; 1,800 riders",
+        "source": "https://velo.outsideonline.com/gravel/haley-smith-and-payson-mcelveen-win-rebeccas-private-idaho-queens-stage-race/"
+      },
+      {
+        "year": 2021,
+        "date": "2021-09-01",
+        "end_date": "2021-09-05",
+        "edition": 9,
+        "source": "https://www.cyclingwest.com/racing/gravel-racing/rebeccas-private-idaho-wrap-up-report/"
+      },
+      {
+        "year": 2019,
+        "edition": 7,
+        "note": "New course records in the Baked Potato and Queen's Stage Race",
+        "source": "https://www.rebeccarusch.com/post/rebecca-s-private-idaho-presented-by-miir-2019-gravel-cycling-race-and-festival"
+      },
+      {
+        "year": 2018,
+        "date": "2018-09-02",
+        "edition": 6,
+        "note": "New start line at Festival Meadows in Sun Valley",
+        "source": "https://www.mtexpress.com/sports/mountain_sports/rebecca-s-private-idaho-pedals-into-ketchum/article_cb537fbc-ab0a-11e8-b486-c352e39a8827.html"
+      },
+      {
+        "year": 2016,
+        "edition": 4,
+        "source": "https://www.mtexpress.com/sports/mountain_sports/nearly-500-cyclists-ride-deep-into-pioneers-for-private-idaho/article_558da756-747c-11e6-9b68-87c25d1050f4.html"
+      },
+      {
+        "year": 2015,
+        "edition": 3,
+        "source": "https://www.mtexpress.com/sports/local/locals-among-top-big-potato-small-fry-bikers/article_34104592-57eb-11e5-a5b7-33cbce242059.html"
       }
     ],
     "course_description": {
@@ -357,76 +392,133 @@
           "winner_female": "Sarah Max",
           "winner_male": "Griffin Easter",
           "source": "https://www.cyclingwest.com/racing/gravel-racing/rebeccas-private-idaho-qsr-race-winners-crowned/"
+        },
+        "2015": {
+          "race": "93 mi",
+          "winner_female": "Robin Farina",
+          "winner_male": "Neil Shirley",
+          "winning_time_male": "4:42:05",
+          "source": "https://www.mtexpress.com/sports/local/locals-among-top-big-potato-small-fry-bikers/article_34104592-57eb-11e5-a5b7-33cbce242059.html"
+        },
+        "2016": {
+          "race": "Big Potato",
+          "winner_female": "Anne Perry",
+          "winner_male": "Nate Whitman",
+          "winning_time_female": "5:22:15",
+          "winning_time_male": "4:55:54",
+          "source": "https://www.mtexpress.com/sports/mountain_sports/nearly-500-cyclists-ride-deep-into-pioneers-for-private-idaho/article_558da756-747c-11e6-9b68-87c25d1050f4.html"
+        },
+        "2017": {
+          "race": "93 mi",
+          "winner_female": "Breanne Nalder",
+          "winner_male": "Ted King",
+          "source": "https://www.mtexpress.com/sports/mountain_sports/rebecca-s-private-idaho-pedals-into-ketchum/article_cb537fbc-ab0a-11e8-b486-c352e39a8827.html"
+        },
+        "2019": {
+          "race": "102 mi",
+          "winner_female": "Kaysee Armstrong",
+          "winner_male": "Colin Strickland",
+          "winning_time_female": "5:39:00",
+          "winning_time_male": "5:04:37",
+          "source": "https://www.rebeccarusch.com/post/rebecca-s-private-idaho-presented-by-miir-2019-gravel-cycling-race-and-festival"
+        },
+        "2021": {
+          "race": "102 mi",
+          "winner_female": "Rose Grant",
+          "winner_male": "Griffin Easter",
+          "source": "https://www.cyclingwest.com/racing/gravel-racing/rebeccas-private-idaho-wrap-up-report/"
+        },
+        "2022": {
+          "race": "102 mi",
+          "winner_male": "Griffin Easter",
+          "source": "https://velo.outsideonline.com/gravel/haley-smith-and-payson-mcelveen-win-rebeccas-private-idaho-queens-stage-race/"
         }
       },
       "latest_year": "2024"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
           "brand": "Schwalbe",
-          "recommended_width_mm": 40,
-          "msrp_usd": 69.9,
-          "weight_grams": 480,
-          "crr_watts": 38.0,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 592,
+          "crr_watts": 16.7,
+          "tested_width_mm": 50,
+          "course_cost_watts": 19.34,
+          "why": "Rolls 16.7 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
         },
         {
           "rank": 2,
-          "tire_id": "maxxis-reaver",
-          "name": "Maxxis Reaver",
-          "brand": "Maxxis",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 460,
-          "crr_watts": 35.0,
-          "why": "high puncture protection for sharp surfaces"
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 573,
+          "crr_watts": 19.2,
+          "tested_width_mm": 50,
+          "course_cost_watts": 20.52,
+          "why": "Rolls 19.2 W at 50mm on BRR's drum. 4mm shoulder knobs for loose corners."
         },
         {
           "rank": 3,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
+          "tire_id": "pirelli-cinturato-gravel-h",
+          "name": "Pirelli Cinturato Gravel H",
           "brand": "Pirelli",
-          "recommended_width_mm": 40,
-          "msrp_usd": 73.99,
-          "weight_grams": 430,
-          "crr_watts": null,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 522,
+          "crr_watts": 17.9,
+          "tested_width_mm": 40,
+          "course_cost_watts": 22.1,
+          "why": "BRR tested the 40mm: 17.9 W."
         }
       ],
       "front_rear_split": {
-        "applicable": true,
-        "front": {
-          "tire_id": "vittoria-terreno-dry",
-          "name": "Vittoria Terreno Dry",
-          "width_mm": 40
-        },
-        "rear": {
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
-          "width_mm": 40
-        },
-        "rationale": "Faster front for reduced rolling resistance on straights, grippier rear for traction on loose climbs and corners"
+        "applicable": false
       },
       "race_surface_profile": "technical",
-      "recommended_width_mm": 40,
+      "recommended_width_mm": 50,
       "pressure_psi": {
-        "140_160lb_dry": "34-38",
-        "140_160lb_mixed": "30-34",
-        "140_160lb_wet": "28-32",
-        "160_180lb_dry": "36-40",
-        "160_180lb_mixed": "34-38",
-        "160_180lb_wet": "32-36",
-        "180_200lb_dry": "40-44",
-        "180_200lb_mixed": "36-40",
-        "180_200lb_wet": "34-38",
-        "200pluslb_dry": "42-46",
-        "200pluslb_mixed": "40-44",
-        "200pluslb_wet": "38-42"
+        "gravel_category": 3,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "45mm": "26/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "150": {
+            "45mm": "27/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "170": {
+            "45mm": "28/29",
+            "50mm": "23/24",
+            "55mm": "19/20"
+          },
+          "190": {
+            "45mm": "28/29",
+            "50mm": "23/24",
+            "55mm": "19/20"
+          },
+          "210": {
+            "45mm": "29/30",
+            "50mm": "24/25",
+            "55mm": "20/20"
+          },
+          "230": {
+            "45mm": "29/31",
+            "50mm": "24/25",
+            "55mm": "20/21"
+          }
+        }
       }
     },
     "youtube_data": {

@@ -1,0 +1,311 @@
+{
+ "collection": "posts",
+ "slug": "eight-years-of-nate-wilson",
+ "images": [
+  {
+   "file": "img/november-2015-bar.webp",
+   "name": "november-2015-bar",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      560,
+      30,
+      880,
+      900
+     ],
+     "erase_box": [
+      555,
+      0,
+      870,
+      905
+     ],
+     "mask": "box",
+     "pose": "drink",
+     "face": "grin",
+     "psi": 80
+    }
+   ],
+   "alt": "Illustration: cartoon Gravel God, handlebar mustache, white tee and denim shorts, grins with a drink outside a bar on a Boulder, Colorado street, while a curly-haired man in glasses drinks at a stool nearby.",
+   "match": "exact"
+  },
+  {
+   "file": "img/flagstaff-tears.webp",
+   "name": "flagstaff-tears",
+   "verdict": "replace",
+   "mode": "scene",
+   "joke": "",
+   "alt": "Illustration: cartoon Gravel God, handlebar mustache, sits grimacing by a dirt road through golden foothills at dusk, his bike standing beside him.",
+   "match": "closest",
+   "note": "Painted scene redrawn as a rig roadside scene; the rig has no hugging-knees sit, so he sits back on his hands.",
+   "scene": {
+    "pose": "sit",
+    "face": "grimace",
+    "rel": 120,
+    "elev": 3,
+    "k": 520,
+    "pos": [
+     0.45,
+     0.72
+    ],
+    "palette": "dusk",
+    "trees": [
+     [
+      30,
+      7
+     ],
+     [
+      44,
+      -8
+     ],
+     [
+      50,
+      9
+     ],
+     [
+      58,
+      -10
+     ]
+    ],
+    "seed": 5
+   },
+   "shapes": [
+    {
+     "type": "ellipse",
+     "box": [
+      727,
+      374,
+      735,
+      390
+     ],
+     "fill": "#a9d8f7",
+     "outline": "#4f9fd6",
+     "width": 2
+    },
+    {
+     "type": "ellipse",
+     "box": [
+      753,
+      374,
+      761,
+      390
+     ],
+     "fill": "#a9d8f7",
+     "outline": "#4f9fd6",
+     "width": 2
+    }
+   ]
+  },
+  {
+   "file": "img/screenshot-2023-11-15-at-14-07-13.webp",
+   "name": "screenshot-2023-11-15-at-14-07-13",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/screenshot-2023-11-15-at-14-05-27.webp",
+   "name": "screenshot-2023-11-15-at-14-05-27",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/screenshot-2023-11-15-at-14-03-19.webp",
+   "name": "screenshot-2023-11-15-at-14-03-19",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/spirit-of-nate.webp",
+   "name": "spirit-of-nate",
+   "verdict": "replace",
+   "mode": "scene",
+   "joke": "",
+   "alt": "Illustration: cartoon Gravel God, handlebar mustache, rides a gravel road through sagebrush toward the viewer, as the faint face of a smiling man in glasses floats in the sky like a spirit.",
+   "match": "closest",
+   "scene": {
+    "ride": "cruise",
+    "face": "smile",
+    "rel": 90,
+    "elev": 6,
+    "k": 360,
+    "pos": [
+     0.45,
+     0.55
+    ],
+    "trees": [
+     [
+      50,
+      8
+     ],
+     [
+      56,
+      -9
+     ]
+    ],
+    "seed": 6
+   },
+   "insets": [
+    {
+     "src": [
+      1040,
+      0,
+      1450,
+      330
+     ],
+     "box": [
+      1040,
+      0,
+      1450,
+      330
+     ]
+    }
+   ],
+   "note": "Painted scene redrawn as a rig gravel-road scene; the ghost face of Nate is kept from the original in the sky.",
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      1036,
+      -4,
+      1454,
+      334
+     ],
+     "outline": "#ffffff",
+     "width": 8
+    }
+   ]
+  },
+  {
+   "file": "img/icarus-matti.webp",
+   "name": "icarus-matti",
+   "verdict": "replace",
+   "mode": "scene",
+   "joke": "",
+   "alt": "Illustration: cartoon Gravel God, grinning under his handlebar mustache, walks his bike up a ridge toward a blazing sun over rolling desert hills.",
+   "match": "closest",
+   "scene": {
+    "pose": "walk_bike",
+    "face": "grin",
+    "rel": 110,
+    "elev": 5,
+    "k": 440,
+    "pos": [
+     0.45,
+     0.6
+    ],
+    "palette": "dusk",
+    "seed": 7
+   },
+   "note": "Painted scene redrawn as a rig desert scene at dusk."
+  },
+  {
+   "file": "img/watching-nate-go.webp",
+   "name": "watching-nate-go",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      500,
+      330,
+      710,
+      905
+     ],
+     "erase_box": [
+      505,
+      342,
+      705,
+      905
+     ],
+     "mask": "box",
+     "pose": "stand",
+     "psi": 270
+    }
+   ],
+   "alt": "Illustration: cartoon Gravel God in a white tee and shorts, seen from behind, stands at an airport window watching a plane take off.",
+   "match": "exact"
+  },
+  {
+   "file": "img/nate-zoom.webp",
+   "name": "nate-zoom",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/life.webp",
+   "name": "life",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "joke": "LIFE",
+   "figs": [
+    {
+     "box": [
+      600,
+      300,
+      1300,
+      914
+     ],
+     "erase_box": [
+      575,
+      200,
+      1305,
+      914
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "psi": 270,
+     "fit": "width",
+     "mask": "box"
+    }
+   ],
+   "alt": "Illustration: cartoon Gravel God, seen from behind beside his handlebars, looks down a long desert road, the word \"LIFE\" faint in the sky.",
+   "match": "exact"
+  },
+  {
+   "file": "img/dalle-2023-11-15-14-18-34-create-a-full-body-portrait-of-a-character-for-company-branding-in-a-16-9-aspect-ratio-with-the-characters-back-shown-riding-toward-the-mountains-a.webp",
+   "name": "dalle-2023-11-15-14-18-34-create-a-full-body-portrait-of-a-character-for-company-branding-in-a-16-9-aspect-ratio-with-the-characters-back-shown-riding-toward-the-mountains-a",
+   "verdict": "replace",
+   "mode": "scene",
+   "joke": "",
+   "alt": "Illustration: cartoon Gravel God in a white tee and shorts, seen from behind, rides down a long road toward the mountains at sunrise.",
+   "match": "closest",
+   "scene": {
+    "ride": "cruise",
+    "rel": 270,
+    "elev": 6,
+    "k": 320,
+    "pos": [
+     0.5,
+     0.62
+    ],
+    "palette": "dusk",
+    "trees": [
+     [
+      48,
+      7
+     ],
+     [
+      52,
+      -8
+     ],
+     [
+      60,
+      9
+     ],
+     [
+      64,
+      -10
+     ]
+    ],
+    "seed": 8
+   },
+   "note": "Painted Flatirons scene redrawn as a rig road scene at sunrise; no Flatirons."
+  }
+ ]
+}

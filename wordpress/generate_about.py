@@ -13,6 +13,7 @@ Usage:
 """
 
 import argparse
+import shutil
 import html
 import json
 from pathlib import Path
@@ -30,6 +31,7 @@ from shared_header import get_site_header_html
 from cookie_consent import get_consent_banner_html
 
 OUTPUT_DIR = Path(__file__).parent / "output"
+AVATAR_SRC = Path(__file__).parent / "assets" / "about" / "matti-avatar-v67.png"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 RACE_INDEX_PATH = PROJECT_ROOT / "web" / "race-index.json"
 
@@ -147,7 +149,7 @@ def build_who() -> str:
           </div>
         </div>
         <div class="gg-about-bio-sidebar">
-          <img src="/about/matti-avatar.png" alt="Matti — cartoon portrait" class="gg-about-bio-avatar" width="280" height="280" loading="lazy">
+          <img src="/about/matti-avatar-v67.png" alt="Matti — cartoon portrait" class="gg-about-bio-avatar" width="280" height="280" loading="lazy">
           <div class="gg-about-bio-card">
             <div class="gg-about-bio-card-label">Background</div>
             <dl class="gg-about-bio-dl">
@@ -744,6 +746,9 @@ def main():
 
     # Reuse shared assets if they exist, otherwise write them
     assets = write_shared_assets(output_dir)
+
+    # The v6.7 character portrait ships next to about.html (push_wordpress.py uploads it).
+    shutil.copy2(AVATAR_SRC, output_dir / AVATAR_SRC.name)
 
     html_content = generate_about_page(external_assets=assets)
     output_file = output_dir / "about.html"

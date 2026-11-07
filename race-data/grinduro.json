@@ -232,6 +232,34 @@
         "date": "2025-09-13",
         "note": "California stop returned to Quincy, where Grinduro began in 2015.",
         "source": "https://my.raceresult.com/360133/results"
+      },
+      {
+        "year": 2019,
+        "date": "2019-09-28",
+        "edition": 5,
+        "note": "New mostly dirt course after Plumas National Forest wildfires",
+        "source": "https://www.gravelcyclist.com/race-reports/2019-grinduro-california-the-four-seasons-of-bike-riding-racing/"
+      },
+      {
+        "year": 2018,
+        "edition": 4,
+        "source": "https://theradavist.com/rounding-out-the-2018-sierra-buttes-triple-crown-with-grinduro-in-quincy"
+      },
+      {
+        "year": 2017,
+        "date": "2017-10-07",
+        "source": "https://www.synergyracetiming.com/race/grinduro-2017/"
+      },
+      {
+        "year": 2016,
+        "date": "2016-10-08",
+        "source": "https://www.cxmagazine.com/2016-grinduro-results-duncan-riffle-meredith-descends-miller-tt-wins"
+      },
+      {
+        "year": 2015,
+        "date": "2015-10-10",
+        "note": "First Grinduro, Quincy, California",
+        "source": "https://adventuresportsjournal.com/grinduro/"
       }
     ],
     "notable_winners": [
@@ -485,7 +513,43 @@
     },
     "results": {
       "years": {
-        "2024": {}
+        "2024": {},
+        "2015": {
+          "race": "60 mi",
+          "winner_female": "Caroline Dezendorf",
+          "winner_male": "Barry Wicks",
+          "source": "https://spokemagazine.com/grinduro/"
+        },
+        "2016": {
+          "race": "Timed segments",
+          "winner_female": "Meredith Miller",
+          "winner_male": "Duncan Riffle",
+          "winning_time_female": "48:35.2",
+          "winning_time_male": "40:48.9",
+          "source": "https://www.cxmagazine.com/2016-grinduro-results-duncan-riffle-meredith-descends-miller-tt-wins"
+        },
+        "2017": {
+          "race": "Timed segments",
+          "winner_female": "Katerina Nash",
+          "winner_male": "Carl Decker",
+          "winning_time_female": "46:02.1",
+          "winning_time_male": "40:22.62",
+          "source": "https://www.synergyracetiming.com/race/grinduro-2017/"
+        },
+        "2018": {
+          "race": "Timed segments",
+          "winner_female": "Lindsay Dwyer",
+          "winner_male": "Ted King",
+          "source": "https://element.ly/2018/10/grinduro-2018/"
+        },
+        "2019": {
+          "race": "59.5 mi",
+          "winner_female": "Katerina Nash",
+          "winner_male": "Stephan Davoust",
+          "winning_time_female": "47:33",
+          "winning_time_male": "42:30",
+          "source": "https://www.cxmagazine.com/katerina-nash-stephan-davoust-take-wintry-2019-grinduro-results"
+        }
       },
       "latest_year": "2024"
     },
@@ -494,60 +558,88 @@
       "name": "Grinduro"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
           "brand": "Schwalbe",
-          "recommended_width_mm": 45,
-          "msrp_usd": 69.9,
-          "weight_grams": 540,
-          "crr_watts": 38.0,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 592,
+          "crr_watts": 16.7,
+          "tested_width_mm": 50,
+          "course_cost_watts": 21.1,
+          "why": "Rolls 16.7 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
         },
         {
           "rank": 2,
-          "tire_id": "maxxis-reaver",
-          "name": "Maxxis Reaver",
-          "brand": "Maxxis",
-          "recommended_width_mm": 45,
-          "msrp_usd": 79.99,
-          "weight_grams": 520,
-          "crr_watts": 35.0,
-          "why": "high puncture protection for sharp surfaces"
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 573,
+          "crr_watts": 19.2,
+          "tested_width_mm": 50,
+          "course_cost_watts": 21.4,
+          "why": "Rolls 19.2 W at 50mm on BRR's drum. Puncture score 45 for the sharp rock. 4mm shoulder knobs for loose corners."
         },
         {
           "rank": 3,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
+          "tire_id": "pirelli-cinturato-gravel-h",
+          "name": "Pirelli Cinturato Gravel H",
           "brand": "Pirelli",
-          "recommended_width_mm": 45,
-          "msrp_usd": 73.99,
-          "weight_grams": 470,
-          "crr_watts": null,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 522,
+          "crr_watts": 17.9,
+          "tested_width_mm": 40,
+          "course_cost_watts": 22.9,
+          "why": "BRR tested the 40mm: 17.9 W. Puncture score 46 for the sharp rock."
         }
       ],
       "front_rear_split": {
         "applicable": false
       },
       "race_surface_profile": "technical",
-      "recommended_width_mm": 45,
+      "recommended_width_mm": 50,
       "pressure_psi": {
-        "140_160lb_dry": "28-32",
-        "140_160lb_mixed": "25-29",
-        "140_160lb_wet": "23-27",
-        "160_180lb_dry": "31-35",
-        "160_180lb_mixed": "28-32",
-        "160_180lb_wet": "26-30",
-        "180_200lb_dry": "34-38",
-        "180_200lb_mixed": "31-35",
-        "180_200lb_wet": "29-33",
-        "200pluslb_dry": "37-41",
-        "200pluslb_mixed": "34-38",
-        "200pluslb_wet": "32-36"
+        "gravel_category": 4,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "45mm": "24/25",
+            "50mm": "20/21",
+            "55mm": "17/17"
+          },
+          "150": {
+            "45mm": "25/26",
+            "50mm": "20/21",
+            "55mm": "17/18"
+          },
+          "170": {
+            "45mm": "25/27",
+            "50mm": "21/22",
+            "55mm": "17/18"
+          },
+          "190": {
+            "45mm": "26/27",
+            "50mm": "21/22",
+            "55mm": "18/18"
+          },
+          "210": {
+            "45mm": "26/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "230": {
+            "45mm": "27/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          }
+        }
       }
     },
     "terrain": {

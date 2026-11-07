@@ -302,6 +302,102 @@
         }
       },
       "latest_year": "2025"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-11-06",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "hutchinson-caracal-race",
+          "name": "Hutchinson Caracal Race",
+          "brand": "Hutchinson",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 668,
+          "crr_watts": 15.8,
+          "tested_width_mm": 50,
+          "course_cost_watts": 18.99,
+          "why": "Rolls 15.8 W at 50mm on BRR's drum. Wet grip 80."
+        },
+        {
+          "rank": 2,
+          "tire_id": "pirelli-cinturato-gravel-rh",
+          "name": "Pirelli Cinturato Gravel RH",
+          "brand": "Pirelli",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 529,
+          "crr_watts": 17.6,
+          "tested_width_mm": 40,
+          "course_cost_watts": 20.64,
+          "why": "BRR tested the 40mm: 17.6 W. 2.6mm shoulder knobs for loose corners. Wet grip 85."
+        },
+        {
+          "rank": 3,
+          "tire_id": "pirelli-cinturato-gravel-h",
+          "name": "Pirelli Cinturato Gravel H",
+          "brand": "Pirelli",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 522,
+          "crr_watts": 17.9,
+          "tested_width_mm": 40,
+          "course_cost_watts": 21.62,
+          "why": "BRR tested the 40mm: 17.9 W. Wet grip 81."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "hutchinson-caracal-race",
+          "name": "Hutchinson Caracal Race",
+          "width_mm": 50
+        },
+        "rear": {
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "width_mm": 50
+        },
+        "rationale": "The rear carries 53% of the weight and does the traction work on 6,000 ft of climbing, so it gets the 2.3mm center knobs; the front rolls the faster file tread."
+      },
+      "race_surface_profile": "wet",
+      "recommended_width_mm": 50,
+      "pressure_psi": {
+        "gravel_category": 3,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "45mm": "26/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "150": {
+            "45mm": "27/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "170": {
+            "45mm": "28/29",
+            "50mm": "23/24",
+            "55mm": "19/20"
+          },
+          "190": {
+            "45mm": "28/29",
+            "50mm": "23/24",
+            "55mm": "19/20"
+          },
+          "210": {
+            "45mm": "29/30",
+            "50mm": "24/25",
+            "55mm": "20/20"
+          },
+          "230": {
+            "45mm": "29/31",
+            "50mm": "24/25",
+            "55mm": "20/21"
+          }
+        }
+      }
     }
   }
 }

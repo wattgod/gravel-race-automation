@@ -36,10 +36,10 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "never-see-it-coming": "A yellow-and-blue train blurs through a Dutch level crossing, barriers down and \"WACHT\" signs lit, while a tiny cartoon Gravel God in a cowboy hat stands beside the tracks.",
+    "never-see-it-coming": "A yellow-and-blue train blurs through a Dutch level crossing, barriers down and \"WACHT\" signs lit, while a tiny cartoon Gravel God stands beside the tracks.",
     "rontagen": "A cartoon chest X-ray: pale blue ribs on a dark blue background, with six Miller Lite cans where the lungs should be.",
-    "already-got-my-cardio-for-the-day-1": "Cartoon Gravel God in a cowboy hat stands at the foot of a white staircase in a bright hallway, saying: \"Already got my cardio for the day.\"",
-    "already-got-my-cardio-for-the-day-1-2": "Four puppies peer over a concrete ledge at cartoon Gravel God in a cowboy hat, seen from behind, who tells them: \"I'm telling you – life is a sham. Love doesn't exist and I wouldn't get your hopes up that anyone is going to adopt you.\"",
+    "already-got-my-cardio-for-the-day-1": "Cartoon Gravel God stands hands on hips at the foot of a white staircase in a bright hallway, saying: \"Already got my cardio for the day.\"",
+    "already-got-my-cardio-for-the-day-1-2": "Four puppies peer over a concrete ledge at cartoon Gravel God, seen from behind, who tells them: \"I'm telling you – life is a sham. Love doesn't exist and I wouldn't get your hopes up that anyone is going to adopt you.\"",
 }
 
 DESCRIPTION = ("An essay on weeks off the bike with inflamed lungs after COVID: an X-ray, steroids, "

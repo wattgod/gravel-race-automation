@@ -35,27 +35,27 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "time": "Cartoon Gravel God in a cowboy hat stands beside a vacuum cleaner sucking up the words \"TAKE TAKE TAKE take\", next to a round illustration of a three-generation family.",
+    "time": "Cartoon Gravel God, handlebar mustache and white tee, stands beside a vacuum cleaner sucking up the words \"TAKE TAKE TAKE take\", next to a round illustration of a three-generation family.",
     "time-2": "Animated: the author's basement door, a toy basketball hoop on it and weight plates beyond, as the glowing word \"SANITY\" flashes up large and then shrinks onto the weights.",
     "time-1": "A little girl's head peeks around the top of a carpeted staircase, with a speech bubble: \"HI DADA!!!\"",
     "time-2-2": "Glowing red letters \"T -16HRS\" beside an hourglass with its sand running out.",
     "time-3": "A woman on the phone spoon-feeds a baby at a table, with a speech bubble: \"DASSIT???\" ~EVERY SINGLE-PARENT IN THE WORLD.",
-    "time-4": "Cartoon Gravel God's face on a man walking through a jeering crowd, speech bubbles all around reading \"Shame.\"",
+    "time-4": "Cartoon Gravel God, wincing, walks through a jeering crowd, speech bubbles all around reading \"Shame.\"",
     "time-5": "Cartoon legs in red heels kick up beside a cocktail on a bar table, a laptop playing The Bachelor next to it.",
-    "time-6": "Cartoon Gravel God in a cowboy hat points at the viewer beside the words \"Thank the people that support Your Training and Racing.\"",
+    "time-6": "Cartoon Gravel God points at the viewer beside the words \"Thank the people that support Your Training and Racing.\"",
     "time-7": "A sympathy card: white lilies in sepia with the script words \"with deepest Sympathy\".",
-    "time-9": "Cartoon Gravel God, arms crossed, beside the words \"STOP IT. SAVE YOUR SYMPATHY FOR SOMEONE WHO ACTUALLY DESERVES IT.\"",
-    "time-10": "Two women grin in a heart-shaped photo beside bacon and a Bloody Mary, while a thought bubble shows cartoon Gravel God on his bike shouting \"FML!!!\" as two crying children chase him.",
+    "time-9": "Cartoon Gravel God, arms crossed and one eyebrow up, beside the words \"STOP IT. SAVE YOUR SYMPATHY FOR SOMEONE WHO ACTUALLY DESERVES IT.\"",
+    "time-10": "Two women grin in a heart-shaped photo beside bacon and a Bloody Mary, while a thought bubble shows cartoon Gravel God sprinting away on his bike shouting \"FML!!!\" as two crying children chase him.",
     "1": "Icon of a young cyclist's face in a red helmet: the junior athlete.",
     "2": "Icon of a student in glasses holding books beside her bike: the college athlete.",
     "3": "Icon of an office worker at a desk dreaming of bikes: the 20-something.",
     "4": "Icon of a parent holding two children's hands as a cyclist rides off in a cloud of dust: the parent or master.",
     "2021-04-01-10-56-43-1": "Animated: a smiling bald man in glasses and a woman beside him gaze at something off-screen, with the caption \"Awwwww\".",
     "time-11": "A toddler on a blue Strider balance bike looks up, with a speech bubble: \"Are you telling me cycling is a waste of time and I should stop?\"",
-    "time-12": "Text over a faded cartoon of Gravel God: \"Training is a privilege. Racing is a privilege. The capacity for cycling to make you a better human to everyone connected to you represents its actual value.\"",
+    "time-12": "Cartoon Gravel God, arms crossed, beside the words \"Training is a privilege. Racing is a privilege. The capacity for cycling to make you a better human to everyone connected to you represents its actual value.\"",
     "time-13": "Cartoon Gravel God asks, \"Heyyyy.. Want to do anything else today but watch the kids while I bike 500 miles?\" and a woman in sunglasses replies, \"Who are you and what have you done with my husband?\"",
-    "time-14": "Cartoon Gravel God sips coffee in a cluttered family kitchen, with a thought bubble: \"Step-Daddy-Matti parenting for the win.\"",
-    "dreaming": "Cartoon Gravel God in a cowboy hat smiles as he daydreams of a rider in the yellow jersey holding a stuffed lion on a podium.",
+    "time-14": "Cartoon Gravel God with a coffee in a cluttered family kitchen, with a thought bubble: \"Step-Daddy-Matti parenting for the win.\"",
+    "dreaming": "Cartoon Gravel God smiles as he daydreams of a rider in the yellow jersey holding a stuffed lion on a podium.",
 }
 
 TITLE = "Training Is a Privilege, Not a Right | Gravel God"

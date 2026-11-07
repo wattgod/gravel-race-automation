@@ -1,0 +1,78 @@
+{
+  "id": "silca-protocol-rcg-1",
+  "name": "Silca Protocol RCG-1",
+  "brand": "Silca",
+  "widths_mm": [
+    45
+  ],
+  "widths_source": "existing",
+  "tread_type": "file",
+  "tubeless_ready": true,
+  "msrp_usd": null,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 45,
+      "measured_width_mm": 43.0,
+      "year": 2026,
+      "model": "Silca Protocol RCG-1 45",
+      "rr_watts": 16.6,
+      "test_psi": 31,
+      "puncture_tread": 34.0,
+      "wet_grip": 71.0,
+      "knob_center_mm": 0.7,
+      "knob_edge_mm": 2.7,
+      "weight_g": 442.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/silca-protocol-rcg-1"
+    }
+  ],
+  "brr_urls_by_width": {
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/silca-protocol-rcg-1"
+  },
+  "crr_watts_at_29kmh": {
+    "45": 16.6
+  },
+  "weight_grams": {
+    "45": 442
+  },
+  "puncture_resistance": "low",
+  "wet_traction": "fair",
+  "mud_clearance": "low",
+  "strengths": [
+    "Rolls fast: 16.6 W at 45mm on BRR's drum"
+  ],
+  "weaknesses": [
+    "Thin tread: puncture score 34"
+  ],
+  "recommended_use": [
+    "fast gravel",
+    "loose corners"
+  ],
+  "avoid_use": [
+    "sharp rock",
+    "mud"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "challenge-getaway-pro",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
+    "continental-terra-speed-40",
+    "hutchinson-caracal-race",
+    "panaracer-gravelking-tlc",
+    "panaracer-gravelking-zx-r",
+    "pirelli-cinturato-gravel-rh",
+    "rene-herse-snoqualmie-pass",
+    "schwalbe-g-one-rs-pro",
+    "schwalbe-g-one-rs",
+    "specialized-pathfinder",
+    "ultradynamico-cava-race",
+    "vittoria-terreno-dry",
+    "vittoria-terreno-pro-t30",
+    "wtb-vulpine-s"
+  ],
+  "versions": []
+}

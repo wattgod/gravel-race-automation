@@ -1,0 +1,111 @@
+{
+ "collection": "articles",
+ "slug": "lies-we-tell-ourselves-i-have-time",
+ "images": [
+  {
+   "file": "img/22d1bd31fadbe720.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "closest",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      40,
+      700,
+      330,
+      1200
+     ],
+     "erase_box": [
+      5,
+      640,
+      440,
+      1200
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "psi": 270,
+     "fit": "width",
+     "anchor": "bottom",
+     "mask": "grabcut",
+     "pad": 6
+    }
+   ],
+   "erase_extra": [
+    [
+     280,
+     820,
+     470,
+     995
+    ]
+   ],
+   "note": "The old hat covered a big patch of real photo; the fill there is soft and smudged."
+  },
+  {
+   "file": "img/5e46a47ba085a2c7.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "closest",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      30,
+      500,
+      320,
+      1200
+     ],
+     "erase_box": [
+      0,
+      405,
+      475,
+      1200
+     ],
+     "pose": "stand",
+     "crop": "bust",
+     "face": "grin",
+     "psi": 90,
+     "fit": "height",
+     "anchor": "bottom",
+     "mask": "grabcut",
+     "pad": 6
+    }
+   ],
+   "erase_extra": [
+    [
+     300,
+     590,
+     505,
+     815
+    ]
+   ],
+   "note": "The old hat covered a big patch of real photo; the fill there is soft and smudged."
+  },
+  {
+   "file": "img/bac66e7ed9047a9a.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "match": "exact",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      560,
+      610,
+      830,
+      1180
+     ],
+     "erase_box": [
+      545,
+      600,
+      860,
+      1185
+     ],
+     "pose": "lean_on_bike",
+     "face": "neutral",
+     "psi": 80
+    }
+   ]
+  }
+ ]
+}

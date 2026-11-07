@@ -1,0 +1,79 @@
+{
+  "id": "silca-protocol-rcg-3",
+  "name": "Silca Protocol RCG-3",
+  "brand": "Silca",
+  "widths_mm": [
+    45
+  ],
+  "widths_source": "existing",
+  "tread_type": "knobby",
+  "tubeless_ready": true,
+  "msrp_usd": null,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 45,
+      "measured_width_mm": 43.0,
+      "year": 2026,
+      "model": "Silca Protocol RCG-3 45",
+      "rr_watts": 19.8,
+      "test_psi": 31,
+      "puncture_tread": 45.0,
+      "wet_grip": 64.0,
+      "knob_center_mm": 1.4,
+      "knob_edge_mm": 2.2,
+      "weight_g": 475.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/silca-protocol-rcg-3"
+    }
+  ],
+  "brr_urls_by_width": {
+    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/silca-protocol-rcg-3"
+  },
+  "crr_watts_at_29kmh": {
+    "45": 19.8
+  },
+  "weight_grams": {
+    "45": 475
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "poor",
+  "mud_clearance": "low",
+  "strengths": [
+    "Tough tread: puncture score 45"
+  ],
+  "weaknesses": [
+    "Wet grip 64 on BRR's wet test"
+  ],
+  "recommended_use": [
+    "sharp rock"
+  ],
+  "avoid_use": [
+    "wet roads",
+    "mud"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "continental-terra-trail",
+    "donnelly-mso",
+    "goodyear-connector",
+    "goodyear-xplr-inter",
+    "hutchinson-touareg",
+    "irc-boken-double-cross",
+    "maxxis-rambler",
+    "michelin-power-gravel",
+    "panaracer-gravelking-sk",
+    "panaracer-gravelking-x1",
+    "pirelli-cinturato-gravel-h",
+    "pirelli-cinturato-gravel-m",
+    "schwalbe-g-one-r-pro",
+    "specialized-pathfinder-pro",
+    "specialized-tracer",
+    "teravail-cannonball",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero",
+    "vittoria-terreno-mix"
+  ],
+  "versions": []
+}

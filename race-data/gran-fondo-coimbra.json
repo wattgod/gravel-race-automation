@@ -179,6 +179,24 @@
         "end_date": "2025-03-02",
         "edition": 5,
         "source": "https://comercioenoticias.pt/crp-ribafria-vence-uci-granfondo-world-series-coimbra-region/"
+      },
+      {
+        "year": 2024,
+        "date": "2024-03-02",
+        "end_date": "2024-03-03",
+        "note": "Moved from June to March",
+        "source": "https://www.cm-montemorvelho.pt/index.php/municipio/comunicacao/item/8379-granfondo-world-series-coimbra-region-de-regresso-a-montemor"
+      },
+      {
+        "year": 2022,
+        "note": "New course through Coimbra, Poiares, Gois, Lousa, Miranda do Corvo and Penela",
+        "source": "https://www.record.pt/comunicados-de-imprensa/detalhe/granfondo-coimbra-region-mostrou-o-melhor-do-ciclismo-amador"
+      },
+      {
+        "year": 2021,
+        "edition": 1,
+        "note": "First edition, held in October",
+        "source": "https://ucigranfondoworldseries.com/en/granfondo-coimbra-region-a-very-successful-newcomer-in-the-series/"
       }
     ],
     "final_verdict": {
@@ -203,6 +221,29 @@
         "category": "official",
         "label": "Official Website"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2021": {
+          "race": "Granfondo",
+          "winner_female": "Ana Caramelo",
+          "winner_male": "Loic Ruffaut",
+          "source": "https://ucigranfondoworldseries.com/en/granfondo-coimbra-region-a-very-successful-newcomer-in-the-series/"
+        },
+        "2022": {
+          "race": "148 km",
+          "winner_female": "Iulia Legkova",
+          "winner_male": "Gil Santos",
+          "source": "https://www.record.pt/comunicados-de-imprensa/detalhe/granfondo-coimbra-region-mostrou-o-melhor-do-ciclismo-amador"
+        },
+        "2024": {
+          "race": "148 km",
+          "winner_female": "Susana Lourenco",
+          "winner_male": "Jens Moerman",
+          "source": "https://www.granfondoguide.com/Contents/IndexFull/7835/moerman-and-lourenco-fastest-at-growing-granfondo-coimbra-region"
+        }
+      },
+      "latest_year": "2024"
+    }
   }
 }

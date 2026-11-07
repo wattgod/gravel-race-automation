@@ -1,0 +1,230 @@
+{
+ "collection": "posts",
+ "slug": "tour-of-the-gila-the-gila-monster",
+ "images": [
+  {
+   "file": "img/nobody-home.webp",
+   "name": "nobody-home",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      40,
+      95,
+      185,
+      250
+     ],
+     "mask": "box",
+     "erase_box": [
+      30,
+      85,
+      195,
+      262
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 90,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "center"
+    },
+    {
+     "box": [
+      1300,
+      300,
+      1560,
+      883
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "erase_box": [
+      1262,
+      285,
+      1600,
+      883
+     ],
+     "pose": "shrug",
+     "face": "grin",
+     "psi": 112.5
+    }
+   ],
+   "alt": "Strava screenshot of Matti Rowe's ride \"Stage 5: Nobody Home\", 9:01 AM on Sunday, April 30, 2023, Silver City, New Mexico: 111.03 mi, 5:19:49 moving time, 9,255 ft of climbing, 242 W weighted average power, with cartoon Gravel God's head as the profile picture and the full cartoon Gravel God shrugging at the right.",
+   "match": "exact",
+   "erase_extra": [
+    [
+     1268,
+     288,
+     1600,
+     348
+    ],
+    [
+     1322,
+     210,
+     1600,
+     290
+    ],
+    [
+     1226,
+     322,
+     1268,
+     378
+    ]
+   ]
+  },
+  {
+   "file": "img/gang.webp",
+   "name": "gang",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      150,
+      740,
+      470,
+      1060
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "erase_box": [
+      105,
+      740,
+      505,
+      1065
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "Teammates in red Rio Grande kit sit in the dirt against an open car hatch after the stage, one standing behind with his arms raised; cartoon Gravel God's grinning head is pasted on the rider sitting at the left.",
+   "match": "exact",
+   "note": "Only the pasted-on head changes; the body is a real photo."
+  },
+  {
+   "file": "img/701-cooper-st.webp",
+   "name": "701-cooper-st",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1415,
+      495,
+      1495,
+      632
+     ],
+     "erase_box": [
+      1418,
+      498,
+      1492,
+      630
+     ],
+     "ride": "cruise",
+     "face": "smile",
+     "psi": 60
+    }
+   ],
+   "alt": "A pink stucco house on a sunny Silver City street, teammates in red loading a car at the curb and a tiny cartoon Gravel God riding up the road.",
+   "match": "exact"
+  },
+  {
+   "file": "img/tajjjj-scaled.webp",
+   "name": "tajjjj-scaled",
+   "verdict": "keep",
+   "why": "Real photo; no character."
+  },
+  {
+   "file": "img/salty-boii-scaled.webp",
+   "name": "salty-boii-scaled",
+   "verdict": "keep",
+   "why": "Real photo; no character."
+  },
+  {
+   "file": "img/sheeeee.webp",
+   "name": "sheeeee",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      545,
+      620,
+      930,
+      950
+     ],
+     "mask": "grabcut",
+     "pad": 10,
+     "erase_box": [
+      555,
+      645,
+      915,
+      940
+     ],
+     "pose": "stand",
+     "face": "shout",
+     "psi": 112.5,
+     "crop": "head",
+     "fit": "width",
+     "anchor": "bottom"
+    }
+   ],
+   "alt": "A rider in red Rio Grande kit, with cartoon Gravel God's shouting head pasted on, strikes a dance pose on a dusty lot, arm flung out, a team van behind him.",
+   "match": "exact",
+   "note": "Only the pasted-on head changes; the body is a real photo."
+  },
+  {
+   "file": "img/sam-1-scaled.webp",
+   "name": "sam-1-scaled",
+   "verdict": "keep",
+   "why": "Real photo; no character."
+  },
+  {
+   "file": "img/defeat.webp",
+   "name": "defeat",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      500,
+      540,
+      1360,
+      2000
+     ],
+     "mask": "grabcut",
+     "erase_box": [
+      515,
+      555,
+      1345,
+      1200
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "elev": 12,
+     "crop": "head",
+     "fit": "width",
+     "anchor": "top",
+     "pad": 10
+    }
+   ],
+   "alt": "A breakfast table with a full bowl of oatmeal, a can of Red Bull, a copper French press and a Starbucks mug; the back of cartoon Gravel God's slicked-back head peeks up from below the table edge.",
+   "match": "exact"
+  },
+  {
+   "file": "img/james-scaled.webp",
+   "name": "james-scaled",
+   "verdict": "keep",
+   "why": "Real photo; no character."
+  }
+ ]
+}

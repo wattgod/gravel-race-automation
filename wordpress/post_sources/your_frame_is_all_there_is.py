@@ -27,11 +27,11 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "your-frame-is-all-there-is": "Cartoon Gravel God's face in a cowboy hat, set inside an ornate gold picture frame floating against a starry night sky.",
-    "hey-wanna-get-high-2": "A man in a shaggy black wig and sleeveless black shirt scowls in front of a graffiti wall; cartoon Gravel God in a cowboy hat looks at him: \"I have so many questions.\"",
+    "your-frame-is-all-there-is": "A gilded picture frame floating in a starry grey galaxy holds cartoon Gravel God's head.",
+    "hey-wanna-get-high-2": "A man in a shaggy black wig and sleeveless top glowers against a graffiti wall; cartoon Gravel God, in profile, says: \"I have so many questions.\"",
     "hey-wanna-get-high": "A rider in a red Rio Grande kit stands with his red road bike in front of a painted brick mural reading \"Senate\"; a hooded figure crouched in the corner asks: \"Hey, wanna get high?\"",
-    "baaaa": "A lamb with cartoon Gravel God's face and cowboy hat stands in green grass beside a full-grown sheep.",
-    "hey-wanna-get-high-1": "Cartoon Gravel God in a cowboy hat stands with his bike on a rocky summit, above a sea of cloud filling the valleys below.",
+    "baaaa": "Two sheep in a green field; the little one in front has cartoon Gravel God's head.",
+    "hey-wanna-get-high-1": "Cartoon Gravel God stands with his bike and a coffee on a rocky summit above a sea of clouds.",
 }
 
 # DRAFT for Matt: matter-of-fact statements of what the post argues;

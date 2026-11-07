@@ -177,3 +177,9 @@ class TestExpectedRules:
 
     def test_race_vs_deterministic_across_calls(self, expected):
         assert expected["race-vs"] == dp.expected_pages()["race-vs"]
+
+
+def test_stale_tire_guides_are_the_remote_ones_missing_from_the_build():
+    import push_wordpress as pw
+    listing = "unbound-200/tires\nthe-insayner/tires\nbad;rm/tires\nmid-south/tires/\n"
+    assert pw.stale_tire_guide_slugs(listing, {"unbound-200", "mid-south"}) == ["the-insayner"]

@@ -1,0 +1,140 @@
+{
+ "collection": "articles",
+ "slug": "how-to-win-when-youre-terrible",
+ "images": [
+  {
+   "file": "img/7ed3a5fe5319582c.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1260,
+      30,
+      1660,
+      1120
+     ],
+     "erase_box": [
+      1240,
+      30,
+      1600,
+      650
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 112.5,
+     "crop": "bust",
+     "fit": "height",
+     "anchor": "top",
+     "dx": 0,
+     "mask": "grabcut",
+     "pad": 6
+    }
+   ],
+   "joke": "Gravel God photobombs the selfie",
+   "match": "exact"
+  },
+  {
+   "file": "img/e145fb37118c8adb.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      1300,
+      450,
+      1580,
+      1195
+     ],
+     "erase_box": [
+      1235,
+      470,
+      1600,
+      640
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 112.5,
+     "mask": "box",
+     "pad": 6
+    }
+   ],
+   "joke": "Where should I stand? This was basically my victory, honestly.",
+   "match": "exact",
+   "insets": [
+    {
+     "src": [
+      1090,
+      640,
+      1235,
+      1200
+     ],
+     "box": [
+      1235,
+      640,
+      1380,
+      1200
+     ]
+    },
+    {
+     "src": [
+      1090,
+      640,
+      1235,
+      1200
+     ],
+     "box": [
+      1380,
+      640,
+      1525,
+      1200
+     ]
+    },
+    {
+     "src": [
+      1090,
+      640,
+      1165,
+      1200
+     ],
+     "box": [
+      1525,
+      640,
+      1600,
+      1200
+     ]
+    }
+   ]
+  },
+  {
+   "file": "img/c251261540091f9c.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      40,
+      560,
+      260,
+      1040
+     ],
+     "mask": "box",
+     "erase_box": [
+      18,
+      545,
+      285,
+      1048
+     ],
+     "pose": "stand",
+     "face": "thinking",
+     "psi": 67.5
+    }
+   ],
+   "joke": "JFC this comment is longer than a horse's...",
+   "match": "exact"
+  }
+ ]
+}

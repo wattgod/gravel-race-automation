@@ -1,0 +1,168 @@
+{
+ "collection": "articles",
+ "slug": "racing-is-not-for-pies",
+ "images": [
+  {
+   "file": "img/54771137dead32ae.webp",
+   "verdict": "replace",
+   "mode": "scene",
+   "scene": {
+    "ride": "brake_hard",
+    "face": "shout",
+    "rel": 60,
+    "elev": 6,
+    "k": 700,
+    "pos": [
+     0.5,
+     0.58
+    ],
+    "trees": [
+     [
+      44,
+      9
+     ],
+     [
+      47,
+      11
+     ],
+     [
+      24,
+      10
+     ]
+    ],
+    "seed": 4
+   },
+   "joke": "Crashing out of the bunch",
+   "match": "closest",
+   "note": "No other riders, no crash or road rash in the rig: he brakes hard, shouting, on an empty road."
+  },
+  {
+   "file": "img/49b07b8186f63782.webp",
+   "verdict": "replace",
+   "mode": "scene",
+   "scene": {
+    "ride": "attack",
+    "face": "laugh",
+    "rel": 70,
+    "elev": 4,
+    "k": 650,
+    "pos": [
+     0.42,
+     0.66
+    ],
+    "trees": [
+     [
+      44,
+      9
+     ],
+     [
+      47,
+      11
+     ]
+    ],
+    "seed": 6
+   },
+   "texts": [
+    {
+     "type": "bubble",
+     "text": "I think they're all on steroids.",
+     "box": [
+      560,
+      60,
+      1000,
+      290
+     ],
+     "tail": [
+      500,
+      430
+     ],
+     "font": "mono",
+     "weight": 400,
+     "size": 44
+    }
+   ],
+   "joke": "I think they're all on steroids.",
+   "match": "closest",
+   "note": "No bunch of riders behind him; he attacks alone, the line kept."
+  },
+  {
+   "file": "img/4ca9251e044d931f.webp",
+   "verdict": "replace",
+   "mode": "scene",
+   "scene": {
+    "pose": "stand",
+    "rel": 240,
+    "elev": 6,
+    "k": 600,
+    "pos": [
+     0.5,
+     0.6
+    ],
+    "trees": [
+     [
+      40,
+      9
+     ]
+    ],
+    "seed": 3,
+    "signs": [
+     {
+      "xy": [
+       1.2,
+       -1.6
+      ],
+      "lines": [
+       "SPIRIT",
+       "OF GRAVEL",
+       "2011-2017"
+      ],
+      "post": 0.6,
+      "turn": 0
+     },
+     {
+      "xy": [
+       -1.6,
+       -1.8
+      ],
+      "lines": [
+       "RIP"
+      ],
+      "post": 0.5,
+      "turn": 0
+     }
+    ]
+   },
+   "joke": "SPIRIT OF GRAVEL (2011-2017)",
+   "match": "closest",
+   "note": "The headstone is a road sign on a short post; no ghost in the clouds."
+  },
+  {
+   "file": "img/ec1f50d56a8d39e8.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      250,
+      120,
+      470,
+      995
+     ],
+     "erase_box": [
+      195,
+      70,
+      510,
+      1010
+     ],
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 90
+    }
+   ],
+   "joke": "Standing in high heels in a dark alley",
+   "match": "closest",
+   "note": "No high heels in the rig; he wears his own shoes."
+  }
+ ]
+}

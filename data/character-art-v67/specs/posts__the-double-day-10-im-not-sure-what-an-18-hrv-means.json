@@ -1,0 +1,114 @@
+{
+ "collection": "posts",
+ "slug": "the-double-day-10-im-not-sure-what-an-18-hrv-means",
+ "images": [
+  {
+   "file": "img/dode-hasene-1.webp",
+   "name": "dode-hasene-1",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      20,
+      125,
+      140,
+      245
+     ],
+     "mask": "box",
+     "erase_box": [
+      8,
+      112,
+      152,
+      258
+     ],
+     "pose": "stand",
+     "face": "smile",
+     "psi": 90,
+     "crop": "head",
+     "fit": "contain",
+     "anchor": "center"
+    }
+   ],
+   "alt": "Strava activity \"Dag 9: Døde Hasene\", Friday, April 29, 2022, Grant County, New Mexico: 31.05 mi, 1:23:59 moving time, 1,726 ft, 270 W weighted average power, 22.2 mi/h average, with cartoon Gravel God's head as the profile picture and the route map south of Silver City.",
+   "match": "exact",
+   "note": "Only the profile picture changes."
+  },
+  {
+   "file": "img/sheeeeeesh.webp",
+   "name": "sheeeeeesh",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#e2e0e1",
+   "figs": [
+    {
+     "box": [
+      880,
+      410,
+      1230,
+      800
+     ],
+     "erase_box": [
+      1008,
+      225,
+      1295,
+      505
+     ],
+     "ride": "manual",
+     "face": "shout",
+     "psi": 20,
+     "mask": "box"
+    }
+   ],
+   "joke": "Sheeeeeesh!",
+   "alt": "TrainingPeaks file \"Gila St3 - TT\", April 29, 2022: 1:25:10, 31.1 mi, 85 TSS, normalized power 279 W, IF 0.78 and 3.14 W/kg, with power and heart-rate traces; cartoon Gravel God pops a wheelie over the chart, shouting \"Sheeeeeesh!\"",
+   "match": "exact",
+   "erase_extra": [
+    [
+     860,
+     500,
+     1185,
+     795
+    ]
+   ]
+  },
+  {
+   "file": "img/img-9850.webp",
+   "name": "img-9850",
+   "verdict": "keep",
+   "why": "Real photo of a toddler; no character."
+  },
+  {
+   "file": "img/soap-box.webp",
+   "name": "soap-box",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      600,
+      90,
+      860,
+      640
+     ],
+     "mask": "box",
+     "erase_box": [
+      550,
+      20,
+      885,
+      588
+     ],
+     "pose": "point",
+     "face": "shout",
+     "psi": 75
+    }
+   ],
+   "joke": "On my soap box",
+   "alt": "Cartoon Gravel God stands on a pink bar of soap ringed with bubbles, pointing as he speaks.",
+   "match": "closest",
+   "note": "The old one was a moving GIF (finger jabbing); the redraw is a still."
+  }
+ ]
+}

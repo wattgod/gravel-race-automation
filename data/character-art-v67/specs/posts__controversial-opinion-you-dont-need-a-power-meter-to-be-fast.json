@@ -1,0 +1,81 @@
+{
+ "collection": "posts",
+ "slug": "controversial-opinion-you-dont-need-a-power-meter-to-be-fast",
+ "images": [
+  {
+   "file": "img/fortunato-doesnt-use-a-power-meter.webp",
+   "name": "fortunato-doesnt-use-a-power-meter",
+   "verdict": "keep",
+   "why": "Mushroom-cloud meme; no character."
+  },
+  {
+   "file": "img/you-dont-need-a-power-meter-to-be-fast.webp",
+   "name": "you-dont-need-a-power-meter-to-be-fast",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      520,
+      400,
+      690,
+      600
+     ],
+     "erase_box": [
+      478,
+      392,
+      708,
+      600
+     ],
+     "pose": "stand",
+     "psi": 90,
+     "crop": "head",
+     "fit": "contain",
+     "face": "grin",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "YOU DON'T NEED A POWER METER TO BE FAST.",
+   "alt": "Chalk light bulbs hang on a blackboard around one bright rainbow bulb; below it, cartoon Gravel God grins beside a chalk speech bubble: \"YOU DON'T NEED A POWER METER TO BE FAST.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/wow.webp",
+   "name": "wow",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      770,
+      200,
+      930,
+      560
+     ],
+     "erase_box": [
+      745,
+      150,
+      940,
+      575
+     ],
+     "ride": "cruise",
+     "psi": 90,
+     "face": "surprised",
+     "mask": "grabcut",
+     "pad": 5
+    }
+   ],
+   "joke": "Wow.",
+   "alt": "Cartoon Gravel God rides his bike through a starry galaxy with a speech bubble that says \"Wow.\"",
+   "match": "exact"
+  },
+  {
+   "file": "img/copy-of-just-say-no-1.webp",
+   "name": "copy-of-just-say-no-1",
+   "verdict": "keep",
+   "why": "No-entry sign over a power meter crank; no character."
+  }
+ ]
+}

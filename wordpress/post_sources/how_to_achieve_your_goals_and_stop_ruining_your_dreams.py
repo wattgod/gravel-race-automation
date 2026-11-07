@@ -41,14 +41,14 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "dream-big": "Cartoon Gravel God in his cowboy hat stands astride a road bike on an empty two-lane road under a cloudy sky; \"DREAM BIG\" is painted in large white letters on the asphalt in front of him.",
-    "so-i-guess-my-goals-are-to-be-fast-and-win-everything": "A smiling woman on a desktop computer screen says: \"So I guess my goals are to be fast and win everything!\" Cartoon Gravel God, only his cowboy hat visible in the foreground, answers: \"Great. That's really helpful.\"",
-    "process": "Cartoon Gravel God in a cowboy hat shouts through a megaphone above large bold text: \"It's the process people. PROCESS PROCESS PROCESS!\"",
-    "pileomillers": "Friends sit around a campfire at night on a hillside above city lights; cartoon Gravel God stands at the left with a can raised to his mouth, beside a pile of Miller Lite cans and wedges of cheese.",
-    "no-idea": "Cartoon Gravel God shrugs, palms up, while three tomatoes fly at him, saying: \"I have no idea.\"",
-    "beyond-help": "A doctor in a white coat sits facing cartoon Gravel God, seen from behind in his cowboy hat, and says: \"I think you're beyond the help of not just me, but the entire field.\"",
-    "all-i-had-for-breakfast-was-a-big-gust-of-wind": "Animated: a line chart titled \"Weight, 11/25/2017 - 3/26/2018\", near-daily weigh-ins falling from a labelled 186.5 lbs on Mon, 11/27/2017 to a labelled 169.1 lbs on Mon, 3/26/2018. In the lower left, cartoon Gravel God tosses a bagel into a garbage can: \"I shared my breakfast with a garbage can.\"",
-    "so-i-guess-my-goals-are-to-be-fast-and-win-everything-1": "A chalkboard beside a grinning cartoon Gravel God in a cowboy hat reads: \"Goals: upgrade to Cat 1. Factors: training, sleep, body comp, race tactics, mental game, etc. Process goal: improve body comp. Habit: weigh myself every morning.\"",
+    "dream-big": "Cartoon Gravel God straddles his road bike in the middle of an empty highway under a stormy sky, with \"DREAM BIG\" painted on the asphalt.",
+    "so-i-guess-my-goals-are-to-be-fast-and-win-everything": "A smiling woman on a video call says: \"So I guess my goals are to be fast and win everything!\" Cartoon Gravel God, seen from behind at his desk, replies: \"Great. That's really helpful.\"",
+    "process": "Cartoon Gravel God shouts and points over the words \"It's the process people. PROCESS PROCESS PROCESS!\"",
+    "pileomillers": "Friends laugh around a campfire above glittering city lights at night, while cartoon Gravel God sips a beer beside a pile of Miller Lite cans and cheese.",
+    "no-idea": "Cartoon Gravel God shrugs as tomatoes fly at him, saying: \"I have no idea.\"",
+    "beyond-help": "A doctor in a white coat sits at his desk facing cartoon Gravel God, seen from behind, and says: \"I think you're beyond the help of not just me, but the entire field.\"",
+    "all-i-had-for-breakfast-was-a-big-gust-of-wind": "A weight chart falling from about 186 lbs in November 2017 to 169 lbs by March 2018; cartoon Gravel God stands by a trash can with a donut, saying: \"I shared my breakfast with a garbage can.\"",
+    "so-i-guess-my-goals-are-to-be-fast-and-win-everything-1": "A chalkboard reads \"GOALS: UPGRADE TO CAT 1. FACTORS: TRAINING, SLEEP, BODY COMP, RACE TACTICS, MENTAL GAME, ETC. PROCESS GOAL: IMPROVE BODY COMP. HABIT: WEIGH MYSELF EVERY MORNING\", with a grinning cartoon Gravel God beside it.",
 }
 
 # Matter-of-fact restatements; section = 0-based h2 index (no headings: 0).

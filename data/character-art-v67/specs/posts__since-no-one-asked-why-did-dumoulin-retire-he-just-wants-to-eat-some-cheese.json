@@ -1,0 +1,105 @@
+{
+ "collection": "posts",
+ "slug": "since-no-one-asked-why-did-dumoulin-retire-he-just-wants-to-eat-some-cheese",
+ "images": [
+  {
+   "file": "img/dumoulin-dilemma.webp",
+   "name": "dumoulin-dilemma",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/happiness-vs-commitment.webp",
+   "name": "happiness-vs-commitment",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/dumoulin-tombstone.webp",
+   "name": "dumoulin-tombstone",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/fast-as-possible.webp",
+   "name": "fast-as-possible",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "joke": "Why do you want to be as fast as possible?",
+   "figs": [
+    {
+     "box": [
+      480,
+      40,
+      820,
+      585
+     ],
+     "erase_box": [
+      458,
+      15,
+      800,
+      595
+     ],
+     "pose": "straddle",
+     "face": "thinking",
+     "psi": 80
+    }
+   ],
+   "erase_extra": [
+    [
+     800,
+     268,
+     845,
+     595
+    ]
+   ],
+   "alt": "Cartoon Gravel God, handlebar mustache, white T-shirt and denim shorts, stands astride a road bike on a tropical beach beside a thatched umbrella and two loungers, a wedge of cheese in the sand, asking in a speech bubble: \"Why do you want to be as fast as possible?\"",
+   "match": "exact",
+   "insets": [
+    {
+     "src": [
+      330,
+      0,
+      458,
+      175
+     ],
+     "box": [
+      458,
+      0,
+      586,
+      175
+     ]
+    },
+    {
+     "src": [
+      330,
+      0,
+      458,
+      175
+     ],
+     "box": [
+      586,
+      0,
+      714,
+      175
+     ]
+    },
+    {
+     "src": [
+      330,
+      0,
+      420,
+      175
+     ],
+     "box": [
+      714,
+      0,
+      804,
+      175
+     ]
+    }
+   ]
+  }
+ ]
+}

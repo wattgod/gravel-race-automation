@@ -1,0 +1,142 @@
+{
+ "collection": "posts",
+ "slug": "tour-of-the-gila-stage-3-my-life-is-a-mistake",
+ "images": [
+  {
+   "file": "img/tyrone-tt.webp",
+   "name": "tyrone-tt",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      20,
+      560,
+      520,
+      1200
+     ],
+     "erase_box": [
+      20,
+      600,
+      490,
+      1200
+     ],
+     "pose": "stand",
+     "face": "neutral",
+     "psi": 45,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "joke": "(no words: him at the Tyrone time trial start)",
+   "match": "exact",
+   "alt": "Black-and-white photo of the Tyrone, New Mexico storefront with a NO OVERNIGHT PARKING sign and a SCOTT tent; cartoon Gravel God, in colour, looks on from the corner.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/gaslighting.webp",
+   "name": "gaslighting",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      660,
+      355,
+      860,
+      572
+     ],
+     "erase_box": [
+      640,
+      350,
+      880,
+      572
+     ],
+     "pad": 0,
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "height"
+    }
+   ],
+   "joke": "Can't wait!! / How was TT? / Today was the crit / No way! / It happened already? / Not at night? / I fuck on you",
+   "match": "exact",
+   "alt": "A text thread: \"Can't wait!!\" \"How was TT?\" \"Today was the crit.\" \"No way! It happened already? Not at night?\" \"I fuck on you.\" Cartoon Gravel God grins in the middle.",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/trust-your-neighbor.webp",
+   "name": "trust-your-neighbor",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      760,
+      590,
+      1310,
+      1200
+     ],
+     "erase_box": [
+      640,
+      580,
+      1330,
+      1200
+     ],
+     "pose": "stand",
+     "psi": 270,
+     "crop": "bust",
+     "fit": "width",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "Trust your neighbor but brand your cows.",
+   "match": "exact",
+   "alt": "Cartoon Gravel God, seen from behind, reads a sign taped in a dusty truck window: \"Trust your neighbor but brand your cows.\"",
+   "verdict": "replace"
+  },
+  {
+   "file": "img/the-tony.webp",
+   "name": "the-tony",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      0,
+      200,
+      520,
+      1200
+     ],
+     "erase_box": [
+      0,
+      250,
+      425,
+      1200
+     ],
+     "mask": "box",
+     "pad": 10,
+     "pose": "stand",
+     "face": "surprised",
+     "psi": 45,
+     "crop": "bust",
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "(no words: him watching at the car wash)",
+   "match": "exact",
+   "alt": "A rider in a purple tee feeds a self-serve car wash machine; cartoon Gravel God stands beside him, eyebrows raised.",
+   "erase_extra": [
+    [
+     0,
+     250,
+     470,
+     560
+    ]
+   ],
+   "verdict": "replace"
+  }
+ ]
+}

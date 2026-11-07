@@ -30,7 +30,7 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "whoop-header": "Cartoon Gravel God in a cowboy hat, arms crossed, in front of a wall of glowing ones and zeros; his speech bubble reads: \"Pop Quiz: Do you need more data? A: No.\"",
+    "whoop-header": "A blue wall of floating ones and zeros; cartoon Gravel God stands arms crossed under a bubble: \"Pop Quiz: Do you need more data? A: No.\"",
 }
 
 ANCHORS = {

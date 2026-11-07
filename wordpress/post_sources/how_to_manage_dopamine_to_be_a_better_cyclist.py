@@ -35,14 +35,14 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "phasic": "The original chart: two panels of the change in dopamine, Δ[DA], over 20 seconds. A, Tonic: a noisy trace hovering around a dashed baseline, a wedge of cheese drawn beneath it. B, Phasic: a spike to about 6 just after one second, then the same tonic noise, with a pile of white powder, a Norwegian flag and a cartoon Gravel God, hand at his nose, drawn over it.",
-    "never-coming-out-1": "Cartoon Gravel God in a cowboy hat stands at the mouth of a dark rock tunnel beside a beer and a wedge of cheese, saying: \"I'm never coming out.\"",
-    "say-no-to-drugs": "Pills arranged in a heart on a wooden table beside a \"Say NO to Drugs\" note, a syringe and a bag of white powder; cartoon Gravel God strokes his beard: \"It all makes so much sense now!\"",
-    "feels-great": "Cartoon Gravel God, seen from behind, rides a dirt road through sagebrush desert under a blue sky, saying: \"This feels great, I want to be here, I love this. (lolz)\"",
-    "dopamine-layering": "Cartoon Gravel God shrugs in a dark gym above a row of coffee, a croissant, a phone, a speaker and a beer: \"How can I train without coffee, snacks, my phone, music, and a beer at the end?\"",
-    "hangover-future-me": "A crowd dances under falling confetti, drinks raised; cartoon Gravel God grins among them: \"Hangover? Sounds like a problem for future me.\"",
-    "cold-shower": "Cartoon Gravel God, grimacing, stands under an outdoor shower: \"I hate that this works.\"",
-    "dope": "A chalkboard reading \"Dopamine\" with its formula, C8H11NO2, and its structural diagram; a grinning cartoon Gravel God in a cowboy hat stands at the right.",
+    "phasic": "Two dopamine charts: a flat, wiggly tonic line with a wedge of cheese, and a sharp phasic spike with a Norwegian flag. Cartoon Gravel God drinks beside them.",
+    "never-coming-out-1": "Cartoon Gravel God stands in the dark mouth of a rock tunnel with a beer and cheese at his feet, saying: \"I'm never coming out.\"",
+    "say-no-to-drugs": "A heart of colourful pills on a wooden table next to a \"Say NO to Drugs\" note; cartoon Gravel God, thinking, says: \"It all makes so much sense now!\"",
+    "feels-great": "Cartoon Gravel God rides away from us down a dusty gravel road through dry hills, saying: \"This feels great, I want to be here, I love this. (lolz)\"",
+    "dopamine-layering": "In a dark gym, cartoon Gravel God shrugs over a coffee, a croissant, a phone, a speaker and a beer: \"How can I train without coffee, snacks, my phone, music, and a beer at the end?\"",
+    "hangover-future-me": "A crowd dances under falling confetti; cartoon Gravel God grins, hands on hips: \"Hangover? Sounds like a problem for future me.\"",
+    "cold-shower": "Cartoon Gravel God grimaces under a running shower in a sepia bathroom, saying: \"I hate that this works.\"",
+    "dope": "A chalkboard with \"Dopamine\", its formula C8H11NO2 and its molecule drawing; cartoon Gravel God stands grinning beside it.",
 }
 
 # The "In short" rule (wp_post docstring); section = 0-based h2 index.

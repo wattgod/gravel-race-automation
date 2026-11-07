@@ -184,6 +184,12 @@ jobs:
             echo "::error::The live training plans page still shows \$249"
             fail=1
           fi
+          # A race deleted from race-data/ without a tombstone keeps its pages
+          # on the server (the deploy only adds files).
+          if ! python3 scripts/push_wordpress.py --check-retired-races; then
+            echo "::error::A race no longer in race-data/ still serves pages; tombstone it"
+            fail=1
+          fi
           exit $fail
 
       - name: Summary

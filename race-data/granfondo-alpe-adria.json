@@ -163,6 +163,19 @@
       "founded": 2010,
       "notable_facts": "Launched to highlight tri-nation Alpe Adria cycling unity from Villach. Grew to 2000 riders by showcasing Karawanken tunnels. Integrated into regional gran fondo series like Kaertnen Rad-Marathon."
     },
+    "editions": [
+      {
+        "year": 2015,
+        "date": "2015-06-20",
+        "source": "https://alpe-adria-bikefestival.com/it/results/"
+      },
+      {
+        "year": 2014,
+        "date": "2014-06-22",
+        "note": "First edition, run as the Alpe Adria Giro",
+        "source": "https://bikeboard.at/magazin/alpe-adria-giro-2014-th5367"
+      }
+    ],
     "final_verdict": {
       "one_liner": "Alpine tri-nation road epic from Villach delivering big climbs and border thrills.",
       "who_should_ride": "Strong amateurs craving 100-mile alpine challenges across Austria-Italy-Slovenia. Ideal for those seeking scenic endurance without elite pressure.",
@@ -185,6 +198,19 @@
         "category": "official",
         "label": "Official Website"
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2014": {
+          "race": "160 km",
+          "winner_female": "Evelyn Zipper",
+          "winner_male": "Andrej Marovt Helesi",
+          "winning_time_female": "5:12:51",
+          "winning_time_male": "4:29:39",
+          "source": "https://bikeboard.at/magazin/alpe-adria-giro-2014-th5367"
+        }
+      },
+      "latest_year": "2014"
+    }
   }
 }

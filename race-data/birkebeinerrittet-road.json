@@ -144,6 +144,27 @@
         "date": "2025-08-30",
         "edition": 32,
         "source": "https://www.sportsidioten.no/resultater/ultrabirken-sykkel-2025/"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "source": "https://no.wikipedia.org/wiki/Birkebeinerrittet"
+      },
+      {
+        "year": 2016,
+        "note": "Course shortened to 86 km",
+        "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+      },
+      {
+        "year": 2000,
+        "note": "Course lengthened to 89 km",
+        "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+      },
+      {
+        "year": 1993,
+        "date": "1993-09-11",
+        "note": "First edition, run in September over 82 km",
+        "source": "https://birken.no/no/om-oss/var-historie/historien-om-birkebeinerrittet"
       }
     ],
     "final_verdict": {
@@ -216,7 +237,7 @@
           "winner_male": "Ådne Holter",
           "winning_time_female": "3:03:26",
           "winning_time_male": "2:36:08",
-          "source": "https://www.sportsidioten.no/resultater/ultrabirken-sykkel-2025/"
+          "source": "https://no.wikipedia.org/wiki/Birkebeinerrittet"
         },
         "2022": {
           "race": "84 km",
@@ -224,7 +245,7 @@
           "winner_male": "Jørgen Nordhagen",
           "winning_time_female": "3:09:55",
           "winning_time_male": "2:35:51",
-          "source": "https://www.sportsidioten.no/resultater/ultrabirken-sykkel-2025/"
+          "source": "https://no.wikipedia.org/wiki/Birkebeinerrittet"
         },
         "2021": {
           "race": "84 km",
@@ -232,7 +253,223 @@
           "winner_male": "Eskil Evensen-Lie",
           "winning_time_female": "3:06:20",
           "winning_time_male": "2:37:50",
-          "source": "https://www.sportsidioten.no/resultater/ultrabirken-sykkel-2025/"
+          "source": "https://no.wikipedia.org/wiki/Birkebeinerrittet"
+        },
+        "1993": {
+          "race": "80 km",
+          "winner_female": "Tone Fossum",
+          "winner_male": "Ole Kristian Silseth",
+          "winning_time_female": "3:28:51",
+          "winning_time_male": "2:52:27",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "1994": {
+          "race": "80 km",
+          "winner_female": "Gjertrud Bø",
+          "winner_male": "Rune Høydahl",
+          "winning_time_female": "3:40:45",
+          "winning_time_male": "2:50:30",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "1995": {
+          "race": "82 km",
+          "winner_female": "Gunn-Rita Dahle Flesjå",
+          "winner_male": "Rune Høydahl",
+          "winning_time_female": "3:30:38",
+          "winning_time_male": "2:47:38",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "1996": {
+          "race": "82 km",
+          "winner_female": "Ingunn Bollerud",
+          "winner_male": "Morten Jemtegård",
+          "winning_time_female": "3:22:22",
+          "winning_time_male": "2:43:23",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "1997": {
+          "race": "82 km",
+          "winner_female": "Gunn-Rita Dahle Flesjå",
+          "winner_male": "Rune Høydahl",
+          "winning_time_female": "2:56:05",
+          "winning_time_male": "2:37:12",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "1998": {
+          "race": "82 km",
+          "winner_female": "Gunn-Rita Dahle Flesjå",
+          "winner_male": "Rune Høydahl",
+          "winning_time_female": "2:43:23",
+          "winning_time_male": "2:30:59",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "1999": {
+          "race": "82 km",
+          "winner_female": "Gunn-Rita Dahle Flesjå",
+          "winner_male": "Rune Høydahl",
+          "winning_time_female": "2:49:53",
+          "winning_time_male": "2:32:44",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2000": {
+          "race": "89 km",
+          "winner_female": "Solrun Flatås Risnes",
+          "winner_male": "Erik Jungåker",
+          "winning_time_female": "3:05:04",
+          "winning_time_male": "2:43:52",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2001": {
+          "race": "89 km",
+          "winner_female": "Gunn-Rita Dahle Flesjå",
+          "winner_male": "Philip Tavell",
+          "winning_time_female": "3:08:13",
+          "winning_time_male": "2:45:15",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2002": {
+          "race": "89 km",
+          "winner_female": "Gunn-Rita Dahle Flesjå",
+          "winner_male": "Rune Høydahl",
+          "winning_time_female": "2:57:00",
+          "winning_time_male": "2:40:34",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2003": {
+          "race": "89 km",
+          "winner_female": "Anita Valen",
+          "winner_male": "Philip Tavell",
+          "winning_time_female": "3:05:33",
+          "winning_time_male": "2:41:27",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2004": {
+          "race": "89 km",
+          "winner_female": "Anna Enocsson",
+          "winner_male": "Massimo De Bertolis",
+          "winning_time_female": "4:29:04",
+          "winning_time_male": "3:48:55",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2005": {
+          "race": "89 km",
+          "winner_female": "Gunn-Rita Dahle Flesjå",
+          "winner_male": "Thomas Frischknecht",
+          "winning_time_female": "4:05:18",
+          "winning_time_male": "3:52:01",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2006": {
+          "race": "89 km",
+          "winner_female": "Pia Sundstedt",
+          "winner_male": "Lars Petter Nordhaug",
+          "winning_time_female": "3:08:32",
+          "winning_time_male": "2:43:08",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2007": {
+          "race": "89 km",
+          "winner_female": "Pia Sundstedt",
+          "winner_male": "Massimo De Bertolis",
+          "winning_time_female": "3:24:43",
+          "winning_time_male": "2:52:29",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2008": {
+          "race": "91 km",
+          "winner_female": "Pia Sundstedt",
+          "winner_male": "Anders Hovdenes",
+          "winning_time_female": "3:09:06",
+          "winning_time_male": "2:40:50",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2009": {
+          "race": "92 km",
+          "winner_female": "Gunn-Rita Dahle Flesjå",
+          "winner_male": "Andreas Kugler",
+          "winning_time_female": "3:27:02",
+          "winning_time_male": "3:02:05",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2010": {
+          "race": "92 km",
+          "winner_female": "Pia Sundstedt",
+          "winner_male": "Hannes Genze",
+          "winning_time_female": "3:19:45",
+          "winning_time_male": "2:57:04",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2011": {
+          "race": "92 km",
+          "winner_female": "Pia Sundstedt",
+          "winner_male": "Stian Remme",
+          "winning_time_female": "3:08:26",
+          "winning_time_male": "2:54:45",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2012": {
+          "race": "92 km",
+          "winner_female": "Pia Sundstedt",
+          "winner_male": "Lars Ragnar Manengen",
+          "winning_time_female": "3:06:42",
+          "winning_time_male": "2:43:24",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2013": {
+          "race": "92 km",
+          "winner_female": "Borghild Løvset",
+          "winner_male": "Fredrik Ericsson",
+          "winning_time_female": "3:12:38",
+          "winning_time_male": "2:41:17",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2014": {
+          "race": "92 km",
+          "winner_female": "Borghild Løvset",
+          "winner_male": "Frederik Wilmann",
+          "winning_time_female": "3:05:04",
+          "winning_time_male": "2:33:18",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2015": {
+          "race": "92 km",
+          "winner_female": "Ariane Kleinhans",
+          "winner_male": "Carl Fredrik Hagen",
+          "winning_time_female": "3:10:59",
+          "winning_time_male": "2:40:17",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2016": {
+          "race": "86 km",
+          "winner_female": "Gunn-Rita Dahle Flesjå",
+          "winner_male": "Åsmund Løvik",
+          "winning_time_female": "3:11:18",
+          "winning_time_male": "2:37:17",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2017": {
+          "race": "86 km",
+          "winner_female": "Jennie Stenerhag",
+          "winner_male": "Erik Nordsæter Resell",
+          "winning_time_female": "3:03:13",
+          "winning_time_male": "2:28:20",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2018": {
+          "race": "86 km",
+          "winner_female": "Borghild Løvset",
+          "winner_male": "Erik Nordsæter Resell",
+          "winning_time_female": "3:03:44",
+          "winning_time_male": "2:32:54",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
+        },
+        "2019": {
+          "race": "86 km",
+          "winner_female": "Jennie Stenerhag",
+          "winner_male": "Eskil Evensen-Lie",
+          "winning_time_female": "3:06:20",
+          "winning_time_male": "2:34:19",
+          "source": "https://www.terrengsykkel.no/sykkelritt/birken/dette-er-alle-vinnerne-i-birken-gjennom-tidene"
         }
       },
       "latest_year": "2023"

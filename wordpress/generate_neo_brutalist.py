@@ -20,6 +20,7 @@ Usage:
 """
 
 import argparse
+import functools
 import hashlib
 import html
 import json
@@ -48,12 +49,14 @@ from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from pricing import MIN_WEEKS, PRICE_PER_WEEK
+from endure_offer import ENDURE_PLAN_COPY, endure_plan_url
 from page_dates import race_updated_date
 from fact_consistency import check_race
 from race_calculator import build_race_calculator, get_race_calculator_css, race_calculator_context
 from season import UPCOMING, edition_display, edition_state, edition_year, parse_edition
 from season import today as season_today
 from generate_race_recap import has_results, newest_results_year
+from pickem import game_for_race
 
 sys.path.append(str(Path(__file__).resolve().parent.parent / "scripts"))
 from race_facts import edition_event_status, may_estimate, organizer_type  # noqa: E402
@@ -1904,6 +1907,18 @@ document.querySelectorAll('.gg-faq-question').forEach(function(q) {
   });
 })();
 
+// Endure secondary link — GA4 endure_plan_click with the race.
+(function() {
+  if (typeof gtag !== 'function') return;
+  var page = document.querySelector('.gg-neo-brutalist-page');
+  var raceSlug = page ? (page.getAttribute('data-race-slug') || '') : '';
+  document.querySelectorAll('a[data-endure-plan]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      gtag('event', 'endure_plan_click', { source: 'race_page', race_slug: raceSlug });
+    });
+  });
+})();
+
 // Section exposure — one event per measured section after it becomes visible.
 // This records real scrolling/viewport behavior without synthetic page-load hits.
 (function() {
@@ -3326,6 +3341,22 @@ def build_results(rd: dict) -> str:
   </section>'''
 
 
+@functools.lru_cache(maxsize=None)
+def _pickem_game(slug: str):
+    return game_for_race(slug)
+
+
+def build_pickem_cta(rd: dict) -> str:
+    """Link to the race's pick'em, next to Results. Renders only for a race
+    with a game file in data/pickem/ (race_slug match), so a second race
+    needs only its own JSON."""
+    game = _pickem_game(rd.get('slug') or '')
+    if not game:
+        return ''
+    return (f'<div class="gg-pickem-cta"><a class="gg-btn gg-btn--secondary" '
+            f'href="{esc(game["path"])}" data-cta="pickem">Pick the {esc(game["edition"])} podium</a></div>')
+
+
 def _build_riders_report(groups: list[tuple[list[dict], str]]) -> str:
     """Build a single RIDERS REPORT callout box from one or more item groups.
 
@@ -4017,6 +4048,12 @@ def build_custom_plan_offer(rd: dict) -> str:
     # src= names the entry surface so the questionnaire can attribute arrivals
     # (carried onto tp_page_view / tp_form_start / tp_form_submit / begin_checkout).
     href = f"{TRAINING_PLANS_URL}?race={rd['slug']}&src=race_profile"
+    endure_href = endure_plan_url(rd)
+    endure_link = (
+        f'\n    <a class="gg-endure-link" href="{esc(endure_href)}" '
+        f'data-cta="endure_plan" data-endure-plan>{esc(ENDURE_PLAN_COPY)}</a>'
+        if endure_href else ''
+    )
     return f'''<section class="gg-approved-section gg-offer" data-measure-section="custom-plan">
   <div class="gg-approved-inner">
     <span class="gg-approved-kicker">Custom plan</span>
@@ -4025,7 +4062,7 @@ def build_custom_plan_offer(rd: dict) -> str:
   </div>
   <div class="gg-approved-inner gg-offer-action">
     <a class="gg-plan-cta" href="{esc(href)}" data-cta="approved_custom_plan">START MY CUSTOM PLAN &rarr;</a>
-    <span class="gg-offer-price">{PRICE_PER_WEEK} / WEEK</span>
+    <span class="gg-offer-price">{PRICE_PER_WEEK} / WEEK</span>{endure_link}
   </div>
 </section>'''
 
@@ -4036,7 +4073,7 @@ def build_coaching_footnote(rd: dict) -> str:
     return f'''<aside class="gg-coaching-note" data-measure-section="coaching">
   <div>
     <h2>Really want to see what you can do?</h2>
-    <p>Hire a coach. You&rsquo;ll never become what you could be alone. (And no, AI isn&rsquo;t a person.)</p>
+    <p>Hire a coach. You&rsquo;ll never become what you could be alone.</p>
   </div>
   <a class="gg-coaching-link" href="{esc(href)}" data-cta="approved_coaching">GET ME IN YOUR CORNER &rarr;</a>
 </aside>'''
@@ -5852,34 +5889,37 @@ def build_tire_picks(rd: dict) -> str:
             f'<span class="gg-tire-badge">{esc(surface.upper())}</span>'
         )
 
+    def tire_name_html(tire_id, name):
+        # Every database tire has a /tire/{id}/ page (generate_tire_pages.py).
+        if not tire_id:
+            return esc(name)
+        return f'<a href="/tire/{esc(tire_id)}/" class="gg-tire-link">{esc(name)}</a>'
+
     picks_html = []
     for t in primary[:3]:
         rank = t.get('rank', '')
         name = t.get('name', '')
         w = t.get('recommended_width_mm', '')
         price = t.get('msrp_usd')
-        crr = t.get('crr_watts')
         why = t.get('why', '')
 
-        price_str = f'${price:.0f}' if price else ''
-        crr_str = f'{crr:.0f}W' if crr else ''
-
+        # Rolling resistance stays out of the meta line: a bare "32W" means
+        # nothing here. The why line cites it, with units, when it's the reason.
         meta_parts = []
         if w:
             meta_parts.append(f'{w}mm')
-        if price_str:
-            meta_parts.append(price_str)
-        if crr_str:
-            meta_parts.append(crr_str)
+        if price:
+            meta_parts.append(f'${price:.0f}')
         meta = ' · '.join(meta_parts)
+        meta_html = f'<div class="gg-tire-meta">{esc(meta)}</div>' if meta else ''
 
         why_html = f'<div class="gg-tire-why">{esc(why)}</div>' if why else ''
         picks_html.append(
             f'<div class="gg-tire-pick">'
             f'<div class="gg-tire-rank">{esc(str(rank))}</div>'
             f'<div class="gg-tire-info">'
-            f'<div class="gg-tire-name">{esc(name)}</div>'
-            f'<div class="gg-tire-meta">{esc(meta)}</div>'
+            f'<div class="gg-tire-name">{tire_name_html(t.get("tire_id"), name)}</div>'
+            f'{meta_html}'
             f'{why_html}'
             f'</div>'
             f'</div>'
@@ -5897,9 +5937,11 @@ def build_tire_picks(rd: dict) -> str:
             f'<div class="gg-tire-split">'
             f'<span class="gg-tire-split-label">FRONT/REAR SPLIT</span> '
             f'<span class="gg-tire-split-combo">'
-            f'{esc(front.get("name", ""))} {esc(str(front.get("width_mm", "")))}mm'
+            f'{tire_name_html(front.get("tire_id"), front.get("name", ""))} '
+            f'{esc(str(front.get("width_mm", "")))}mm'
             f' / '
-            f'{esc(rear.get("name", ""))} {esc(str(rear.get("width_mm", "")))}mm'
+            f'{tire_name_html(rear.get("tire_id"), rear.get("name", ""))} '
+            f'{esc(str(rear.get("width_mm", "")))}mm'
             f'</span>'
             f'{rationale_html}'
             f'</div>'
@@ -7020,6 +7062,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-tire-rank {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xl); font-weight: 700; color: var(--gg-color-gold); min-width: 28px; text-align: center; line-height: 1; padding-top: 2px; }}
 .gg-neo-brutalist-page .gg-tire-info {{ flex: 1; }}
 .gg-neo-brutalist-page .gg-tire-name {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gg-color-dark-brown); }}
+.gg-neo-brutalist-page .gg-tire-link {{ color: inherit; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }}
+.gg-neo-brutalist-page .gg-tire-link:hover {{ color: var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-tire-meta {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); margin-top: 2px; }}
 .gg-neo-brutalist-page .gg-tire-why {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-primary-brown); margin-top: 4px; line-height: var(--gg-line-height-relaxed); }}
 .gg-neo-brutalist-page .gg-tire-split {{ border: var(--gg-border-subtle); padding: 12px 16px; background: var(--gg-color-warm-paper); margin-top: 16px; }}
@@ -7273,6 +7317,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-earlier-rows {{ margin-top: 12px; }}
 .gg-neo-brutalist-page .gg-earlier-rows summary {{ padding: 12px 0; cursor: pointer; font-family: var(--gg-font-data); font-size: 11px; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-teal); }}
 .gg-neo-brutalist-page .gg-editions-status {{ font-size: var(--gg-font-size-2xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
+.gg-neo-brutalist-page .gg-pickem-cta {{ margin: var(--gg-spacing-md) 0; }}
 .gg-neo-brutalist-page .gg-results-note {{ margin-top: var(--gg-spacing-sm); font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); color: var(--gg-color-secondary-brown); line-height: 1.5; }}
 
 /* Riders Report callout */
@@ -7596,6 +7641,8 @@ APPROVED_TOP_CSS = '''<style>
 .gg-neo-brutalist-page .gg-offer p { max-width: 780px; margin: 0; font-family: var(--gg-font-editorial); font-size: clamp(1.05rem, 1.55vw, 1.3rem); line-height: 1.55; color: var(--gg-color-secondary-brown); }
 .gg-neo-brutalist-page .gg-offer-action { display: grid; min-width: min(100%, 290px); gap: var(--gg-spacing-xs); }
 .gg-neo-brutalist-page .gg-offer-price { font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: 800; letter-spacing: var(--gg-letter-spacing-wide); text-align: center; color: var(--gg-color-secondary-brown); }
+.gg-neo-brutalist-page .gg-endure-link { justify-self: center; padding: 14px 4px; font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-weight: 700; letter-spacing: var(--gg-letter-spacing-wide); text-align: center; color: var(--gg-color-secondary-brown); text-decoration: underline; text-underline-offset: 3px; }
+.gg-neo-brutalist-page .gg-endure-link:hover, .gg-neo-brutalist-page .gg-endure-link:focus-visible { color: var(--gg-color-dark-brown); }
 .gg-neo-brutalist-page .gg-plan-cta { display: block; padding: 18px 22px; border: 3px solid var(--gg-color-dark-brown); background: var(--gg-color-gold); color: var(--gg-color-dark-brown); font-family: var(--gg-font-data); font-size: clamp(.82rem, 1.2vw, 1rem); font-weight: 900; letter-spacing: var(--gg-letter-spacing-wide); text-align: center; text-decoration: none; text-transform: uppercase; }
 .gg-neo-brutalist-page .gg-plan-cta:hover, .gg-neo-brutalist-page .gg-plan-cta:focus-visible { background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); }
 .gg-neo-brutalist-page .gg-coaching-note { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--gg-spacing-lg); align-items: center; max-width: var(--gg-max-width); margin: calc(var(--gg-spacing-xl) * -0.35) auto var(--gg-spacing-2xl); padding: clamp(20px, 3vw, 30px); border: 1px solid var(--gg-color-tan); border-left: 5px solid var(--gg-color-teal); background: var(--gg-color-sand); }
@@ -7741,6 +7788,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     history = build_history(rd)
     editions_sec = build_editions(rd)
     results_sec = build_results(rd)
+    pickem_cta = build_pickem_cta(rd)
     course_route = build_course_route(rd)
     from_the_field = build_from_the_field(rd)
     ratings = build_ratings(rd)
@@ -7818,7 +7866,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     spine = '\n\n  '.join(section for section in spine_sections if section)
 
     deep_sections = []
-    for section in [course_overview, history, editions_sec, results_sec, course_route, from_the_field,
+    for section in [course_overview, history, editions_sec, results_sec, pickem_cta, course_route, from_the_field,
                     racer_reviews, training, train_for_race, race_calculator, logistics_sec,
                     tire_picks, news, similar, visible_faq, citations_sec]:
         if section:

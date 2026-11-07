@@ -1,0 +1,150 @@
+{
+ "collection": "articles",
+ "slug": "life-does-come-with-a-user-manual",
+ "images": [
+  {
+   "file": "img/0b2ae277ea4b6162.webp",
+   "verdict": "replace",
+   "mode": "scene",
+   "joke": "",
+   "scene": {
+    "pose": "sit",
+    "face": "thinking",
+    "rel": 120,
+    "elev": 5,
+    "k": 470,
+    "pos": [
+     0.6,
+     0.66
+    ],
+    "palette": "dusk",
+    "seed": 11
+   },
+   "match": "closest",
+   "note": "Painted wheat-field scene redrawn as a rig gravel-road scene at dusk; the rig has no notebook or cross-legged sit, so he sits by his bike."
+  },
+  {
+   "file": "img/381feef050794479.webp",
+   "verdict": "keep",
+   "why": "Photo, screenshot, chart or graphic with no Gravel God cartoon."
+  },
+  {
+   "file": "img/4b899583aac9cd77.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      480,
+      130,
+      1080,
+      830
+     ],
+     "erase_box": [
+      420,
+      95,
+      1130,
+      770
+     ],
+     "pose": "arms_crossed",
+     "crop": "bust",
+     "face": "focused",
+     "psi": 80,
+     "fit": "height"
+    }
+   ],
+   "erase_extra": [
+    [
+     360,
+     560,
+     760,
+     850
+    ],
+    [
+     820,
+     690,
+     1060,
+     850
+    ],
+    [
+     950,
+     540,
+     1230,
+     760
+    ]
+   ],
+   "match": "closest",
+   "note": "No pen in the rig; he sits behind the desk over the plan sheet."
+  },
+  {
+   "file": "img/83f7c25338b6d342.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      760,
+      150,
+      1400,
+      890
+     ],
+     "erase_box": [
+      640,
+      60,
+      1536,
+      885
+     ],
+     "pose": "arms_crossed",
+     "crop": "bust",
+     "face": "focused",
+     "psi": 67.5,
+     "fit": "height"
+    }
+   ],
+   "erase_extra": [
+    [
+     600,
+     660,
+     900,
+     860
+    ]
+   ],
+   "match": "closest",
+   "note": "No pen in the rig; he sits at the porch table by the journal."
+  },
+  {
+   "file": "img/930adf454a0dba81.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "shiftmap",
+   "joke": "",
+   "figs": [
+    {
+     "box": [
+      470,
+      130,
+      1020,
+      880
+     ],
+     "erase_box": [
+      380,
+      70,
+      1100,
+      878
+     ],
+     "pose": "arms_crossed",
+     "crop": "bust",
+     "face": "smile",
+     "psi": 80,
+     "fit": "height"
+    }
+   ],
+   "match": "closest",
+   "note": "The rig cannot hold a baby; the baby is gone and he sits alone at the desk."
+  }
+ ]
+}

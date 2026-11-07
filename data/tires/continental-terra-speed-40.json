@@ -7,8 +7,10 @@
     40,
     45
   ],
+  "widths_source": "existing",
   "tread_type": "file",
   "tread_description": "Micro-diamond file tread with minimal rolling resistance",
+  "tagline": "The speed benchmark. Fastest gravel tire on smooth surfaces.",
   "best_conditions": [
     "dry",
     "smooth",
@@ -20,62 +22,87 @@
     "loose"
   ],
   "tubeless_ready": true,
+  "msrp_usd": 74.99,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 38.0,
+      "year": 2021,
+      "model": "Continental Terra Speed TR 40",
+      "rr_watts": 17.8,
+      "test_psi": 36,
+      "puncture_tread": 42.0,
+      "wet_grip": 58.0,
+      "knob_center_mm": 1.2,
+      "knob_edge_mm": 1.2,
+      "weight_g": 461.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-speed-40"
+    },
+    {
+      "width_mm": 45,
+      "measured_width_mm": 43.0,
+      "year": 2023,
+      "model": "Continental Terra Speed TR (tanwall)  45",
+      "rr_watts": 16.4,
+      "test_psi": 31,
+      "puncture_tread": 37.0,
+      "wet_grip": 63.0,
+      "knob_center_mm": 1.1,
+      "knob_edge_mm": 1.2,
+      "weight_g": 537.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-speed-45"
+    }
+  ],
   "brr_urls_by_width": {
-    "35": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-speed",
     "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-speed-40",
     "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/continental-terra-speed-45"
   },
-  "tagline": "The speed benchmark. Fastest gravel tire on smooth surfaces.",
-  "strengths": [
-    "Lowest rolling resistance in class",
-    "Excellent on hardpack",
-    "Light weight"
-  ],
-  "weaknesses": [
-    "Limited puncture protection",
-    "Poor in wet/mud",
-    "Sidewall vulnerability"
-  ],
-  "msrp_usd": 74.99,
-  "weight_grams": {
-    "35": 340,
-    "40": 390,
-    "45": 440
-  },
   "crr_watts_at_29kmh": {
-    "40": 28.5
+    "40": 17.8,
+    "45": 16.4
   },
-  "puncture_resistance": "low",
+  "weight_grams": {
+    "40": 461,
+    "45": 537
+  },
+  "puncture_resistance": "moderate",
   "wet_traction": "poor",
   "mud_clearance": "none",
+  "strengths": [
+    "Rolls fast: 16.4 W at 45mm on BRR's drum"
+  ],
+  "weaknesses": [
+    "Wet grip 63 on BRR's wet test"
+  ],
   "recommended_use": [
-    "fast gravel",
-    "road-to-gravel",
-    "smooth hardpack",
-    "dry racing"
+    "fast gravel"
   ],
   "avoid_use": [
-    "wet",
-    "mud",
-    "sharp rock",
-    "loose over hard"
+    "wet roads",
+    "mud"
   ],
   "status": "active",
-  "race_appearances": {
-    "scratch-ankle-gravel": {
-      "rank": 1,
-      "width_mm": 40,
-      "position": "primary",
-      "surface": "fast"
-    }
-  },
+  "race_appearances": {},
   "community_reviews": [],
   "comparable_tires": [
     "challenge-getaway-pro",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
+    "hutchinson-caracal-race",
     "panaracer-gravelking-tlc",
+    "panaracer-gravelking-zx-r",
+    "pirelli-cinturato-gravel-rh",
     "rene-herse-snoqualmie-pass",
+    "schwalbe-g-one-rs-pro",
     "schwalbe-g-one-rs",
-    "vittoria-terreno-dry"
+    "silca-protocol-rcg-1",
+    "specialized-pathfinder",
+    "ultradynamico-cava-race",
+    "vittoria-terreno-dry",
+    "vittoria-terreno-pro-t30",
+    "wtb-vulpine-s"
   ],
   "versions": [],
   "last_enriched": null

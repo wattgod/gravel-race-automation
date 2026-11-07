@@ -148,7 +148,7 @@ def test_every_image_has_alt_text_and_committed_files(pid):
         assert (m.OUTPUT_PATH.parent / path).is_file(), path
     shipped = {p.suffix for p in img_dir.iterdir() if not p.name.endswith("-og.jpg")}
     assert shipped <= {".webp", ".mp4", ".webm"}, "no PNG/JPEG/GIF ships; WebP + video only (+ the og:image JPEG)"
-    assert [p.name for p in img_dir.glob("*.jpg")] == ([f"{feat['name']}-og.jpg"] if feat else [])
+    assert [p.name for p in img_dir.glob("*.jpg")] == ([m.SOURCE.data["renditions"][feat["name"]]["og"]["file"]] if feat else [])
 
 
 @pytest.mark.parametrize("pid", POSTS)
@@ -157,7 +157,7 @@ def test_og_image_is_the_featured_image_crop(pid):
     html = _page(pid)
     feat = m.SOURCE.data["featured"]
     og = m.SOURCE.data["renditions"][feat["name"]]["og"]
-    assert og["file"] == f"{feat['name']}-og.jpg"
+    assert og["file"] in (f"{feat['name']}-og.jpg", f"{feat['name']}-v67-og.jpg")  # -v67: character redraw
     assert f'<meta property="og:image" content="https://gravelgodcycling.com/{m.SLUG}/img/{og["file"]}">' in html
     local = m.OUTPUT_PATH.parent / "img" / og["file"]
     assert local.stat().st_size <= imp.OG_MAX_BYTES and local.stat().st_size == og["bytes"]

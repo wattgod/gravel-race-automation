@@ -35,17 +35,17 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "y-should-i-care": "\"WHY SHOULD I CARE?\" chalked on a blackboard, a stopwatch standing in for the O, with cartoon Gravel God in a cowboy hat shrugging beside it.",
-    "big-load": "A flatbed truck stacked with wrapped pallets on a mountain road, and cartoon Gravel God in a cowboy hat saying, \"Whooee-uueet!! That's a big load!\"",
-    "analyse": "Cartoon Gravel God in a cowboy hat studies a wall of trading screens full of price charts.",
-    "hrv-1": "Cartoon Gravel God in a cowboy hat stands between a glowing up arrow labelled \"HRV\" and a down arrow labelled \"Resting HR\".",
+    "y-should-i-care": "\"WHY SHOULD I CARE?\" chalked on a blackboard, a stopwatch standing in for the O, with cartoon Gravel God, handlebar mustache and white tee, shrugging beside it.",
+    "big-load": "A flatbed truck stacked with wrapped pallets on a mountain road, and cartoon Gravel God pointing at it and saying, \"Whooee-uueet!! That's a big load!\"",
+    "analyse": "Cartoon Gravel God, frowning in thought, studies a wall of trading screens full of price charts.",
+    "hrv-1": "Cartoon Gravel God shrugs between a glowing up arrow labelled \"HRV\" and a down arrow labelled \"Resting HR\".",
     "hrv-20-22": "Line chart titled \"HRV '20-'22\": daily HRV (yellow) and resting heart rate (light blue) from mid-2020 to early 2022, with a gap from late 2020 to spring 2021 where cartoon Gravel God stands.",
     "hrv-garbage": "Black-and-white photo of an overflowing dumpster in a grassy field, with \"HRV\" printed on its side.",
     "hrv-case-study": "Wooden letter tiles spelling \"CASE STUDY\" on a grid notebook beside a coffee cup, glasses and a phone, with cartoon Gravel God grinning in the corner.",
     "hrv-trend": "Close-up of the HRV chart: HRV in yellow on a left axis from 50 to 150 and pulse in light blue on a right axis from 45 to 70 BPM, two dense clusters of daily points with a gap between them.",
     "hrv-zoom": "Whoop chart, \"Last 90 days\", January 4 to March 15, 2022: HRV in yellow and resting heart rate in light blue, annotated \"Standard, Not Sober begins\" at the start and \"COVID\" at a resting-heart-rate spike around January 22; the yellow line climbs in the later weeks.",
-    "hrv-invest": "Cartoon Gravel God, hand on chin, in front of blurred stacks of coins and a rising line chart.",
-    "hrv": "A red heartbeat trace running across a dark monitor grid, with cartoon Gravel God in a cowboy hat smiling at the right.",
+    "hrv-invest": "Cartoon Gravel God, arms crossed and thinking, in front of blurred stacks of coins and a rising line chart.",
+    "hrv": "A red heartbeat trace running across a dark monitor grid, with cartoon Gravel God, handlebar mustache and white tee, grinning at the right.",
 }
 
 # The "In short" rule (wp_post docstring); section = 0-based h2 index.

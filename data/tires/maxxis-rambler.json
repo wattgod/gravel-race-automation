@@ -2,13 +2,17 @@
   "id": "maxxis-rambler",
   "name": "Maxxis Rambler",
   "brand": "Maxxis",
+  "casing": "EXO/TR",
   "widths_mm": [
+    38,
     40,
     45,
     50
   ],
+  "widths_source": "https://www.maxxis.com/us/tire/rambler/",
   "tread_type": "knobby",
   "tread_description": "Low-profile diamond knobs with EXO casing",
+  "tagline": "Chunky gravel specialist. Diamond knobs roll fast on sharp surfaces.",
   "best_conditions": [
     "chunky",
     "hardpack",
@@ -19,44 +23,48 @@
     "wet"
   ],
   "tubeless_ready": true,
-  "brr_urls_by_width": {
-    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/maxxis-rambler",
-    "45": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/maxxis-rambler-45",
-    "50": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/maxxis-rambler-45"
-  },
-  "tagline": "Chunky gravel specialist. Diamond knobs roll fast on sharp surfaces.",
-  "strengths": [
-    "Excellent on sharp gravel",
-    "Good rolling speed",
-    "EXO flat protection"
-  ],
-  "weaknesses": [
-    "Limited wet grip",
-    "Knobs pack mud",
-    "Not for technical singletrack"
-  ],
   "msrp_usd": 69.99,
-  "weight_grams": {
-    "40": 440,
-    "45": 500,
-    "50": 560
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 39.0,
+      "year": 2021,
+      "model": "Maxxis Rambler EXO/TR 120 TPI 40",
+      "rr_watts": 25.0,
+      "test_psi": 33,
+      "puncture_tread": 28.0,
+      "wet_grip": 63.0,
+      "knob_center_mm": 1.4,
+      "knob_edge_mm": 1.8,
+      "weight_g": 420.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/maxxis-rambler-exo-tr"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/maxxis-rambler-exo-tr"
   },
   "crr_watts_at_29kmh": {
-    "40": 33.0
+    "40": 25.0
   },
-  "puncture_resistance": "high",
+  "weight_grams": {
+    "40": 420
+  },
+  "puncture_resistance": "low",
   "wet_traction": "poor",
   "mud_clearance": "none",
-  "recommended_use": [
-    "chunky gravel",
-    "sharp rock",
-    "hardpack",
-    "long distance"
+  "strengths": [],
+  "weaknesses": [
+    "Slow rolling: 25 W at 40mm on BRR's drum",
+    "Thin tread: puncture score 28",
+    "Wet grip 63 on BRR's wet test"
   ],
+  "recommended_use": [],
   "avoid_use": [
-    "deep mud",
-    "wet",
-    "technical singletrack"
+    "fast smooth courses",
+    "sharp rock",
+    "wet roads",
+    "mud"
   ],
   "status": "active",
   "race_appearances": {},
@@ -76,7 +84,8 @@
       "would_recommend": "yes",
       "review_text": "Fast on hardpack, handles sharp gravel well.",
       "submitted_at": "2026-02-19T19:09:04.305Z",
-      "approved": true
+      "approved": false,
+      "rejected_reason": "Posted on 2026-02-19 while the review intake was being built; no rider can be traced. Likely a test submission."
     },
     {
       "review_id": "tr-maxxis-rambler--6z2xi6-mltwuwmb",
@@ -93,7 +102,8 @@
       "would_recommend": "yes",
       "review_text": "Ran these at Mid South in 45mm. Survived the mud sections better than expected for a knobby tire. Would not pick for full mud but mixed conditions they shine.",
       "submitted_at": "2026-02-19T20:25:47.939Z",
-      "approved": true
+      "approved": false,
+      "rejected_reason": "Posted on 2026-02-19 while the review intake was being built; no rider can be traced. Likely a test submission."
     },
     {
       "review_id": "tr-maxxis-rambler--eehlcj-mltwu9b5",
@@ -110,7 +120,8 @@
       "would_recommend": "yes",
       "review_text": "Solid all-around tire for chunky midwest gravel. Rolls fast on hardpack, handles sharp rock without flats. Wish it had more wet grip.",
       "submitted_at": "2026-02-19T20:25:17.729Z",
-      "approved": true
+      "approved": false,
+      "rejected_reason": "Posted on 2026-02-19 while the review intake was being built; no rider can be traced. Likely a test submission."
     },
     {
       "review_id": "tr-maxxis-rambler-63ezvy-mltzkl4g",
@@ -125,20 +136,29 @@
       "pressure_psi": 25,
       "race_used_at": "Dirty Kanza",
       "review_text": "Struggled in the mud sections. Knobs pack up fast and you lose all traction. Fine on dry hardpack but if rain is in the forecast, pick something else.",
-      "approved": true
+      "approved": false,
+      "rejected_reason": "Posted on 2026-02-19 while the review intake was being built; no rider can be traced. Likely a test submission."
     }
   ],
   "comparable_tires": [
     "continental-terra-trail",
     "donnelly-mso",
     "goodyear-connector",
+    "goodyear-xplr-inter",
     "hutchinson-touareg",
     "irc-boken-double-cross",
+    "michelin-power-gravel",
     "panaracer-gravelking-sk",
+    "panaracer-gravelking-x1",
+    "pirelli-cinturato-gravel-h",
     "pirelli-cinturato-gravel-m",
-    "specialized-pathfinder-pro-47",
+    "schwalbe-g-one-r-pro",
+    "silca-protocol-rcg-3",
     "specialized-pathfinder-pro",
+    "specialized-tracer",
     "teravail-cannonball",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero",
     "vittoria-terreno-mix"
   ],
   "versions": [],

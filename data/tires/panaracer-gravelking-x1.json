@@ -1,0 +1,80 @@
+{
+  "id": "panaracer-gravelking-x1",
+  "name": "Panaracer GravelKing X1",
+  "brand": "Panaracer",
+  "widths_mm": [
+    35,
+    40,
+    45,
+    50
+  ],
+  "widths_source": "https://panaracer.com/products/gravel/gravelking/gravelking-x1",
+  "tread_type": "knobby",
+  "tubeless_ready": true,
+  "msrp_usd": null,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 40.0,
+      "year": 2024,
+      "model": "Panaracer GravelKing X1 40",
+      "rr_watts": 22.1,
+      "test_psi": 33,
+      "puncture_tread": 28.0,
+      "wet_grip": 65.0,
+      "knob_center_mm": 1.9,
+      "knob_edge_mm": 2.1,
+      "weight_g": 493.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/panaracer-gravel-king-x1"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/panaracer-gravel-king-x1"
+  },
+  "crr_watts_at_29kmh": {
+    "40": 22.1
+  },
+  "weight_grams": {
+    "40": 493
+  },
+  "puncture_resistance": "low",
+  "wet_traction": "fair",
+  "mud_clearance": "low",
+  "strengths": [],
+  "weaknesses": [
+    "Slow rolling: 22.1 W at 40mm on BRR's drum",
+    "Thin tread: puncture score 28"
+  ],
+  "recommended_use": [],
+  "avoid_use": [
+    "fast smooth courses",
+    "sharp rock",
+    "mud"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "continental-terra-trail",
+    "donnelly-mso",
+    "goodyear-connector",
+    "goodyear-xplr-inter",
+    "hutchinson-touareg",
+    "irc-boken-double-cross",
+    "maxxis-rambler",
+    "michelin-power-gravel",
+    "panaracer-gravelking-sk",
+    "pirelli-cinturato-gravel-h",
+    "pirelli-cinturato-gravel-m",
+    "schwalbe-g-one-r-pro",
+    "silca-protocol-rcg-3",
+    "specialized-pathfinder-pro",
+    "specialized-tracer",
+    "teravail-cannonball",
+    "tufo-gravel-thundero-hd",
+    "tufo-gravel-thundero",
+    "vittoria-terreno-mix"
+  ],
+  "versions": []
+}

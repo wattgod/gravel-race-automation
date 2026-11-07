@@ -300,65 +300,109 @@
           "winning_time_female": "20:57:57",
           "winning_time_male": "17:49:51",
           "source": "https://escapecollective.com/rob-britton-and-heather-jackson-take-record-wins-at-unbound-xl/"
+        },
+        "2018": {
+          "race": "350 mi",
+          "winner_female": "Rebecca Rusch",
+          "winner_male": "Matt Acker",
+          "winning_time_female": "28:27:02",
+          "winning_time_male": "25:10:02",
+          "source": "https://kvoe.com/2018/06/02/matt-acker-wins-1st-ever-dk-xl-ted-king-wins-dk-200-for-second-time/"
+        },
+        "2019": {
+          "race": "350 mi",
+          "winner_female": "Lael Wilcox",
+          "winner_male": "Jay Petervary",
+          "winning_time_female": "23:51:37",
+          "winning_time_male": "22:31:41",
+          "source": "https://www.cxmagazine.com/gravel-results-2019-dkxl-350-mile-ultra-endurance"
         }
       },
       "latest_year": "2025"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "schwalbe-g-one-overland",
-          "name": "Schwalbe G-One Overland",
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
           "brand": "Schwalbe",
-          "recommended_width_mm": 45,
-          "msrp_usd": 69.9,
-          "weight_grams": 550,
-          "crr_watts": 40.0,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 592,
+          "crr_watts": 16.7,
+          "tested_width_mm": 50,
+          "course_cost_watts": 21.1,
+          "why": "Rolls 16.7 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
         },
         {
           "rank": 2,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
-          "brand": "Pirelli",
-          "recommended_width_mm": 45,
-          "msrp_usd": 73.99,
-          "weight_grams": 470,
-          "crr_watts": null,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 573,
+          "crr_watts": 19.2,
+          "tested_width_mm": 50,
+          "course_cost_watts": 21.4,
+          "why": "Rolls 19.2 W at 50mm on BRR's drum. Puncture score 45 for the flint. 4mm shoulder knobs for loose corners."
         },
         {
           "rank": 3,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 45,
-          "msrp_usd": 79.99,
-          "weight_grams": 520,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip"
+          "tire_id": "pirelli-cinturato-gravel-h",
+          "name": "Pirelli Cinturato Gravel H",
+          "brand": "Pirelli",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 522,
+          "crr_watts": 17.9,
+          "tested_width_mm": 40,
+          "course_cost_watts": 22.9,
+          "why": "BRR tested the 40mm: 17.9 W. Puncture score 46 for the flint."
         }
       ],
       "front_rear_split": {
         "applicable": false
       },
-      "race_surface_profile": "wet",
-      "recommended_width_mm": 45,
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 50,
       "pressure_psi": {
-        "140_160lb_dry": "30-34",
-        "140_160lb_mixed": "26-30",
-        "140_160lb_wet": "24-28",
-        "160_180lb_dry": "32-36",
-        "160_180lb_mixed": "30-34",
-        "160_180lb_wet": "28-32",
-        "180_200lb_dry": "36-40",
-        "180_200lb_mixed": "32-36",
-        "180_200lb_wet": "30-34",
-        "200pluslb_dry": "38-42",
-        "200pluslb_mixed": "36-40",
-        "200pluslb_wet": "34-38"
+        "gravel_category": 4,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "45mm": "24/25",
+            "50mm": "20/21",
+            "55mm": "17/17"
+          },
+          "150": {
+            "45mm": "25/26",
+            "50mm": "20/21",
+            "55mm": "17/18"
+          },
+          "170": {
+            "45mm": "25/27",
+            "50mm": "21/22",
+            "55mm": "17/18"
+          },
+          "190": {
+            "45mm": "26/27",
+            "50mm": "21/22",
+            "55mm": "18/18"
+          },
+          "210": {
+            "45mm": "26/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "230": {
+            "45mm": "27/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          }
+        }
       }
     },
     "terrain": {
@@ -895,7 +939,28 @@
         "year": 2021,
         "date": "2021-06-04",
         "source": "https://theradavist.com/358-hard-miles-26-hours-55-minutes-lael-wilcox-at-the-2021-unbound-xl"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://www.unboundgravel.com/2020-event-status-update/"
+      },
+      {
+        "year": 2019,
+        "date": "2019-05-31",
+        "note": "Open to applicants for the first time",
+        "source": "https://kvoe.com/2019/02/10/lottery-selection-system-leads-to-bigger-dirty-kanza-field/"
+      },
+      {
+        "year": 2018,
+        "date": "2018-06-01",
+        "note": "First DK XL: 34 invited riders, 350 miles",
+        "source": "https://www.bicycleretailer.com/industry-news/2018/01/15/dirty-kanza-adds-350-mile-challenge-2018-event"
       }
-    ]
+    ],
+    "history": {
+      "founded": 2018
+    }
   }
 }

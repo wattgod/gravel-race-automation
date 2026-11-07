@@ -1,0 +1,156 @@
+{
+ "collection": "posts",
+ "slug": "gratitude-and-toilet-bowls",
+ "images": [
+  {
+   "file": "img/toilet-bowls-2.webp",
+   "name": "toilet-bowls-2",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      640,
+      200,
+      940,
+      640
+     ],
+     "erase_box": [
+      630,
+      260,
+      960,
+      650
+     ],
+     "pose": "stand",
+     "face": "sleepy",
+     "psi": 90,
+     "crop": "head",
+     "fit": "contain",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God's sleepy head on a hospital bed pillow, saying \"I'm fine. I'm totally fine. I can train tomorrow for sure.\"",
+   "joke": "I'm fine. I'm totally fine. I can train tomorrow for sure.",
+   "match": "closest",
+   "note": "Rig head cannot lie sideways on the pillow; it sits upright on the bed.",
+   "erase_extra": [
+    [
+     640,
+     215,
+     930,
+     640
+    ]
+   ]
+  },
+  {
+   "file": "img/who-likes-to-party.webp",
+   "name": "who-likes-to-party",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      480,
+      40,
+      760,
+      520
+     ],
+     "erase_box": [
+      411.6,
+      1.5,
+      808.4,
+      514.5
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "contain",
+     "anchor": "bottom",
+     "mask": "grabcut",
+     "pad": 10
+    }
+   ],
+   "alt": "A family party around a dining table with the kids and a baby; cartoon Gravel God grins from behind the table.",
+   "match": "exact"
+  },
+  {
+   "file": "img/must-not-slip.webp",
+   "name": "must-not-slip",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "#ffffff",
+   "figs": [
+    {
+     "box": [
+      90,
+      320,
+      430,
+      790
+     ],
+     "erase_box": [
+      70,
+      310,
+      435,
+      800
+     ],
+     "ride": "cruise",
+     "face": "grimace",
+     "psi": 20,
+     "fit": "contain"
+    }
+   ],
+   "alt": "A training calendar with cartoon Gravel God riding over it, gritting his teeth: \"Must. Not. Slip.\"",
+   "joke": "Must. Not. Slip.",
+   "match": "exact"
+  },
+  {
+   "file": "img/must-not-slip-1.webp",
+   "name": "must-not-slip-1",
+   "verdict": "keep",
+   "why": "Meme photo of a young man with a speech bubble; no Gravel God."
+  },
+  {
+   "file": "img/must-not-slip-2.webp",
+   "name": "must-not-slip-2",
+   "verdict": "keep",
+   "why": "Real photo of Matti with a baby."
+  },
+  {
+   "file": "img/toilet-bowls.webp",
+   "name": "toilet-bowls",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      120,
+      560,
+      560,
+      900
+     ],
+     "erase_box": [
+      0,
+      540,
+      645,
+      900
+     ],
+     "pose": "stand",
+     "face": "sleepy",
+     "psi": 67.5,
+     "crop": "head",
+     "fit": "contain",
+     "mask": "grabcut",
+     "pad": 8
+    }
+   ],
+   "alt": "Cartoon Gravel God's head, eyes half closed, on the bathroom floor beside a toilet.",
+   "match": "closest",
+   "note": "Rig head cannot lie on its side; it is upright on the floor."
+  }
+ ]
+}

@@ -174,7 +174,7 @@
       "camping": "camping at the Hvolsvöllur campground (used by “dozens” of riders)<u>[trainerroad"
     },
     "history": {
-      "founded": 2016,
+      "founded": 2019,
       "founder": "Reykjavík Cycling Club",
       "origin_story": "Created by Reykjavík Cycling Club to showcase Iceland's volcanic terrain. The course crosses the Mid-Atlantic Ridge—geological boundary between continents.",
       "notable_moments": [
@@ -198,6 +198,28 @@
         "date": "2026-07-17",
         "end_date": "2026-07-18",
         "source": "https://timataka.net/therift2026/"
+      },
+      {
+        "year": 2022,
+        "date": "2022-07-23",
+        "source": "https://presse.cafeducycliste.com/216837-annabel-fisher-cafe-du-cycliste-gravel-team-rider-wins-the-2022-edition-of-the-rift-iceland/"
+      },
+      {
+        "year": 2021,
+        "date": "2021-07-24",
+        "source": "https://www.cyclingnews.com/races/the-rift-gravel-race-2021/elite-men/results/"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://www.youarecurrent.com/2022/10/18/gravel-warriors-local-cyclists-take-on-challenge-of-the-rift-200k-race-in-iceland/"
+      },
+      {
+        "year": 2019,
+        "date": "2019-07-27",
+        "note": "Inaugural edition, 200 km around Hekla",
+        "source": "https://www.cyclingwest.com/racing/gravel-racing/icelands-rift-gravel-race-report/"
       }
     ],
     "course_description": {
@@ -387,65 +409,125 @@
           "winner_female": "Rosa Klöser",
           "winner_male": "Magnus Bak Klaris",
           "source": "https://www.cyclingnews.com/races/gravel-earth-series-2025/the-rift-10-event-elite-men-women/results/"
+        },
+        "2019": {
+          "race": "200 km",
+          "winner_female": "Alison Tetrick",
+          "winner_male": "Colin Strickland",
+          "winning_time_female": "8:03:53",
+          "winning_time_male": "6:38:47",
+          "source": "https://www.cxmagazine.com/gravel-results-2019-rift-iceland-lauf-volcanoes"
+        },
+        "2021": {
+          "race": "200 km",
+          "winner_female": "Holly Mathews",
+          "winner_male": "Peter Stetina",
+          "winning_time_female": "8:04:15",
+          "winning_time_male": "6:51:24",
+          "source": "https://www.cyclingnews.com/races/the-rift-gravel-race-2021/elite-men/results/"
+        },
+        "2022": {
+          "race": "200 km",
+          "winner_female": "Annabel Fisher",
+          "winner_male": "Nathan Haas",
+          "winning_time_female": "7:53:52",
+          "winning_time_male": "6:47:49",
+          "source": "https://www.cyclingnews.com/races/the-rift-gravel-race-iceland-2022/200k-pro-elite/results/"
+        },
+        "2023": {
+          "race": "200 km",
+          "winner_female": "Carolin Schiff",
+          "winner_male": "Simen Nordahl Svendsen",
+          "winning_time_female": "7:54:50",
+          "winning_time_male": "6:57:39",
+          "source": "https://www.cyclingnews.com/news/schiff-dominates-the-rift-gravel-pro-women-nordahl-svendsen-outsprints-slik/"
         }
       },
       "latest_year": "2026"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
-          "brand": "Pirelli",
-          "recommended_width_mm": 45,
-          "msrp_usd": 73.99,
-          "weight_grams": 470,
-          "crr_watts": null,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 592,
+          "crr_watts": 16.7,
+          "tested_width_mm": 50,
+          "course_cost_watts": 21.1,
+          "why": "Rolls 16.7 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
         },
         {
           "rank": 2,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 45,
-          "msrp_usd": 79.99,
-          "weight_grams": 520,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip"
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 573,
+          "crr_watts": 19.2,
+          "tested_width_mm": 50,
+          "course_cost_watts": 21.4,
+          "why": "Rolls 19.2 W at 50mm on BRR's drum. Puncture score 45 for the sharp rock. 4mm shoulder knobs for loose corners."
         },
         {
           "rank": 3,
-          "tire_id": "schwalbe-g-one-overland",
-          "name": "Schwalbe G-One Overland",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 45,
-          "msrp_usd": 69.9,
-          "weight_grams": 550,
-          "crr_watts": 40.0,
-          "why": "high puncture protection for sharp surfaces. excellent wet grip"
+          "tire_id": "pirelli-cinturato-gravel-h",
+          "name": "Pirelli Cinturato Gravel H",
+          "brand": "Pirelli",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 522,
+          "crr_watts": 17.9,
+          "tested_width_mm": 40,
+          "course_cost_watts": 22.9,
+          "why": "BRR tested the 40mm: 17.9 W. Puncture score 46 for the sharp rock."
         }
       ],
       "front_rear_split": {
         "applicable": false
       },
-      "race_surface_profile": "wet",
-      "recommended_width_mm": 45,
+      "race_surface_profile": "technical",
+      "recommended_width_mm": 50,
       "pressure_psi": {
-        "140_160lb_dry": "30-34",
-        "140_160lb_mixed": "26-30",
-        "140_160lb_wet": "24-28",
-        "160_180lb_dry": "32-36",
-        "160_180lb_mixed": "30-34",
-        "160_180lb_wet": "28-32",
-        "180_200lb_dry": "36-40",
-        "180_200lb_mixed": "32-36",
-        "180_200lb_wet": "30-34",
-        "200pluslb_dry": "38-42",
-        "200pluslb_mixed": "36-40",
-        "200pluslb_wet": "34-38"
+        "gravel_category": 4,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "45mm": "24/25",
+            "50mm": "20/21",
+            "55mm": "17/17"
+          },
+          "150": {
+            "45mm": "25/26",
+            "50mm": "20/21",
+            "55mm": "17/18"
+          },
+          "170": {
+            "45mm": "25/27",
+            "50mm": "21/22",
+            "55mm": "17/18"
+          },
+          "190": {
+            "45mm": "26/27",
+            "50mm": "21/22",
+            "55mm": "18/18"
+          },
+          "210": {
+            "45mm": "26/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "230": {
+            "45mm": "27/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          }
+        }
       }
     },
     "youtube_data": {

@@ -1,0 +1,88 @@
+{
+ "collection": "posts",
+ "slug": "the-double-day-1",
+ "images": [
+  {
+   "file": "img/day-1.webp",
+   "name": "day-1",
+   "verdict": "keep",
+   "why": "Strava screenshot; real profile photo."
+  },
+  {
+   "file": "img/lolz.webp",
+   "name": "lolz",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      930,
+      150,
+      1170,
+      735
+     ],
+     "erase_box": [
+      893,
+      140,
+      1208,
+      742
+     ],
+     "mask": "grabcut",
+     "pad": 6,
+     "pose": "stand",
+     "psi": 112.5,
+     "face": "thinking"
+    }
+   ],
+   "alt": "A TrainingPeaks ride file for Redlands - Highland (2:36:21, 60.2 mi, 200 TSS) with its map and power chart, and cartoon Gravel God standing beside the stats looking thoughtful.",
+   "match": "closest",
+   "note": "The rig has no hand-on-chin pose; he stands with a thinking face."
+  },
+  {
+   "file": "img/best-part.webp",
+   "name": "best-part",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "clone",
+   "figs": [
+    {
+     "box": [
+      690,
+      5,
+      850,
+      352
+     ],
+     "erase_box": [
+      682,
+      0,
+      860,
+      360
+     ],
+     "mask": "box",
+     "pose": "stand",
+     "psi": 90,
+     "face": "smile"
+    }
+   ],
+   "alt": "Two laughing kids at a patio table loaded with fries, a grilled cheese and a big salad, with cartoon Gravel God standing behind them by a bike.",
+   "match": "exact",
+   "insets": [
+    {
+     "src": [
+      480,
+      0,
+      660,
+      360
+     ],
+     "box": [
+      682,
+      0,
+      862,
+      360
+     ]
+    }
+   ]
+  }
+ ]
+}

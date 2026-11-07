@@ -555,7 +555,7 @@ def sync_guide_cluster(cluster_dir: str):
         print(f"✗ Error uploading guide cluster pages: {e}")
         return None
 
-    # The chapter pages open on the painted scenes, served from /guide/media/.
+    # The chapter pages open on the character scenes, served from /guide/media/.
     art_dir = Path(__file__).resolve().parent.parent / "guide" / "art"
     art_files = sorted(f.name for f in art_dir.glob("*.webp")) if art_dir.exists() else []
     if art_files:
@@ -753,14 +753,14 @@ def sync_about(about_file: str):
         return None
 
     # Upload avatar image if present
-    avatar_path = html_path.parent / "matti-avatar.png"
+    avatar_path = html_path.parent / "matti-avatar-v67.png"  # v6.7 character redraw (new name: long cache)
     if avatar_path.exists():
         try:
             subprocess.run(
                 [
                     "scp", "-i", str(SSH_KEY), "-P", port,
                     str(avatar_path),
-                    f"{user}@{host}:{remote_base}/matti-avatar.png",
+                    f"{user}@{host}:{remote_base}/matti-avatar-v67.png",
                 ],
                 check=True,
                 capture_output=True,
@@ -768,7 +768,7 @@ def sync_about(about_file: str):
                 timeout=30,
             )
         except subprocess.CalledProcessError:
-            print("  ⚠ Could not upload matti-avatar.png (non-fatal)")
+            print("  ⚠ Could not upload matti-avatar-v67.png (non-fatal)")
 
     # Upload shared CSS/JS assets (about page references them via /race/assets/)
     assets_dir = html_path.parent / "assets"
@@ -2846,6 +2846,23 @@ def season_power_rankings_redirect_rules() -> str:
 SEASON_POWER_RANKINGS_REDIRECT_RULES = season_power_rankings_redirect_rules()
 
 
+# MTB and bikepacking races lost their gravel tire picks in the Nov 2026 tire
+# audit (2.2" MTB tires and paved routes are outside the gravel tire
+# database). Their old /race/{slug}/tires/ pages stay on disk because the tire
+# guide sync only adds, and the generic /tires/ fallback below only fires when
+# the file is missing, so these need an explicit rule.
+# tests/test_tire_picks_integrity.py keeps this list in step with race-data.
+TIRE_GUIDES_WITHDRAWN = (
+    "atlas-mountain-race", "badlands", "chequamegon-mtb", "colorado-trail-race",
+    "fuego-mtb", "leadville-100", "little-sugar-mtb", "torino-nice-rally",
+    "tour-divide", "trans-am-bike-race", "transcontinental-race",
+)
+TIRE_GUIDES_WITHDRAWN_RULE = (
+    "RewriteRule ^race/(" + "|".join(TIRE_GUIDES_WITHDRAWN)
+    + ")/tires/?$ /race/$1/ [R=301,L]"
+)
+
+
 REDIRECT_BLOCK = """\
 # BEGIN Gravel God Redirects
 <IfModule mod_rewrite.c>
@@ -3131,6 +3148,13 @@ RewriteRule ^race/gravel-tv/?$ /gravel-weekly/ [R=301,L]
 RewriteRule ^race/(about|articles|coaching|consulting|cookies|course|gravel-weekly|guide|insights|privacy|terms|training-plans)/?$ /$1/ [R=301,L]
 RewriteRule ^race/homepage/?$ / [R=301,L]
 
+# Tire guides withdrawn from MTB/bikepacking races (see TIRE_GUIDES_WITHDRAWN).
+""" + TIRE_GUIDES_WITHDRAWN_RULE + """
+# specialized-pathfinder-pro-47 was a duplicate entry for the 47mm Pathfinder
+# Pro, merged into specialized-pathfinder-pro (Nov 2026). Its page and the VS
+# pages built from it go to the one tire page.
+RewriteRule ^tire/(?:[a-z0-9-]+-vs-)?specialized-pathfinder-pro-47(?:-vs-[a-z0-9-]+)?/?$ /tire/specialized-pathfinder-pro/ [R=301,L]
+
 # Dead-reference self-healing (2026-07-22 link audit: 215 stale /tires/ +
 # 24 undeployed VS URLs sat in the sitemap 404ing). If the page exists on
 # disk these rules never fire; if it doesn't, 301 to the parent race page
@@ -3139,6 +3163,9 @@ RewriteRule ^race/homepage/?$ / [R=301,L]
 # misrouted by these generic fallbacks.
 RewriteCond %{DOCUMENT_ROOT}/race/$1/tires/index.html !-f
 RewriteRule ^race/([^/]+)/tires/?$ /race/$1/ [R=301,L]
+RewriteCond %{DOCUMENT_ROOT}/tire/$1-vs-$2/index.html !-f
+RewriteCond %{DOCUMENT_ROOT}/tire/$1/index.html -f
+RewriteRule ^tire/([a-z0-9-]+?)-vs-([a-z0-9-]+?)/?$ /tire/$1/ [R=301,L]
 RewriteCond %{DOCUMENT_ROOT}/race/$1-vs-$2/index.html !-f
 RewriteCond %{DOCUMENT_ROOT}/race/$1/index.html -f
 RewriteRule ^race/([^/]+?)-vs-([^/]+?)/?$ /race/$1/ [R=301,L]
@@ -4300,6 +4327,20 @@ def sync_tire_pages(tire_pages_dir: str):
     return len(dirs)
 
 
+STALE_TIRE_GUIDE_LIMIT = 30
+
+
+def stale_tire_guide_slugs(remote_listing: str, staged: set) -> list:
+    """Race slugs with a /race/{slug}/tires/ on the server but no guide in this
+    build. `remote_listing` is `ls -d */tires` output run inside /race/."""
+    slugs = set()
+    for line in remote_listing.split():
+        slug = line.rstrip("/").removesuffix("/tires")
+        if re.fullmatch(r"[a-z0-9][a-z0-9-]*", slug):
+            slugs.add(slug)
+    return sorted(slugs - set(staged))
+
+
 def sync_tire_guides(tire_guide_dir: str):
     """Upload tire guide pages to /race/{slug}/tires/ on SiteGround via tar+ssh.
 
@@ -4361,6 +4402,34 @@ def sync_tire_guides(tire_guide_dir: str):
         except Exception as e:
             print(f"✗ Error uploading tire guide pages: {e}")
             return None
+
+    # Reconcile: a race that lost its picks (MTB, road, removed) keeps a stale
+    # /race/{slug}/tires/ on the server until its folder is deleted. Once it's
+    # gone, the .htaccess fallback 301s /tires/ to the race page.
+    try:
+        listing = subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+             f"cd {remote_base} && ls -d */tires"],
+            capture_output=True, text=True, timeout=30)
+        stale = stale_tire_guide_slugs(listing.stdout, {f.stem for f in html_files})
+        if listing.returncode != 0:
+            print("  (tire guide reconcile skipped: could not list remote)")
+        elif len(stale) > STALE_TIRE_GUIDE_LIMIT:
+            print(f"✗ Tire guide reconcile refused: {len(stale)} stale guides "
+                  f"(limit {STALE_TIRE_GUIDE_LIMIT}); check the build")
+        elif stale:
+            # slugs are regex-validated ([a-z0-9-]) so no quoting needed.
+            targets = " ".join(f"{s}/tires" for s in stale)
+            rm = subprocess.run(
+                ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}",
+                 f"cd {remote_base} && rm -rf {targets}"],
+                capture_output=True, text=True, timeout=60)
+            if rm.returncode != 0:
+                print(f"✗ Tire guide reconcile rm FAILED: {rm.stderr.strip()}")
+            else:
+                print(f"  Removed {len(stale)} stale tire guides: {' '.join(stale)}")
+    except Exception as e:  # noqa: BLE001
+        print(f"  (tire guide reconcile skipped: {e})")
 
     wp_url = os.environ.get("WP_URL", "https://gravelgodcycling.com")
     print(f"✓ Uploaded {page_count} tire guide pages to {wp_url}/race/*/tires/")

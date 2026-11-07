@@ -32,12 +32,12 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "mechanical": "Race photo from the 2024 Tour of the Gila (Velo Images/Brian Hodes): a rider in a red Rio Grande kit, number 102, wheels his bike along a taped-off sidewalk past a tattoo shop window, cartoon Gravel God's head in a cowboy hat on his body, as spectators and a photographer look on.",
-    "capilla": "Cartoon Gravel God in a cowboy hat, with a red Rio Grande kit, poses behind his white Fezzari race bike, number 102, on a brick plaza in front of a small hilltop chapel, the town and mountains behind.",
+    "mechanical": "Cartoon Gravel God's head on a rider in a red Rio Grande kit rolling past a tattoo shop.",
+    "capilla": "Cartoon Gravel God's head on a rider in a red kit standing with his bike at a brick lookout above Silver City.",
     "theres-still-time-scaled": "Looking down at a road bike's stem: a handwritten note taped to it lists \"There's still time\", \"It's time to let go\", \"You're where you belong\", \"It's not the rider, it's the bike\", \"This is your savior speaking\" and \"What will you tell their parents?\", next to a Garmin reading 44.45 mi.",
     "dream-boat-scaled": "A mustached teammate in a red Rio Grande kit sits on a black race bike, number 106, smiling in front of the same hilltop chapel.",
     "casserole-cook-book-scaled": "A Better Homes and Gardens \"Casserole Cook Book\" propped on a kitchen counter behind a turquoise bowl holding about twenty cracked eggs, beside a knife block.",
-    "cooper-cheesin": "Four riders in matching red Rio Grande kits pose with their bikes on a sidewalk outside a pink house; the second from left has cartoon Gravel God's head in a cowboy hat.",
+    "cooper-cheesin": "Four Rio Grande teammates pose with their bikes in front of a house; cartoon Gravel God's head is on the second rider.",
 }
 
 DESCRIPTION = ("Tour of the Gila stage 4, the Silver City criterium: a crash, a broken front wheel, "

@@ -122,7 +122,7 @@
       "ridewithgps_name": "THE dirty 30 route"
     },
     "history": {
-      "founded": "2010s",
+      "founded": 2018,
       "founder": "Michigan Gravel Race Series",
       "origin_story": "Dirty 30 is part of Michigan Gravel Race Series. Early season event in Saranac. 500 riders, multiple distance options.",
       "notable_moments": [],
@@ -138,6 +138,18 @@
         "year": 2025,
         "date": "2025-04-19",
         "source": "https://statistik.d-u-v.org/eventdetail.php?event=126100"
+      },
+      {
+        "year": 2019,
+        "date": "2019-03-30",
+        "note": "Joined the Michigan Gravel Race Series",
+        "source": "https://indianagirlonabike.com/?p=760"
+      },
+      {
+        "year": 2018,
+        "date": "2018-03-31",
+        "note": "First edition, 14 and 30 mile options",
+        "source": "https://www.sentinel-standard.com/story/sports/high-school/2018/03/16/saranac-to-feature-gravel-grinder/12983411007/"
       }
     ],
     "research_metadata": {
@@ -285,60 +297,99 @@
       }
     ],
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "schwalbe-g-one-ultrabite",
-          "name": "Schwalbe G-One Ultrabite",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 40,
-          "msrp_usd": 69.9,
-          "weight_grams": 500,
-          "crr_watts": 42.0,
-          "why": "excellent wet grip. strong mud clearance"
+          "tire_id": "continental-terra-competition-race-rapid",
+          "name": "Continental Terra Competition Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 45,
+          "msrp_usd": null,
+          "weight_grams": 482,
+          "crr_watts": 15.8,
+          "tested_width_mm": 45,
+          "course_cost_watts": 19.04,
+          "why": "Rolls 15.8 W at 45mm on BRR's drum. Wet grip 82."
         },
         {
           "rank": 2,
-          "tire_id": "tufo-gravel-swampero",
-          "name": "Tufo Gravel Swampero",
-          "brand": "Tufo",
-          "recommended_width_mm": 40,
-          "msrp_usd": 69.95,
-          "weight_grams": 480,
-          "crr_watts": null,
-          "why": "excellent wet grip. strong mud clearance"
+          "tire_id": "challenge-getaway-pro",
+          "name": "Challenge Getaway Pro",
+          "brand": "Challenge",
+          "recommended_width_mm": 45,
+          "msrp_usd": 84.99,
+          "weight_grams": 562,
+          "crr_watts": 17.8,
+          "tested_width_mm": 45,
+          "course_cost_watts": 22.21,
+          "why": "Rolls 17.8 W at 45mm on BRR's drum."
         },
         {
           "rank": 3,
-          "tire_id": "vittoria-terreno-wet",
-          "name": "Vittoria Terreno Wet",
-          "brand": "Vittoria",
-          "recommended_width_mm": 40,
-          "msrp_usd": 79.99,
-          "weight_grams": 460,
-          "crr_watts": 39.0,
-          "why": "excellent wet grip. strong mud clearance"
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 573,
+          "crr_watts": 19.2,
+          "tested_width_mm": 50,
+          "course_cost_watts": 22.26,
+          "why": "Rolls 19.2 W at 50mm on BRR's drum. 2.3mm center knobs for mud."
         }
       ],
       "front_rear_split": {
-        "applicable": false
+        "applicable": true,
+        "front": {
+          "tire_id": "continental-terra-competition-race-rapid",
+          "name": "Continental Terra Competition Race Rapid",
+          "width_mm": 45
+        },
+        "rear": {
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "width_mm": 50
+        },
+        "rationale": "The rear carries 53% of the weight and does the traction work on 3,500 ft of climbing and in the mud, so it gets the 2.3mm center knobs; the front rolls the faster file tread."
       },
-      "race_surface_profile": "muddy",
-      "recommended_width_mm": 40,
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 45,
       "pressure_psi": {
-        "140_160lb_dry": "35-39",
-        "140_160lb_mixed": "32-36",
-        "140_160lb_wet": "30-34",
-        "160_180lb_dry": "38-42",
-        "160_180lb_mixed": "35-39",
-        "160_180lb_wet": "33-37",
-        "180_200lb_dry": "41-45",
-        "180_200lb_mixed": "38-42",
-        "180_200lb_wet": "36-40",
-        "200pluslb_dry": "44-48",
-        "200pluslb_mixed": "41-45",
-        "200pluslb_wet": "39-43"
+        "gravel_category": 2,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "40mm": "36/38",
+            "45mm": "30/31",
+            "50mm": "24/25"
+          },
+          "150": {
+            "40mm": "37/39",
+            "45mm": "30/32",
+            "50mm": "25/26"
+          },
+          "170": {
+            "40mm": "38/39",
+            "45mm": "31/32",
+            "50mm": "26/27"
+          },
+          "190": {
+            "40mm": "39/40",
+            "45mm": "32/33",
+            "50mm": "26/27"
+          },
+          "210": {
+            "40mm": "39/41",
+            "45mm": "32/34",
+            "50mm": "27/28"
+          },
+          "230": {
+            "40mm": "40/42",
+            "45mm": "33/34",
+            "50mm": "27/28"
+          }
+        }
       }
     },
     "youtube_data": {
@@ -562,6 +613,19 @@
         "credit": "YouTube / Up The Road",
         "gif": true
       }
-    ]
+    ],
+    "results": {
+      "years": {
+        "2021": {
+          "race": "50 mi",
+          "winner_female": "Page Boldt",
+          "winner_male": "Scotty Albraugh",
+          "winning_time_female": "2:23:14",
+          "winning_time_male": "2:11:51",
+          "source": "https://granfondodailynews.com/2021/03/30/dirty-deeds-done-dirt-cheap-at-dirty-thirty-gravel-grinder-results/"
+        }
+      },
+      "latest_year": "2021"
+    }
   }
 }

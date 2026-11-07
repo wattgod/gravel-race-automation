@@ -1,0 +1,253 @@
+{
+ "collection": "articles",
+ "slug": "i-lied-having-kids-makes-you-slow",
+ "images": [
+  {
+   "file": "img/35ec4e994c78cf1c.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      430,
+      100,
+      1000,
+      1024
+     ],
+     "erase_box": [
+      445,
+      105,
+      958,
+      1024
+     ],
+     "mask": "grabcut",
+     "pad": 12,
+     "pose": "phone",
+     "face": "neutral",
+     "psi": 225,
+     "fit": "height",
+     "anchor": "top",
+     "scale": 1.75,
+     "dx": -0.08
+    }
+   ],
+   "erase_extra": [
+    [
+     958,
+     445,
+     1050,
+     1024
+    ]
+   ],
+   "joke": "Catch? How about in October when I take my yearly two week training break?",
+   "match": "exact"
+  },
+  {
+   "file": "img/8eb9654a15dbb900.webp",
+   "verdict": "replace",
+   "mode": "rebuild",
+   "bg": {
+    "type": "flat",
+    "color": "#f8e2c3"
+   },
+   "insets": [
+    {
+     "src": [
+      975,
+      25,
+      1536,
+      420
+     ],
+     "box": [
+      975,
+      25,
+      1536,
+      420
+     ]
+    },
+    {
+     "src": [
+      1190,
+      420,
+      1536,
+      765
+     ],
+     "box": [
+      1190,
+      420,
+      1536,
+      765
+     ]
+    },
+    {
+     "src": [
+      0,
+      765,
+      1536,
+      1024
+     ],
+     "box": [
+      0,
+      765,
+      1536,
+      1024
+     ]
+    }
+   ],
+   "shapes": [
+    {
+     "type": "rect",
+     "box": [
+      0,
+      0,
+      280,
+      420
+     ],
+     "fill": "#9e7056"
+    },
+    {
+     "type": "rect",
+     "box": [
+      0,
+      600,
+      1190,
+      765
+     ],
+     "fill": "#9e7056"
+    },
+    {
+     "type": "rect",
+     "box": [
+      0,
+      590,
+      1190,
+      606
+     ],
+     "fill": "#7d5640"
+    }
+   ],
+   "figs": [
+    {
+     "box": [
+      380,
+      60,
+      1000,
+      770
+     ],
+     "pose": "stand",
+     "face": "grin",
+     "psi": 90,
+     "crop": "bust",
+     "fit": "height",
+     "anchor": "bottom"
+    }
+   ],
+   "joke": "Awwwwwwwww. What a GORGEOOOUUSSSS fur baY!!!!!",
+   "match": "closest",
+   "note": "The kitchen wall behind him is a plain warm wash; the phone with the puppy floats beside him (the rig can't hold it out)."
+  },
+  {
+   "file": "img/ab4cd0b26931933c.webp",
+   "verdict": "keep",
+   "why": "Screenshot of comments; no Gravel God."
+  },
+  {
+   "file": "img/c24c3468419b63b0.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      670,
+      30,
+      1130,
+      935
+     ],
+     "erase_box": [
+      650,
+      20,
+      1135,
+      940
+     ],
+     "ride": "cruise",
+     "face": "smile",
+     "psi": 75,
+     "mask": "grabcut",
+     "pad": 14
+    }
+   ],
+   "match": "closest",
+   "note": "The baby in the child seat and the drink in his hand are gone (one-mascot rig, no child seat)."
+  },
+  {
+   "file": "img/c67dab8353f425eb.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      300,
+      40,
+      640,
+      1020
+     ],
+     "erase_box": [
+      290,
+      300,
+      640,
+      1020
+     ],
+     "ride": "cruise",
+     "face": "surprised",
+     "psi": 70,
+     "mask": "grabcut",
+     "pad": 12
+    }
+   ],
+   "erase_extra": [
+    [
+     300,
+     40,
+     560,
+     300
+    ]
+   ],
+   "joke": "You got a dog??? WHY would you do that to yourself? And did you buy the same hat that I have on purpose? You know I'm married, right?",
+   "match": "closest",
+   "note": "He wears his tee and jorts, not the polo and hat; the woman, dog and her line stay (her line still mentions the hat)."
+  },
+  {
+   "file": "img/d4b086e0657f9b13.webp",
+   "verdict": "replace",
+   "mode": "composite",
+   "erase": "telea",
+   "figs": [
+    {
+     "box": [
+      180,
+      40,
+      640,
+      1010
+     ],
+     "erase_box": [
+      0,
+      30,
+      790,
+      1010
+     ],
+     "pose": "phone",
+     "face": "shout",
+     "psi": 67.5,
+     "mask": "grabcut",
+     "pad": 14
+    }
+   ],
+   "joke": "Baby, it was just a sex thing. With you I make love!",
+   "match": "closest",
+   "note": "He stands on the phone, shouting, instead of crouching to pick up after the dog; the poop bag is gone."
+  }
+ ]
+}

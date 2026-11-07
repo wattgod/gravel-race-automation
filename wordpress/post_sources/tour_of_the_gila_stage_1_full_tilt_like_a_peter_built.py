@@ -32,8 +32,8 @@ SOURCE = wp_post.load(SLUG)
 OUTPUT_PATH = wp_post.output_path(SLUG)
 
 ALT = {
-    "lol": "The Tour of the Gila 2024 podium backdrop, a UCI America Tour board covered in sponsor logos, on a trailer in a race parking lot, with a bike on a car roof rack in the foreground. A cartoon Gravel God in a cowboy hat, white tee and short shorts stands on the stage under big white letters: \"LOL!\"",
-    "lol-1": "A shirtless rider in green shorts and red-lensed sunglasses, a black eight-pointed star tattooed on his stomach and a sheep on his forearm, holds a water bottle in a gravel parking lot full of team vans and riders. A cartoon Gravel God in a cowboy hat stands at the left, hand on his chin.",
+    "lol": "\"LOL!\" over the Tour of the Gila stage, where cartoon Gravel God gives a thumbs up in front of the backdrop.",
+    "lol-1": "A shirtless rider holding a water bottle in a race parking lot; cartoon Gravel God stands thinking at the left.",
 }
 
 DESCRIPTION = ("Tour of the Gila Stage 1: an easy first half, a hard, strung-out run to the final "

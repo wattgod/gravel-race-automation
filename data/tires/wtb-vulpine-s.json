@@ -1,0 +1,78 @@
+{
+  "id": "wtb-vulpine-s",
+  "name": "WTB Vulpine S",
+  "brand": "WTB",
+  "casing": "TCS Light",
+  "widths_mm": [
+    40
+  ],
+  "widths_source": "existing",
+  "tread_type": "file",
+  "tubeless_ready": true,
+  "msrp_usd": null,
+  "lab_tested": true,
+  "brr_tests": [
+    {
+      "width_mm": 40,
+      "measured_width_mm": 38.0,
+      "year": 2025,
+      "model": "WTB Vulpine S TCS Light SG 40",
+      "rr_watts": 30.7,
+      "test_psi": 36,
+      "puncture_tread": 56.0,
+      "wet_grip": 68.0,
+      "knob_center_mm": 0.0,
+      "knob_edge_mm": 1.8,
+      "weight_g": 497.0,
+      "url": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/wtb-vulpine-s"
+    }
+  ],
+  "brr_urls_by_width": {
+    "40": "https://www.bicyclerollingresistance.com/cx-gravel-reviews/wtb-vulpine-s"
+  },
+  "crr_watts_at_29kmh": {
+    "40": 30.7
+  },
+  "weight_grams": {
+    "40": 497
+  },
+  "puncture_resistance": "high",
+  "wet_traction": "fair",
+  "mud_clearance": "none",
+  "strengths": [
+    "Tough tread: puncture score 56"
+  ],
+  "weaknesses": [
+    "Slow rolling: 30.7 W at 40mm on BRR's drum"
+  ],
+  "recommended_use": [
+    "sharp rock"
+  ],
+  "avoid_use": [
+    "fast smooth courses",
+    "mud"
+  ],
+  "status": "active",
+  "race_appearances": {},
+  "community_reviews": [],
+  "comparable_tires": [
+    "challenge-getaway-pro",
+    "continental-terra-competition-race-rapid",
+    "continental-terra-competition-trail-grip",
+    "continental-terra-hardpack",
+    "continental-terra-speed-40",
+    "hutchinson-caracal-race",
+    "panaracer-gravelking-tlc",
+    "panaracer-gravelking-zx-r",
+    "pirelli-cinturato-gravel-rh",
+    "rene-herse-snoqualmie-pass",
+    "schwalbe-g-one-rs-pro",
+    "schwalbe-g-one-rs",
+    "silca-protocol-rcg-1",
+    "specialized-pathfinder",
+    "ultradynamico-cava-race",
+    "vittoria-terreno-dry",
+    "vittoria-terreno-pro-t30"
+  ],
+  "versions": []
+}

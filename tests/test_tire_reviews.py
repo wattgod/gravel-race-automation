@@ -193,9 +193,9 @@ class TestSanitizeReview(unittest.TestCase):
                 self.assertEqual(clean[field], r[field],
                                  f"Field '{field}' should be preserved")
 
-    def test_sets_approved_true(self):
+    def test_new_reviews_wait_for_approval(self):
         clean = sanitize_review(_valid_review())
-        self.assertTrue(clean["approved"])
+        self.assertIs(clean["approved"], False)
 
     def test_whitelist_does_not_contain_pii_fields(self):
         pii_fields = {"email", "ip_address", "user_agent", "display_name",
@@ -784,7 +784,7 @@ class TestEndToEndPageGeneration(unittest.TestCase):
         cls.html = generate_tire_page(cls.tire, race_recs=cls.race_recs)
 
     def test_page_contains_review_section(self):
-        self.assertIn("05 / COMMUNITY REVIEWS", self.html)
+        self.assertIn("04 / COMMUNITY REVIEWS", self.html)
 
     def test_page_contains_review_form(self):
         self.assertIn("tp-rev-form", self.html)
@@ -808,15 +808,59 @@ class TestEndToEndPageGeneration(unittest.TestCase):
         self.assertIn("submitting", self.html)
         self.assertIn("submitBtn.disabled", self.html)
 
-    def test_internal_links_section_numbered_06(self):
-        self.assertIn("06 /", self.html)
+    def test_internal_links_section_numbered_05(self):
+        self.assertIn("05 / RELATED TIRE GUIDES", self.html)
 
     def test_section_number_ordering(self):
-        """Community Reviews (05) must come before Internal Links (06)."""
-        pos_05 = self.html.index("05 / COMMUNITY REVIEWS")
-        pos_06 = self.html.index("06 /")
+        """Community Reviews (04) must come before Internal Links (05)."""
+        pos_05 = self.html.index("04 / COMMUNITY REVIEWS")
+        pos_06 = self.html.index("05 / RELATED TIRE GUIDES")
         self.assertLess(pos_05, pos_06)
 
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestModeration(unittest.TestCase):
+    """--approve publishes a review; --reject deletes it and keeps it out of
+    the next sync."""
+
+    def setUp(self):
+        import tempfile
+        import sync_tire_reviews as mod
+        self.mod = mod
+        self.tmp = tempfile.TemporaryDirectory()
+        self.orig_dir = mod.TIRE_DIR
+        mod.TIRE_DIR = Path(self.tmp.name)
+        tire = {"id": "t1", "community_reviews": [
+            dict(_valid_review(), review_id="a1", approved=False),
+            dict(_valid_review(), review_id="b2", approved=False),
+        ]}
+        (mod.TIRE_DIR / "t1.json").write_text(json.dumps(tire))
+
+    def tearDown(self):
+        self.mod.TIRE_DIR = self.orig_dir
+        self.tmp.cleanup()
+
+    def _tire(self):
+        return json.loads((self.mod.TIRE_DIR / "t1.json").read_text())
+
+    def test_pending_lists_unapproved(self):
+        ids = sorted(r["review_id"] for _, r in self.mod.pending_reviews())
+        self.assertEqual(ids, ["a1", "b2"])
+
+    def test_approve_publishes(self):
+        self.assertEqual(self.mod.moderate(["a1"], approve=True), 1)
+        approved = [r["review_id"] for r in self._tire()["community_reviews"] if r["approved"]]
+        self.assertEqual(approved, ["a1"])
+
+    def test_reject_deletes_and_remembers(self):
+        self.assertEqual(self.mod.moderate(["b2"], approve=False), 1)
+        tire = self._tire()
+        self.assertEqual([r["review_id"] for r in tire["community_reviews"]], ["a1"])
+        self.assertEqual(tire["rejected_review_ids"], ["b2"])
+
+    def test_sync_skips_rejected_ids(self):
+        src = (PROJECT_ROOT / "scripts" / "sync_tire_reviews.py").read_text()
+        self.assertIn('tire_data.get("rejected_review_ids", [])', src)

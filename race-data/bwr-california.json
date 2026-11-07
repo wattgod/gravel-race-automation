@@ -202,6 +202,25 @@
         "edition": 14,
         "note": "Start moved from North County San Diego to the Del Mar Polo Fields.",
         "source": "https://socalcycling.com/?p=82006"
+      },
+      {
+        "year": 2020,
+        "status": "cancelled",
+        "note": "COVID-19 pandemic",
+        "source": "https://www.belgianwaffleride.bike/pages/history"
+      },
+      {
+        "year": 2016,
+        "date": "2016-04-24",
+        "edition": 5,
+        "note": "146-mile course with 13,000 feet of climbing",
+        "source": "https://www.granfondoguide.com/Contents/Index/1339/joshua-raspberry-solos-home-to-victory-in-the-cervelo-belgian-waffle-ride-presented-by-spy"
+      },
+      {
+        "year": 2012,
+        "edition": 1,
+        "note": "Men's race ended in a three-way tie after the leaders went off course",
+        "source": "https://www.belgianwaffleride.bike/pages/history"
       }
     ],
     "course_description": {
@@ -331,60 +350,88 @@
       "name": "Belgian Waffle Ride"
     },
     "tire_recommendations": {
-      "generated_at": "2026-02-19",
+      "generated_at": "2026-11-06",
       "primary": [
         {
           "rank": 1,
-          "tire_id": "schwalbe-g-one-bite",
-          "name": "Schwalbe G-One Bite",
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
           "brand": "Schwalbe",
-          "recommended_width_mm": 45,
-          "msrp_usd": 69.9,
-          "weight_grams": 540,
-          "crr_watts": 38.0,
-          "why": "Technical terrain dominator. Aggressive grip when the course gets rowdy."
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 592,
+          "crr_watts": 16.7,
+          "tested_width_mm": 50,
+          "course_cost_watts": 19.34,
+          "why": "Rolls 16.7 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
         },
         {
           "rank": 2,
-          "tire_id": "maxxis-reaver",
-          "name": "Maxxis Reaver",
-          "brand": "Maxxis",
-          "recommended_width_mm": 45,
-          "msrp_usd": 79.99,
-          "weight_grams": 520,
-          "crr_watts": 35.0,
-          "why": "Technical all-rounder. EXO+ casing shrugs off rocks and roots."
+          "tire_id": "continental-dubnital",
+          "name": "Continental Dubnital Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 573,
+          "crr_watts": 19.2,
+          "tested_width_mm": 50,
+          "course_cost_watts": 20.52,
+          "why": "Rolls 19.2 W at 50mm on BRR's drum. 4mm shoulder knobs for loose corners."
         },
         {
           "rank": 3,
-          "tire_id": "pirelli-cinturato-gravel-s",
-          "name": "Pirelli Cinturato Gravel S",
+          "tire_id": "pirelli-cinturato-gravel-h",
+          "name": "Pirelli Cinturato Gravel H",
           "brand": "Pirelli",
-          "recommended_width_mm": 45,
-          "msrp_usd": 73.99,
-          "weight_grams": 470,
-          "crr_watts": null,
-          "why": "Soft-terrain specialist. Open knob pattern sheds mud and grips wet rock."
+          "recommended_width_mm": 50,
+          "msrp_usd": null,
+          "weight_grams": 522,
+          "crr_watts": 17.9,
+          "tested_width_mm": 40,
+          "course_cost_watts": 22.1,
+          "why": "BRR tested the 40mm: 17.9 W."
         }
       ],
       "front_rear_split": {
         "applicable": false
       },
       "race_surface_profile": "technical",
-      "recommended_width_mm": 45,
+      "recommended_width_mm": 50,
       "pressure_psi": {
-        "140_160lb_dry": "28-32",
-        "140_160lb_mixed": "25-29",
-        "140_160lb_wet": "23-27",
-        "160_180lb_dry": "31-35",
-        "160_180lb_mixed": "28-32",
-        "160_180lb_wet": "26-30",
-        "180_200lb_dry": "34-38",
-        "180_200lb_mixed": "31-35",
-        "180_200lb_wet": "29-33",
-        "200pluslb_dry": "37-41",
-        "200pluslb_mixed": "34-38",
-        "200pluslb_wet": "32-36"
+        "gravel_category": 4,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "45mm": "24/25",
+            "50mm": "20/21",
+            "55mm": "17/17"
+          },
+          "150": {
+            "45mm": "25/26",
+            "50mm": "20/21",
+            "55mm": "17/18"
+          },
+          "170": {
+            "45mm": "25/27",
+            "50mm": "21/22",
+            "55mm": "17/18"
+          },
+          "190": {
+            "45mm": "26/27",
+            "50mm": "21/22",
+            "55mm": "18/18"
+          },
+          "210": {
+            "45mm": "26/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          },
+          "230": {
+            "45mm": "27/28",
+            "50mm": "22/23",
+            "55mm": "18/19"
+          }
+        }
       }
     },
     "youtube_data": {
@@ -685,6 +732,64 @@
           "winning_time_female": "5:43:22",
           "winning_time_male": "4:57:08",
           "source": "https://www.granfondoguide.com/Contents/PopUp/8498/defending-champions-villafa%C3%B1e-and-beers-dominate-at-2025-bwr-california"
+        },
+        "2012": {
+          "winner_female": "Rhonda Quick",
+          "winner_male": "Steve Klasna and Dave Jaeger and Brent Prenzlow",
+          "source": "https://www.belgianwaffleride.bike/pages/history"
+        },
+        "2013": {
+          "winner_female": "Jess Cerra",
+          "winner_male": "Neil Shirley",
+          "source": "https://www.belgianwaffleride.bike/pages/history"
+        },
+        "2014": {
+          "winner_female": "Rhonda Quick",
+          "winner_male": "Neil Shirley",
+          "source": "https://www.belgianwaffleride.bike/pages/history"
+        },
+        "2015": {
+          "winner_female": "Rhonda Quick",
+          "winner_male": "Cam Wurf",
+          "source": "https://www.belgianwaffleride.bike/pages/history"
+        },
+        "2016": {
+          "race": "146 mi",
+          "winner_female": "Amanda Nauman",
+          "winner_male": "Josh Berry",
+          "winning_time_female": "8:40:40",
+          "winning_time_male": "7:22:30",
+          "source": "https://www.cxmagazine.com/2016-belgian-waffle-ride-joshua-berry-amanda-nauman-press-release"
+        },
+        "2017": {
+          "winner_female": "Larissa Connors",
+          "winner_male": "Jesse Anthony",
+          "source": "https://www.belgianwaffleride.bike/pages/history"
+        },
+        "2018": {
+          "winner_female": "Larissa Connors",
+          "winner_male": "Brian McCulloch",
+          "source": "https://www.belgianwaffleride.bike/pages/history"
+        },
+        "2019": {
+          "winner_female": "Sarah Sturm",
+          "winner_male": "Peter Stetina",
+          "source": "https://www.belgianwaffleride.bike/pages/history"
+        },
+        "2021": {
+          "winner_female": "Katerina Nash",
+          "winner_male": "Peter Stetina",
+          "source": "https://www.belgianwaffleride.bike/pages/history"
+        },
+        "2022": {
+          "winner_female": "Moriah Wilson",
+          "winner_male": "Alexey Vermeulen",
+          "source": "https://www.cyclingnews.com/races/belgian-waffle-ride-series-2024/race-history/"
+        },
+        "2023": {
+          "winner_female": "Heather Jackson",
+          "winner_male": "Russell Finsterwald",
+          "source": "https://www.cyclingnews.com/races/belgian-waffle-ride-series-2024/race-history/"
         }
       },
       "latest_year": "2025"

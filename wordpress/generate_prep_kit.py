@@ -73,9 +73,10 @@ WEATHER_DIR = Path(__file__).parent.parent / "data" / "weather"
 QUOTES_DIR = Path(__file__).parent.parent / "data" / "quotes"
 SEASON_YEAR = str(season_year())
 
-# Legacy prep kit slugs -> canonical race slug, built as their own pages.
-# Empty: /race/the-mid-south/prep-kit/ (sent to leads) now 301s to
-# /race/mid-south/prep-kit/ (scripts/push_wordpress.py).
+# Legacy prep-kit slugs that build from another race's data: {alias: slug}.
+# Empty since 2026-11-09: the-mid-south is tombstoned (config/tombstones.json,
+# #554), so /race/the-mid-south/prep-kit/, the link leads were emailed, now
+# redirects to /race/mid-south/ (Matti, 2026-11-09).
 PREP_KIT_SLUG_ALIASES: dict[str, str] = {}
 
 # Guide section IDs we extract content from

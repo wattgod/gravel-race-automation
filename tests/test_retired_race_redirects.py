@@ -165,11 +165,14 @@ class TestServerCheck:
         assert rr.server_orphans(listing, LIVE, RULES) == [
             "/race/made-up-race.md", "/race/made-up-race/training-plan/"]
 
-    def test_legacy_prep_kit_link_lands_on_the_kit_in_one_hop(self):
-        # Leads were sent /race/the-mid-south/prep-kit/. The slug is
-        # tombstoned (#554), so the link must reach mid-south's kit directly,
-        # not the race page via /race/the-mid-south/.
-        assert "the-mid-south" not in LIVE
+    def test_retired_legacy_prep_kit_redirects(self):
+        # Leads were emailed /race/the-mid-south/prep-kit/. It was kept as a
+        # prep-kit alias until 2026-11-09, when the-mid-south was tombstoned
+        # (#554): the link now redirects and nothing builds it.
+        assert "the-mid-south" not in rr.published_slugs()
         rule = rr.first_match(RULES, "race/the-mid-south/prep-kit/")
         assert rule is not None and rule.permanent
+        # One hop to the kit itself, not the race page via /race/the-mid-south/.
         assert rule.target.replace("$1", "prep-kit/") == "/race/mid-south/prep-kit/"
+        assert rr.server_orphans(
+            "the-mid-south/prep-kit", rr.published_slugs(), RULES) == []

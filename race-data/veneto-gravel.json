@@ -3,12 +3,12 @@
     "name": "Veneto Gravel",
     "slug": "veneto-gravel",
     "display_name": "Veneto Gravel",
-    "tagline": "Italian Veneto hilly gravel in Asolo.",
+    "tagline": "Italian Veneto hilly gravel from Bassano del Grappa.",
     "vitals": {
       "distance_mi": 65,
       "elevation_ft": 4500,
-      "location": "Asolo, Veneto, Italy",
-      "location_badge": "ASOLO, ITALY",
+      "location": "Bassano del Grappa, Veneto, Italy",
+      "location_badge": "BASSANO DEL GRAPPA, ITALY",
       "county": "Veneto",
       "date": "April or May annually",
       "date_specific": "2027: May 7-12 (CONFIRMED — venetogravel.it)",
@@ -24,8 +24,8 @@
       "prize_purse": "Modest prizes",
       "aid_stations": "Multiple aid stations",
       "cutoff_time": "Varies",
-      "lat": 45.8007,
-      "lng": 11.9142
+      "lat": 45.7667,
+      "lng": 11.7342
     },
     "climate": {
       "primary": "Italian spring/fall",
@@ -44,7 +44,7 @@
       "features": [
         "Significant hilly (4500 feet)",
         "Italian countryside scenery",
-        "Asolo setting",
+        "Bassano del Grappa setting",
         "Multiple distances",
         "Regional event"
       ]
@@ -73,7 +73,7 @@
     },
     "biased_opinion": {
       "verdict": "Veneto Hilly Gravel",
-      "summary": "Veneto Gravel is a regional event in Asolo, Italy—hilly terrain with significant elevation. The Italian countryside is scenic, but the moderate organization and regional field keep it firmly in Tier 3.",
+      "summary": "Veneto Gravel is a non-competitive bikepacking event that starts in Bassano del Grappa, Italy—hilly terrain with significant elevation. The Italian countryside is scenic, but the moderate organization and regional field keep it firmly in Tier 3.",
       "strengths": [
         "Italian countryside scenery",
         "Italian cycling community",
@@ -88,11 +88,11 @@
         "Limited international draw",
         "European travel costs"
       ],
-      "bottom_line": "A scenic Italian gravel race with Veneto hills. Worth it for European cyclists. Not a destination race for international travelers."
+      "bottom_line": "A scenic Italian bikepacking event with Veneto hills, not a race. Worth it for European cyclists. Not a destination event for international travelers."
     },
     "final_verdict": {
       "score": "49 / 100",
-      "one_liner": "Italian Veneto hilly gravel in Asolo.",
+      "one_liner": "Italian Veneto hilly gravel from Bassano del Grappa.",
       "should_you_race": "If you're in Italy/Europe—yes, it's solid. If you're international—there are better options.",
       "alternatives": "For similar Italian events: other Italian gravel races. For better organization: Grinduro Italy.",
       "alternative_slugs": [
@@ -101,8 +101,8 @@
     },
     "logistics": {
       "airport": "Venice (VCE) 1 hour or Milan (MXP) 3 hours",
-      "lodging_strategy": "Asolo has moderate lodging options.",
-      "food": "Asolo has full dining options. Stock nutrition.",
+      "lodging_strategy": "Bassano del Grappa has moderate lodging options.",
+      "food": "Bassano del Grappa has full dining options. Stock nutrition.",
       "packet_pickup": "Day before typically",
       "parking": "At start/finish",
       "official_site": "https://venetogravel.it/en/edizione2026/"
@@ -160,7 +160,7 @@
           "named_section": "Final Push"
         }
       ],
-      "signature_challenge": "Veneto hills in Asolo.",
+      "signature_challenge": "Veneto hills out of Bassano del Grappa.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
@@ -169,7 +169,7 @@
       "race_distance": "65 miles",
       "race_elevation": "4,500 feet",
       "race_date": "Spring/Fall",
-      "race_location": "Asolo, Veneto, Italy",
+      "race_location": "Bassano del Grappa, Veneto, Italy",
       "race_terrain": "Veneto hilly gravel",
       "race_weather": "Italian spring/fall mild",
       "race_challenges": [
@@ -274,7 +274,7 @@
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Veneto Gravel",
-        "race_hook": "Italian Veneto hilly gravel in Asolo.",
+        "race_hook": "Italian Veneto hilly gravel from Bassano del Grappa.",
         "race_hook_detail": "Regional event with hilly terrain.",
         "distance": "65",
         "dark_mile": "35",
@@ -287,7 +287,7 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 2,
-        "explanation": "Multiple conflicting start dates (April 17, 18, 23-24, or 25) and locations remain unresolved across sources. Claudia Gerosa successfully pre-booked hotels for her 2.5-day approach, splitting the Short Beach into Bassano-Quarto d'Altino-Vittorio Veneto stages. The event provides a start village with staff welcome, event packs, and finisher facilities including showers and meals, but basic logistical details stay frustratingly inconsistent."
+        "explanation": "Multiple conflicting start dates (April 17, 18, 23-24, or 25) remain unresolved across sources, though the official site now pins the start to Bassano del Grappa. Claudia Gerosa successfully pre-booked hotels for her 2.5-day approach, splitting the Short Beach into Bassano-Quarto d'Altino-Vittorio Veneto stages. The event provides a start village with staff welcome, event packs, and finisher facilities including showers and meals, but basic logistical details stay frustratingly inconsistent."
       },
       "length": {
         "score": 3,
@@ -343,6 +343,11 @@
       }
     },
     "citations": [
+      {
+        "url": "https://venetogravel.it/en/edizione2025/",
+        "category": "official",
+        "label": "Veneto Gravel 2025 edition (start Bassano del Grappa)"
+      },
       {
         "url": "https://venetogravel.it/en/edizione2026/",
         "category": "official",
@@ -683,7 +688,7 @@
         "type": "video-1",
         "file": "veneto-gravel-video-1.jpg",
         "url": "/race-photos/veneto-gravel/veneto-gravel-video-1.jpg",
-        "alt": "First-person view of cyclist riding on gravel trail with autumn foliage and rural buildings in Veneto countryside - Veneto Gravel - Asolo, Veneto, Italy",
+        "alt": "First-person view of cyclist riding on gravel trail with autumn foliage and rural buildings in Veneto countryside - Veneto Gravel - Bassano del Grappa, Veneto, Italy",
         "credit": "YouTube / TRIX",
         "primary": true,
         "ai_relevance": 5,
@@ -700,7 +705,7 @@
         "type": "video-2",
         "file": "veneto-gravel-video-2.jpg",
         "url": "/race-photos/veneto-gravel/veneto-gravel-video-2.jpg",
-        "alt": "Cyclist's perspective on muddy gravel path through wooded area with wooden fence and autumn trees in Veneto - Veneto Gravel - Asolo, Veneto, Italy",
+        "alt": "Cyclist's perspective on muddy gravel path through wooded area with wooden fence and autumn trees in Veneto - Veneto Gravel - Bassano del Grappa, Veneto, Italy",
         "credit": "YouTube / TRIX",
         "primary": false,
         "ai_relevance": 5,
@@ -717,7 +722,7 @@
         "type": "video-3",
         "file": "veneto-gravel-video-3.jpg",
         "url": "/race-photos/veneto-gravel/veneto-gravel-video-3.jpg",
-        "alt": "Cyclist in Castelli jacket giving interview outdoors among bare trees during Veneto gravel race event - Asolo, Veneto, Italy",
+        "alt": "Cyclist in Castelli jacket giving interview outdoors among bare trees during Veneto Gravel event - Bassano del Grappa, Veneto, Italy",
         "credit": "YouTube / TRIX",
         "primary": false,
         "ai_relevance": 2,
@@ -734,10 +739,17 @@
         "type": "preview-gif",
         "file": "veneto-gravel-preview.gif",
         "url": "/race-photos/veneto-gravel/veneto-gravel-preview.gif",
-        "alt": "Course preview from Veneto Gravel race footage",
+        "alt": "Course preview from Veneto Gravel event footage",
         "credit": "YouTube / TRIX",
         "gif": true
       }
-    ]
+    ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": false,
+      "verified": "2026-11-06",
+      "source": "https://venetogravel.it/en/",
+      "status_note": "A non-competitive bikepacking event with no winners."
+    }
   }
 }

@@ -33,20 +33,20 @@ RACES = {
     "nordic-chase-gravel": {
         "name": "Nordic Chase Copenhagen to Oslo Gravel",
         "location": "Copenhagen, Denmark to Oslo, Norway",
-        "distance_mi": 497,
-        "elevation_ft": 23622,
+        "distance_mi": 493,  # 794 km, nordicchase.com/cph-osl (2027)
+        "elevation_ft": 24606,  # 7,500 m
         "score": 66,
         "date_window": "2027: June 17-23",
-        "official_page": "https://nordicchase.com/cph-osl-gravel",
+        "official_page": "https://nordicchase.com/cph-osl",
     },
     "nordic-chase-berlin-copenhagen-gravel": {
         "name": "Nordic Chase Berlin to Copenhagen Gravel",
         "location": "Berlin, Germany to Copenhagen, Denmark",
-        "distance_mi": 454,
-        "elevation_ft": 13123,
+        "distance_mi": 460,  # 740 km, nordicchase.com/ber-cph (2027)
+        "elevation_ft": 12270,  # 3,740 m
         "score": 66,
         "date_window": "2027: June 3-8",
-        "official_page": "https://nordicchase.com/ber-cph-gravel",
+        "official_page": "https://nordicchase.com/ber-cph",
     },
 }
 

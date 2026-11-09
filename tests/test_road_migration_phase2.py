@@ -81,54 +81,39 @@ class TestCatalogContract:
     # index now labels them correctly (2026-11-01). Whether they move to
     # Roadie Labs like the other 359 is Matti's call; until then this list may
     # only shrink.
+    # Matt 2026-11-06: 18 of these moved to Roadie Labs and three fabricated
+    # ones were tombstoned. Boulder Roubaix is a road race with no Roadie Labs
+    # page; Matt chose to keep it here labelled road. Matt 2026-11-07: Tour
+    # de Nebraska's 2027 route is 0-1% unpaved, so it joins it, labelled road.
     PENDING_ROAD_DISPOSITION = {
-        "balatonfondo",
+        "boulder-roubaix",
         "bluewater-gran-fondo",
         "dartmoor-legend-ultra",
         "epic-gran-canaria",
         "etape-du-dales",
-        "flandrien-ride",
         "gfny-nyc",
-        "gfny-philippines",
-        "gfny-san-juan",
-        "gran-fondo-argentina",
         "gran-fondo-badlands",
-        "gran-fondo-coimbra",
-        "gran-fondo-curacavi",
-        "gran-fondo-hainan",
         "gran-fondo-san-diego",
-        "granfondo-alpe-adria",
-        "granfondo-bratislava",
-        "granfondo-gf-do-porto",
-        "granfondo-leiria",
         "granfondo-nove-colli",
         "granfondo-yunnan",
         "haervejslobet",
         "hong-kong-cyclothon",
-        "jamtlandspilen",
         "la-vaujany",
         "london-edinburgh-london",
-        "majka-gran-fondo",
         "mt-fuji-hill-climb",
         "nordsjorittet",
-        "pekan-classics",
         "race-across-france",
         "race-across-germany",
         "race-across-spain",
         "race-around-austria",
-        "race-around-ireland",
         "ring-of-clare",
         "seorak-granfondo",
         "sierra-nevada-limite",
         "struggle-dales",
-        "tour-de-romandie-cyclosportive",
-        "tour-of-oman-sportive",
+        "tour-de-nebraska",
         "tour-of-the-peak",
         "tour-of-thekkady",
-        "uci-gran-fondo-hangzhou",
         "velothon-berlin",
-        "veloturk-gran-fondo-cesme",
-        "yangyang-gran-fondo",
     }
 
     def test_road_count_is_zero(self, race_index):
@@ -184,8 +169,12 @@ class TestCatalogContract:
             "race_data_total_profiles"
         ]
         departing_count = len(road_migration.redirected_entries(migration_map))
-        post_migration_additions = 13
-        assert len(race_index) == source_count - departing_count + post_migration_additions == 383
+        # The Nov. 6 race-profile decisions (Matt) retired 31 profiles: 18 road
+        # gran fondos to Roadie Labs, 12 fabricated or non-public events
+        # (tombstoned), and Border Wars into Homegrown Gravel Adventure. Gravel
+        # Suisse became The Majestics Gravel (net zero). Net -31.
+        post_migration_additions = 13 - 31
+        assert len(race_index) == source_count - departing_count + post_migration_additions == 352
 
     def test_archived_profiles_never_feed_generated_index(
         self, migration_map, race_index

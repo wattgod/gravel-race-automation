@@ -1,10 +1,10 @@
 {
   "slug": "berryman-epic",
   "race_name": "Berryman Epic",
-  "distance_mi": 65.0,
+  "distance_mi": 50.0,
   "demands": {
     "durability": 2,
-    "climbing": 5,
+    "climbing": 6,
     "vo2_power": 4,
     "threshold": 6,
     "technical": 8,
@@ -20,7 +20,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Berryman Epic's Missouri Berryman Trail, Mixed surfaces forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 65 miles."
+      "workout_context": "Berryman Epic's Missouri Berryman Trail, Mixed surfaces forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 50 miles."
     },
     {
       "category": "Race_Simulation",
@@ -34,13 +34,22 @@
     },
     {
       "category": "TT_Threshold",
-      "score": 71,
+      "score": 75,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "69ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "108ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Over_Under",
+      "score": 67,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Berryman Epic, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "Critical_Power",
@@ -52,23 +61,23 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Berryman Epic, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Over_Under",
-      "score": 60,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Berryman Epic, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
       "category": "G_Spot",
-      "score": 56,
+      "score": 58,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
         "Criss-Cross"
       ],
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Berryman Epic. Train it until it feels boring."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 50,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "5,400ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "Durability",
@@ -78,7 +87,7 @@
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "65 miles on Missouri Berryman Trail mixed surfaces burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "50 miles on Missouri Berryman Trail mixed surfaces burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "VO2max",
@@ -88,7 +97,7 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "When someone attacks on Missouri Berryman Trail mixed surfaces, you have 10 seconds to respond or you're off the back. This builds that response."
+      "workout_context": "5,400ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Anaerobic_Capacity",
@@ -106,31 +115,22 @@
         "High Cadence Drills",
         "Cadence Pyramids"
       ],
-      "workout_context": "Smooth pedaling at 65 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+      "workout_context": "Smooth pedaling at 50 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 42,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "Varied gradients on Missouri Berryman Trail mixed surfaces demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
-    },
-    {
-      "category": "Norwegian_Double",
+      "category": "SFR_Muscle_Force",
       "score": 33,
       "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
+        "SFR Low Cadence",
+        "Force Repeats"
       ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+      "workout_context": "Low-cadence force work for 5,400ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     }
   ],
   "race_overlay": {
-    "nutrition": "Target 40\u201360g carbs/hour for Berryman Epic\u2019s 65 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
-    "terrain": "Highly technical terrain at Berryman Epic demands practice on similar surfaces. Ride missouri berryman trail mixed surfaces at race-day cadence weekly. Expect: missouri berryman trail, mixed surfaces, ozark foothills. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 65 miles."
+    "nutrition": "Target 40\u201360g carbs/hour for Berryman Epic\u2019s 50 miles. Front-load calories in the first half. One bottle per hour minimum; adjust for conditions and sweat rate.",
+    "terrain": "Highly technical terrain at Berryman Epic demands practice on similar surfaces. Ride missouri berryman trail mixed surfaces at race-day cadence weekly. Expect: missouri berryman trail, mixed surfaces, ozark foothills. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 50 miles."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 65 miles of missouri berryman trail mixed surfaces in Potosi, Missouri.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 50 miles of missouri berryman trail mixed surfaces in Potosi, Missouri.",
+  "generated_at": "2026-11-06"
 }

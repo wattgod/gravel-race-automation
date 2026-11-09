@@ -72,12 +72,22 @@ DISCIPLINE_LABELS = {
     "gravel": "GRAVEL",
     "mtb": "MTB",
     "bikepacking": "BIKEPACKING",
+    "road": "ROAD",
 }
 
 DISCIPLINE_SPORTS = {
     "gravel": "Gravel Cycling",
     "mtb": "Mountain Biking",
     "bikepacking": "Bikepacking",
+    "road": "Road Cycling",
+}
+
+# Calendar-invite noun: "Road race", "MTB event"...
+DISCIPLINE_NOUNS = {
+    "gravel": "Gravel",
+    "mtb": "MTB",
+    "bikepacking": "Bikepacking",
+    "road": "Road",
 }
 
 DIM_LABELS = {
@@ -3115,7 +3125,8 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
         iso_end = calendar_end.strftime('%Y%m%d')
         race_title = rd['name']
         location_str = v.get('location', '')
-        event_type = "Gravel race" if rd.get('race_plan_eligible', True) else "Gravel event"
+        event_noun = DISCIPLINE_NOUNS.get(rd.get("discipline", "gravel"), "Gravel")
+        event_type = f"{event_noun} race" if rd.get('race_plan_eligible', True) else f"{event_noun} event"
         event_description = f"{event_type} — {race_title}. More info at gravelgodcycling.com"
         from urllib.parse import quote
         gcal_url = (
@@ -6270,7 +6281,7 @@ _PLANS_BY_SLUG_CACHE: Optional[dict] = None
 # so the page side aliases to it rather than the other way around.
 PLAN_SLUG_ALIASES = {
     "bighorn-gravel": "big-horn-gravel",  # dedup kept bighorn-gravel.json (a0b85bdf)
-    "gravel-suisse": "the-majestics",  # original TP suite predates the current page slug
+    "the-majestics-gravel": "the-majestics",  # original TP suite predates the current page slug (was gravel-suisse)
 }
 
 

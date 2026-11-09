@@ -5,10 +5,10 @@
     "display_name": "Nordic Chase Copenhagen to Oslo Gravel",
     "tagline": "A self-supported Nordic ultra from Copenhagen to Oslo, with the final 2027 grand-depart details still pending.",
     "vitals": {
-      "distance_km": 800,
-      "distance_mi": 497,
-      "elevation_m": 7200,
-      "elevation_ft": 23622,
+      "distance_km": 794,
+      "distance_mi": 493,
+      "elevation_m": 7500,
+      "elevation_ft": 24606,
       "course_status": "source_blocked",
       "course_status_label": "2027 ROUTE PENDING",
       "course_status_reason": "The organizer's 2027 calendar confirms the Copenhagen-to-Oslo gravel event window, but its route page still describes the 2026 course and schedule. The final 2027 GPX and exact grand-depart date have not been published.",
@@ -27,7 +27,7 @@
         "Self-supported ultra-distance riding"
       ],
       "field_size": "100-rider capacity in the latest detailed organizer edition",
-      "start_time": "Not yet published for 2027",
+      "start_time": "6:00 AM, Friday 18 June 2027 (Gravel Chase), Copenhagen",
       "start_format": "Self-supported mass grand depart; final 2027 schedule pending",
       "registration": "2027 registration opens September 8, 2026 at 19:00 CET; priority access opens 48 hours earlier",
       "entry_fee": "Not yet published for 2027; the 2026 standard entry was 2,250 DKK",
@@ -91,7 +91,7 @@
       },
       "length": {
         "score": 5,
-        "explanation": "The latest detailed route is 800 kilometres, firmly in multi-night ultra territory."
+        "explanation": "The 2027 route is 794 kilometres, firmly in multi-night ultra territory."
       },
       "technicality": {
         "score": 3,
@@ -99,7 +99,7 @@
       },
       "elevation": {
         "score": 5,
-        "explanation": "The latest detailed route carries 7,200 metres, or 23,622 feet, of climbing, above the published 10,000-foot threshold for the maximum score."
+        "explanation": "The 2027 route carries 7,500 metres, or 24,606 feet, of climbing, above the published 10,000-foot threshold for the maximum score."
       },
       "climate": {
         "score": 3,
@@ -144,7 +144,7 @@
     },
     "biased_opinion": {
       "verdict": "The Bigger, Harder Nordic Chase",
-      "summary": "This is the marquee gravel crossing in the Nordic Chase series: nearly 500 miles from Copenhagen to Oslo with no private support, a ferry between Denmark and Sweden, and enough forest road and overnight fatigue to turn small mistakes into expensive ones. The organizer has confirmed the 2027 event window, but not the exact grand depart or final GPX, so the latest 800-kilometre route is a planning reference rather than a promise.",
+      "summary": "This is the marquee gravel crossing in the Nordic Chase series: nearly 500 miles from Copenhagen to Oslo with no private support, a ferry between Denmark and Sweden, and enough forest road and overnight fatigue to turn small mistakes into expensive ones. The organizer has published the 2027 event window, an 18 June 6:00 gravel start, and a 794-kilometre route, but not a final GPX, so treat the route as a planning reference rather than a promise.",
       "strengths": [
         "A genuine three-country point-to-point ultra",
         "Organizer-verified route history and live GPS tracking",
@@ -157,11 +157,11 @@
         "Nordic travel and resupply costs add up quickly",
         "The 2027 final route and grand-depart schedule are not published yet"
       ],
-      "bottom_line": "Train for a self-supported 100-hour gravel expedition, but do not anchor a dated plan until Nordic Chase publishes the 2027 grand depart and final route package."
+      "bottom_line": "Train for a self-supported 100-hour gravel expedition, but do not anchor a dated plan until Nordic Chase publishes the final 2027 route package."
     },
     "course_description": {
       "character": "The latest organizer-verified route leaves Copenhagen, runs north through Denmark, crosses by ferry into Sweden, and uses gravel roads, forest trails, and quiet villages on the way to Oslo. It is an uninterrupted self-supported ultra, not a four-stage hotel race. The final 2027 GPX may change and is intentionally not represented here as fixed.",
-      "signature_challenge": "Keeping food, navigation, sleep, clothing, and bike reliability under control for roughly 800 kilometres without private support.",
+      "signature_challenge": "Keeping food, navigation, sleep, clothing, and bike reliability under control for 794 kilometres without private support.",
       "suffering_zones": [
         {
           "name": "The Danish opening",
@@ -198,7 +198,7 @@
       "travel_summary": "Fly or take rail to Copenhagen, finish in Oslo, then depart from Oslo or use the organizer's optional return-ferry arrangement if offered for 2027.",
       "food_options": "Self-supported resupply from businesses available to every rider.",
       "camping": "Wild-camping rules vary by country; verify the current race manual and local law",
-      "official_site": "https://nordicchase.com/cph-osl-gravel"
+      "official_site": "https://nordicchase.com/cph-osl"
     },
     "history": {
       "founded": 2025,
@@ -248,7 +248,7 @@
       "data_confidence": "official 2027 event window; latest organizer-verified course retained only as a guarded planning reference",
       "validation_status": "source_blocked_for_2027_plan",
       "next_edition_status": "waiting_for_final_2027_route",
-      "known_gap": "The route page still carries the 2026 800 km / 7,200 m course and schedule. Do not clone, date, or publish a 2027 TrainingPeaks plan until the organizer confirms the 2027 grand depart and final GPX.",
+      "known_gap": "The 2027 grand depart is confirmed: the Gravel Chase starts at 6:00 AM on Friday 18 June 2027 from Copenhagen. The route page carries the 794 km / 7,500 m course but no final GPX. Do not clone, date, or publish a 2027 TrainingPeaks plan until the organizer publishes the final GPX.",
       "sources": [
         "https://nordicchase.com/",
         "https://nordicchase.com/cph-osl-gravel",

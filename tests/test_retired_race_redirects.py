@@ -172,5 +172,7 @@ class TestServerCheck:
         assert "the-mid-south" not in rr.published_slugs()
         rule = rr.first_match(RULES, "race/the-mid-south/prep-kit/")
         assert rule is not None and rule.permanent
+        # One hop to the kit itself, not the race page via /race/the-mid-south/.
+        assert rule.target.replace("$1", "prep-kit/") == "/race/mid-south/prep-kit/"
         assert rr.server_orphans(
             "the-mid-south/prep-kit", rr.published_slugs(), RULES) == []

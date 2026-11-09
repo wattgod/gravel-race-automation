@@ -308,6 +308,11 @@
     },
     "citations": [
       {
+        "url": "https://dirtyreiver.co.uk/results/",
+        "category": "official",
+        "label": "Dirty Reiver: not a timed race"
+      },
+      {
         "url": "https://road.cc/content/news/186134-preview-dirty-reiver-200km-gravel-race-kielder-forest-weekend",
         "category": "media",
         "label": "road.cc: Dirty Reiver 2016 preview (first edition)",
@@ -402,11 +407,6 @@
         "url": "https://road.cc/content/tech-news/186623-what-bike-dirty-reiver-200km-race",
         "category": "other",
         "label": "Road"
-      },
-      {
-        "url": "https://singletrackworld.com/gritcx/2022/12/entered-the-dirty-reiver-dont-panic/",
-        "category": "other",
-        "label": "Singletrackworld"
       }
     ],
     "results": {
@@ -859,6 +859,13 @@
         "credit": "YouTube / Global Cycling Network",
         "gif": true
       }
-    ]
+    ],
+    "eligibility": {
+      "status": "active",
+      "race_plan_eligible": false,
+      "verified": "2026-11-06",
+      "source": "https://dirtyreiver.co.uk/results/",
+      "status_note": "Officially non-competitive: no podium or prizes; the organizer publishes finish times only."
+    }
   }
 }

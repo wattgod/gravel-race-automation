@@ -42,6 +42,17 @@ _POST_PURCHASE_TRIGGERS = {"plan_purchased", "athlete_review", "athlete_exit", "
 # stop it.
 _RECEIPT_TRIGGERS = {"athlete_review", "athlete_exit", "plan_debrief"}
 
+# One email per person per day. Leads who signed up through two surfaces
+# (prep kit + fueling calculator, say) sat in two or three sequences at once
+# and got two emails the same day; the Feb-Jun cadence (about 5 emails in a
+# lead's first two weeks) lost 9% of leads to unsubscribes against 3.5% at
+# about 3 (Nov 2026 read of gg_audit_log). A due step that would be the
+# person's second email inside the window waits until the window closes.
+# Exempt: the prep kit itself (they asked for it this minute), receipts for
+# a form they just filed, and plan onboarding.
+_DAILY_CAP_EXEMPT_TRIGGERS = _RECEIPT_TRIGGERS | {"prep_kit_delivery", "plan_purchased"}
+_DAILY_CAP_HOURS = 24
+
 # Fallback plan length (weeks) for completion-relative steps when the
 # enrollment's source_data carries no usable plan_weeks AND the step has no
 # static delay_days fallback of its own. 12 weeks matches our most common
@@ -355,6 +366,22 @@ async def _send_next_step(enrollment: dict) -> bool:
         _advance(enrollment, steps, step_index, step)
         return True
 
+    # One email per person per day (see _DAILY_CAP_HOURS).
+    if seq.get("trigger") not in _DAILY_CAP_EXEMPT_TRIGGERS:
+        last_sent = _last_send_within_cap(enrollment["contact_email"])
+        if last_sent:
+            resume_at = last_sent + timedelta(hours=_DAILY_CAP_HOURS)
+            db.update("gg_sequence_enrollments", {
+                "next_send_at": resume_at.isoformat(),
+            }, {"id": enrollment["id"]})
+            enrollment["next_send_at"] = resume_at.isoformat()
+            db.log_action(
+                "sequence_step_deferred", "enrollment", str(enrollment["id"]),
+                f"{enrollment['sequence_id']} step {step_index} ({step['template']}) "
+                f"held to {resume_at.isoformat()}: one email per day",
+            )
+            return True
+
     # Render subject with source_data substitutions
     subject = _render_subject(step["subject"], enrollment.get("source_data") or {})
 
@@ -410,6 +437,39 @@ async def _send_next_step(enrollment: dict) -> bool:
 
     _advance(enrollment, steps, step_index, step)
     return True
+
+
+def _last_send_within_cap(email: str) -> datetime | None:
+    """Latest email sent to this person inside the daily-cap window, or None.
+
+    Looks across every sequence the person is enrolled in, so two sequences
+    can't each send on the same day.
+    """
+    if not email:
+        return None
+    rows = db.select("gg_sequence_enrollments", columns="id",
+                     match={"contact_email": email})
+    ids = [r["id"] for r in rows if r.get("id")]
+    if not ids:
+        return None
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=_DAILY_CAP_HOURS)
+    result = (db._table("gg_sequence_sends").select("sent_at")
+              .in_("enrollment_id", ids).gte("sent_at", cutoff.isoformat())
+              .execute())
+    latest = None
+    for row in result.data or []:
+        raw = row.get("sent_at")
+        if not raw:
+            continue
+        try:
+            sent = datetime.fromisoformat(str(raw).replace("Z", "+00:00"))
+        except ValueError:
+            continue
+        if sent.tzinfo is None:
+            sent = sent.replace(tzinfo=timezone.utc)
+        if sent >= cutoff and (latest is None or sent > latest):
+            latest = sent
+    return latest
 
 
 def _advance(enrollment: dict, steps: list[dict], step_index: int, step: dict) -> None:

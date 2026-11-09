@@ -1356,3 +1356,48 @@ class TestReceiptSequencesAreOneEmail:
     def test_receipts_are_transactional(self):
         from mission_control.services.sequence_engine import _POST_PURCHASE_TRIGGERS, _RECEIPT_TRIGGERS
         assert _RECEIPT_TRIGGERS <= _POST_PURCHASE_TRIGGERS
+
+
+class TestDailyCap:
+    """One email per person per day across every sequence they're in."""
+
+    def _setup(self, fake_db, monkeypatch, hours_ago, trigger_seq="welcome_v1"):
+        import mission_control.services.sequence_engine as se
+        monkeypatch.setattr(se, "RESEND_API_KEY", "test-key")
+        monkeypatch.setattr(se, "_send_email_sync", lambda *a, **k: "resend-test-id")
+        earlier = make_enrollment(contact_email="two@example.com",
+                                  sequence_id="kit_delivery_v1", status="completed")
+        due = make_enrollment(contact_email="two@example.com", sequence_id=trigger_seq)
+        fake_db.store["gg_sequence_enrollments"].extend([earlier, due])
+        sent_at = datetime.now(timezone.utc) - timedelta(hours=hours_ago)
+        fake_db.store["gg_sequence_sends"].append({
+            "id": str(uuid.uuid4()), "enrollment_id": earlier["id"],
+            "template": "prep_kit_delivery", "sent_at": sent_at.isoformat(),
+        })
+        return se, due, sent_at
+
+    def test_second_email_same_day_waits(self, fake_db, monkeypatch):
+        import asyncio
+        se, due, sent_at = self._setup(fake_db, monkeypatch, hours_ago=2)
+        assert asyncio.run(se._send_next_step(due)) is True
+        assert len(fake_db.store["gg_sequence_sends"]) == 1  # nothing new sent
+        assert due["current_step"] == 0
+        held = datetime.fromisoformat(due["next_send_at"])
+        assert held == sent_at + timedelta(hours=24)
+        assert any(l.get("action") == "sequence_step_deferred"
+                   for l in fake_db.store["gg_audit_log"])
+
+    def test_sends_once_the_day_has_passed(self, fake_db, monkeypatch):
+        import asyncio
+        se, due, _ = self._setup(fake_db, monkeypatch, hours_ago=25)
+        assert asyncio.run(se._send_next_step(due)) is True
+        assert len(fake_db.store["gg_sequence_sends"]) == 2
+        assert due["current_step"] == 1
+
+    def test_prep_kit_delivery_is_never_held(self, fake_db, monkeypatch):
+        import asyncio
+        se, due, _ = self._setup(fake_db, monkeypatch, hours_ago=1,
+                                 trigger_seq="kit_delivery_v1")
+        due["source_data"] = {"race_name": "Unbound", "race_slug": "unbound-200"}
+        assert asyncio.run(se._send_next_step(due)) is True
+        assert len(fake_db.store["gg_sequence_sends"]) == 2

@@ -3049,7 +3049,7 @@ def build_pk_email_gate(rd: dict) -> str:
         <input type="email" id="gg-pk-gate-email" name="email" required placeholder="your@email.com" class="gg-pk-gate-input" aria-label="Email address">
         <button type="submit" class="gg-pk-gate-btn">OPEN THE KIT</button>
       </form>
-      <p class="gg-pk-gate-fine">No spam. Unsubscribe anytime.</p>
+      <p class="gg-pk-gate-fine">You get the kit now, plus up to three short notes from me about the race. Unsubscribe anytime.</p>
     </div>
   </div>'''
 

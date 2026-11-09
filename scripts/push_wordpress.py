@@ -3518,7 +3518,7 @@ def check_retired_races():
               f"(rc={listing.returncode}, {len(entries)} entries)")
         return False
     orphans = retired_races.server_orphans(
-        listing.stdout, retired_races.live_race_slugs(),
+        listing.stdout, retired_races.published_slugs(),
         retired_races.unconditional_rules(REDIRECT_BLOCK))
     if orphans:
         print(f"✗ {len(orphans)} live URLs belong to races no longer in race-data/ "

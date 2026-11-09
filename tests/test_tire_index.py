@@ -1,4 +1,4 @@
-"""/tire/ index: every race tire guide (by tier) and every tire review page."""
+"""/tire/ index: every race tire guide (by tier) and every tire page."""
 
 import json
 import sys
@@ -52,7 +52,7 @@ def test_tire_pages_build_writes_the_index(tmp_path, monkeypatch):
 
 def test_review_pages_breadcrumb_to_the_index():
     source = (ROOT / "wordpress" / "generate_tire_pages.py").read_text()
-    assert '<a href="/tire/">Tires</a> / Tire Review' in source
+    assert '<a href="/tire/">Tires</a> / {esc(tire["name"])}' in source
 
 
 def test_guessed_urls_redirect_and_deploy_ships_the_index():
@@ -92,3 +92,33 @@ def test_method_section_publishes_the_constants_the_scorer_uses():
 def test_tire_guides_link_the_method():
     import generate_tire_guide as g
     assert 'href="/tire/#method"' in g.build_tire_cards([], {"tech_rating": 2}, "X", {"applicable": False})
+
+
+def test_tire_pages_never_claim_a_review(tmp_path, monkeypatch):
+    """We cite lab data and pick races; we don't test tires, so no title,
+    heading or breadcrumb says Review. Community reviews are real and stay."""
+    import re
+    import generate_tire_pages as gtp
+
+    monkeypatch.setattr(sys, "argv", ["generate_tire_pages.py", "--output-dir", str(tmp_path)])
+    gtp.main()
+    tires = [json.loads(f.read_text()) for f in (ROOT / "data" / "tires").glob("*.json")]
+    db = {gtp.tire_slug(t): t for t in tires}
+    pages = [p for p in tmp_path.glob("*/index.html") if p.parent.name in db]
+    assert len(pages) == len(db)
+    for page in pages:
+        html = page.read_text()
+        title = re.search(r"<title>(.*?)</title>", html).group(1)
+        h1 = re.search(r"<h1>(.*?)</h1>", html).group(1)
+        crumb = re.search(r'class="tp-breadcrumb">(.*?)</div>', html, re.S).group(1)
+        for text in (title, h1, crumb):
+            assert "Review" not in text, (page.parent.name, text)
+        assert "Tire Reviews" not in html
+        lab = db[page.parent.name].get("lab_tested")
+        assert ("Rolling Resistance" in title) == bool(lab), title
+        assert ("No lab test yet." in html) != bool(lab), page.parent.name
+
+
+def test_vs_buttons_name_the_tire_only():
+    source = (ROOT / "wordpress" / "generate_tire_vs_pages.py").read_text()
+    assert "} Review</a>" not in source

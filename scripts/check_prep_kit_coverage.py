@@ -13,7 +13,9 @@ from pathlib import Path
 
 USER_AGENT = "GG-MissionControl/1.0"
 ROOT = Path(__file__).resolve().parent.parent
-LEGACY_GATED_PATHS = (("gravelgod", "https://gravelgodcycling.com", "the-mid-south"),)
+# Legacy prep-kit URLs outside race-index.json that must still serve a gated
+# kit: (brand, base_url, slug). the-mid-south was retired on 2026-11-09 (#554).
+LEGACY_GATED_PATHS: tuple[tuple[str, str, str], ...] = ()
 
 
 def load_indexes(include_road: bool = True) -> list[tuple[str, str, list[dict]]]:

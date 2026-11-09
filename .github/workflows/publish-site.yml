@@ -134,6 +134,11 @@ jobs:
         continue-on-error: true
         run: python3 scripts/generate_page_og.py
 
+      # Each post and article ships with its img/ folder, pushed before its
+      # page so a live page never points at a picture that isn't there yet.
+      # Until Nov 2026 only index.html went up, so the Character art v6.7
+      # redraw (new -v67 file names) published pages whose images 404'd.
+      # scp only adds and overwrites; it never deletes live files.
       - name: Push imported posts and articles
         run: |
           set -euo pipefail
@@ -141,11 +146,15 @@ jobs:
           R="$SSH_USER@$SSH_HOST:www/gravelgodcycling.com/public_html"
           O=(-q -i "$K" -P "$SSH_PORT" -o ControlMaster=auto -o ControlPath=/tmp/gg-scp-%C -o ControlPersist=120)
           for d in wordpress/posts/*/; do
-            scp "${O[@]}" "$d/index.html" "$R/$(basename "$d")/index.html"
+            s=$(basename "$d")
+            if [ -d "$d/img" ]; then scp "${O[@]}" -r "$d/img" "$R/$s/"; fi
+            scp "${O[@]}" "$d/index.html" "$R/$s/index.html"
           done
           scp "${O[@]}" wordpress/articles/index.html "$R/articles/index.html"
           for d in wordpress/articles/*/; do
-            scp "${O[@]}" "$d/index.html" "$R/articles/$(basename "$d")/index.html"
+            s=$(basename "$d")
+            if [ -d "$d/img" ]; then scp "${O[@]}" -r "$d/img" "$R/articles/$s/"; fi
+            scp "${O[@]}" "$d/index.html" "$R/articles/$s/index.html"
           done
           # Only the /tire/ index (the sitemap lists it; without it the
           # folder answers 403). The per-tire pages stay a laptop step.
@@ -188,6 +197,13 @@ jobs:
           case "$got" in "301 "*/training-plans/start/*) ;; *) fail=1 ;; esac
           if curl -sL "$base/products/training-plans/?$v" | grep -q '\$249'; then
             echo "::error::The live training plans page still shows \$249"
+            fail=1
+          fi
+          # Every image a post or article page uses must be live. Only a 404
+          # fails the run: a WAF challenge (403/202) on a runner IP proves
+          # nothing either way.
+          if ! python3 scripts/check_post_images_live.py; then
+            echo "::error::A post or article page points at an image that 404s"
             fail=1
           fi
           # A race deleted from race-data/ without a tombstone keeps its pages

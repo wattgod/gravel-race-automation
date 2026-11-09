@@ -35,19 +35,19 @@
       "challenges": [
         "Sun exposure",
         "Cold morning starts",
-        "Altitude (5,250-8,100ft) compounding heat/dehydration",
+        "Altitude (5,250-8,155ft) compounding heat/dehydration",
         "Dry conditions"
       ]
     },
     "terrain": {
       "primary": "Private-ranch high desert gravel",
-      "surface": "Private ranch roads across the High Lonesome Ranch, closed to the public every other day of the year — Book Cliffs canyon corridors, open rangeland, and high-desert mesas between 5,250 and 8,100 feet.",
+      "surface": "Private ranch roads across the High Lonesome Ranch, closed to the public every other day of the year — Book Cliffs canyon corridors, open rangeland, and high-desert mesas between 5,250 and 8,155 feet.",
       "technical_rating": 2,
       "features": [
         "Private ranch roads (closed to public rest of year)",
         "Book Cliffs canyon corridors",
         "Open rangeland",
-        "High-desert mesa climbing to 8,100ft",
+        "High-desert mesa climbing to 8,155ft",
         "10-mile neutral rollout to open the day",
         "Western Colorado setting"
       ]
@@ -138,7 +138,7 @@
         },
         {
           "label": "Mesa Grades",
-          "desc": "Repeating high-desert mesa climbs across open rangeland, climbing toward the course high point of 8,100 feet — all of it above 5,250 feet ASL.",
+          "desc": "Repeating high-desert mesa climbs across open rangeland, climbing toward the course high point of about 8,155 feet — all of it above 5,250 feet ASL.",
           "terrain_detail": "Mesa climbing, open rangeland",
           "named_section": "The Mesas"
         },
@@ -149,7 +149,7 @@
           "named_section": "Home Stretch"
         }
       ],
-      "signature_challenge": "Repeating Book Cliffs mesa climbs at altitude (5,250-8,100ft) on private ranch roads closed to the public the rest of the year.",
+      "signature_challenge": "Repeating Book Cliffs mesa climbs at altitude (5,250-8,155ft) on private ranch roads closed to the public the rest of the year.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
@@ -162,13 +162,13 @@
       "race_terrain": "Private-ranch Book Cliffs high desert gravel",
       "race_weather": "High desert variability, cold starts warming to sun",
       "race_challenges": [
-        "Altitude (5,250-8,100ft, whole course above 5,250ft)",
+        "Altitude (5,250-8,155ft, whole course above 5,250ft)",
         "Sun exposure",
         "Remote location",
         "Unfamiliar private-ranch roads (no scouting possible)"
       ],
       "altitude_section": true,
-      "altitude_feet": "5250-8100"
+      "altitude_feet": "5250-8155"
     },
     "non_negotiables": [
       {
@@ -349,6 +349,13 @@
         "url": "https://www.gravelcyclist.com/race-reports/ride-report-wild-horse-gravel-de-beque-colorado-lets-roll-with-roll-massif/",
         "category": "media",
         "label": "Gravel Cyclist"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/55845794",
+        "title": "Wild Horse 2027 Mustang",
+        "category": "official",
+        "label": "Wild Horse 2027 Mustang route (RideWithGPS); high point 2,485.7 m, about 8,155 ft",
+        "accessed": "2026-11-09"
       }
     ],
     "tire_recommendations": {

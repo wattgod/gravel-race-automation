@@ -8,7 +8,7 @@
       "date_specific": "2027: June 12 (Saturday, CONFIRMED — nordsjorittet.no)",
       "distance_mi": 56,
       "elevation_ft": 4900,
-      "discipline": "road",
+      "discipline": "gravel",
       "month": "June",
       "prestige": 3,
       "overall_score": 71,
@@ -37,7 +37,7 @@
       "editorial_tier_label": "TIER 2",
       "display_tier": 2,
       "display_tier_label": "TIER 2",
-      "discipline": "road"
+      "discipline": "gravel"
     },
     "biased_opinion_ratings": {
       "adventure": {
@@ -205,8 +205,10 @@
       {
         "url": "https://www.nordsjorittet.no",
         "category": "official",
-        "label": "Nordsjørittet — 2027 date",
-        "accessed": "2026-11-06"
+        "label": "Nordsjørittet — 2027 date and bike types",
+        "accessed": "2026-11-09",
+        "title": "Nordsjørittet",
+        "snippet": "Nordsjørittet kan sykles med cyclocross/gravel, MTB, hybrid og EL-sykkel."
       },
       {
         "url": "https://scanmagazine.co.uk/nordsjorittet-2/",
@@ -277,6 +279,102 @@
         }
       },
       "latest_year": "2026"
+    },
+    "tire_recommendations": {
+      "generated_at": "2026-11-09",
+      "primary": [
+        {
+          "rank": 1,
+          "tire_id": "continental-terra-competition-race-rapid",
+          "name": "Continental Terra Competition Race Rapid",
+          "brand": "Continental",
+          "recommended_width_mm": 45,
+          "msrp_usd": null,
+          "weight_grams": 482,
+          "crr_watts": 15.8,
+          "tested_width_mm": 45,
+          "course_cost_watts": 15.8,
+          "why": "Rolls 15.8 W at 45mm on BRR's drum."
+        },
+        {
+          "rank": 2,
+          "tire_id": "hutchinson-caracal-race",
+          "name": "Hutchinson Caracal Race",
+          "brand": "Hutchinson",
+          "recommended_width_mm": 45,
+          "msrp_usd": null,
+          "weight_grams": 566,
+          "crr_watts": 16.3,
+          "tested_width_mm": 45,
+          "course_cost_watts": 17.26,
+          "why": "Rolls 16.3 W at 45mm on BRR's drum."
+        },
+        {
+          "rank": 3,
+          "tire_id": "hutchinson-touareg",
+          "name": "Hutchinson Touareg Race",
+          "brand": "Hutchinson",
+          "recommended_width_mm": 45,
+          "msrp_usd": 73.9,
+          "weight_grams": 471,
+          "crr_watts": 16.0,
+          "tested_width_mm": 40,
+          "course_cost_watts": 19.16,
+          "why": "BRR tested the 40mm: 16 W."
+        }
+      ],
+      "front_rear_split": {
+        "applicable": true,
+        "front": {
+          "tire_id": "continental-terra-competition-race-rapid",
+          "name": "Continental Terra Competition Race Rapid",
+          "width_mm": 45
+        },
+        "rear": {
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
+          "width_mm": 45
+        },
+        "rationale": "The rear carries 53% of the weight and does the traction work on 4,900 ft of climbing, so it gets the 1.9mm center knobs; the front rolls the faster file tread."
+      },
+      "race_surface_profile": "mixed",
+      "recommended_width_mm": 45,
+      "pressure_psi": {
+        "gravel_category": 2,
+        "bike_and_kit_lb": 25,
+        "by_rider_lb": {
+          "130": {
+            "40mm": "36/38",
+            "45mm": "30/31",
+            "50mm": "24/25"
+          },
+          "150": {
+            "40mm": "37/39",
+            "45mm": "30/32",
+            "50mm": "25/26"
+          },
+          "170": {
+            "40mm": "38/39",
+            "45mm": "31/32",
+            "50mm": "26/27"
+          },
+          "190": {
+            "40mm": "39/40",
+            "45mm": "32/33",
+            "50mm": "26/27"
+          },
+          "210": {
+            "40mm": "39/41",
+            "45mm": "32/34",
+            "50mm": "27/28"
+          },
+          "230": {
+            "40mm": "40/42",
+            "45mm": "33/34",
+            "50mm": "27/28"
+          }
+        }
+      }
     }
   }
 }

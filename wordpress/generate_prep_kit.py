@@ -73,10 +73,10 @@ WEATHER_DIR = Path(__file__).parent.parent / "data" / "weather"
 QUOTES_DIR = Path(__file__).parent.parent / "data" / "quotes"
 SEASON_YEAR = str(season_year())
 
-# Public legacy URL retained by active email captures. The canonical profile
-# slug is mid-south, but /the-mid-south/prep-kit/ has already been handed to
-# leads and must keep generating until the redirect/deploy is retired.
-PREP_KIT_SLUG_ALIASES = {"the-mid-south": "mid-south"}
+# Legacy prep kit slugs -> canonical race slug, built as their own pages.
+# Empty: /race/the-mid-south/prep-kit/ (sent to leads) now 301s to
+# /race/mid-south/prep-kit/ (scripts/push_wordpress.py).
+PREP_KIT_SLUG_ALIASES: dict[str, str] = {}
 
 # Guide section IDs we extract content from
 GUIDE_SECTION_IDS = [

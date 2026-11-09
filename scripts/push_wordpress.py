@@ -3129,10 +3129,14 @@ RewriteRule ^race/[a-z0-9-]+-vs-gravel-suisse/?$ /race/the-majestics-gravel/ [R=
 RewriteRule ^race/gravel-suisse/?$ /race/the-majestics-gravel/ [R=301,L]
 RewriteRule ^race/gravel-suisse\\.md$ /race/the-majestics-gravel.md [R=301,L]
 RewriteRule ^race/gravel-suisse/(.*)$ /race/the-majestics-gravel/$1 [R=301,L]
-# Its photos still sit in /race-photos/gravel-suisse/ on the server; serve them
-# at the new path until they are copied there under the new names.
+# Its photos live in /race-photos/gravel-suisse/ on the server (photo uploads
+# are a laptop step, not part of Publish Site), so serve them at the new
+# path from there. A real file at the new path wins.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^race-photos/the-majestics-gravel/the-majestics-gravel-([a-z0-9.-]+)$ /race-photos/gravel-suisse/gravel-suisse-$1 [L]
+# the-mid-south was a legacy prep kit slug for mid-south (tombstoned #554):
+# its sub-pages keep their path, so a lead's prep kit link lands on the kit.
+RewriteRule ^race/the-mid-south/(.+)$ /race/mid-south/$1 [R=301,L]
 # Border Wars was renamed Homegrown Gravel Adventure for 2025 (data/duplicate-merges.json).
 RewriteRule ^race/border-wars-vs-[a-z0-9-]+/?$ /race/homegrown-gravel-adventure/ [R=301,L]
 RewriteRule ^race/[a-z0-9-]+-vs-border-wars/?$ /race/homegrown-gravel-adventure/ [R=301,L]

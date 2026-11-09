@@ -13,7 +13,7 @@ from pathlib import Path
 
 USER_AGENT = "GG-MissionControl/1.0"
 ROOT = Path(__file__).resolve().parent.parent
-LEGACY_GATED_PATHS = (("gravelgod", "https://gravelgodcycling.com", "the-mid-south"),)
+LEGACY_GATED_PATHS: tuple[tuple[str, str, str], ...] = ()  # the-mid-south now 301s to mid-south
 
 
 def load_indexes(include_road: bool = True) -> list[tuple[str, str, list[dict]]]:

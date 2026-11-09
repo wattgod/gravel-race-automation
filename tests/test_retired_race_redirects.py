@@ -165,10 +165,11 @@ class TestServerCheck:
         assert rr.server_orphans(listing, LIVE, RULES) == [
             "/race/made-up-race.md", "/race/made-up-race/training-plan/"]
 
-    def test_legacy_prep_kit_alias_is_not_an_orphan(self):
-        # generate_prep_kit.py keeps building /race/the-mid-south/prep-kit/
-        # because leads were sent that link. Publish Site flagged it on
-        # 2026-11-07 when the check counted only race-data/ as published.
+    def test_legacy_prep_kit_link_lands_on_the_kit_in_one_hop(self):
+        # Leads were sent /race/the-mid-south/prep-kit/. The slug is
+        # tombstoned (#554), so the link must reach mid-south's kit directly,
+        # not the race page via /race/the-mid-south/.
         assert "the-mid-south" not in LIVE
-        assert rr.server_orphans(
-            "the-mid-south/prep-kit", rr.published_slugs(), RULES) == []
+        rule = rr.first_match(RULES, "race/the-mid-south/prep-kit/")
+        assert rule is not None and rule.permanent
+        assert rule.target.replace("$1", "prep-kit/") == "/race/mid-south/prep-kit/"

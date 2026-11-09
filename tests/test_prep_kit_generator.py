@@ -1063,7 +1063,7 @@ class TestClassifyClimateHeat:
             result = classify_climate_heat(climate, score)
             assert result in ("cool", "mild", "warm", "hot", "extreme"), f"{jf.stem}: {result}"
             count += 1
-        assert count >= 328
+        assert count >= 327
 
 
 # ── Sweat Rate ─────────────────────────────────────────────

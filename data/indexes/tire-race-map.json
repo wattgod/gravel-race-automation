@@ -1,8 +1,8 @@
 {
   "continental-terra-competition-race-rapid": {
-    "total_appearances": 302,
-    "primary_picks": 152,
-    "front_rear_picks": 150,
+    "total_appearances": 304,
+    "primary_picks": 153,
+    "front_rear_picks": 151,
     "avg_rank": 1.0,
     "most_common_width": 45,
     "races": [
@@ -1527,6 +1527,22 @@
         "surface": "mixed"
       },
       {
+        "slug": "nordsjorittet",
+        "name": "Nordsjørittet",
+        "rank": 1,
+        "width_mm": 45,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
+        "slug": "nordsjorittet",
+        "name": "Nordsjørittet",
+        "rank": 0,
+        "width_mm": 45,
+        "position": "front",
+        "surface": "mixed"
+      },
+      {
         "slug": "old-fashioned-gravel",
         "name": "Old Fashioned Gravel",
         "rank": 1,
@@ -2425,8 +2441,8 @@
     ]
   },
   "hutchinson-caracal-race": {
-    "total_appearances": 331,
-    "primary_picks": 237,
+    "total_appearances": 332,
+    "primary_picks": 238,
     "front_rear_picks": 94,
     "avg_rank": 1.6,
     "most_common_width": 50,
@@ -4024,6 +4040,14 @@
         "surface": "mixed"
       },
       {
+        "slug": "nordsjorittet",
+        "name": "Nordsjørittet",
+        "rank": 2,
+        "width_mm": 45,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
         "slug": "north-wales-gravel-x",
         "name": "North Wales Gravel X",
         "rank": 1,
@@ -5082,8 +5106,8 @@
     ]
   },
   "hutchinson-touareg": {
-    "total_appearances": 104,
-    "primary_picks": 104,
+    "total_appearances": 105,
+    "primary_picks": 105,
     "front_rear_picks": 0,
     "avg_rank": 3.0,
     "most_common_width": 45,
@@ -5641,6 +5665,14 @@
         "surface": "mixed"
       },
       {
+        "slug": "nordsjorittet",
+        "name": "Nordsjørittet",
+        "rank": 3,
+        "width_mm": 45,
+        "position": "primary",
+        "surface": "mixed"
+      },
+      {
         "slug": "omg-oxford-ms-gravel",
         "name": "OMG (Oxford MS Gravel)",
         "rank": 3,
@@ -5923,9 +5955,9 @@
     ]
   },
   "schwalbe-g-one-r-pro": {
-    "total_appearances": 333,
+    "total_appearances": 334,
     "primary_picks": 139,
-    "front_rear_picks": 194,
+    "front_rear_picks": 195,
     "avg_rank": 1.7,
     "most_common_width": 50,
     "races": [
@@ -7574,6 +7606,14 @@
         "name": "Nordic Chase Copenhagen to Oslo Gravel",
         "rank": 0,
         "width_mm": 50,
+        "position": "rear",
+        "surface": "mixed"
+      },
+      {
+        "slug": "nordsjorittet",
+        "name": "Nordsjørittet",
+        "rank": 0,
+        "width_mm": 45,
         "position": "rear",
         "surface": "mixed"
       },

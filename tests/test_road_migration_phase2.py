@@ -85,35 +85,12 @@ class TestCatalogContract:
     # ones were tombstoned. Boulder Roubaix is a road race with no Roadie Labs
     # page; Matt chose to keep it here labelled road. Matt 2026-11-07: Tour
     # de Nebraska's 2027 route is 0-1% unpaved, so it joins it, labelled road.
+    # Matt 2026-11-09: the other 25 moved to Roadie Labs and Nordsjørittet
+    # stays here relabelled gravel (the organizer lists cyclocross/gravel
+    # bikes). Only the two road races Matt kept remain.
     PENDING_ROAD_DISPOSITION = {
         "boulder-roubaix",
-        "bluewater-gran-fondo",
-        "dartmoor-legend-ultra",
-        "epic-gran-canaria",
-        "etape-du-dales",
-        "gfny-nyc",
-        "gran-fondo-badlands",
-        "gran-fondo-san-diego",
-        "granfondo-nove-colli",
-        "granfondo-yunnan",
-        "haervejslobet",
-        "hong-kong-cyclothon",
-        "la-vaujany",
-        "london-edinburgh-london",
-        "mt-fuji-hill-climb",
-        "nordsjorittet",
-        "race-across-france",
-        "race-across-germany",
-        "race-across-spain",
-        "race-around-austria",
-        "ring-of-clare",
-        "seorak-granfondo",
-        "sierra-nevada-limite",
-        "struggle-dales",
         "tour-de-nebraska",
-        "tour-of-the-peak",
-        "tour-of-thekkady",
-        "velothon-berlin",
     }
 
     def test_road_count_is_zero(self, race_index):
@@ -173,8 +150,10 @@ class TestCatalogContract:
         # gran fondos to Roadie Labs, 12 fabricated or non-public events
         # (tombstoned), and Border Wars into Homegrown Gravel Adventure. Gravel
         # Suisse became The Majestics Gravel (net zero). Net -31.
-        post_migration_additions = 13 - 31
-        assert len(race_index) == source_count - departing_count + post_migration_additions == 352
+        # The Nov. 9 follow-up moved the last 25 road races to Roadie Labs
+        # (net -25).
+        post_migration_additions = 13 - 31 - 25
+        assert len(race_index) == source_count - departing_count + post_migration_additions == 327
 
     def test_archived_profiles_never_feed_generated_index(
         self, migration_map, race_index
@@ -246,7 +225,21 @@ class TestRedirectGeneration:
         assert sum(road_migration.ROADIE_LABS_HUB in rule for rule in rules) == 10
         assert sum(
             "https://roadielabs.com/race/" in rule for rule in rules
-        ) == 716
+        ) == 714
+
+    def test_the_majestics_stays_on_gravel_god(self, migration_map):
+        rules = road_migration.generate_redirect_rules(
+            migration_map, RACE_DATA_DIR
+        )
+        assert (
+            "RewriteRule ^race/the-majestics/?$ /race/the-majestics-gravel/ [R=301,L]"
+            in rules
+        )
+        assert (
+            "RewriteRule ^race/the-majestics\\.md$ /race/the-majestics-gravel.md [R=301,L]"
+            in rules
+        )
+        assert (RACE_DATA_DIR / "the-majestics-gravel.json").exists()
 
     def test_no_remaining_catalog_collision(self, migration_map):
         road_migration.assert_no_remaining_slug_collisions(

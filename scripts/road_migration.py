@@ -50,6 +50,17 @@ ROADIE_LABS_PAGE_RENAMES = {
         "https://roadielabs.com/race/letape-trondheim/",
 }
 
+# The approved map sent these GG slugs to Roadie Labs, but their race stayed
+# on Gravel God under a new slug. The Majestics is the gravel race tracked as
+# the-majestics-gravel (Matt 2026-11-06); the map pointed it at Roadie Labs'
+# Gran Fondo Suisse road page. Keep the approved map untouched.
+GG_SUCCESSOR_TARGETS = {
+    "the-majestics": (
+        "/race/the-majestics-gravel/",
+        "/race/the-majestics-gravel.md",
+    ),
+}
+
 REDIRECT_SECTION_BEGIN = "# BEGIN GENERATED ROAD MIGRATION REDIRECTS"
 REDIRECT_SECTION_END = "# END GENERATED ROAD MIGRATION REDIRECTS"
 
@@ -150,6 +161,8 @@ def generate_server_deletion_paths(migration_map: dict) -> list[str]:
 
 
 def _redirect_targets(entry: dict) -> tuple[str, str]:
+    if entry["gg"]["slug"] in GG_SUCCESSOR_TARGETS:
+        return GG_SUCCESSOR_TARGETS[entry["gg"]["slug"]]
     action = entry["action"]
     if action == "hub_redirect":
         return ROADIE_LABS_HUB, ROADIE_LABS_HUB

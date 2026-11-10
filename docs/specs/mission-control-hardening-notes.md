@@ -49,6 +49,8 @@ fail before any change and are not chased:
    longer wait.
 6. **Change 10 — `pickem-intake` left completely unchanged** (the spec allowed a clearer
    log line; not needed), so it needs no deploy.
+7. **Change 4 — a setting that is only spaces counts as missing** for `/health`. Slightly
+   stricter than the spec's "set and non-empty"; a key of spaces cannot work anyway.
 
 ## Notes
 
@@ -76,6 +78,18 @@ fail before any change and are not chased:
   see each other, which would risk double sends.
 - The job health state lives in `mission_control/app.py`, not `scheduler.py`, because
   the test suite replaces `mission_control.scheduler` with a stub.
+- What counts as a bad tick, checked against `process_due_sends`: suppressed contacts,
+  customer suppression, a finished sequence, a stale-race skip and the one-email-a-day
+  deferral all return "sent" and move the row on. Only an unknown sequence id, an unknown
+  variant, a missing `RESEND_API_KEY` or a Resend error count as not sent, and the first
+  two leave the row due. So if production holds active enrollments for a sequence or
+  variant that no longer exists in code, every quiet tick (no other sends) is "bad" and
+  `/health/jobs` goes red with no new fault. Kept the spec's rule (`processed == 0 or
+  sent > 0`); could not check the database by rule. If the heartbeat goes red on a quiet
+  day with `last_run.errors` equal to `last_run.processed`, look for such rows first.
+- Already true before this change: uvicorn's own request log (access log) prints request
+  paths with their query string, so `/unsubscribe?email=…&token=…` clicks already put
+  customer emails in Railway logs. Not changed here.
 - Logging: turning the root logger on at INFO also brings the app's own INFO lines to
   Railway logs. Two of them include a customer email address
   (`routers/webhooks.py` "season review updated in place for %s" and
@@ -193,6 +207,9 @@ change 4 note about a possible false heartbeat alarm after back-to-back deploys.
 
 ## Owner steps after review
 
+0. Confirm `athlete-profiles` is the only Railway service that builds from this repo.
+   `railway.toml` is at the repo root (no other `railway.toml` exists), so any other
+   service built from it would pick up the new health check and watch patterns.
 1. Before merging, check by name only (not value) that the Railway service
    `athlete-profiles` has all five settings `/health` now requires: `SUPABASE_URL`,
    `SUPABASE_SERVICE_KEY`, `RESEND_API_KEY`, `WEBHOOK_SECRET`, `MISSION_CONTROL_SECRET`.
@@ -215,7 +232,15 @@ change 4 note about a possible false heartbeat alarm after back-to-back deploys.
    scheduled-run failures to whoever last edited the schedule. If that was a bot or agent
    account, push a trivial edit of `.github/workflows/mission-control-heartbeat.yml`
    yourself, or watch the repo's Actions notifications.
-6. Optional: the owner may want to drop the two app log lines that print a customer
+6. Expect an occasional false heartbeat alarm on busy data days: after two restarts within
+   2 hours `/health/jobs` reads red for up to 15 minutes, and `race-data/**` pushes still
+   redeploy the service.
+7. The automatic test run (`.github/workflows/test.yml`) lists Mission Control test files
+   by name, and none of the files this change adds or edits for the hardening
+   (`test_health`, `test_scheduler_daily`, `test_webhooks`, `test_session_auth`,
+   `test_admin_auth`, `test_sequence_engine`, `test_win_back`) is on that list. Consider
+   adding them; not changed here.
+8. Optional: the owner may want to drop the two app log lines that print a customer
    email at INFO (see the change 4 note).
 
 ## Final test run
@@ -235,7 +260,16 @@ After all ten changes (local Python 3.14.3, no Playwright browser):
   `test_race_debrief_survey`, `test_trust_checks`) → 525 passed; and
   `test_email_capture_forms.py`, `test_fueling_lead_intake_node.py` → passed.
 
-Not verified here: the two browser chain tests (`TestTheWholeChain` in
+- Whole repo suite as CI starts it, `pytest tests/ -q` → 14256 passed, 291 skipped,
+  15 failed, 54 errors. Every failure and error is in a browser test file
+  (`test_mobile_playwright`, `test_race_debrief_playwright`, `test_exit_survey_playwright`,
+  `test_guide_gate_playwright`) and fails with "BrowserType.launch: Executable doesn't
+  exist" (no Chromium installed here). No baseline of this suite was taken before the
+  change, but none of those files touches what this branch changed except through the
+  lead worker, whose own tests pass.
+
+Not verified here: tests ran on Python 3.14, CI uses 3.11; the worker's 8-second timeout
+was tested in Node only, not in Cloudflare's runtime; the two browser chain tests (`TestTheWholeChain` in
 `test_athlete_exit.py` and `test_plan_debrief.py`; they post through the worker to
 `/webhooks/subscriber`, which this change keeps) — CI installs Chromium and runs them.
 The Docker build, the Railway health check and watch patterns, and the GitHub heartbeat

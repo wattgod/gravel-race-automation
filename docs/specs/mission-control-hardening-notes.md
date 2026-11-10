@@ -207,41 +207,49 @@ change 4 note about a possible false heartbeat alarm after back-to-back deploys.
 
 ## Owner steps after review
 
-0. Confirm `athlete-profiles` is the only Railway service that builds from this repo.
-   `railway.toml` is at the repo root (no other `railway.toml` exists), so any other
-   service built from it would pick up the new health check and watch patterns.
-1. Before merging, check by name only (not value) that the Railway service
-   `athlete-profiles` has all five settings `/health` now requires: `SUPABASE_URL`,
-   `SUPABASE_SERVICE_KEY`, `RESEND_API_KEY`, `WEBHOOK_SECRET`, `MISSION_CONTROL_SECRET`.
-   If one is missing, the new deploy health check refuses every deploy (the old one stays
-   live).
+Checked by the session that dispatched this work (2026-11-10):
+- `athlete-profiles` is the only Railway service built from this repo; `stripe-webhook`
+  builds from `athlete-custom-training-plan-pipeline` (`railway.json` there).
+- All five required settings, plus `RESEND_WEBHOOK_SECRET`, are set on `athlete-profiles`
+  (checked by name only).
+- All 17 active enrollments are on sequences and variants that still exist
+  (`nurture_v1`/C, `welcome_v1`/A), so `/health/jobs` will not sit red on old sequences.
+- Pruned areas: no table rows written in 90 days (0 pipeline runs ever, 0 touchpoints,
+  0 NPS, no new athletes). Railway keeps only ~1 day of request logs, so a 30-day log
+  check for outside callers was not possible.
+
+1. **Merge before 14:00 or after 21:30 UTC.** The old server never wrote "done today"
+   markers, so a merge inside that window can re-run a daily job the old server already
+   ran (no duplicate emails, but one extra run's worth of countdown sign-ups and
+   race-watch change emails).
 2. Merge the PR. Railway deploys; the new `/health` check guards the switch-over.
 3. Confirm `https://athlete-profiles-production.up.railway.app/health` and `/health/jobs`
    return 200. (`/health/jobs` is 200 straight away only on a first start in 2 hours;
    otherwise it turns 200 after the first 15-minute run.)
-4. Deploy the lead worker by hand (not run here):
+4. Deploy the lead worker by hand:
    ```bash
    cd workers/fueling-lead-intake && npx wrangler deploy
    ```
-   Then run `bash tests/test_worker_intake.sh` (Rule #34 in `docs/LESSONS_LEARNED.md`).
-   `wrangler.toml` also has an `[env.production]` block; deploy the same way the live
-   worker was last deployed (plain `wrangler deploy` unless it was `--env production`).
-   `pickem-intake` is unchanged: no deploy.
+   Then run `bash tests/test_worker_intake.sh`. `wrangler.toml` also has an
+   `[env.production]` block; deploy the same way the live worker was last deployed
+   (plain `wrangler deploy` unless it was `--env production`). `pickem-intake` is
+   unchanged: no deploy.
 5. Run the heartbeat workflow once by hand (Actions → "Mission Control heartbeat" → Run
-   workflow) and check it passes. To confirm the failure email reaches you: GitHub sends
-   scheduled-run failures to whoever last edited the schedule. If that was a bot or agent
-   account, push a trivial edit of `.github/workflows/mission-control-heartbeat.yml`
-   yourself, or watch the repo's Actions notifications.
+   workflow) and check it passes. GitHub sends scheduled-run failures to whoever last
+   edited the schedule; if that was a bot or agent account, push a trivial edit of
+   `.github/workflows/mission-control-heartbeat.yml` yourself.
 6. Expect an occasional false heartbeat alarm on busy data days: after two restarts within
    2 hours `/health/jobs` reads red for up to 15 minutes, and `race-data/**` pushes still
    redeploy the service.
-7. The automatic test run (`.github/workflows/test.yml`) lists Mission Control test files
-   by name, and none of the files this change adds or edits for the hardening
-   (`test_health`, `test_scheduler_daily`, `test_webhooks`, `test_session_auth`,
-   `test_admin_auth`, `test_sequence_engine`, `test_win_back`) is on that list. Consider
-   adding them; not changed here.
-8. Optional: the owner may want to drop the two app log lines that print a customer
-   email at INFO (see the change 4 note).
+7. **Never delete or change `UNSUBSCRIBE_SECRET`** on Railway: since the rotation it is
+   the only key that signed sent links. See the comment in `mission_control/config.py`.
+
+Folded in after the final review: questionnaire sources get 28 s (not 8 s) before the
+worker gives up; the alert email call has an 8 s limit; the remaining "unsubscribed
+contact" log line no longer prints the email; `/health` logs failed check names instead
+of showing them publicly; the webhook key check uses a constant-time compare. The new
+tests now run in CI. Not done (later): put the last successful daily-job date on
+`/health/jobs`, so a day of skipped daily jobs is also caught.
 
 ## Final test run
 

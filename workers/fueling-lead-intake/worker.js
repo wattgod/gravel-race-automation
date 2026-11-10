@@ -942,7 +942,13 @@ function sanitizeAnswers(raw) {
 const STORAGE_REQUIRED = ['goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief'];
 
 // Mission Control normally answers in well under a second.
+// Ordinary leads: fail fast so the lost-lead alert fires. Questionnaires:
+// Mission Control saves the answers, then makes up to two Resend calls
+// (30 s timeout each) before answering — cutting it off early would tell an
+// athlete their saved answers failed and invite a duplicate resubmit.
 const MC_TIMEOUT_MS = 8000;
+const MC_STORAGE_TIMEOUT_MS = 28000;
+const RESEND_TIMEOUT_MS = 8000;
 
 async function notifyMissionControl(env, data, source) {
   try {
@@ -978,7 +984,7 @@ async function notifyMissionControl(env, data, source) {
         'Authorization': `Bearer ${env.MC_WEBHOOK_SECRET || ''}`,
       },
       body: JSON.stringify(payload),
-      signal: AbortSignal.timeout(MC_TIMEOUT_MS),
+      signal: AbortSignal.timeout(STORAGE_REQUIRED.includes(source) ? MC_STORAGE_TIMEOUT_MS : MC_TIMEOUT_MS),
     });
 
     console.log('Mission Control notified:', data.email, source, resp.status);
@@ -1074,6 +1080,7 @@ async function sendResendEmail(env, message, logName) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(message),
+      signal: AbortSignal.timeout(RESEND_TIMEOUT_MS),
     });
     const detail = await resp.text();
     if (resp.ok) {

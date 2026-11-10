@@ -231,7 +231,10 @@ def create_app() -> FastAPI:
         # Railway's deploy health check: 503 keeps the previous deploy live.
         problems = health_problems()
         if problems:
-            return JSONResponse({"status": "unhealthy", "failed": problems}, status_code=503)
+            # Names go to the log, not the public body: they would tell anyone
+            # which protection is off.
+            logger.error("health check failed: %s", "; ".join(problems))
+            return JSONResponse({"status": "unhealthy"}, status_code=503)
         return {"status": "ok"}
 
     @app.get("/health/jobs", include_in_schema=False)

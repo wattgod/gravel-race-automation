@@ -1,5 +1,6 @@
 """Webhooks — receives intake from Cloudflare Worker + automation triggers."""
 
+import hmac
 import json
 import logging
 import re
@@ -127,7 +128,9 @@ def _truncate(value: str, max_len: int) -> str:
 
 
 def _require_webhook_secret(authorization: str) -> None:
-    if not WEBHOOK_SECRET or authorization != f"Bearer {WEBHOOK_SECRET}":
+    if not WEBHOOK_SECRET or not hmac.compare_digest(
+        authorization.encode(), f"Bearer {WEBHOOK_SECRET}".encode()
+    ):
         raise HTTPException(status_code=401, detail="Invalid webhook secret")
 
 

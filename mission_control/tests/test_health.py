@@ -45,16 +45,21 @@ class TestHealth:
         monkeypatch.setattr(app_mod, "_scheduler_running", lambda: False)
         resp = client.get("/health")
         assert resp.status_code == 503
-        assert "scheduler not running" in resp.json()["failed"]
+        assert resp.json() == {"status": "unhealthy"}
+        assert "scheduler not running" in app_mod.health_problems()
 
     @pytest.mark.parametrize("name", sorted(ALL_SETTINGS))
-    def test_503_names_the_missing_setting_never_values(self, client, healthy, monkeypatch, name):
+    def test_503_logs_the_missing_setting_but_never_shows_it(self, client, healthy, monkeypatch, name, caplog):
         monkeypatch.setenv(name, "")
-        resp = client.get("/health")
+        with caplog.at_level("ERROR"):
+            resp = client.get("/health")
         assert resp.status_code == 503
-        assert resp.json()["failed"] == [f"missing setting: {name}"]
+        assert resp.json() == {"status": "unhealthy"}
+        assert name not in resp.text
+        assert f"missing setting: {name}" in caplog.text
         for value in ALL_SETTINGS.values():
             assert value not in resp.text
+            assert value not in caplog.text
 
     def test_whitespace_counts_as_missing(self, client, healthy, monkeypatch):
         monkeypatch.setenv("RESEND_API_KEY", "   ")

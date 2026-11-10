@@ -168,8 +168,7 @@ def enroll(
             match={"contact_email": email, "status": "unsubscribed"},
         )
         if unsubbed or _opted_out(email):
-            logger.info("enroll blocked (unsubscribed contact): %s -> %s",
-                        email, sequence_id)
+            logger.info("enroll blocked (unsubscribed contact): %s", sequence_id)
             return None
 
     # Assign variant by weight

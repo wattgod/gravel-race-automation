@@ -154,9 +154,11 @@ def tp_buyer_max_age_days() -> int:
 # Public URL (for unsubscribe links in emails)
 PUBLIC_URL = os.environ.get("PUBLIC_URL", "https://athlete-profiles-production.up.railway.app")
 
-# HMAC secret for unsubscribe tokens. Keep the WEBHOOK_SECRET fallback: that key
-# signed every link sent before UNSUBSCRIBE_SECRET existed, so dropping it would
-# break every sent link if the variable were ever deleted.
+# HMAC secret for unsubscribe tokens. Since the 2026-11-10 key rotation,
+# UNSUBSCRIBE_SECRET holds the OLD webhook key, which signed every link sent
+# before then. Never delete or change it: the WEBHOOK_SECRET fallback below is
+# now a different key that signed nothing, so every sent link would break. If it
+# must ever change, put the old value in UNSUBSCRIBE_SECRET_PREVIOUS first.
 UNSUBSCRIBE_SECRET = os.environ.get("UNSUBSCRIBE_SECRET", "") or WEBHOOK_SECRET
 # Earlier signing keys, comma-separated. Links signed with any of them still
 # unsubscribe; new links are signed with UNSUBSCRIBE_SECRET only.

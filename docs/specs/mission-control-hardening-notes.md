@@ -81,3 +81,20 @@ fail before any change and are not chased:
   `STORAGE_BUCKET`, `ATHLETES_DIR`) are left in `config.py`; harmless and outside scope.
 - `.github/workflows/test.yml` names no removed test file; unchanged.
 
+
+### Change 7 — pins
+- The local virtual environment, installed from the old floating `requirements.txt` on
+  2026-11-10, resolved to exactly the spec's versions for all 17 packages (`pip freeze`).
+- `pip install --dry-run --ignore-installed -r requirements.txt` resolves with the pins on
+  local Python 3.14, and with `--only-binary=:all: --platform manylinux…x86_64` for
+  `--python-version` 3.11, 3.12 and 3.13 (CI, Docker, publish-site). `pip check`: no
+  broken requirements.
+- Every pinned package declares `Requires-Python` of 3.11 or lower, so CI's 3.11 is covered.
+- Other installers of this same file: `test.yml`, `deploy-race-page.yml`,
+  `deploy-race-support.yml`, `gravel-weekly-*.yml`, `publish-site.yml` (3.13),
+  `stripe-provider-ingestion.yml`, `weekly-broadcast.yml`, the `Makefile` and the
+  `Dockerfile`. None installs anything on top that needs a newer version; the workflows
+  that install other packages (`pip install anthropic requests …`) do not read this file.
+  No conflict found, so no deviation.
+- `pydantic` had no line before (it came in through fastapi); it is now listed and pinned
+  in the Mission Control block.

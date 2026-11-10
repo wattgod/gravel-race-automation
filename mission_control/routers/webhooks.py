@@ -524,7 +524,7 @@ async def subscriber_webhook(
                     del source_data["poster_url"]
             db.update("gg_sequence_enrollments", {"source_data": merged},
                       match={"id": existing["id"]})
-            logger.info("season review updated in place for %s", email)
+            logger.info("season review updated in place (source=%s)", source)
             updated_in_place = True
             # The page promises a copy of what they just wrote, so send the
             # first email again with the corrected answers (bounded in

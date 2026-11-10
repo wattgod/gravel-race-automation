@@ -87,9 +87,10 @@ async def require_admin(
             detail="MISSION_CONTROL_SECRET is not configured — all admin access denied",
         )
 
-    # Path 1: Bearer token (API / CLI callers)
+    # Path 1: Bearer token (API / CLI callers). Bytes compare: constant time,
+    # and a non-ASCII header cannot raise.
     expected = f"Bearer {secret}"
-    if authorization == expected:
+    if hmac.compare_digest((authorization or "").encode(), expected.encode()):
         return
 
     # Path 2: Signed session cookie (browser callers)
@@ -97,7 +98,30 @@ async def require_admin(
     if cookie_value and verify_session_token(cookie_value, secret):
         return
 
-    raise HTTPException(
-        status_code=401,
-        detail="Invalid or missing admin credentials",
-    )
+    _raise_unauthenticated(request, "Invalid or missing admin credentials")
+
+
+def _raise_unauthenticated(request: Request, detail: str) -> None:
+    """Send a signed-out browser to /login; everyone else gets a JSON 401.
+
+    - htmx fragment requests (``HX-Request``) get 401 + ``HX-Redirect: /login``
+      so htmx swaps the whole page to the login form.
+    - A plain browser ``GET`` that accepts HTML gets a 303 to ``/login``.
+    - Bearer/API callers, non-GETs, and ``/api/*`` or ``/webhooks/*`` paths keep
+      the JSON 401.
+    """
+    path = request.url.path
+    if not (path.startswith("/api/") or path.startswith("/webhooks/")):
+        if request.headers.get("hx-request"):
+            raise HTTPException(
+                status_code=401, detail=detail, headers={"HX-Redirect": "/login"},
+            )
+        if (
+            request.method == "GET"
+            and "text/html" in request.headers.get("accept", "")
+            and not request.headers.get("authorization")
+        ):
+            raise HTTPException(
+                status_code=303, detail=detail, headers={"Location": "/login"},
+            )
+    raise HTTPException(status_code=401, detail=detail)

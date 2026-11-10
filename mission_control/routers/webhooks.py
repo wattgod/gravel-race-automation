@@ -131,65 +131,6 @@ def _require_webhook_secret(authorization: str) -> None:
         raise HTTPException(status_code=401, detail="Invalid webhook secret")
 
 
-@router.post("/intake")
-async def intake_webhook(
-    request: Request,
-    authorization: str = Header(""),
-):
-    _check_rate_limit(request)
-    _require_webhook_secret(authorization)
-
-    body = await request.json()
-    request_id = body.get("request_id", "")
-
-    if not request_id:
-        raise HTTPException(status_code=400, detail="request_id required")
-
-    # Look up the plan request
-    plan_request = db.get_plan_request(request_id)
-    if not plan_request:
-        raise HTTPException(status_code=404, detail=f"Plan request {request_id} not found")
-
-    payload = plan_request.get("payload", {})
-
-    # Extract and validate athlete info from payload
-    name = _truncate(payload.get("name", "Unknown"), _MAX_NAME_LEN)
-    email = payload.get("email", "").strip().lower()
-
-    # Generate slug
-    from datetime import date
-    slug_base = re.sub(r"[^a-z0-9-]", "", name.lower().replace(" ", "-"))
-    slug = f"{slug_base}-{date.today().strftime('%Y%m%d')}"
-
-    # Check if athlete already exists
-    existing = db.get_athlete(slug)
-    if existing:
-        return {"status": "already_exists", "slug": slug}
-
-    # Create athlete record
-    races = payload.get("races", [])
-    race_name = races[0].get("name") if races else None
-    race_date = races[0].get("date") if races else None
-
-    db.upsert_athlete({
-        "slug": slug,
-        "plan_request_id": request_id,
-        "name": name,
-        "email": email,
-        "race_name": race_name,
-        "race_date": race_date,
-        "ftp": payload.get("ftp"),
-        "weekly_hours": str(payload.get("weekly_hours", "")),
-        "plan_status": "intake_received",
-        "intake_json": payload,
-    })
-
-    db.log_action("intake_received", "athlete", slug,
-                  f"New intake from webhook: {name} ({email})")
-
-    return {"status": "created", "slug": slug}
-
-
 async def _send_enrollment_alert(
     email: str, name: str, brand: str, source: str,
     source_data: dict, enrolled: list[str], unrouted: bool = False,

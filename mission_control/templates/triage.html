@@ -58,9 +58,9 @@
         <span class="gg-badge gg-badge--gold">{{ summary.action_required }} items</span>
     </div>
     <div class="mc-card__body">
-        <p class="mc-text-muted triage-card-desc">Items that need you — intakes, replies, plan reviews, and overdue touchpoints.</p>
+        <p class="mc-text-muted triage-card-desc">Items that need you — intakes and replies.</p>
 
-        {% if not pending_intakes and not unanswered_replies and not plans_needing_action and not due_touchpoints and not is_first_run %}
+        {% if not pending_intakes and not unanswered_replies and not is_first_run %}
         <div class="gg-alert gg-alert--success">
             <span class="gg-alert__label">All Clear</span>
             <span class="gg-alert__message">Nothing requires your attention right now.</span>
@@ -84,7 +84,7 @@
             <tbody>
                 {% for req in pending_intakes %}
                 <tr>
-                    <td>{% if req.payload and req.payload.email %}<a href="/athletes?search={{ req.payload.email|urlencode }}" class="mc-text-teal">{{ req.payload.name if req.payload else '—' }}</a>{% else %}{{ req.payload.name if req.payload else '—' }}{% endif %}</td>
+                    <td>{{ req.payload.name if req.payload else '—' }}</td>
                     <td class="mc-text-mono triage-cell-sm">{{ req.payload.email if req.payload else '—' }}</td>
                     <td>{{ req.payload.races[0].name if req.payload and req.payload.races else '—' }}</td>
                     <td class="mc-text-muted">{{ req.created_at[:10] if req.created_at else '—' }}</td>
@@ -118,7 +118,7 @@
                 <tr>
                     <td>
                         {% if msg.gg_athletes %}
-                        <a href="/athletes/{{ msg.gg_athletes.slug }}" class="mc-text-teal">{{ msg.gg_athletes.name }}</a>
+                        {{ msg.gg_athletes.name }}
                         {% else %}
                         {{ msg.recipient or '—' }}
                         {% endif %}
@@ -139,92 +139,6 @@
         <div class="gg-empty-state gg-empty-state--compact gg-empty-state--borderless triage-empty-sm triage-table-spaced">
             <h4 class="gg-empty-state__title">No unanswered replies</h4>
             <p class="gg-empty-state__text">Inbound athlete emails show up here until you acknowledge them.</p>
-        </div>
-        {% endif %}
-
-        <!-- Plans Needing Action -->
-        {% if plans_needing_action %}
-        <h4 class="triage-section-sub">
-            Plans Needing Action ({{ plans_needing_action|length }})
-        </h4>
-        <table class="gg-table gg-table--striped gg-table--compact triage-table-spaced">
-            <thead>
-                <tr>
-                    <th>Athlete</th>
-                    <th>Race</th>
-                    <th>Race Date</th>
-                    <th>Status</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for a in plans_needing_action %}
-                <tr>
-                    <td><a href="/athletes/{{ a.slug }}" class="mc-text-teal">{{ a.name }}</a></td>
-                    <td>{{ a.race_name or '—' }}</td>
-                    <td class="mc-text-muted">{{ a.race_date or '—' }}</td>
-                    <td><span class="gg-badge mc-status--{{ a.plan_status }}">{{ a.plan_status|replace('_',' ') }}</span></td>
-                    <td class="triage-action-group">
-                        {% if a.plan_status in ('pipeline_complete', 'audit_passed') %}
-                        <button class="gg-btn gg-btn--ghost triage-btn-sm"
-                                hx-post="/triage/plans/{{ a.slug }}/approve"
-                                hx-target="closest tr" hx-swap="outerHTML"
-                                hx-confirm="Approve plan for {{ a.name }}?">Approve</button>
-                        {% endif %}
-                        <a href="/athletes/{{ a.slug }}" class="gg-btn gg-btn--ghost triage-btn-sm">Review</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% elif not is_first_run %}
-        <div class="gg-empty-state gg-empty-state--compact gg-empty-state--borderless triage-empty-sm triage-table-spaced">
-            <h4 class="gg-empty-state__title">No plans need action</h4>
-            <p class="gg-empty-state__text">Plans at pipeline_complete, audit_passed, or approved show here for review.</p>
-        </div>
-        {% endif %}
-
-        <!-- Due Touchpoints -->
-        {% if due_touchpoints %}
-        <h4 class="triage-section-sub">
-            Due Touchpoints ({{ due_touchpoints|length }})
-        </h4>
-        <table class="gg-table gg-table--striped gg-table--compact">
-            <thead>
-                <tr>
-                    <th>Athlete</th>
-                    <th>Category</th>
-                    <th>Subject</th>
-                    <th>Due</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for tp in due_touchpoints %}
-                <tr>
-                    <td>
-                        {% if tp.gg_athletes %}
-                        <a href="/athletes/{{ tp.gg_athletes.slug }}" class="mc-text-teal">{{ tp.gg_athletes.name }}</a>
-                        {% else %}—{% endif %}
-                    </td>
-                    <td><span class="gg-badge gg-badge--default">{{ tp.category }}</span></td>
-                    <td>{{ tp.subject or '—' }}</td>
-                    <td class="mc-text-muted">{{ tp.send_date }}</td>
-                    <td class="triage-action-group">
-                        <button class="gg-btn gg-btn--ghost triage-btn-sm"
-                                hx-post="/triage/touchpoints/{{ tp.id }}/sent"
-                                hx-target="closest tr" hx-swap="outerHTML"
-                                hx-confirm="Mark as sent?">Mark Sent</button>
-                        <a href="/touchpoints" class="gg-btn gg-btn--ghost triage-btn-sm">Send</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        {% elif not is_first_run %}
-        <div class="gg-empty-state gg-empty-state--compact gg-empty-state--borderless triage-empty-sm">
-            <h4 class="gg-empty-state__title">No touchpoints due</h4>
-            <p class="gg-empty-state__text">Scheduled check-ins appear here on their due date. Overdue items surface first.</p>
         </div>
         {% endif %}
 
@@ -449,7 +363,7 @@
                 <tbody>
                     {% for r in upcoming_races %}
                     <tr>
-                        <td><a href="/athletes/{{ r.slug }}" class="mc-text-teal">{{ r.name }}</a></td>
+                        <td>{{ r.name }}</td>
                         <td>{{ r.race_name or '—' }}</td>
                         <td class="mc-text-muted">{{ r.race_date or '—' }}</td>
                         <td><span class="gg-badge mc-status--{{ r.plan_status }}">{{ r.plan_status|replace('_',' ') }}</span></td>

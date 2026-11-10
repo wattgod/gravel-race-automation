@@ -56,3 +56,28 @@ fail before any change and are not chased:
   `services/sequence_engine.py` "enroll blocked (unsubscribed contact): %s -> %s").
   Left unchanged (outside the spec's scope); flagged for the owner.
 
+### Change 6 — pruned areas
+- `git grep` for `/reports/referral`, `/reports/`, `/webhooks/intake` across
+  `workers/`, `web/`, `scripts/`, `tests/` and `.github/` found no caller (the only hits
+  were the removed templates themselves), so `reports` went whole.
+- Removed: routers `athletes`, `pipeline`, `touchpoints`, `reports`; `/webhooks/intake`;
+  `mission_control/sync.py` and the start-up sync in `mission_control.py`; services
+  `pipeline_runner`, `touchpoint_sender`, `file_storage` (each imported only by the
+  removed routers, `git grep`-checked including `scripts/`); their templates and the
+  `athlete_table` / `touchpoint_table` partials; `test_deliver_plan.py` (it tested
+  `/athletes/{slug}/deliver`).
+- Triage: removed `/triage/plans/{slug}/approve`, `/triage/touchpoints/{tp_id}/sent`,
+  the "Plans Needing Action" and "Due Touchpoints" panels, the "Due Touchpoints" stat
+  card, and the service functions only they used (`get_plans_needing_action`,
+  `get_due_touchpoints`, `approve_plan`, `mark_touchpoint_sent`). `triage_summary` now
+  counts intakes + unread replies only. The "Upcoming races" panel stays, names as plain
+  text.
+- Kept: every function in `supabase_client.py`, the top-level `pipeline/` package,
+  `services/stats.py`, `ga4`, `revenue`, the dashboard page and its panels (only the
+  `/athletes/...` links became plain text), and the Gmail bridge / tp-store-sales routes.
+- Also turned into plain text: the pending-intake name link `/athletes?search=` on the
+  triage page (not in the spec's line list, but it pointed at a removed page).
+- Config values only the removed code read (`PIPELINE_SCRIPT`, `PRE_DELIVERY_AUDIT`,
+  `STORAGE_BUCKET`, `ATHLETES_DIR`) are left in `config.py`; harmless and outside scope.
+- `.github/workflows/test.yml` names no removed test file; unchanged.
+

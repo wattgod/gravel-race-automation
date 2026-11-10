@@ -11,9 +11,7 @@ from fastapi.staticfiles import StaticFiles
 
 from mission_control.config import STATIC_DIR
 from mission_control.middleware.auth import require_admin
-from mission_control.routers import (
-    athletes, dashboard, pipeline, reports, templates_page, touchpoints, triage, webhooks,
-)
+from mission_control.routers import dashboard, templates_page, triage, webhooks
 from mission_control.routers import sequences, deals_router, analytics, unsubscribe
 from mission_control.routers import races_api, nutrition_api
 from mission_control.routers import auth_routes
@@ -244,7 +242,7 @@ def create_app() -> FastAPI:
 
     # Routers — admin-protected (dashboard, internal — hidden from API docs)
     _admin = [Depends(require_admin)]
-    for r in [dashboard, triage, athletes, pipeline, touchpoints, templates_page, reports]:
+    for r in [dashboard, triage, templates_page]:
         app.include_router(r.router, include_in_schema=False, dependencies=_admin)
 
     # Auth routes — public (login/logout pages)

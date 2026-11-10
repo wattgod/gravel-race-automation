@@ -39,22 +39,6 @@ def get_unanswered_replies() -> list[dict]:
         return []
 
 
-def get_plans_needing_action() -> list[dict]:
-    """Athletes whose plans need approval or delivery."""
-    try:
-        actionable = ["pipeline_complete", "audit_passed", "approved"]
-        q = db._table("gg_athletes").select(
-            "name, slug, email, race_name, race_date, plan_status, updated_at"
-        )
-        q = q.in_("plan_status", actionable)
-        q = q.order("updated_at", desc=True).limit(20)
-        result = q.execute()
-        return result.data or []
-    except Exception:
-        logger.exception("Failed to fetch plans needing action")
-        return []
-
-
 def get_stale_deals(stale_hours: int = STALE_DEAL_HOURS) -> list[dict]:
     """Deals in active stages with no update in stale_hours."""
     try:
@@ -68,74 +52,6 @@ def get_stale_deals(stale_hours: int = STALE_DEAL_HOURS) -> list[dict]:
     except Exception:
         logger.exception("Failed to fetch stale deals")
         return []
-
-
-def get_due_touchpoints() -> list[dict]:
-    """Touchpoints due today or overdue."""
-    try:
-        return db.get_touchpoints(due_only=True, limit=20)
-    except Exception:
-        logger.exception("Failed to fetch due touchpoints")
-        return []
-
-
-# ---------------------------------------------------------------------------
-# INLINE ACTIONS — approve plans, mark touchpoints sent
-# ---------------------------------------------------------------------------
-
-def approve_plan(slug: str) -> dict | None:
-    """Approve a plan (pipeline_complete or audit_passed → approved).
-
-    Returns the updated athlete dict, or None if not found/not approvable.
-    """
-    try:
-        athlete = db.select_one("gg_athletes", match={"slug": slug})
-        if not athlete:
-            return None
-        if athlete.get("plan_status") not in ("pipeline_complete", "audit_passed"):
-            return None
-
-        updated = db.update(
-            "gg_athletes",
-            {
-                "plan_status": "approved",
-                "updated_at": datetime.now(timezone.utc).isoformat(),
-            },
-            {"slug": slug},
-        )
-
-        db.log_action(
-            "plan_approved",
-            entity_type="athlete",
-            entity_id=str(athlete.get("id", "")),
-            details=f"Approved plan for {slug}",
-        )
-
-        return updated if updated else athlete
-    except Exception:
-        logger.exception("Failed to approve plan for %s", slug)
-        return None
-
-
-def mark_touchpoint_sent(tp_id: str) -> dict | None:
-    """Mark a touchpoint as sent. Returns the touchpoint, or None if not found."""
-    try:
-        existing = db.select_one("gg_touchpoints", match={"id": tp_id})
-        if not existing:
-            return None
-
-        db.update("gg_touchpoints", {"sent": True}, {"id": tp_id})
-
-        db.log_action(
-            "touchpoint_marked_sent",
-            entity_type="touchpoint",
-            entity_id=tp_id,
-        )
-
-        return existing
-    except Exception:
-        logger.exception("Failed to mark touchpoint %s as sent", tp_id)
-        return None
 
 
 # ---------------------------------------------------------------------------
@@ -485,27 +401,20 @@ def _check_brand_engagement_tracking() -> list[dict]:
 # TRIAGE SUMMARY
 # ---------------------------------------------------------------------------
 
-def triage_summary(
-    pending_intakes: list[dict] | None = None,
-    plans_needing_action: list[dict] | None = None,
-) -> dict:
+def triage_summary(pending_intakes: list[dict] | None = None) -> dict:
     """Quick counts for the triage header.
 
-    Accepts pre-computed lists to avoid duplicate queries when the router
-    has already fetched them.
+    Accepts a pre-computed intake list to avoid a duplicate query when the
+    router has already fetched it.
     """
     try:
         pending = len(pending_intakes) if pending_intakes is not None else len(db.get_pending_plan_requests(limit=100))
         unread = db.count_unread_inbound()
-        plans = len(plans_needing_action) if plans_needing_action is not None else len(get_plans_needing_action())
-        due_tp = db.count_due_touchpoints()
 
         return {
-            "action_required": pending + unread + plans + due_tp,
+            "action_required": pending + unread,
             "pending_intakes": pending,
             "unread_replies": unread,
-            "plans_needing_action": plans,
-            "due_touchpoints": due_tp,
         }
     except Exception:
         logger.exception("Failed to compute triage summary")
@@ -513,8 +422,6 @@ def triage_summary(
             "action_required": 0,
             "pending_intakes": 0,
             "unread_replies": 0,
-            "plans_needing_action": 0,
-            "due_touchpoints": 0,
         }
 
 

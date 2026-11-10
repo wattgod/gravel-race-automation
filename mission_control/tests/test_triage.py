@@ -13,7 +13,6 @@ from mission_control.tests.conftest import (
     make_deal,
     make_enrollment,
     make_sequence_send,
-    make_touchpoint,
 )
 
 
@@ -75,18 +74,6 @@ class TestTriageServiceHappyPath:
         assert result[0]["status"] == "received"
         assert result[0]["comm_type"] == "inbound"
 
-    def test_get_plans_needing_action_filters_actionable_statuses(self, fake_db):
-        from mission_control.services.triage import get_plans_needing_action
-
-        for status in ["pipeline_complete", "audit_passed", "approved", "delivered", "intake_received"]:
-            fake_db.store["gg_athletes"].append(
-                make_athlete(plan_status=status, updated_at=_now_iso())
-            )
-        result = get_plans_needing_action()
-        statuses = {a["plan_status"] for a in result}
-        assert statuses == {"pipeline_complete", "audit_passed", "approved"}
-        assert len(result) == 3
-
     def test_get_stale_deals_returns_old_active_deals(self, fake_db):
         from mission_control.services.triage import get_stale_deals
 
@@ -105,14 +92,6 @@ class TestTriageServiceHappyPath:
         result = get_stale_deals()
         assert len(result) == 1
         assert result[0]["stage"] == "lead"
-
-    def test_get_due_touchpoints_delegates_to_db(self, fake_db):
-        from mission_control.services.triage import get_due_touchpoints
-
-        with patch("mission_control.services.triage.db.get_touchpoints", return_value=[{"id": "tp1"}]) as mock_tp:
-            result = get_due_touchpoints()
-            mock_tp.assert_called_once_with(due_only=True, limit=20)
-            assert result == [{"id": "tp1"}]
 
     def test_get_recent_sends_filters_by_cutoff(self, fake_db):
         from mission_control.services.triage import get_recent_sends
@@ -250,32 +229,14 @@ class TestTriageSummaryOptimization:
             mock_db.assert_not_called()
             assert result["pending_intakes"] == 2
 
-    def test_summary_uses_precomputed_plans(self, fake_db):
-        from mission_control.services.triage import triage_summary
-
-        precomputed = [{"id": "p1"}]
-        with patch("mission_control.services.triage.db._table") as mock_table:
-            # We still need count_unread_inbound and count_due_touchpoints to work
-            mock_builder = MagicMock()
-            mock_builder.select.return_value = mock_builder
-            mock_builder.eq.return_value = mock_builder
-            mock_builder.lte.return_value = mock_builder
-            mock_builder.execute.return_value = MagicMock(count=0)
-            mock_table.return_value = mock_builder
-
-            result = triage_summary(plans_needing_action=precomputed)
-            assert result["plans_needing_action"] == 1
-            # _table should only be called for count queries, not for get_plans_needing_action
-            for call in mock_table.call_args_list:
-                assert call[0][0] != "gg_athletes" or "plan_status" not in str(call)
-
     def test_summary_falls_back_to_db_when_no_precomputed_values(self, fake_db):
         from mission_control.services.triage import triage_summary
 
         # With empty DB, everything should be 0
         result = triage_summary()
         assert result["pending_intakes"] == 0
-        assert result["plans_needing_action"] == 0
+        assert result["unread_replies"] == 0
+        assert set(result) == {"action_required", "pending_intakes", "unread_replies"}
 
 
 # ---------------------------------------------------------------------------
@@ -691,144 +652,6 @@ class TestDealStageChange:
 
 
 # ---------------------------------------------------------------------------
-# Class 11: Plan Approve
-# ---------------------------------------------------------------------------
-
-class TestPlanApprove:
-
-    def test_approve_pipeline_complete_plan(self, client, fake_db):
-        from mission_control.routers.triage import _rate_buckets
-        _rate_buckets.clear()
-
-        athlete = make_athlete(slug="test-approve", plan_status="pipeline_complete")
-        fake_db.store["gg_athletes"].append(athlete)
-        resp = client.post("/triage/plans/test-approve/approve")
-        assert resp.status_code == 200
-        assert "approved" in resp.text
-        assert "hx-swap-oob" in resp.text
-
-    def test_approve_audit_passed_plan(self, client, fake_db):
-        from mission_control.routers.triage import _rate_buckets
-        _rate_buckets.clear()
-
-        athlete = make_athlete(slug="test-audit", plan_status="audit_passed")
-        fake_db.store["gg_athletes"].append(athlete)
-        resp = client.post("/triage/plans/test-audit/approve")
-        assert resp.status_code == 200
-        assert "approved" in resp.text
-
-    def test_approve_already_approved_returns_404(self, client, fake_db):
-        from mission_control.routers.triage import _rate_buckets
-        _rate_buckets.clear()
-
-        athlete = make_athlete(slug="already-done", plan_status="approved")
-        fake_db.store["gg_athletes"].append(athlete)
-        resp = client.post("/triage/plans/already-done/approve")
-        assert resp.status_code == 404
-
-    def test_approve_nonexistent_slug_returns_404(self, client, fake_db):
-        from mission_control.routers.triage import _rate_buckets
-        _rate_buckets.clear()
-
-        resp = client.post("/triage/plans/does-not-exist/approve")
-        assert resp.status_code == 404
-
-    def test_approve_invalid_slug_rejected(self, client, fake_db):
-        from mission_control.routers.triage import _rate_buckets
-        _rate_buckets.clear()
-
-        resp = client.post("/triage/plans/INVALID_SLUG!/approve")
-        assert resp.status_code == 400
-
-    def test_approve_creates_audit_log(self, client, fake_db):
-        from mission_control.routers.triage import _rate_buckets
-        _rate_buckets.clear()
-
-        athlete = make_athlete(slug="audit-test", plan_status="pipeline_complete")
-        fake_db.store["gg_athletes"].append(athlete)
-        client.post("/triage/plans/audit-test/approve")
-
-        logs = fake_db.store["gg_audit_log"]
-        assert any(log["action"] == "plan_approved" for log in logs)
-
-    def test_plans_table_has_approve_button(self, client, fake_db):
-        fake_db.store["gg_athletes"].append(
-            make_athlete(slug="btn-test", plan_status="pipeline_complete", updated_at=_now_iso())
-        )
-        resp = client.get("/triage")
-        assert resp.status_code == 200
-        assert "Approve" in resp.text
-        assert "/triage/plans/btn-test/approve" in resp.text
-
-    def test_approved_plan_no_approve_button(self, client, fake_db):
-        fake_db.store["gg_athletes"].append(
-            make_athlete(slug="already-approved", plan_status="approved", updated_at=_now_iso())
-        )
-        resp = client.get("/triage")
-        assert resp.status_code == 200
-        # Should have Review but not Approve for already-approved
-        assert "/triage/plans/already-approved/approve" not in resp.text
-
-
-# ---------------------------------------------------------------------------
-# Class 12: Touchpoint Mark Sent
-# ---------------------------------------------------------------------------
-
-class TestTouchpointMarkSent:
-
-    def test_mark_sent_succeeds(self, client, fake_db):
-        from mission_control.routers.triage import _rate_buckets
-        _rate_buckets.clear()
-
-        tp = make_touchpoint()
-        fake_db.store["gg_touchpoints"].append(tp)
-        resp = client.post(f"/triage/touchpoints/{tp['id']}/sent")
-        assert resp.status_code == 200
-        assert "hx-swap-oob" in resp.text
-
-    def test_mark_sent_updates_db(self, client, fake_db):
-        from mission_control.routers.triage import _rate_buckets
-        _rate_buckets.clear()
-
-        tp = make_touchpoint(sent=False)
-        fake_db.store["gg_touchpoints"].append(tp)
-        client.post(f"/triage/touchpoints/{tp['id']}/sent")
-        assert tp["sent"] is True
-
-    def test_mark_sent_creates_audit_log(self, client, fake_db):
-        from mission_control.routers.triage import _rate_buckets
-        _rate_buckets.clear()
-
-        tp = make_touchpoint()
-        fake_db.store["gg_touchpoints"].append(tp)
-        client.post(f"/triage/touchpoints/{tp['id']}/sent")
-
-        logs = fake_db.store["gg_audit_log"]
-        assert any(log["action"] == "touchpoint_marked_sent" for log in logs)
-
-    def test_mark_sent_invalid_uuid(self, client, fake_db):
-        from mission_control.routers.triage import _rate_buckets
-        _rate_buckets.clear()
-
-        resp = client.post("/triage/touchpoints/not-a-uuid/sent")
-        assert resp.status_code == 400
-
-    def test_mark_sent_nonexistent_returns_404(self, client, fake_db):
-        from mission_control.routers.triage import _rate_buckets
-        _rate_buckets.clear()
-
-        resp = client.post(f"/triage/touchpoints/{str(uuid.uuid4())}/sent")
-        assert resp.status_code == 404
-
-    def test_touchpoint_table_has_mark_sent_button(self, client, fake_db):
-        tp = make_touchpoint()
-        with patch("mission_control.services.triage.db.get_touchpoints", return_value=[tp]):
-            resp = client.get("/triage")
-            assert resp.status_code == 200
-            assert "Mark Sent" in resp.text
-
-
-# ---------------------------------------------------------------------------
 # Class 13: Expanded Health Checks
 # ---------------------------------------------------------------------------
 
@@ -1044,12 +867,12 @@ class TestAPICostTracking:
 
 
 # ---------------------------------------------------------------------------
-# Class 16: Intake View Links
+# Class 16: Pruned areas stay gone
 # ---------------------------------------------------------------------------
 
-class TestIntakeViewLinks:
+class TestPrunedAreas:
 
-    def test_intake_name_links_to_athlete_search(self, client, fake_db):
+    def test_intake_name_is_plain_text(self, client, fake_db):
         fake_db.store["plan_requests"].append({
             "id": str(uuid.uuid4()),
             "status": "pending",
@@ -1058,54 +881,18 @@ class TestIntakeViewLinks:
         })
         resp = client.get("/triage")
         assert resp.status_code == 200
-        assert "/athletes?search=" in resp.text
-        assert "link%40test.com" in resp.text or "link@test.com" in resp.text
+        assert "Link Test" in resp.text
+        assert "/athletes" not in resp.text
 
+    def test_upcoming_race_name_is_plain_text(self, client, fake_db):
+        race_day = (datetime.now(timezone.utc) + timedelta(days=5)).date().isoformat()
+        fake_db.store["gg_athletes"].append(make_athlete(name="Plain Racer", race_date=race_day))
+        resp = client.get("/triage")
+        assert resp.status_code == 200
+        assert "/athletes" not in resp.text
+        assert "/touchpoints" not in resp.text
 
-# ---------------------------------------------------------------------------
-# Class 17: Service Approve/MarkSent Unit Tests
-# ---------------------------------------------------------------------------
-
-class TestServiceApprovePlan:
-
-    def test_approve_plan_changes_status(self, fake_db):
-        from mission_control.services.triage import approve_plan
-        athlete = make_athlete(slug="svc-test", plan_status="pipeline_complete")
-        fake_db.store["gg_athletes"].append(athlete)
-        result = approve_plan("svc-test")
-        assert result is not None
-        assert athlete["plan_status"] == "approved"
-
-    def test_approve_plan_wrong_status_returns_none(self, fake_db):
-        from mission_control.services.triage import approve_plan
-        athlete = make_athlete(slug="wrong-status", plan_status="delivered")
-        fake_db.store["gg_athletes"].append(athlete)
-        result = approve_plan("wrong-status")
-        assert result is None
-
-    def test_approve_plan_missing_slug_returns_none(self, fake_db):
-        from mission_control.services.triage import approve_plan
-        result = approve_plan("nonexistent")
-        assert result is None
-
-
-class TestServiceMarkTouchpointSent:
-
-    def test_mark_sent_sets_flag(self, fake_db):
-        from mission_control.services.triage import mark_touchpoint_sent
-        tp = make_touchpoint(sent=False)
-        fake_db.store["gg_touchpoints"].append(tp)
-        result = mark_touchpoint_sent(tp["id"])
-        assert result is not None
-        assert tp["sent"] is True
-
-    def test_mark_sent_missing_id_returns_none(self, fake_db):
-        from mission_control.services.triage import mark_touchpoint_sent
-        result = mark_touchpoint_sent(str(uuid.uuid4()))
-        assert result is None
-
-    def test_mark_sent_on_db_error_returns_none(self, fake_db):
-        from mission_control.services.triage import mark_touchpoint_sent
-        with patch("mission_control.services.triage.db.select_one", side_effect=Exception("boom")):
-            result = mark_touchpoint_sent(str(uuid.uuid4()))
-            assert result is None
+    def test_plan_approve_and_touchpoint_routes_removed(self, client, fake_db):
+        assert client.post("/triage/plans/some-slug/approve").status_code == 404
+        tp_id = str(uuid.uuid4())
+        assert client.post(f"/triage/touchpoints/{tp_id}/sent").status_code == 404

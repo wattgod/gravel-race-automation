@@ -33,24 +33,8 @@ def main():
         print("    SUPABASE_URL, SUPABASE_SERVICE_KEY")
         print("  Continuing anyway for local development...\n")
 
-    # Sync filesystem athletes into Supabase
-    if supabase_url:
-        print("\n[1/2] Syncing athletes from filesystem to Supabase...")
-        try:
-            from mission_control.sync import sync_all
-            stats = sync_all()
-            print(f"  -> {stats['athletes']} athletes synced")
-            print(f"  -> {stats['touchpoints']} touchpoints loaded")
-            if stats["skipped"]:
-                print(f"  -> {stats['skipped']} directories skipped (no intake.json)")
-        except Exception as e:
-            print(f"  -> Sync failed: {e}")
-            print("  -> Continuing without sync...")
-    else:
-        print("\n[1/2] Skipping sync (no Supabase connection)")
-
     # Start server
-    print(f"[2/2] Starting server on {HOST}:{PORT}")
+    print(f"Starting server on {HOST}:{PORT}")
     url = f"http://{HOST}:{PORT}"
     print(f"\n  Dashboard: {url}")
     print("  Press Ctrl+C to stop\n")

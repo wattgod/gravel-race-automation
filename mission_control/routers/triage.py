@@ -14,12 +14,9 @@ from mission_control.config import WEB_TEMPLATES_DIR
 from mission_control.services.deals import move_stage
 from mission_control.services.triage import (
     STALE_DEAL_HOURS,
-    approve_plan,
     get_api_cost_summary,
-    get_due_touchpoints,
     get_expanded_health,
     get_pending_intakes,
-    get_plans_needing_action,
     get_recent_bounces,
     get_recent_enrollments,
     get_recent_sends,
@@ -29,7 +26,6 @@ from mission_control.services.triage import (
     get_triage_ga4_summary,
     get_unanswered_replies,
     get_upcoming_races,
-    mark_touchpoint_sent,
     triage_summary,
 )
 
@@ -43,9 +39,6 @@ _UUID_RE = re.compile(
     r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
     re.IGNORECASE,
 )
-
-# Slug validation
-_SLUG_RE = re.compile(r"^[a-z0-9-]+$")
 
 # Rate limiting (same pattern as webhooks.py)
 _rate_buckets: dict[str, list[float]] = defaultdict(list)
@@ -95,9 +88,7 @@ async def triage(request: Request):
         # Action required
         pending_intakes = get_pending_intakes()
         unanswered_replies = get_unanswered_replies()
-        plans = get_plans_needing_action()
         stale_deals = get_stale_deals()
-        due_touchpoints = get_due_touchpoints()
 
         # Automated FYI
         recent_sends = get_recent_sends()
@@ -108,10 +99,7 @@ async def triage(request: Request):
 
         # System health
         health = get_system_health()
-        summary = triage_summary(
-            pending_intakes=pending_intakes,
-            plans_needing_action=plans,
-        )
+        summary = triage_summary(pending_intakes=pending_intakes)
 
         # GA4
         ga4 = get_triage_ga4_summary()
@@ -124,9 +112,7 @@ async def triage(request: Request):
         load_error = True
         pending_intakes = []
         unanswered_replies = []
-        plans = []
         stale_deals = []
-        due_touchpoints = []
         recent_sends = []
         recent_enrollments = []
         upcoming_races = []
@@ -135,8 +121,7 @@ async def triage(request: Request):
         health = {"checks": [], "ok_count": 0, "warning_count": 0, "error_count": 0}
         summary = {
             "action_required": 0, "pending_intakes": 0,
-            "unread_replies": 0, "plans_needing_action": 0,
-            "due_touchpoints": 0,
+            "unread_replies": 0,
         }
         ga4 = {"configured": False}
         api_costs = {"configured": False}
@@ -146,9 +131,7 @@ async def triage(request: Request):
         not load_error
         and not pending_intakes
         and not unanswered_replies
-        and not plans
         and not stale_deals
-        and not due_touchpoints
         and not recent_sends
         and not recent_enrollments
         and not upcoming_races
@@ -165,9 +148,7 @@ async def triage(request: Request):
         # Action required
         "pending_intakes": pending_intakes,
         "unanswered_replies": unanswered_replies,
-        "plans_needing_action": plans,
         "stale_deals": stale_deals,
-        "due_touchpoints": due_touchpoints,
         # Automated FYI
         "recent_sends": recent_sends,
         "recent_enrollments": recent_enrollments,
@@ -286,58 +267,6 @@ async def change_deal_stage(deal_id: str, request: Request, stage: str = Form(..
         f'</tr>'
     )
     return _oob_response(row_html)
-
-
-# ---------------------------------------------------------------------------
-# POST /triage/plans/{slug}/approve — approve a plan from triage
-# ---------------------------------------------------------------------------
-
-@router.post("/triage/plans/{slug}/approve")
-async def approve_plan_route(slug: str, request: Request):
-    """Approve a plan from the triage page."""
-    _check_rate_limit(request)
-
-    # Slug validation
-    if not _SLUG_RE.match(slug):
-        raise HTTPException(status_code=400, detail="Invalid slug format")
-
-    result = approve_plan(slug)
-    if result is None:
-        raise HTTPException(status_code=404, detail="Plan not found or not approvable")
-
-    # Return updated row with "approved" badge
-    row_html = (
-        f'<tr>'
-        f'<td><a href="/athletes/{_esc(slug)}" class="mc-text-teal">'
-        f'{_esc(result.get("name", "—"))}</a></td>'
-        f'<td>{_esc(result.get("race_name") or "—")}</td>'
-        f'<td class="mc-text-muted">{_esc(result.get("race_date") or "—")}</td>'
-        f'<td><span class="gg-badge mc-status--approved">approved</span></td>'
-        f'<td><a href="/athletes/{_esc(slug)}" '
-        f'class="gg-btn gg-btn--ghost triage-btn-sm">Review</a></td>'
-        f'</tr>'
-    )
-    return _oob_response(row_html)
-
-
-# ---------------------------------------------------------------------------
-# POST /triage/touchpoints/{tp_id}/sent — mark touchpoint as sent
-# ---------------------------------------------------------------------------
-
-@router.post("/triage/touchpoints/{tp_id}/sent")
-async def mark_tp_sent(tp_id: str, request: Request):
-    """Mark a touchpoint as sent from triage — row disappears."""
-    _check_rate_limit(request)
-
-    # UUID validation
-    if not _UUID_RE.match(tp_id):
-        raise HTTPException(status_code=400, detail="Invalid touchpoint ID format")
-
-    result = mark_touchpoint_sent(tp_id)
-    if result is None:
-        raise HTTPException(status_code=404, detail="Touchpoint not found")
-
-    return _oob_response("")
 
 
 # ---------------------------------------------------------------------------

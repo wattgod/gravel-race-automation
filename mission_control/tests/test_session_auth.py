@@ -125,7 +125,7 @@ class TestCookieAuth:
             # Access protected route with cookie (no Bearer header)
             client.cookies.set("mc_session", session_cookie)
             # Use follow_redirects since TestClient was created with follow_redirects=False
-            resp = client.get("/athletes/")
+            resp = client.get("/sequences/")
             # Should pass auth — may return 200 or 500 (no DB) but NOT 401
             assert resp.status_code != 401, (
                 f"Cookie auth should pass, got {resp.status_code}: {resp.text[:200]}"
@@ -134,7 +134,7 @@ class TestCookieAuth:
     def test_invalid_cookie_rejected(self):
         with _make_client() as client:
             client.cookies.set("mc_session", "garbage.invalid")
-            resp = client.get("/athletes/")
+            resp = client.get("/sequences/")
             assert resp.status_code == 401
 
     def test_tampered_cookie_rejected(self):
@@ -142,7 +142,7 @@ class TestCookieAuth:
             # Valid timestamp but wrong signature
             ts = str(int(time.time()))
             client.cookies.set("mc_session", f"{ts}.aaaaaabbbbbbcccccc")
-            resp = client.get("/athletes/")
+            resp = client.get("/sequences/")
             assert resp.status_code == 401
 
     def test_expired_cookie_rejected(self):
@@ -154,7 +154,7 @@ class TestCookieAuth:
             old_ts = str(int(time.time()) - SESSION_MAX_AGE - 3600)
             sig = _sign(old_ts, ADMIN_SECRET)
             client.cookies.set("mc_session", f"{old_ts}.{sig}")
-            resp = client.get("/athletes/")
+            resp = client.get("/sequences/")
             assert resp.status_code == 401
 
 
@@ -190,7 +190,7 @@ class TestBearerStillWorks:
     def test_bearer_token_passes_auth(self):
         with _make_client() as client:
             resp = client.get(
-                "/athletes/",
+                "/sequences/",
                 headers={"Authorization": f"Bearer {ADMIN_SECRET}"},
             )
             assert resp.status_code != 401

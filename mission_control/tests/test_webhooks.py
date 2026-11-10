@@ -1,4 +1,4 @@
-"""Tests for webhook endpoints — auth, intake, subscriber enrollment, events."""
+"""Tests for webhook endpoints — auth, subscriber enrollment, events."""
 
 import json
 
@@ -8,36 +8,13 @@ import pytest
 class TestWebhookAuth:
     """All webhook endpoints require Bearer token auth."""
 
-    def test_intake_rejects_no_auth(self, client):
-        resp = client.post("/webhooks/intake", json={"request_id": "test"})
-        assert resp.status_code == 401
-
-    def test_intake_rejects_wrong_secret(self, client):
+    def test_intake_webhook_removed(self, client):
         resp = client.post(
             "/webhooks/intake",
             json={"request_id": "test"},
-            headers={"Authorization": "Bearer wrong-secret"},
-        )
-        assert resp.status_code == 401
-
-    def test_intake_accepts_valid_secret(self, client, fake_db):
-        # Need a plan_request in DB for this to work beyond auth
-        fake_db.store["plan_requests"].append({
-            "id": "pr-1",
-            "request_id": "req-123",
-            "status": "pending",
-            "email": "test@example.com",
-            "name": "Test User",
-            "race": "Unbound 200",
-        })
-
-        resp = client.post(
-            "/webhooks/intake",
-            json={"request_id": "req-123"},
             headers={"Authorization": "Bearer test-secret-123"},
         )
-        # Should pass auth (may still return 200 or other based on data)
-        assert resp.status_code != 401
+        assert resp.status_code == 404
 
     def test_subscriber_rejects_no_auth(self, client):
         resp = client.post("/webhooks/subscriber", json={"email": "test@example.com"})
@@ -53,7 +30,6 @@ class TestWebhookAuth:
 
 
 _STRICT_ROUTES = [
-    ("post", "/webhooks/intake", {"request_id": "nonexistent"}),
     ("post", "/webhooks/subscriber", {"email": "strict@example.com"}),
     ("post", "/webhooks/resend", {"type": "email.sent", "data": {}}),
     ("post", "/webhooks/resend-inbound", {"data": {}}),
@@ -89,7 +65,6 @@ class TestWebhookSecretIsStrict:
         assert resp.status_code == 401
 
     @pytest.mark.parametrize("method,path,payload", [
-        ("post", "/webhooks/intake", {"request_id": "nonexistent"}),
         ("post", "/webhooks/subscriber", {"email": "strict@example.com"}),
         ("post", "/webhooks/resend", {"type": "email.sent", "data": {}}),
         ("post", "/webhooks/resend-inbound", {"data": {}}),
@@ -265,25 +240,6 @@ class TestHealthEndpoint:
         resp = client.get("/health")
         assert resp.status_code == 200
         assert resp.json() == {"status": "ok"}
-
-
-class TestIntakeWebhook:
-    """POST /webhooks/intake — creates athletes from plan requests."""
-
-    def _post(self, client, payload):
-        return client.post(
-            "/webhooks/intake",
-            json=payload,
-            headers={"Authorization": "Bearer test-secret-123"},
-        )
-
-    def test_requires_request_id(self, client, fake_db):
-        resp = self._post(client, {"name": "No ID"})
-        assert resp.status_code == 400
-
-    def test_returns_404_for_unknown_request(self, client, fake_db):
-        resp = self._post(client, {"request_id": "nonexistent"})
-        assert resp.status_code == 404
 
 
 class TestUnsubscribeEndpoint:

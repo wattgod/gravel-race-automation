@@ -38,6 +38,17 @@ fail before any change and are not chased:
    single slot (`hour='15'`); updated to `hour='15,18,21'`.
 3. **Change 8 — `scripts/jev_client.py` added to watchPatterns** (not in the spec's list):
    `services/lead_nurture.py` imports it.
+4. **Change 10 — the new `sendResendEmail` helper is used only by the new lost-lead
+   alert.** The three existing senders (fueling lead, athlete review/exit, debrief alerts)
+   still inline their Resend call. Moving them onto the helper would touch owner alerts
+   that work today and is not needed for this change; left for a later tidy-up.
+5. **Change 10 — the 8-second timeout applies to every source**, as the spec asks
+   (`signal: AbortSignal.timeout(8000)` on the one Mission Control fetch). For the four
+   storage-required sources a Mission Control answer slower than 8 s now gives the
+   visitor the existing "could not store your answers" 503 (draft kept) instead of a
+   longer wait.
+6. **Change 10 — `pickem-intake` left completely unchanged** (the spec allowed a clearer
+   log line; not needed), so it needs no deploy.
 
 ## Notes
 
@@ -160,3 +171,72 @@ change 4 note about a possible false heartbeat alarm after back-to-back deploys.
 - The `win_back` run with `WIN_BACK_ENABLED` off returns normally, so it marks the day
   done — same effect as today's single slot.
 
+### Change 10 — lost leads
+- `notifyMissionControl` now returns `{ok, status}` (plus `poster_token` when present);
+  `status` is the HTTP code, or `timeout` / `network error` when the fetch threw.
+  Storage-required sources still throw on failure, exactly as before.
+- For a source that is neither storage-required nor `fueling_calculator`, the alert is
+  chained onto the Mission Control promise inside the existing `Promise.allSettled`;
+  `alertLeadNotSaved` never throws, so the visitor's response and status code do not
+  change.
+- Alert: plain-text email to `NOTIFICATION_EMAIL`, from
+  `<brand label> <noreply@gravelgodcycling.com>`, subject `Lead not saved: <source>`,
+  body with email, name, source, race slug, brand and the Mission Control status.
+- Flood cap: at most 5 alerts per 10 minutes per worker instance. The first suppressed
+  alert in a window logs one "capped at 5" line; when the next window starts, one line
+  says how many more were not alerted. Every lead, alerted or not, still has its
+  `Mission Control notified: <email> <source> <status>` log line.
+- Missing `RESEND_API_KEY` or `NOTIFICATION_EMAIL`: skipped, logged once per instance.
+- `pickem-intake` stores every pick in KV first and has a `/resync` route that replays
+  what Mission Control missed (`workers/pickem-intake/worker.js:10`, `:106`), so its
+  leads are recoverable without an alert.
+
+## Owner steps after review
+
+1. Before merging, check by name only (not value) that the Railway service
+   `athlete-profiles` has all five settings `/health` now requires: `SUPABASE_URL`,
+   `SUPABASE_SERVICE_KEY`, `RESEND_API_KEY`, `WEBHOOK_SECRET`, `MISSION_CONTROL_SECRET`.
+   If one is missing, the new deploy health check refuses every deploy (the old one stays
+   live).
+2. Merge the PR. Railway deploys; the new `/health` check guards the switch-over.
+3. Confirm `https://athlete-profiles-production.up.railway.app/health` and `/health/jobs`
+   return 200. (`/health/jobs` is 200 straight away only on a first start in 2 hours;
+   otherwise it turns 200 after the first 15-minute run.)
+4. Deploy the lead worker by hand (not run here):
+   ```bash
+   cd workers/fueling-lead-intake && npx wrangler deploy
+   ```
+   Then run `bash tests/test_worker_intake.sh` (Rule #34 in `docs/LESSONS_LEARNED.md`).
+   `wrangler.toml` also has an `[env.production]` block; deploy the same way the live
+   worker was last deployed (plain `wrangler deploy` unless it was `--env production`).
+   `pickem-intake` is unchanged: no deploy.
+5. Run the heartbeat workflow once by hand (Actions → "Mission Control heartbeat" → Run
+   workflow) and check it passes. To confirm the failure email reaches you: GitHub sends
+   scheduled-run failures to whoever last edited the schedule. If that was a bot or agent
+   account, push a trivial edit of `.github/workflows/mission-control-heartbeat.yml`
+   yourself, or watch the repo's Actions notifications.
+6. Optional: the owner may want to drop the two app log lines that print a customer
+   email at INFO (see the change 4 note).
+
+## Final test run
+
+
+After all ten changes (local Python 3.14.3, no Playwright browser):
+
+- `.venv-mc/bin/pytest mission_control/tests -q` → **3 failed, 1028 passed**. The three
+  failures are the same three as the baseline (two need the Chromium browser, one is the
+  pre-existing `mc-native-funnel*` CSS check; the audit still lists exactly those four
+  classes and nothing else).
+- `node --test tests/test_fueling_lead_intake.mjs` → **54 passed, 0 failed** (44 before).
+- `.venv-mc/bin/pytest tests/test_pickem.py -q` → 44 passed (pickem untouched).
+- Also run: the top-level tests that import Mission Control (`test_daily_intel`,
+  `test_exit_survey`, `test_ga4_service_events`, `test_goals_funnel_report`,
+  `test_gravel_weekly`, `test_jev_lead_nurture`, `test_pricing_single_source`,
+  `test_race_debrief_survey`, `test_trust_checks`) → 525 passed; and
+  `test_email_capture_forms.py`, `test_fueling_lead_intake_node.py` → passed.
+
+Not verified here: the two browser chain tests (`TestTheWholeChain` in
+`test_athlete_exit.py` and `test_plan_debrief.py`; they post through the worker to
+`/webhooks/subscriber`, which this change keeps) — CI installs Chromium and runs them.
+The Docker build, the Railway health check and watch patterns, and the GitHub heartbeat
+were not exercised (no deploys by rule).

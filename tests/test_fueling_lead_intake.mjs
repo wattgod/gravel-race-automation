@@ -512,3 +512,168 @@ test('every storage-required source is covered above', () => {
   const listed = m[1].split(',').map((s) => s.trim().replace(/'/g, '')).filter(Boolean);
   assert.deepEqual(listed.sort(), Object.keys(STORAGE_REQUIRED_BODIES).sort());
 });
+
+// --- Lost leads: a Mission Control failure for an ordinary source emails the owner ---
+
+let freshCount = 0;
+async function freshWorker() {
+  // A fresh module per test, so the alert flood counter starts at zero.
+  freshCount += 1;
+  const src = `${workerSource}\n// fresh copy ${freshCount}\n`;
+  const mod = await import(`data:text/javascript;base64,${Buffer.from(src).toString('base64')}`);
+  return mod.default;
+}
+
+const leadEnv = {
+  ...env,
+  MC_WEBHOOK_URL: 'https://mission-control.example.test',
+  MC_WEBHOOK_SECRET: 'test-secret',
+  RESEND_API_KEY: 'test-resend-key',
+  NOTIFICATION_EMAIL: 'coach@example.com',
+};
+
+async function runLead(w, payload, { mc = 'ok', envOverrides = {}, now = '2026-11-10T12:00:00Z' } = {}) {
+  const originalFetch = globalThis.fetch;
+  const originalError = console.error;
+  const originalLog = console.log;
+  const requests = [];
+  const errors = [];
+  globalThis.fetch = async (url, options) => {
+    requests.push({ url: String(url), options, body: JSON.parse(options.body) });
+    if (String(url).includes('mission-control')) {
+      if (mc === 'timeout') { throw new DOMException('The operation timed out.', 'TimeoutError'); }
+      if (mc === 'network') { throw new TypeError('fetch failed'); }
+      return new Response(JSON.stringify({ status: 'ok' }), { status: mc === 'ok' ? 200 : mc });
+    }
+    return new Response(JSON.stringify({ id: 'x' }), { status: 200 });
+  };
+  console.error = (...args) => { errors.push(args.map(String).join(' ')); };
+  console.log = () => {};
+  mock.timers.enable({ apis: ['Date'], now: new Date(now) });
+  try {
+    const response = await w.fetch(intakeRequest(payload), { ...leadEnv, ...envOverrides });
+    const alerts = requests.filter((r) => r.url === 'https://api.resend.com/emails');
+    const mcReq = requests.find((r) => r.url.endsWith('/webhooks/subscriber'));
+    return { response, body: await response.json(), alerts, errors, mcReq };
+  } finally {
+    mock.timers.reset();
+    console.error = originalError;
+    console.log = originalLog;
+    globalThis.fetch = originalFetch;
+  }
+}
+
+const prepKitLead = {
+  source: 'prep_kit_gate', email: 'rider@example.com', name: 'Rider One',
+  race_slug: 'unbound-200', race_name: 'Unbound 200', brand: 'gravelgod',
+};
+
+test('MC 500 for an ordinary lead: one alert, and the visitor still gets success', async () => {
+  const w = await freshWorker();
+  const { response, body, alerts } = await runLead(w, prepKitLead, { mc: 500 });
+  assert.equal(response.status, 200);
+  assert.equal(body.success, true);
+  assert.equal(alerts.length, 1);
+  const a = alerts[0].body;
+  assert.equal(a.subject, 'Lead not saved: prep_kit_gate');
+  assert.match(a.from, /<noreply@gravelgodcycling\.com>$/);
+  assert.deepEqual(a.to, ['coach@example.com']);
+  for (const want of ['rider@example.com', 'Rider One', 'prep_kit_gate', 'unbound-200', 'gravelgod', '500']) {
+    assert.ok(a.text.includes(want), `alert body lacks ${want}`);
+  }
+});
+
+test('MC timeout for an ordinary lead: alert, visitor success, and the fetch carries a timeout', async () => {
+  const w = await freshWorker();
+  const { response, alerts, mcReq } = await runLead(w, prepKitLead, { mc: 'timeout' });
+  assert.equal(response.status, 200);
+  assert.equal(alerts.length, 1);
+  assert.ok(alerts[0].body.text.includes('timeout'));
+  assert.ok(mcReq.options.signal instanceof AbortSignal);
+});
+
+test('MC network error for an ordinary lead: alert', async () => {
+  const w = await freshWorker();
+  const { response, alerts } = await runLead(w, prepKitLead, { mc: 'network' });
+  assert.equal(response.status, 200);
+  assert.equal(alerts.length, 1);
+});
+
+test('MC ok: no alert', async () => {
+  const w = await freshWorker();
+  const { response, alerts } = await runLead(w, prepKitLead, { mc: 'ok' });
+  assert.equal(response.status, 200);
+  assert.equal(alerts.length, 0);
+});
+
+test('fueling_calculator failure: no extra alert beyond its usual lead email', async () => {
+  const w = await freshWorker();
+  const fueling = { email: 'fuel@example.com', weight_lbs: '170', race_slug: 'unbound-200' };
+  const { response, alerts } = await runLead(w, fueling, { mc: 500 });
+  assert.equal(response.status, 200);
+  assert.equal(alerts.length, 1);
+  assert.ok(!alerts[0].body.subject.startsWith('Lead not saved'));
+});
+
+test('storage-required sources keep their 503 and get no lost-lead alert', async () => {
+  const w = await freshWorker();
+  const { response, alerts } = await runLead(w, exitPayload(), { mc: 500 });
+  assert.equal(response.status, 503);
+  assert.ok(alerts.every((a) => !a.body.subject.startsWith('Lead not saved')));
+});
+
+test('6 failures in a row: 5 alerts, then one capped line', async () => {
+  const w = await freshWorker();
+  let alertCount = 0;
+  const allErrors = [];
+  for (let i = 0; i < 6; i += 1) {
+    const { response, alerts, errors } = await runLead(
+      w, { ...prepKitLead, email: `rider${i}@example.com` }, { mc: 500, now: '2026-11-10T12:00:00Z' },
+    );
+    assert.equal(response.status, 200);
+    alertCount += alerts.length;
+    allErrors.push(...errors);
+  }
+  assert.equal(alertCount, 5);
+  assert.equal(allErrors.filter((e) => e.includes('capped at 5')).length, 1);
+});
+
+test('the cap resets after 10 minutes and reports how many were not alerted', async () => {
+  const w = await freshWorker();
+  for (let i = 0; i < 7; i += 1) {
+    await runLead(w, prepKitLead, { mc: 500, now: '2026-11-10T12:00:00Z' });
+  }
+  const { alerts, errors } = await runLead(w, prepKitLead, { mc: 500, now: '2026-11-10T12:11:00Z' });
+  assert.equal(alerts.length, 1);
+  assert.ok(errors.some((e) => e.includes('2 more not alerted')));
+});
+
+test('no RESEND_API_KEY or NOTIFICATION_EMAIL: skipped quietly, logged once', async () => {
+  const w = await freshWorker();
+  const first = await runLead(w, prepKitLead, { mc: 500, envOverrides: { NOTIFICATION_EMAIL: '' } });
+  const second = await runLead(w, prepKitLead, { mc: 500, envOverrides: { RESEND_API_KEY: '' } });
+  assert.equal(first.response.status, 200);
+  assert.equal(second.response.status, 200);
+  assert.equal(first.alerts.length + second.alerts.length, 0);
+  const unset = [...first.errors, ...second.errors].filter((e) => e.includes('is unset'));
+  assert.equal(unset.length, 1);
+});
+
+test('goal_2027 still hands back its poster_token', async () => {
+  const w = await freshWorker();
+  const originalFetch = globalThis.fetch;
+  const originalLog = console.log;
+  globalThis.fetch = async (url) => (String(url).includes('mission-control')
+    ? new Response(JSON.stringify({ poster_token: 'tok-123' }), { status: 200 })
+    : new Response('{}', { status: 200 }));
+  console.log = () => {};
+  try {
+    const response = await w.fetch(intakeRequest(STORAGE_REQUIRED_BODIES.goal_2027), leadEnv);
+    assert.equal(response.status, 200);
+    const body = await response.json();
+    assert.equal(body.poster_token, 'tok-123');
+  } finally {
+    globalThis.fetch = originalFetch;
+    console.log = originalLog;
+  }
+});

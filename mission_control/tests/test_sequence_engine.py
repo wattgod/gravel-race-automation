@@ -623,6 +623,59 @@ class TestUnsubscribeTokens:
         token = generate_unsubscribe_token("Test@Example.COM")
         assert verify_unsubscribe_token("test@example.com", token) is True
 
+    def test_tests_run_with_a_signing_key(self, fake_db):
+        from mission_control.services import sequence_engine as se
+
+        assert se.UNSUBSCRIBE_SECRET
+
+    def test_token_format_unchanged_for_same_key(self, fake_db, monkeypatch):
+        """Links already sent must keep validating: same key, same token."""
+        import hashlib
+        import hmac as _hmac
+        from mission_control.services import sequence_engine as se
+
+        monkeypatch.setattr(se, "UNSUBSCRIBE_SECRET", "k-current")
+        expected = _hmac.new(b"k-current", b"a@example.com", hashlib.sha256).hexdigest()[:32]
+        assert se.generate_unsubscribe_token("A@example.com") == expected
+
+    def test_previous_key_still_unsubscribes(self, fake_db, monkeypatch):
+        from mission_control.services import sequence_engine as se
+
+        monkeypatch.setattr(se, "UNSUBSCRIBE_SECRET", "k-old")
+        old_token = se.generate_unsubscribe_token("rot@example.com")
+        monkeypatch.setattr(se, "UNSUBSCRIBE_SECRET", "k-new")
+        monkeypatch.setattr(se, "UNSUBSCRIBE_SECRET_PREVIOUS", ["k-older", "k-old"])
+        assert se.verify_unsubscribe_token("rot@example.com", old_token) is True
+        # New links are signed with the current key only.
+        assert se.generate_unsubscribe_token("rot@example.com") != old_token
+
+    def test_unknown_key_does_not_unsubscribe(self, fake_db, monkeypatch):
+        from mission_control.services import sequence_engine as se
+
+        monkeypatch.setattr(se, "UNSUBSCRIBE_SECRET", "k-stranger")
+        foreign = se.generate_unsubscribe_token("rot@example.com")
+        monkeypatch.setattr(se, "UNSUBSCRIBE_SECRET", "k-new")
+        monkeypatch.setattr(se, "UNSUBSCRIBE_SECRET_PREVIOUS", ["k-old"])
+        assert se.verify_unsubscribe_token("rot@example.com", foreign) is False
+
+    def test_no_key_raises_instead_of_public_fallback(self, fake_db, monkeypatch):
+        from mission_control.services import sequence_engine as se
+
+        monkeypatch.setattr(se, "UNSUBSCRIBE_SECRET", "")
+        monkeypatch.setattr(se, "UNSUBSCRIBE_SECRET_PREVIOUS", [])
+        with pytest.raises(RuntimeError):
+            se.generate_unsubscribe_token("x@example.com")
+        # The old public string no longer validates anything.
+        import hashlib
+        import hmac as _hmac
+        public = _hmac.new(b"fallback-dev-secret", b"x@example.com", hashlib.sha256).hexdigest()[:32]
+        assert se.verify_unsubscribe_token("x@example.com", public) is False
+
+    def test_non_ascii_token_is_rejected_not_crashing(self, fake_db):
+        from mission_control.services.sequence_engine import verify_unsubscribe_token
+
+        assert verify_unsubscribe_token("x@example.com", "tökén") is False
+
     def test_build_unsubscribe_url(self, fake_db):
         from mission_control.services.sequence_engine import build_unsubscribe_url
 

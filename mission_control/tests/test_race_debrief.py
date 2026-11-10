@@ -247,6 +247,8 @@ class TestRunRaceDebrief:
         mock_enroll.assert_not_called()
         actions = {c.args[0] for c in mock_log.call_args_list}
         assert "race_debrief_aborted" in actions
+        # Flagged so the scheduler does not mark today done and a later slot retries.
+        assert summary["aborted"] is True
 
 
 class TestBadDatesNeverAbortTheDebrief:

@@ -91,11 +91,15 @@ async def run_race_watch(now: datetime | None = None) -> dict:
     intel = await asyncio.to_thread(_fetch_intel_sync)
     if not intel:
         db.log_action("race_watch_aborted", "sequence", "race_watch_v1", f"no race intel available — {_last_error or 'unknown'}"[:500])
+        # Flag it so the scheduler's once-a-day marker is not written and a
+        # later slot today retries.
+        summary["aborted"] = True
         return summary
 
     suppressed = load_suppressed()
     if suppressed is None:
         db.log_action("race_watch_aborted", "sequence", "race_watch_v1", "do-not-email list unreadable; sent nothing")
+        summary["aborted"] = True
         return summary
     rows = db.select("gg_sequence_enrollments", columns="id,sequence_id,contact_email,contact_name,source_data,status,enrolled_at")
     unsubscribed = {row.get("contact_email") for row in rows if row.get("status") == "unsubscribed"}

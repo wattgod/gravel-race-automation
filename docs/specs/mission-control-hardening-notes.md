@@ -24,6 +24,21 @@ fail before any change and are not chased:
 
 ## Deviations
 
+1. **Change 9 — the four daily-job services now flag their early aborts.** The spec
+   wants "a run that aborts (e.g. race data fetch failed) writes nothing", but
+   `run_race_countdown`, `run_race_debrief` (no race dates) and `run_race_watch` (no race
+   intel; do-not-email list unreadable) logged the abort and *returned* normally, with
+   `summary["aborted"]` left `False` (race_watch had no such key). "Finished without
+   raising" alone would have written the done-today marker and stopped the retry. The
+   conservative fix: those abort paths now set `summary["aborted"] = True`
+   (`services/race_countdown.py`, `race_debrief.py`, `race_watch.py`; nothing else in
+   them changed), and the scheduler writes the marker only when the run returned without
+   raising **and** without `aborted`. `win_back` already set the flag.
+2. **Change 9 — `test_win_back.py::test_scheduler_registers_daily_job`** asserted the old
+   single slot (`hour='15'`); updated to `hour='15,18,21'`.
+3. **Change 8 — `scripts/jev_client.py` added to watchPatterns** (not in the spec's list):
+   `services/lead_nurture.py` imports it.
+
 ## Notes
 
 ### Change 3 — admin login
@@ -128,3 +143,20 @@ There is no `.dockerignore`; `COPY . .` copies the whole repo.
 Note: `race-data/**` is pushed often by the data automation, so those pushes still
 redeploy Mission Control (needed: email race facts and the races API read it). See the
 change 4 note about a possible false heartbeat alarm after back-to-back deploys.
+
+### Change 9 — daily jobs
+- Slots: countdown 14:00 / 17:00 / 20:00, debrief 14:30 / 17:30 / 20:30, race watch
+  15:00 / 18:00 / 21:00, win-back 15:30 / 18:30 / 21:30 UTC. Same order within each slot.
+- Marker: a `gg_audit_log` row, `action = 'daily_job_done'`, `entity_id = '<job>:<UTC
+  date>'`, read with the existing generic `supabase_client.select` (no new function).
+  If the marker cannot be read, the slot is skipped (logged at ERROR) rather than
+  risking a second run; the next slot checks again.
+- Accepted small windows: the check-then-run is not atomic (two containers during a
+  deploy could both run in the same slot); a run that aborts after the error limit
+  (`aborted` after 10 failed contacts) has already enrolled some people, so the retry
+  can enroll up to one more cap's worth that day; `race_watch` saves `last_notified_at`
+  right after each send, so a retry skips those people (7-day rate cap) unless that
+  save itself failed for someone.
+- The `win_back` run with `WIN_BACK_ENABLED` off returns normally, so it marks the day
+  done — same effect as today's single slot.
+

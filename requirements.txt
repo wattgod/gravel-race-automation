@@ -6,7 +6,8 @@ httpx>=0.25.0
 google-genai>=1.0.0
 ddgs>=9.0.0
 pyyaml>=6.0
-playwright>=1.40
+# 1.65.0 needs libatomic.so.1, which python:3.12-slim lacks, and fails the Railway build.
+playwright==1.64.1
 resend>=0.7
 pytest>=7.4
 python-frontmatter>=1.0

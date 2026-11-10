@@ -1,0 +1,31 @@
+name: Mission Control heartbeat
+
+# Mission Control sends the lifecycle email on a 15-minute timer. If that timer
+# stops, nothing else notices. This job asks /health/jobs once an hour; a 503 or
+# no answer fails the job, and GitHub emails the failure to whoever last edited
+# this schedule.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check the email timer
+        run: |
+          for attempt in 1 2 3; do
+            if curl -fsS --max-time 20 https://athlete-profiles-production.up.railway.app/health/jobs; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              echo "Attempt $attempt failed; retrying in 60 s"
+              sleep 60
+            fi
+          done
+          echo "::error::Mission Control /health/jobs failed three times"
+          exit 1

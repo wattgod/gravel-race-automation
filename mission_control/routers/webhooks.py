@@ -137,11 +137,7 @@ async def intake_webhook(
     authorization: str = Header(""),
 ):
     _check_rate_limit(request)
-    # Verify webhook secret
-    if WEBHOOK_SECRET:
-        expected = f"Bearer {WEBHOOK_SECRET}"
-        if authorization != expected:
-            raise HTTPException(status_code=401, detail="Invalid webhook secret")
+    _require_webhook_secret(authorization)
 
     body = await request.json()
     request_id = body.get("request_id", "")
@@ -334,10 +330,7 @@ async def subscriber_webhook(
     Enrolls in appropriate sequences based on source.
     """
     _check_rate_limit(request)
-    if WEBHOOK_SECRET:
-        expected = f"Bearer {WEBHOOK_SECRET}"
-        if authorization != expected:
-            raise HTTPException(status_code=401, detail="Invalid webhook secret")
+    _require_webhook_secret(authorization)
 
     body = await request.json()
     email = _validate_email(body.get("email", ""))
@@ -758,8 +751,10 @@ async def resend_webhook(
     # Real Resend events are Svix-signed; the Bearer path remains for
     # internal callers and tests.
     svix_ok = _verify_svix_signature(raw_body, request.headers)
+    # With no WEBHOOK_SECRET the Bearer path is simply unavailable; an
+    # unsigned request is refused either way.
     bearer_ok = bool(WEBHOOK_SECRET) and authorization == f"Bearer {WEBHOOK_SECRET}"
-    if WEBHOOK_SECRET and not (svix_ok or bearer_ok):
+    if not (svix_ok or bearer_ok):
         raise HTTPException(status_code=401, detail="Invalid webhook signature")
 
     body = await request.json()
@@ -792,10 +787,7 @@ async def resend_inbound_webhook(
 ):
     """Receive inbound email replies via Resend."""
     _check_rate_limit(request)
-    if WEBHOOK_SECRET:
-        expected = f"Bearer {WEBHOOK_SECRET}"
-        if authorization != expected:
-            raise HTTPException(status_code=401, detail="Invalid webhook secret")
+    _require_webhook_secret(authorization)
 
     body = await request.json()
     data = body.get("data", {})

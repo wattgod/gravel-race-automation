@@ -52,6 +52,53 @@ class TestWebhookAuth:
         assert resp.status_code == 401
 
 
+_STRICT_ROUTES = [
+    ("post", "/webhooks/intake", {"request_id": "nonexistent"}),
+    ("post", "/webhooks/subscriber", {"email": "strict@example.com"}),
+    ("post", "/webhooks/resend", {"type": "email.sent", "data": {}}),
+    ("post", "/webhooks/resend-inbound", {"data": {}}),
+    ("get", "/webhooks/tp-store-sales/config", None),
+    ("post", "/webhooks/tp-store-sales", {}),
+    ("get", "/webhooks/gmail-sync/candidates", None),
+    ("post", "/webhooks/gmail-sync", {}),
+    ("get", "/webhooks/gmail-sync/drafts/ready", None),
+    ("post", "/webhooks/gmail-sync/drafts/x/receipt", {}),
+]
+
+
+def _call(client, method, path, payload, auth):
+    kwargs = {"headers": {"Authorization": auth}}
+    if payload is not None:
+        kwargs["json"] = payload
+    return getattr(client, method)(path, **kwargs)
+
+
+class TestWebhookSecretIsStrict:
+    """An empty WEBHOOK_SECRET must refuse requests, never wave them through."""
+
+    @pytest.mark.parametrize("method,path,payload", _STRICT_ROUTES)
+    def test_empty_key_refuses(self, client, monkeypatch, method, path, payload):
+        monkeypatch.setattr("mission_control.routers.webhooks.WEBHOOK_SECRET", "")
+        for auth in ("", "Bearer ", "Bearer anything"):
+            resp = _call(client, method, path, payload, auth)
+            assert resp.status_code == 401, (path, auth)
+
+    @pytest.mark.parametrize("method,path,payload", _STRICT_ROUTES)
+    def test_wrong_key_refuses(self, client, method, path, payload):
+        resp = _call(client, method, path, payload, "Bearer wrong-secret")
+        assert resp.status_code == 401
+
+    @pytest.mark.parametrize("method,path,payload", [
+        ("post", "/webhooks/intake", {"request_id": "nonexistent"}),
+        ("post", "/webhooks/subscriber", {"email": "strict@example.com"}),
+        ("post", "/webhooks/resend", {"type": "email.sent", "data": {}}),
+        ("post", "/webhooks/resend-inbound", {"data": {}}),
+    ])
+    def test_right_key_passes_auth(self, client, fake_db, method, path, payload):
+        resp = _call(client, method, path, payload, "Bearer test-secret-123")
+        assert resp.status_code != 401
+
+
 class TestSubscriberWebhook:
     """POST /webhooks/subscriber — enrolls contacts in sequences."""
 

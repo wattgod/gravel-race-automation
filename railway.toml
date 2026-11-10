@@ -1,6 +1,26 @@
 [build]
 builder = "dockerfile"
 dockerfilePath = "Dockerfile"
+# Rebuild only when something the container reads at run time changes, so the
+# frequent data/site pushes to main stop redeploying Mission Control. Derived
+# from the code; evidence in docs/specs/mission-control-hardening-notes.md.
+# Missing a path only delays a change to the next deploy; it never breaks the
+# server.
+watchPatterns = [
+  "mission_control/**",
+  "mission_control.py",
+  "requirements.txt",
+  "Dockerfile",
+  "railway.toml",
+  "pipeline/__init__.py",
+  "pipeline/nutrition.py",
+  "scripts/jev_client.py",
+  "race-data/**",
+  "web/race-index.json",
+  "data/pricing.json",
+  "guide/fonts/**",
+  "templates/emails/**",
+]
 
 [deploy]
 # Railway only switches traffic to a new deploy once /health answers 200

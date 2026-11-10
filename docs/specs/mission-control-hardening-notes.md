@@ -98,3 +98,33 @@ fail before any change and are not chased:
   No conflict found, so no deviation.
 - `pydantic` had no line before (it came in through fastapi); it is now listed and pinned
   in the Mission Control block.
+
+### Change 8 — rebuild paths (watchPatterns)
+Greps run over `mission_control/` (tests excluded) and over what it imports:
+`git grep -n "REPO_ROOT\|parent.parent\|read_text\|open(\|Path("`, plus a scan of every
+import that is not `mission_control.*`, the standard library or an installed package.
+
+| Path | Why the container reads it (evidence) |
+|---|---|
+| `mission_control/**` | the app itself, its Jinja templates (`config.WEB_TEMPLATES_DIR`), static files (`config.STATIC_DIR`), sequence email templates (`sequence_engine._render_template`, `race_watch.py:83`) |
+| `mission_control.py` | `Dockerfile` `CMD` |
+| `requirements.txt`, `Dockerfile`, `railway.toml` | the build itself |
+| `pipeline/__init__.py`, `pipeline/nutrition.py` | `routers/nutrition_api.py:17` imports `pipeline.nutrition` (which imports only `typing`; `__init__` is empty) |
+| `scripts/jev_client.py` | `services/lead_nurture.py:37` `from scripts import jev_client` (it imports only `os`, `typing`). **Not in the spec's list; added.** |
+| `race-data/**` | `services/race_data.py:20` `RACE_DATA_DIR` (races API) and `sequence_engine.py` race facts (`RACE_DATA_DIR / f"{slug}.json"`) |
+| `web/race-index.json` | `services/race_data.py:19` `RACE_INDEX_PATH` |
+| `data/pricing.json` | `services/pricing.py:15` `PRICING_JSON_PATH`, read at import |
+| `guide/fonts/**` | `services/goal_poster.py:61` `_FONT_DIR` (poster PNG fonts) |
+| `templates/emails/**` | `config.TEMPLATES_DIR`, read by `services/email_preview.py` (templates page) |
+
+Not included, on purpose: `.env` (loaded by `config.py` but not in the repo or the
+image), `runtime_credentials.py`'s temporary GA4 key file (written at start from an
+environment variable), and the input paths of `provider_ingestion.py` /
+`stripe_provider_ingestion.py` (command-line arguments, not used by the server).
+`config.py` still names `athletes/`, `intakes/`, `plans/`, `run_pipeline.py` and
+`scripts/pre_delivery_audit.py`, but after change 6 nothing at run time reads them.
+There is no `.dockerignore`; `COPY . .` copies the whole repo.
+
+Note: `race-data/**` is pushed often by the data automation, so those pushes still
+redeploy Mission Control (needed: email race facts and the races API read it). See the
+change 4 note about a possible false heartbeat alarm after back-to-back deploys.

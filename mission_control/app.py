@@ -1,9 +1,12 @@
 """FastAPI application factory."""
 
 import logging
+import os
 from contextlib import asynccontextmanager
+from datetime import datetime, timedelta, timezone
 
 from fastapi import Depends, FastAPI
+from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from mission_control.config import STATIC_DIR
@@ -19,16 +22,161 @@ from mission_control.routers import lead_replies
 logger = logging.getLogger(__name__)
 
 
+# ---------------------------------------------------------------------------
+# Logging
+# ---------------------------------------------------------------------------
+
+# At INFO these libraries log every request URL, and database lookups put
+# customer email addresses in the URL. Keep them at WARNING.
+_QUIET_LOGGERS = ("httpx", "httpcore", "hpack", "postgrest")
+
+
+def configure_logging() -> None:
+    """Root logger at INFO so the app's own lines reach Railway logs."""
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
+    logging.getLogger().setLevel(logging.INFO)
+    for name in _QUIET_LOGGERS:
+        logging.getLogger(name).setLevel(logging.WARNING)
+
+
+# ---------------------------------------------------------------------------
+# Health
+# ---------------------------------------------------------------------------
+
+# Present (set and non-empty) by name. Values are never read out or returned.
+REQUIRED_SETTINGS = (
+    "SUPABASE_URL",
+    "SUPABASE_SERVICE_KEY",
+    "RESEND_API_KEY",
+    "WEBHOOK_SECRET",
+    "MISSION_CONTROL_SECRET",
+)
+
+JOBS_STALE_AFTER = timedelta(minutes=45)
+FIRST_START_WINDOW = timedelta(hours=2)
+# gg_settings key holding the previous server start time, so a crash loop
+# (a restart every few minutes, no tick ever completing) cannot stay green on
+# the start-up grace period.
+LAST_START_SETTING = "mc_last_start_utc"
+
+# In-memory job health for this process. Lives here, not in scheduler.py, so
+# tests that stub the scheduler module do not replace it.
+_job_health: dict = {
+    "started": None,          # datetime this process started
+    "first_start": False,     # no other start in the previous FIRST_START_WINDOW
+    "last_good_tick": None,   # datetime of the last good process_sequences run
+    "last_run": None,         # {processed, sent, errors} of the last run
+}
+
+
+def record_sequence_tick(result: dict) -> None:
+    """Record a process_sequences run. Good = not skipped, and not every send failed."""
+    processed = int(result.get("processed", 0) or 0)
+    sent = int(result.get("sent", 0) or 0)
+    _job_health["last_run"] = {
+        "processed": processed,
+        "sent": sent,
+        "errors": int(result.get("errors", 0) or 0),
+    }
+    if not result.get("skipped") and (processed == 0 or sent > 0):
+        _job_health["last_good_tick"] = datetime.now(timezone.utc)
+
+
+def record_server_start(now: datetime | None = None) -> bool:
+    """Store this start in gg_settings; return True if no other start happened
+    in the previous FIRST_START_WINDOW. A database failure counts as "not the
+    first start" so the grace period is never granted on doubt."""
+    from mission_control import supabase_client as db
+
+    now = now or datetime.now(timezone.utc)
+    first = False
+    try:
+        previous = db.get_setting(LAST_START_SETTING, "")
+        if previous:
+            prev_dt = datetime.fromisoformat(previous)
+            first = now - prev_dt >= FIRST_START_WINDOW
+        else:
+            first = True
+    except Exception as e:
+        logger.warning("Could not read last server start: %s", e)
+        first = False
+    try:
+        db.set_setting(LAST_START_SETTING, now.isoformat())
+    except Exception as e:
+        logger.warning("Could not record server start: %s", e)
+        first = False
+    _job_health["first_start"] = first
+    return first
+
+
+def _scheduler_running() -> bool:
+    try:
+        from mission_control.scheduler import scheduler
+        return scheduler.running is True
+    except Exception:
+        return False
+
+
+def _missing_settings() -> list[str]:
+    return [name for name in REQUIRED_SETTINGS if not os.environ.get(name, "").strip()]
+
+
+def health_problems() -> list[str]:
+    """Names of failed checks — never values."""
+    problems = []
+    if not _scheduler_running():
+        problems.append("scheduler not running")
+    problems.extend(f"missing setting: {name}" for name in _missing_settings())
+    return problems
+
+
+def jobs_health(now: datetime | None = None) -> dict:
+    """Body for /health/jobs: counts and times only, never addresses."""
+    now = now or datetime.now(timezone.utc)
+    last_good = _job_health["last_good_tick"]
+    started = _job_health["started"]
+    fresh_tick = last_good is not None and now - last_good < JOBS_STALE_AFTER
+    in_grace = (
+        started is not None
+        and now - started < JOBS_STALE_AFTER
+        and bool(_job_health["first_start"])
+    )
+    return {
+        "last_good_tick_utc": last_good.isoformat() if last_good else None,
+        "started_utc": started.isoformat() if started else None,
+        "last_run": _job_health["last_run"],
+        "ok": bool(fresh_tick or in_grace),
+    }
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Startup and shutdown events."""
-    # Start the scheduler for sequence processing
+    # Start the scheduler for sequence processing. A failure here makes
+    # /health answer 503, so Railway refuses the deploy and keeps the old one.
     try:
         from mission_control.scheduler import scheduler
         scheduler.start()
         logger.info("Scheduler started — processing sequences every 15 minutes")
     except Exception as e:
-        logger.warning("Scheduler failed to start: %s", e)
+        logger.error("Scheduler failed to start: %s", e)
+
+    _job_health["started"] = datetime.now(timezone.utc)
+    _job_health["first_start"] = False
+    _job_health["last_good_tick"] = None
+    _job_health["last_run"] = None
+    try:
+        import asyncio as _asyncio
+
+        async def _record_start():
+            try:
+                await _asyncio.to_thread(record_server_start)
+            except Exception as e:
+                logger.warning("server start not recorded: %s", e)
+
+        _asyncio.get_running_loop().create_task(_record_start())
+    except Exception as e:
+        logger.warning("server start recording not scheduled: %s", e)
 
     # Startup probe: record whether race-dates fetches work from THIS
     # environment. The countdown job aborted silently for weeks because the
@@ -82,7 +230,17 @@ def create_app() -> FastAPI:
 
     @app.get("/health", include_in_schema=False)
     async def health():
+        # Railway's deploy health check: 503 keeps the previous deploy live.
+        problems = health_problems()
+        if problems:
+            return JSONResponse({"status": "unhealthy", "failed": problems}, status_code=503)
         return {"status": "ok"}
+
+    @app.get("/health/jobs", include_in_schema=False)
+    async def health_jobs():
+        # Polled hourly by .github/workflows/mission-control-heartbeat.yml.
+        body = jobs_health()
+        return JSONResponse(body, status_code=200 if body["ok"] else 503)
 
     # Routers — admin-protected (dashboard, internal — hidden from API docs)
     _admin = [Depends(require_admin)]

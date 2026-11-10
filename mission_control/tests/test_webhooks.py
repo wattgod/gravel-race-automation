@@ -258,7 +258,10 @@ class TestResendWebhook:
 
 
 class TestHealthEndpoint:
-    def test_health_returns_ok(self, client):
+    def test_health_returns_ok(self, client, monkeypatch):
+        # Tests stub the lifespan, so the job timer never starts: inject it.
+        monkeypatch.setattr("mission_control.app._scheduler_running", lambda: True)
+        monkeypatch.setenv("RESEND_API_KEY", "test-resend-key")
         resp = client.get("/health")
         assert resp.status_code == 200
         assert resp.json() == {"status": "ok"}

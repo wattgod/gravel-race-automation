@@ -155,8 +155,13 @@ class TestCorrectSecret:
 class TestPublicRoutesUnaffected:
     """Public routes must work without any admin auth."""
 
-    def test_health_no_auth_needed(self):
-        with _make_client({"MISSION_CONTROL_SECRET": ADMIN_SECRET}) as client:
+    def test_health_no_auth_needed(self, monkeypatch):
+        # Tests stub the lifespan, so the job timer never starts: inject it.
+        monkeypatch.setattr("mission_control.app._scheduler_running", lambda: True)
+        with _make_client({
+            "MISSION_CONTROL_SECRET": ADMIN_SECRET,
+            "RESEND_API_KEY": "test-resend-key",
+        }) as client:
             resp = client.get("/health")
             assert resp.status_code == 200
 

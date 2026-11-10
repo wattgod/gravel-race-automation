@@ -18,6 +18,10 @@ from mission_control.config import HOST, PORT
 
 
 def main():
+    # Before anything logs: root at INFO, request-URL loggers at WARNING.
+    from mission_control.app import configure_logging
+    configure_logging()
+
     print("=" * 60)
     print("  Gravel God — Mission Control")
     print("=" * 60)

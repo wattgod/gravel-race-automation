@@ -3,5 +3,10 @@ builder = "dockerfile"
 dockerfilePath = "Dockerfile"
 
 [deploy]
+# Railway only switches traffic to a new deploy once /health answers 200
+# (job timer running and required settings present); otherwise the previous
+# deploy stays live.
+healthcheckPath = "/health"
+healthcheckTimeout = 120
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3

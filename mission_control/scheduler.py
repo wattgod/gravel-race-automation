@@ -16,6 +16,8 @@ async def process_sequences():
     """Process due sequence sends every 15 minutes."""
     try:
         result = await process_due_sends()
+        from mission_control.app import record_sequence_tick
+        record_sequence_tick(result)
         if result["processed"] > 0:
             logger.info(
                 "Sequence processing: %d processed, %d sent, %d errors",

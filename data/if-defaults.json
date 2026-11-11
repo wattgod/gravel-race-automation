@@ -1,0 +1,28 @@
+{
+  "$schema_note": "Default race intensity (IF = normalized power / FTP at race altitude) for the race finish-time planner, by rider level and predicted riding hours. Locked by Matt on 2026-11-11. Design and sources: bbs-race-dataset research/IF_DEFAULTS.md sections 5-6. Change only with a dated amendment there.",
+  "version": 1,
+  "locked": "2026-11-11",
+  "form": "IF = a - b * ln(hours), hours = predicted riding hours (iterate until stable)",
+  "levels": {
+    "elite":        {"label": "Elite",        "hours_per_week_min": 14, "hours_per_week_max": null, "a": 0.95, "b": 0.091},
+    "advanced":     {"label": "Advanced",     "hours_per_week_min": 9,  "hours_per_week_max": 14,   "a": 0.92, "b": 0.109},
+    "intermediate": {"label": "Intermediate", "hours_per_week_min": 6,  "hours_per_week_max": 9,    "a": 0.90, "b": 0.124},
+    "beginner": {
+      "label": "Beginner", "hours_per_week_min": 0, "hours_per_week_max": 6,
+      "piecewise": [
+        {"hours_max": 1, "if": 0.85},
+        {"hours_max": 2, "a": 0.85, "b": 0.25969, "note": "0.85 - (0.18/ln 2) * ln(hours)"},
+        {"hours_max": null, "a": 0.67, "b": 0.052899, "ref_hours": 2, "note": "0.67 - (0.11/ln 8) * ln(hours/2)"}
+      ]
+    }
+  },
+  "anchors": [
+    "Elite: public Unbound 200 winner files IF 0.70 and 0.76 (9-10 h); pro road monuments IF 0.77 at 6.8 h (van Erp & Sanders 2021); pro women IF 0.83 at 3.2 h (Sanders 2019)",
+    "Advanced and Intermediate: amateur 6-9 h race IF 0.59-0.75 (Faulkner 2025; Barranco-Gil 2024; Reinpold 2021)",
+    "Intermediate check: coach estimate IF 0.80 as a 2-3 h maximum",
+    "Beginner: coach estimate of a sharp drop after about 90 min; floor at the low end of the classic endurance band (0.56)",
+    "1 h values (0.95 / 0.92 / 0.90 / 0.85): coaching judgement"
+  ],
+  "carb_term": null,
+  "carb_term_reason": "No trial quantifies a carb-dependent shift in multi-hour average power or IF; carbs act through the planner's gut-training row (research/CARB_INTAKE_EVIDENCE.md)."
+}

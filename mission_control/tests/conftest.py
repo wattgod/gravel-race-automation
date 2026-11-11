@@ -251,6 +251,20 @@ def _reset_rate_limiter():
     _rate_buckets.clear()
 
 
+@pytest.fixture(autouse=True)
+def _reset_failed_logins():
+    """The admin failed-login limit is global module state; clear it so ten
+    wrong-password tests anywhere in the suite cannot lock out later ones."""
+    try:
+        from mission_control.routers.auth_routes import _failed_logins
+    except Exception:
+        yield
+        return
+    _failed_logins.clear()
+    yield
+    _failed_logins.clear()
+
+
 @pytest.fixture
 def fake_db():
     """Provides a clean in-memory DB and patches supabase_client._table."""

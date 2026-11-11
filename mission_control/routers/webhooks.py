@@ -1,5 +1,6 @@
 """Webhooks — receives intake from Cloudflare Worker + automation triggers."""
 
+import hmac
 import json
 import logging
 import re
@@ -127,71 +128,10 @@ def _truncate(value: str, max_len: int) -> str:
 
 
 def _require_webhook_secret(authorization: str) -> None:
-    if not WEBHOOK_SECRET or authorization != f"Bearer {WEBHOOK_SECRET}":
+    if not WEBHOOK_SECRET or not hmac.compare_digest(
+        authorization.encode(), f"Bearer {WEBHOOK_SECRET}".encode()
+    ):
         raise HTTPException(status_code=401, detail="Invalid webhook secret")
-
-
-@router.post("/intake")
-async def intake_webhook(
-    request: Request,
-    authorization: str = Header(""),
-):
-    _check_rate_limit(request)
-    # Verify webhook secret
-    if WEBHOOK_SECRET:
-        expected = f"Bearer {WEBHOOK_SECRET}"
-        if authorization != expected:
-            raise HTTPException(status_code=401, detail="Invalid webhook secret")
-
-    body = await request.json()
-    request_id = body.get("request_id", "")
-
-    if not request_id:
-        raise HTTPException(status_code=400, detail="request_id required")
-
-    # Look up the plan request
-    plan_request = db.get_plan_request(request_id)
-    if not plan_request:
-        raise HTTPException(status_code=404, detail=f"Plan request {request_id} not found")
-
-    payload = plan_request.get("payload", {})
-
-    # Extract and validate athlete info from payload
-    name = _truncate(payload.get("name", "Unknown"), _MAX_NAME_LEN)
-    email = payload.get("email", "").strip().lower()
-
-    # Generate slug
-    from datetime import date
-    slug_base = re.sub(r"[^a-z0-9-]", "", name.lower().replace(" ", "-"))
-    slug = f"{slug_base}-{date.today().strftime('%Y%m%d')}"
-
-    # Check if athlete already exists
-    existing = db.get_athlete(slug)
-    if existing:
-        return {"status": "already_exists", "slug": slug}
-
-    # Create athlete record
-    races = payload.get("races", [])
-    race_name = races[0].get("name") if races else None
-    race_date = races[0].get("date") if races else None
-
-    db.upsert_athlete({
-        "slug": slug,
-        "plan_request_id": request_id,
-        "name": name,
-        "email": email,
-        "race_name": race_name,
-        "race_date": race_date,
-        "ftp": payload.get("ftp"),
-        "weekly_hours": str(payload.get("weekly_hours", "")),
-        "plan_status": "intake_received",
-        "intake_json": payload,
-    })
-
-    db.log_action("intake_received", "athlete", slug,
-                  f"New intake from webhook: {name} ({email})")
-
-    return {"status": "created", "slug": slug}
 
 
 async def _send_enrollment_alert(
@@ -334,10 +274,7 @@ async def subscriber_webhook(
     Enrolls in appropriate sequences based on source.
     """
     _check_rate_limit(request)
-    if WEBHOOK_SECRET:
-        expected = f"Bearer {WEBHOOK_SECRET}"
-        if authorization != expected:
-            raise HTTPException(status_code=401, detail="Invalid webhook secret")
+    _require_webhook_secret(authorization)
 
     body = await request.json()
     email = _validate_email(body.get("email", ""))
@@ -590,7 +527,7 @@ async def subscriber_webhook(
                     del source_data["poster_url"]
             db.update("gg_sequence_enrollments", {"source_data": merged},
                       match={"id": existing["id"]})
-            logger.info("season review updated in place for %s", email)
+            logger.info("season review updated in place (source=%s)", source)
             updated_in_place = True
             # The page promises a copy of what they just wrote, so send the
             # first email again with the corrected answers (bounded in
@@ -758,8 +695,10 @@ async def resend_webhook(
     # Real Resend events are Svix-signed; the Bearer path remains for
     # internal callers and tests.
     svix_ok = _verify_svix_signature(raw_body, request.headers)
+    # With no WEBHOOK_SECRET the Bearer path is simply unavailable; an
+    # unsigned request is refused either way.
     bearer_ok = bool(WEBHOOK_SECRET) and authorization == f"Bearer {WEBHOOK_SECRET}"
-    if WEBHOOK_SECRET and not (svix_ok or bearer_ok):
+    if not (svix_ok or bearer_ok):
         raise HTTPException(status_code=401, detail="Invalid webhook signature")
 
     body = await request.json()
@@ -792,10 +731,7 @@ async def resend_inbound_webhook(
 ):
     """Receive inbound email replies via Resend."""
     _check_rate_limit(request)
-    if WEBHOOK_SECRET:
-        expected = f"Bearer {WEBHOOK_SECRET}"
-        if authorization != expected:
-            raise HTTPException(status_code=401, detail="Invalid webhook secret")
+    _require_webhook_secret(authorization)
 
     body = await request.json()
     data = body.get("data", {})

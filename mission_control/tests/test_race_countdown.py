@@ -191,6 +191,8 @@ class TestRunRaceCountdown:
         # this exact path failed silently every day for weeks.
         actions = {c.args[0] for c in mock_log.call_args_list}
         assert "race_countdown_aborted" in actions
+        # Flagged so the scheduler does not mark today done and a later slot retries.
+        assert summary["aborted"] is True
 
 
 class TestFetchDatesUserAgent:

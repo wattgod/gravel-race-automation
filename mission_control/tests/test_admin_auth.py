@@ -24,12 +24,13 @@ ADMIN_SECRET = "test-admin-secret-abc123"
 
 # Protected routes to smoke-test (one from each router group)
 PROTECTED_GET_ROUTES = [
-    "/athletes/",
-    "/pipeline/",
+    "/",
+    "/triage",
     "/sequences/",
     "/deals/",
     "/analytics/",
-    "/reports/",
+    "/templates/",
+    "/lead-replies",
 ]
 
 PUBLIC_GET_ROUTES = [
@@ -94,7 +95,7 @@ class TestNoSecretConfigured:
 
     def test_error_message_indicates_misconfiguration(self):
         with _make_client({"MISSION_CONTROL_SECRET": ""}) as client:
-            resp = client.get("/athletes/")
+            resp = client.get("/sequences/")
             assert "not configured" in resp.json()["detail"].lower()
 
 
@@ -118,14 +119,14 @@ class TestWrongSecret:
 
     def test_no_header_returns_401(self):
         with _make_client({"MISSION_CONTROL_SECRET": ADMIN_SECRET}) as client:
-            resp = client.get("/athletes/")
+            resp = client.get("/sequences/")
             assert resp.status_code == 401
 
     def test_malformed_header_returns_401(self):
         with _make_client({"MISSION_CONTROL_SECRET": ADMIN_SECRET}) as client:
             # Token without "Bearer " prefix
             resp = client.get(
-                "/athletes/",
+                "/sequences/",
                 headers={"Authorization": ADMIN_SECRET},
             )
             assert resp.status_code == 401
@@ -138,9 +139,9 @@ class TestWrongSecret:
 class TestCorrectSecret:
     """Requests with the correct Bearer token should pass auth."""
 
-    def test_athletes_list_passes_auth(self, client_with_secret):
+    def test_sequences_list_passes_auth(self, client_with_secret):
         resp = client_with_secret.get(
-            "/athletes/",
+            "/sequences/",
             headers={"Authorization": f"Bearer {ADMIN_SECRET}"},
         )
         # Should pass auth — may return 200 or 500 depending on DB state,
@@ -155,8 +156,13 @@ class TestCorrectSecret:
 class TestPublicRoutesUnaffected:
     """Public routes must work without any admin auth."""
 
-    def test_health_no_auth_needed(self):
-        with _make_client({"MISSION_CONTROL_SECRET": ADMIN_SECRET}) as client:
+    def test_health_no_auth_needed(self, monkeypatch):
+        # Tests stub the lifespan, so the job timer never starts: inject it.
+        monkeypatch.setattr("mission_control.app._scheduler_running", lambda: True)
+        with _make_client({
+            "MISSION_CONTROL_SECRET": ADMIN_SECRET,
+            "RESEND_API_KEY": "test-resend-key",
+        }) as client:
             resp = client.get("/health")
             assert resp.status_code == 200
 
@@ -170,16 +176,16 @@ class TestPublicRoutesUnaffected:
         with _make_client({"MISSION_CONTROL_SECRET": ADMIN_SECRET}) as client:
             # Wrong webhook secret → 401 (proves webhook uses its own auth)
             resp = client.post(
-                "/webhooks/intake",
-                json={"request_id": "test"},
+                "/webhooks/subscriber",
+                json={"email": "own-auth@example.com"},
                 headers={"Authorization": "Bearer wrong-webhook-secret"},
             )
             assert resp.status_code == 401
 
             # Admin secret alone should NOT satisfy webhook auth
             resp = client.post(
-                "/webhooks/intake",
-                json={"request_id": "test"},
+                "/webhooks/subscriber",
+                json={"email": "own-auth@example.com"},
                 headers={"Authorization": f"Bearer {ADMIN_SECRET}"},
             )
             assert resp.status_code == 401
@@ -194,3 +200,36 @@ def client_with_secret(fake_db):
     """Client with MISSION_CONTROL_SECRET set and fake DB."""
     with _make_client({"MISSION_CONTROL_SECRET": ADMIN_SECRET}) as client:
         yield client
+
+
+class TestPrunedAreasGone:
+    """Athletes, pipeline, touchpoints and reports were removed (dead areas)."""
+
+    @pytest.mark.parametrize("route", [
+        "/athletes/", "/pipeline/", "/touchpoints/", "/reports/",
+    ])
+    def test_route_is_gone(self, route):
+        with _make_client({"MISSION_CONTROL_SECRET": ADMIN_SECRET}) as client:
+            resp = client.get(route, headers={"Authorization": f"Bearer {ADMIN_SECRET}"})
+            assert resp.status_code == 404
+
+    def test_nav_has_no_dead_links(self, client_with_secret):
+        resp = client_with_secret.get(
+            "/sequences/", headers={"Authorization": f"Bearer {ADMIN_SECRET}"},
+        )
+        for dead in ('href="/athletes', 'href="/pipeline', 'href="/touchpoints', 'href="/reports'):
+            assert dead not in resp.text
+
+    def test_kept_pages_render_without_athlete_links(self, client, fake_db):
+        from mission_control.tests.conftest import make_athlete, make_deal
+
+        fake_db.store["gg_athletes"].append(
+            make_athlete(email="deal@example.com", name="Deal Athlete"),
+        )
+        deal = make_deal(contact_email="deal@example.com")
+        fake_db.store["gg_deals"].append(deal)
+        for path in ["/", "/triage", "/sequences/", "/deals/", f"/deals/{deal['id']}",
+                     "/templates/", "/lead-replies"]:
+            resp = client.get(path)
+            assert resp.status_code == 200, (path, resp.status_code)
+            assert 'href="/athletes' not in resp.text, path

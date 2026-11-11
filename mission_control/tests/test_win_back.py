@@ -290,4 +290,5 @@ def test_scheduler_registers_daily_job():
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     job = mod.scheduler.get_job("win_back")
-    assert job is not None and "hour='15'" in str(job.trigger) and "minute='30'" in str(job.trigger)
+    # 15:30 UTC plus two retry slots; the done-today marker keeps it to one run a day.
+    assert job is not None and "hour='15,18,21'" in str(job.trigger) and "minute='30'" in str(job.trigger)

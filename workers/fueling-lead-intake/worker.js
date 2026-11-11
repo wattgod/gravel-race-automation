@@ -188,7 +188,19 @@ export default {
       // Notify Mission Control for sequence enrollment (all sources)
       if (env.MC_WEBHOOK_URL) {
         mcResultPromise = notifyMissionControl(env, data, source);
-        promises.push(mcResultPromise);
+        if (STORAGE_REQUIRED.includes(source) || source === 'fueling_calculator') {
+          // Storage-required sources answer 503 on failure; fueling_calculator
+          // already emails the owner every lead below.
+          promises.push(mcResultPromise);
+        } else {
+          // Any other lead Mission Control did not save would otherwise be
+          // logged and lost: email the owner so it can be re-entered by hand.
+          // There is no ctx.waitUntil here, so the alert rides on this promise.
+          promises.push(mcResultPromise.then(async (result) => {
+            if (result && !result.ok) { await alertLeadNotSaved(env, data, source, result.status); }
+            return result;
+          }));
+        }
       }
 
       // A coached athlete just filed their season review: tell Matti now, in
@@ -929,6 +941,15 @@ function sanitizeAnswers(raw) {
 // nowhere.
 const STORAGE_REQUIRED = ['goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief'];
 
+// Mission Control normally answers in well under a second.
+// Ordinary leads: fail fast so the lost-lead alert fires. Questionnaires:
+// Mission Control saves the answers, then makes up to two Resend calls
+// (30 s timeout each) before answering — cutting it off early would tell an
+// athlete their saved answers failed and invite a duplicate resubmit.
+const MC_TIMEOUT_MS = 8000;
+const MC_STORAGE_TIMEOUT_MS = 28000;
+const RESEND_TIMEOUT_MS = 8000;
+
 async function notifyMissionControl(env, data, source) {
   try {
     const payload = {
@@ -963,6 +984,7 @@ async function notifyMissionControl(env, data, source) {
         'Authorization': `Bearer ${env.MC_WEBHOOK_SECRET || ''}`,
       },
       body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(STORAGE_REQUIRED.includes(source) ? MC_STORAGE_TIMEOUT_MS : MC_TIMEOUT_MS),
     });
 
     console.log('Mission Control notified:', data.email, source, resp.status);
@@ -972,17 +994,105 @@ async function notifyMissionControl(env, data, source) {
     // For goal_2027 (D9), Mission Control hands back this lead's
     // poster_token so the caller can pass it on to the browser — the
     // Season Plan CTA needs it to link to /season-plan/?t=<token>.
+    const result = { ok: resp.ok, status: resp.status };
     if (resp.ok && (source === 'goal_2027' || source === 'athlete_review')) {
       try {
         const body = await resp.json();
-        if (body && body.poster_token) { return { poster_token: body.poster_token }; }
+        if (body && body.poster_token) { result.poster_token = body.poster_token; }
       } catch (parseErr) { /* not fatal — the CTA just falls back to blank */ }
     }
+    return result;
   } catch (error) {
     console.error('Mission Control webhook error:', error);
     if (STORAGE_REQUIRED.includes(source)) { throw error; }
+    const timedOut = error && (error.name === 'TimeoutError' || error.name === 'AbortError');
+    return { ok: false, status: timedOut ? 'timeout' : 'network error' };
   }
-  return {};
+}
+
+// --- Lost-lead alert ---
+// A lead Mission Control did not save goes to the owner's inbox, so it can
+// be re-entered by hand. At most LOST_LEAD_ALERT_CAP alerts per window per
+// worker instance, so an outage cannot flood the inbox.
+
+const LOST_LEAD_ALERT_CAP = 5;
+const LOST_LEAD_WINDOW_MS = 10 * 60 * 1000;
+let lostLeadWindowStart = 0;
+let lostLeadAlertsSent = 0;
+let lostLeadNotAlerted = 0;
+let lostLeadConfigWarned = false;
+
+async function alertLeadNotSaved(env, data, source, status) {
+  try {
+    if (!env.RESEND_API_KEY || !env.NOTIFICATION_EMAIL) {
+      if (!lostLeadConfigWarned) {
+        lostLeadConfigWarned = true;
+        console.error('Lead-not-saved alert NOT sent: RESEND_API_KEY or NOTIFICATION_EMAIL is unset');
+      }
+      return;
+    }
+    const now = Date.now();
+    if (now - lostLeadWindowStart >= LOST_LEAD_WINDOW_MS) {
+      if (lostLeadNotAlerted > 0) {
+        console.error(`Lead-not-saved alerts: ${lostLeadNotAlerted} more not alerted in the last 10 minutes`);
+      }
+      lostLeadWindowStart = now;
+      lostLeadAlertsSent = 0;
+      lostLeadNotAlerted = 0;
+    }
+    if (lostLeadAlertsSent >= LOST_LEAD_ALERT_CAP) {
+      lostLeadNotAlerted += 1;
+      if (lostLeadNotAlerted === 1) {
+        console.error(`Lead-not-saved alerts capped at ${LOST_LEAD_ALERT_CAP} per 10 minutes; more failures in this window are only logged`);
+      }
+      return;
+    }
+    lostLeadAlertsSent += 1;
+    const text = [
+      'Mission Control did not save this lead. Re-enter it by hand.',
+      '',
+      `Email: ${data.email || ''}`,
+      `Name: ${data.name || ''}`,
+      `Source: ${source}`,
+      `Race slug: ${data.race_slug || ''}`,
+      `Brand: ${data.brand || 'gravelgod'}`,
+      `Mission Control status: ${status}`,
+    ].join('\n');
+    await sendResendEmail(env, {
+      // noreply@ is the only address on this domain confirmed to deliver.
+      from: `${brandLabel(data.brand)} <noreply@gravelgodcycling.com>`,
+      to: [env.NOTIFICATION_EMAIL],
+      subject: `Lead not saved: ${source}`,
+      text,
+    }, 'Lead-not-saved alert');
+  } catch (error) {
+    console.error('Lead-not-saved alert failed:', error);
+  }
+}
+
+// One Resend call. Never throws; logs the outcome under `logName`.
+async function sendResendEmail(env, message, logName) {
+  try {
+    const resp = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(message),
+      signal: AbortSignal.timeout(RESEND_TIMEOUT_MS),
+    });
+    const detail = await resp.text();
+    if (resp.ok) {
+      console.log(`${logName} (resend):`, resp.status, detail.slice(0, 200));
+    } else {
+      console.error(`${logName} rejected (resend):`, resp.status, detail.slice(0, 200));
+    }
+    return resp.ok;
+  } catch (error) {
+    console.error(`${logName} failed (resend):`, error);
+    return false;
+  }
 }
 
 // --- CORS + Response Helpers ---

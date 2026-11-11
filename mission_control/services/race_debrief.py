@@ -74,6 +74,9 @@ async def run_race_debrief(today: date | None = None) -> dict:
         errors = "; ".join(f"{b}: {e}" for b, e in _rc_errors.items()) or "unknown"
         db.log_action("race_debrief_aborted", "sequence", "",
                       f"no race dates available for any brand — {errors}"[:500])
+        # Flag it so the scheduler's once-a-day marker is not written and a
+        # later slot today retries.
+        summary["aborted"] = True
         return summary
 
     enrollments = db.select(

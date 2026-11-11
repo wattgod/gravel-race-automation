@@ -18,7 +18,8 @@ from email.utils import formataddr, parseaddr
 from mission_control import supabase_client as db
 from mission_control.services.contact_suppression import is_suppressed
 from mission_control.config import (
-    PUBLIC_URL, RESEND_API_KEY, UNSUBSCRIBE_SECRET, WEB_TEMPLATES_DIR,
+    PUBLIC_URL, RESEND_API_KEY, UNSUBSCRIBE_SECRET, UNSUBSCRIBE_SECRET_PREVIOUS,
+    WEB_TEMPLATES_DIR,
 )
 from mission_control.sequences import get_sequence, SEQUENCES
 from mission_control.services.pricing import (
@@ -167,8 +168,7 @@ def enroll(
             match={"contact_email": email, "status": "unsubscribed"},
         )
         if unsubbed or _opted_out(email):
-            logger.info("enroll blocked (unsubscribed contact): %s -> %s",
-                        email, sequence_id)
+            logger.info("enroll blocked (unsubscribed contact): %s", sequence_id)
             return None
 
     # Assign variant by weight
@@ -231,16 +231,30 @@ def _pick_variant(variants: dict) -> str:
     return random.choices(keys, weights=weights, k=1)[0]
 
 
+def _sign_unsubscribe(secret: str, email: str) -> str:
+    return hmac.new(secret.encode(), email.lower().encode(), hashlib.sha256).hexdigest()[:32]
+
+
 def generate_unsubscribe_token(email: str) -> str:
-    """Generate an HMAC token for unsubscribe URL verification."""
-    secret = (UNSUBSCRIBE_SECRET or "fallback-dev-secret").encode()
-    return hmac.new(secret, email.lower().encode(), hashlib.sha256).hexdigest()[:32]
+    """Generate an HMAC token for unsubscribe URL verification.
+
+    Raises when no signing key is configured rather than signing with a
+    public string.
+    """
+    if not UNSUBSCRIBE_SECRET:
+        raise RuntimeError(
+            "No unsubscribe signing key: set UNSUBSCRIBE_SECRET or WEBHOOK_SECRET"
+        )
+    return _sign_unsubscribe(UNSUBSCRIBE_SECRET, email)
 
 
 def verify_unsubscribe_token(email: str, token: str) -> bool:
-    """Verify an unsubscribe token is valid for the given email."""
-    expected = generate_unsubscribe_token(email)
-    return hmac.compare_digest(expected, token)
+    """Verify an unsubscribe token against the current key, then each previous one."""
+    supplied = (token or "").encode()
+    for secret in (UNSUBSCRIBE_SECRET, *UNSUBSCRIBE_SECRET_PREVIOUS):
+        if secret and hmac.compare_digest(_sign_unsubscribe(secret, email).encode(), supplied):
+            return True
+    return False
 
 
 def build_unsubscribe_url(email: str, brand: str = "gravelgod") -> str:

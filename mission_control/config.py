@@ -154,8 +154,19 @@ def tp_buyer_max_age_days() -> int:
 # Public URL (for unsubscribe links in emails)
 PUBLIC_URL = os.environ.get("PUBLIC_URL", "https://athlete-profiles-production.up.railway.app")
 
-# HMAC secret for unsubscribe tokens (falls back to WEBHOOK_SECRET)
+# HMAC secret for unsubscribe tokens. Since the 2026-11-10 key rotation,
+# UNSUBSCRIBE_SECRET holds the OLD webhook key, which signed every link sent
+# before then. Never delete or change it: the WEBHOOK_SECRET fallback below is
+# now a different key that signed nothing, so every sent link would break. If it
+# must ever change, put the old value in UNSUBSCRIBE_SECRET_PREVIOUS first.
 UNSUBSCRIBE_SECRET = os.environ.get("UNSUBSCRIBE_SECRET", "") or WEBHOOK_SECRET
+# Earlier signing keys, comma-separated. Links signed with any of them still
+# unsubscribe; new links are signed with UNSUBSCRIBE_SECRET only.
+UNSUBSCRIBE_SECRET_PREVIOUS = [
+    k.strip()
+    for k in os.environ.get("UNSUBSCRIBE_SECRET_PREVIOUS", "").split(",")
+    if k.strip()
+]
 
 # Win-back (lead_cold_30d) — OFF unless explicitly enabled. This one flag both
 # activates the win_back_v1 / xc_win_back_v1 definitions (enroll() refuses an

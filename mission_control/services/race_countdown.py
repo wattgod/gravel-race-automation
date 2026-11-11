@@ -315,6 +315,9 @@ async def run_race_countdown(today: date | None = None) -> dict:
         errors = "; ".join(f"{b}: {e}" for b, e in _last_errors.items()) or "unknown"
         db.log_action("race_countdown_aborted", "sequence", "",
                       f"no race dates available for any brand — {errors}"[:500])
+        # Flag it so the scheduler's once-a-day marker is not written and a
+        # later slot today retries.
+        summary["aborted"] = True
         return summary
 
     enrollments = db.select(

@@ -89,3 +89,5 @@ def test_abort_is_surfaced():
         summary = _run(run_race_watch(datetime(2026, 8, 13, tzinfo=timezone.utc)))
     assert summary["notified"] == 0
     assert log.call_args.args[0] == "race_watch_aborted"
+    # Flagged so the scheduler does not mark today done and a later slot retries.
+    assert summary["aborted"] is True

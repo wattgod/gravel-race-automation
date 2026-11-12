@@ -151,7 +151,7 @@ class Markup(HTMLParser):
             self.sections.append(a.get("id"))
         if a.get("id") == "race-calculator":
             self.calculators += 1
-        if tag == "section" and a.get("id") == "finish-time" and a.get("data-measure-section") == "finish-time-planner":
+        if tag == "section" and a.get("id") == "finish-time" and "gg-planner" in a.get("class", "").split():
             self.planners += 1
         if tag == "link" and a.get("rel") == "canonical":
             self.canonical.append(a.get("href"))
@@ -312,6 +312,33 @@ def verify_assets(package: Path) -> None:
             resolved = (pages / relative).resolve()
             if not resolved.is_relative_to(pages.resolve()) or not resolved.is_file():
                 raise ValueError("Missing or unsafe shared asset reference")
+        verify_planner_assets(pages, page.stem, text)
+
+
+PLANNER_URL_KEYS = ("course_url", "worker_url", "engine_url", "core_url")
+
+
+def verify_planner_assets(pages: Path, slug: str, text: str) -> None:
+    """A planner page loads its worker, engine, core and course from URLs in its
+    config JSON, which the href/src scan cannot see. Each must ship in the
+    package, under its content hash, and the course must be this race's."""
+    match = re.search(r'<script type="application/json" class="gg-planner-config">(.*?)</script>', text, re.S)
+    if not match:
+        return
+    try:
+        config = json.loads(match.group(1))
+    except ValueError:
+        raise ValueError("Unreadable planner config") from None
+    for key in PLANNER_URL_KEYS:
+        url = config.get(key)
+        name = re.fullmatch(r"/race/assets/planner/([a-z0-9]+(?:-[a-z0-9]+)*)\.([0-9a-f]{8})\.(js|json)", url or "")
+        if not name:
+            raise ValueError("Missing or unsafe planner asset reference")
+        path = pages / "assets" / "planner" / url.rsplit("/", 1)[1]
+        if not path.is_file() or hashlib.md5(path.read_bytes()).hexdigest()[:8] != name.group(2):
+            raise ValueError("Planner asset missing or hash mismatch: " + key)
+        if key == "course_url" and (name.group(1) != slug or name.group(3) != "json"):
+            raise ValueError("Planner course does not belong to this race")
 
 
 def package_files(package: Path, slugs: list[str]) -> dict[str, dict]:

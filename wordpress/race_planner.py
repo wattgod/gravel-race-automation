@@ -220,7 +220,6 @@ def planner_config(rd: dict, show_offer: bool) -> dict | None:
         "weather_line": _weather_line(summary),
         "distance_m": summary["distance_m"],
         "notes": [f["text"] for f in flags if f["kind"] == "climbing"],
-        "span_steps": 2 if "climbing" in kinds else 1,
         "visitor_sets_effort": "visitor_sets_effort" in kinds,
         "brackets": duration_brackets(),
         "bikes": [{"id": b["id"], "label": b["label"], "kg": b["kg"]} for b in gear["bikes"]],
@@ -273,7 +272,7 @@ def build_race_planner(rd: dict, show_offer: bool = True) -> str:
     effort_note = ("This course has no default effort: type the effort (IF) you held in a race of a similar length."
                    if cfg["visitor_sets_effort"] else
                    "Blank uses Gravel God's default for your level and riding time. Type your own to override it.")
-    return f'''<section id="finish-time" class="gg-planner" aria-labelledby="gg-planner-title" data-measure-section="finish-time-planner">
+    return f'''<section id="finish-time" class="gg-planner" aria-labelledby="gg-planner-title">
   <div class="gg-planner-head">
     <span class="gg-planner-kicker">Free · no account</span>
     <h2 id="gg-planner-title">How long will {race} take you?</h2>

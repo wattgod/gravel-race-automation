@@ -63,10 +63,17 @@
     if (!Array.isArray(src) || !src.length) return { ok: false, why: "no weather for this edition" };
     var out = [];
     for (var s = 0; s < src.length; s++) {
-      var w = src[s], h = w.hourly || {}, off = w.utc_offset_seconds || 0;
-      if (!h.time || !h.temperature_2m || !h.wind_speed_10m || !h.wind_direction_10m)
-        return { ok: false, why: "weather file is missing a column" };
-      var t = h.time.map(function (x) { return Date.parse(x + "Z") / 1000 - off; });
+      var w = src[s], h = w.hourly || {}, off = w.utc_offset_seconds;
+      if (!isNum(off) || !isNum(w.latitude) || !isNum(w.longitude))
+        return { ok: false, why: "weather station details are incomplete" };
+      var cols = [h.time, h.temperature_2m, h.wind_speed_10m, h.wind_direction_10m];
+      if (!cols.every(Array.isArray)) return { ok: false, why: "weather file is missing a column" };
+      var nh = h.time.length;
+      if (!nh || !cols.every(function (a) { return a.length === nh; }))
+        return { ok: false, why: "weather file has no hours or uneven columns" };
+      if (![h.temperature_2m, h.wind_speed_10m, h.wind_direction_10m].every(function (a) { return a.every(isNum); }))
+        return { ok: false, why: "weather file has a gap" };
+      var t = h.time.map(function (x) { return typeof x === "string" ? Date.parse(x + "Z") / 1000 - off : NaN; });
       if (!t.every(isFinite)) return { ok: false, why: "weather time labels are unreadable" };
       out.push({ la: w.latitude, lo: w.longitude, t: t, ws: h.wind_speed_10m, wd: h.wind_direction_10m, T: h.temperature_2m });
     }
@@ -156,17 +163,23 @@
   }
 
   /* ---------- effort span (the range) ----------
-     The range is the effort of the level above and the level below the
-     rider's, from the same locked curves, at the rider's riding hours
-     (span: levels each way; climbing-heavy courses use 2). No accuracy
-     claim: it is how far effort alone moves the time. */
-  function effortSpan(E, level, IF, hours, steps) {
+     The range is the same ride one level easier and one level harder, on
+     the same locked curves at the rider's riding hours. The top and bottom
+     levels have one neighbour, so that one gap is used on both sides. A
+     typed effort gets the same gaps, centred on the typed value. It is an
+     effort span, not an accuracy or uncertainty figure. */
+  function effortSpan(E, level, IF, hours) {
     var i = levelIndex(level), here = E.ifDefault(level, hours);
-    var upIdx = Math.min(LEVELS.length - 1, i + steps), dnIdx = Math.max(0, i - steps);
-    var up = E.ifDefault(LEVELS[upIdx], hours) - here, dn = here - E.ifDefault(LEVELS[dnIdx], hours);
-    if (!(up >= 0) || !(dn >= 0)) return null;
-    return { fast: Math.min(IF_MAX, IF + up), slow: Math.max(IF_MIN, IF - dn), upLevel: LEVELS[upIdx], dnLevel: LEVELS[dnIdx] };
+    var up = i < LEVELS.length - 1 ? E.ifDefault(LEVELS[i + 1], hours) - here : null;
+    var dn = i > 0 ? here - E.ifDefault(LEVELS[i - 1], hours) : null;
+    if (up == null) up = dn;
+    if (dn == null) dn = up;
+    if (!(up > 0) || !(dn > 0)) return null;
+    return { fast: Math.min(IF_MAX, IF + up), slow: Math.max(IF_MIN, IF - dn), up: up, dn: dn };
   }
+
+  /* A real number: null, "", strings and NaN are never read as values. */
+  function isNum(x) { return typeof x === "number" && isFinite(x); }
 
   /* Every bin value must be a finite number; a gap is never read as zero. */
   function checkCourse(course) {
@@ -181,13 +194,15 @@
       for (var i = 0; i < n; i++) if (typeof a[i] !== "number" || !isFinite(a[i])) return "the course data has a gap";
     }
     var e = course.engine;
-    if (!e || !isFinite(e.crr) || !isFinite(e.wf) || !isFinite(e.cap) || !isFinite(e.solo_cda_default) || !Array.isArray(e.phi) || e.phi.length !== 12)
+    if (!e || !(isNum(e.crr) && e.crr > 0 && e.crr < 0.1) || !(isNum(e.wf) && e.wf >= 0 && e.wf <= 1) ||
+        !(isNum(e.cap) && e.cap > 0) || !(isNum(e.solo_cda_default) && e.solo_cda_default > 0 && e.solo_cda_default < 1) ||
+        !Array.isArray(e.phi) || e.phi.length !== 12 || !e.phi.every(function (x) { return isNum(x) && x > 0; }))
       return "the model settings for this course are incomplete";
     return null;
   }
 
   /* ---------- the whole estimate ---------- */
-  /* opts: {edition (index into course.weather.editions), spanSteps,
+  /* opts: {edition (index into course.weather.editions),
      visitorSetsEffort} */
   function estimate(E, course, rider, opts) {
     opts = opts || {};
@@ -228,7 +243,7 @@
       cum = cumOf(mid.T);
     }
     var hours = mid.total / 3600;
-    var span = effortSpan(E, level, IFused, hours, opts.spanSteps || 1);
+    var span = effortSpan(E, level, IFused, hours);
     if (!span) return { ok: false, why: "effort:span" };
     var fast = runOnce(E, D, withNP(span.fast * F.hi));
     if (!fast.ok) return { ok: false, why: fast.why };

@@ -51,6 +51,10 @@ FLAG_KINDS = {
     "climbing-heavy": "climbing",
     "time outside 3-9 h": "visitor_sets_effort",
 }
+# Page text the launch decisions have since withdrawn (Amendment 2: a
+# climbing-heavy course gets the same range, not a wider one). Dropped from
+# the imported text; any other wording passes through unchanged.
+WITHDRAWN_CLAUSES = (" (shown with a wider range)",)
 # Flags that are for the route check only and never reach a visitor.
 PRIVATE_FLAG_PAGE = "route check needed (not shown to visitors)"
 
@@ -69,7 +73,10 @@ def public_flags(race: dict) -> list[dict]:
         kind = FLAG_KINDS.get(flag.get("flag"))
         if kind is None:
             raise SystemExit(f"unknown planner flag {flag.get('flag')!r}: add page behaviour before importing")
-        out.append({"kind": kind, "text": flag["page"]})
+        text = flag["page"]
+        for clause in WITHDRAWN_CLAUSES:
+            text = text.replace(clause, "")
+        out.append({"kind": kind, "text": text})
     return out
 
 

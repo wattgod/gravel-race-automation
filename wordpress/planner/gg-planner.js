@@ -46,7 +46,13 @@
   function mins(s) { return Math.round(s / 60); }
   function dist(km) { return units === "imp" ? Math.round(km / MI) + " mi" : Math.round(km) + " km"; }
   function temp(c) { return units === "imp" ? Math.round(c * 9 / 5 + 32) + "°F" : Math.round(c) + "°C"; }
-  function num(name) { var f = form.elements[name]; if (!f) return null; var v = parseFloat(String(f.value || "").replace(",", ".")); return isFinite(v) ? v : null; }
+  /* null = left blank; NaN = typed but not a plain number (never read as blank). */
+  function num(name) {
+    var f = form.elements[name]; if (!f) return null;
+    var raw = String(f.value || "").trim();
+    if (!raw) return null;
+    return /^\d+([.,]\d+)?$/.test(raw) ? parseFloat(raw.replace(",", ".")) : NaN;
+  }
   function radio(name) { var f = form.querySelector('input[name="' + name + '"]:checked'); return f ? f.value : null; }
 
   /* ---------- units ---------- */
@@ -56,10 +62,10 @@
     try { localStorage.setItem("gg_planner_units", u); } catch (e) {}
     section.querySelectorAll("[data-units]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-units") === u)); });
     section.querySelectorAll('[data-unit="weight"]').forEach(function (n) { n.textContent = u === "imp" ? "lb" : "kg"; });
-    if (kg != null) form.elements.kg.value = String(+(u === "imp" ? kg / LB : kg).toFixed(1));
+    if (kg != null && !isNaN(kg)) form.elements.kg.value = String(+(u === "imp" ? kg / LB : kg).toFixed(1));
     if (lastResult) render(lastResult);
   }
-  function readKg() { var v = num("kg"); if (v == null) return null; return units === "imp" ? v * LB : v; }
+  function readKg() { var v = num("kg"); if (v == null || isNaN(v)) return v; return units === "imp" ? v * LB : v; }
 
   /* ---------- worker ---------- */
   function start() {
@@ -76,7 +82,7 @@
       }
       if (m.type === "run" && m.id === runId) {
         if (m.ok) { lastResult = m; render(m); announce(m); }
-        else if (m.miss) showNeed(m.miss);
+        else if (m.miss) { showNeed(m.miss); withdraw(); }
         else fail(m.why);
       }
     };
@@ -89,16 +95,27 @@
     var noftp = form.elements.noftp.checked;
     var bikeId = radio("bike"), bike = cfg.bikes.filter(function (b) { return b.id === bikeId; })[0];
     var bottles = num("bottles");
-    var gearKg = bike && bottles != null && bottles >= 0 && bottles <= 4 ? bike.kg + Math.round(bottles) * cfg.bottle.kg : null;
-    var stops = num("stops"), carbs = num("carbs"), IF = num("if");
+    var gearKg = bike && bottles != null && bottles >= 0 && bottles <= 4 && Math.round(bottles) === bottles ? bike.kg + bottles * cfg.bottle.kg : null;
     return {
       ftp: noftp ? null : num("ftp"),
       band: noftp && radio("band") ? { sex: radio("sex") || "m", name: radio("band") } : null,
       kg: readKg(), gearKg: gearKg, hours: radio("hours"), levelPick: radio("level") || null,
-      group: radio("group"), IF: IF, stops: stops != null && stops >= 0 && stops <= 600 ? stops : null,
-      carbs: carbs != null && carbs >= 0 && carbs <= 200 ? carbs : null,
+      group: radio("group"), IF: num("if"), stops: num("stops"), carbs: num("carbs"),
       heatTrained: form.elements.heat.checked
     };
+  }
+
+  /* Typed values that are not usable. Each is named; none is quietly dropped. */
+  function invalid(r) {
+    var bad = [], typed = function (v) { return v != null; };
+    if (!form.elements.noftp.checked && typed(r.ftp) && !(r.ftp >= 80 && r.ftp <= 500)) bad.push("FTP (80–500 W)");
+    if (typed(r.kg) && !(r.kg >= 35 && r.kg <= 160)) bad.push(units === "imp" ? "weight (77–353 lb)" : "weight (35–160 kg)");
+    if (typed(r.IF) && !(r.IF >= 0.40 && r.IF <= 1.05)) bad.push("effort (IF 0.40–1.05)");
+    if (typed(r.stops) && !(r.stops >= 0 && r.stops <= 600)) bad.push("time stopped (0–600 min)");
+    if (typed(r.carbs) && !(r.carbs >= 0 && r.carbs <= 200)) bad.push("carbs an hour (0–200 g)");
+    var bottles = num("bottles");
+    if (bottles != null && !(bottles >= 0 && bottles <= 4 && Math.round(bottles) === bottles)) bad.push("bottles (0–4)");
+    return bad;
   }
 
   function localMiss(r) {
@@ -107,20 +124,33 @@
     if (r.kg == null) m.push("your weight");
     if (!r.hours) m.push("hours a week you can train");
     if (!r.group) m.push("who you'll ride with");
-    if (r.gearKg == null) m.push("your bike and bottles (0–4)");
+    if (!radio("bike")) m.push("your bike");
+    else if (num("bottles") == null) m.push("bottles (0–4)");
     if (cfg.visitor_sets_effort && r.IF == null) m.push("your effort (IF)");
     return m;
   }
 
-  function showNeed(list) { need.textContent = list.length ? "Still needed: " + list.join(", ") + "." : ""; }
+  function showNeed(list, bad) {
+    var parts = [];
+    if (bad && bad.length) parts.push("Check " + bad.join(", ") + ".");
+    if (list && list.length) parts.push("Still needed: " + list.join(", ") + ".");
+    need.textContent = parts.join(" ");
+  }
+
+  /* An input problem withdraws any time on screen: an old result never
+     stands in for the inputs now in the form. */
+  function withdraw() {
+    runId++; pending = null; lastResult = null;
+    clear(out); out.hidden = true; out.removeAttribute("aria-busy");
+  }
 
   function run() {
     if (!opened) { opened = true; more.hidden = false; }
-    var r = rider(), miss = localMiss(r);
-    showNeed(miss);
-    if (miss.length) return;
+    var r = rider(), bad = invalid(r), miss = localMiss(r);
+    showNeed(miss, bad);
+    if (miss.length || bad.length) { withdraw(); return; }
     start();
-    var msg = { type: "run", rider: r, opts: { spanSteps: cfg.span_steps, visitorSetsEffort: cfg.visitor_sets_effort, edition: 0 },
+    var msg = { type: "run", rider: r, opts: { visitorSetsEffort: cfg.visitor_sets_effort, edition: 0 },
       picks: picks, brackets: cfg.brackets };
     working();
     if (!ready) { if (failInit) { fail(failInit); return; } pending = msg; return; }
@@ -178,13 +208,11 @@
       : "Riding time only, plus your stops. Add your stopped minutes above to see a finish time." }));
     head.appendChild(el("p", { cls: "gg-planner-fine", text: "Middle of the range: " + hm(m.mid) + " of riding at your effort. " + cfg.weather_line }));
     var span = m.span, ifTxt = function (x) { return x.toFixed(2); };
-    var spanTxt = "The range is the same ride at the effort of the " +
-      (cfg.span_steps > 1 ? "levels two above and two below yours" : "level above and the level below yours") +
-      " (IF " + ifTxt(span.fast) + " to " + ifTxt(span.slow) + ") from the same effort curves" +
-      (m.ftp.lo !== m.ftp.hi ? ", and across your band's FTP (" + Math.round(m.ftp.lo) + "–" + Math.round(m.ftp.hi) + " W)" : "") +
-      ". It shows how far effort alone moves your time. It is not a measured accuracy.";
-    if (span.fast === m.IF) spanTxt += " Elite is the top level, so the range only runs slower.";
-    if (span.slow === m.IF) spanTxt += " Beginner is the bottom level, so the range only runs faster.";
+    var spanTxt = "Range: if you ride a level easier or harder than " +
+      (m.IFsource === "set" ? "the effort you typed" : "your level's default effort") +
+      " (IF " + ifTxt(span.slow) + " to " + ifTxt(span.fast) + ", same effort curves)" +
+      (m.ftp.lo !== m.ftp.hi ? ", across your band's FTP (" + Math.round(m.ftp.lo) + "–" + Math.round(m.ftp.hi) + " W)" : "") +
+      ". It is not an accuracy figure.";
     head.appendChild(el("p", { cls: "gg-planner-fine", text: spanTxt }));
     cfg.notes.forEach(function (n) { head.appendChild(el("p", { cls: "gg-planner-flag", text: n.charAt(0).toUpperCase() + n.slice(1) + "." })); });
     var effort = "Effort: IF " + m.IF.toFixed(2) + ", normalized power " + Math.round(m.np) + " W on an FTP of " + Math.round(m.ftp.mid) + " W" +

@@ -161,6 +161,10 @@ def test_analytics_events_go_through_gtag_behind_consent():
     assert "gtag(\"event\", cfg.events.result" in js and "gtag(\"event\", cfg.events.cta" in js
     # fired from user actions only: no timers drive an event
     assert not re.search(r"setInterval", js)
+    # the page's section-view observer fires on visibility, including on load:
+    # the planner is not registered with it
+    opening = re.match(r"<section[^>]*>", section(page(SHOWN[0]))).group(0)
+    assert "data-measure-section" not in opening
 
 
 def test_plan_button_goes_to_the_existing_checkout():
@@ -181,7 +185,7 @@ def test_fuel_brackets_come_from_the_pipeline():
 def test_wording():
     js = (PLANNER_JS / "gg-planner.js").read_text()
     sec = section(page("unbound-200"))
-    assert "estimate" in js.lower() and "not a measured accuracy" in js
+    assert "estimate" in js.lower() and "if you ride a level easier or harder" in js and "not an accuracy figure" in js
     assert "not added together" in js
     assert "not a forecast" in sec and "race day" in sec
     assert "2025 route" in sec and "The 2027 route isn't published yet." in sec
@@ -198,10 +202,45 @@ def test_unconfirmed_edition_is_said_as_it_is():
         assert "edition not confirmed" in cfg["edition_line"] and cfg["edition_short"] == "route edition not confirmed"
 
 
-def test_climbing_heavy_widens_the_range():
+def test_climbing_heavy_gets_the_same_range_and_a_note():
+    """Amendment 2: same effort span on climbing-heavy courses, plus the note;
+    never a 'wider range'."""
+    js = (PLANNER_JS / "gg-planner.js").read_text()
+    assert "span_steps" not in js and "spanSteps" not in (PLANNER_JS / "gg-planner-core.js").read_text()
     for slug in SHOWN:
         kinds = {f["kind"] for f in STATUS["races"][slug].get("flags", [])}
-        assert config(page(slug))["span_steps"] == (2 if "climbing" in kinds else 1)
+        cfg = config(page(slug))
+        assert "span_steps" not in cfg
+        assert "wider" not in section(page(slug)).lower()
+        if "climbing" in kinds:
+            assert any("less certain and may read slow" in n for n in cfg["notes"])
+
+
+def test_range_is_one_level_each_way_mirrored_at_the_ends():
+    if shutil.which("node") is None:
+        pytest.skip("node not installed")
+    script = (
+        "const E=require(process.argv[1]),c=require(process.argv[2]),h=6,out={};"
+        "for(const l of c.LEVELS){const d=E.ifDefault(l,h);"
+        "out[l]={here:d,def:c.effortSpan(E,l,d,h),typed:c.effortSpan(E,l,0.7,h)};}"
+        "out.curve=Object.fromEntries(c.LEVELS.map(l=>[l,E.ifDefault(l,h)]));"
+        "process.stdout.write(JSON.stringify(out));"
+    )
+    res = subprocess.run(["node", "-e", script, str(PLANNER_JS / "engine7.js"), str(PLANNER_JS / "gg-planner-core.js")],
+                         capture_output=True, text=True, timeout=60)
+    assert res.returncode == 0, res.stderr
+    out = json.loads(res.stdout)
+    curve, levels = out["curve"], ["beginner", "intermediate", "advanced", "elite"]
+    for i, lvl in enumerate(levels):
+        up = curve[levels[i + 1]] - curve[lvl] if i < 3 else None
+        dn = curve[lvl] - curve[levels[i - 1]] if i > 0 else None
+        up, dn = (up if up is not None else dn), (dn if dn is not None else up)
+        span = out[lvl]["def"]
+        assert span["up"] == pytest.approx(up) and span["dn"] == pytest.approx(dn), lvl
+        assert span["fast"] == pytest.approx(min(1.05, out[lvl]["here"] + up))
+        assert span["slow"] == pytest.approx(max(0.40, out[lvl]["here"] - dn))
+        typed = out[lvl]["typed"]
+        assert typed["fast"] == pytest.approx(0.7 + up) and typed["slow"] == pytest.approx(0.7 - dn), lvl
 
 
 def test_assets_written_are_hashed_and_only_for_shown_races(tmp_path):
@@ -230,6 +269,26 @@ def test_release_contract_accepts_the_planner_in_place_of_the_calculator():
     release.verify_page_contract(html, slug, hrefs)
     with pytest.raises(ValueError, match="Calculator"):
         release.verify_page_contract(html, "other-race", hrefs)
+
+
+def test_release_package_must_ship_every_planner_asset_the_config_loads(tmp_path):
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import prepare_race_release as release
+    slug, other = SHOWN[0], SHOWN[1]
+    pages = tmp_path / "pages"
+    pages.mkdir()
+    html = page(slug)
+    race_planner.write_planner_assets(pages, [slug])
+    release.verify_planner_assets(pages, slug, html)
+    with pytest.raises(ValueError, match="does not belong"):
+        release.verify_planner_assets(pages, other, html)
+    worker = pages / "assets" / "planner" / config(html)["worker_url"].rsplit("/", 1)[1]
+    worker.write_text(worker.read_text() + "\n")
+    with pytest.raises(ValueError, match="worker_url"):
+        release.verify_planner_assets(pages, slug, html)
+    worker.unlink()
+    with pytest.raises(ValueError, match="worker_url"):
+        release.verify_planner_assets(pages, slug, html)
 
 
 # ---------- the model runs on every shown course ----------
@@ -263,4 +322,7 @@ def test_a_failed_solve_shows_no_time_and_says_why(solved, slug):
     assert r["broken"] == {"ok": False, "why": "the course data has a gap", "has_time": False}
     assert r["solver_fail"]["ok"] is False and r["solver_fail"]["has_time"] is False
     assert r["solver_fail"]["why"].startswith("solve:")
-    assert r["uncovered"]["ok"] is False or r["uncovered"]["why"] is None
+    assert r["uncovered"] == {"ok": False, "has_time": False,
+                              "why": "the past race-day weather does not cover your predicted time on course"}
+    assert r["empty_weather"] == {"ok": False, "has_time": False, "why": "weather file has no hours or uneven columns"}
+    assert r["no_crr"] == {"ok": False, "has_time": False, "why": "the model settings for this course are incomplete"}

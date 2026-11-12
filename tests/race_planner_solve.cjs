@@ -15,7 +15,7 @@ for (const [slug, s] of Object.entries(status.races)) {
   if (s.status !== 'eligible' && s.status !== 'flagged') continue;
   const course = JSON.parse(fs.readFileSync(ROOT + '/data/planner/courses/' + slug + '.json', 'utf8'));
   const flags = (s.flags || []).map(f => f.kind);
-  const opts = { spanSteps: flags.includes('climbing') ? 2 : 1, visitorSetsEffort: flags.includes('visitor_sets_effort') };
+  const opts = { visitorSetsEffort: flags.includes('visitor_sets_effort') };
   const t = Date.now();
   const r = core.estimate(E, course, SAMPLE, opts);
   const res = { ok: r.ok, ms: Date.now() - t };
@@ -33,9 +33,22 @@ for (const [slug, s] of Object.entries(status.races)) {
     crr: course.engine.crr, wf: course.engine.wf, cap: course.engine.cap, phi: course.engine.phi };
   const fail = core.runOnce(E, D, { np: -5, m: 85, cda: 0.332, cap: course.engine.cap, share: 0, heatKeep: 0 });
   res.solver_fail = { ok: fail.ok, why: fail.why || null, has_time: fail.total != null };
-  // A rider so slow that the past race-day weather does not cover the ride: no time, a reason.
-  const slow = core.estimate(E, course, Object.assign({}, SAMPLE, { ftp: 80, kg: 160, gearKg: 45, IF: 0.40 }), opts);
-  res.uncovered = { ok: slow.ok, why: slow.why || null };
+  const noTime = (c) => { const x = core.estimate(E, c, SAMPLE, opts); return { ok: x.ok, why: x.why || null, has_time: !!(x.mid && x.mid.total) }; };
+  // Weather that stops two hours after the start: the ride is not covered.
+  const short = JSON.parse(JSON.stringify(course));
+  for (const w of short.weather.editions[0].openmeteo) {
+    const h = w.hourly, i = h.time.findIndex(t => Date.parse(t + 'Z') / 1000 - w.utc_offset_seconds >= Date.parse(short.weather.editions[0].start_iso) / 1000);
+    for (const k of Object.keys(h)) h[k] = h[k].slice(0, i + 2);
+  }
+  res.uncovered = noTime(short);
+  // Weather with no hours at all.
+  const empty = JSON.parse(JSON.stringify(course));
+  for (const w of empty.weather.editions[0].openmeteo) for (const k of Object.keys(w.hourly)) w.hourly[k] = [];
+  res.empty_weather = noTime(empty);
+  // A missing model setting is never read as zero.
+  const nocrr = JSON.parse(JSON.stringify(course));
+  nocrr.engine.crr = null;
+  res.no_crr = noTime(nocrr);
   out[slug] = res;
 }
 process.stdout.write(JSON.stringify(out));

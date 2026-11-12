@@ -53,6 +53,7 @@ from endure_offer import ENDURE_PLAN_COPY, endure_plan_url
 from page_dates import race_updated_date
 from fact_consistency import check_race
 from race_calculator import build_race_calculator, get_race_calculator_css, race_calculator_context
+from race_planner import build_race_planner, planner_head_tags, planner_script_tag, write_planner_assets
 from season import UPCOMING, edition_display, edition_state, edition_year, parse_edition
 from season import today as season_today
 from generate_race_recap import has_results, newest_results_year
@@ -7816,7 +7817,12 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     coaching = '' if suppress_plan_marketing else build_coaching_footnote(rd)
     goal_card = '' if suppress_plan_marketing else build_goal_card(rd)
     training = build_training_intelligence(rd)
-    race_calculator = build_race_calculator(rd)
+    # Finish-time planner: only for a race whose imported planner status is
+    # eligible or flagged (data/planner/status.json). It replaces the Endure
+    # Labs calculator handoff on that page; every other page is unchanged.
+    race_planner = build_race_planner(rd, show_offer=not suppress_plan_marketing)
+    race_calculator = '' if race_planner else build_race_calculator(rd)
+    planner_block = f'\n  {race_planner}\n' if race_planner else ''
     train_for_race = '' if suppress_plan_marketing else build_train_for_race(
         rd, email_capture, include_commerce=False)
     logistics_sec = build_logistics_section(rd)
@@ -7920,6 +7926,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
   <meta name="twitter:image" content="{esc(og_image_url)}">'''
 
     preload = get_preload_hints()
+    planner_head = ('\n  ' + planner_head_tags(inline=not external_assets)) if race_planner else ''
+    planner_js = ('\n' + planner_script_tag()) if race_planner else ''
 
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -7939,7 +7947,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
   {preload}
   {og_tags}
   {jsonld_html}
-  {css}
+  {css}{planner_head}
   {get_ga4_head_snippet()}
   {get_ab_head_snippet()}
 </head>
@@ -7950,7 +7958,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
   {nav_header}
 
   {hero}
-
+{planner_block}
   {spine}
 
   {deep_body}
@@ -7960,7 +7968,7 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 
 {sticky_cta}
 <button class="gg-back-to-top" id="gg-back-to-top" aria-label="Back to top">&uarr;</button>
-{inline_js}
+{inline_js}{planner_js}
 
 {get_consent_banner_html()}
 </body>
@@ -8079,6 +8087,9 @@ def main():
 
         # Write shared CSS/JS assets
         assets = write_shared_assets(output_dir)
+        planner_files = write_planner_assets(output_dir, [f.stem.replace('-data', '') for f in files])
+        if planner_files:
+            print(f"  Wrote {len(planner_files)} finish-time planner files to {output_dir / 'assets' / 'planner'}/")
 
         for i, f in enumerate(files, 1):
             slug = f.stem.replace('-data', '')
@@ -8110,6 +8121,7 @@ def main():
             sys.exit(1)
 
         assets = write_shared_assets(output_dir)
+        write_planner_assets(output_dir, [args.slug])
         rd = load_race_data(filepath)
         page_html = generate_page(
             rd, race_index, external_assets=assets, race_intel=race_intel

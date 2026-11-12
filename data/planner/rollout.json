@@ -1,0 +1,4 @@
+{
+ "note": "Races considered for the finish-time planner. A race shows the planner only when the imported status is eligible or flagged (scripts/import_planner_bundles.py). Launch scope: the six pilot races (LAUNCH_DECISIONS, 2026-11-12).",
+ "races": ["unbound-200", "steamboat-gravel", "barry-roubaix", "mid-south", "big-sugar", "crusher-in-the-tushar"]
+}

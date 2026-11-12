@@ -33,6 +33,15 @@ class Tags(HTMLParser):
         return [attrs for found, attrs in self.tags if found == tag]
 
 
+@pytest.fixture(autouse=True)
+def calculator_page(monkeypatch):
+    """These tests cover the Endure Labs handoff itself. The fixture race also
+    has an eligible finish-time planner, which replaces the handoff on its
+    real page (tests/test_race_planner.py), so the planner is switched off here."""
+    import generate_neo_brutalist
+    monkeypatch.setattr(generate_neo_brutalist, "build_race_planner", lambda rd, show_offer=True: "")
+
+
 def raw_race():
     data = json.loads((ROOT / "race-data" / "barry-roubaix.json").read_text())
     # Explicit fixture edition; no test depends on today's calendar year.

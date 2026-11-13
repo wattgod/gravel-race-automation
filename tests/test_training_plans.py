@@ -17,11 +17,12 @@ import pytest
 # Add wordpress/ to path so we can import the generator
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 
+from pricing import BLOCK_PRICE, PLAN_PRICE_LINE, payment_plan, plan_summary
 from generate_training_plans import (
     COACHING_URL,
     DELIVERABLES,
     FAQ_ITEMS,
-    PRICE_PER_WEEK,
+    PER_DAY_PRICE,
     QUESTIONNAIRE_URL,
     REALITY_CHECKS,
     SAMPLE_WEEK_BLOCKS,
@@ -145,12 +146,13 @@ class TestHero:
         assert "24 Hours" in hero
         assert "Delivery" in hero
         assert "Matched" in hero
-        assert "$2/day" in hero
+        assert "$1.79/day" in hero
         assert "5 min" in hero
 
     def test_delivery_promise_is_simple_and_specific(self):
         hero = build_hero()
-        assert "Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours." in hero
+        assert "one 4-week block at a time, and I look over every block before it goes on" in hero
+        assert "$49.99 every 4 weeks until race week" in hero
         assert "24-hour clock" not in hero
         assert "delivery update" not in hero.lower()
         assert "Same Day" not in hero
@@ -341,30 +343,31 @@ class TestNoTestimonials:
 
 
 class TestPricing:
-    def test_price_per_week(self):
+    """The plan billed every 4 weeks (2026-11-13) replaced the one-off plan."""
+
+    def test_block_price(self):
         section = build_pricing()
-        assert PRICE_PER_WEEK in section
+        assert PLAN_PRICE_LINE.split(" every")[0] in section
+        assert f"{BLOCK_PRICE} Every 4 Weeks" in section
 
     def test_no_price_cap(self):
-        """The $249 cap was retired 2026-10-23: no cap copy on the page."""
         section = build_pricing()
         assert "capped" not in section.lower()
         assert "$249" not in section
 
-    def test_one_payment_no_subscription(self):
+    def test_no_one_off_terms(self):
         section = build_pricing()
-        assert "One Payment" in section
-        assert "No Subscription" in section
+        for old in ("One Payment", "No Subscription", "one-time", "paid once", "$15", "7-Day"):
+            assert old not in section
 
-    def test_no_cancel_anytime(self):
-        """Training plans are one-time payments, not subscriptions."""
+    def test_cancel_from_the_plan_page(self):
         section = build_pricing()
-        assert "cancel anytime" not in section.lower()
-        assert "cancel any time" not in section.lower()
+        assert "Cancel any time from your plan page" in section
 
     def test_guarantee(self):
         section = build_pricing()
-        assert "7-Day Money-Back Guarantee" in section
+        assert "14-Day Full Refund" in section
+        assert "Refunding it ends the plan" in section
 
     def test_pricing_cta(self):
         section = build_pricing()
@@ -372,35 +375,31 @@ class TestPricing:
         assert "Build My Plan" in section
 
     def test_honest_math_daily_rate(self):
-        """$15/week ≈ $2.14/day, displayed as $2/day — order of magnitude correct."""
+        """$49.99 over 28 days, rounded up to the cent."""
         section = build_pricing()
-        assert "$2/day" in section
+        assert PER_DAY_PRICE == "$1.79"
+        assert "$1.79 a day" in section
 
     def test_example_calculations(self):
         section = build_pricing()
-        assert "Race 6 weeks away = $90" in section
-        assert "12 weeks = $180" in section
-        assert "16 weeks = $240" in section
-        assert "week of training" not in section
-        assert "Weeks until your race, rounded up. Four-week minimum" in section
+        assert "Race 6 weeks away: 2 payments, $74.99 in all" in section
+        assert "12 weeks: 3 payments, $149.97 in all" in section
+        assert "16 weeks: 4 payments, $199.96 in all" in section
+        assert "the last, shorter block costs $12.50 a week" in section
 
-    def test_support_and_adjustment_boundary(self):
+    def test_support_boundary(self):
         section = build_pricing()
-        assert "Email support and two plan adjustments" in section
-        assert "schedule, available training hours, or equipment" in section
-        assert "does not use an adjustment" in section
-        assert "first rescale after the scheduled FTP test" in section
-        assert "Weekly review and recurring changes are part of Coaching" in section
+        assert "I answer within 2 business days" in section
+        assert "Weekly review and week-to-week changes are part of Coaching" in section
 
 
 class TestQuestionnaireReferenceContract:
     def test_reference_matches_delivery_and_support_terms(self):
         reference = (Path(__file__).parent.parent / "web" / "training-plans-questionnaire.html").read_text()
-        assert "Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours." in reference
+        assert "Block 1 arrives within 24 hours of your payment or of you connecting TrainingPeaks" in reference
+        assert "I look over every block before it goes on" in reference
         assert "24-hour clock" not in reference
         assert "delivery update" not in reference.lower()
-        assert "Email support and two plan adjustments" in reference
-        assert "first rescale after the scheduled FTP test" in reference
         assert "Same-Day Delivery" not in reference
         assert "same-day delivery" not in reference.lower()
 
@@ -409,9 +408,9 @@ class TestQuestionnaireReferenceContract:
 
 
 class TestFaq:
-    def test_six_faq_items(self):
+    def test_seven_faq_items(self):
         section = build_faq()
-        assert section.count("gg-tp-faq-item") == 6
+        assert section.count("gg-tp-faq-item") == 7
 
     def test_aria_expanded(self):
         section = build_faq()
@@ -425,15 +424,17 @@ class TestFaq:
         assert "price calculated" in section.lower()
         assert "coaching" in section.lower()
         assert "database" in section.lower()
+        assert "How do I cancel?" in section
 
-    def test_price_answer_counts_weeks_until_the_race(self):
-        """The price counts rounded-up weeks until the race, not weeks of
-        training (a Thursday buyer can pay 9 weeks and fit 8 Monday weeks)."""
+    def test_price_answer_matches_the_payment_plan(self):
         answer = dict(FAQ_ITEMS)["How is the price calculated?"]
-        assert "every week until your race, rounded up to whole weeks" in answer
-        assert "four-week minimum" in answer
-        assert "week of training" not in answer
-        assert "exactly what you need" not in answer
+        assert "$49.99 every 4 weeks, one payment per block" in answer
+        assert f"30 weeks away is {plan_summary(30)}" in answer
+        assert payment_plan(30)["total_cents"] == 7 * 4999 + 2500
+        assert "The form shows your number before you pay" in answer
+
+    def test_coaching_answer_says_no(self):
+        assert dict(FAQ_ITEMS)["Is this coaching?"].startswith("No.")
 
     def test_faq_toggle_button(self):
         section = build_faq()
@@ -605,18 +606,6 @@ class TestStripePricingParity:
         assert compute_race_plan_price_cents(17) == 17 * 1500
         assert compute_race_plan_price_cents(40) == 40 * 1500
 
-    def test_weekly_rate_matches_stripe(self, stripe_data):
-        """$15/week should match the per-week price from Stripe data."""
-        # Check 8-week plan: should be $120 = 8 * $15
-        eight_week = None
-        for price in stripe_data["prices"]:
-            if "8-week" in price.get("nickname", ""):
-                eight_week = price["amount"]
-                break
-        assert eight_week is not None, "8-week plan not found in Stripe data"
-        per_week = int(PRICE_PER_WEEK.replace("$", ""))
-        assert eight_week == 8 * per_week * 100
-
     def test_jsonld_has_no_capped_high_price(self, stripe_data):
         """No cap means no highPrice: JSON-LD must not advertise $249."""
         jsonld = build_jsonld()
@@ -632,13 +621,11 @@ class TestJsonLd:
         jsonld = build_jsonld()
         assert '"@type": "Product"' in jsonld
 
-    def test_aggregate_offer(self):
+    def test_offer_billed_every_4_weeks(self):
         jsonld = build_jsonld()
-        assert '"@type": "AggregateOffer"' in jsonld
-
-    def test_low_price(self):
-        jsonld = build_jsonld()
-        assert '"lowPrice": "60"' in jsonld
+        assert '"@type": "Offer"' in jsonld
+        assert '"price": "49.99"' in jsonld
+        assert '"billingDuration": "P4W"' in jsonld
 
     def test_no_high_price(self):
         """No cap, so no fixed highest price to advertise."""
@@ -661,9 +648,9 @@ class TestMobileStickyCta:
         sticky = build_mobile_sticky()
         assert QUESTIONNAIRE_URL in sticky
 
-    def test_sticky_daily_rate(self):
+    def test_sticky_price(self):
         sticky = build_mobile_sticky()
-        assert "$2/day" in sticky
+        assert "$49.99 every 4 weeks" in sticky
 
     def test_no_coffee_in_sticky(self):
         sticky = build_mobile_sticky()
@@ -682,11 +669,10 @@ class TestContentGuards:
         assert "cup of coffee" not in lower
         assert "latte" not in lower
 
-    def test_no_cancel_anytime_anywhere(self, tp_html):
-        """Training plans are one-time. No 'cancel anytime' copy."""
-        lower = tp_html.lower()
-        assert "cancel anytime" not in lower
-        assert "cancel any time" not in lower
+    def test_cancel_is_from_the_plan_page(self, tp_html):
+        """Cancelling is real now, and always from the plan page."""
+        assert "cancel anytime" not in tp_html.lower()
+        assert "Cancel any time from your plan page" in tp_html
 
     def test_no_box_shadow_anywhere(self, tp_html):
         """No box-shadow except 'box-shadow: none' resets from shared header."""
@@ -695,14 +681,15 @@ class TestContentGuards:
         cleaned = re.sub(r'box-shadow:\s*none\s*!important;?', '', tp_html)
         assert "box-shadow" not in cleaned
 
-    def test_pricing_mentions_one_time(self, tp_html):
-        assert "One Payment" in tp_html
+    def test_pricing_has_no_one_off_terms(self, tp_html):
+        assert "One Payment" not in tp_html
+        assert "one-time" not in tp_html.lower()
 
     def test_five_deliverables_count(self):
         assert len(DELIVERABLES) == 5
 
-    def test_six_faq_count(self):
-        assert len(FAQ_ITEMS) == 6
+    def test_seven_faq_count(self):
+        assert len(FAQ_ITEMS) == 7
 
     def test_seven_sample_blocks_count(self):
         assert len(SAMPLE_WEEK_BLOCKS) == 7

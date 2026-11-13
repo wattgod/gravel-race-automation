@@ -183,21 +183,33 @@ jobs:
           fail=0
           code() { curl -s -o /dev/null -w '%{http_code} %{redirect_url}' "$1"; }
           season=$(python3 -c "import sys; sys.path.insert(0, 'wordpress'); from season import season_year; print(season_year())")
-          for path in /training-plans/start/ /training-plans/details/ /products/training-plans/ /goals/ \
+          for path in /questionnaire/ /training-plans/details/ /products/training-plans/ /goals/ \
                       "/race/calendar/$season/" "/race/power-rankings-$season/" /race/series/; do
             got=$(code "$base$path?$v")
             echo "$path -> $got"
             case "$got" in 200*) ;; *) fail=1 ;; esac
           done
-          got=$(code "$base/questionnaire/?$v")
-          echo "/questionnaire/ -> $got"
-          case "$got" in "302 "*/training-plans/start/*) ;; *) fail=1 ;; esac
+          # Plan billed every 4 weeks (2026-11-13): sold from the one-page
+          # questionnaire; the retired two-step step 1 sends visitors there.
+          got=$(code "$base/training-plans/start/?$v")
+          echo "/training-plans/start/ -> $got"
+          case "$got" in "302 "*/questionnaire/*) ;; *) fail=1 ;; esac
           got=$(code "$base/season-plan/?$v")
           echo "/season-plan/ -> $got"
-          case "$got" in "301 "*/training-plans/start/*) ;; *) fail=1 ;; esac
-          if curl -sL "$base/products/training-plans/?$v" | grep -q '\$249'; then
-            echo "::error::The live training plans page still shows \$249"
+          case "$got" in "301 "*/questionnaire/*) ;; *) fail=1 ;; esac
+          if curl -sL "$base/products/training-plans/?$v" | grep -qiE '\$249|one-time payment|paid once|\$15/w'; then
+            echo "::error::The live training plans page still shows the retired one-off plan"
             fail=1
+          fi
+          # The questionnaire's purchase terms live in the Elementor widget
+          # (deployed by hand): the live page must describe the plan the form
+          # JS now charges, and nothing of the one-off plan.
+          rc=0; python3 scripts/check_questionnaire_parity.py || rc=$?
+          if [ "$rc" = 1 ]; then
+            echo "::error::/questionnaire/ does not match the repository (purchase terms or fields)"
+            fail=1
+          elif [ "$rc" != 0 ]; then
+            echo "::warning::Questionnaire parity check could not reach the page (exit $rc)"
           fi
           # Every image a post or article page uses must be live. Only a 404
           # fails the run: a WAF challenge (403/202) on a runner IP proves

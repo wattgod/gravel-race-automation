@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate the pricing constants block in web/training-plans-form.js
-(and the two-step intake's step 1, web/training-plans-start.js) from
+"""Regenerate the pricing block in web/training-plans-form.js from
 data/pricing.json — the "generated JS constant for pages" that
 docs/specs/goals-2027-funnel-spec.md D18 asks for.
 
@@ -21,15 +20,15 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 FORM_JS_PATH = PROJECT_ROOT / "web" / "training-plans-form.js"
-# Two-step intake (2026-10-23): step 1 quotes the total before checkout.
-# Step 2 shows only the server's price_display, so it carries no block.
-START_JS_PATH = PROJECT_ROOT / "web" / "training-plans-start.js"
-JS_PATHS = (FORM_JS_PATH, START_JS_PATH)
+# The two-step step-1 page (web/training-plans-start.js) is retired with the
+# one-off plan (2026-11-13): the plan billed every 4 weeks is sold from the
+# one-page questionnaire only (the checkout server refuses intake_flow for it).
+JS_PATHS = (FORM_JS_PATH,)
 
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 from pricing import (  # data/pricing.json (D18)
-    MIN_WEEKS,
-    PRICE_PER_WEEK,
+    PLAN_CHECKOUT_PRODUCT,
+    plan_quote_js,
 )
 
 START_MARKER = "  // GG_PRICING_CONSTANTS_START\n"
@@ -37,11 +36,10 @@ END_MARKER = "  // GG_PRICING_CONSTANTS_END\n"
 
 
 def build_block() -> str:
-    price_per_week = int(PRICE_PER_WEEK.replace("$", ""))
-    return (
-        f"  var PRICE_PER_WEEK = {price_per_week};\n"
-        f"  var MIN_WEEKS = {MIN_WEEKS};\n"
-    )
+    """The checkout product name plus ggPlanQuote(), the browser copy of
+    the server's weeks_until + payment_plan (plan billed every 4 weeks)."""
+    quote = "".join(f"  {line}\n" for line in plan_quote_js().splitlines())
+    return f"  var PLAN_PRODUCT = '{PLAN_CHECKOUT_PRODUCT}';\n" + quote
 
 
 def render(text: str, path: Path = FORM_JS_PATH) -> str:

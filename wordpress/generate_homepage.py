@@ -35,6 +35,7 @@ from brand_tokens import (
     get_ga4_head_snippet,
 )
 from season import season_year
+import plan_offer
 from cookie_consent import get_consent_banner_html
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
@@ -274,7 +275,7 @@ def build_doors() -> str:
         price = ""
         ab_btn = ""
         if key == "plan":
-            price = '\n        <p class="gg-hp-door-price" data-ab="training_price">$15 a week.</p>'
+            price = f'\n        <p class="gg-hp-door-price" data-ab="training_price">{esc(plan_offer.PRICE_LINE)}.</p>'
             ab_btn = ' data-ab="training_cta_btn"'
         event = "cta_click" if key in ("plan", "coaching") else "door_click"
         cells += f'''

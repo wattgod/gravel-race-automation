@@ -1,24 +1,23 @@
 #!/usr/bin/env python3
 """
-Generate the two-step training-plan questionnaire (2026-10-23).
+Generate step 2 of the retired two-step training-plan questionnaire.
 
 Pages:
-  /training-plans/start/    → output/plan-start.html
-      Step 1: race, race date, name, email. Quotes the price, then sends
-      the customer to Stripe Checkout (POST /api/create-checkout with
-      intake_flow "two_step").
   /training-plans/details/  → output/plan-details.html
       Step 2, after payment (Stripe success_url carries ?t=<token>): every
       other question from the full questionnaire, over five short pages,
       autosaved and submitted to /api/intake-details/<token>.
 
-Both pages are noindex: one is a checkout step, the other a private link.
-/questionnaire/ 302s to /training-plans/start/ (scripts/push_wordpress.py
-REDIRECT_BLOCK); deploy with `push_wordpress.py --sync-plan-intake`.
+Step 1 (/training-plans/start/: race, date, name, email, then checkout of
+the one-off plan) was retired on 2026-11-13. The plan billed every 4 weeks
+replaces the one-off plan, and the checkout server sells it from the
+one-page questionnaire only, so /training-plans/start/ now 302s to
+/questionnaire/ (scripts/push_wordpress.py REDIRECT_BLOCK). Step 2 stays
+for anyone who paid through the old two-step checkout and hasn't finished.
 
-The page JS lives in web/training-plans-start.js and
-web/training-plans-details.js and is inlined at build time. Prices come
-from pricing.py (data/pricing.json) only.
+The page is noindex (a private link); deploy with
+`push_wordpress.py --sync-plan-intake`. Its JS lives in
+web/training-plans-details.js and is inlined at build time.
 
 Usage:
     python generate_plan_intake_pages.py
@@ -45,17 +44,13 @@ from brand_tokens import (
 from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html, get_site_header_css, get_site_header_js
 from cookie_consent import get_consent_banner_html
-from pricing import (
-    PRICE_PER_WEEK,
-    RACE_PLAN_DELIVERY_HOURS,
-    RACE_PLAN_REFUND_DAYS,
-)
+from pricing import RACE_PLAN_DELIVERY_HOURS
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 WEB_DIR = Path(__file__).resolve().parent.parent / "web"
-START_JS_PATH = WEB_DIR / "training-plans-start.js"
 DETAILS_JS_PATH = WEB_DIR / "training-plans-details.js"
 
+# Retired step 1; kept so the parity checker can name the old redirect target.
 START_PATH = "/training-plans/start/"
 DETAILS_PATH = "/training-plans/details/"
 START_URL = SITE_BASE_URL + START_PATH
@@ -263,48 +258,6 @@ def build_intake_css() -> str:
   .gg-pi-btn {{ width: 100%; }}
 }}
 </style>"""
-
-
-# ── Step 1 ───────────────────────────────────────────────────
-
-
-def build_start_content() -> str:
-    return f'''<main class="gg-pi" id="gg-plan-start">
-  <div class="gg-pi-inner">
-    <div class="gg-pi-kicker">Custom training plan</div>
-    <h1>Your race. Your plan.</h1>
-    <p class="gg-pi-lede">Four answers to start. Your race date sets the price: {esc(PRICE_PER_WEEK)} a week from now to race day.</p>
-
-    <form id="gg-plan-start-form" class="gg-pi-card" novalidate>
-      <input type="text" name="_honeypot" class="gg-hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="gg-form-row">
-        <div class="gg-form-group">
-          <label for="gg-ps-race">Race <span class="required">*</span></label>
-          <input type="text" id="gg-ps-race" name="race_name" required placeholder="e.g., Unbound 200" autocomplete="off">
-        </div>
-        <div class="gg-form-group">
-          <label for="gg-ps-date">Race date <span class="required">*</span></label>
-          <input type="date" id="gg-ps-date" name="race_date" required>
-        </div>
-      </div>
-      <p class="gg-pi-quote" id="gg-ps-quote" aria-live="polite" style="display: none;"></p>
-      <p class="gg-pi-min-note" id="gg-ps-min-note" style="display: none;"></p>
-      <div class="gg-form-row">
-        <div class="gg-form-group">
-          <label for="gg-ps-name">Name <span class="required">*</span></label>
-          <input type="text" id="gg-ps-name" name="name" required placeholder="Your name" autocomplete="name">
-        </div>
-        <div class="gg-form-group">
-          <label for="gg-ps-email">Email <span class="required">*</span></label>
-          <input type="email" id="gg-ps-email" name="email" required placeholder="you@email.com" autocomplete="email">
-        </div>
-      </div>
-      <button type="submit" class="gg-pi-btn" id="gg-ps-submit">BUILD MY PLAN &rarr;</button>
-      <p class="gg-pi-terms"><span id="gg-ps-terms-price">{esc(PRICE_PER_WEEK)} a week to race day</span>, paid once. No subscription. Full refund within {RACE_PLAN_REFUND_DAYS} days. Next, about 8 minutes of questions so the plan fits you. Nothing gets built until you&rsquo;re done.</p>
-      <div id="gg-ps-message" class="gg-pi-message" role="alert" style="display: none;"></div>
-    </form>
-  </div>
-</main>'''
 
 
 # ── Step 2 ───────────────────────────────────────────────────
@@ -707,14 +660,6 @@ TOKEN_SCRUB_HEAD_JS = (
 )
 
 PAGES = {
-    "start": {
-        "title": "Build Your Plan | Gravel God Cycling",
-        "description": "Start your custom gravel training plan: your race, your date, one price.",
-        "canonical": START_PATH,
-        "builder": build_start_content,
-        "js_path": START_JS_PATH,
-        "output_path": "plan-start.html",
-    },
     "details": {
         "title": "Your Plan Details | Gravel God Cycling",
         "description": "The questions that make your training plan fit you.",
@@ -779,7 +724,7 @@ def generate_page(page_key: str, external_assets: dict | None = None) -> str:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate the two-step plan questionnaire pages")
+    parser = argparse.ArgumentParser(description="Generate step 2 of the two-step plan questionnaire")
     parser.add_argument("--output-dir", default=str(OUTPUT_DIR),
                         help="Output directory (default: wordpress/output)")
     args = parser.parse_args()

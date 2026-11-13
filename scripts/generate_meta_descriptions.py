@@ -22,7 +22,7 @@ RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 OUTPUT_FILE = PROJECT_ROOT / "seo" / "meta-descriptions.json"
 
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
-from pricing import PRICE_PER_WEEK  # data/pricing.json (D18)
+from plan_offer import PRICE_TO_RACE  # data/pricing.json (D18)
 
 # Live race count for the copy below, so it can't go stale the way the
 # hardcoded "328 races" did. Criteria: 14 base criteria plus a cultural-impact
@@ -288,7 +288,7 @@ MANUAL_ENTRIES = [
      "The definitive gravel cycling guide: bike setup, training, nutrition, race strategy, and everything between the start and finish line.",
      None, "gravel cycling guide"),
     (5016, "page", "training-plans",
-     f"Gravel training plans built for your goal race. 16-week periodized programs with race-specific prep. Data-driven. From {PRICE_PER_WEEK}/week.",
+     f"Gravel training plans built for your goal race. 16-week periodized programs with race-specific prep. Data-driven. {PRICE_TO_RACE}.",
      "Gravel training plans built for your goal race. 16-week periodized programs with race-specific prep.",
      "gravel training plans"),
     (5017, "page", "questionnaire",

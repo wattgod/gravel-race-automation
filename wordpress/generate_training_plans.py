@@ -30,25 +30,32 @@ from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html, get_site_header_css
 from cookie_consent import get_consent_banner_html
 from pricing import (
-    MIN_WEEKS,
-    PRICE_PER_WEEK,
-    PRICE_PER_WEEK_CENTS,
-    compute_race_plan_price_cents,
-    format_cents,
+    BLOCK_PRICE,
+    BLOCK_WEEKS,
+    PLAN_DELIVERY_HOURS,
+    PLAN_REFUND_DAYS,
+    WEEK_PRICE,
+    plan_summary,
 )
+import plan_offer
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 
 # ── Constants ─────────────────────────────────────────────────
 
-QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/training-plans/start/"
+# The one-page questionnaire sells the plan billed every 4 weeks (the
+# checkout server refuses the retired two-step flow for it).
+QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/questionnaire/"
 TRAINING_PLANS_URL = f"{SITE_BASE_URL}/products/training-plans/"
 COACHING_URL = f"{SITE_BASE_URL}/coaching/"
-# PRICE_PER_WEEK comes from pricing.py (data/pricing.json) —
-# do not hardcode a price string here (docs/specs/goals-2027-funnel-spec.md D18).
-SIX_WEEK_PRICE = format_cents(compute_race_plan_price_cents(6))
-TWELVE_WEEK_PRICE = format_cents(compute_race_plan_price_cents(12))
-MIN_WEEKS_PRICE = format_cents(compute_race_plan_price_cents(MIN_WEEKS))
+# Every price comes from pricing.py (data/pricing.json) — do not hardcode a
+# price string here (docs/specs/goals-2027-funnel-spec.md D18). Examples use
+# the same payment_plan math the checkout server charges.
+SIX_WEEK_PLAN = plan_summary(6)        # "2 payments, $74.99 in all"
+TWELVE_WEEK_PLAN = plan_summary(12)    # "3 payments, $149.97 in all"
+SIXTEEN_WEEK_PLAN = plan_summary(16)   # "4 payments, $199.96 in all"
+THIRTY_WEEK_PLAN = plan_summary(30)    # "8 payments, $374.93 in all"
+PER_DAY_PRICE = plan_offer.PER_DAY_PRICE  # "$1.79"
 
 
 def esc(text) -> str:
@@ -79,10 +86,10 @@ def build_hero() -> str:
   <div class="gg-tp-hero-bar">
     <div class="gg-tp-hero-bar-item"><strong>24 Hours</strong><span>Delivery</span></div>
     <div class="gg-tp-hero-bar-item"><strong>Matched</strong><span>Methodology</span></div>
-    <div class="gg-tp-hero-bar-item"><strong>$2/day</strong><span>Less Than a Tube</span></div>
+    <div class="gg-tp-hero-bar-item"><strong>{PER_DAY_PRICE}/day</strong><span>Less Than a Tube</span></div>
     <div class="gg-tp-hero-bar-item"><strong>5 min</strong><span>To Start</span></div>
   </div>
-  <p class="gg-tp-delivery-terms">Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours.</p>
+  <p class="gg-tp-delivery-terms">{plan_offer.BLOCKS_LINE} {plan_offer.PRICE_TO_RACE}.</p>
 </section>'''
 
 
@@ -100,9 +107,10 @@ DELIVERABLES = [
     ),
     (
         "02",
-        "30+ Page Custom Training Guide",
+        "Custom Training Guides",
         "Your power zones. Your fueling protocol. Your race-week countdown. "
-        "Phase-by-phase breakdown of what you&rsquo;re building and why. If your race "
+        "Each block brings its own guide: what you&rsquo;re building in those weeks "
+        "and why. If your race "
         "is in the database: suffering zones, terrain breakdown, altitude warnings, "
         "and the harsh reality of what the course demands. Not marketing. Data.",
     ),
@@ -320,31 +328,31 @@ def build_honest_check() -> str:
 def build_pricing() -> str:
     return f'''<section class="gg-tp-section" id="pricing">
   <div class="gg-tp-section-label">Pricing</div>
-  <h2>{PRICE_PER_WEEK} Per Week. One Payment. No Subscription.</h2>
+  <h2>{BLOCK_PRICE} Every {BLOCK_WEEKS} Weeks. One Block at a Time.</h2>
   <div class="gg-tp-pricing-wrap">
     <div class="gg-tp-pricing-card">
       <div class="gg-tp-pricing-header">Custom Training Plan</div>
-      <div class="gg-tp-price">{PRICE_PER_WEEK}<span> / week until your race</span></div>
+      <div class="gg-tp-price">{BLOCK_PRICE}<span> every {BLOCK_WEEKS} weeks until race week</span></div>
       <ul class="gg-tp-pricing-list">
-        <li>Weeks until your race, rounded up. Four-week minimum</li>
-        <li>Race 6 weeks away = {SIX_WEEK_PRICE}. 12 weeks = {TWELVE_WEEK_PRICE}. 16 weeks = {format_cents(compute_race_plan_price_cents(16))}</li>
-        <li>Paid once. No subscription, no renewal</li>
-        <li>Structured .zwo workouts for Zwift/TrainingPeaks/Wahoo</li>
-        <li>30+ page custom training guide</li>
+        <li>One payment per {BLOCK_WEEKS}-week block. If your race isn&rsquo;t a whole number of blocks away, the last, shorter block costs {WEEK_PRICE} a week</li>
+        <li>Race 6 weeks away: {SIX_WEEK_PLAN}. 12 weeks: {TWELVE_WEEK_PLAN}. 16 weeks: {SIXTEEN_WEEK_PLAN}</li>
+        <li>Ends after race week. Nothing is charged after that</li>
+        <li>Cancel any time from your plan page; you keep any block you&rsquo;ve paid for</li>
+        <li>On your TrainingPeaks calendar one {BLOCK_WEEKS}-week block at a time. I look over every block before it goes on</li>
+        <li>A training guide for your race and plan with block 1, and a guide to each block&rsquo;s workouts with that block</li>
         <li>Race-optimized fueling plan</li>
         <li>Custom strength program</li>
-        <li>Heat &amp; altitude protocols</li>
-        <li>Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours</li>
+        <li>Block 1 within {PLAN_DELIVERY_HOURS} hours of your payment or of you connecting TrainingPeaks, whichever is later</li>
       </ul>
-      <p class="gg-tp-support-terms">Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours. Email support and two plan adjustments are included during the dates covered by your plan for changes to your schedule, available training hours, or equipment. Correcting a plan that does not match your order does not use an adjustment. The first rescale after the scheduled FTP test is included separately. Weekly review and recurring changes are part of Coaching.</p>
+      <p class="gg-tp-support-terms">Questions about your plan by email; I answer within 2 business days. Weekly review and week-to-week changes are part of Coaching.</p>
       <div class="gg-tp-pricing-cta">
         <a href="{QUESTIONNAIRE_URL}?src=product_page" class="gg-tp-btn" data-cta="pricing_build">Build My Plan</a>
       </div>
-      <p class="gg-tp-pricing-note">Your entry fee was $175. Your hotel is $200. Your plan is $2/day. Don&rsquo;t show up without one.</p>
+      <p class="gg-tp-pricing-note">Your entry fee was $175. Your hotel is $200. Your plan is {PER_DAY_PRICE} a day. Don&rsquo;t show up without one.</p>
     </div>
   </div>
   <div class="gg-tp-guarantee">
-    <p><strong>7-Day Money-Back Guarantee.</strong> If the plan doesn&rsquo;t meet your expectations, email me within 7 days for a full refund. No questions. No hoops.</p>
+    <p><strong>{PLAN_REFUND_DAYS}-Day Full Refund.</strong> Within {PLAN_REFUND_DAYS} days of your first payment, cancel from your plan page and you get all of it back. Refunding it ends the plan.</p>
   </div>
 </section>'''
 
@@ -356,19 +364,23 @@ FAQ_ITEMS = [
     ),
     (
         "What if I don&rsquo;t know my FTP?",
-        "Mark it unknown. Week 1 includes an FTP test protocol. Reply with the result and I&rsquo;ll rescale the remaining workouts. The first rescale after the scheduled FTP test is included separately and does not use one of your two adjustments.",
+        "Mark it unknown. Week 1 includes an FTP test protocol. Reply with the result and your next block is built on it.",
     ),
     (
         "How are workouts delivered?",
-        ".zwo files. Load directly into Zwift, TrainingPeaks, or anything that reads the format. Each file has power targets, cadence cues, and coaching text built in. Your guide is a web page &mdash; bookmark it.",
+        f"On your TrainingPeaks calendar, one {BLOCK_WEEKS}-week block at a time, so they sync to your device from there. Each block comes with a guide to its workouts; your first payment also brings the training guide for your race and plan.",
     ),
     (
         "How is the price calculated?",
-        f"{PRICE_PER_WEEK} for every week until your race, rounded up to whole weeks, with a four-week minimum. A race 6 weeks away is {SIX_WEEK_PRICE}. 12 weeks away is {TWELVE_WEEK_PRICE}. 20 weeks away is {format_cents(compute_race_plan_price_cents(20))}.",
+        f"{BLOCK_PRICE} every {BLOCK_WEEKS} weeks, one payment per block, from the day you sign up until race week. If your race isn&rsquo;t a whole number of {BLOCK_WEEKS}-week blocks away, the last, shorter block costs {WEEK_PRICE} a week. A race 6 weeks away is {SIX_WEEK_PLAN}. 12 weeks away is {TWELVE_WEEK_PLAN}. 30 weeks away is {THIRTY_WEEK_PLAN}. The form shows your number before you pay.",
     ),
     (
         "Is this coaching?",
-        "This is a plan to execute yourself. Email support and two plan adjustments are included during the dates covered by your plan. Weekly review and recurring changes are part of Coaching.",
+        "No. It&rsquo;s a plan you ride yourself, one block at a time, and I look over each block before it goes on your calendar. Questions by email, answered within 2 business days. Weekly review and week-to-week changes are part of Coaching.",
+    ),
+    (
+        "How do I cancel?",
+        f"From your plan page, any time. You keep any block you&rsquo;ve paid for. Within {PLAN_REFUND_DAYS} days of your first payment, cancelling there refunds that payment in full and ends the plan. Later payments aren&rsquo;t refunded, except where the law says otherwise.",
     ),
     (
         "What if my race isn&rsquo;t in the database?",
@@ -396,7 +408,7 @@ def build_faq() -> str:
 
 def build_mobile_sticky() -> str:
     return f'''<div class="gg-tp-sticky-cta" id="gg-tp-sticky-cta">
-  <a href="{QUESTIONNAIRE_URL}?src=product_page" data-cta="sticky_mobile">Build My Plan &mdash; $2/day</a>
+  <a href="{QUESTIONNAIRE_URL}?src=product_page" data-cta="sticky_mobile">Build My Plan &mdash; {BLOCK_PRICE} every {BLOCK_WEEKS} weeks</a>
 </div>'''
 
 
@@ -1276,9 +1288,15 @@ def build_jsonld() -> str:
     "url": "{SITE_BASE_URL}"
   }},
   "offers": {{
-    "@type": "AggregateOffer",
-    "lowPrice": "{MIN_WEEKS_PRICE.replace('$', '')}",
+    "@type": "Offer",
+    "price": "{BLOCK_PRICE.replace('$', '')}",
     "priceCurrency": "USD",
+    "priceSpecification": {{
+      "@type": "UnitPriceSpecification",
+      "price": "{BLOCK_PRICE.replace('$', '')}",
+      "priceCurrency": "USD",
+      "billingDuration": "P{BLOCK_WEEKS}W"
+    }},
     "availability": "https://schema.org/InStock"
   }},
   "url": "{TRAINING_PLANS_URL}"
@@ -1315,11 +1333,11 @@ def generate_training_page(external_assets: dict = None) -> str:
 
     meta_desc = (
         "Gravel training plans built for your goal race. 16-week periodized "
-        f"programs with race-specific prep. Data-driven. From {PRICE_PER_WEEK}/week."
+        f"programs with race-specific prep. Data-driven. {plan_offer.PRICE_TO_RACE}."
     )
 
     og_tags = f'''<meta property="og:title" content="Custom Training Plans | Gravel God">
-  <meta property="og:description" content="Race-specific training plans. {PRICE_PER_WEEK}/week, paid once. Structured workouts, nutrition, strength, and race protocols.">
+  <meta property="og:description" content="Race-specific training plans. {plan_offer.PRICE_TO_RACE}, one block at a time. Structured workouts, nutrition, strength, and race protocols.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical_url)}">
   <meta property="og:image" content="{SITE_BASE_URL}/og/page-training-plans.jpg">
@@ -1328,7 +1346,7 @@ def generate_training_page(external_assets: dict = None) -> str:
   <meta property="og:site_name" content="Gravel God Cycling">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Custom Training Plans | Gravel God">
-  <meta name="twitter:description" content="Race-specific training plans. {PRICE_PER_WEEK}/week, paid once.">
+  <meta name="twitter:description" content="Race-specific training plans. {plan_offer.PRICE_TO_RACE}, one block at a time.">
   <meta name="twitter:image" content="{SITE_BASE_URL}/og/page-training-plans.jpg">'''
 
     preload = get_preload_hints()

@@ -49,7 +49,7 @@ import guide_ig
 from guide_plates import render_chapter_plate
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
-from pricing import PRICE_PER_WEEK
+import plan_offer
 from brand_tokens import get_ga4_head_snippet
 
 
@@ -1425,10 +1425,10 @@ def build_cta_training() -> str:
     <div class="gg-guide-cta-inner">
       <span class="gg-guide-cta-kicker">READY TO TRAIN?</span>
       <h3>Custom Gravel Training Plan</h3>
-      <p>Race-specific. Built for you by a coach. {PRICE_PER_WEEK}/week, paid once.</p>
+      <p>Race-specific. Built for your race. {plan_offer.PRICE_TO_RACE}, one 4-week block at a time.</p>
       <ul>
-        <li>Structured workouts pushed to your device</li>
-        <li>30+ page custom training guide</li>
+        <li>Structured workouts on your TrainingPeaks calendar, one block at a time</li>
+        <li>A training guide for your race, and a guide to each block</li>
         <li>Heat &amp; altitude protocols</li>
         <li>Nutrition plan</li>
         <li>Strength training</li>

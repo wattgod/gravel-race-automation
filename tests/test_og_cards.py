@@ -73,11 +73,11 @@ def test_topo_contours_are_deterministic_per_key():
 
 def test_homepage_ladder_reads_live_sources():
     from generate_homepage import compute_stats, load_race_index
-    from pricing import PRICE_PER_WEEK
+    from plan_offer import CTA_PRICE
     rows = home_og.ladder_rows(compute_stats(load_race_index()))
     assert [r[1] for r in rows] == ["Pick a race.", "Get a plan.", "Get coached."]
     assert rows[0][2] == f"{compute_stats(load_race_index())['race_count']} RATED"
-    assert rows[1][2] == f"{PRICE_PER_WEEK} A WEEK"
+    assert rows[1][2] == CTA_PRICE  # "$49.99 EVERY 4 WEEKS"
     card = og_topo.ladder_card(key="homepage", rows=rows)
     assert _lit(card) is None  # all three pillars equal on the fallback card
 
@@ -92,10 +92,11 @@ def test_no_hardcoded_counts_or_prices_in_generators():
 # ── Plans / coaching / season review page cards ────────────────
 
 def test_plans_card_prices_from_pricing():
-    from pricing import PRICE_PER_WEEK
+    from pricing import BLOCK_PRICE
     card = page_og.training_plans_card_html()
     text = _text(card)
-    assert f"PER WEEK {PRICE_PER_WEEK}" in text and "ONE PAYMENT" in text
+    assert f"EVERY 4 WEEKS {BLOCK_PRICE}" in text and "ONE 4-WEEK BLOCK AT A TIME" in text
+    assert "ONE PAYMENT" not in text and "PER WEEK" not in text
     assert "CAPPED" not in text
     assert _lit(card) == "TRAINING PLANS"
 

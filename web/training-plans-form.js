@@ -35,22 +35,30 @@
   // GENERATED from data/pricing.json by scripts/generate_pricing_js.py — do
   // not hand-edit the lines below (docs/specs/goals-2027-funnel-spec.md D18).
   // GG_PRICING_CONSTANTS_START
-  var PRICE_PER_WEEK = 15;
-  var MIN_WEEKS = 4;
+  var PLAN_PRODUCT = 'race_plan_4weekly';
+  function ggPlanMoney(c){c=Math.round(c);var d=Math.floor(c/100),r=c%100;return '$'+d.toLocaleString('en-US')+'.'+(r<10?'0':'')+r;}
+  function ggPlanQuote(raceDateStr,todayStr){
+    if(!raceDateStr||!/^\d{4}-\d{2}-\d{2}$/.test(raceDateStr))return null;
+    var race=new Date(raceDateStr+'T00:00:00');if(isNaN(race.getTime()))return null;
+    var today=todayStr?new Date(todayStr+'T00:00:00'):new Date();today.setHours(0,0,0,0);
+    var days=Math.round((race-today)/86400000);if(days<=0)return null;
+    var weeks=Math.ceil(days/7);
+    var full=Math.floor(weeks/4),left=weeks%4;
+    var payments=full+(left?1:0);
+    var total=full*4999+left*1250;
+    var first=full?4999:left*1250;
+    return {weeks:weeks,payments:payments,totalCents:total,total:ggPlanMoney(total),
+      firstCents:first,first:ggPlanMoney(first),
+      summary:payments+(payments===1?' payment, ':' payments, ')+ggPlanMoney(total)+' in all'};
+  }
   // GG_PRICING_CONSTANTS_END
 
+  // Plan billed every 4 weeks (2026-11-13): $49.99 per 4-week block until
+  // race week, a shorter last block pro rata. ggPlanQuote() above is the
+  // server's own math (race_plan_subscription.payment_plan), so the payments
+  // and total shown here are what Stripe will charge.
   function computePrice(raceDateStr) {
-    if (!raceDateStr) return null;
-    var raceDate = new Date(raceDateStr + 'T00:00:00');
-    var today = new Date();
-    today.setHours(0, 0, 0, 0);
-    // Math.round, NOT ceil: a date range spanning a DST shift is N days
-    // +/- 1 hour in ms. ceil turned 210 days into 211 -> a 31-week price
-    // on a 30-week plan (mismatch vs the Python charge in app.py).
-    var days = Math.round((raceDate - today) / (1000 * 60 * 60 * 24));
-    var weeks = Math.max(MIN_WEEKS, Math.ceil(days / 7));
-    var price = weeks * PRICE_PER_WEEK;  // no cap (2026-10-23)
-    return { weeks: weeks, price: price };
+    return ggPlanQuote(raceDateStr);
   }
 
   function updatePriceDisplay() {
@@ -60,9 +68,9 @@
     if (aRace && aRace.date) {
       var pricing = computePrice(aRace.date);
       if (pricing) {
-        submitBtn.textContent = 'Submit & Pay — $' + pricing.price;
+        submitBtn.textContent = 'Submit & Pay ' + pricing.first + ' today';
         if (totalEl) {
-          totalEl.textContent = '$' + pricing.price + ' for ' + pricing.weeks + ' weeks';
+          totalEl.textContent = pricing.summary + ', ending after race week';
         }
         return;
       }
@@ -748,13 +756,14 @@
     // GA4 begin_checkout (standard e-commerce funnel event).
     var aRaceForCheckout = races.find(function(r) { return r.priority === 'A'; }) || races[0];
     var checkoutPricing = aRaceForCheckout ? computePrice(aRaceForCheckout.date) : null;
-    var checkoutValue = checkoutPricing ? checkoutPricing.price : 0;
+    // Value = the first payment, the only money charged at checkout.
+    var checkoutValue = checkoutPricing ? checkoutPricing.firstCents / 100 : 0;
     track('begin_checkout', {
       currency: 'USD',
       value: checkoutValue,
       items: [{
-        item_name: 'Custom Training Plan',
-        item_category: 'training_plan',
+        item_name: 'Custom Training Plan, every 4 weeks',
+        item_category: PLAN_PRODUCT,
         price: checkoutValue
       }]
     });
@@ -785,6 +794,10 @@
 
     // Map to worker format (camelCase → snake_case)
     var workerData = mapToWorkerFormat(data);
+    // The plan billed every 4 weeks (the server's race_plan_4weekly). This
+    // one-page form is its only entry: the server refuses intake_flow for it,
+    // so nothing here may send one.
+    workerData.product = PLAN_PRODUCT;
     // Entry surface and (for a /goals/ referral) offer variant, so a purchase
     // can be attributed back to which offer copy and which page sent the
     // visitor here. The checkout server (athlete-custom-training-plan-
@@ -820,8 +833,10 @@
           races_count: races.length,
           has_power: !!(ftpInput && ftpInput.value),
           sections_completed: Object.keys(sectionsSeen).length,
-          product: 'training_plan',
-          price: pricing ? pricing.price : 0,
+          product: PLAN_PRODUCT,
+          price: pricing ? pricing.firstCents / 100 : 0,
+          payments: pricing ? pricing.payments : 0,
+          total: pricing ? pricing.totalCents / 100 : 0,
           weeks: pricing ? pricing.weeks : 0
         });
         // Marks the next pageload here as a genuine return from Stripe, so

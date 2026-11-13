@@ -125,7 +125,7 @@ def test_publish_ships_the_pages_this_pass_changed():
     for flag in ("--sync-insights", "--sync-about", "--sync-tire-guides"):
         assert flag in wf
     # The live check must expect the single-hop redirect.
-    assert '"301 "*/training-plans/start/*' in wf
+    assert '"301 "*/questionnaire/*' in wf
 
 
 def test_race_page_sweep_skips_the_tire_pages():

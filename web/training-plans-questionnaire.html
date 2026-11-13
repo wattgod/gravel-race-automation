@@ -585,7 +585,7 @@
   <div class="tp-questionnaire-hero">
     <h1>Build Your Plan</h1>
     <p>Five minutes. Be thorough. The plan is only as good as the data.
-    Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours.</p>
+    Your plan goes on your TrainingPeaks calendar one 4-week block at a time, and I look over every block first.</p>
   </div>
 
   <div class="gg-form-container">
@@ -595,15 +595,16 @@
       <p>Fill out this form and pay securely via Stripe.</p>
     </div>
 
-    <!-- Purchase terms (Sep 2026): what the athlete is buying, before the first
-         field. The only price on this page used to be the submit button, and
-         only after a race date was entered. #gg-plan-total is filled by
-         training-plans-form.js updatePriceDisplay(). -->
+    <!-- Purchase terms: what the athlete is buying, before the first field.
+         Plan billed every 4 weeks (2026-11-13), terms from the checkout
+         server's race_plan_subscription.terms_text and the rider payment
+         email. #gg-plan-total is filled by training-plans-form.js
+         updatePriceDisplay(). -->
     <div class="gg-purchase-terms">
       <dl>
         <div class="gg-purchase-row">
           <dt>Price</dt>
-          <dd>$15 per week until your A-race, rounded up to whole weeks. Four-week minimum. Paid once.</dd>
+          <dd>$49.99 every 4 weeks from the day you sign up, one payment per 4-week block, until your race week. If your race isn&rsquo;t a whole number of 4-week blocks away, the last, shorter block costs $12.50 a week.</dd>
         </div>
         <div class="gg-purchase-row">
           <dt>Your total</dt>
@@ -611,19 +612,23 @@
         </div>
         <div class="gg-purchase-row">
           <dt>Delivery</dt>
-          <dd>Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours.</dd>
+          <dd>One 4-week block at a time, on your TrainingPeaks calendar. I look over every block before it goes on. Block 1 arrives within 24 hours of your payment or of you connecting TrainingPeaks, whichever is later.</dd>
         </div>
         <div class="gg-purchase-row">
           <dt>Included</dt>
-          <dd>Structured .zwo workouts for Zwift, TrainingPeaks and Wahoo. A race-specific fueling plan, a strength program, and heat and altitude protocols. Email support and two plan adjustments during the plan.</dd>
+          <dd>A training guide for your race and plan with block 1, and a guide to each block&rsquo;s workouts with that block. Questions about your plan by email, answered within 2 business days.</dd>
         </div>
         <div class="gg-purchase-row">
           <dt>A week from a 12-week plan</dt>
           <dd>Mon rest. Tue VO2max intervals, 1 hr. Wed easy spin, 45 min. Thu 2&times;20 min at 88&ndash;94% FTP, 1.5 hr. Fri strength, 45 min. Sat long ride, 3 hr. Sun rest.</dd>
         </div>
         <div class="gg-purchase-row">
+          <dt>Cancel</dt>
+          <dd>Any time from your plan page. You keep any block you&rsquo;ve paid for.</dd>
+        </div>
+        <div class="gg-purchase-row">
           <dt>Refund</dt>
-          <dd>Full refund within 7 days, no questions asked.</dd>
+          <dd>Full refund within 14 days of your first payment, from your plan page. Refunding it ends the plan. Later payments aren&rsquo;t refunded, except where the law says otherwise.</dd>
         </div>
       </dl>
     </div>
@@ -1019,12 +1024,11 @@
       <!-- Trust signals before checkout -->
       <div class="gg-trust-strip">
         <div class="gg-trust-badges">
-          <span class="gg-trust-badge">7-Day Full Refund</span>
+          <span class="gg-trust-badge">14-Day Full Refund</span>
           <span class="gg-trust-badge">Secure Checkout via Stripe</span>
-          <span class="gg-trust-badge">Personally Reviewed Plan in 24 Hours</span>
+          <span class="gg-trust-badge">Every Block Reviewed</span>
         </div>
-        <p class="gg-trust-terms">Your plan, personally reviewed and delivered in TrainingPeaks within 24 hours.</p>
-        <p class="gg-trust-terms">Email support and two plan adjustments are included during the dates covered by your plan for changes to your schedule, available training hours, or equipment. Correcting a plan that does not match your order does not use an adjustment. The first rescale after the scheduled FTP test is included separately. Weekly review and recurring changes are part of Coaching.</p>
+        <p class="gg-trust-terms">$49.99 every 4 weeks until your race week. Your total is above, set by your A-race date. Nothing is charged after race week.</p>
       </div>
 
       <button type="submit" class="gg-submit-btn">Submit &amp; Pay</button>
@@ -1033,7 +1037,7 @@
     <div id="gg-form-message" class="gg-form-message" style="display: none;"></div>
 
     <div class="gg-form-footer">
-      Not satisfied? Full refund within 7 days, no questions asked.
+      Full refund within 14 days of your first payment. Cancel any time from your plan page.
     </div>
   </div>
 

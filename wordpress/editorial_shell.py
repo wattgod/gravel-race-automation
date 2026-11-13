@@ -164,6 +164,7 @@ from datetime import date
 from html.parser import HTMLParser
 from typing import Literal, Sequence
 
+import plan_offer
 import pricing
 from blog_tracking import get_plan_intent_tracking_script
 from brand_tokens import (
@@ -498,18 +499,20 @@ def render_in_short(claims: Sequence[Claim]) -> str:
 
 def ladder_offers() -> list[dict]:
     """The ladder rungs, every number read from data/pricing.json. The
-    Season Plan rung was retired 2026-10-23 (Matti: one product)."""
-    race = pricing.RACE_PLAN
+    Season Plan rung was retired 2026-10-23 (Matti: one product); the
+    one-off plan gave way to the plan billed every 4 weeks on 2026-11-13."""
+    race = pricing.RACE_PLAN_4WEEKLY
     coaching = pricing.PRICING["products"]["coaching"]
     return [
         {
             "key": "custom_plan",
             "kicker": "One race",
             "name": race["name"],
-            "price": f'{race["weekly_rate_display"]}/week · paid once',
+            "price": plan_offer.PRICE_TO_RACE,
             "desc": (
-                "One race, periodised to your date, in your TrainingPeaks calendar "
-                f'within {race["delivery_hours"]} hours. {race["refund_window_days"]}-day refund.'
+                "One race, periodised to your date, on your TrainingPeaks calendar "
+                "one 4-week block at a time. I look over every block first. "
+                f"{plan_offer.REFUND_LINE}"
             ),
             "href": CUSTOM_PLAN_URL,
             "button": "Get a custom plan",

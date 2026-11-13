@@ -17,13 +17,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
 
 import og_topo  # noqa: E402
 from generate_homepage import compute_stats, load_race_index  # noqa: E402
-from pricing import PRICE_PER_WEEK  # noqa: E402
+from plan_offer import CTA_PRICE  # noqa: E402
 
 
 def ladder_rows(stats: dict) -> list[tuple[str, str, str]]:
     return [
         ("01", "Pick a race.", f"{stats['race_count']} RATED"),
-        ("02", "Get a plan.", f"{PRICE_PER_WEEK} A WEEK"),
+        ("02", "Get a plan.", CTA_PRICE),
         ("03", "Get coached.", "A HUMAN IN YOUR CORNER"),
     ]
 

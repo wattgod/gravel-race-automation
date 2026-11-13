@@ -29,6 +29,7 @@ from brand_tokens import get_ab_head_snippet, get_ga4_head_snippet, get_preload_
 from shared_footer import get_mega_footer_html
 from shared_header import get_site_header_html
 from cookie_consent import get_consent_banner_html
+import plan_offer
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 AVATAR_SRC = Path(__file__).parent / "assets" / "about" / "matti-avatar-v67.png"
@@ -198,8 +199,8 @@ def build_ctas() -> str:
       <div class="gg-about-ctas">
         <div class="gg-about-cta">
           <h3>Training Plans</h3>
-          <p data-ab="training_price">Race-specific. Built for your target event. Less than your race hotel &mdash; $2/day.</p>
-          <a href="{SITE_BASE_URL}/training-plans/start/" class="gg-about-cta-btn gg-about-cta-btn--gold" data-cta="training_plans" data-ab="training_cta_btn">BUILD MY PLAN</a>
+          <p data-ab="training_price">Race-specific. Built for your target event. {plan_offer.PRICE_TO_RACE}, one 4-week block at a time.</p>
+          <a href="{SITE_BASE_URL}/questionnaire/" class="gg-about-cta-btn gg-about-cta-btn--gold" data-cta="training_plans" data-ab="training_cta_btn">BUILD MY PLAN</a>
         </div>
         <div class="gg-about-cta">
           <h3>1:1 Coaching</h3>

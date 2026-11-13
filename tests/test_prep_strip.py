@@ -98,7 +98,8 @@ class TestDateDegradation:
     def test_generic_price_copy_without_js(self, packed_slug):
         """Server-rendered CTA must be safe even if JS never runs."""
         html = build_prep_strip(_rd(slug=packed_slug))
-        assert "$15/WK" in html
+        assert "$49.99 EVERY 4 WEEKS" in html
+        assert "$15/WK" not in html
 
 class TestSafety:
     def test_no_inline_handlers(self, packed_slug):
@@ -109,7 +110,7 @@ class TestSafety:
     def test_cta_links(self, packed_slug):
         html = build_prep_strip(_rd(slug=packed_slug))
         assert 'href="#train-for-race"' in html
-        assert f"training-plans/start/?race={packed_slug}" in html
+        assert f"questionnaire/?race={packed_slug}" in html
 
     def test_prep_kit_gate_link(self, packed_slug):
         """P1.3: the strip funnels non-buyers to the email-gated prep kit."""

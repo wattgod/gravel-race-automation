@@ -435,7 +435,8 @@ class TestStickyCTA:
         """Sticky CTA must show original text before configurator activates."""
         html = build_sticky_cta("Test Race", "test-race")
         assert 'BUILD MY PLAN' in html
-        assert '$15/WK' in html
+        assert '$49.99 EVERY 4 WEEKS' in html
+        assert '$15/WK' not in html
 
     def test_sticky_cta_has_race_param(self):
         """Sticky CTA link must include ?race= parameter."""
@@ -519,10 +520,12 @@ class TestConfiguratorJS:
         # Must NOT have the old flat calculation
         assert 'weeks * 6' not in js_content
 
-    def test_price_calculation_has_bounds(self, js_content):
-        """Price has a $60 floor and no cap (cap retired 2026-10-23)."""
+    def test_price_is_the_payment_plan(self, js_content):
+        """The plan billed every 4 weeks (2026-11-13): no floor, no cap; the
+        quote comes from ggPlanQuote, built from data/pricing.json."""
         assert 'Math.min(249' not in js_content
-        assert 'Math.max(60' in js_content
+        assert 'Math.max(60' not in js_content
+        assert 'ggPlanQuote(raceDateStr)' in js_content
 
     def test_weeks_minimum_is_4(self, js_content):
         """Minimum plan length must be 4 weeks."""
@@ -562,8 +565,8 @@ class TestConfiguratorJS:
             if '.href' in line and 'race=' in line
         ]
         for line in cta_href_lines:
-            assert '/training-plans/start/' in line, (
-                f"CTA href must point to /training-plans/start/, not /coaching: {line}"
+            assert '/questionnaire/' in line, (
+                f"CTA href must point to /questionnaire/, not /coaching: {line}"
             )
         # Should never contain /coaching? as a CTA destination
         assert "'/coaching?" not in js_content, (
@@ -649,26 +652,26 @@ class TestPriceCalculation:
     """Test price calculation logic edge cases (verified via JS string analysis)."""
 
     def test_price_formula_documented(self):
-        """Price formula: max(60, weeks * 15), no cap (retired 2026-10-23)."""
+        """No per-week formula in the page: the quote is ggPlanQuote."""
         js = build_inline_js()
-        # Verify the exact formula is in the JS
-        assert 'var price = Math.max(60, weeks * 15);' in js
-        assert 'Math.min(249' not in js
+        assert 'weeks * 15' not in js
+        assert 'function ggPlanQuote(' in js
+        assert 'ggPlanQuote(raceDateStr)' in js
 
-    @pytest.mark.parametrize("weeks,expected_price", [
-        (4, 60),    # Minimum plan = $60
-        (5, 75),
-        (10, 150),
-        (13, 195),  # Unbound typical
-        (16, 240),
-        (17, 255),  # No cap: the old $249 cap is gone
-        (20, 300),
-        (52, 780),  # A year out
+    @pytest.mark.parametrize("weeks,payments", [
+        (4, [4999]),
+        (5, [4999, 1250]),
+        (6, [4999, 2500]),
+        (8, [4999, 4999]),
+        (13, [4999] * 3 + [1250]),  # Unbound typical
+        (30, [4999] * 7 + [2500]),
+        (52, [4999] * 13),          # A year out
     ])
-    def test_price_at_various_weeks(self, weeks, expected_price):
-        """Verify price calculation at boundary conditions."""
-        price = max(60, weeks * 15)
-        assert price == expected_price
+    def test_price_at_various_weeks(self, weeks, payments):
+        """Payment plan at boundary conditions (data/pricing.json math)."""
+        sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
+        from pricing import payment_plan
+        assert payment_plan(weeks)["payments_cents"] == payments
 
 
 # ── Phase Split Edge Cases ────────────────────────────────────

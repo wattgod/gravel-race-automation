@@ -9,6 +9,7 @@ import html
 import json
 from pathlib import Path
 
+import plan_offer
 import pricing
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,7 +63,7 @@ GUIDE_ARTICLES = {
 def offer_for_slug(slug: str) -> dict | None:
     if slug in PLAN_ARTICLES:
         return {'kind':'custom_plan', 'title':'Custom training plan',
-                'detail':f'{pricing.RACE_PLAN["weekly_rate_display"]}/week · paid once',
+                'detail':plan_offer.PRICE_TO_RACE,
                 'href':'/products/training-plans/', 'button':'See training plans'}
     if slug in COACHING_ARTICLES:
         product=pricing.PRICING['products']['coaching']

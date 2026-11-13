@@ -608,8 +608,12 @@ class TestSelectorGeneratorParity:
         )
 
     def test_no_orphaned_data_ab_in_homepage(self, experiment_ab_values, homepage_content):
-        """Every data-ab in the generator must have a corresponding experiment."""
-        known_values = set(experiment_ab_values.values())
+        """Every data-ab in the generator must have a corresponding experiment
+        or be a hook the experiment templates register."""
+        sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+        from experiment_templates import VALID_SELECTORS
+        known_values = set(experiment_ab_values.values()) | {
+            name for name, pages in VALID_SELECTORS.items() if "/" in pages}
         for match in re.finditer(r'data-ab="([^"]+)"', homepage_content):
             val = match.group(1)
             assert val in known_values, (
@@ -617,8 +621,14 @@ class TestSelectorGeneratorParity:
             )
 
     def test_no_orphaned_data_ab_in_about(self, experiment_ab_values, about_content):
-        """Every data-ab in the about generator must have a corresponding experiment."""
-        known_values = set(experiment_ab_values.values())
+        """Every data-ab in the about generator must have a corresponding
+        experiment, or be a hook the experiment templates register (the
+        plan price line stays a hook after training_price_frame retired,
+        2026-11-13)."""
+        sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+        from experiment_templates import VALID_SELECTORS
+        known_values = set(experiment_ab_values.values()) | {
+            name for name, pages in VALID_SELECTORS.items() if "/about/" in pages}
         for match in re.finditer(r'data-ab="([^"]+)"', about_content):
             val = match.group(1)
             assert val in known_values, (

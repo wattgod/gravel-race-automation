@@ -30,7 +30,7 @@ from functools import lru_cache
 from pathlib import Path
 
 from brand_tokens import SITE_BASE_URL
-from pricing import PRICE_PER_WEEK, RACE_PLAN
+from pricing import MIN_WEEKS, PRICE_PER_WEEK, RACE_PLAN
 
 REPO = Path(__file__).resolve().parent.parent
 PLANNER_DIR = REPO / "data" / "planner"
@@ -51,6 +51,25 @@ EVENT_RESULT = "planner_result_shown"
 EVENT_CTA = "plan_cta_click"
 
 _SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+
+# Research the planner's notes rest on. They are appended to the race page's
+# own numbered source list, after the race's citations, so every [n] in the
+# planner resolves to item n of that one list. A source with no checked link
+# is listed without one.
+PLANNER_SOURCES = (
+    ("bands", "Allen and Coggan FTP ratings in W/kg, as printed in the Garmin Edge 530 owner's manual",
+     "https://www8.garmin.com/manuals/webhelp/edge530/EN-US/GUID-1F58FA8E-09FF-4E51-B9B4-C4B83ED1D6CE.html"),
+    ("group", "Broker JP, Kyle CR, Burke ER. Med Sci Sports Exerc. 1999;31:1677. PMID 10589873",
+     "https://pubmed.ncbi.nlm.nih.gov/10589873/"),
+    ("gut", "Smith JW, Pascoe DD, Passe DH, Ruby BC, Stewart LK, Baker LB, Zachwieja JJ. Med Sci Sports Exerc. 2013;45(2):336-41. PMID 22968309",
+     "https://pubmed.ncbi.nlm.nih.gov/22968309/"),
+    ("heat_gain", "Racinais S, et al. Med Sci Sports Exerc. 2015;47:601. PMC4342312",
+     "https://pmc.ncbi.nlm.nih.gov/articles/PMC4342312/"),
+    ("heat_loss", "Peiffer JJ, Abbiss CR. Int J Sports Physiol Perform. 2011;6:208. PMID 21725106",
+     "https://pubmed.ncbi.nlm.nih.gov/21725106/"),
+    ("position", "Defraeye T, Blocken B, Koninckx E, Hespel P, Carmeliet J. Aerodynamic study of different cyclist positions: CFD analysis and full-scale wind-tunnel tests. J Biomech. 2010;43(7):1262-1268",
+     None),
+)
 
 
 def _esc(text) -> str:
@@ -152,6 +171,38 @@ def write_planner_assets(output_dir: Path, slugs) -> list[str]:
     return sorted(files)
 
 
+def planner_source_numbers(rd: dict) -> dict:
+    """Each planner source's number on this page: after the race's own
+    citations, in PLANNER_SOURCES order."""
+    base = len(rd.get("citations") or [])
+    return {key: base + i for i, (key, _label, _url) in enumerate(PLANNER_SOURCES, start=1)}
+
+
+def planner_citation_items(rd: dict) -> list[str]:
+    """The planner's sources as items for the page's numbered source list,
+    or [] when this page has no planner."""
+    if not planner_shown(rd.get("slug")):
+        return []
+    nums = planner_source_numbers(rd)
+    items = []
+    for key, label, url in PLANNER_SOURCES:
+        n = nums[key]
+        if url:
+            shown = url.split("://", 1)[1]
+            if len(shown) > 60:
+                shown = shown[:57] + "..."
+            body = (f'<a href="{_esc(url)}" target="_blank" rel="noopener noreferrer" class="gg-citation-link">{_esc(label)}</a>'
+                    f'<span class="gg-citation-url">{_esc(shown)}</span>')
+        else:
+            body = f'<span class="gg-citation-text">{_esc(label)}</span>'
+        items.append(f'<li class="gg-citation-item" id="gg-citation-{n}"><span class="gg-citation-cat">Finish-time planner</span> {body}</li>')
+    return items
+
+
+def _cite(n: int) -> str:
+    return f'<a class="gg-planner-cite" href="#gg-citation-{n}">[{n}]</a>'
+
+
 def _course_summary(slug: str) -> dict:
     """The few course facts the page prints before the course file loads."""
     course = json.loads(course_path(slug).read_text(encoding="utf-8"))
@@ -227,9 +278,12 @@ def planner_config(rd: dict, show_offer: bool) -> dict | None:
         "offer": ({
             "href": f"{PLAN_URL}?race={slug}&src=race_planner",
             "price": f"{PRICE_PER_WEEK} / week",
+            "price_note": (f"Priced by the weeks until race day ({PRICE_PER_WEEK} a week, "
+                           f"{MIN_WEEKS}-week minimum), paid once at checkout."),
             "includes": list(RACE_PLAN["inclusions"]),
         } if show_offer else None),
         "events": {"result": EVENT_RESULT, "cta": EVENT_CTA},
+        "cite": planner_source_numbers(rd),
     }
 
 
@@ -271,7 +325,8 @@ def build_race_planner(rd: dict, show_offer: bool = True) -> str:
                      ("advanced", "Advanced"), ("elite", "Elite")))
     effort_note = ("This course has no default effort: type the effort (IF) you held in a race of a similar length."
                    if cfg["visitor_sets_effort"] else
-                   "Blank uses Gravel God's default for your level and riding time. Type your own to override it.")
+                   "Blank uses the default effort for your level and riding time. Type your own to override it.")
+    cite = cfg["cite"]
     return f'''<section id="finish-time" class="gg-planner" aria-labelledby="gg-planner-title">
   <div class="gg-planner-head">
     <span class="gg-planner-kicker">Free · no account</span>
@@ -287,13 +342,13 @@ def build_race_planner(rd: dict, show_offer: bool = True) -> str:
     <div class="gg-planner-band" hidden>
       <div class="gg-planner-chips" role="radiogroup" aria-label="Table"><label class="gg-planner-chip"><input type="radio" name="sex" value="m" checked> Men's table</label><label class="gg-planner-chip"><input type="radio" name="sex" value="f"> Women's table</label></div>
       <div class="gg-planner-chips" role="radiogroup" aria-label="Power band"><label class="gg-planner-chip"><input type="radio" name="band" value="Fair"> Fair</label><label class="gg-planner-chip"><input type="radio" name="band" value="Good"> Good</label><label class="gg-planner-chip"><input type="radio" name="band" value="Excellent"> Excellent</label></div>
-      <small>Allen and Coggan FTP ratings in W/kg, as printed in Garmin's Edge 530 manual. The middle of the band sets your time; its ends widen the range.</small>
+      <small>Allen and Coggan FTP ratings in W/kg {_cite(cite["bands"])}. The middle of the band sets your time; its ends widen the range.</small>
     </div>
     <label class="gg-planner-toggle"><input type="checkbox" name="noftp"> I don't know my FTP</label>
     <button type="submit" class="gg-planner-go">See my finish time &rarr;</button>
     <div class="gg-planner-more" hidden>
       <fieldset class="gg-planner-field"><legend>Hours a week you can train</legend><div class="gg-planner-chips">{hours}</div><small>Sets your level, and your level sets your default effort.</small></fieldset>
-      <fieldset class="gg-planner-field"><legend>Who will you ride with?</legend><div class="gg-planner-chips">{groups}</div><small>Inside a group you have about a third less drag on flat road (Broker, Kyle and Burke 1999). Climbs and descents get no shelter.</small></fieldset>
+      <fieldset class="gg-planner-field"><legend>Who will you ride with?</legend><div class="gg-planner-chips">{groups}</div><small>Inside a group you have about a third less drag on flat road {_cite(cite["group"])}. Climbs and descents get no shelter.</small></fieldset>
       <fieldset class="gg-planner-field"><legend>Your bike</legend><div class="gg-planner-chips">{bikes}</div>
         <label class="gg-planner-inline">Bottles of {cfg["bottle"]["ml"]} ml <input name="bottles" inputmode="numeric" value="2" aria-label="Number of full bottles" size="2"></label>
         <details class="gg-planner-info"><summary>Where the weights come from</summary>{_gear_sources_html()}</details></fieldset>
@@ -372,6 +427,8 @@ def get_race_planner_css() -> str:
 {p}-offer ul {{ margin: 0; padding-left: 1.2em; font-size: var(--gg-font-size-sm); }}
 {p}-info summary {{ cursor: pointer; font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); text-decoration: underline; }}
 {p}-sources {{ font-size: var(--gg-font-size-xs); padding-left: 1.2em; }}
+{p}-cite {{ color: var(--gg-color-dark-teal); text-decoration: none; font-family: var(--gg-font-data); }}
+{p}-cite:hover {{ text-decoration: underline; }}
 {p} :focus-visible {{ outline: 3px solid var(--gg-color-teal); outline-offset: 2px; }}
 @media (max-width: 640px) {{ {p} {{ padding: var(--gg-spacing-md); }} {p}-map {{ grid-template-columns: 1fr; }} }}
 @media (max-width: 420px) {{ {p}-row {{ grid-template-columns: 1fr; }} }}

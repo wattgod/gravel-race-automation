@@ -273,15 +273,20 @@
     return brackets[brackets.length - 1];
   }
 
-  /* picks: {fit:1.05, pos:0.20, stopsCut:10}. Returns rows with
+  /* picks: {fit, pos, stopsCut}, each a size the rider chose or null.
+     A row whose size has not been chosen gets {key, pick:true} and no
+     number: the page never picks a size for the rider. Returns rows with
      {key, saved_s} or {key, why}; a row that fails says so. */
+  function picked(x) { return isNum(x); }
   function improvements(E, est, rider, picks, brackets) {
     var rows = [], base = est.mid.total, np = est.IF * est.ftp.mid;
+    picks = picks || {};
     function rerun(key, extra) {
       var r = runOnce(E, est.D, est.withNP(np, extra));
       rows.push(r.ok ? { key: key, saved_s: base - r.total } : { key: key, why: r.why });
     }
-    rerun("fit", { np: np * picks.fit });
+    if (picked(picks.fit)) rerun("fit", { np: np * picks.fit });
+    else rows.push({ key: "fit", pick: true });
     if (typeof rider.carbs === "number") {
       var b = fuelBracket(brackets, (base + 60 * (rider.stops || 0)) / 3600);
       var target = Math.min(b[2], 78);
@@ -293,10 +298,13 @@
     if (rider.heatTrained) rows.push({ key: "heat", already: true });
     else rerun("heat", { heatKeep: HEAT_TRAINED_KEEP });
     if (est.base.share < 0.54) rerun("group", { share: 0.54 });
-    rerun("pos", { cda: est.base.cda * (1 - 0.10 * picks.pos) });
+    if (picked(picks.pos)) rerun("pos", { cda: est.base.cda * (1 - 0.10 * picks.pos) });
+    else rows.push({ key: "pos", pick: true });
     if (est.D.cap > CORNER_CAP + 1e-6) rerun("corner", { cap: CORNER_CAP });
-    if (typeof rider.stops === "number" && rider.stops > 0)
-      rows.push({ key: "stops", saved_s: 60 * Math.min(rider.stops, picks.stopsCut) });
+    if (typeof rider.stops === "number" && rider.stops > 0) {
+      if (picked(picks.stopsCut)) rows.push({ key: "stops", saved_s: 60 * Math.min(rider.stops, picks.stopsCut) });
+      else rows.push({ key: "stops", pick: true });
+    }
     return rows;
   }
 

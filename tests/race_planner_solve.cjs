@@ -22,6 +22,8 @@ for (const [slug, s] of Object.entries(status.races)) {
   if (r.ok) {
     Object.assign(res, { IF: r.IF, level: r.level, mid_s: r.mid.total, fast_s: r.fast.total, slow_s: r.slow.total, span: r.span });
     res.rows = core.improvements(E, r, SAMPLE, { fit: 1.05, pos: 0.2, stopsCut: 10 }, BRACKETS);
+    // No size picked yet: those rows carry no number.
+    res.rows_unpicked = core.improvements(E, r, SAMPLE, { fit: null, pos: null, stopsCut: null }, BRACKETS);
   } else Object.assign(res, { why: r.why, miss: r.miss });
   // A course with a gap in its data: no time, a reason (never read as zero).
   const broken = JSON.parse(JSON.stringify(course));

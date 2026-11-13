@@ -9,6 +9,7 @@ private material ships; a failed solve shows no time.
 import base64
 import hashlib
 import json
+from html import escape as html_escape
 import re
 import shutil
 import subprocess
@@ -161,6 +162,11 @@ def test_analytics_events_go_through_gtag_behind_consent():
     assert "gtag(\"event\", cfg.events.result" in js and "gtag(\"event\", cfg.events.cta" in js
     # fired from user actions only: no timers drive an event
     assert not re.search(r"setInterval", js)
+    # the result event fires once per page view, not on every recalculation
+    announce = re.search(r"function announce\(m\) \{(.*?)\n  \}", js, re.S).group(1)
+    assert "if (shownOnce || typeof gtag !== \"function\") return;" in announce
+    assert announce.index("shownOnce = true") < announce.index("gtag(\"event\"")
+    assert js.count("shownOnce = true") == 1
     # the page's section-view observer fires on visibility, including on load:
     # the planner is not registered with it
     opening = re.match(r"<section[^>]*>", section(page(SHOWN[0]))).group(0)
@@ -172,6 +178,11 @@ def test_plan_button_goes_to_the_existing_checkout():
     assert cfg["offer"]["href"] == "https://gravelgodcycling.com/training-plans/start/?race=unbound-200&src=race_planner"
     from pricing import PRICE_PER_WEEK
     assert cfg["offer"]["price"] == f"{PRICE_PER_WEEK} / week"
+    # a weekly price next to "one-time payment" must say how the two fit
+    from pricing import MIN_WEEKS
+    assert cfg["offer"]["price_note"] == (f"Priced by the weeks until race day ({PRICE_PER_WEEK} a week, "
+                                          f"{MIN_WEEKS}-week minimum), paid once at checkout.")
+    assert "o.price_note" in (PLANNER_JS / "gg-planner.js").read_text()
 
 
 def test_fuel_brackets_come_from_the_pipeline():
@@ -193,6 +204,38 @@ def test_wording():
     assert '[1.03, "+3%"], [1.05, "+5%"], [1.10, "+10%"]' in js
     for word in ("total saving", "in total you", "combined", "all together"):
         assert word not in js.lower()
+    # the brand is not a narrator ("Gravel God's default ...")
+    for text in (js, sec):
+        assert "Gravel God's" not in text and "Gravel God’s" not in text
+
+
+def test_size_rows_have_no_preselected_size():
+    """Fitness (LAUNCH_DECISIONS 8), Position and Quicker stops are sizes the
+    rider picks; the page starts with none picked."""
+    js = (PLANNER_JS / "gg-planner.js").read_text()
+    assert "var picks = { fit: null, pos: null, stopsCut: null };" in js
+
+
+@pytest.mark.parametrize("slug", SHOWN)
+def test_every_planner_marker_resolves_to_the_page_source_list(slug):
+    html = page(slug)
+    cfg = config(html)
+    rd = load_race_data(ROOT / "race-data" / f"{slug}.json")
+    n_race = len(rd.get("citations") or [])
+    assert sorted(cfg["cite"].values()) == list(range(n_race + 1, n_race + 1 + len(race_planner.PLANNER_SOURCES)))
+    items = re.findall(r'<li class="gg-citation-item" id="gg-citation-(\d+)">', html)
+    assert [int(i) for i in items] == list(range(1, n_race + 1 + len(race_planner.PLANNER_SOURCES)))
+    for n in re.findall(r'class="gg-planner-cite" href="#gg-citation-(\d+)">\[(\d+)\]', section(html)):
+        assert n[0] == n[1] and int(n[0]) in cfg["cite"].values()
+    js = (PLANNER_JS / "gg-planner.js").read_text()
+    for key in re.findall(r'\{ cite: "([a-z_]+)" \}', js):
+        assert key in cfg["cite"], key
+    for key, label, _url in race_planner.PLANNER_SOURCES:
+        assert re.search(r'id="gg-citation-%d">.*?%s' % (cfg["cite"][key], re.escape(html_escape(label))), html, re.S)
+    # no author-year attribution left in visible planner copy: markers only
+    for text in (section(html), js):
+        for name in ("Smith et al", "Racinais", "Peiffer", "Defraeye", "Broker, Kyle", "Garmin's Edge"):
+            assert name not in text, name
 
 
 def test_unconfirmed_edition_is_said_as_it_is():
@@ -314,6 +357,13 @@ def test_sample_rider_gets_a_time_on_every_shown_course(solved, slug):
     keys = [row["key"] for row in r["rows"]]
     assert keys[:3] == ["fit", "gut", "heat"]
     assert all("saved_s" in row or "why" in row or row.get("ask") or row.get("already") for row in r["rows"])
+
+
+@pytest.mark.parametrize("slug", SHOWN)
+def test_unpicked_sizes_give_no_number(solved, slug):
+    rows = {row["key"]: row for row in solved[slug]["rows_unpicked"]}
+    for key in ("fit", "pos", "stops"):
+        assert rows[key] == {"key": key, "pick": True}, key
 
 
 @pytest.mark.parametrize("slug", SHOWN)

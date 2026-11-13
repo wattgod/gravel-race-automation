@@ -24,8 +24,10 @@
     try { var s = localStorage.getItem("gg_planner_units"); if (s === "imp" || s === "met") return s; } catch (e) {}
     return (navigator.language || "").toLowerCase() === "en-us" ? "imp" : "met";
   })();
-  var picks = { fit: 1.05, pos: 0.20, stopsCut: 10 };
-  var worker = null, geo = null, ready = false, pending = null, runId = 0, lastSent = 0, shownOnce = false, opened = false;
+  /* Sizes for the Fitness, Position and Quicker-stops rows. The rider picks
+     each one; until then the row shows no number. */
+  var picks = { fit: null, pos: null, stopsCut: null };
+  var worker = null, geo = null, ready = false, pending = null, runId = 0, shownOnce = false, opened = false;
 
   /* ---------- small DOM helpers ---------- */
   function el(tag, attrs, kids) {
@@ -156,7 +158,7 @@
     if (!ready) { if (failInit) { fail(failInit); return; } pending = msg; return; }
     send(msg);
   }
-  function send(msg) { msg.id = ++runId; lastSent = Date.now(); worker.postMessage(msg); }
+  function send(msg) { msg.id = ++runId; worker.postMessage(msg); }
 
   function working() {
     out.hidden = false;
@@ -180,13 +182,17 @@
     lastResult = null; out.hidden = false; out.removeAttribute("aria-busy"); clear(out);
     out.appendChild(el("div", { cls: "gg-planner-card gg-planner-fail" }, [
       el("p", { cls: "gg-planner-eyebrow", text: "No estimate" }),
-      el("p", { text: "No time is shown because " + (WHY[why] || why) + ". We show nothing rather than a guess." })
+      el("p", { text: "No time is shown because " + (WHY[why] || why) + "." })
     ]));
   }
 
-  /* ---------- analytics (manual interaction only; consent mode applies) ---------- */
+  /* ---------- analytics (manual interaction only; consent mode applies) ----------
+     planner_result_shown fires once per page view, on the first result. Later
+     recalculations (any input change, a size chip) do not fire it again, so
+     plan_cta_click / planner_result_shown reads as clicks per visitor who saw a time. */
   function announce(m) {
-    if (typeof gtag !== "function") return;
+    if (shownOnce || typeof gtag !== "function") return;
+    shownOnce = true;
     gtag("event", cfg.events.result, {
       race_slug: cfg.slug, level: m.level, effort_source: m.IFsource,
       power_input: form.elements.noftp.checked ? "band" : "ftp", planner_status: cfg.status
@@ -217,8 +223,8 @@
     cfg.notes.forEach(function (n) { head.appendChild(el("p", { cls: "gg-planner-flag", text: n.charAt(0).toUpperCase() + n.slice(1) + "." })); });
     var effort = "Effort: IF " + m.IF.toFixed(2) + ", normalized power " + Math.round(m.np) + " W on an FTP of " + Math.round(m.ftp.mid) + " W" +
       (m.ftp.lo !== m.ftp.hi ? " (the middle of your band)" : "") + ". ";
-    effort += m.IFsource === "set" ? "The effort you typed." + (m.defaultIF ? "" : "") :
-      "Gravel God's default for " + LEVEL_NAME[m.level] + " riders on a ride of " + hm(m.mid) + ", built from published race power and coaching judgement. Type your own in Effort (IF) to change it.";
+    effort += m.IFsource === "set" ? "The effort you typed." :
+      "The default for " + LEVEL_NAME[m.level] + " riders on a ride of " + hm(m.mid) + ", set from published race power and coaching judgement. Type your own in Effort (IF) to change it.";
     head.appendChild(el("p", { cls: "gg-planner-fine", text: effort }));
     var edit = el("button", { type: "button", cls: "gg-planner-edit", text: "Change effort" });
     edit.addEventListener("click", function () { form.elements["if"].value = m.IF.toFixed(2); form.elements["if"].focus(); });
@@ -282,7 +288,7 @@
      [units === "imp" ? "17–25 oz" : "500–750 ml", "fluid an hour, more in heat"], ["500–1,000 mg", "sodium an hour"]]
       .forEach(function (p) { kv.appendChild(el("div", null, [el("b", { text: p[0] }), p[1]])); });
     card.appendChild(kv);
-    card.appendChild(el("p", { cls: "gg-planner-fine", text: F.label + ". Gravel God's race-guide fuelling rule for a day this long. General guidance, not medical advice: test it in training." }));
+    card.appendChild(el("p", { cls: "gg-planner-fine", text: F.label + ": the fuelling range our race guides use for a day this long. General guidance, not medical advice: test it in training." }));
     var r = rider();
     if (typeof r.carbs === "number" && r.carbs < F.lo)
       card.appendChild(el("p", { cls: "gg-planner-fine", text: "You eat " + r.carbs + " g an hour now. Building to " + F.lo + "–" + F.hi + " g takes about " + F.weeks + " weeks of gut training." }));
@@ -302,15 +308,25 @@
     return card;
   }
 
+  /* Notes are lists of text and {cite: key}; each cite becomes an [n] link to
+     the page's numbered source list (cfg.cite holds the numbers). */
   var ROWS = {
-    fit: { name: "Fitness", note: "A size you choose: the same effort on a higher FTP. What riders gain on a Gravel God plan is not published yet." },
-    gut: { name: "Gut training", stretch: "a 3-hour study applied after hour two", note: "More carbs an hour made a 20 km time trial after two hours of riding faster (Smith et al. 2013). We apply that to your riding after hour two and count nothing past 78 g an hour." },
-    heat: { name: "Heat training", stretch: "one-hour studies stretched to a full day", note: "Two weeks of heat training won back most of the power lost in a hot time trial (Racinais et al. 2015). The loss by temperature is Peiffer and Abbiss 2011, on the past race day's temperatures." },
-    group: { name: "Group riding", note: "Holding a group for more of the flat road: about a third less drag while you are in it. A group also sets your pace; that is not modelled." },
-    pos: { name: "Position", note: "More of the day in the drops: 10% less drag than upright in a wind tunnel (Defraeye et al. 2010). A size you choose." },
-    corner: { name: "Cornering", note: "Carrying more speed through descending corners, at the model's quicker cornering setting. A rough size." },
-    stops: { name: "Quicker stops", note: "Race-day logistics, not fitness: minute for minute off your finish, not your riding time." }
+    fit: { name: "Fitness", note: ["A size you choose: the same effort on a higher FTP. What riders gain on our plans is not published yet."] },
+    gut: { name: "Gut training", stretch: "a 3-hour study applied after hour two", note: ["More carbs an hour made a 20 km time trial after two hours of riding faster ", { cite: "gut" }, ". This row applies that to your riding after hour two and counts nothing past 78 g an hour."] },
+    heat: { name: "Heat training", stretch: "one-hour studies stretched to a full day", note: ["Two weeks of heat training won back most of the power lost in a hot time trial ", { cite: "heat_gain" }, ". The loss by temperature ", { cite: "heat_loss" }, " is applied to the past race day's temperatures."] },
+    group: { name: "Group riding", note: ["Holding a group for more of the flat road: about a third less drag while you are in it ", { cite: "group" }, ". A group also sets your pace; that is not modelled."] },
+    pos: { name: "Position", note: ["More of the day in the drops: 10% less drag than upright in a wind tunnel ", { cite: "position" }, ". A size you choose."] },
+    corner: { name: "Cornering", note: ["Carrying more speed through descending corners, at the model's quicker cornering setting. A rough size."] },
+    stops: { name: "Quicker stops", note: ["Race-day logistics, not fitness: minute for minute off your finish, not your riding time."] }
   };
+  function cite(key) {
+    var n = cfg.cite && cfg.cite[key];
+    if (typeof n !== "number") return null;
+    return el("a", { cls: "gg-planner-cite", href: "#gg-citation-" + n, text: "[" + n + "]" });
+  }
+  function noteNodes(parts) {
+    return parts.map(function (p) { return typeof p === "string" ? p : cite(p.cite); });
+  }
 
   function chips(row, key, options) {
     var box = el("div", { cls: "gg-planner-chips", role: "radiogroup", "aria-label": ROWS[row].name + " size" });
@@ -332,21 +348,22 @@
     if (!m.rows) { list.appendChild(el("p", { text: "Not shown: the model could not work out these rows." })); card.appendChild(list); return card; }
     m.rows.forEach(function (r) {
       var def = ROWS[r.key], label = def.name, val = "", extra = null;
-      if (r.key === "fit") { label += " · FTP +" + Math.round((picks.fit - 1) * 100) + "%"; extra = chips("fit", "fit", [[1.03, "+3%"], [1.05, "+5%"], [1.10, "+10%"]]); }
-      if (r.key === "pos") { label += " · " + Math.round(picks.pos * 100) + "% more of the day in the drops"; extra = chips("pos", "pos", [[0.10, "10%"], [0.20, "20%"], [0.30, "30%"]]); }
-      if (r.key === "stops") { label += " · " + Math.min(picks.stopsCut, rider().stops || 0) + " fewer minutes stopped"; extra = chips("stops", "stopsCut", [[5, "5 min"], [10, "10 min"], [15, "15 min"]]); }
+      if (r.key === "fit") { label += r.pick ? " · choose a size" : " · FTP +" + Math.round((picks.fit - 1) * 100) + "%"; extra = chips("fit", "fit", [[1.03, "+3%"], [1.05, "+5%"], [1.10, "+10%"]]); }
+      if (r.key === "pos") { label += r.pick ? " · choose a size" : " · " + Math.round(picks.pos * 100) + "% more of the day in the drops"; extra = chips("pos", "pos", [[0.10, "10%"], [0.20, "20%"], [0.30, "30%"]]); }
+      if (r.key === "stops") { label += r.pick ? " · choose a size" : " · " + Math.min(picks.stopsCut, rider().stops || 0) + " fewer minutes stopped"; extra = chips("stops", "stopsCut", [[5, "5 min"], [10, "10 min"], [15, "15 min"]]); }
       if (r.key === "group") label += " · more of the flat road sheltered";
       if (r.key === "heat") label += r.already ? " · already in your time" : " · two weeks in the heat";
       if (r.key === "gut") label += r.ask ? " · type your carbs an hour above to size this" : r.already ? " · you already eat " + r.from + " g an hour" : " · " + r.from + " → " + r.to + " g an hour";
       if (r.why) val = "not shown";
-      else if (r.ask || r.already) val = "–";
+      else if (r.ask || r.already || r.pick) val = "–";
       else val = r.saved_s < 30 ? "under 1 min" : mins(r.saved_s) + " min faster";
       var name = el("span", null, [label]);
       if (def.stretch && !r.ask && !r.already) name.appendChild(el("span", { cls: "gg-planner-tag", text: "stretched" }));
       var row = el("div", { cls: "gg-planner-imp" }, [name, el("b", { text: val })]);
-      var note = def.note + (def.stretch && !r.ask && !r.already ? " Stretched: " + def.stretch + "." : "") +
-        (r.why ? " Not shown: the model could not solve this change, so there is no number rather than a guess." : "");
-      row.appendChild(el("small", { text: note }));
+      var note = noteNodes(def.note);
+      if (def.stretch && !r.ask && !r.already) note.push(" Stretched: " + def.stretch + ".");
+      if (r.why) note.push(" Not shown: the model could not solve this change.");
+      row.appendChild(el("small", null, note));
       if (extra) row.appendChild(extra);
       list.appendChild(row);
     });
@@ -365,7 +382,8 @@
     return el("div", { cls: "gg-planner-card gg-planner-offer" }, [
       el("p", { cls: "gg-planner-eyebrow", text: "Custom training plan" }),
       el("h3", { text: "A plan for " + cfg.race + ", built around your hours" }),
-      ul, a
+      ul, a,
+      el("p", { cls: "gg-planner-fine", text: o.price_note })
     ]);
   }
 

@@ -209,6 +209,15 @@ def test_wording():
         assert "Gravel God's" not in text and "Gravel God’s" not in text
 
 
+def test_marker_opens_the_collapsed_source_list_on_phones():
+    """On phones the page's Sources section starts collapsed; a planner [n]
+    opens it through its own header before the jump."""
+    js = (PLANNER_JS / "gg-planner.js").read_text()
+    handler = re.search(r'section\.addEventListener\("click", function \(e\) \{(.*?)\n  \}\);', js, re.S).group(1)
+    assert 'closest(".gg-planner-cite")' in handler
+    assert 'classList.contains("gg-section-collapsed")' in handler and "header.click()" in handler
+
+
 def test_size_rows_have_no_preselected_size():
     """Fitness (LAUNCH_DECISIONS 8), Position and Quicker stops are sizes the
     rider picks; the page starts with none picked."""

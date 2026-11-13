@@ -404,6 +404,19 @@
   }
 
   /* ---------- wiring ---------- */
+  /* An [n] marker jumps to the page's source list. On phones that section
+     starts collapsed (the page's deep-dive disclosure), so open it first by
+     its own header control; the hash jump then lands on a visible item. */
+  section.addEventListener("click", function (e) {
+    var link = e.target && e.target.closest ? e.target.closest(".gg-planner-cite") : null;
+    if (!link) return;
+    var target = document.getElementById((link.getAttribute("href") || "").replace(/^#/, ""));
+    var owner = target ? target.closest(".gg-section") : null;
+    if (owner && owner.classList.contains("gg-section-collapsed")) {
+      var header = owner.querySelector(".gg-section-header");
+      if (header) header.click();
+    }
+  });
   form.addEventListener("submit", function (e) { e.preventDefault(); run(); });
   form.addEventListener("focusin", start, { once: true });
   form.elements.noftp.addEventListener("change", function () {

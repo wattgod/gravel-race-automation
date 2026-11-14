@@ -110,8 +110,13 @@ class TestTermsContent:
         assert "not affiliated with" in content
         assert "verify with official race sources" in content
 
-    def test_training_plans_one_time(self, content):
-        assert "one-time purchases" in content
+    def test_training_plans_billed_every_4_weeks(self, content):
+        """DRAFT terms for the plan billed every 4 weeks (Matti approves)."""
+        assert "one-time purchases" not in content
+        assert "$49.99 per 4-week block" in content
+        assert "the last, shorter block costs $12.50 a week" in content
+        assert "full refund within 14 days of your first payment" in content
+        assert "refunding it ends the plan" in content
 
     def test_coaching_billing_every_4_weeks(self, content):
         """Coaching is every 4 weeks, NOT monthly."""

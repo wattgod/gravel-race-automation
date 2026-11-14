@@ -36,7 +36,7 @@ from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, ge
 from season import season_year
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
-from pricing import PRICE_PER_WEEK
+import plan_offer
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SEASON_YEAR = season_year()
@@ -1017,8 +1017,8 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   <section class="gg-state-cta">
     <h2>Racing in {esc(state)}?</h2>
     <p>Get a personalized training plan for any {esc(state)} gravel race — tailored to your fitness, schedule, and goals.</p>
-    <a href="/training-plans/start/" class="gg-state-cta-btn" data-cta="build_my_plan">Build My Plan</a>
-    <p style="font-size:11px;color:var(--gg-color-tan);margin-top:8px">{PRICE_PER_WEEK}/week until your race. One-time payment.</p>
+    <a href="/questionnaire/" class="gg-state-cta-btn" data-cta="build_my_plan">Build My Plan</a>
+    <p style="font-size:11px;color:var(--gg-color-tan);margin-top:8px">{esc(plan_offer.TERMS_SHORT)}</p>
   </section>
 
   <footer class="gg-state-footer">

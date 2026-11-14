@@ -429,12 +429,14 @@ class TestGoalsPage:
     def test_only_the_custom_plan_is_offered(self):
         # Matti ruling (2026-10-23): one product. The Season Plan offer is
         # retired; the goals results offer only the custom plan.
-        from pricing import PRICE_PER_WEEK
+        # Since 2026-11-13 the custom plan is billed every 4 weeks.
+        from pricing import PLAN_PRICE_LINE
         plans = VARIANTS["goal_2027"]["offer"]["plans"]
         assert [p["key"] for p in plans] == ["race"]
         (race,) = plans
-        assert f"{PRICE_PER_WEEK} a week until your race, paid once" in race["price"]
-        assert race["cta_href"] == "/training-plans/start/?src=goals"
+        assert f"{PLAN_PRICE_LINE} until race week" in race["price"]
+        assert "paid once" not in race["price"]
+        assert race["cta_href"] == "/questionnaire/?src=goals"
 
     def test_offer_html_renders_only_the_plan_cta(self):
         html = page("goal_2027")

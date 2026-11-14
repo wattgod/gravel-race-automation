@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """Validate the deployed questionnaire against its authoritative repository flow.
 
-A direct legacy 200 keeps the original Elementor field/marker checks. The
-intentional single 302 to /training-plans/start/ instead requires BOTH public
-two-step pages to match their complete generated form DOM and inline behavior.
+/questionnaire/ is the Elementor page again (2026-11-13): the plan billed
+every 4 weeks is sold from the one-page questionnaire only, and the two-step
+step 1 at /training-plans/start/ is retired. A direct 200 gets the Elementor
+field/marker checks plus an offer check: the live page must state the plan
+billed every 4 weeks and must not show any retired one-off offer phrase
+(the purchase terms live in the widget, which deploys by hand). A redirect
+back to the retired step 1, or any other redirect, is drift. The two-step
+step 2 (/training-plans/details/) must still match its generated DOM.
 No checkout, private token, saved answer or payment request is made.
 Exit: 0 parity, 1 drift, 2 fetch/parse failure.
 """
@@ -24,6 +29,7 @@ USER_AGENT = 'Mozilla/5.0 (parity-check; gravel-god-automation)'
 MAX_PAGE_BYTES = 2 * 1024 * 1024
 sys.path.insert(0, str(ROOT / 'wordpress'))
 import generate_plan_intake_pages as intake  # noqa: E402
+from plan_offer import PLAN_PRICE_LINE, stale_offer_phrases  # noqa: E402
 from generate_neo_brutalist import _extract_js_content  # noqa: E402
 
 CONTENT_MARKERS = ['gg-trust-strip', 'travelDatesGroup', '#178079', 'gg-purchase-terms']
@@ -47,16 +53,16 @@ class _Redirects(urllib.request.HTTPRedirectHandler):
         self.hops = []
 
     def redirect_request(self, req, fp, code, msg, headers, newurl):
-        # Refuse before following: no cross-origin fetch, token URL or arbitrary alias.
-        if self.hops or req.full_url != LIVE_URL or code != 302 or newurl != intake.START_URL:
-            if fp is not None:
-                try:
-                    fp.close()
-                except OSError:
-                    pass
-            raise UnexpectedPage('Unexpected questionnaire redirect')
+        # Refuse before following: the questionnaire and step 2 both answer
+        # 200 directly. A redirect (back to the retired /training-plans/start/
+        # or anywhere else) is drift, and its destination is never fetched.
+        if fp is not None:
+            try:
+                fp.close()
+            except OSError:
+                pass
         self.hops.append((code, req.full_url, newurl))
-        return super().redirect_request(req, fp, code, msg, headers, newurl)
+        raise UnexpectedPage('Unexpected questionnaire redirect')
 
 
 def fetch_live(url=LIVE_URL) -> LivePage:
@@ -162,6 +168,17 @@ def extract_fields(html: str) -> set:
     return fields
 
 
+def _offer_findings(live_html):
+    """The widget's purchase terms must describe the plan billed every 4
+    weeks: the form JS charges it, so a page still quoting the one-off plan
+    tells the buyer a price they won't be charged."""
+    findings = [f"live page still shows retired offer copy: '{phrase}'"
+                for phrase in stale_offer_phrases(live_html)]
+    if PLAN_PRICE_LINE not in live_html:
+        findings.append(f"live page does not state '{PLAN_PRICE_LINE}'")
+    return findings
+
+
 def _legacy_parity(live_html, repo_html):
     findings = []
     for field in sorted(extract_fields(repo_html)):
@@ -214,11 +231,9 @@ def check_parity(live_html: str = None, repo_html: str = None) -> list:
     try:
         page = fetch_live()
         if page.status == 200 and page.url == LIVE_URL and not page.redirects:
-            return _legacy_parity(page.html, repo_html)
-        intended = ((302, LIVE_URL, intake.START_URL),)
-        if page.redirects != intended:
+            findings = _legacy_parity(page.html, repo_html) + _offer_findings(page.html)
+        else:
             return ['Unexpected questionnaire redirect or response']
-        findings = _two_step_parity(page, 'start')
         details = fetch_live(intake.DETAILS_URL)
         if details.redirects:
             return findings + ['details: unexpected redirect']

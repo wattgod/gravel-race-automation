@@ -87,9 +87,9 @@ class TestAntiShillStructure:
         assert html.find('id="fueling"') < html.find('id="get-plan"')
 
     def test_prefilled_questionnaire_cta(self, html):
-        assert "training-plans/start/?race=unbound-200" in html
-        assert ("training-plans/start/?race=unbound-200&src=race_plan_page" in html
-                or "training-plans/start/?race=unbound-200&amp;src=race_plan_page" in html)
+        assert "questionnaire/?race=unbound-200" in html
+        assert ("questionnaire/?race=unbound-200&src=race_plan_page" in html
+                or "questionnaire/?race=unbound-200&amp;src=race_plan_page" in html)
 
     def test_links_to_free_prep_kit(self, html):
         assert "/race/unbound-200/prep-kit/" in html
@@ -171,7 +171,7 @@ class TestSafety:
         r["vitals"]["date_specific"] = ""
         h = generate_page(r, pack)
         assert 'data-race-date="' not in h  # attribute absent (JS source still mentions the name)
-        assert "$15/WK" in h  # generic price copy survives
+        assert "$49.99 EVERY 4 WEEKS" in h  # generic price copy survives
 
     def test_no_pack_returns_skip(self):
         assert load_pack("no-such-slug-xyz") == {}

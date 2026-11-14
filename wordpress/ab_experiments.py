@@ -18,7 +18,6 @@ from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from pricing import PRICE_PER_WEEK
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT_ROOT / "web" / "ab"
@@ -31,36 +30,9 @@ EXPERIMENTS = [
     # hardcoded-count variants ("757 races") that would have clobbered the
     # new hero sub-line at runtime. data-ab="hero_tagline" was dropped from
     # generate_homepage.py's hero deck in the same change.
-    {
-        "id": "training_price_frame",
-        "description": "Test price framing on training plans card",
-        "selector": "[data-ab='training_price']",
-        "pages": ["/", "/index.html", "/about/"],
-        "traffic": 1.0,
-        "start": "2026-02-16",
-        "end": None,
-        "variants": [
-            {
-                "id": "control",
-                "name": "Hotel anchor",
-                "content": "Race-specific. Built for your target event. Less than your race hotel \u2014 $2/day.",
-            },
-            {
-                "id": "variant_a",
-                "name": "Gel anchor",
-                "content": f"Race-specific. Built for your target event. {PRICE_PER_WEEK}/week. Less than one gel per ride.",
-            },
-            {
-                "id": "variant_b",
-                "name": "Entry fee anchor",
-                "content": "Race-specific. Built for your target event. Your entry fee was $175. Your plan is $2/day.",
-            },
-        ],
-        "conversion": {
-            "type": "click",
-            "selector": "[data-ab='training_cta_btn']",
-        },
-    },
+    # training_price_frame retired 2026-11-13: every variant priced the retired
+    # one-off plan (per-day and per-week framings) and would have overwritten the plan
+    # billed every 4 weeks on the homepage and /about/ at runtime.
     {
         "id": "cta_button_text",
         "description": "Test CTA button text on training plans",

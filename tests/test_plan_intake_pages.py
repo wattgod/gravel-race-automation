@@ -1,14 +1,17 @@
-"""Tests for the two-step questionnaire (2026-10-23).
+"""Tests for step 2 of the two-step questionnaire (2026-10-23).
 
-/training-plans/start/ (step 1: race, date, name, email → checkout) and
-/training-plans/details/ (step 2, after payment: every other question).
+/training-plans/details/ (step 2, after payment: every other question). Step 1
+(/training-plans/start/) was retired with the one-off plan on 2026-11-13: the
+plan billed every 4 weeks sells from the one-page questionnaire only, so the
+start page is no longer generated and /training-plans/start/ 302s to
+/questionnaire/. Step 2 stays for buyers of the old two-step checkout.
 
 Covers: step 2 keeps every question of the full questionnaire with the same
 input names and option values; the copied JS blocks (FIELD_MAP,
 mapToWorkerFormat, identifyBlindspots, pricing and attribution helpers) stay
 identical to web/training-plans-form.js; prices only from pricing.json;
-Desert Editorial fonts; noindex + canonical; the /questionnaire/ 302 and the
-deploy path that keeps these pages out of the /race/ sweep.
+Desert Editorial fonts; noindex + canonical; the start -> /questionnaire/ 302
+and the deploy path that keeps step 2 out of the /race/ sweep.
 """
 from __future__ import annotations
 
@@ -28,14 +31,8 @@ import generate_plan_intake_pages as gen  # noqa: E402
 import pricing  # noqa: E402
 
 FORM_JS = ROOT / "web" / "training-plans-form.js"
-START_JS = ROOT / "web" / "training-plans-start.js"
 DETAILS_JS = ROOT / "web" / "training-plans-details.js"
 QUESTIONNAIRE_HTML = ROOT / "web" / "training-plans-questionnaire.html"
-
-
-@pytest.fixture(scope="module")
-def start_page() -> str:
-    return gen.generate_page("start")
 
 
 @pytest.fixture(scope="module")
@@ -106,34 +103,23 @@ def test_details_js_field_mapping_is_verbatim(name):
     assert extract_block(_read(DETAILS_JS), name) == extract_block(_read(FORM_JS), name)
 
 
-@pytest.mark.parametrize("path", [START_JS, DETAILS_JS], ids=["start", "details"])
 @pytest.mark.parametrize("start,end", ATTRIBUTION_SPANS, ids=[s.split()[1] for s, _ in ATTRIBUTION_SPANS])
-def test_attribution_state_is_verbatim(path, start, end):
-    assert span(_read(path), start, end) == span(_read(FORM_JS), start, end)
+def test_attribution_state_is_verbatim(start, end):
+    assert span(_read(DETAILS_JS), start, end) == span(_read(FORM_JS), start, end)
 
 
-@pytest.mark.parametrize("path", [START_JS, DETAILS_JS], ids=["start", "details"])
-def test_track_is_verbatim(path):
-    assert extract_block(_read(path), "track") == extract_block(_read(FORM_JS), "track")
+def test_track_is_verbatim():
+    assert extract_block(_read(DETAILS_JS), "track") == extract_block(_read(FORM_JS), "track")
 
 
-@pytest.mark.parametrize("name", [
-    "computePrice", "analyticsConsentGranted", "findGaMeasurementId",
-    "readGtagValue", "getGa4Attribution",
-])
-def test_start_js_pricing_and_ga4_helpers_are_verbatim(name):
-    assert extract_block(_read(START_JS), name) == extract_block(_read(FORM_JS), name)
-
-
-def test_start_js_pricing_block_is_current():
+def test_start_page_is_retired():
+    """Step 1 sold the one-off plan; the plan billed every 4 weeks can't be
+    bought through a two-step checkout (the server refuses intake_flow)."""
     import generate_pricing_js
 
-    assert START_JS in generate_pricing_js.JS_PATHS
-    current = _read(START_JS)
-    assert current == generate_pricing_js.render(current, START_JS), (
-        "web/training-plans-start.js pricing block is stale — run: "
-        "python scripts/generate_pricing_js.py"
-    )
+    assert list(gen.PAGES) == ["details"]
+    assert not (ROOT / "web" / "training-plans-start.js").exists()
+    assert generate_pricing_js.JS_PATHS == (FORM_JS,)
 
 
 def test_details_js_never_sends_a_slug_or_identity():
@@ -306,91 +292,27 @@ def test_details_ga4_events(event):
     assert f"track('{event}'" in _read(DETAILS_JS)
 
 
-# ── Step 1 ───────────────────────────────────────────────────
-
-
-def test_start_has_exactly_four_fields(start_page):
-    names = set(_fields(start_page).fields) - {"_honeypot"}
-    assert names == {"race_name", "race_date", "name", "email"}
-
-
-def test_start_copy(start_page):
-    assert "BUILD MY PLAN &rarr;" in start_page
-    assert (f"paid once. No subscription. Full refund within {pricing.RACE_PLAN_REFUND_DAYS} days. "
-            "Next, about 8 minutes of questions so the plan fits you. Nothing gets built until "
-            "you&rsquo;re done.") in start_page
-    js = _read(START_JS)
-    assert "' weeks out.'" in js
-    assert "' Your plan: $' + st.pricing.price + ', paid once.'" in js
-    assert "'A race less than ' + MIN_WEEKS + ' weeks out is priced as ' +" in js
-    assert "' weeks ($' + (MIN_WEEKS * PRICE_PER_WEEK) + ').'" in js
-
-
-def test_start_js_checkout_payload():
-    js = _read(START_JS)
-    for bit in (
-        "API_URL = API_BASE + '/create-checkout'",
-        "intake_flow: 'two_step'",
-        "races: [{ name: raceName, date: raceDate, distance: '', goal: '', priority: 'A' }]",
-        "race_name: raceName",
-        "race_date: raceDate",
-        "if (prefilledRaceSlug && raceName === prefilledRaceName)",
-        "payload.entry_surface = ENTRY_SURFACE;",
-        "payload.offer_variant = OFFER_VARIANT;",
-        "payload.entry_src = ENTRY_SRC;",
-        "payload.analytics_consent = ga4Attribution.analytics_consent || 'denied';",
-        "window.location.href = result.checkout_url;",
-        "result.error",
-        "fetch('/wp-content/uploads/race-index.json')",
-    ):
-        assert bit in js, bit
-
-
-def test_start_js_intent_beacon():
-    js = _read(START_JS)
-    assert "source: 'plan_start'" in js
-    assert "API_BASE + '/questionnaire-started'" in js
-
-
-@pytest.mark.parametrize("event", ["tp_step1_view", "tp_step1_submit", "begin_checkout", "tp_form_error"])
-def test_start_ga4_events(event):
-    assert f"track('{event}'" in _read(START_JS)
-
-
-def test_step1_submit_carries_weeks_and_price():
-    assert "track('tp_step1_submit', { weeks: pricing.weeks, price: pricing.price });" in _read(START_JS)
-
-
 # ── Prices, brand, SEO ───────────────────────────────────────
 
 MONEY_LITERAL = re.compile(r"\$\s?\d")
 
 
 @pytest.mark.parametrize("path", [
-    START_JS, DETAILS_JS, ROOT / "wordpress" / "generate_plan_intake_pages.py",
-], ids=["start.js", "details.js", "generator"])
+    DETAILS_JS, ROOT / "wordpress" / "generate_plan_intake_pages.py",
+], ids=["details.js", "generator"])
 def test_no_money_literals_in_sources(path):
     hits = [line.strip() for line in _read(path).splitlines() if MONEY_LITERAL.search(line)]
     assert hits == []
 
 
-def test_rendered_price_comes_from_pricing_json(start_page):
-    assert f"{pricing.PRICE_PER_WEEK} a week" in start_page
-    prices = set(re.findall(r"\$\d+", html.unescape(re.sub(r"<script[\s\S]*?</script>", "", start_page))))
-    assert prices <= {pricing.PRICE_PER_WEEK}
-
-
-@pytest.mark.parametrize("key", ["start", "details"])
-def test_noindex_and_canonical(key, start_page, details_page):
-    doc = start_page if key == "start" else details_page
+def test_noindex_and_canonical(details_page):
+    doc = details_page
     assert '<meta name="robots" content="noindex, follow">' in doc
-    path = "/training-plans/start/" if key == "start" else "/training-plans/details/"
-    assert f'<link rel="canonical" href="https://gravelgodcycling.com{path}">' in doc
+    assert '<link rel="canonical" href="https://gravelgodcycling.com/training-plans/details/">' in doc
 
 
-@pytest.mark.parametrize("key", ["start", "details"])
-def test_brand_fonts_and_shell(key, start_page, details_page):
-    doc = start_page if key == "start" else details_page
+def test_brand_fonts_and_shell(details_page):
+    doc = details_page
     css = gen.build_intake_css()
     assert "font-family: 'Source Serif 4'" in doc
     assert "font-family: 'Sometype Mono'" in doc
@@ -416,27 +338,29 @@ def test_buttons_and_labels_use_the_data_font_only():
     assert "color: var(--gg-color-dark-brown)" in cta and "gold" in cta
 
 
-@pytest.mark.parametrize("key,path", [("start", START_JS), ("details", DETAILS_JS)])
-def test_page_js_is_inlined(key, path, start_page, details_page):
-    doc = start_page if key == "start" else details_page
-    assert _read(path) in doc
+def test_page_js_is_inlined(details_page):
+    assert _read(DETAILS_JS) in details_page
 
 
 # ── Deploy: redirect + its own upload path ───────────────────
 
 
-def test_questionnaire_302s_to_step_one():
+def test_retired_step_one_302s_to_the_questionnaire():
     import push_wordpress
 
-    assert "RewriteRule ^questionnaire/?$ /training-plans/start/ [R=302,L]" in push_wordpress.REDIRECT_BLOCK
     block = push_wordpress.REDIRECT_BLOCK
-    rule_at = block.index("RewriteRule ^questionnaire/?$")
-    assert "Two-step switch (2026-10-23)" in block[:rule_at][-600:]
+    assert "RewriteRule ^training-plans/start/?$ /questionnaire/ [R=302,L]" in block
+    # /questionnaire/ serves the one-page form again: nothing redirects it.
+    assert "RewriteRule ^questionnaire/" not in block
+    assert "RewriteRule ^season-plan/?$ /questionnaire/ [R=301,L]" in block
+    # Step 2 is never redirected: old two-step buyers still finish there.
+    rules = [line for line in block.splitlines() if line.startswith("RewriteRule")]
+    assert not [line for line in rules if "training-plans/details" in line]
 
 
 def test_pages_stay_out_of_the_race_sweep():
-    """Without these, sync_pages would ship plan-start.html at
-    /race/plan-start/ (see sync_season_plan's docstring)."""
+    """Without this, sync_pages would ship plan-details.html at
+    /race/plan-details/ (see sync_season_plan's docstring)."""
     import push_wordpress
 
     for page in gen.PAGES.values():
@@ -450,7 +374,7 @@ def test_sync_flag_uploads_to_the_served_paths():
     import push_wordpress
 
     src = inspect.getsource(push_wordpress.sync_plan_intake)
-    assert '"plan-start.html", "training-plans/start"' in src.replace("output_dir / ", "").replace("(", "")
+    assert "plan-start.html" not in src
     assert '"plan-details.html", "training-plans/details"' in src.replace("output_dir / ", "").replace("(", "")
     assert "/index.html" in src
     assert '"--sync-plan-intake"' in _read(ROOT / "scripts" / "push_wordpress.py")
@@ -465,10 +389,9 @@ def test_every_css_token_exists():
     assert missing == []
 
 
-def test_token_leaves_the_address_bar_before_ga4(details_page, start_page):
+def test_token_leaves_the_address_bar_before_ga4(details_page):
     """The step-2 link token is a bearer credential: it must be stored and
     scrubbed from the URL before GA4's first page_view records the URL."""
     scrub = details_page.index("sessionStorage.setItem('gg_tp_details_token'")
     ga4 = details_page.index("googletagmanager.com/gtag/js")
     assert scrub < ga4
-    assert "gg_tp_details_token" not in start_page

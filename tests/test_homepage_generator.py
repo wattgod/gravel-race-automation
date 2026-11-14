@@ -286,7 +286,7 @@ class TestDoors:
 
     def test_destinations(self):
         html = build_doors()
-        for path in ("/guide/", "/surge-check/", "/training-plans/start/", "/coaching/"):
+        for path in ("/guide/", "/surge-check/", "/questionnaire/", "/coaching/"):
             assert path in html, path
 
     def test_one_title_one_button_each(self):
@@ -306,10 +306,15 @@ class TestDoors:
         assert body.count('data-ab="training_cta_btn"') == 1
 
     def test_ab_targets_match_live_experiments(self):
+        """training_cta_btn is live; training_price stays a registered hook
+        for the experiment templates (training_price_frame retired with the
+        one-off plan, 2026-11-13)."""
         experiments = json.loads((ROOT / "web" / "ab" / "experiments.json").read_text())
         selectors = {e["selector"] for e in experiments["experiments"] if "/" in e["pages"]}
-        assert "[data-ab='training_price']" in selectors
         assert "[data-ab='training_cta_btn']" in selectors
+        sys.path.insert(0, str(ROOT / "scripts"))
+        from experiment_templates import VALID_SELECTORS
+        assert "/" in VALID_SELECTORS["training_price"]
 
     def test_art_is_responsive_and_lazy(self):
         html = build_doors()

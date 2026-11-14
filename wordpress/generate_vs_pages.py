@@ -34,7 +34,7 @@ from brand_tokens import COLORS, get_favicon_head_snippet, get_font_face_css, ge
 from season import season_year
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from cookie_consent import get_consent_banner_html
-from pricing import PRICE_PER_WEEK
+import plan_offer
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SEASON_YEAR = season_year()
@@ -543,14 +543,14 @@ def build_training_cta(race_a: dict, race_b: dict) -> str:
   <h2>Still Deciding?</h2>
   <p>Get a personalized training plan for either race — tailored to your fitness, schedule, and goals.</p>
   <div class="gg-vs-cta-buttons">
-    <a href="/training-plans/start/?race={esc(race_a["slug"])}" class="gg-vs-cta-btn gg-vs-cta-btn-a" data-cta="race_a_plan">
+    <a href="/questionnaire/?race={esc(race_a["slug"])}" class="gg-vs-cta-btn gg-vs-cta-btn-a" data-cta="race_a_plan">
       Train for {esc(race_a["name"][:25])}
     </a>
-    <a href="/training-plans/start/?race={esc(race_b["slug"])}" class="gg-vs-cta-btn gg-vs-cta-btn-b" data-cta="race_b_plan">
+    <a href="/questionnaire/?race={esc(race_b["slug"])}" class="gg-vs-cta-btn gg-vs-cta-btn-b" data-cta="race_b_plan">
       Train for {esc(race_b["name"][:25])}
     </a>
   </div>
-  <p class="gg-vs-cta-sub">{PRICE_PER_WEEK}/week until your race. One-time payment.</p>
+  <p class="gg-vs-cta-sub">{esc(plan_offer.TERMS_SHORT)}</p>
 </section>'''
 
 

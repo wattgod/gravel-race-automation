@@ -3,6 +3,21 @@
   "version": 1,
   "currency": "usd",
   "products": {
+    "race_plan_4weekly": {
+      "id": "race_plan_4weekly",
+      "name": "Custom Training Plan",
+      "product_name_suffix": "every 4 weeks",
+      "reconciliation_label": "race_plan_4weekly",
+      "pricing_model": "per_block_to_race",
+      "checkout_product": "race_plan_4weekly",
+      "block_weeks": 4,
+      "block_price_cents": 4999,
+      "block_price_display": "$49.99",
+      "short_block_week_rounding": "ceil_to_cent",
+      "refund_window_days": 14,
+      "delivery_hours": 24,
+      "source_note": "Mirrors athlete-custom-training-plan-pipeline webhook/race_plan_subscription.py (BLOCK_PRICE_CENTS, WEEK_PRICE_CENTS = block price / 4 rounded up to the cent, weeks_until, payment_plan, REFUND_WINDOW_DAYS). The server has no quote endpoint, so every price the site shows must use this exact math; tests/test_race_plan_4weekly_pricing.py pins it."
+    },
     "race_plan": {
       "id": "race_plan",
       "name": "Custom Training Plan",
@@ -16,10 +31,10 @@
       "delivery_hours": 24,
       "inclusions": [
         "One race, periodised to your A-race date",
-        "Delivered to your TrainingPeaks calendar within 24 hours",
-        "7-day full refund",
-        "One-time payment, no subscription"
-      ]
+        "Delivered to your TrainingPeaks calendar within 24 hours"
+      ],
+      "retired": true,
+      "retired_note": "Retired for new sales 2026-11-13 (Matti, SUBSCRIPTION_DESIGN.md §8.7): race_plan_4weekly replaces it on every Gravel God page. The checkout server keeps the race_plan path for orders already paid, so these numbers stay for reconciliation and for the Roadie Labs pages and emails that have not switched yet. Never quote them on a Gravel God page."
     },
     "season_plan": {
       "id": "season_plan",

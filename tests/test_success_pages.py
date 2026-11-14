@@ -254,7 +254,8 @@ class TestTrainingPlanSuccess:
         html = build_training_plan_success()
         assert "WHAT HAPPENS NEXT" in html
         assert "Check Your Email" in html
-        assert "Import Your Workouts" in html
+        assert "Connect TrainingPeaks" in html
+        assert "Import Your Workouts" not in html
         assert "Read the Training Guide" in html
 
     def test_cross_sells_coaching(self):

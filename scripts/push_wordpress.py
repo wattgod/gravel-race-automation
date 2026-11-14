@@ -1438,17 +1438,17 @@ def sync_training_plans(training_plans_file: str):
 
 
 def sync_plan_intake():
-    """Upload the two-step questionnaire (2026-10-23) via SSH+SCP:
+    """Upload the two-step questionnaire's step 2 via SSH+SCP:
 
-      wordpress/output/plan-start.html   → /training-plans/start/index.html
       wordpress/output/plan-details.html → /training-plans/details/index.html
 
-    Both come from wordpress/generate_plan_intake_pages.py, with their JS
-    inlined, plus the shared CSS/JS they reference under /race/assets/.
-    Their slugs are in ROOT_CANONICAL_SLUGS so the generic sync_pages /race/
-    sweep never ships them at /race/plan-start/ (the trap sync_season_plan's
-    docstring describes). /questionnaire/ 302s to the start page once
-    --sync-redirects runs.
+    It comes from wordpress/generate_plan_intake_pages.py, with its JS
+    inlined, plus the shared CSS/JS it references under /race/assets/. Its
+    slug is in ROOT_CANONICAL_SLUGS so the generic sync_pages /race/ sweep
+    never ships it at /race/plan-details/ (the trap sync_season_plan's
+    docstring describes). Step 1 (/training-plans/start/) was retired with
+    the one-off plan (2026-11-13) and 302s to /questionnaire/ once
+    --sync-redirects runs; step 2 stays for buyers of the old checkout.
     """
     ssh = get_ssh_credentials()
     if not ssh:
@@ -1457,7 +1457,6 @@ def sync_plan_intake():
 
     output_dir = Path("wordpress/output")
     pages = [
-        (output_dir / "plan-start.html", "training-plans/start"),
         (output_dir / "plan-details.html", "training-plans/details"),
     ]
     missing = [str(p) for p, _ in pages if not p.exists()]
@@ -2906,16 +2905,15 @@ RewriteRule ^custom-training-plans/?$ /products/training-plans/ [R=301,L]
 # Season Plan retired 2026-10-23 (Matti: one product). The intake page stays
 # on disk but every visit, ?t= prefill links included, goes to the custom-plan
 # questionnaire. /season-plan/success/ is untouched (exact match only).
-# Goes straight to the start page (2026-10-31): /questionnaire/ itself
-# redirects there, and a chained 301 -> 302 costs crawlers an extra hop.
-RewriteRule ^season-plan/?$ /training-plans/start/ [R=301,L]
+RewriteRule ^season-plan/?$ /questionnaire/ [R=301,L]
 
-# Two-step switch (2026-10-23): the long one-page questionnaire becomes
-# step 1 (race, date, name, email → checkout) at /training-plans/start/, with
-# the rest of the questions after payment at /training-plans/details/.
-# 302, not 301, so switching back is just deleting this line. The query
-# string (?race=, ?src=, ...) carries over.
-RewriteRule ^questionnaire/?$ /training-plans/start/ [R=302,L]
+# Plan billed every 4 weeks (2026-11-13) replaces the one-off plan. The
+# checkout server sells it from the one-page questionnaire only (it refuses
+# the two-step intake_flow), so /questionnaire/ serves again and the retired
+# two-step step 1 sends its visitors there. 302 so it can be reversed; the
+# query string (?race=, ?src=, ...) carries over. /training-plans/details/
+# stays: buyers of the old two-step checkout still finish there.
+RewriteRule ^training-plans/start/?$ /questionnaire/ [R=302,L]
 
 # /page/N/ → / (homepage pagination is meaningless, prevents noindex gap)
 RewriteRule ^page/\\d+/?$ / [R=301,L]
@@ -5942,7 +5940,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--sync-plan-intake", action="store_true",
-        help="Upload the two-step questionnaire to /training-plans/start/ and /training-plans/details/ via SCP"
+        help="Upload the two-step questionnaire's step 2 to /training-plans/details/ via SCP"
     )
     parser.add_argument(
         "--sync-season-plan", action="store_true",

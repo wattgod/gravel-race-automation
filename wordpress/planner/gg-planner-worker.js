@@ -31,7 +31,7 @@ self.onmessage = function (ev) {
       importScripts(m.engine, m.core);
       core = self.GGPlannerCore;
       E = { prep: self.prep, planNP: self.planNP, stats: self.stats, heat: self.heat, total: self.total,
-        ifDefault: self.ifDefault, defaultIF: self.defaultIF };
+        ifDefault: self.ifDefault, defaultIF: self.defaultIF, planW: self.planW };
       for (var key in E) if (typeof E[key] !== "function") throw new Error("engine function missing: " + key);
     } catch (err) {
       initError = "the planner could not load (" + err.message + ")";
@@ -58,9 +58,13 @@ self.onmessage = function (ev) {
     try { est = core.estimate(E, course, m.rider, m.opts); }
     catch (err) { est = { ok: false, why: "the model stopped with an error (" + err.message + ")" }; }
     if (!est.ok) { self.postMessage({ type: "run", id: m.id, ok: false, why: est.why, miss: est.miss || null }); return; }
-    var rows;
+    var rows, ride = null, pace = null;
     try { rows = core.improvements(E, est, m.rider, m.picks, m.brackets); }
     catch (err) { rows = null; }
+    // The replay and pacing notes are drawn only from real runs; if either
+    // cannot be worked out it is left out and the page says so.
+    try { ride = core.series(est, course, 600); } catch (err) { ride = null; }
+    try { pace = core.pacing(E, est, m.rider, course); } catch (err) { pace = null; }
     self.postMessage({
       type: "run", id: m.id, ok: true,
       level: est.level, IF: est.IF, IFsource: est.IFsource, defaultIF: est.defaultIF,
@@ -68,7 +72,7 @@ self.onmessage = function (ev) {
       span: est.span, mid: est.mid.total, fast: est.fast.total, slow: est.slow.total,
       np: est.IF * est.ftp.mid, ap: est.mid.ap,
       edition: { date: est.edition.date, start_local: est.edition.start_local },
-      hours: hoursOf(est), rows: rows
+      hours: hoursOf(est), rows: rows, ride: ride, pace: pace
     });
   }
 };

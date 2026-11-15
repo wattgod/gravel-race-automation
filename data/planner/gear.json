@@ -1,5 +1,6 @@
 {
  "checked": "2026-11-11",
+ "checked_gels": "2026-11-11",
  "bikes": [
   {
    "id": "race_carbon",
@@ -98,10 +99,82 @@
    ]
   }
  ],
- "bottle": {
-  "model": "Elite Fly Tex 750 ml",
-  "ml": 750,
-  "g": 57,
-  "url": "https://www.elite-it.com/en/water-bottles/sport/fly-tex"
- }
+ "bottles": [
+  {
+   "model": "Elite Fly Tex 550 ml",
+   "ml": 550,
+   "g": 51,
+   "url": "https://www.elite-it.com/en/water-bottles/sport/fly-tex"
+  },
+  {
+   "model": "CamelBak Podium 21oz Bike Bottle",
+   "ml": 620,
+   "g": 73,
+   "url": "https://www.camelbak.com/product/podium%C2%AE-21oz-bike-bottle/CB-1876.html"
+  },
+  {
+   "model": "CamelBak Podium 24oz/710ml Bike Bottle",
+   "ml": 710,
+   "g": 77,
+   "url": "https://uk.camelbak.com/product/podium-24oz710ml-bike-bottle%C2%A0/38116.html"
+  },
+  {
+   "model": "Elite Fly Tex 750 ml",
+   "ml": 750,
+   "g": 57,
+   "url": "https://www.elite-it.com/en/water-bottles/sport/fly-tex"
+  },
+  {
+   "model": "Elite Fly Tex 950 ml",
+   "ml": 950,
+   "g": 68,
+   "url": "https://api.elite-it.com/assets/documents/FLY-TEX_2026_EN.pdf"
+  }
+ ],
+ "packs": [
+  {
+   "model": "USWE MTB Hydro 3L Hydration Pack",
+   "litres": 2.0,
+   "g": 590,
+   "url": "https://uswe.com/products/mtb-hydro-3l-hydration-pack"
+  }
+ ],
+ "gels": [
+  {
+   "id": "gg25",
+   "model": "Gravel God's generic gel",
+   "g": 25,
+   "url": null
+  },
+  {
+   "id": "pf30",
+   "model": "PF 30 Gel",
+   "g": 30,
+   "url": "https://www.precisionhydration.com/products/pf-30-gel/"
+  },
+  {
+   "id": "pf90",
+   "model": "PF 90 Gel",
+   "g": 90,
+   "url": "https://www.precisionhydration.com/products/pf-90-gel/"
+  },
+  {
+   "id": "m100",
+   "model": "Gel 100",
+   "g": 25,
+   "url": "https://www.maurten.com/products/gel-100-box"
+  },
+  {
+   "id": "m160",
+   "model": "Gel 160",
+   "g": 40,
+   "url": "https://www.maurten.com/products/gel-160-box"
+  },
+  {
+   "id": "sisbeta",
+   "model": "Beta Fuel Gel",
+   "g": 40,
+   "url": "https://www.scienceinsport.com/us/beta-fuel-gels"
+  }
+ ]
 }

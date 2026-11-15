@@ -58,6 +58,10 @@ WITHDRAWN_CLAUSES = (" (shown with a wider range)",)
 # Flags that are for the route check only and never reach a visitor.
 PRIVATE_FLAG_PAGE = "route check needed (not shown to visitors)"
 
+# Gel entries whose recorded maker link does not point at that product's own
+# page; left out until the source is fixed upstream.
+HELD_GEL_SOURCES = {"sisgo": "recorded URL is a generic page, not the GO Isotonic gel's"}
+
 COL_KEYS = ("g", "kap", "alt", "la", "lo", "h", "ok")
 
 
@@ -88,6 +92,10 @@ def trim_course(bundle: dict) -> dict:
     for ed in bundle["weather"]["editions"]:
         if not ed.get("start_iso"):
             continue  # no sourced start time: weather cannot be placed
+        for w in ed["openmeteo"]:
+            units = w.get("hourly_units", {})
+            if units.get("wind_speed_10m") != "m/s" or units.get("temperature_2m") != "°C":
+                raise SystemExit(f"{bundle['slug']}: weather units are {units}; the engine needs m/s and °C")
         editions.append({
             "date": ed["date"],
             "start_iso": ed["start_iso"],
@@ -135,11 +143,21 @@ def public_gear(src: dict) -> dict:
             continue  # a class mean needs at least three makers' figures
         bikes.append({"id": key, "label": label, "kg": round(sum(m["kg"] for m in models) / len(models), 3),
                       "models": models})
-    bottles = [{"model": b["model"], "ml": b["ml"], "g": b["g"], "url": b["url"]}
-               for b in src["bottles"] if b.get("ml") == 750]
-    if not bikes or not bottles:
+    bottles = sorted(({"model": b["model"], "ml": b["ml"], "g": b["g"], "url": b["url"]}
+                      for b in src["bottles"] if b.get("ml", 0) > 0 and b.get("g", 0) > 0 and b.get("url")),
+                     key=lambda b: (b["ml"], b["model"]))
+    # A pack counts only when its listed weight includes the bladder it carries.
+    packs = [{"model": q["model"], "litres": q["litres"], "g": q["g"], "url": q["url"]}
+             for q in src.get("packs", []) if q.get("with_bladder") and q.get("litres", 0) > 0 and q.get("g", 0) > 0 and q.get("url")]
+    # Gels: carbs per unit from the maker's page; Gravel God's own 25 g rule is
+    # the race guides' unit and carries no maker page.
+    gels = [{"id": x["id"], "model": x["model"], "g": x["g"], "url": x.get("url")}
+            for x in src.get("gels", []) if x.get("g", 0) > 0 and x.get("id") not in HELD_GEL_SOURCES
+            and (x.get("url") or x.get("id") == "gg25")]
+    if not bikes or not any(b["ml"] == 750 for b in bottles):
         raise SystemExit("gear sources are missing bike classes or a 750 ml bottle")
-    return {"checked": src["checked"], "bikes": bikes, "bottle": bottles[0]}
+    return {"checked": src["checked"], "checked_gels": src.get("checked_gels"), "bikes": bikes,
+            "bottles": bottles, "packs": packs, "gels": gels}
 
 
 def main(argv=None) -> int:

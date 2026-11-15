@@ -22,6 +22,12 @@ for (const [slug, s] of Object.entries(status.races)) {
   if (r.ok) {
     Object.assign(res, { IF: r.IF, level: r.level, mid_s: r.mid.total, fast_s: r.fast.total, slow_s: r.slow.total, span: r.span });
     res.rows = core.improvements(E, r, SAMPLE, { fit: 1.05, pos: 0.2, stopsCut: 10 }, BRACKETS);
+    const ride = core.series(r, course, 600), pace = core.pacing(E, r, SAMPLE, course);
+    const mono = k => ride[k].t.every((t, i) => i === 0 || t >= ride[k].t[i - 1]);
+    res.ride = { n: ride.km.length, end_km: ride.km[ride.km.length - 1], mono: mono('mid') && mono('fast') && mono('slow'),
+      mid_end: ride.mid.t[ride.mid.t.length - 1], fast_end: ride.fast.t[ride.fast.t.length - 1], slow_end: ride.slow.t[ride.slow.t.length - 1],
+      finite: ['alt', 'grade', 'la', 'lo', 'temp', 'hw'].every(k => ride[k].every(Number.isFinite)) };
+    res.pace = pace;
   } else Object.assign(res, { why: r.why, miss: r.miss });
   // A course with a gap in its data: no time, a reason (never read as zero).
   const broken = JSON.parse(JSON.stringify(course));

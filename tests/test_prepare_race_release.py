@@ -12,7 +12,7 @@ from scripts import prepare_race_release as release
 
 
 def html(slug="test-race", plan=None):
-    anchor = f'<a data-cta="approved_custom_plan" href="{plan}">Plan</a>' if plan else ""
+    anchor = f'<a data-cta="endure_trial" href="{plan}">Plan</a>' if plan else ""
     return (f'<html><head><link rel="canonical" href="{release.SITE}/race/{slug}/"></head>'
             f'<body><section id="race-calculator"><form action="{release.CALCULATOR}" method="get"><input name="source" value="gravel"><input name="race" value="{slug}"></form></section>{anchor}</body></html>')
 
@@ -234,7 +234,7 @@ def test_prepare_refuses_other_artifacts_before_public_recovery(tmp_path, monkey
 def test_multi_anchor_custom_offer_is_preserved():
     one = release.SITE + "/training-plans/start/?race=test-race"
     two = release.SITE + "/training-plans/start/?race=test-race&variant=two"
-    text = html(plan=one).replace("</body>", f'<a data-cta="approved_custom_plan" href="{two}">Other</a></body>')
+    text = html(plan=one).replace("</body>", f'<a data-cta="endure_trial" href="{two}">Other</a></body>')
     release.verify_page_contract(text, "test-race", [one, two])
 
 
@@ -303,7 +303,7 @@ def test_real_generator_active_and_suppressed_custom_ctas():
     normal=generator.load_race_data(release.ROOT/"race-data/barry-roubaix.json")
     assert normal.get("race_plan_eligible",True) and not normal.get("taking_a_break")
     offer=release.Markup(); offer.feed(generator.build_custom_plan_offer(normal))
-    expected=[a["href"] for a in offer.anchors if a.get("data-cta")=="approved_custom_plan"]
+    expected=[a["href"] for a in offer.anchors if a.get("data-cta")=="endure_trial"]
     assert len(expected) >= 1
     release.verify_page_contract(generator.generate_page(normal),normal["slug"],expected)
     for field,value in [("taking_a_break",{"label":"Paused","line":"Not racing this year"}),("race_plan_eligible",False),("course_status","source_blocked")]:
@@ -435,7 +435,7 @@ def test_real_single_scope_generators_emit_page_assets_and_companion(tmp_path):
         assert len(list((package/folder).glob("*.html")))==1
     release.verify_assets(package)
     parsed=release.Markup();parsed.feed((package/"pages/barry-roubaix.html").read_text())
-    expected=[a["href"] for a in parsed.anchors if a.get("data-cta")=="approved_custom_plan"]
+    expected=[a["href"] for a in parsed.anchors if a.get("data-cta")=="endure_trial"]
     assert expected
     release.verify_page_contract((package/"pages/barry-roubaix.html").read_text(),"barry-roubaix",expected)
 
@@ -476,5 +476,5 @@ def test_real_source_research_citation_does_not_become_a_commerce_failure(slug):
     import generate_neo_brutalist as generator
     rd = generator.load_race_data(release.ROOT / "race-data" / (slug + ".json"))
     offer = release.Markup(); offer.feed(generator.build_custom_plan_offer(rd))
-    expected = [a["href"] for a in offer.anchors if a.get("data-cta") == "approved_custom_plan"]
+    expected = [a["href"] for a in offer.anchors if a.get("data-cta") == "endure_trial"]
     release.verify_page_contract(generator.generate_page(rd), slug, expected, [c["url"] for c in rd["citations"]])

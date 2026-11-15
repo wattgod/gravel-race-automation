@@ -45,8 +45,8 @@ def audit_page(path: Path) -> list[str]:
     if html.count(EXPECTED_FORMAT) != 1:
         issues.append("missing or duplicated approved page-format marker")
     expected_ctas = 0 if marketing_suppressed else 1
-    if top.count("START MY CUSTOM PLAN &rarr;") != expected_ctas:
-        issues.append(f"custom-plan CTA must appear exactly {expected_ctas} times above Deep Dive")
+    if top.count('data-cta="endure_trial"') != expected_ctas:
+        issues.append(f"Endure trial CTA must appear exactly {expected_ctas} times above Deep Dive")
     if top.count("GET ME IN YOUR CORNER &rarr;") != expected_ctas:
         issues.append(f"coaching CTA must appear exactly {expected_ctas} times above Deep Dive")
     if 'id="verdict"' in html:

@@ -28,15 +28,18 @@ Top-level order:
 
 1. Hero, including the concise race verdict already carried by the hero data.
 2. Interactive two-radar Ratings component.
-3. Custom Plan offer.
+3. Plan offer: the Endure Labs trial (replaced the $15/week custom plan
+   2026-11-07; still measured as `data-measure-section="custom-plan"`).
 4. Coaching footnote.
 5. Full Breakdown navigation.
 6. Original collapsible Deep Dive.
 
-The top custom-plan CTA is exactly:
+The top plan-offer CTA (`data-cta="endure_trial"`, terms in
+`wordpress/endure_offer.py`) is exactly:
 
-- `START MY CUSTOM PLAN →`
-- `$15 / WEEK`
+- `START 14 DAYS FREE →`
+- `$24 / MONTH · $199 / YEAR`
+- `Card required. Billing starts after 14 days unless you cancel.`
 
 The coaching footnote is exactly:
 

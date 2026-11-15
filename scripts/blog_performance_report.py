@@ -75,7 +75,7 @@ ARTICLE_EVENTS = ("article_scroll_depth", "article_deep_read",
 # cta_click on content pages is the canonical plan-intent click
 # (wordpress/blog_tracking.py: cta_name = data-cta or "plan_intent").
 PLAN_CTA_NAMES = frozenset({
-    "custom_plan", "season_plan", "plan_intent", "approved_custom_plan",
+    "custom_plan", "season_plan", "plan_intent", "approved_custom_plan", "endure_trial",
     "tpp_hero_build", "tpp_preview_build", "tpp_footer_build", "hero_build",
     "pricing_build", "sticky_mobile", "build_plan", "personalized_plan"})
 COACHING_CTA_NAMES = frozenset({"coaching"})

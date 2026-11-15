@@ -49,7 +49,13 @@ def config(html):
 # ---------- which pages get it ----------
 
 def test_pilot_statuses_are_imported():
-    assert set(STATUS["races"]) == set(json.loads((ROOT / "data/planner/rollout.json").read_text())["races"])
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import import_planner_bundles as imp
+    assert set(STATUS["races"]) == set(imp.rollout_slugs()), "status.json is stale: re-run the import"
+    tiers = set(json.loads((ROOT / "data/planner/rollout.json").read_text())["tiers"])
+    for slug in STATUS["races"]:
+        race = json.loads((ROOT / "race-data" / f"{slug}.json").read_text())["race"]
+        assert imp._tier(race) in tiers
     assert SHOWN, "no eligible or flagged race imported"
 
 

@@ -8,7 +8,8 @@ Reads (never writes) the research workspace's ``races_pub/`` folder:
   - ``engine/engine7.js``: the planner engine.
 
 Writes, in this repo:
-  - ``data/planner/status.json``: for each race in ``data/planner/rollout.json``,
+  - ``data/planner/status.json``: for each race in scope (every race in
+    ``race-data/`` whose rating tier is listed in ``data/planner/rollout.json``),
     its status (eligible / flagged / held / no bundle) and only the public flag
     text a page shows. Held races carry no reasons: the page is unchanged.
   - ``data/planner/courses/<slug>.json``: a trimmed public course for each
@@ -63,6 +64,30 @@ PRIVATE_FLAG_PAGE = "route check needed (not shown to visitors)"
 HELD_GEL_SOURCES = {"sisgo": "recorded URL is a generic page, not the GO Isotonic gel's"}
 
 COL_KEYS = ("g", "kap", "alt", "la", "lo", "h", "ok")
+
+
+RACE_DATA = REPO / "race-data"
+
+
+def _tier(race: dict):
+    raw = (race.get("gravel_god_rating") or {}).get("tier")
+    try:
+        return int(float(raw))
+    except (TypeError, ValueError):
+        return None
+
+
+def rollout_slugs() -> list[str]:
+    """Every race on the site whose tier is in scope; no hard-coded list."""
+    tiers = set(json.loads(ROLLOUT.read_text())["tiers"])
+    out = []
+    for path in sorted(RACE_DATA.glob("*.json")):
+        race = json.loads(path.read_text())["race"]
+        if _tier(race) in tiers:
+            out.append(race.get("slug") or path.stem)
+    if not out:
+        raise SystemExit("no race in race-data/ is in the rollout tiers")
+    return out
 
 
 def _sha256(path: Path) -> str:
@@ -169,7 +194,7 @@ def main(argv=None) -> int:
     args = ap.parse_args(argv)
     src = Path(args.source).expanduser()
     elig = json.loads((src / "eligibility.json").read_text())
-    rollout = json.loads(ROLLOUT.read_text())["races"]
+    rollout = rollout_slugs()
     engine_src = src / "engine" / "engine7.js"
     gear_src = Path(args.gear).expanduser() if args.gear else src.parent / "research" / "gear_sources_v7.json"
     gear = public_gear(json.loads(gear_src.read_text()))

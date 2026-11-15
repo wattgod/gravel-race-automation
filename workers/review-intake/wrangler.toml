@@ -5,6 +5,11 @@ compatibility_date = "2024-01-01"
 [vars]
 ALLOWED_ORIGINS = "https://gravelgodcycling.com,https://www.gravelgodcycling.com,https://roadielabs.com,https://www.roadielabs.com"
 
+# Every review is stored here before the form is told it was received.
+[[kv_namespaces]]
+binding = "RACE_REVIEWS"
+id = "6f5d8d33e5324cc59f279f302f5fd49d"
+
 # Secrets (set via: wrangler secret put SECRET_NAME)
 # RESEND_API_KEY     — Resend API key (mail send) — replaces SendGrid, whose account is dead (401s)
 # NOTIFICATION_EMAIL — Where review notifications go

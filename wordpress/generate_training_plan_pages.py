@@ -334,6 +334,17 @@ def build_fueling(rd: dict) -> str:
 </section>'''
 
 
+TP_UNAVAILABLE = PROJECT_ROOT / "data" / "tp-unavailable-listings.json"
+
+
+def load_unavailable_plan_ids() -> set:
+    """Plan IDs whose TP listing is gone. A malformed file raises."""
+    if not TP_UNAVAILABLE.exists():
+        return set()
+    data = json.loads(TP_UNAVAILABLE.read_text(encoding="utf-8"))
+    return {int(k) for k in data["plans"]}
+
+
 def load_sku_link(slug: str) -> dict:
     """Published TP plans for this race, with family links as a fallback.
 
@@ -347,11 +358,15 @@ def load_sku_link(slug: str) -> dict:
         )
     except (OSError, json.JSONDecodeError):
         race_links = {}
-    exact = race_links.get(slug, [])
-    if not exact:
-        exact = race_links.get(PLAN_SLUG_ALIASES.get(slug, ""), [])
+    key = slug if slug in race_links else PLAN_SLUG_ALIASES.get(slug, "")
+    exact = race_links.get(key, [])
     if exact:
-        return {"mode": "race", "links": exact}
+        # Listings TrainingPeaks answers "Training Plan Not Found" for
+        # (scripts/check_tp_listings.py) get no button. If that leaves none,
+        # the race shows no ready-made section rather than a different plan.
+        gone = load_unavailable_plan_ids()
+        live = [plan for plan in exact if int(plan["planId"]) not in gone]
+        return {"mode": "race", "links": live} if live else {}
 
     try:
         sku_map = json.loads((PROJECT_ROOT / "data" / "tp-sku-map.json").read_text())

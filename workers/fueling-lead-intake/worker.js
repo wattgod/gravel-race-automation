@@ -2,11 +2,13 @@
  * Cloudflare Worker: Lead Intake (All Email Capture Points)
  *
  * Multi-brand: serves gravelgodcycling.com (default), roadielabs.com, and
- * xcskilabs.com. The page sends `brand`; absent → gravelgod. Brand is
+ * xcskilabs.com. The page sends `brand`; absent → gravelgod, except for
+ * plan_intake (BRAND_REQUIRED), which must name a supported brand or gets a
+ * 400. The gravelgod default for the other sources is a known follow-up. Brand is
  * tagged on the Mission Control payload and the notification email
  * subject/sender so road leads are distinguishable in the shared inbox.
  *
- * Handles 16 capture sources:
+ * Handles 17 capture sources:
  *   - exit_intent:        email only (race profile exit popup)
  *   - race_profile:       email + race context (prep kit CTA)
  *   - prep_kit_gate:      email + race context (content unlock)
@@ -23,6 +25,9 @@
  *   - gravel_tv_subscribe: legacy Gravel TV subscriber source (retained during migration)
  *   - gravel_weekly_subscribe: Gravel Weekly publication signup
  *   - fueling_calculator: email + weight + race + fueling data (detected by weight_lbs, no source field)
+ *   - plan_intake:        a custom-plan questionnaire (xcskilabs.com/questionnaire/): goal_answers +
+ *                         race context. A lead, but no automated email: Mission Control stores it,
+ *                         alerts Matti, and he replies personally. Storage-required.
  *
  * Transactional sources (not leads, never marketed to):
  *   - athlete_review:     a coached athlete's season review (goal_answers + athlete tag)
@@ -33,7 +38,8 @@
  *                         ref (custom plan). Not Mission Control's race_debrief email.
  *
  * Notification emails fire for fueling_calculator (contains actionable athlete data),
- * athlete_review, athlete_exit and plan_debrief.
+ * athlete_review, athlete_exit and plan_debrief. plan_intake's alert comes from
+ * Mission Control, after it has stored the answers.
  * Mission Control's database is the lead list of record — nothing else reads a marketing
  * contacts list, so this worker does not maintain one.
  */
@@ -44,10 +50,10 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe', 'goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe', 'goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief', 'plan_intake'];
 
 // Sources whose questionnaire answers ride along as goal_answers.
-const ANSWER_SOURCES = ['goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief'];
+const ANSWER_SOURCES = ['goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief', 'plan_intake'];
 
 // Not leads: a leaving athlete and a plan buyer's debrief. None of the lead
 // context rides along (stripLeadContext), and Matti gets an alert of his own.
@@ -83,17 +89,26 @@ export default {
       return jsonResponse({ error: 'Bot detected' }, 400, origin);
     }
 
-    // Brand routing (multi-brand intake). Defaults to gravelgod for back-compat
-    // with the gravel pages that don't send a brand field.
-    const brand = (String(data.brand || 'gravelgod')).toLowerCase();
-    data.brand = brand;
-
     // Detect source: fueling_calculator has weight_lbs but no source field
     const source = data.source || (data.weight_lbs ? 'fueling_calculator' : null);
 
     if (!source || (source !== 'fueling_calculator' && !KNOWN_SOURCES.includes(source))) {
       return jsonResponse({ error: 'Unknown source' }, 400, origin);
     }
+
+    // Brand routing (multi-brand intake). A BRAND_REQUIRED source must name a
+    // supported brand: a skier's plan questionnaire filed as Gravel God would
+    // reach Matti as a [GG] alert. Every other source still defaults to
+    // gravelgod for back-compat with the gravel pages that send no brand
+    // (known follow-up: those pages should send it too).
+    if (BRAND_REQUIRED.includes(source)) {
+      const named = typeof data.brand === 'string' ? data.brand.toLowerCase() : '';
+      if (!SUPPORTED_BRANDS.includes(named)) {
+        return jsonResponse({ error: 'Unknown brand' }, 400, origin);
+      }
+    }
+    const brand = (String(data.brand || 'gravelgod')).toLowerCase();
+    data.brand = brand;
 
     // Sanitize string inputs: truncate to sane lengths
     if (data.email) data.email = String(data.email).substring(0, 254);
@@ -260,7 +275,8 @@ export default {
       }
     }
 
-    console.log('Lead captured:', { source, email: data.email, race_slug: data.race_slug || '' });
+    // No email or name in logs: Cloudflare logs are not a place for addresses.
+    console.log('Lead captured:', { source, brand: data.brand, race_slug: data.race_slug || '' });
 
     const responseBody = { success: true, message: 'Your personalized plan is ready' };
     if (mcResultPromise) {
@@ -274,6 +290,10 @@ export default {
 // --- Brand helpers (multi-brand intake) ---
 
 const BRAND_LABELS = { gravelgod: 'Gravel God', roadielabs: 'Roadie Labs', xcskilabs: 'XC Ski Labs' };
+const SUPPORTED_BRANDS = Object.keys(BRAND_LABELS);
+// Sources that must name their brand (no gravelgod default). Mission Control
+// checks the same list (_BRAND_REQUIRED_SOURCES in routers/webhooks.py).
+const BRAND_REQUIRED = ['plan_intake'];
 const BRAND_SENDERS = {
   gravelgod: { email: 'leads@gravelgodcycling.com', name: 'Gravel God Fueling' },
   roadielabs: { email: 'leads@gravelgodcycling.com', name: 'Roadie Labs Fueling' },
@@ -939,7 +959,7 @@ function sanitizeAnswers(raw) {
 // refusing the payload is a failure the visitor must hear about — otherwise
 // the page shows a poster, wipes the saved draft, and the answers exist
 // nowhere.
-const STORAGE_REQUIRED = ['goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief'];
+const STORAGE_REQUIRED = ['goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief', 'plan_intake'];
 
 // Mission Control normally answers in well under a second.
 // Ordinary leads: fail fast so the lost-lead alert fires. Questionnaires:
@@ -987,7 +1007,7 @@ async function notifyMissionControl(env, data, source) {
       signal: AbortSignal.timeout(STORAGE_REQUIRED.includes(source) ? MC_STORAGE_TIMEOUT_MS : MC_TIMEOUT_MS),
     });
 
-    console.log('Mission Control notified:', data.email, source, resp.status);
+    console.log('Mission Control notified:', source, resp.status);
     if (!resp.ok && STORAGE_REQUIRED.includes(source)) {
       throw new Error(`Mission Control returned ${resp.status}`);
     }

@@ -201,6 +201,42 @@ def drop_youtube(body: str, dead: Mapping[str, str]) -> str:
     return body
 
 
+SECTION_RE = re.compile(r'<section class="gg-blog-section">\n<h2>(.*?)</h2>.*?</section>\n?', re.S)
+
+
+def dropped_sections(body: str, drop: Mapping[str, str]) -> list[str]:
+    """The body sections whose h2 is a key of `drop` ({h2 html: why}), each
+    found exactly once (raises otherwise), in body order."""
+    found = [m for m in SECTION_RE.finditer(body) if m.group(1) in drop]
+    for h in drop:
+        n = sum(m.group(1) == h for m in found)
+        if n != 1:
+            raise ValueError(f"drop_sections: <h2>{h}</h2> found {n} times, expected once")
+    return [m.group(0) for m in found]
+
+
+def dropped_baseline(text: str, module) -> str:
+    """The snapshot text minus the words of a post module's DROP sections (each
+    found exactly once, whitespace-normalized), so the word-for-word tests allow
+    exactly those cuts."""
+    out = " ".join(text.replace("\u200b", " ").split())
+    for sec in dropped_sections(module.SOURCE.body, getattr(module, "DROP", {})):
+        cut = " ".join(html.unescape(re.sub(r"<[^>]+>", " ", sec)).split())
+        n = out.count(cut)
+        if n != 1:
+            raise ValueError(f"dropped section {cut[:60]!r} found {n} times in the snapshot, expected once")
+        out = out.replace(cut, "", 1)
+    return out
+
+
+def drop_sections(body: str, drop: Mapping[str, str]) -> str:
+    """Leave out whole body sections named by their h2 (a sales block the owner
+    retired, say); the converter's body stays untouched on disk."""
+    for sec in dropped_sections(body, drop):
+        body = body.replace(sec, "", 1)
+    return body
+
+
 @dataclass(frozen=True)
 class PostSource:
     slug: str
@@ -515,6 +551,7 @@ def render_post(
     dead_youtube: Mapping[str, str] | None = None,
     restored: Sequence = (),
     restored_corrections: Mapping[str, Sequence[Correction]] | None = None,
+    drop: Mapping[str, str] | None = None,
 ) -> str:
     """The full page. `alt` must cover every image (raises otherwise).
     `figures`: extra shell figures (SvgFigure / DataTable / EssayFigure) placed by
@@ -529,7 +566,8 @@ def render_post(
     where it sat} embeds to leave out. `restored`: figures restored from an
     archived copy (placed by after=); bumps the modified date (see the module
     docstring). `restored_corrections`: {restored figure id: row Corrections}
-    applied to those figures (correct_table); adds CORRECTION_NOTE."""
+    applied to those figures (correct_table); adds CORRECTION_NOTE.
+    `drop`: {h2 html: why} whole sections to leave out (drop_sections)."""
     data = src.data
     replace = dict(replace or {})
     after_image = dict(after_image or {})
@@ -549,6 +587,8 @@ def render_post(
     body = apply_corrections(src.body, corrections)
     if dead_youtube:
         body = drop_youtube(body, dead_youtube)
+    if drop:
+        body = drop_sections(body, drop)
     restored_corrections = dict(restored_corrections or {})
     unknown_fix = sorted(set(restored_corrections) - {f.id for f in restored})
     if unknown_fix:

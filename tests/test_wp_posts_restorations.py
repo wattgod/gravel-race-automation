@@ -196,10 +196,11 @@ def test_best_bike_split_combined_totals_are_the_sums_of_their_rows():
 @pytest.mark.parametrize("pid", RESTORED)
 def test_restored_tables_are_the_only_additions(pid):
     """Against the raw snapshot, skipping only the restored figures (and any
-    figure the batch test already declares), the page is word for word."""
+    figure the batch test already declares) and leaving out the module's DROP
+    sections, the page is word for word."""
     m = _module(pid)
-    baseline = wp_post.corrected_baseline((FIXTURES / f"{pid}.txt").read_text(encoding="utf-8"),
-                                          getattr(m, "CORRECTIONS", ()))
+    baseline = wp_post.dropped_baseline(wp_post.corrected_baseline(
+        (FIXTURES / f"{pid}.txt").read_text(encoding="utf-8"), getattr(m, "CORRECTIONS", ())), m)
     assert imp.text_diff(baseline, _page(pid), wp_post.restored_ids(m)) == []
     # Without skipping them, the restored cells are extra text: the skip is doing the work.
     assert imp.text_diff(baseline, _page(pid)) != []

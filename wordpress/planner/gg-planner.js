@@ -371,12 +371,24 @@
         // Fractional zoom so the route fills the map (whole levels can halve it).
         // On touch screens one finger scrolls the page, not the map; the zoom
         // buttons still work.
-        var map = L.map(box, { scrollWheelZoom: false, dragging: !L.Browser.mobile, tap: false, zoomSnap: 0, zoomDelta: 1 });
+        // With reduced motion: no zoom, fade, marker or pan animation, no inertia.
+        var still = reducedMotion();
+        var map = L.map(box, { scrollWheelZoom: false, dragging: !L.Browser.mobile, tap: false, zoomSnap: 0, zoomDelta: 1,
+          zoomAnimation: !still, fadeAnimation: !still, markerZoomAnimation: !still, inertia: !still });
+        if (still) {
+          // Keyboard panning goes through panBy; make every pan immediate.
+          var panBy = map.panBy;
+          map.panBy = function (offset, opt) { return panBy.call(map, offset, L.extend({}, opt, { animate: false })); };
+        }
         map.attributionControl.setPrefix(M.prefix);
         leaf = map;
-        var tiles = L.tileLayer(M.tiles, { attribution: M.attribution, maxZoom: M.max_zoom }), gotTile = false;
-        tiles.on("tileload", function () { gotTile = true; });
-        tiles.on("load", function () { if (!gotTile) noMap("the map tiles did not load"); });
+        // The first fitted view must load whole: if any of its tiles fails, no
+        // map is shown (never the route over holes). Once that view is in,
+        // tiles that fail while the visitor pans or zooms are left as Leaflet
+        // shows them.
+        var tiles = L.tileLayer(M.tiles, { attribution: M.attribution, maxZoom: M.max_zoom }), firstView = true;
+        tiles.on("tileerror", function () { if (firstView) { firstView = false; noMap("some of the map tiles did not load"); } });
+        tiles.on("load", function () { firstView = false; });
         tiles.addTo(map);
         var line = geo.la.map(function (la, i) { return [la, geo.lo[i]]; });
         var route = L.polyline(line, { className: "gg-planner-route", weight: 4, opacity: 1, interactive: false }).addTo(map);

@@ -506,7 +506,7 @@ def test_base_map_is_the_sites_leaflet_and_osm_tiles_with_no_stand_in():
     js = (PLANNER_JS / "gg-planner.js").read_text()
     assert "https://" not in js, "every third-party URL comes from the config"
     assert "integrity: M.js_sri" in js and "integrity: M.css_sri" in js and 'crossorigin: "anonymous"' in js
-    assert "The map is not shown: " in js and "the map library did not load" in js and "the map tiles did not load" in js
+    assert "The map is not shown: " in js and "the map library did not load" in js and "some of the map tiles did not load" in js
     # No SVG outline map: the route is only ever drawn on the base map.
     assert "L.polyline(" in js and 'sv("path", { d: d, "class": "gg-planner-route" })' not in js
     assert "viewBox: \"0 0 \" + W" not in js
@@ -529,4 +529,11 @@ def test_map_fits_the_route_and_keeps_the_visitors_zoom():
     body = js[start:js.index("function scrubKm(", start)]
     for call in ("setView", "fitBounds", "setZoom", "panTo", "flyTo"):
         assert call not in body
+
+
+def test_map_respects_reduced_motion_and_rejects_a_partial_first_view():
+    js = (PLANNER_JS / "gg-planner.js").read_text()
+    assert "zoomAnimation: !still, fadeAnimation: !still, markerZoomAnimation: !still, inertia: !still" in js
+    assert "animate: false" in js.split("map.panBy = function", 1)[1].split("};", 1)[0]
+    assert 'tiles.on("tileerror", function () { if (firstView)' in js
 

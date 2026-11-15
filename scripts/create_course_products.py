@@ -135,6 +135,17 @@ def patch_course_json(course: dict, payment_link_url: str, price_id: str):
     print(f"  ✓ Patched {path.relative_to(REPO_ROOT)}")
 
 
+def retired_records() -> dict:
+    """Start a new manifest from the retired records in the current one, so
+    old orders (the 2-Pack) still reconcile after products are re-created."""
+    out = {"products": [], "prices": [], "payment_links": []}
+    if MANIFEST_PATH.exists():
+        old = json.loads(MANIFEST_PATH.read_text())
+        for key in out:
+            out[key] = [r for r in old.get(key, []) if r.get("retired")]
+    return out
+
+
 def create_all(courses: list[dict]):
     key = os.environ.get("STRIPE_SECRET_KEY", "")
     if not key:
@@ -142,7 +153,7 @@ def create_all(courses: list[dict]):
         sys.exit(1)
     stripe.api_key = key
 
-    manifest = {"products": [], "prices": [], "payment_links": []}
+    manifest = retired_records()
 
     for course in courses:
         print(f"\nCreating product: {course['title']}...")

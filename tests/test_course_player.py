@@ -616,3 +616,19 @@ class TestKCFormatsJS:
         assert ".gg-guide-kc-option" in course_js
         assert "data-correct" in course_js
         assert "gg-kc-opt-correct" in course_js
+
+
+def test_product_creation_keeps_retired_records():
+    import importlib.util, json
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[1]
+    spec = importlib.util.spec_from_file_location("ccp", root / "scripts" / "create_course_products.py")
+    try:
+        mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+    except ImportError:
+        pytest.skip("stripe not installed")
+    kept = mod.retired_records()
+    manifest = json.loads((root / "data" / "stripe-course-products.json").read_text())
+    for key in ("products", "prices", "payment_links"):
+        assert kept[key] == [r for r in manifest[key] if r.get("retired")]
+        assert kept[key], key

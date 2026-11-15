@@ -2887,6 +2887,9 @@ RewriteEngine On
 # AIOSEO doesn't know about. See scripts/push_wordpress.py::sync_llms_txt()
 # for the upload side (uploads web/llms.txt content to llms-repo.txt too).
 RewriteRule ^llms\\.txt$ /llms-repo.txt [L]
+# Same race for llms-full.txt: after a successful upload the public URL still
+# 404'd (2026-11-15), so serve the copy under a name AIOSEO doesn't manage.
+RewriteRule ^llms-full\\.txt$ /llms-full-repo.txt [L]
 """ + ROAD_MIGRATION_REDIRECT_SECTION + """
 
 # Roundups orphaned by the road→RL migration (2026-07-24): their races moved
@@ -5688,7 +5691,8 @@ def sync_llms_txt():
 
     # (local_filename, remote_filename) — llms-repo.txt is llms.txt's content
     # uploaded a second time under the AIOSEO-immune filename (see docstring).
-    uploads = [("llms.txt", "llms.txt"), ("llms-full.txt", "llms-full.txt"), ("llms.txt", "llms-repo.txt")]
+    uploads = [("llms.txt", "llms.txt"), ("llms-full.txt", "llms-full.txt"), ("llms.txt", "llms-repo.txt"),
+               ("llms-full.txt", "llms-full-repo.txt")]
     filenames = [remote for _, remote in uploads]
     try:
         import indexnow_ping
@@ -5732,7 +5736,7 @@ def sync_llms_txt():
             print(f"✗ Error uploading {remote_filename}: {e}")
             failed_uploads.append(remote_filename)
 
-    required_uploads = {"llms.txt", "llms-full.txt", "llms-repo.txt"}
+    required_uploads = {"llms.txt", "llms-full.txt", "llms-repo.txt", "llms-full-repo.txt"}
     required_failures = required_uploads.intersection(failed_uploads)
     if required_failures:
         print("✗ Required llms uploads failed: "

@@ -1,0 +1,106 @@
+name: Deploy Roadie Site
+
+# Manual button: rebuilds every roadielabs.com page that carries the shared
+# site header (race pages, vs/state/tier hubs, calendar, power rankings,
+# methodology, training-plan pages, and the top-level pages) from
+# road-race-automation main and pushes them with its own deploy script.
+# A change to wordpress/shared_header.py (inline header CSS on some pages,
+# the content-hashed /race/assets/rl-styles.<hash>.css on the rest) reaches
+# visitors only when every page is regenerated and pushed together.
+#
+# Secrets (already in this repo, see deploy-coaching-pages.yml):
+#   RL_SSH_HOST/RL_SSH_USER/RL_SSH_PORT/RL_SSH_PRIVATE_KEY  roadielabs.com
+#   GH_PAT  read access to wattgod/road-race-automation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-roadie-site
+  cancel-in-progress: false
+
+jobs:
+  roadie:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SSH_HOST: ${{ secrets.RL_SSH_HOST }}
+      SSH_USER: ${{ secrets.RL_SSH_USER }}
+      SSH_PORT: ${{ secrets.RL_SSH_PORT }}
+      STAGE: wordpress/output-site-stage
+    steps:
+      - name: Only deploy from main
+        run: test "$GITHUB_REF" = refs/heads/main
+      - uses: actions/checkout@v4
+        with:
+          repository: wattgod/road-race-automation
+          ref: main
+          token: ${{ secrets.GH_PAT }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r requirements.txt
+      - name: Configure SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.RL_SSH_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOY_KEY"; test -n "$SSH_HOST"; test -n "$SSH_USER"; test -n "$SSH_PORT"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/roadlabs_key
+          chmod 600 ~/.ssh/roadlabs_key
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          test -s ~/.ssh/known_hosts
+      - name: Build pages
+        run: |
+          set -euo pipefail
+          # Race pages and the /race/ hubs go to a dedicated dir: --sync-pages
+          # globs *.html and would otherwise sweep up homepage.html etc.
+          python3 wordpress/generate_neo_brutalist.py --all --output-dir "$STAGE"
+          for g in state_hubs vs_pages tier_hubs calendar power_rankings; do
+            python3 "wordpress/generate_$g.py" --output-dir "$STAGE"
+          done
+          # --sync-pages refuses without every race page's prep kit and ships them with it.
+          python3 wordpress/generate_prep_kit.py --all
+          python3 wordpress/generate_training_plan_pages.py --all
+          for g in methodology homepage about coaching consulting courses_page insights \
+                   training_plans legal_pages success_pages coaching_apply consult_intake \
+                   questionnaire exit_interview goals_2027 race_debrief; do
+            python3 "wordpress/generate_$g.py"
+          done
+          python3 scripts/build_search_page.py
+          ls "$STAGE"/assets/
+      - name: Push pages
+        run: |
+          python3 scripts/push_wordpress.py \
+            --sync-pages --pages-dir "$STAGE" --sync-plan-pages \
+            --sync-methodology --sync-homepage --sync-about --sync-coaching --sync-consulting \
+            --sync-courses-page --sync-insights --sync-training-plans --sync-legal --sync-success \
+            --sync-coaching-apply --sync-consult-intake --sync-questionnaire \
+            --sync-exit-interview --sync-goals --sync-race-debrief --sync-widget \
+            --purge-cache
+      - name: Check the live header
+        run: |
+          set -euo pipefail
+          css=$(ls "$STAGE"/assets/rl-styles.*.css | xargs -n1 basename)
+          slug=$(ls "$STAGE"/*.html | head -1 | xargs -n1 basename | sed 's/\.html$//')
+          fail=0
+          for path in / /about/ /coaching/ /consulting/ /courses/ /insights/ /training-plans/ /road-races/ \
+                      /privacy/ /questionnaire/ /coaching/apply/ /race/methodology/ /race/calendar/2027/ \
+                      "/race/$slug/" "/race/$slug/training-plan/"; do
+            ok=""
+            # The CDN edge the runner hits can lag the push: retry, then say what it served.
+            for i in 1 2 3 4 5 6; do
+              curl -sf "https://roadielabs.com${path}?v=$GITHUB_RUN_ID-$i" -o live.html || true
+              if grep -qF 'rl-site-header-toggle span { display: block; flex: none;' live.html \
+                 || grep -qF "/race/assets/$css" live.html; then ok=1; break; fi
+              sleep 20
+            done
+            if [ -n "$ok" ]; then echo "live ok: $path"; else echo "live header not updated: $path"; fail=1; fi
+          done
+          curl -sf "https://roadielabs.com/race/assets/$css?v=$GITHUB_RUN_ID" -o live.css
+          grep -qF 'flex: none; width: 20px; height: 2px' live.css || { echo "live $css lacks the menu icon fix"; fail=1; }
+          exit $fail

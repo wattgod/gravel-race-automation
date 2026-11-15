@@ -125,10 +125,11 @@
     if (typed(r.IF) && !(r.IF >= 0.40 && r.IF <= 1.05)) bad.push("effort (IF 0.40–1.05)");
     if (typed(r.stops) && !(r.stops >= 0 && r.stops <= 600)) bad.push("time stopped (0–600 min)");
     if (typed(r.carbs) && !(r.carbs >= 0 && r.carbs <= 200)) bad.push("carbs an hour (0–200 g)");
-    var bottles = num("bottles");
-    if (bottles != null && !(bottles >= 0 && bottles <= 4 && Math.round(bottles) === bottles)) bad.push("bottles (0–4)");
-    var bk = mass("bikekg"), tot = mass("geartot");
-    if (radio("bike") === "own" && bk != null && !(bk >= 5 && bk <= 25)) bad.push(units === "imp" ? "bike weight (11–55 lb)" : "bike weight (5–25 kg)");
+    var bottles = num("bottles"), bk = mass("bikekg"), tot = mass("geartot");
+    if (tot == null) {  // a typed total replaces the bike and water fields
+      if (bottles != null && !(bottles >= 0 && bottles <= 4 && Math.round(bottles) === bottles)) bad.push("bottles (0–4)");
+      if (radio("bike") === "own" && bk != null && !(bk >= 5 && bk <= 25)) bad.push(units === "imp" ? "bike weight (11–55 lb)" : "bike weight (5–25 kg)");
+    }
     if (tot != null && !(tot >= 5 && tot <= 45)) bad.push(units === "imp" ? "total for bike, water and gear (11–99 lb)" : "total for bike, water and gear (5–45 kg)");
     return bad;
   }
@@ -314,7 +315,7 @@
       for (var j = 0; j < R.km.length; j++) {
         var xa = px(j ? R.km[j - 1] : 0), xb = px(R.km[j]) + 0.6, y = py(R.alt[j]);
         var attrs = { x: xa.toFixed(1), y: y.toFixed(1), width: Math.max(0.6, xb - xa).toFixed(1), height: Math.max(0, PH - 22 - y).toFixed(1) };
-        var cls = powerClass(R.mid.w[j], m.pace ? m.pace.ap : m.ap);
+        var cls = powerClass(R.mid.w[j], m.apRide);
         ahead.appendChild(sv("rect", Object.assign({ "class": cls }, attrs)));
         done.appendChild(sv("rect", Object.assign({ "class": cls }, attrs)));
       }
@@ -349,7 +350,9 @@
       card.appendChild(el("p", { cls: "gg-planner-fine", text: "Dots: where the middle of your range is at the end of each riding hour. The replay is not shown: the model could not lay out your ride point by point." }));
       return card;
     }
-    var readout = el("p", { cls: "gg-planner-readout" });
+    // Not a live region: it changes every frame during Replay. Keyboard and
+    // screen-reader users get the same text through the slider's valuetext.
+    var readout = el("p", { cls: "gg-planner-readout", "aria-live": "off" });
     card.appendChild(readout);
     card.appendChild(el("p", { cls: "gg-planner-fine", text: "Dots: the middle of your range at the end of each riding hour. Filled pin: the fast end of your range; open pin: the slow end, at the same moment. Profile colour: planned power against your day's average, from easy (light teal) to hardest (dark brown); grey where the course has no riding data. Wind and temperature are the " + edYear + " race day's at that time, not a forecast. Route and elevation from the race's public Ride with GPS route." }));
 
@@ -417,21 +420,29 @@
   function paceNotes(m) {
     var P = m.pace, ul = el("ul", { cls: "gg-planner-pace" });
     if (!P) { ul.appendChild(el("li", { text: "Pacing notes are not shown: the model could not work them out for this ride." })); return ul; }
-    var ftpTyped = rider().ftp != null;
+    var why = P.why || {}, ftpTyped = rider().ftp != null, W = Math.round(P.ap) + " W";
     if (P.over && P.over.t >= 60) {
-      ul.appendChild(el("li", { text: "This plan has you above your FTP for about " + mins(P.over.t) + " minutes in total, in " + P.over.n + " short efforts on climbs, none longer than " + Math.max(1, Math.ceil(P.over.longest / 60)) + " minute" + (Math.ceil(P.over.longest / 60) > 1 ? "s" : "") + "." }));
+      var lg = Math.ceil(P.over.longest / 60);
+      ul.appendChild(el("li", { text: "This plan has you above your FTP for about " + mins(P.over.t) + " minutes in total, in " + P.over.n + " short efforts on climbs, none longer than " + lg + " minute" + (lg > 1 ? "s" : "") + "." }));
     } else if (P.flat_s != null) {
-      var lead = P.flat_s >= 30 ? "Pushing the climbs and easing the descents the way this plan does is worth about " + mins(P.flat_s) + " minutes over holding " + Math.round(P.ap) + " W all day."
-        : P.flat_s <= -30 ? "Holding " + Math.round(P.ap) + " W all day would be about " + mins(-P.flat_s) + " minutes quicker than this plan's pacing on this course."
-        : "Holding " + Math.round(P.ap) + " W all day comes out within a minute of this plan's pacing on this course.";
-      ul.appendChild(el("li", { text: lead + (ftpTyped && P.over ? " At this effort the plan never takes you above your FTP." : "") }));
+      var lead = P.flat_s >= 30 ? "Pushing the climbs and easing the descents the way this plan does is worth about " + mins(P.flat_s) + " minutes over holding " + W + " (your ride's average) all day."
+        : P.flat_s <= -30 ? "Holding " + W + " (your ride's average) all day would be about " + mins(-P.flat_s) + " minutes quicker than this plan's pacing on this course."
+        : "Holding " + W + " (your ride's average) all day comes out within a minute of this plan's pacing on this course.";
+      var ftpNote = "";
+      if (ftpTyped && P.over) ftpNote = P.over.t === 0 ? " At this effort the plan never takes you above your FTP." : " At this effort the plan is above your FTP for under a minute in total.";
+      ul.appendChild(el("li", { text: lead + ftpNote }));
+    } else {
+      ul.appendChild(el("li", { text: "The even-pacing comparison is not shown: " + (why.flat || "the model could not work it out") + "." }));
     }
-    if (P.r46 != null) ul.appendChild(el("li", { text: "On 4–6% grades this plan rides at about " + P.r46.toFixed(1) + "× your average power." }));
+    ul.appendChild(el("li", { text: P.r46 != null ? "On 4–6% grades this plan rides at about " + P.r46.toFixed(1) + "× your ride's average power."
+      : "No 4–6% figure: " + (why.r46 || "the model could not work it out") + "." }));
     if (P.climb) {
       var c = P.climb, len = units === "imp" ? (c.len_m / 1609.344).toFixed(1) + " mi" : (c.len_m / 1000).toFixed(1) + " km";
-      var tx = "Your longest climb starts at " + dist(c.start_km) + " (" + len + " at " + (c.grade * 100).toFixed(1) + "%): about " + Math.max(1, mins(c.t)) + " minutes";
+      var tx = "Your longest climb starts at " + dist(c.start_km) + " (" + len + " at " + (c.grade * 100).toFixed(1) + "%): " + (c.t < 60 ? "under a minute" : "about " + mins(c.t) + " minutes");
       tx += P.climb_watts_shown ? " at about " + Math.round(c.w) + " W." : ". Climb watts aren't printed at this effort: it is outside the range of race efforts the climb pacing was built from.";
       ul.appendChild(el("li", { text: tx }));
+    } else {
+      ul.appendChild(el("li", { text: "No longest-climb note: " + (why.climb || "the model could not work it out") + "." }));
     }
     ul.appendChild(el("li", { cls: "gg-planner-fine", text: "All at the middle of your range, from the same model run as your time." }));
     return ul;
@@ -562,6 +573,16 @@
     ]);
   }
 
+  function kitNote(m) {
+    var typedTotal = mass("geartot") != null;
+    var base = typedTotal ? "Your typed total is used for bike, water and gear. " : "Clothes, shoes, helmet, tools and spares are not counted. ";
+    var k = m && m.pace ? m.pace.kit3_s : null;
+    if (k == null) return base + "What extra weight would cost is not shown: " + (m && m.pace && m.pace.why && m.pace.why.kit3 || "the model could not work it out") + ".";
+    var amt = units === "imp" ? "An additional 6.6 lb" : "An additional 3 kg";
+    if (Math.abs(k) < 30) return base + amt + " would change the middle of your range by under a minute.";
+    return base + amt + " would " + (k > 0 ? "add" : "take off") + " about " + mins(Math.abs(k)) + " minutes " + (k > 0 ? "to" : "from") + " the middle of your range.";
+  }
+
   function finePrint(m) {
     var det = el("details", { cls: "gg-planner-info" }, [el("summary", { text: "What this estimate assumes" })]);
     var ul = el("ul", { cls: "gg-planner-fine" });
@@ -573,9 +594,7 @@
      "Riding position, cornering and how effort spreads over climbs come from the model's fixed settings, not from you.",
      "Your weight, bike and full bottles are carried all day; you drink them down, so this errs slow.",
      "Stops, walking, neutral starts and flats are not in the riding time.",
-     m && m.pace && m.pace.kit3_s != null
-       ? "Clothes, shoes, helmet, tools and spares are not counted. " + (units === "imp" ? "About 6.6 lb" : "About 3 kg") + " of them would add about " + Math.max(1, mins(m.pace.kit3_s)) + " minutes to the middle of your range."
-       : "Clothes, shoes, helmet, tools and spares are not counted."]
+     kitNote(m)]
       .forEach(function (s) { ul.appendChild(el("li", { text: s })); });
     det.appendChild(ul);
     return det;

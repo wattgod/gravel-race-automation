@@ -379,6 +379,7 @@ def get_race_planner_css() -> str:
 {p}-tlabel {{ font-family: var(--gg-font-data); font-size: 11px; fill: var(--gg-color-dark-brown); }}
 {p} select {{ min-height: 36px; padding: 0 var(--gg-spacing-xs); border: 2px solid var(--gg-color-dark-brown); background: var(--gg-color-white); color: var(--gg-color-dark-brown); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); }}
 {p}-gels {{ margin-top: var(--gg-spacing-xs); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); }}
+{p}-ownbike[hidden] {{ display: none; }}
 {p}-ridehead {{ display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--gg-spacing-xs); }}
 {p}-ridehead h3 {{ margin: 0; }}
 {p}-pin {{ stroke: var(--gg-color-dark-brown); stroke-width: 3; }}

@@ -118,7 +118,10 @@
     if (!(total > 0) || !isFinite(total)) return { ok: false, why: "solve:time" };
     var hw = new Float64Array(B.length);
     for (var j = 0; j < B.length; j++) hw[j] = B[j].hw;
-    return { ok: true, total: total, T: r.T, Pw: r.Pw, np: cool.np, ap: cool.ap, hw: hw };
+    // ap: the plan before heat (what the effort targets); apRide: what the
+    // ride actually averages once the race day's heat is applied.
+    var ride = P.heatKeep > 0 ? E.stats(B, r) : cool;
+    return { ok: true, total: total, T: r.T, Pw: r.Pw, np: cool.np, ap: cool.ap, apRide: ride.ap, hw: hw };
   }
 
   function engineData(course, wx) {
@@ -323,19 +326,16 @@
      flat = the same course at the same average power held evenly. */
   function pacing(E, est, rider, course) {
     var cols = course.bins.cols, step = course.bins.step_m, r = est.mid, n = cols.g.length, i;
-    var P = est.withNP(est.IF * est.ftp.mid), D = est.D, out = { ap: r.ap };
-    // flat pacing at the same average power
+    var P = est.withNP(est.IF * est.ftp.mid), D = est.D, ap = r.apRide, out = { ap: ap, why: {} };
+    // the same course with the ride's realized average power held evenly
+    // (no heat model on top: the held power is the power ridden)
     out.flat_s = null;
-    if (typeof E.planW === "function") {
-      var B = E.prep(D, { share: P.share, dcut: DRAG_CUT }), w = new Float64Array(B.length);
-      for (i = 0; i < B.length; i++) w[i] = 1;
-      var fr = E.planW(B, w, r.ap, P.m, P.cda, D.crr, D.wf, P.cap);
-      if (fr && fr.ok !== false && fr.T) {
-        if (P.heatKeep > 0) fr = E.heat(B, fr, P.heatKeep, P.m, P.cda, D.crr, D.wf, P.cap);
-        var ft = E.total(B, fr.T);
-        if (ft > 0 && isFinite(ft)) out.flat_s = ft - r.total;
-      }
-    }
+    var B = E.prep(D, { share: P.share, dcut: DRAG_CUT }), w = new Float64Array(B.length);
+    for (i = 0; i < B.length; i++) w[i] = 1;
+    var fr = E.planW(B, w, ap, P.m, P.cda, D.crr, D.wf, P.cap);
+    var ft = fr && fr.ok !== false && fr.T ? E.total(B, fr.T) : NaN;
+    if (ft > 0 && isFinite(ft)) out.flat_s = ft - r.total;
+    else out.why.flat = "the model could not solve the even-power ride";
     // time above FTP (only for a typed FTP)
     out.over = null;
     if (rider.ftp != null) {
@@ -351,7 +351,8 @@
     // power on 4-6% grades against the day's average
     var a = 0, t = 0;
     for (i = 0; i < n; i++) if (cols.ok[i] && cols.g[i] > 0.04 && cols.g[i] <= 0.06) { a += r.Pw[i] * r.T[i]; t += r.T[i]; }
-    out.r46 = t > 0 && r.ap > 0 ? a / t / r.ap : null;
+    out.r46 = t > 0 && ap > 0 ? a / t / ap : null;
+    if (out.r46 == null) out.why.r46 = "this course has no 4–6% grades";
     // longest climb by riding time
     var best = null;
     climbsOf(cols.g, step).forEach(function (c) {
@@ -360,11 +361,13 @@
       if (tt > 0 && (!best || tt > best.t)) best = { start_km: c.a * step / 1000, len_m: c.len, grade: c.grade, t: tt, w: pp / tt };
     });
     out.climb = best;
-    var ratio = r.ap / est.ftp.mid;
+    if (!best) out.why.climb = "no stretch of this course meets the climb rule (2% or more over about 250 m, at least 10 m of gain)";
+    var ratio = ap / est.ftp.mid;
     out.climb_watts_shown = ratio >= PACE_AP_LO && ratio <= PACE_AP_HI;
     // what 3 kg of unlisted kit would add
     var kit = runOnce(E, D, est.withNP(est.IF * est.ftp.mid, { m: P.m + 3 }));
     out.kit3_s = kit.ok ? kit.total - r.total : null;
+    if (!kit.ok) out.why.kit3 = "the model could not solve the heavier ride";
     return out;
   }
 

@@ -1275,7 +1275,8 @@ class TestKitPitchPilot:
         pitch = self._render("kit_pitch", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         assert pitch.count("questionnaire/?race=big-sugar") == 1
         assert "if Big Sugar is your A-race" in pitch
-        assert "Two plan adjustments" in pitch and "P.S." not in pitch
+        assert "until race week, one 4-week block at a time" in pitch and "P.S." not in pitch
+        assert "one payment" not in pitch.lower() and "Two plan adjustments" not in pitch
         assert pitch.index('class="cta"') < pitch.index("stepping stone")
         follow = self._render("kit_followup", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         assert follow.count("questionnaire/?race=big-sugar") == 1

@@ -894,6 +894,12 @@ try {{
             m = re.search(r"data-ab=['\"]([^'\"]+)['\"]", exp["selector"])
             if m:
                 exp_ab_values.add(m.group(1))
+        # A hook the experiment templates register is not orphaned: the plan
+        # price line stays a hook after training_price_frame retired
+        # (2026-11-13), as tests/test_ab_testing.py allows.
+        sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
+        from experiment_templates import VALID_SELECTORS
+        exp_ab_values |= set(VALID_SELECTORS)
 
         for gen_name in ("generate_homepage.py", "generate_about.py"):
             gen_path = WORDPRESS_DIR / gen_name

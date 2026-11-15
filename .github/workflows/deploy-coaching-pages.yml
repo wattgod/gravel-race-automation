@@ -59,6 +59,9 @@ jobs:
           test -s ~/.ssh/known_hosts
       - name: Build coaching page
         run: python3 wordpress/generate_coaching.py
+      # Required before every Gravel God deploy (CLAUDE.md testing rules).
+      - name: Run pre-deploy quality gate
+        run: python3 scripts/preflight_quality.py
       - name: Push coaching page
         run: python3 scripts/push_wordpress.py --sync-coaching --purge-cache
       - name: Check the live page
@@ -131,7 +134,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-      - run: pip install -r requirements.txt
+      # deploy.py imports dotenv, which requirements.txt does not list.
+      - run: pip install -r requirements.txt python-dotenv
       - name: Configure SSH
         env:
           DEPLOY_KEY: ${{ secrets.XC_SSH_PRIVATE_KEY }}
@@ -159,3 +163,7 @@ jobs:
           want=$(python3 -c "import re;print(re.search(r'<h1>(.*?)</h1>',open('output/coaching/index.html').read()).group(1))")
           grep -qF "<h1>$want</h1>" live.html || { echo "live H1 does not match the build"; exit 1; }
           echo "live H1: $want"
+          # deploy.py exits 0 even when one of its two uploads fails, so check
+          # the intake form went up too: the live file must be the build.
+          curl -sf "https://xcskilabs.com/coaching/apply/?v=$GITHUB_RUN_ID" -o live-apply.html
+          cmp -s live-apply.html output/coaching/apply/index.html || { echo "live /coaching/apply/ does not match the build"; exit 1; }

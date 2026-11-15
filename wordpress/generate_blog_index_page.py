@@ -26,6 +26,10 @@ from cookie_consent import get_consent_banner_html
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output"
 INDEX_JSON = PROJECT_ROOT / "web" / "blog-index.json"
+# Retired articles (each returns 410). scripts/generate_blog_index.py already
+# drops them from blog-index.json; the server-rendered cards drop them again
+# so a stale index can never put a dead link back on /blog/.
+WITHDRAWN_JSON = PROJECT_ROOT / "web" / "withdrawn-articles.json"
 SITE_URL = "https://gravelgodcycling.com"
 
 TIER_COLORS = {1: "#59473c", 2: "#7d695d", 3: "#766a5e", 4: "#5e6868"}
@@ -67,6 +71,14 @@ def _render_card_ssr(entry):
     )
 
 
+def _load_withdrawn() -> list:
+    """Slugs retired on purpose. Raises on a missing or malformed file."""
+    data = json.loads(WITHDRAWN_JSON.read_text())
+    if not isinstance(data, list) or not all(isinstance(x, str) for x in data):
+        raise ValueError(f"{WITHDRAWN_JSON} must be a JSON list of slugs")
+    return sorted(set(data))
+
+
 def generate_blog_index_page(output_dir=None):
     """Generate the blog index HTML page."""
     out_dir = output_dir or OUTPUT_DIR
@@ -74,11 +86,15 @@ def generate_blog_index_page(output_dir=None):
     today_str = today.strftime("%B %d, %Y")
 
     # Load blog-index.json for SSR (server-side rendered cards)
+    # Withdrawn list is read outside the try: a bad file must stop the build,
+    # not render /blog/ with no cards.
+    withdrawn = _load_withdrawn()
     ssr_cards_html = ""
     ssr_count = 0
     if INDEX_JSON.exists():
         try:
             entries = json.loads(INDEX_JSON.read_text())
+            entries = [e for e in entries if e.get("slug") not in withdrawn]
             ssr_count = len(entries)
             ssr_cards_html = "\n".join(_render_card_ssr(e) for e in entries)
         except (json.JSONDecodeError, KeyError):
@@ -96,6 +112,9 @@ def generate_blog_index_page(output_dir=None):
             "url": SITE_URL,
         },
     }, separators=(",", ":"))
+
+    # Slugs are [a-z0-9-]; escape "<" anyway so nothing can close the script.
+    withdrawn_js = json.dumps(withdrawn).replace("<", "\\u003c")
 
     race_count = catalog_race_count()
     page_html = f"""<!DOCTYPE html>
@@ -360,6 +379,7 @@ def generate_blog_index_page(output_dir=None):
     var TIER_COLORS = {{1:'#59473c',2:'#7d695d',3:'#766a5e',4:'#5e6868'}};
     var CAT_LABELS = {{preview:'Race Preview',roundup:'Season Roundup',recap:'Race Recap'}};
     var blogData = [];
+    var WITHDRAWN = {withdrawn_js};
     var currentCategory = 'all';
     var currentTier = 0;
     var currentSort = 'date';
@@ -368,7 +388,9 @@ def generate_blog_index_page(output_dir=None):
       fetch('/blog/blog-index.json')
         .then(function(r) {{ return r.json(); }})
         .then(function(data) {{
-          blogData = data;
+          blogData = (Array.isArray(data) ? data : []).filter(function(e) {{
+            return !(e && WITHDRAWN.indexOf(e.slug) !== -1);
+          }});
           readUrlParams();
           render();
         }})

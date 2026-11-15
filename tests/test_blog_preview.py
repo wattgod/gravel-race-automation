@@ -367,6 +367,80 @@ def test_blog_index_page_responsive(tmp_path):
     assert "@media" in content
 
 
+def test_blog_index_page_omits_withdrawn_articles(tmp_path, monkeypatch):
+    """A withdrawn article (410 live) never gets a card, even from a stale index.
+
+    Audit 2026-11-14: /blog/ still linked
+    /articles/your-training-app-doesnt-know-your-race-exists/ after it was
+    retired, because the deployed page had been rendered from an older index.
+    """
+    import generate_blog_index_page as gbip
+
+    slug = "your-training-app-doesnt-know-your-race-exists"
+    stale = tmp_path / "blog-index.json"
+    stale.write_text(json.dumps([
+        {"slug": slug, "title": "Retired", "category": "article",
+         "date": "2026-07-02", "url": f"/articles/{slug}/"},
+        {"slug": "kept", "title": "Kept", "category": "article",
+         "date": "2026-07-01", "url": "/articles/kept/"},
+    ]))
+    monkeypatch.setattr(gbip, "INDEX_JSON", stale)
+    content = gbip.generate_blog_index_page(tmp_path).read_text()
+    assert slug in json.loads(gbip.WITHDRAWN_JSON.read_text())
+    assert f'href="/articles/{slug}/"' not in content
+    assert 'href="/articles/kept/"' in content
+
+
+def test_blog_index_page_rejects_malformed_withdrawn_list(tmp_path, monkeypatch):
+    """A broken withdrawn list stops the build instead of emptying /blog/."""
+    import pytest
+    import generate_blog_index_page as gbip
+
+    bad = tmp_path / "withdrawn.json"
+    bad.write_text("[")
+    monkeypatch.setattr(gbip, "WITHDRAWN_JSON", bad)
+    with pytest.raises(json.JSONDecodeError):
+        gbip.generate_blog_index_page(tmp_path)
+    assert not (tmp_path / "blog-index.html").exists()
+
+
+def test_blog_index_client_render_drops_withdrawn_articles(tmp_path):
+    """The browser re-renders from /blog/blog-index.json; a stale copy there
+    must not bring a withdrawn card back after JavaScript runs."""
+    import re
+    import shutil
+    import subprocess
+    import pytest
+    import generate_blog_index_page as gbip
+
+    if shutil.which("node") is None:
+        pytest.skip("node not installed")
+    content = gbip.generate_blog_index_page(tmp_path).read_text()
+    m = re.search(r"var WITHDRAWN = (\[.*?\]);", content)
+    assert m, "client withdrawn list missing"
+    withdrawn = json.loads(m.group(1))
+    assert "your-training-app-doesnt-know-your-race-exists" in withdrawn
+    fn = re.search(r"blogData = \(Array\.isArray\(data\).*?\}\);", content, re.S)
+    assert fn, "client filter missing"
+    script = (
+        f"var WITHDRAWN = {m.group(1)};\n"
+        "var data = [{slug: 'your-training-app-doesnt-know-your-race-exists'}, {slug: 'kept'}];\n"
+        "var blogData;\n" + fn.group(0) + "\n"
+        "console.log(JSON.stringify(blogData.map(function(e){return e.slug;})));"
+    )
+    out = subprocess.run(["node", "-e", script], capture_output=True, text=True, timeout=30)
+    assert out.returncode == 0, out.stderr
+    assert json.loads(out.stdout) == ["kept"]
+
+
+def test_committed_blog_index_has_no_withdrawn_articles():
+    import generate_blog_index_page as gbip
+
+    withdrawn = set(json.loads(gbip.WITHDRAWN_JSON.read_text()))
+    slugs = {e.get("slug") for e in json.loads(gbip.INDEX_JSON.read_text())}
+    assert not withdrawn & slugs
+
+
 # ── generate_blog_sitemap ──
 
 

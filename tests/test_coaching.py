@@ -347,11 +347,19 @@ class TestTiers:
         assert "Any waiver is offered privately, case by case." in tiers
         assert "No cancellation fee." in tiers
 
-    def test_phone_tabs_default_mid(self):
+    def test_phone_tabs_default_mid(self, coaching_js):
         tiers = build_tiers()
-        assert 'data-show="mid"' in tiers
         assert 'data-tab="mid" aria-selected="true"' in tiers
         assert tiers.count('role="tab"') == 3
+        assert "show('mid');" in coaching_js
+
+    def test_no_js_phone_shows_every_level(self, coaching_css):
+        """Devin #613: without JS no level may be hidden on a phone. The
+        markup has no data-show and the tabs render hidden; JS adds both."""
+        tiers = build_tiers()
+        assert "data-show=" not in tiers
+        assert 'role="tablist" aria-label="Levels" hidden>' in tiers
+        assert ".gg-coach-tabs:not([hidden]) { display: grid;" in coaching_css
 
     def test_no_month_language(self, coaching_html):
         visible = _visible_text(coaching_html).lower()

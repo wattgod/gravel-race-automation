@@ -160,6 +160,7 @@ jobs:
           python3 wordpress/generate_coaching_apply.py
           test -s output/coaching/index.html
           test -s output/coaching/apply/index.html
+          test -s output/coaching/img/matti-pizza-xc.webp
       - name: Push coaching page
         run: python3 scripts/deploy.py --sync-coaching --purge-cache
       - name: Check the live page
@@ -173,3 +174,9 @@ jobs:
           # the intake form went up too: the live file must be the build.
           curl -sf "https://xcskilabs.com/coaching/apply/?v=$GITHUB_RUN_ID" -o live-apply.html
           cmp -s live-apply.html output/coaching/apply/index.html || { echo "live /coaching/apply/ does not match the build"; exit 1; }
+          for f in output/coaching/img/*.webp; do
+            name=$(basename "$f")
+            curl -sf "https://xcskilabs.com/coaching/img/$name?v=$GITHUB_RUN_ID" -o "live-$name"
+            cmp -s "live-$name" "$f" || { echo "live /coaching/img/$name does not match the build"; exit 1; }
+            echo "live image ok: $name"
+          done

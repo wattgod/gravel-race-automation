@@ -80,8 +80,13 @@ TIER_BLURBS = {
     "max": "I read every file the day it lands. For a season built around the one race you care about most.",
 }
 
-# The ID card under my photo. Every row is a public fact (about page, RGG
-# race report). Matti asked for the bio line verbatim and a self-deprecating
+# The ID card under my photo. Every row is a public fact, already on the site:
+# Day job, Road, Team: wordpress/generate_about.py (bio + "only 2 promotions
+# tho", "CAT 5 handling skills", "until it folded", third kid). Gravel: the
+# about page race list and the RGG race report ("I'd won in '21 and '22",
+# wordpress/posts/i-didnt-screw-up-red-granite-grinder-and-neither-do-you-2/).
+# Matti's first-person bio, so no inline [n] markers (the citation rule is for
+# race facts and ratings). Matti asked for the bio line verbatim and a self-deprecating
 # resume that says very few have gotten farther on less talent.
 ID_BIO = "I&#39;m Matti Rowe. Peddler of bikes and hot takes, and really fast clients."
 ID_ROWS = (
@@ -383,10 +388,10 @@ def build_tiers() -> str:
     <div class="gg-coach-inner">
       {_sec_head("05", "Levels &amp; prices", "Pick how closely I watch.", "Every level is billed every 4 weeks and includes TrainingPeaks Premium. " + PICKER_INTRO)}
       {build_fit_check()}
-      <div class="gg-coach-tabs" role="tablist" aria-label="Levels">
+      <div class="gg-coach-tabs" role="tablist" aria-label="Levels" hidden>
         {tabs}
       </div>
-      <table class="gg-coach-ledger" id="gg-coach-ledger" data-show="mid">
+      <table class="gg-coach-ledger" id="gg-coach-ledger">
         <colgroup><col class="gg-coach-c0"><col><col><col></colgroup>
         <thead>
           <tr>
@@ -644,7 +649,7 @@ def build_coaching_css() -> str:
 .gg-coach-picker input:checked + span { color: var(--gg-color-warm-paper); font-weight: var(--gg-font-weight-bold); }
 .gg-coach-picker input:focus-visible { outline: var(--gg-border-width-subtle) solid var(--gg-color-light-teal); outline-offset: 2px; }
 .gg-coach-picker-out { font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); letter-spacing: var(--gg-letter-spacing-wide); text-transform: uppercase; color: var(--gg-color-light-gold); margin: 0 0 var(--gg-spacing-xl); min-height: 1.5em; }
-.gg-coach-tabs { display: none; }
+.gg-coach-tabs, .gg-coach-tabs[hidden] { display: none; }
 .gg-coach-ledger { width: 100%; border-collapse: collapse; background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); border: var(--gg-border-width-heavy) solid var(--gg-color-near-black); table-layout: fixed; font-family: var(--gg-font-editorial); }
 .gg-coach-ledger th, .gg-coach-ledger td { padding: var(--gg-spacing-sm) var(--gg-spacing-md); border-bottom: 1px solid var(--gg-color-tan); text-align: left; vertical-align: top; }
 .gg-coach-ledger col.gg-coach-c0 { width: 31%; }
@@ -772,7 +777,7 @@ def build_coaching_css() -> str:
   .gg-coach-cad .gg-coach-cad-note td::before { content: none; }
   .gg-coach-steps li { grid-template-columns: 44px 1fr; gap: var(--gg-spacing-2xs) var(--gg-spacing-sm); }
   .gg-coach-steps li::before { grid-row: span 2; font-size: var(--gg-font-size-xl); }
-  .gg-coach-tabs { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .gg-coach-tabs:not([hidden]) { display: grid; grid-template-columns: repeat(3, 1fr); }
   .gg-coach-tabs button { font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; font-weight: var(--gg-font-weight-bold); padding: var(--gg-spacing-sm) 0; background: var(--gg-color-primary-brown); color: var(--gg-color-tan); border: 0; border-bottom: var(--gg-border-width-heavy) solid var(--gg-color-near-black); cursor: pointer; }
   .gg-coach-tabs button[aria-selected="true"] { background: var(--gg-color-near-black); color: var(--gg-color-light-gold); }
   .gg-coach-ledger, .gg-coach-ledger tbody { display: block; border-top: 0; }
@@ -817,6 +822,11 @@ def build_coaching_js() -> str:
     tabs.forEach(function(b) { b.setAttribute('aria-selected', b.getAttribute('data-tab') === tier ? 'true' : 'false'); });
   }
   tabs.forEach(function(b) { b.addEventListener('click', function() { show(b.getAttribute('data-tab')); }); });
+  /* Tabs exist only with JS. Without it the phone ledger shows all three
+     levels stacked, so no price or apply link is ever out of reach. */
+  var tablist = document.querySelector('.gg-coach-tabs');
+  if (tablist) tablist.hidden = false;
+  show('mid');
 
   var form = document.getElementById('gg-coach-picker');
   var out = document.getElementById('gg-coach-picker-out');

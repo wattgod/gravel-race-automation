@@ -1,0 +1,36 @@
+{
+ "generated_from_eligibility": "2026-11-12",
+ "engine_sha256": "b57400ca2ae0fb8b339d1aeb608b16f20411f4f11d3fcdc8ade36e5e19dc06f7",
+ "races": {
+  "unbound-200": {
+   "status": "eligible",
+   "flags": []
+  },
+  "steamboat-gravel": {
+   "status": "eligible",
+   "flags": []
+  },
+  "barry-roubaix": {
+   "status": "held"
+  },
+  "mid-south": {
+   "status": "held"
+  },
+  "big-sugar": {
+   "status": "held"
+  },
+  "crusher-in-the-tushar": {
+   "status": "flagged",
+   "flags": [
+    {
+     "kind": "edition",
+     "text": "Ride with GPS route, last updated 2021; edition not confirmed"
+    },
+    {
+     "kind": "climbing",
+     "text": "climbing-heavy course: this estimate is less certain and may read slow"
+    }
+   ]
+  }
+ }
+}

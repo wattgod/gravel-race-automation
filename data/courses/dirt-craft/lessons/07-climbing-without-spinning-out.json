@@ -136,7 +136,7 @@
     },
     {
       "type": "prose",
-      "content": "### Gearing Check Calculator\n\nWill your gearing survive the steepest pitch on your target race? Enter your details below. If you select a race from the database, max gradient and surface type will auto-populate from 757 race profiles.\n\n**How it works:** Fatigued power = 65% FTP (simulating hour 4+ of a long race). Speed calculated from power = (mass x 9.81 x gradient x speed) + rolling resistance. Cadence derived from speed, gear ratio, and wheel circumference. Pass threshold: cadence >= 55 RPM. Warning zone: 55-65 RPM. Comfortable: 65+ RPM.\n\n_Interactive calculator coming soon — the numbers above are the method._"
+      "content": "### Gearing Check Calculator\n\nWill your gearing survive the steepest pitch on your target race? Enter your details below. If you select a race from the database, max gradient and surface type will auto-populate from {{race_count}} race profiles.\n\n**How it works:** Fatigued power = 65% FTP (simulating hour 4+ of a long race). Speed calculated from power = (mass x 9.81 x gradient x speed) + rolling resistance. Cadence derived from speed, gear ratio, and wheel circumference. Pass threshold: cadence >= 55 RPM. Warning zone: 55-65 RPM. Comfortable: 65+ RPM.\n\n_Interactive calculator coming soon — the numbers above are the method._"
     },
     {
       "type": "prose",

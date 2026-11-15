@@ -29,6 +29,16 @@ from brand_tokens import get_font_face_css, get_ga4_head_snippet, get_preload_hi
 from shared_footer import get_mega_footer_html, get_mega_footer_css
 from shared_header import get_site_header_html, get_site_header_css, get_site_header_js
 from cookie_consent import get_consent_banner_html
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
+from race_facts import catalog_race_count  # noqa: E402
+
+# Course copy writes {{race_count}} where it names how many races the
+# database holds; the build fills it from race-data/, never a literal.
+RACE_COUNT_TOKEN = "{{race_count}}"
+
+
+def _fill_race_count(text: str) -> str:
+    return text.replace(RACE_COUNT_TOKEN, str(catalog_race_count()))
 
 SITE_BASE_URL = "https://gravelgodcycling.com"
 WORKER_URL = "https://course-access.gravelgodcoaching.workers.dev"
@@ -56,7 +66,7 @@ def load_course(course_dir: Path) -> dict:
         print(f"  SKIP: {course_dir.name} — no course.json")
         return None
 
-    course = json.loads(course_json.read_text(encoding="utf-8"))
+    course = json.loads(_fill_race_count(course_json.read_text(encoding="utf-8")))
 
     if course.get("status") != "active":
         print(f"  SKIP: {course['id']} — status={course.get('status', 'missing')}")
@@ -71,7 +81,7 @@ def load_course(course_dir: Path) -> dict:
                 print(f"  WARNING: Lesson file not found: {lesson_path}")
                 lesson["blocks"] = []
                 continue
-            lesson_data = json.loads(lesson_path.read_text(encoding="utf-8"))
+            lesson_data = json.loads(_fill_race_count(lesson_path.read_text(encoding="utf-8")))
             lesson["blocks"] = lesson_data.get("blocks", [])
             lesson["title"] = lesson_data.get("title", lesson["title"])
             lesson["est_minutes"] = estimate_lesson_minutes(lesson)
@@ -2071,7 +2081,7 @@ document.querySelectorAll('a[href^="https://buy.stripe.com/"]').forEach(function
           window.location.href=FIRST_LESSON_URL;
         }}else{{
           btn.disabled=false;btn.textContent='ACCESS COURSE';
-          showError('No enrollment found for that email. Use the exact email from your checkout (or the one your coach set you up with) \\u2014 or email gravelgodcoaching@gmail.com and we\\u2019ll sort it out.');
+          showError('No enrollment found for that email. Use the exact email from your checkout (or the one I set you up with) \\u2014 or email gravelgodcoaching@gmail.com and I\\u2019ll sort it out.');
         }}
       }})
       .catch(function(){{
@@ -2277,7 +2287,7 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
   <div class="gg-course-signin" id="gg-course-signin">
     <div class="gg-course-gate-badge">ALREADY ENROLLED?</div>
     <h2>Sign in to your course</h2>
-    <p>Enter the email you enrolled with &mdash; the one from your Stripe receipt, or the one your coach set you up with. No credit card, no password.</p>
+    <p>Enter the email you enrolled with &mdash; the one from your Stripe receipt, or the one I set you up with. No credit card, no password.</p>
     <form class="gg-course-gate-form" id="gg-course-signin-form" autocomplete="off">
       <input type="hidden" name="website" value="">
       <input type="email" name="email" required placeholder="your@email.com" aria-label="Email address">

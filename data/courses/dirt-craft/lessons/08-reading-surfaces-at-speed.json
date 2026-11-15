@@ -57,7 +57,7 @@
     },
     {
       "type": "prose",
-      "content": "### Tire Pressure Window Calculator\n\nGet a race-specific tire pressure recommendation that accounts for surface mix, altitude, and weather. Select a race from 757 profiles to auto-populate course data, or enter manually.\n\n**How it works:** Base pressure from rider weight and tire width using Silca's formula (adjusted for gravel). Front/rear split: front runs 2-3 PSI lower than rear for gravel (more contact patch where steering happens). Wet adjustment: -2 to -4 PSI depending on surface. Altitude adjustment: -1 PSI per 3,000 ft above sea level (atmospheric pressure reduction inflates tires). Tubeless insert: floor drops 3-5 PSI below standard tubeless. Tubed: floor 5+ PSI higher than tubeless due to pinch flat risk.\n\n_Interactive calculator coming soon — the numbers above are the method._"
+      "content": "### Tire Pressure Window Calculator\n\nGet a race-specific tire pressure recommendation that accounts for surface mix, altitude, and weather. Select a race from {{race_count}} profiles to auto-populate course data, or enter manually.\n\n**How it works:** Base pressure from rider weight and tire width using Silca's formula (adjusted for gravel). Front/rear split: front runs 2-3 PSI lower than rear for gravel (more contact patch where steering happens). Wet adjustment: -2 to -4 PSI depending on surface. Altitude adjustment: -1 PSI per 3,000 ft above sea level (atmospheric pressure reduction inflates tires). Tubeless insert: floor drops 3-5 PSI below standard tubeless. Tubed: floor 5+ PSI higher than tubeless due to pinch flat risk.\n\n_Interactive calculator coming soon — the numbers above are the method._"
     },
     {
       "type": "callout",

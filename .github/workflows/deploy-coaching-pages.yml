@@ -1,0 +1,161 @@
+name: Deploy Coaching Pages
+
+# Manual button: rebuilds /coaching/ for one brand (or all three) from that
+# brand's main branch and pushes it with the brand's own deploy script.
+# "Publish Site" never shipped the coaching page (no --sync-coaching), and
+# Roadie Labs and XC Ski Labs had no CI deploy at all, so a merged coaching
+# change sat unpublished until someone ran it from a laptop .env.
+#
+# Secrets (already in this repo for aeo-weekly.yml):
+#   SSH_HOST/SSH_USER/SSH_PORT/SSH_PRIVATE_KEY           gravelgodcycling.com
+#   RL_SSH_HOST/RL_SSH_USER/RL_SSH_PORT/RL_SSH_PRIVATE_KEY roadielabs.com
+#   XC_SSH_HOST/XC_SSH_USER/XC_SSH_PORT/XC_SSH_PRIVATE_KEY xcskilabs.com
+#   GH_PAT  read access to wattgod/road-race-automation and wattgod/xc-ski-labs
+
+on:
+  workflow_dispatch:
+    inputs:
+      brand:
+        description: Which coaching page to deploy
+        type: choice
+        options: [all, gravelgod, roadie, xcski]
+        default: all
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-coaching-pages
+  cancel-in-progress: false
+
+jobs:
+  gravelgod:
+    if: inputs.brand == 'all' || inputs.brand == 'gravelgod'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+    steps:
+      - name: Only deploy from main
+        run: test "$GITHUB_REF" = refs/heads/main
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Configure SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOY_KEY"; test -n "$SSH_HOST"; test -n "$SSH_USER"; test -n "$SSH_PORT"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/siteground_key
+          chmod 600 ~/.ssh/siteground_key
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          test -s ~/.ssh/known_hosts
+      - name: Build coaching page
+        run: python3 wordpress/generate_coaching.py
+      - name: Push coaching page
+        run: python3 scripts/push_wordpress.py --sync-coaching --purge-cache
+      - name: Check the live page
+        run: |
+          set -euo pipefail
+          curl -sf "https://gravelgodcycling.com/coaching/?v=$GITHUB_RUN_ID" -o live.html
+          want=$(python3 -c "import re;print(re.search(r'<h1>(.*?)</h1>',open('wordpress/output/coaching.html').read()).group(1))")
+          grep -qF "<h1>$want</h1>" live.html || { echo "live H1 does not match the build"; exit 1; }
+          echo "live H1: $want"
+
+  roadie:
+    if: inputs.brand == 'all' || inputs.brand == 'roadie'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SSH_HOST: ${{ secrets.RL_SSH_HOST }}
+      SSH_USER: ${{ secrets.RL_SSH_USER }}
+      SSH_PORT: ${{ secrets.RL_SSH_PORT }}
+    steps:
+      - name: Only deploy from main
+        run: test "$GITHUB_REF" = refs/heads/main
+      - uses: actions/checkout@v4
+        with:
+          repository: wattgod/road-race-automation
+          ref: main
+          token: ${{ secrets.GH_PAT }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r requirements.txt
+      - name: Configure SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.RL_SSH_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOY_KEY"; test -n "$SSH_HOST"; test -n "$SSH_USER"; test -n "$SSH_PORT"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/roadlabs_key
+          chmod 600 ~/.ssh/roadlabs_key
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          test -s ~/.ssh/known_hosts
+      - name: Build coaching page
+        run: python3 wordpress/generate_coaching.py
+      - name: Push coaching page
+        run: python3 scripts/push_wordpress.py --sync-coaching --purge-cache
+      - name: Check the live page
+        run: |
+          set -euo pipefail
+          curl -sf "https://roadielabs.com/coaching/?v=$GITHUB_RUN_ID" -o live.html
+          want=$(python3 -c "import re;print(re.search(r'<h1>(.*?)</h1>',open('wordpress/output/coaching.html').read()).group(1))")
+          grep -qF "<h1>$want</h1>" live.html || { echo "live H1 does not match the build"; exit 1; }
+          echo "live H1: $want"
+
+  xcski:
+    if: inputs.brand == 'all' || inputs.brand == 'xcski'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GL_SSH_HOST: ${{ secrets.XC_SSH_HOST }}
+      GL_SSH_USER: ${{ secrets.XC_SSH_USER }}
+      GL_SSH_PORT: ${{ secrets.XC_SSH_PORT }}
+    steps:
+      - name: Only deploy from main
+        run: test "$GITHUB_REF" = refs/heads/main
+      - uses: actions/checkout@v4
+        with:
+          repository: wattgod/xc-ski-labs
+          ref: main
+          token: ${{ secrets.GH_PAT }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r requirements.txt
+      - name: Configure SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.XC_SSH_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOY_KEY"; test -n "$GL_SSH_HOST"; test -n "$GL_SSH_USER"; test -n "$GL_SSH_PORT"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/xcskilabs_key
+          chmod 600 ~/.ssh/xcskilabs_key
+          ssh-keyscan -p "$GL_SSH_PORT" "$GL_SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          test -s ~/.ssh/known_hosts
+      - name: Build coaching page and intake form
+        run: |
+          set -euo pipefail
+          python3 wordpress/generate_coaching.py
+          python3 wordpress/generate_coaching_apply.py
+          test -s output/coaching/index.html
+          test -s output/coaching/apply/index.html
+      - name: Push coaching page
+        run: python3 scripts/deploy.py --sync-coaching --purge-cache
+      - name: Check the live page
+        run: |
+          set -euo pipefail
+          curl -sf "https://xcskilabs.com/coaching/?v=$GITHUB_RUN_ID" -o live.html
+          want=$(python3 -c "import re;print(re.search(r'<h1>(.*?)</h1>',open('output/coaching/index.html').read()).group(1))")
+          grep -qF "<h1>$want</h1>" live.html || { echo "live H1 does not match the build"; exit 1; }
+          echo "live H1: $want"

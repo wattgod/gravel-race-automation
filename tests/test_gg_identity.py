@@ -42,3 +42,21 @@ def test_security_txt_ships_with_llms_sync():
     src = (ROOT / "scripts" / "push_wordpress.py").read_text()
     assert '(".well-known/security.txt", ".well-known/security.txt")' in src
     assert "mkdir -p {remote_base}/.well-known" in src
+
+
+def test_failed_security_txt_upload_fails_the_sync(monkeypatch, tmp_path):
+    import subprocess
+    import sys
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import push_wordpress as pw
+
+    monkeypatch.chdir(ROOT)
+    monkeypatch.setattr(pw, "get_ssh_credentials", lambda: ("h", "u", "22"))
+
+    def fake_run(cmd, *a, **kw):
+        if cmd[0] == "scp" and cmd[-1].endswith(".well-known/security.txt"):
+            raise subprocess.CalledProcessError(1, cmd, stderr="denied")
+        return subprocess.CompletedProcess(cmd, 0, "", "")
+
+    monkeypatch.setattr(pw.subprocess, "run", fake_run)
+    assert not pw.sync_llms_txt()

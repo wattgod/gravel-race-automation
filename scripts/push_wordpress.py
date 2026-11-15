@@ -5736,10 +5736,11 @@ def sync_llms_txt():
             print(f"✗ Error uploading {remote_filename}: {e}")
             failed_uploads.append(remote_filename)
 
-    required_uploads = {"llms.txt", "llms-full.txt", "llms-repo.txt"}
+    required_uploads = {"llms.txt", "llms-full.txt", "llms-repo.txt",
+                        ".well-known/security.txt"}
     required_failures = required_uploads.intersection(failed_uploads)
     if required_failures:
-        print("✗ Required llms uploads failed: "
+        print("✗ Required uploads failed: "
               + ", ".join(sorted(required_failures)))
         return False
 

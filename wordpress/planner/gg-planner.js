@@ -302,7 +302,8 @@
     if (R) { map.appendChild(pinSlow); map.appendChild(pinFast); }
     wrap.appendChild(map);
 
-    var PW = 600, PH = 170, T = geo.total_km;
+    // A narrower drawing on phones keeps labels readable and the slider tall enough to touch.
+    var PW = section.clientWidth && section.clientWidth < 560 ? 360 : 600, PH = 170, T = geo.total_km;
     var a0 = Math.min.apply(null, geo.alt), a1 = Math.max.apply(null, geo.alt);
     var px = function (km) { return 30 + km / T * (PW - 40); }, py = function (a) { return PH - 22 - (a - a0) / ((a1 - a0) || 1) * (PH - 44); };
     var prof = sv("svg", { viewBox: "0 0 " + PW + " " + PH, "class": "gg-planner-profile" });

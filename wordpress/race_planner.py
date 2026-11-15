@@ -407,6 +407,6 @@ def get_race_planner_css() -> str:
 {p}-info summary {{ cursor: pointer; font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); text-decoration: underline; }}
 {p}-sources {{ font-size: var(--gg-font-size-xs); padding-left: 1.2em; }}
 {p} :focus-visible {{ outline: 3px solid var(--gg-color-teal); outline-offset: 2px; }}
-@media (max-width: 640px) {{ {p} {{ padding: var(--gg-spacing-md); }} {p}-map {{ grid-template-columns: 1fr; }} }}
+@media (max-width: 640px) {{ {p} {{ padding: var(--gg-spacing-md); }} {p}-map {{ grid-template-columns: 1fr; }} {p}-map > svg:first-child {{ max-height: 340px; }} }}
 @media (max-width: 420px) {{ {p}-row {{ grid-template-columns: 1fr; }} }}
 '''

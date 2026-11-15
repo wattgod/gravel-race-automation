@@ -53,8 +53,8 @@ def coaching_card_html() -> str:
     from generate_coaching import TIERS
     return og_topo.pillar_card(
         pillar="coaching", key="coaching", kicker="COACHING",
-        title_html="You could be better than you think.", size=84, width=720,
-        line="A HUMAN IN YOUR CORNER", tag=("PER 4 WEEKS", TIERS[0][2], "from"))
+        title_html="Throw down.<br>Still get down.", size=84, width=720,
+        line="ONE-ON-ONE GRAVEL COACHING", tag=("PER 4 WEEKS", TIERS[0][2], "from"))
 
 
 def season_review_card_html(slug: str) -> str:

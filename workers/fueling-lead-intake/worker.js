@@ -3,12 +3,12 @@
  *
  * Multi-brand: serves gravelgodcycling.com (default), roadielabs.com, and
  * xcskilabs.com. The page sends `brand`; absent → gravelgod, except for
- * plan_intake (BRAND_REQUIRED), which must name a supported brand or gets a
- * 400. The gravelgod default for the other sources is a known follow-up. Brand is
+ * plan_intake and newsletter_subscribe (BRAND_REQUIRED), which must name a
+ * supported brand or get a 400. The gravelgod default for the other sources is a known follow-up. Brand is
  * tagged on the Mission Control payload and the notification email
  * subject/sender so road leads are distinguishable in the shared inbox.
  *
- * Handles 17 capture sources:
+ * Handles 18 capture sources:
  *   - exit_intent:        email only (race profile exit popup)
  *   - race_profile:       email + race context (prep kit CTA)
  *   - prep_kit_gate:      email + race context (content unlock)
@@ -24,6 +24,9 @@
  *   - race_watch:         email + race context (race watch/reminder capture)
  *   - gravel_tv_subscribe: legacy Gravel TV subscriber source (retained during migration)
  *   - gravel_weekly_subscribe: Gravel Weekly publication signup
+ *   - newsletter_subscribe: a brand's own newsletter signup (roadielabs.com homepage and
+ *                         footer). Brand-required: no gravelgod default, so a Roadie rider
+ *                         never lands on a Gravel God list.
  *   - fueling_calculator: email + weight + race + fueling data (detected by weight_lbs, no source field)
  *   - plan_intake:        a custom-plan questionnaire (xcskilabs.com/questionnaire/): goal_answers +
  *                         race context. A lead, but no automated email: Mission Control stores it,
@@ -50,7 +53,7 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe', 'goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief', 'plan_intake'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe', 'newsletter_subscribe', 'goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief', 'plan_intake'];
 
 // Sources whose questionnaire answers ride along as goal_answers.
 const ANSWER_SOURCES = ['goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief', 'plan_intake'];
@@ -293,7 +296,7 @@ const BRAND_LABELS = { gravelgod: 'Gravel God', roadielabs: 'Roadie Labs', xcski
 const SUPPORTED_BRANDS = Object.keys(BRAND_LABELS);
 // Sources that must name their brand (no gravelgod default). Mission Control
 // checks the same list (_BRAND_REQUIRED_SOURCES in routers/webhooks.py).
-const BRAND_REQUIRED = ['plan_intake'];
+const BRAND_REQUIRED = ['plan_intake', 'newsletter_subscribe'];
 const BRAND_SENDERS = {
   gravelgod: { email: 'leads@gravelgodcycling.com', name: 'Gravel God Fueling' },
   roadielabs: { email: 'leads@gravelgodcycling.com', name: 'Roadie Labs Fueling' },

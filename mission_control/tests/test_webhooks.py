@@ -475,3 +475,44 @@ class TestFriendRegisterEnrollment:
         # the two brands must never agree in Jul or Dec (disjoint calendars)
         if real_month in (11, 12, 1, 4, 5, 6, 7, 8, 9, 10):
             assert sd.get("offseason") != sd2.get("offseason")
+
+
+class TestNewsletterSubscribe:
+    """RL-16: a brand's own newsletter list. A Roadie sign-up enrolls in
+    road_welcome_v1 and nothing else; with no brand it is refused, never
+    filed as Gravel God."""
+
+    def _post(self, client, payload):
+        return client.post(
+            "/webhooks/subscriber", json=payload,
+            headers={"Authorization": "Bearer test-secret-123"},
+        )
+
+    def test_roadie_signup_enrolls_in_road_welcome_only(self, client, fake_db):
+        resp = self._post(client, {
+            "email": "roadie-news@example.com", "source": "newsletter_subscribe",
+            "brand": "roadielabs",
+        })
+        assert resp.status_code == 200
+        assert resp.json()["enrolled"] == ["road_welcome_v1"]
+        rows = [e for e in fake_db.store["gg_sequence_enrollments"]
+                if e["contact_email"] == "roadie-news@example.com"]
+        assert [r["sequence_id"] for r in rows] == ["road_welcome_v1"]
+
+    def test_routes_to_new_subscriber_explicitly(self):
+        import inspect
+        import mission_control.routers.webhooks as wh
+        src = inspect.getsource(wh.subscriber_webhook)
+        assert '"newsletter_subscribe": "new_subscriber"' in src
+        assert "newsletter_subscribe" in wh._BRAND_REQUIRED_SOURCES
+
+    @pytest.mark.parametrize("brand", [None, "", "roadgod", ["roadielabs"]])
+    def test_without_a_supported_brand_is_refused(self, client, fake_db, brand):
+        body = {"email": "no-brand-news@example.com", "source": "newsletter_subscribe"}
+        if brand is not None:
+            body["brand"] = brand
+        resp = self._post(client, body)
+        assert resp.status_code == 400
+        assert resp.json() == {"detail": "Unknown brand"}
+        assert not [e for e in fake_db.store.get("gg_sequence_enrollments", [])
+                    if e["contact_email"] == "no-brand-news@example.com"]

@@ -47,7 +47,9 @@ _SUPPORTED_BRANDS = ("gravelgod", "roadielabs", "xcskilabs")
 # [GG] alert). The worker checks the same list (BRAND_REQUIRED in
 # workers/fueling-lead-intake/worker.js). Every other source still turns a
 # missing or unknown brand into gravelgod; that default is a known follow-up.
-_BRAND_REQUIRED_SOURCES = ("plan_intake",)
+# newsletter_subscribe is a brand's own newsletter list (Roadie Labs first,
+# RL-16): a sign-up with no brand has no list to join, so it is refused too.
+_BRAND_REQUIRED_SOURCES = ("plan_intake", "newsletter_subscribe")
 # A pick'em entry's racing answer (workers/pickem-intake: "xl", "200",
 # "lottery", "no", ...). The worker sends race_slug only for a distance.
 _PICKEM_ANSWER_RE = re.compile(r"^[a-z0-9_]{1,24}$")
@@ -489,6 +491,10 @@ async def subscriber_webhook(
         # A pick'em opt-in is a lead: welcome, plus the countdown and debrief
         # when they said they're racing (race_slug). Nothing for plan buyers.
         "pickem": "new_subscriber",
+        # A brand newsletter sign-up (roadielabs.com homepage and footer,
+        # RL-16): that brand's welcome (road_welcome_v1 for roadielabs).
+        # Brand-required (_BRAND_REQUIRED_SOURCES), so it never lands on GG.
+        "newsletter_subscribe": "new_subscriber",
         "goal_2027": "goal_2027",
         # A coached athlete filing their season review is not a lead: the only
         # email they get is the receipt, and they never enter nurture.

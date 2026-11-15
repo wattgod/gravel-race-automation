@@ -125,6 +125,9 @@ jobs:
           python3 wordpress/generate_tire_pages.py
           python3 wordpress/generate_tire_vs_pages.py
           python3 scripts/generate_sitemap.py --blog
+          # Course landing and lesson pages (/course/). Their copy reads the
+          # live race count, so they go stale whenever race-data changes.
+          python3 wordpress/generate_courses.py
           python3 scripts/generate_meta_descriptions.py
 
       # Share images are nice to have: if the browser render fails, the run
@@ -175,7 +178,7 @@ jobs:
             --sync-redirects --sync-sitemap --sync-meta-descriptions \
             --sync-insights --sync-about --sync-tire-guides \
             --sync-series --sync-homepage --sync-index --sync-widget \
-            --sync-llms-txt --sync-rss --sync-embed --sync-ab \
+            --sync-llms-txt --sync-rss --sync-embed --sync-ab --sync-courses \
             $OG_FLAG --purge-cache
 
       - name: Check the live site

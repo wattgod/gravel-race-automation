@@ -17,36 +17,44 @@ for (const [slug, s] of Object.entries(status.races)) {
   const flags = (s.flags || []).map(f => f.kind);
   const opts = { visitorSetsEffort: flags.includes('visitor_sets_effort') };
   const t = Date.now();
-  const r = core.estimate(E, course, SAMPLE, opts);
-  const res = { ok: r.ok, ms: Date.now() - t };
+  // A course with no default effort: blank gives no time and asks for it; the
+  // sample rider then types one.
+  const rider = opts.visitorSetsEffort ? Object.assign({}, SAMPLE, { IF: 0.6 }) : SAMPLE;
+  if (opts.visitorSetsEffort) {
+    const blank = core.estimate(E, course, SAMPLE, opts);
+    var noIF = { ok: blank.ok, why: blank.why || null, miss: blank.miss || [], has_time: !!(blank.mid && blank.mid.total) };
+  }
+  const r = core.estimate(E, course, rider, opts);
+  const res = { ok: r.ok, ms: Date.now() - t, no_if: opts.visitorSetsEffort ? noIF : null };
   if (r.ok) {
     Object.assign(res, { IF: r.IF, level: r.level, mid_s: r.mid.total, fast_s: r.fast.total, slow_s: r.slow.total, span: r.span });
-    res.rows = core.improvements(E, r, SAMPLE, { fit: 1.05, pos: 0.2, stopsCut: 10 }, BRACKETS);
-    const ride = core.series(r, course, 600), pace = core.pacing(E, r, SAMPLE, course);
+    res.rows = core.improvements(E, r, rider, { fit: 1.05, pos: 0.2, stopsCut: 10 }, BRACKETS);
+    const ride = core.series(r, course, 600), pace = core.pacing(E, r, rider, course);
     const mono = k => ride[k].t.every((t, i) => i === 0 || t >= ride[k].t[i - 1]);
     res.ride = { n: ride.km.length, end_km: ride.km[ride.km.length - 1], mono: mono('mid') && mono('fast') && mono('slow'),
       mid_end: ride.mid.t[ride.mid.t.length - 1], fast_end: ride.fast.t[ride.fast.t.length - 1], slow_end: ride.slow.t[ride.slow.t.length - 1],
       finite: ['alt', 'grade', 'la', 'lo', 'temp', 'hw'].every(k => ride[k].every(Number.isFinite)) };
     res.pace = pace;
     // No size picked yet: those rows carry no number.
-    res.rows_unpicked = core.improvements(E, r, SAMPLE, { fit: null, pos: null, stopsCut: null }, BRACKETS);
+    res.rows_unpicked = core.improvements(E, r, rider, { fit: null, pos: null, stopsCut: null }, BRACKETS);
   } else Object.assign(res, { why: r.why, miss: r.miss });
   // A course with a gap in its data: no time, a reason (never read as zero).
   const broken = JSON.parse(JSON.stringify(course));
   broken.bins.cols.g[10] = null;
-  const bad = core.estimate(E, broken, SAMPLE, opts);
+  const bad = core.estimate(E, broken, rider, opts);
   res.broken = { ok: bad.ok, why: bad.why || null, has_time: !!(bad.mid && bad.mid.total) };
   // The engine's own solver failing (target power outside its bracket): no time, a reason.
   const D = { cols: Object.assign({}, course.bins.cols, { T: course.bins.cols.g.map(() => 15), ws: course.bins.cols.g.map(() => 0), wd: course.bins.cols.g.map(() => 0) }),
     crr: course.engine.crr, wf: course.engine.wf, cap: course.engine.cap, phi: course.engine.phi };
   const fail = core.runOnce(E, D, { np: -5, m: 85, cda: 0.332, cap: course.engine.cap, share: 0, heatKeep: 0 });
   res.solver_fail = { ok: fail.ok, why: fail.why || null, has_time: fail.total != null };
-  const noTime = (c) => { const x = core.estimate(E, c, SAMPLE, opts); return { ok: x.ok, why: x.why || null, has_time: !!(x.mid && x.mid.total) }; };
-  // Weather that stops two hours after the start: the ride is not covered.
+  const noTime = (c) => { const x = core.estimate(E, c, rider, opts); return { ok: x.ok, why: x.why || null, has_time: !!(x.mid && x.mid.total) }; };
+  // Weather that stops at the first hour after the start: even a short ride
+  // (under three hours) runs past the model's 90-minute reach, so it is not covered.
   const short = JSON.parse(JSON.stringify(course));
   for (const w of short.weather.editions[0].openmeteo) {
     const h = w.hourly, i = h.time.findIndex(t => Date.parse(t + 'Z') / 1000 - w.utc_offset_seconds >= Date.parse(short.weather.editions[0].start_iso) / 1000);
-    for (const k of Object.keys(h)) h[k] = h[k].slice(0, i + 2);
+    for (const k of Object.keys(h)) h[k] = h[k].slice(0, i + 1);
   }
   res.uncovered = noTime(short);
   // Weather with no hours at all.

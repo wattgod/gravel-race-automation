@@ -221,6 +221,11 @@ def _course_summary(slug: str) -> dict:
     }
 
 
+# The visitor_sets_effort flag, in the page's words: no default effort is
+# modelled for this course, so the visitor types the one they will ride.
+EFFORT_FLAG_NOTE = "no default effort for this course: type the effort you plan to ride"
+
+
 def _edition_line(summary: dict, flags: list[dict]) -> str:
     """'2025 route' or the flag text when the edition is not confirmed."""
     for flag in flags:
@@ -270,7 +275,8 @@ def planner_config(rd: dict, show_offer: bool) -> dict | None:
                           and not any(f["kind"] == "edition" for f in flags) else "route edition not confirmed"),
         "weather_line": _weather_line(summary),
         "distance_m": summary["distance_m"],
-        "notes": [f["text"] for f in flags if f["kind"] == "climbing"],
+        "notes": [f["text"] for f in flags if f["kind"] == "climbing"]
+        + ([EFFORT_FLAG_NOTE] if "visitor_sets_effort" in kinds else []),
         "visitor_sets_effort": "visitor_sets_effort" in kinds,
         "brackets": duration_brackets(),
         "bikes": [{"id": b["id"], "label": b["label"], "kg": b["kg"]} for b in gear["bikes"]],

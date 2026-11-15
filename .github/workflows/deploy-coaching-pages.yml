@@ -120,6 +120,12 @@ jobs:
           want=$(python3 -c "import re;print(re.search(r'<h1>(.*?)</h1>',open('wordpress/output/coaching.html').read()).group(1))")
           grep -qF "<h1>$want</h1>" live.html || { echo "live H1 does not match the build"; exit 1; }
           echo "live H1: $want"
+          for f in wordpress/output/coaching-img/*.webp; do
+            name=$(basename "$f")
+            curl -sf "https://roadielabs.com/coaching/img/$name?v=$GITHUB_RUN_ID" -o "live-$name"
+            cmp -s "live-$name" "$f" || { echo "live /coaching/img/$name does not match the build"; exit 1; }
+            echo "live image ok: $name"
+          done
 
   xcski:
     if: inputs.brand == 'all' || inputs.brand == 'xcski'

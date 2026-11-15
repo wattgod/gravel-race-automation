@@ -107,6 +107,14 @@ def test_replay_scrub_and_analytics(site):
         assert float(prof.get_attribute("aria-valuenow")) == float(prof.get_attribute("aria-valuemax"))
         assert prof.get_attribute("aria-valuetext") == readout.text_content()
 
+        # Other hosts are blocked here, so the map library cannot load: the
+        # card says so and draws no map (no outline stand-in).
+        note = page.locator(q(".gg-planner-mapnote"))
+        note.wait_for(state="visible", timeout=10_000)
+        assert "The map is not shown: the map library did not load." in note.text_content()
+        assert page.locator(q(".gg-planner-basemap")).is_hidden()
+        assert page.locator(q(".gg-planner-ride svg path.gg-planner-route")).count() == 0
+
         # Replay and scrubbing send no analytics: apart from the page's own
         # section-view events (fired when focus scrolls a section into view),
         # the only event is the one result.

@@ -27,7 +27,7 @@
   /* Sizes for the Fitness, Position and Quicker-stops rows. The rider picks
      each one; until then the row shows no number. */
   var picks = { fit: null, pos: null, stopsCut: null };
-  var worker = null, geo = null, ready = false, pending = null, runId = 0, shownOnce = false, opened = false;
+  var worker = null, geo = null, ready = false, pending = null, runId = 0, shownOnce = false, opened = false, scrollNext = false;
 
   /* ---------- small DOM helpers ---------- */
   function el(tag, attrs, kids) {
@@ -161,7 +161,7 @@
   /* An input problem withdraws any time on screen: an old result never
      stands in for the inputs now in the form. */
   function withdraw() {
-    stopAnim(); runId++; pending = null; lastResult = null;
+    stopAnim(); dropMap(); runId++; pending = null; lastResult = null; scrollNext = false;
     clear(out); out.hidden = true; out.removeAttribute("aria-busy");
   }
 
@@ -198,7 +198,7 @@
     "effort:span": "the effort range could not be worked out"
   };
   function fail(why) {
-    stopAnim(); lastResult = null; out.hidden = false; out.removeAttribute("aria-busy"); clear(out);
+    stopAnim(); dropMap(); lastResult = null; out.hidden = false; out.removeAttribute("aria-busy"); clear(out);
     out.appendChild(el("div", { cls: "gg-planner-card gg-planner-fail" }, [
       el("p", { cls: "gg-planner-eyebrow", text: "No estimate" }),
       el("p", { text: "No time is shown because " + (WHY[why] || why) + "." })
@@ -220,7 +220,7 @@
 
   /* ---------- result ---------- */
   function render(m) {
-    stopAnim();
+    stopAnim(); dropMap();
     out.hidden = false; out.removeAttribute("aria-busy"); clear(out);
     var stops = rider().stops;
     var lo = Math.min(m.fast, m.slow), hi = Math.max(m.fast, m.slow);
@@ -232,23 +232,16 @@
     head.appendChild(el("p", { text: stops != null
       ? "Riding time, plus your " + Math.round(stops) + " min stopped: finish " + hm(lo + stops * 60) + "–" + hm(hi + stops * 60) + "."
       : "Riding time only, plus your stops. Add your stopped minutes above to see a finish time." }));
-    head.appendChild(el("p", { cls: "gg-planner-fine", text: "Middle of the range: " + hm(m.mid) + " of riding at your effort. " + cfg.weather_line }));
     var span = m.span, ifTxt = function (x) { return x.toFixed(2); };
-    var spanTxt = "Range: if you ride a level easier or harder than " +
-      (m.IFsource === "set" ? "the effort you typed" : "your level's default effort") +
-      " (IF " + ifTxt(span.slow) + " to " + ifTxt(span.fast) + ", same effort curves)" +
-      (m.ftp.lo !== m.ftp.hi ? ", across your band's FTP (" + Math.round(m.ftp.lo) + "–" + Math.round(m.ftp.hi) + " W)" : "") +
-      ". It is not an accuracy figure.";
-    head.appendChild(el("p", { cls: "gg-planner-fine", text: spanTxt }));
+    var bandTxt = m.ftp.lo !== m.ftp.hi ? ", across your band's FTP (" + Math.round(m.ftp.lo) + "–" + Math.round(m.ftp.hi) + " W)" : "";
+    head.appendChild(el("p", { cls: "gg-planner-sum", text: "Effort IF " + ifTxt(m.IF) + ", " +
+      (m.IFsource === "set" ? "the effort you typed" : "the default for " + LEVEL_NAME[m.level] + " riders") +
+      ". Range: a level easier or harder, IF " + ifTxt(span.slow) + " to " + ifTxt(span.fast) + bandTxt + "." }));
     cfg.notes.forEach(function (n) { head.appendChild(el("p", { cls: "gg-planner-flag", text: n.charAt(0).toUpperCase() + n.slice(1) + "." })); });
-    var effort = "Effort: IF " + m.IF.toFixed(2) + ", normalized power " + Math.round(m.np) + " W on an FTP of " + Math.round(m.ftp.mid) + " W" +
-      (m.ftp.lo !== m.ftp.hi ? " (the middle of your band)" : "") + ". ";
-    effort += m.IFsource === "set" ? "The effort you typed." :
-      "The default for " + LEVEL_NAME[m.level] + " riders on a ride of " + hm(m.mid) + ", set from published race power and coaching judgement. Type your own in Effort (IF) to change it.";
-    head.appendChild(el("p", { cls: "gg-planner-fine", text: effort }));
     var edit = el("button", { type: "button", cls: "gg-planner-edit", text: "Change effort" });
     edit.addEventListener("click", function () { form.elements["if"].value = m.IF.toFixed(2); form.elements["if"].focus(); });
     head.appendChild(edit);
+    head.appendChild(howItWorks(m, span, ifTxt));
     out.appendChild(head);
 
     if (geo) out.appendChild(mapCard(m));
@@ -256,6 +249,35 @@
     out.appendChild(rowsCard(m));
     if (cfg.offer) out.appendChild(offerCard(m));
     out.appendChild(finePrint(m));
+    // After a click on the button, bring the time into view below the sticky
+    // site header (the cards carry scroll-margin-top for the header's height).
+    if (scrollNext) {
+      scrollNext = false;
+      var top = head.getBoundingClientRect().top, hh = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--gg-header-height"), 10) || 0;
+      if (top < hh || top > window.innerHeight * 0.6) head.scrollIntoView({ block: "start", behavior: reducedMotion() ? "auto" : "smooth" });
+    }
+  }
+
+  /* Everything that explains the numbers, closed by default. */
+  function howItWorks(m, span, ifTxt) {
+    var edYear = String(m.edition.date).slice(0, 4);
+    var det = el("details", { cls: "gg-planner-info gg-planner-how" }, [el("summary", { text: "How this works" })]);
+    var effort = "Effort: IF " + m.IF.toFixed(2) + ", normalized power " + Math.round(m.np) + " W on an FTP of " + Math.round(m.ftp.mid) + " W" +
+      (m.ftp.lo !== m.ftp.hi ? " (the middle of your band)" : "") + ". ";
+    effort += m.IFsource === "set" ? "The effort you typed." :
+      "The default for " + LEVEL_NAME[m.level] + " riders on a ride of " + hm(m.mid) + ", set from published race power and coaching judgement. Type your own in Effort (IF) to change it.";
+    [
+      "Middle of the range: " + hm(m.mid) + " of riding at your effort. " + cfg.weather_line,
+      "Range: if you ride a level easier or harder than " + (m.IFsource === "set" ? "the effort you typed" : "your level's default effort") +
+        " (IF " + ifTxt(span.slow) + " to " + ifTxt(span.fast) + ", same effort curves)" +
+        (m.ftp.lo !== m.ftp.hi ? ", across your band's FTP (" + Math.round(m.ftp.lo) + "–" + Math.round(m.ftp.hi) + " W)" : "") +
+        ". It is not an accuracy figure.",
+      effort,
+      "Map and profile: dots mark the middle of your range at the end of each riding hour. The filled pin is the fast end of your range and the open pin the slow end, at the same moment. Profile colour is planned power against your day's average, from easy (light teal) to hardest (dark brown); grey where the course has no riding data. Click the map or drag along the profile to move through the ride.",
+      "Wind and temperature in the line under the profile are the " + edYear + " race day's at that time, not a forecast. Route and elevation come from the race's public Ride with GPS route.",
+      "Base map: " + cfg.map.credit + ". The map library and map tiles load from other sites; nothing you type here is sent anywhere."
+    ].forEach(function (t) { det.appendChild(el("p", { cls: "gg-planner-fine", text: t })); });
+    return det;
   }
 
   /* ---------- your ride: map, profile, replay and scrub ----------
@@ -287,31 +309,92 @@
   function speedTxt(ms) { var kmh = Math.abs(ms) * 3.6; return units === "imp" ? Math.round(kmh / MI) + " mph" : Math.round(kmh) + " km/h"; }
   function rng(a, b, f) { var x = f(Math.min(a, b)), y = f(Math.max(a, b)); return x === y ? x : x + "–" + y; }
 
+  /* ---------- base map ----------
+     Leaflet and OpenStreetMap tiles, as on the race search page. Only the
+     library (pinned, with SRI) and the tiles load from other sites; nothing the
+     rider typed goes with them. If either fails, no map is drawn and the card
+     says so: there is no stand-in outline. */
+  var leafState = null, leafWait = [], leaf = null;
+  function loadLeaflet(cb) {
+    if (leafState === "ok" || leafState === "fail") { cb(leafState === "ok"); return; }
+    leafWait.push(cb);
+    if (leafState === "loading") return;
+    leafState = "loading";
+    var M = cfg.map;
+    var done = function (ok) { leafState = ok ? "ok" : "fail"; var w = leafWait; leafWait = []; w.forEach(function (f) { f(ok); }); };
+    document.head.appendChild(el("link", { rel: "stylesheet", href: M.css, integrity: M.css_sri, crossorigin: "anonymous" }));
+    var js = el("script", { src: M.js, integrity: M.js_sri, crossorigin: "anonymous" });
+    js.addEventListener("load", function () { done(!!(window.L && window.L.map)); });
+    js.addEventListener("error", function () { done(false); });
+    document.head.appendChild(js);
+  }
+  function dropMap() { if (leaf) { try { leaf.remove(); } catch (e) {} leaf = null; } }
+
   function mapCard(m) {
-    var R = m.ride, edYear = String(m.edition.date).slice(0, 4);
+    var R = m.ride;
     var card = el("div", { cls: "gg-planner-card gg-planner-ride" });
     var headRow = el("div", { cls: "gg-planner-ridehead" }, [el("h3", { text: "Your " + cfg.race })]);
     var play = null;
     if (R) { play = el("button", { type: "button", cls: "gg-planner-edit", "aria-pressed": "false", text: "Replay" }); headRow.appendChild(play); }
     card.appendChild(headRow);
-    var wrap = el("div", { cls: "gg-planner-map" });
-    var la0 = Math.min.apply(null, geo.la), la1 = Math.max.apply(null, geo.la), lo0 = Math.min.apply(null, geo.lo), lo1 = Math.max.apply(null, geo.lo);
-    var kx = Math.cos((la0 + la1) / 2 * Math.PI / 180), w = (lo1 - lo0) * kx || 1e-6, h = (la1 - la0) || 1e-6, S = 280 / Math.max(w, h);
-    var W = Math.max(40, w * S) + 20, H = Math.max(40, h * S) + 20;
-    var X = function (lo) { return 10 + (lo - lo0) * kx * S; }, Y = function (la) { return 10 + (la1 - la) * S; };
-    var map = sv("svg", { viewBox: "0 0 " + W.toFixed(0) + " " + H.toFixed(0), role: "img", "aria-label": "Course map with your position at each riding hour" });
-    var d = geo.la.map(function (la, i) { return (i ? "L" : "M") + X(geo.lo[i]).toFixed(1) + " " + Y(la).toFixed(1); }).join("");
-    map.appendChild(sv("path", { d: d, "class": "gg-planner-route" }));
-    m.hours.forEach(function (p) { map.appendChild(sv("circle", { cx: X(p.lo).toFixed(1), cy: Y(p.la).toFixed(1), r: 4, "class": "gg-planner-dot" })); });
-    var pinSlow = sv("circle", { r: 7, "class": "gg-planner-pin gg-planner-pin-slow" });
-    var pinFast = sv("circle", { r: 7, "class": "gg-planner-pin gg-planner-pin-fast" });
-    if (R) { map.appendChild(pinSlow); map.appendChild(pinFast); }
-    wrap.appendChild(map);
 
-    // A narrower drawing on phones keeps labels readable and the slider tall enough to touch.
-    var PW = section.clientWidth && section.clientWidth < 560 ? 360 : 600, PH = 170, T = geo.total_km;
+    var box = el("div", { cls: "gg-planner-basemap", role: "region", "aria-label": "Course map with your position at each riding hour" });
+    var mapNote = el("p", { cls: "gg-planner-fine gg-planner-mapnote" });
+    mapNote.hidden = true;
+    card.appendChild(box); card.appendChild(mapNote);
+    var pins = null, pinAt = null;
+    function placePins() {
+      if (!pins || !pinAt) return;
+      pins.fast.setLatLng([R.la[pinAt[0]], R.lo[pinAt[0]]]); pins.slow.setLatLng([R.la[pinAt[1]], R.lo[pinAt[1]]]);
+    }
+    function noMap(why) {
+      if (!box.isConnected) return;
+      dropMap(); pins = null; box.hidden = true; mapNote.hidden = false;
+      mapNote.textContent = "The map is not shown: " + why + "." + (R ? " The profile below still works." : "");
+    }
+    // After the card is on the page: Leaflet needs a sized container.
+    setTimeout(function () {
+      if (!box.isConnected) return;
+      loadLeaflet(function (ok) {
+        if (!box.isConnected) return;  // a newer result replaced this card
+        if (!ok) { noMap("the map library did not load"); return; }
+        var L = window.L, M = cfg.map;
+        dropMap();
+        // Whole zoom levels keep tiles seamless. On touch screens one finger
+        // scrolls the page, not the map; the zoom buttons still work.
+        var map = L.map(box, { scrollWheelZoom: false, dragging: !L.Browser.mobile, tap: false });
+        map.attributionControl.setPrefix(M.prefix);
+        leaf = map;
+        var tiles = L.tileLayer(M.tiles, { attribution: M.attribution, maxZoom: M.max_zoom }), gotTile = false;
+        tiles.on("tileload", function () { gotTile = true; });
+        tiles.on("load", function () { if (!gotTile) noMap("the map tiles did not load"); });
+        tiles.addTo(map);
+        var line = geo.la.map(function (la, i) { return [la, geo.lo[i]]; });
+        var route = L.polyline(line, { className: "gg-planner-route", weight: 4, opacity: 1, interactive: false }).addTo(map);
+        map.fitBounds(route.getBounds(), { padding: [24, 24] });
+        m.hours.forEach(function (p) { L.circleMarker([p.la, p.lo], { radius: 5, className: "gg-planner-dot", fillOpacity: 1, opacity: 1, interactive: false }).addTo(map); });
+        if (!R) return;
+        pins = {
+          slow: L.circleMarker(line[0], { radius: 8, className: "gg-planner-pin gg-planner-pin-slow", fillOpacity: 1, opacity: 1, interactive: false }).addTo(map),
+          fast: L.circleMarker(line[0], { radius: 8, className: "gg-planner-pin gg-planner-pin-fast", fillOpacity: 1, opacity: 1, interactive: false }).addTo(map)
+        };
+        placePins();
+        // A click on or near the route moves the replay there.
+        map.on("click", function (ev) {
+          var c = map.latLngToContainerPoint(ev.latlng), best = -1, bd = 40 * 40;
+          for (var j = 0; j < R.km.length; j++) {
+            var q = map.latLngToContainerPoint([R.la[j], R.lo[j]]), dx = q.x - c.x, dy = q.y - c.y, dd = dx * dx + dy * dy;
+            if (dd < bd) { bd = dd; best = j; }
+          }
+          if (best >= 0) scrubKm(R.km[best]);
+        });
+      });
+    }, 0);
+
+    // The profile is drawn at its on-screen width, full width under the map.
+    var PW = Math.round(Math.max(320, Math.min(1400, (section.clientWidth || 640) - 48))), PH = PW < 560 ? 170 : 150, T = geo.total_km;
     var a0 = Math.min.apply(null, geo.alt), a1 = Math.max.apply(null, geo.alt);
-    var px = function (km) { return 30 + km / T * (PW - 40); }, py = function (a) { return PH - 22 - (a - a0) / ((a1 - a0) || 1) * (PH - 44); };
+    var px = function (km) { return 54 + km / T * (PW - 64); }, py = function (a) { return PH - 22 - (a - a0) / ((a1 - a0) || 1) * (PH - 44); };
     var prof = sv("svg", { viewBox: "0 0 " + PW + " " + PH, "class": "gg-planner-profile" });
     var cursor = null, clipRect = null;
     if (R) {
@@ -350,8 +433,7 @@
     lbl(2, PH - 24, units === "imp" ? Math.round(a0 * 3.28084) + " ft" : Math.round(a0) + " m");
     lbl(PW - 4, PH - 6, dist(T), "end");
     if (R) { cursor = sv("line", { x1: px(0), x2: px(0), y1: 14, y2: PH - 22, "class": "gg-planner-cursor" }); prof.appendChild(cursor); }
-    wrap.appendChild(prof);
-    card.appendChild(wrap);
+    card.appendChild(prof);
 
     if (!R) {
       card.appendChild(el("p", { cls: "gg-planner-fine", text: "Dots: where the middle of your range is at the end of each riding hour. The replay is not shown: the model could not lay out your ride point by point." }));
@@ -361,15 +443,13 @@
     // screen-reader users get the same text through the slider's valuetext.
     var readout = el("p", { cls: "gg-planner-readout", "aria-live": "off" });
     card.appendChild(readout);
-    card.appendChild(el("p", { cls: "gg-planner-fine", text: "Dots: the middle of your range at the end of each riding hour. Filled pin: the fast end of your range; open pin: the slow end, at the same moment. Profile colour: planned power against your day's average, from easy (light teal) to hardest (dark brown); grey where the course has no riding data. Wind and temperature are the " + edYear + " race day's at that time, not a forecast. Route and elevation from the race's public Ride with GPS route." }));
 
-    var endT = R.slow.t[R.slow.t.length - 1];
+    var edYear = String(m.edition.date).slice(0, 4), endT = R.slow.t[R.slow.t.length - 1];
     function setMoment(sec, kmCursor) {
       var kc = kmCursor != null ? kmCursor : kmAt(R, R.mid, sec);
       var kf = kmAt(R, R.fast, sec), ks = kmAt(R, R.slow, sec);
-      var jf = idxAt(R.km, kf), js = idxAt(R.km, ks);
-      pinFast.setAttribute("cx", X(R.lo[jf]).toFixed(1)); pinFast.setAttribute("cy", Y(R.la[jf]).toFixed(1));
-      pinSlow.setAttribute("cx", X(R.lo[js]).toFixed(1)); pinSlow.setAttribute("cy", Y(R.la[js]).toFixed(1));
+      pinAt = [idxAt(R.km, kf), idxAt(R.km, ks)];
+      placePins();
       var x = px(kc).toFixed(1);
       cursor.setAttribute("x1", x); cursor.setAttribute("x2", x); clipRect.setAttribute("width", x);
       var j = idxAt(R.km, kc), tf = timeAt(R, R.fast, kc), ts = timeAt(R, R.slow, kc);
@@ -402,7 +482,7 @@
       };
       anim.raf = requestAnimationFrame(tick);
     });
-    function profKm(ev) { var r = prof.getBoundingClientRect(); var xv = (ev.clientX - r.left) / r.width * PW; return (xv - 30) / (PW - 40) * T; }
+    function profKm(ev) { var r = prof.getBoundingClientRect(); var xv = (ev.clientX - r.left) / r.width * PW; return (xv - 54) / (PW - 64) * T; }
     prof.addEventListener("pointerdown", function (ev) { try { prof.setPointerCapture(ev.pointerId); } catch (e) {} scrubKm(profKm(ev)); });
     prof.addEventListener("pointermove", function (ev) { if (ev.buttons) scrubKm(profKm(ev)); });
     prof.addEventListener("keydown", function (ev) {
@@ -411,14 +491,6 @@
       else if (ev.key === "Home") { ev.preventDefault(); scrubKm(0); }
       else if (ev.key === "End") { ev.preventDefault(); scrubKm(T); }
     });
-    function mapKm(ev) {
-      var r = map.getBoundingClientRect(), vb = map.viewBox.baseVal;
-      var x = (ev.clientX - r.left) / r.width * vb.width, y = (ev.clientY - r.top) / r.height * vb.height, best = 0, bd = Infinity;
-      for (var j = 0; j < R.km.length; j++) { var dx = X(R.lo[j]) - x, dy = Y(R.la[j]) - y, dd = dx * dx + dy * dy; if (dd < bd) { bd = dd; best = j; } }
-      return R.km[best];
-    }
-    map.addEventListener("pointerdown", function (ev) { try { map.setPointerCapture(ev.pointerId); } catch (e) {} scrubKm(mapKm(ev)); });
-    map.addEventListener("pointermove", function (ev) { if (ev.buttons) scrubKm(mapKm(ev)); });
 
     card.appendChild(paceNotes(m));
     return card;
@@ -633,7 +705,7 @@
       if (header) header.click();
     }
   });
-  form.addEventListener("submit", function (e) { e.preventDefault(); run(); });
+  form.addEventListener("submit", function (e) { e.preventDefault(); scrollNext = true; run(); });
   form.addEventListener("focusin", start, { once: true });
   var ownBike = section.querySelector(".gg-planner-ownbike");
   form.querySelectorAll('input[name="bike"]').forEach(function (b) {

@@ -490,3 +490,27 @@ def test_a_failed_solve_shows_no_time_and_says_why(solved, slug):
                               "why": "the past race-day weather does not cover your predicted time on course"}
     assert r["empty_weather"] == {"ok": False, "has_time": False, "why": "weather file has no hours or uneven columns"}
     assert r["no_crr"] == {"ok": False, "has_time": False, "why": "the model settings for this course are incomplete"}
+
+
+def test_base_map_is_the_sites_leaflet_and_osm_tiles_with_no_stand_in():
+    """The Replay map is Leaflet (pinned, SRI) over OpenStreetMap tiles, as on the
+    race search page. If the map cannot load, the page says so; it never draws
+    a bare route outline in its place."""
+    cfg = config(page("unbound-200"))
+    m = cfg["map"]
+    assert m["js"] == "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" and m["js_sri"].startswith("sha256-")
+    assert m["css"] == "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" and m["css_sri"].startswith("sha256-")
+    assert m["tiles"] == "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+    assert "OpenStreetMap" in m["attribution"] and "OpenStreetMap" in m["credit"]
+    assert not re.search(r"(token|key|access)=", m["tiles"]), "no keyed tile source"
+    js = (PLANNER_JS / "gg-planner.js").read_text()
+    assert "https://" not in js, "every third-party URL comes from the config"
+    assert "integrity: M.js_sri" in js and "integrity: M.css_sri" in js and 'crossorigin: "anonymous"' in js
+    assert "The map is not shown: " in js and "the map library did not load" in js and "the map tiles did not load" in js
+    # No SVG outline map: the route is only ever drawn on the base map.
+    assert "L.polyline(" in js and 'sv("path", { d: d, "class": "gg-planner-route" })' not in js
+    assert "viewBox: \"0 0 \" + W" not in js
+    # Panel layout: map, then profile, then one readout line, then the explanations closed.
+    assert js.index('cls: "gg-planner-basemap"') < js.index('"class": "gg-planner-profile"') < js.index('cls: "gg-planner-readout"')
+    assert 'el("summary", { text: "How this works" })' in js
+

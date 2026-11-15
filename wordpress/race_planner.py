@@ -50,6 +50,22 @@ PLAN_URL = f"{SITE_BASE_URL}/training-plans/start/"
 EVENT_RESULT = "planner_result_shown"
 EVENT_CTA = "plan_cta_click"
 
+# Base map for the planner's Replay panel: the same library and tile server the
+# race search page already uses (web/gravel-race-search.js). Leaflet is pinned
+# to 1.9.4 with the SRI hashes Leaflet publishes for that release. Only the
+# library and the tiles load from other sites; no key or token is involved.
+PLANNER_MAP = {
+    "js": "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+    "js_sri": "sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=",
+    "css": "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css",
+    "css_sri": "sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=",
+    "tiles": "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    "attribution": '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    "prefix": '<a href="https://leafletjs.com">Leaflet</a>',
+    "credit": "© OpenStreetMap contributors, OpenStreetMap's standard map",
+    "max_zoom": 18,
+}
+
 _SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 # Research the planner's notes rest on. They are appended to the race page's
@@ -292,6 +308,7 @@ def planner_config(rd: dict, show_offer: bool) -> dict | None:
             "includes": list(RACE_PLAN["inclusions"]),
         } if show_offer else None),
         "events": {"result": EVENT_RESULT, "cta": EVENT_CTA},
+        "map": PLANNER_MAP,
         "cite": planner_source_numbers(rd),
     }
 
@@ -426,14 +443,21 @@ def get_race_planner_css() -> str:
 {p}-units button[aria-pressed="true"] {{ background: var(--gg-color-dark-brown); color: var(--gg-color-warm-paper); }}
 {p}-need {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); margin: 0; }}
 {p}-out {{ display: grid; gap: var(--gg-spacing-md); margin-top: var(--gg-spacing-md); }}
-{p}-card {{ border: 3px solid var(--gg-color-dark-brown); background: var(--gg-color-white); padding: var(--gg-spacing-md); display: grid; gap: var(--gg-spacing-xs); min-width: 0; }}
+{p}-card {{ border: 3px solid var(--gg-color-dark-brown); background: var(--gg-color-white); padding: var(--gg-spacing-md); display: grid; gap: var(--gg-spacing-xs); min-width: 0; scroll-margin-top: calc(var(--gg-header-height, 80px) + var(--gg-spacing-sm)); }}
 {p}-big {{ font-family: var(--gg-font-editorial); font-size: clamp(2.2rem, 9vw, 3.4rem); font-weight: 700; line-height: 1; color: var(--gg-color-gold); font-variant-numeric: tabular-nums; }}
 {p}-fail {{ border-left: 6px solid var(--gg-color-gold); }}
 {p}-kv {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: var(--gg-spacing-xs); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); text-transform: uppercase; letter-spacing: .05em; }}
 {p}-kv b {{ display: block; font-size: var(--gg-font-size-base); letter-spacing: 0; text-transform: none; }}
-{p}-map {{ display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--gg-spacing-sm); align-items: end; }}
-{p}-map svg {{ width: 100%; height: auto; display: block; }}
-{p}-route {{ fill: none; stroke: var(--gg-color-teal); stroke-width: 3; stroke-linejoin: round; }}
+{p}-sum {{ margin: 0; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-sm); line-height: 1.5; }}
+{p}-basemap {{ position: relative; z-index: 0; isolation: isolate; width: 100%; aspect-ratio: 16 / 9; border: 2px solid var(--gg-color-dark-brown); background: var(--gg-color-sand); }}
+{p}-basemap[hidden], {p}-mapnote[hidden] {{ display: none; }}
+{p}-basemap.leaflet-container {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); }}
+{p}-basemap .leaflet-bar, {p}-basemap .leaflet-bar a {{ border-radius: 0; box-shadow: none; }}
+{p}-basemap .leaflet-bar {{ border: 2px solid var(--gg-color-dark-brown); }}
+{p}-basemap .leaflet-bar a {{ color: var(--gg-color-dark-brown); }}
+{p}-basemap .leaflet-control-attribution {{ font-size: 11px; }}
+{p}-profile {{ width: 100%; height: auto; display: block; }}
+{p}-route {{ fill: none; stroke: var(--gg-color-teal); stroke-width: 4; stroke-linejoin: round; }}
 {p}-prof {{ fill: var(--gg-color-tan); stroke: var(--gg-color-dark-brown); stroke-width: 1; }}
 {p}-dot {{ fill: var(--gg-color-gold); stroke: var(--gg-color-dark-brown); stroke-width: 2; }}
 {p}-tick {{ stroke: var(--gg-color-dark-brown); stroke-width: 1; stroke-dasharray: 2 3; }}
@@ -470,6 +494,6 @@ def get_race_planner_css() -> str:
 {p}-cite {{ color: var(--gg-color-dark-teal); text-decoration: none; font-family: var(--gg-font-data); }}
 {p}-cite:hover {{ text-decoration: underline; }}
 {p} :focus-visible {{ outline: 3px solid var(--gg-color-teal); outline-offset: 2px; }}
-@media (max-width: 640px) {{ {p} {{ padding: var(--gg-spacing-md); }} {p}-map {{ grid-template-columns: 1fr; }} {p}-map > svg:first-child {{ max-height: 340px; }} }}
+@media (max-width: 640px) {{ {p} {{ padding: var(--gg-spacing-md); }} {p}-basemap {{ aspect-ratio: 4 / 5; }} }}
 @media (max-width: 420px) {{ {p}-row {{ grid-template-columns: 1fr; }} }}
 '''

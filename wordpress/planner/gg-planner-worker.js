@@ -70,7 +70,7 @@ self.onmessage = function (ev) {
       level: est.level, IF: est.IF, IFsource: est.IFsource, defaultIF: est.defaultIF,
       ftp: { mid: est.ftp.mid, lo: est.ftp.lo, hi: est.ftp.hi },
       span: est.span, mid: est.mid.total, fast: est.fast.total, slow: est.slow.total,
-      np: est.IF * est.ftp.mid, ap: est.mid.ap,
+      np: est.IF * est.ftp.mid, ap: est.mid.ap, apRide: est.mid.apRide,
       edition: { date: est.edition.date, start_local: est.edition.start_local },
       hours: hoursOf(est), rows: rows, ride: ride, pace: pace
     });

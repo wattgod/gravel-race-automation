@@ -159,6 +159,10 @@ def trim_course(bundle: dict) -> dict:
     }
 
 
+# Shown on the page; the brand is not a narrator ("Gravel God's ...").
+GG25_LABEL = "Race-guide gel unit"
+
+
 def public_gear(src: dict) -> dict:
     """Maker-listed bike and bottle weights only, each with its maker page."""
     bikes = []
@@ -176,7 +180,7 @@ def public_gear(src: dict) -> dict:
              for q in src.get("packs", []) if q.get("with_bladder") and q.get("litres", 0) > 0 and q.get("g", 0) > 0 and q.get("url")]
     # Gels: carbs per unit from the maker's page; Gravel God's own 25 g rule is
     # the race guides' unit and carries no maker page.
-    gels = [{"id": x["id"], "model": x["model"], "g": x["g"], "url": x.get("url")}
+    gels = [{"id": x["id"], "model": GG25_LABEL if x["id"] == "gg25" else x["model"], "g": x["g"], "url": x.get("url")}
             for x in src.get("gels", []) if x.get("g", 0) > 0 and x.get("id") not in HELD_GEL_SOURCES
             and (x.get("url") or x.get("id") == "gg25")]
     if not bikes or not any(b["ml"] == 750 for b in bottles):

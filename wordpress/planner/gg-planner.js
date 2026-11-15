@@ -24,8 +24,10 @@
     try { var s = localStorage.getItem("gg_planner_units"); if (s === "imp" || s === "met") return s; } catch (e) {}
     return (navigator.language || "").toLowerCase() === "en-us" ? "imp" : "met";
   })();
-  var picks = { fit: 1.05, pos: 0.20, stopsCut: 10 };
-  var worker = null, geo = null, ready = false, pending = null, runId = 0, lastSent = 0, shownOnce = false, opened = false;
+  /* Sizes for the Fitness, Position and Quicker-stops rows. The rider picks
+     each one; until then the row shows no number. */
+  var picks = { fit: null, pos: null, stopsCut: null };
+  var worker = null, geo = null, ready = false, pending = null, runId = 0, shownOnce = false, opened = false;
 
   /* ---------- small DOM helpers ---------- */
   function el(tag, attrs, kids) {
@@ -125,10 +127,11 @@
     if (typed(r.IF) && !(r.IF >= 0.40 && r.IF <= 1.05)) bad.push("effort (IF 0.40–1.05)");
     if (typed(r.stops) && !(r.stops >= 0 && r.stops <= 600)) bad.push("time stopped (0–600 min)");
     if (typed(r.carbs) && !(r.carbs >= 0 && r.carbs <= 200)) bad.push("carbs an hour (0–200 g)");
-    var bottles = num("bottles");
-    if (bottles != null && !(bottles >= 0 && bottles <= 4 && Math.round(bottles) === bottles)) bad.push("bottles (0–4)");
-    var bk = mass("bikekg"), tot = mass("geartot");
-    if (radio("bike") === "own" && bk != null && !(bk >= 5 && bk <= 25)) bad.push(units === "imp" ? "bike weight (11–55 lb)" : "bike weight (5–25 kg)");
+    var bottles = num("bottles"), bk = mass("bikekg"), tot = mass("geartot");
+    if (tot == null) {  // a typed total replaces the bike and water fields
+      if (bottles != null && !(bottles >= 0 && bottles <= 4 && Math.round(bottles) === bottles)) bad.push("bottles (0–4)");
+      if (radio("bike") === "own" && bk != null && !(bk >= 5 && bk <= 25)) bad.push(units === "imp" ? "bike weight (11–55 lb)" : "bike weight (5–25 kg)");
+    }
     if (tot != null && !(tot >= 5 && tot <= 45)) bad.push(units === "imp" ? "total for bike, water and gear (11–99 lb)" : "total for bike, water and gear (5–45 kg)");
     return bad;
   }
@@ -174,7 +177,7 @@
     if (!ready) { if (failInit) { fail(failInit); return; } pending = msg; return; }
     send(msg);
   }
-  function send(msg) { msg.id = ++runId; lastSent = Date.now(); worker.postMessage(msg); }
+  function send(msg) { msg.id = ++runId; worker.postMessage(msg); }
 
   function working() {
     out.hidden = false;
@@ -198,13 +201,17 @@
     stopAnim(); lastResult = null; out.hidden = false; out.removeAttribute("aria-busy"); clear(out);
     out.appendChild(el("div", { cls: "gg-planner-card gg-planner-fail" }, [
       el("p", { cls: "gg-planner-eyebrow", text: "No estimate" }),
-      el("p", { text: "No time is shown because " + (WHY[why] || why) + ". We show nothing rather than a guess." })
+      el("p", { text: "No time is shown because " + (WHY[why] || why) + "." })
     ]));
   }
 
-  /* ---------- analytics (manual interaction only; consent mode applies) ---------- */
+  /* ---------- analytics (manual interaction only; consent mode applies) ----------
+     planner_result_shown fires once per page view, on the first result. Later
+     recalculations (any input change, a size chip) do not fire it again, so
+     plan_cta_click / planner_result_shown reads as clicks per visitor who saw a time. */
   function announce(m) {
-    if (typeof gtag !== "function") return;
+    if (shownOnce || typeof gtag !== "function") return;
+    shownOnce = true;
     gtag("event", cfg.events.result, {
       race_slug: cfg.slug, level: m.level, effort_source: m.IFsource,
       power_input: form.elements.noftp.checked ? "band" : "ftp", planner_status: cfg.status
@@ -236,8 +243,8 @@
     cfg.notes.forEach(function (n) { head.appendChild(el("p", { cls: "gg-planner-flag", text: n.charAt(0).toUpperCase() + n.slice(1) + "." })); });
     var effort = "Effort: IF " + m.IF.toFixed(2) + ", normalized power " + Math.round(m.np) + " W on an FTP of " + Math.round(m.ftp.mid) + " W" +
       (m.ftp.lo !== m.ftp.hi ? " (the middle of your band)" : "") + ". ";
-    effort += m.IFsource === "set" ? "The effort you typed." + (m.defaultIF ? "" : "") :
-      "Gravel God's default for " + LEVEL_NAME[m.level] + " riders on a ride of " + hm(m.mid) + ", built from published race power and coaching judgement. Type your own in Effort (IF) to change it.";
+    effort += m.IFsource === "set" ? "The effort you typed." :
+      "The default for " + LEVEL_NAME[m.level] + " riders on a ride of " + hm(m.mid) + ", set from published race power and coaching judgement. Type your own in Effort (IF) to change it.";
     head.appendChild(el("p", { cls: "gg-planner-fine", text: effort }));
     var edit = el("button", { type: "button", cls: "gg-planner-edit", text: "Change effort" });
     edit.addEventListener("click", function () { form.elements["if"].value = m.IF.toFixed(2); form.elements["if"].focus(); });
@@ -301,7 +308,8 @@
     if (R) { map.appendChild(pinSlow); map.appendChild(pinFast); }
     wrap.appendChild(map);
 
-    var PW = 600, PH = 170, T = geo.total_km;
+    // A narrower drawing on phones keeps labels readable and the slider tall enough to touch.
+    var PW = section.clientWidth && section.clientWidth < 560 ? 360 : 600, PH = 170, T = geo.total_km;
     var a0 = Math.min.apply(null, geo.alt), a1 = Math.max.apply(null, geo.alt);
     var px = function (km) { return 30 + km / T * (PW - 40); }, py = function (a) { return PH - 22 - (a - a0) / ((a1 - a0) || 1) * (PH - 44); };
     var prof = sv("svg", { viewBox: "0 0 " + PW + " " + PH, "class": "gg-planner-profile" });
@@ -314,7 +322,7 @@
       for (var j = 0; j < R.km.length; j++) {
         var xa = px(j ? R.km[j - 1] : 0), xb = px(R.km[j]) + 0.6, y = py(R.alt[j]);
         var attrs = { x: xa.toFixed(1), y: y.toFixed(1), width: Math.max(0.6, xb - xa).toFixed(1), height: Math.max(0, PH - 22 - y).toFixed(1) };
-        var cls = powerClass(R.mid.w[j], m.pace ? m.pace.ap : m.ap);
+        var cls = powerClass(R.mid.w[j], m.apRide);
         ahead.appendChild(sv("rect", Object.assign({ "class": cls }, attrs)));
         done.appendChild(sv("rect", Object.assign({ "class": cls }, attrs)));
       }
@@ -349,7 +357,9 @@
       card.appendChild(el("p", { cls: "gg-planner-fine", text: "Dots: where the middle of your range is at the end of each riding hour. The replay is not shown: the model could not lay out your ride point by point." }));
       return card;
     }
-    var readout = el("p", { cls: "gg-planner-readout" });
+    // Not a live region: it changes every frame during Replay. Keyboard and
+    // screen-reader users get the same text through the slider's valuetext.
+    var readout = el("p", { cls: "gg-planner-readout", "aria-live": "off" });
     card.appendChild(readout);
     card.appendChild(el("p", { cls: "gg-planner-fine", text: "Dots: the middle of your range at the end of each riding hour. Filled pin: the fast end of your range; open pin: the slow end, at the same moment. Profile colour: planned power against your day's average, from easy (light teal) to hardest (dark brown); grey where the course has no riding data. Wind and temperature are the " + edYear + " race day's at that time, not a forecast. Route and elevation from the race's public Ride with GPS route." }));
 
@@ -417,21 +427,29 @@
   function paceNotes(m) {
     var P = m.pace, ul = el("ul", { cls: "gg-planner-pace" });
     if (!P) { ul.appendChild(el("li", { text: "Pacing notes are not shown: the model could not work them out for this ride." })); return ul; }
-    var ftpTyped = rider().ftp != null;
+    var why = P.why || {}, ftpTyped = rider().ftp != null, W = Math.round(P.ap) + " W";
     if (P.over && P.over.t >= 60) {
-      ul.appendChild(el("li", { text: "This plan has you above your FTP for about " + mins(P.over.t) + " minutes in total, in " + P.over.n + " short efforts on climbs, none longer than " + Math.max(1, Math.ceil(P.over.longest / 60)) + " minute" + (Math.ceil(P.over.longest / 60) > 1 ? "s" : "") + "." }));
+      var lg = Math.ceil(P.over.longest / 60);
+      ul.appendChild(el("li", { text: "This plan has you above your FTP for about " + mins(P.over.t) + " minutes in total, in " + P.over.n + " short efforts on climbs, none longer than " + lg + " minute" + (lg > 1 ? "s" : "") + "." }));
     } else if (P.flat_s != null) {
-      var lead = P.flat_s >= 30 ? "Pushing the climbs and easing the descents the way this plan does is worth about " + mins(P.flat_s) + " minutes over holding " + Math.round(P.ap) + " W all day."
-        : P.flat_s <= -30 ? "Holding " + Math.round(P.ap) + " W all day would be about " + mins(-P.flat_s) + " minutes quicker than this plan's pacing on this course."
-        : "Holding " + Math.round(P.ap) + " W all day comes out within a minute of this plan's pacing on this course.";
-      ul.appendChild(el("li", { text: lead + (ftpTyped && P.over ? " At this effort the plan never takes you above your FTP." : "") }));
+      var lead = P.flat_s >= 30 ? "Pushing the climbs and easing the descents the way this plan does is worth about " + mins(P.flat_s) + " minutes over holding " + W + " (your ride's average) all day."
+        : P.flat_s <= -30 ? "Holding " + W + " (your ride's average) all day would be about " + mins(-P.flat_s) + " minutes quicker than this plan's pacing on this course."
+        : "Holding " + W + " (your ride's average) all day comes out within a minute of this plan's pacing on this course.";
+      var ftpNote = "";
+      if (ftpTyped && P.over) ftpNote = P.over.t === 0 ? " At this effort the plan never takes you above your FTP." : " At this effort the plan is above your FTP for under a minute in total.";
+      ul.appendChild(el("li", { text: lead + ftpNote }));
+    } else {
+      ul.appendChild(el("li", { text: "The even-pacing comparison is not shown: " + (why.flat || "the model could not work it out") + "." }));
     }
-    if (P.r46 != null) ul.appendChild(el("li", { text: "On 4–6% grades this plan rides at about " + P.r46.toFixed(1) + "× your average power." }));
+    ul.appendChild(el("li", { text: P.r46 != null ? "On 4–6% grades this plan rides at about " + P.r46.toFixed(1) + "× your ride's average power."
+      : "No 4–6% figure: " + (why.r46 || "the model could not work it out") + "." }));
     if (P.climb) {
       var c = P.climb, len = units === "imp" ? (c.len_m / 1609.344).toFixed(1) + " mi" : (c.len_m / 1000).toFixed(1) + " km";
-      var tx = "Your longest climb starts at " + dist(c.start_km) + " (" + len + " at " + (c.grade * 100).toFixed(1) + "%): about " + Math.max(1, mins(c.t)) + " minutes";
+      var tx = "Your longest climb starts at " + dist(c.start_km) + " (" + len + " at " + (c.grade * 100).toFixed(1) + "%): " + (c.t < 60 ? "under a minute" : "about " + mins(c.t) + " minutes");
       tx += P.climb_watts_shown ? " at about " + Math.round(c.w) + " W." : ". Climb watts aren't printed at this effort: it is outside the range of race efforts the climb pacing was built from.";
       ul.appendChild(el("li", { text: tx }));
+    } else {
+      ul.appendChild(el("li", { text: "No longest-climb note: " + (why.climb || "the model could not work it out") + "." }));
     }
     ul.appendChild(el("li", { cls: "gg-planner-fine", text: "All at the middle of your range, from the same model run as your time." }));
     return ul;
@@ -451,7 +469,7 @@
      [units === "imp" ? "17–25 oz" : "500–750 ml", "fluid an hour, more in heat"], ["500–1,000 mg", "sodium an hour"]]
       .forEach(function (p) { kv.appendChild(el("div", null, [el("b", { text: p[0] }), p[1]])); });
     card.appendChild(kv);
-    card.appendChild(el("p", { cls: "gg-planner-fine", text: F.label + ". Gravel God's race-guide fuelling rule for a day this long. General guidance, not medical advice: test it in training." }));
+    card.appendChild(el("p", { cls: "gg-planner-fine", text: F.label + ": the fuelling range our race guides use for a day this long. General guidance, not medical advice: test it in training." }));
     if (cfg.gels.length) card.appendChild(gelPicker(F));
     var r = rider();
     if (typeof r.carbs === "number" && r.carbs < F.lo)
@@ -486,7 +504,7 @@
       line.appendChild(document.createTextNode("About " + (F.lo / g.g).toFixed(1) + "–" + (F.hi / g.g).toFixed(1) + " an hour, " +
         Math.ceil(F.tlo / g.g) + "–" + Math.ceil(F.thi / g.g) + " in the day, at " + g.g + " g of carbs each "));
       if (g.url) { line.appendChild(document.createTextNode("(")); line.appendChild(el("a", { href: g.url, rel: "noopener", target: "_blank", text: "maker's page" })); line.appendChild(document.createTextNode(").")); }
-      else line.appendChild(document.createTextNode("(the 25 g unit Gravel God's race guides count in)."));
+      else line.appendChild(document.createTextNode("(the 25 g unit our race guides count in)."));
     }
     sel.addEventListener("change", function () { gelPick = sel.value; show(); });
     box.appendChild(el("label", null, ["Count it in gels: ", sel]));
@@ -495,15 +513,25 @@
     return box;
   }
 
+  /* Notes are lists of text and {cite: key}; each cite becomes an [n] link to
+     the page's numbered source list (cfg.cite holds the numbers). */
   var ROWS = {
-    fit: { name: "Fitness", note: "A size you choose: the same effort on a higher FTP. What riders gain on a Gravel God plan is not published yet." },
-    gut: { name: "Gut training", stretch: "a 3-hour study applied after hour two", note: "More carbs an hour made a 20 km time trial after two hours of riding faster (Smith et al. 2013). We apply that to your riding after hour two and count nothing past 78 g an hour." },
-    heat: { name: "Heat training", stretch: "one-hour studies stretched to a full day", note: "Two weeks of heat training won back most of the power lost in a hot time trial (Racinais et al. 2015). The loss by temperature is Peiffer and Abbiss 2011, on the past race day's temperatures." },
-    group: { name: "Group riding", note: "Holding a group for more of the flat road: about a third less drag while you are in it. A group also sets your pace; that is not modelled." },
-    pos: { name: "Position", note: "More of the day in the drops: 10% less drag than upright in a wind tunnel (Defraeye et al. 2010). A size you choose." },
-    corner: { name: "Cornering", note: "Carrying more speed through descending corners, at the model's quicker cornering setting. A rough size." },
-    stops: { name: "Quicker stops", note: "Race-day logistics, not fitness: minute for minute off your finish, not your riding time." }
+    fit: { name: "Fitness", note: ["A size you choose: the same effort on a higher FTP. What riders gain on our plans is not published yet."] },
+    gut: { name: "Gut training", stretch: "a 3-hour study applied after hour two", note: ["More carbs an hour made a 20 km time trial after two hours of riding faster ", { cite: "gut" }, ". This row applies that to your riding after hour two and counts nothing past 78 g an hour."] },
+    heat: { name: "Heat training", stretch: "one-hour studies stretched to a full day", note: ["Two weeks of heat training won back most of the power lost in a hot time trial ", { cite: "heat_gain" }, ". The loss by temperature ", { cite: "heat_loss" }, " is applied to the past race day's temperatures."] },
+    group: { name: "Group riding", note: ["Holding a group for more of the flat road: about a third less drag while you are in it ", { cite: "group" }, ". A group also sets your pace; that is not modelled."] },
+    pos: { name: "Position", note: ["More of the day in the drops: 10% less drag than upright in a wind tunnel ", { cite: "position" }, ". A size you choose."] },
+    corner: { name: "Cornering", note: ["Carrying more speed through descending corners, at the model's quicker cornering setting. A rough size."] },
+    stops: { name: "Quicker stops", note: ["Race-day logistics, not fitness: minute for minute off your finish, not your riding time."] }
   };
+  function cite(key) {
+    var n = cfg.cite && cfg.cite[key];
+    if (typeof n !== "number") return null;
+    return el("a", { cls: "gg-planner-cite", href: "#gg-citation-" + n, text: "[" + n + "]" });
+  }
+  function noteNodes(parts) {
+    return parts.map(function (p) { return typeof p === "string" ? p : cite(p.cite); });
+  }
 
   function chips(row, key, options) {
     var box = el("div", { cls: "gg-planner-chips", role: "radiogroup", "aria-label": ROWS[row].name + " size" });
@@ -525,21 +553,22 @@
     if (!m.rows) { list.appendChild(el("p", { text: "Not shown: the model could not work out these rows." })); card.appendChild(list); return card; }
     m.rows.forEach(function (r) {
       var def = ROWS[r.key], label = def.name, val = "", extra = null;
-      if (r.key === "fit") { label += " · FTP +" + Math.round((picks.fit - 1) * 100) + "%"; extra = chips("fit", "fit", [[1.03, "+3%"], [1.05, "+5%"], [1.10, "+10%"]]); }
-      if (r.key === "pos") { label += " · " + Math.round(picks.pos * 100) + "% more of the day in the drops"; extra = chips("pos", "pos", [[0.10, "10%"], [0.20, "20%"], [0.30, "30%"]]); }
-      if (r.key === "stops") { label += " · " + Math.min(picks.stopsCut, rider().stops || 0) + " fewer minutes stopped"; extra = chips("stops", "stopsCut", [[5, "5 min"], [10, "10 min"], [15, "15 min"]]); }
+      if (r.key === "fit") { label += r.pick ? " · choose a size" : " · FTP +" + Math.round((picks.fit - 1) * 100) + "%"; extra = chips("fit", "fit", [[1.03, "+3%"], [1.05, "+5%"], [1.10, "+10%"]]); }
+      if (r.key === "pos") { label += r.pick ? " · choose a size" : " · " + Math.round(picks.pos * 100) + "% more of the day in the drops"; extra = chips("pos", "pos", [[0.10, "10%"], [0.20, "20%"], [0.30, "30%"]]); }
+      if (r.key === "stops") { label += r.pick ? " · choose a size" : " · " + Math.min(picks.stopsCut, rider().stops || 0) + " fewer minutes stopped"; extra = chips("stops", "stopsCut", [[5, "5 min"], [10, "10 min"], [15, "15 min"]]); }
       if (r.key === "group") label += " · more of the flat road sheltered";
       if (r.key === "heat") label += r.already ? " · already in your time" : " · two weeks in the heat";
       if (r.key === "gut") label += r.ask ? " · type your carbs an hour above to size this" : r.already ? " · you already eat " + r.from + " g an hour" : " · " + r.from + " → " + r.to + " g an hour";
       if (r.why) val = "not shown";
-      else if (r.ask || r.already) val = "–";
+      else if (r.ask || r.already || r.pick) val = "–";
       else val = r.saved_s < 30 ? "under 1 min" : mins(r.saved_s) + " min faster";
       var name = el("span", null, [label]);
       if (def.stretch && !r.ask && !r.already) name.appendChild(el("span", { cls: "gg-planner-tag", text: "stretched" }));
       var row = el("div", { cls: "gg-planner-imp" }, [name, el("b", { text: val })]);
-      var note = def.note + (def.stretch && !r.ask && !r.already ? " Stretched: " + def.stretch + "." : "") +
-        (r.why ? " Not shown: the model could not solve this change, so there is no number rather than a guess." : "");
-      row.appendChild(el("small", { text: note }));
+      var note = noteNodes(def.note);
+      if (def.stretch && !r.ask && !r.already) note.push(" Stretched: " + def.stretch + ".");
+      if (r.why) note.push(" Not shown: the model could not solve this change.");
+      row.appendChild(el("small", null, note));
       if (extra) row.appendChild(extra);
       list.appendChild(row);
     });
@@ -558,8 +587,19 @@
     return el("div", { cls: "gg-planner-card gg-planner-offer" }, [
       el("p", { cls: "gg-planner-eyebrow", text: "Custom training plan" }),
       el("h3", { text: "A plan for " + cfg.race + ", built around your hours" }),
-      ul, a
+      ul, a,
+      el("p", { cls: "gg-planner-fine", text: o.price_note })
     ]);
+  }
+
+  function kitNote(m) {
+    var typedTotal = mass("geartot") != null;
+    var base = typedTotal ? "Your typed total is used for bike, water and gear. " : "Clothes, shoes, helmet, tools and spares are not counted. ";
+    var k = m && m.pace ? m.pace.kit3_s : null;
+    if (k == null) return base + "What extra weight would cost is not shown: " + (m && m.pace && m.pace.why && m.pace.why.kit3 || "the model could not work it out") + ".";
+    var amt = units === "imp" ? "An additional 6.6 lb" : "An additional 3 kg";
+    if (Math.abs(k) < 30) return base + amt + " would change the middle of your range by under a minute.";
+    return base + amt + " would " + (k > 0 ? "add" : "take off") + " about " + mins(Math.abs(k)) + " minutes " + (k > 0 ? "to" : "from") + " the middle of your range.";
   }
 
   function finePrint(m) {
@@ -573,15 +613,26 @@
      "Riding position, cornering and how effort spreads over climbs come from the model's fixed settings, not from you.",
      "Your weight, bike and full bottles are carried all day; you drink them down, so this errs slow.",
      "Stops, walking, neutral starts and flats are not in the riding time.",
-     m && m.pace && m.pace.kit3_s != null
-       ? "Clothes, shoes, helmet, tools and spares are not counted. " + (units === "imp" ? "About 6.6 lb" : "About 3 kg") + " of them would add about " + Math.max(1, mins(m.pace.kit3_s)) + " minutes to the middle of your range."
-       : "Clothes, shoes, helmet, tools and spares are not counted."]
+     kitNote(m)]
       .forEach(function (s) { ul.appendChild(el("li", { text: s })); });
     det.appendChild(ul);
     return det;
   }
 
   /* ---------- wiring ---------- */
+  /* An [n] marker jumps to the page's source list. On phones that section
+     starts collapsed (the page's deep-dive disclosure), so open it first by
+     its own header control; the hash jump then lands on a visible item. */
+  section.addEventListener("click", function (e) {
+    var link = e.target && e.target.closest ? e.target.closest(".gg-planner-cite") : null;
+    if (!link) return;
+    var target = document.getElementById((link.getAttribute("href") || "").replace(/^#/, ""));
+    var owner = target ? target.closest(".gg-section") : null;
+    if (owner && owner.classList.contains("gg-section-collapsed")) {
+      var header = owner.querySelector(".gg-section-header");
+      if (header) header.click();
+    }
+  });
   form.addEventListener("submit", function (e) { e.preventDefault(); run(); });
   form.addEventListener("focusin", start, { once: true });
   var ownBike = section.querySelector(".gg-planner-ownbike");

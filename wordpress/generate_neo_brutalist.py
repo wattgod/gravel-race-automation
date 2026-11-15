@@ -53,7 +53,8 @@ from endure_offer import ENDURE_PLAN_COPY, endure_plan_url
 from page_dates import race_updated_date
 from fact_consistency import check_race
 from race_calculator import build_race_calculator, get_race_calculator_css, race_calculator_context
-from race_planner import build_race_planner, planner_head_tags, planner_script_tag, write_planner_assets
+from race_planner import (build_race_planner, planner_citation_items, planner_head_tags,
+                          planner_script_tag, write_planner_assets)
 from season import UPCOMING, edition_display, edition_state, edition_year, parse_edition
 from season import today as season_today
 from generate_race_recap import has_results, newest_results_year
@@ -6601,10 +6602,13 @@ def build_similar_races(rd: dict, race_index: list) -> str:
   </section>'''
 
 
-def build_citations_section(rd: dict) -> str:
-    """Build Sources & Citations section from race.citations data."""
+def build_citations_section(rd: dict, extra_items: list | None = None) -> str:
+    """Build Sources & Citations section from race.citations data.
+
+    ``extra_items`` are ready-made list items numbered after the race's own
+    citations (the finish-time planner's research sources)."""
     citations = rd.get('citations', [])
-    if not citations:
+    if not citations and not extra_items:
         return ''
 
     category_labels = {
@@ -6639,6 +6643,7 @@ def build_citations_section(rd: dict) -> str:
             f'</li>'
         )
 
+    items.extend(extra_items or [])
     if not items:
         return ''
 
@@ -7828,7 +7833,10 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     logistics_sec = build_logistics_section(rd)
     tire_picks = build_tire_picks(rd)
     similar = build_similar_races(rd, race_index)
-    citations_sec = build_citations_section(rd)
+    # The planner's research sources join the page's one numbered list, after
+    # the race's own citations, so its [n] markers resolve on this page.
+    citations_sec = build_citations_section(
+        rd, extra_items=planner_citation_items(rd) if race_planner else None)
     footer = build_footer(rd)
     sticky_cta = ''
     latest = build_latest_sidebar(rd, (race_intel or {}).get(rd['slug'], []))

@@ -170,6 +170,7 @@ window.__leaflet = { maps: [], opts: null, tileHandlers: {} };
   window.L = {
     map: function (b, o) { return new Map(b, o); },
     tileLayer: function () { var t = new Layer(); window.__leaflet.tiles = t; return t; },
+    TileLayer: { extend: function () { return function () { var t = new Layer(); window.__leaflet.tiles = t; return t; }; }, prototype: {} },
     polyline: function () { return new Layer(); },
     circleMarker: function () { return new Layer(); },
     extend: function (dest) { for (var i = 1; i < arguments.length; i++) { var src = arguments[i]; for (var k in src) dest[k] = src[k]; } return dest; },

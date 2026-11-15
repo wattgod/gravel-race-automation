@@ -386,7 +386,17 @@
         // map is shown (never the route over holes). Once that view is in,
         // tiles that fail while the visitor pans or zooms are left as Leaflet
         // shows them.
-        var tiles = L.tileLayer(M.tiles, { attribution: M.attribution, maxZoom: M.max_zoom }), firstView = true;
+        // Each tile is drawn 1 px wider and taller than its grid cell, so at
+        // fractional zoom neighbouring tiles overlap instead of leaving a
+        // hairline gap (Leaflet issue 3575).
+        var OverlapTiles = L.TileLayer.extend({
+          _initTile: function (tile) {
+            L.TileLayer.prototype._initTile.call(this, tile);
+            var ts = this.getTileSize();
+            tile.style.width = ts.x + 1 + "px"; tile.style.height = ts.y + 1 + "px";
+          }
+        });
+        var tiles = new OverlapTiles(M.tiles, { attribution: M.attribution, maxZoom: M.max_zoom }), firstView = true;
         tiles.on("tileerror", function () { if (firstView) { firstView = false; noMap("some of the map tiles did not load"); } });
         tiles.on("load", function () { firstView = false; });
         tiles.addTo(map);

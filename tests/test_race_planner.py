@@ -537,3 +537,15 @@ def test_map_respects_reduced_motion_and_rejects_a_partial_first_view():
     assert "animate: false" in js.split("map.panBy = function", 1)[1].split("};", 1)[0]
     assert 'tiles.on("tileerror", function () { if (firstView)' in js
 
+
+def test_tiles_overlap_by_a_pixel_with_normal_blending():
+    """Fractional zoom: each tile is drawn 1 px larger so neighbours overlap,
+    and Leaflet 1.9's plus-lighter tile blend is turned off (it would add the
+    overlapping pixels into a bright line)."""
+    js = (PLANNER_JS / "gg-planner.js").read_text()
+    assert "L.TileLayer.extend({" in js and 'tile.style.width = ts.x + 1 + "px"; tile.style.height = ts.y + 1 + "px";' in js
+    from race_planner import get_race_planner_css
+    css = get_race_planner_css()
+    assert "img.leaflet-tile { mix-blend-mode: normal; }" in css
+    assert "plus-lighter;" not in css
+

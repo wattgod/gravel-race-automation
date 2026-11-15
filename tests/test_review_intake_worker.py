@@ -23,6 +23,8 @@ const store = new Map();
 const kv = {
   async put(k, v, opts) {
     if (scenario.kvFails) throw new Error('kv down');
+    // Cloudflare KV: one write per key per second.
+    if (store.has(k)) throw new Error('429 same-key write');
     store.set(k, { v, meta: opts && opts.metadata });
   },
 };
@@ -46,8 +48,10 @@ console.log = () => {}; console.error = () => {};
 const resp = await worker.fetch(req, env);
 console.log = origLog; console.error = origErr;
 const body = await resp.json();
-const records = [...store.values()].map(r => ({ data: JSON.parse(r.v), meta: r.meta }));
-console.log(JSON.stringify({ status: resp.status, body, records, sent }));
+const records = [...store.entries()].filter(([k]) => k.startsWith('review:'))
+  .map(([k, r]) => ({ data: JSON.parse(r.v), meta: r.meta }));
+const notified = [...store.keys()].filter(k => k.startsWith('notified:'));
+console.log(JSON.stringify({ status: resp.status, body, records, notified, sent }));
 """
 
 
@@ -66,7 +70,7 @@ def test_stores_then_notifies(tmp_path):
     r = run(tmp_path)
     assert r["status"] == 200 and r["body"]["success"] is True
     assert len(r["records"]) == 1
-    assert r["records"][0]["meta"]["notified"] is True
+    assert r["notified"] == [f"notified:{r['body']['review_id']}"]
     assert r["records"][0]["data"]["brand"] == "gravelgod"
     assert r["sent"][0]["from"].endswith("<noreply@gravelgodcycling.com>")
 
@@ -86,7 +90,8 @@ def test_missing_binding_is_an_error(tmp_path):
 def test_email_failure_keeps_the_stored_review_and_retries(tmp_path):
     r = run(tmp_path, resendFails=True)
     assert r["status"] == 200
-    assert r["records"][0]["meta"]["notified"] is False
+    assert len(r["records"]) == 1
+    assert r["notified"] == []
     assert len(r["sent"]) == 2
 
 

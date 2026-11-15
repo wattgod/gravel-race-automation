@@ -58,7 +58,7 @@ export default {
     }
     try {
       await env.RACE_REVIEWS.put(`review:${reviewId}`, JSON.stringify(review), {
-        metadata: { brand, race_slug: review.race_slug, stars: review.stars, notified: false }
+        metadata: { brand, race_slug: review.race_slug, stars: review.stars }
       });
     } catch (storeError) {
       console.error('Review store failed:', storeError && storeError.message);
@@ -73,13 +73,13 @@ export default {
     } else {
       console.error('Review notification not configured (RESEND_API_KEY / NOTIFICATION_EMAIL)');
     }
+    // Separate key: KV allows one write per key per second, so the review
+    // record itself is written exactly once.
     if (notified) {
       try {
-        await env.RACE_REVIEWS.put(`review:${reviewId}`, JSON.stringify(review), {
-          metadata: { brand, race_slug: review.race_slug, stars: review.stars, notified: true }
-        });
+        await env.RACE_REVIEWS.put(`notified:${reviewId}`, new Date().toISOString());
       } catch (e) {
-        console.error('Review notified flag update failed:', e && e.message);
+        console.error('Review notified marker failed:', e && e.message);
       }
     }
 

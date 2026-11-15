@@ -128,6 +128,11 @@ jobs:
           # Course landing and lesson pages (/course/). Their copy reads the
           # live race count, so they go stale whenever race-data changes.
           python3 wordpress/generate_courses.py
+          # /blog/ page from the committed web/blog-index.json (same reason
+          # as the sitemap: roundups aren't generated here). Until Nov 2026
+          # nothing here rebuilt it, so /blog/ sat on an Oct 9 render that
+          # still linked a withdrawn (410) article.
+          python3 wordpress/generate_blog_index_page.py
           python3 scripts/generate_meta_descriptions.py
 
       # Share images are nice to have: if the browser render fails, the run
@@ -178,7 +183,7 @@ jobs:
             --sync-redirects --sync-sitemap --sync-meta-descriptions \
             --sync-insights --sync-about --sync-tire-guides \
             --sync-series --sync-homepage --sync-index --sync-widget \
-            --sync-llms-txt --sync-rss --sync-embed --sync-ab --sync-courses \
+            --sync-llms-txt --sync-rss --sync-embed --sync-ab --sync-blog-index --sync-courses \
             $OG_FLAG --purge-cache
 
       - name: Check the live site
@@ -203,6 +208,13 @@ jobs:
           got=$(code "$base/season-plan/?$v")
           echo "/season-plan/ -> $got"
           case "$got" in "301 "*/questionnaire/*) ;; *) fail=1 ;; esac
+          # Withdrawn articles (410) must not be linked from /blog/.
+          for slug in $(python3 -c "import json; print(' '.join(json.load(open('web/withdrawn-articles.json'))))"); do
+            if curl -sL "$base/blog/?$v" | grep -q "/articles/$slug/"; then
+              echo "::error::/blog/ still links withdrawn article $slug"
+              fail=1
+            fi
+          done
           if curl -sL "$base/products/training-plans/?$v" | grep -qiE '\$249|one-time payment|paid once|\$15/w'; then
             echo "::error::The live training plans page still shows the retired one-off plan"
             fail=1

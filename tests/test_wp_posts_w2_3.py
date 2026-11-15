@@ -2,7 +2,7 @@
 the Gila, Best Bike Split, Beckham). The same per-post checks as
 tests/test_wp_post_import.py runs on the pilots, for this batch's posts, plus the
 batch's own decisions (rewritten meta descriptions, the Best Bike Split table,
-the price-table "Apply Now" kept as text). Fixtures in tests/fixtures/wp_posts/<id>.*.
+the Best Bike Split sales tables left out). Fixtures in tests/fixtures/wp_posts/<id>.*.
 """
 from __future__ import annotations
 
@@ -65,7 +65,8 @@ def _page(pid) -> str:
 
 @pytest.mark.parametrize("pid", POSTS)
 def test_body_text_is_word_for_word(pid):
-    diff = imp.text_diff(wp_post.corrected_baseline((FIXTURES / f"{pid}.txt").read_text(encoding="utf-8"), getattr(_module(pid), "CORRECTIONS", ())), _page(pid), POSTS[pid][1] | wp_post.restored_ids(_module(pid)))
+    baseline = wp_post.corrected_baseline((FIXTURES / f"{pid}.txt").read_text(encoding="utf-8"), getattr(_module(pid), "CORRECTIONS", ()))
+    diff = imp.text_diff(wp_post.dropped_baseline(baseline, _module(pid)), _page(pid), POSTS[pid][1] | wp_post.restored_ids(_module(pid)))
     assert diff == [], "\n".join(diff[:80])
 
 
@@ -222,12 +223,21 @@ def test_best_bike_split_tables_are_restored_where_the_post_refers_to_them():
         assert after.startswith(f'<figure class="gg-table" id="{fig.id}"'), fig.id
 
 
-def test_price_table_apply_now_stays_plain_text():
-    """The live coaching table's "Apply Now" button has an empty link: kept as text."""
+def test_best_bike_split_sales_tables_stay_removed():
+    """Matti, 2026-11-15: the closing sales section (training plan $100, coaching
+    $175 "Monthly", "Apply Now") is left out; coaching bills every 4 weeks. The
+    converter's body still has it, so only DROP keeps it off the page."""
+    m = _module(3203)
+    assert "Say 'No' to 'Slow'!" in m.DROP
+    assert 'class="gg-price-table"' in m.SOURCE.body  # proves DROP is what removes it
     html = _page(3203)
-    assert '<dd class="gg-price-action">Apply Now</dd>' in html
-    assert 'href=""' not in html
-    assert html.count('class="gg-price-table"') == 2
+    article = imp.article_of(html)
+    for gone in ('gg-price', "Say 'No' to 'Slow'!", "say-no-to-slow", "Monthly", "Apply Now", "Buy Now",
+                 "Unbound 200 Training Plan", "THE choice if you're serious", "Tired of getting your teeth kicked in",
+                 "trainingpeaks.com/training-plans"):
+        assert gone not in html, gone
+    assert "$\u202f100" not in html and "$\u202f175" not in html  # the tables' prices ("$ 100")
+    assert "<h2 id=\"conclusion\"" in article
 
 
 def test_red_granite_2023_keeps_its_own_slug():

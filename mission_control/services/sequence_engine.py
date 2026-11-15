@@ -18,6 +18,8 @@ from email.utils import formataddr, parseaddr
 from mission_control import supabase_client as db
 from mission_control.services.contact_suppression import is_suppressed
 from mission_control.config import (
+    BRAND_FOOTER_NAMES,
+    SENDER_POSTAL_ADDRESS,
     PUBLIC_URL, RESEND_API_KEY, UNSUBSCRIBE_SECRET, UNSUBSCRIBE_SECRET_PREVIOUS,
     WEB_TEMPLATES_DIR,
 )
@@ -978,13 +980,16 @@ def _tagged_reply_to(reply_to: str, token: str) -> str:
 
 
 def _inject_unsubscribe(html: str, email: str, brand: str = "gravelgod") -> str:
-    """Inject unsubscribe link into email HTML before closing </body> or at end."""
+    """Inject the unsubscribe link and the sender's postal address (CAN-SPAM)
+    into email HTML before closing </body> or at end."""
     unsub_url = build_unsubscribe_url(email, brand)
+    footer_name = BRAND_FOOTER_NAMES[brand]
     unsub_block = (
         '<div style="text-align:center;padding:16px 32px;font-family:\'Courier New\',monospace;'
         'font-size:11px;color:#8c7568;border-top:1px solid #d4c5b9">'
         f'<a href="{unsub_url}" style="color:#8c7568;text-decoration:underline">'
         'Unsubscribe</a> from future emails'
+        f'<br>{footer_name} · {SENDER_POSTAL_ADDRESS}'
         '</div>'
     )
 

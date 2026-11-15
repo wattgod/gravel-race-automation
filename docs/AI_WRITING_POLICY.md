@@ -89,6 +89,22 @@ specific.
 - Copy that could belong to any coach, consultant, or endurance brand after a
   noun swap.
 
+## Selling a product
+
+Matti's ruling, 2026-11-15. Applies to every brand's sales and landing pages,
+checkout copy and offer emails.
+
+- Keep it simple. One plain headline that says what the product is, then a
+  fast bullet list of what's in it. Only list what is built and delivered.
+- Never position a product against Matti's own coaching or another of his
+  products ("a quarter of the price of coaching", "coaching without the
+  cost").
+- Never break a price down to a per-day, per-coffee or per-session figure, and
+  never sell it as a value, a deal or a bargain. That is a race to the bottom.
+- Refunds, cancellation and billing terms are fine print near the button, not
+  the pitch. Leading with the guarantee or the value reads as protesting too
+  much.
+
 ## Final adversarial read
 
 Before approval, identify:

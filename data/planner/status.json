@@ -1,0 +1,154 @@
+{
+ "generated_from_eligibility": "2026-11-15",
+ "engine_sha256": "b57400ca2ae0fb8b339d1aeb608b16f20411f4f11d3fcdc8ade36e5e19dc06f7",
+ "races": {
+  "badlands": {
+   "status": "held"
+  },
+  "big-sugar": {
+   "status": "flagged",
+   "flags": [
+    {
+     "kind": "edition",
+     "text": "Ride with GPS route, last updated 2026; edition not confirmed"
+    }
+   ]
+  },
+  "bwr-california": {
+   "status": "flagged",
+   "flags": [
+    {
+     "kind": "edition",
+     "text": "Ride with GPS route, last updated 2026; edition not confirmed"
+    }
+   ]
+  },
+  "bwr-cedar-city": {
+   "status": "held"
+  },
+  "colorado-trail-race": {
+   "status": "held"
+  },
+  "crusher-in-the-tushar": {
+   "status": "flagged",
+   "flags": [
+    {
+     "kind": "edition",
+     "text": "Ride with GPS route, last updated 2021; edition not confirmed"
+    },
+    {
+     "kind": "climbing",
+     "text": "climbing-heavy course: this estimate is less certain and may read slow"
+    }
+   ]
+  },
+  "dirty-reiver": {
+   "status": "flagged",
+   "flags": [
+    {
+     "kind": "climbing",
+     "text": "climbing-heavy course: this estimate is less certain and may read slow"
+    },
+    {
+     "kind": "visitor_sets_effort",
+     "text": "the visitor sets the effort"
+    }
+   ]
+  },
+  "gravel-locos": {
+   "status": "eligible",
+   "flags": []
+  },
+  "gravel-worlds": {
+   "status": "flagged",
+   "flags": [
+    {
+     "kind": "visitor_sets_effort",
+     "text": "the visitor sets the effort"
+    }
+   ]
+  },
+  "jeroboam": {
+   "status": "held"
+  },
+  "leadville-100": {
+   "status": "flagged",
+   "flags": [
+    {
+     "kind": "edition",
+     "text": "Ride with GPS route, last updated 2026; edition not confirmed"
+    },
+    {
+     "kind": "climbing",
+     "text": "climbing-heavy course: this estimate is less certain and may read slow"
+    }
+   ]
+  },
+  "little-sugar-mtb": {
+   "status": "flagged",
+   "flags": [
+    {
+     "kind": "climbing",
+     "text": "climbing-heavy course: this estimate is less certain and may read slow"
+    },
+    {
+     "kind": "visitor_sets_effort",
+     "text": "the visitor sets the effort"
+    }
+   ]
+  },
+  "mid-south": {
+   "status": "held"
+  },
+  "rebeccas-private-idaho": {
+   "status": "no bundle"
+  },
+  "rift-valley-odyssey": {
+   "status": "no bundle"
+  },
+  "sea-otter-gravel": {
+   "status": "held"
+  },
+  "seven": {
+   "status": "no bundle"
+  },
+  "steamboat-gravel": {
+   "status": "eligible",
+   "flags": []
+  },
+  "the-traka": {
+   "status": "no bundle"
+  },
+  "torino-nice-rally": {
+   "status": "no bundle"
+  },
+  "tour-divide": {
+   "status": "held"
+  },
+  "trans-am-bike-race": {
+   "status": "held"
+  },
+  "transcontinental-race": {
+   "status": "no bundle"
+  },
+  "uci-gravel-worlds": {
+   "status": "no bundle"
+  },
+  "unbound-100": {
+   "status": "held"
+  },
+  "unbound-200": {
+   "status": "eligible",
+   "flags": []
+  },
+  "unbound-xl": {
+   "status": "flagged",
+   "flags": [
+    {
+     "kind": "visitor_sets_effort",
+     "text": "the visitor sets the effort"
+    }
+   ]
+  }
+ }
+}

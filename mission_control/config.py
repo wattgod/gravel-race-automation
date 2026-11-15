@@ -151,6 +151,18 @@ def tp_buyer_max_age_days() -> int:
     return days if 0 < days <= 60 else 7
 
 
+# Sender identity and postal address printed in the footer of every
+# sequence email, all brands. CAN-SPAM requires a valid physical postal
+# address in commercial email. Address confirmed by Matti 2026-11-13.
+# Roadie and XC mail never names Gravel God, so each brand prints its own
+# name beside the shared LLC address.
+SENDER_POSTAL_ADDRESS = "2183 Lombardy St, Longmont, CO 80503"
+BRAND_FOOTER_NAMES = {
+    "gravelgod": "Gravel God Cycling LLC",
+    "roadielabs": "Roadie Labs",
+    "xcskilabs": "XC Ski Labs",
+}
+
 # Public URL (for unsubscribe links in emails)
 PUBLIC_URL = os.environ.get("PUBLIC_URL", "https://athlete-profiles-production.up.railway.app")
 

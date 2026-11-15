@@ -703,6 +703,21 @@ class TestInjectUnsubscribe:
         assert "token=" in result
 
 
+    def test_footer_carries_postal_address_for_every_brand(self, fake_db):
+        """CAN-SPAM: every commercial email shows the sender's postal address."""
+        from mission_control.services.sequence_engine import _inject_unsubscribe
+
+        html = "<html><body><p>Hello</p></body></html>"
+        names = {"gravelgod": "Gravel God Cycling LLC", "roadielabs": "Roadie Labs",
+                 "xcskilabs": "XC Ski Labs"}
+        for brand, name in names.items():
+            result = _inject_unsubscribe(html, "test@example.com", brand)
+            assert f"{name} · 2183 Lombardy St, Longmont, CO 80503" in result
+            assert result.index("Lombardy") < result.index("</body>")
+            if brand != "gravelgod":
+                assert "Gravel God" not in result
+
+
 class TestProcessingLock:
     """process_due_sends() uses async lock to prevent duplicates."""
 

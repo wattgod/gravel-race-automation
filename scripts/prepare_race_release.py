@@ -141,7 +141,7 @@ def download(url: str, target: Path, *, cap: int, budget: Budget,
 class Markup(HTMLParser):
     def __init__(self):
         super().__init__()
-        self.canonical, self.anchors, self.forms, self.calculators = [], [], [], 0
+        self.canonical, self.anchors, self.forms, self.calculators, self.planners = [], [], [], 0, 0
         self.active_form = None
         self.sections, self.citation_anchors = [], []
 
@@ -151,6 +151,8 @@ class Markup(HTMLParser):
             self.sections.append(a.get("id"))
         if a.get("id") == "race-calculator":
             self.calculators += 1
+        if tag == "section" and a.get("id") == "finish-time" and "gg-planner" in a.get("class", "").split():
+            self.planners += 1
         if tag == "link" and a.get("rel") == "canonical":
             self.canonical.append(a.get("href"))
         if tag == "a":
@@ -261,10 +263,23 @@ def selected_slugs(scope: str, slug: str | None, root: Path = ROOT) -> list[str]
     return sorted(available)
 
 
+def _planner_slug(text: str):
+    match = re.search(r'<script type="application/json" class="gg-planner-config">(.*?)</script>', text, re.S)
+    try:
+        return json.loads(match.group(1)).get("slug") if match else None
+    except ValueError:
+        return None
+
+
 def verify_page_contract(text: str, slug: str, expected_plan_hrefs: list[str], expected_citation_hrefs: list[str] | None = None) -> None:
     parsed = Markup(); parsed.feed(text)
     forms = [f for f in parsed.forms if f.get("action") == CALCULATOR and f.get("method", "get").lower() == "get"]
-    if parsed.calculators != 1 or len(forms) != 1 or forms[0]["fields"].get("source") != "gravel" or forms[0]["fields"].get("race") != slug:
+    # A race with an eligible finish-time planner carries the planner in place
+    # of the Endure Labs calculator handoff (one or the other, never both).
+    planner_page = parsed.planners == 1 and parsed.calculators == 0 and not forms and _planner_slug(text) == slug
+    calculator_page = (parsed.planners == 0 and parsed.calculators == 1 and len(forms) == 1
+                       and forms[0]["fields"].get("source") == "gravel" and forms[0]["fields"].get("race") == slug)
+    if not (planner_page or calculator_page):
         raise ValueError("Calculator navigation contract is missing")
     actual = [a.get("href") for a in parsed.anchors if a.get("data-cta") == "approved_custom_plan"]
     if actual != expected_plan_hrefs:
@@ -297,6 +312,33 @@ def verify_assets(package: Path) -> None:
             resolved = (pages / relative).resolve()
             if not resolved.is_relative_to(pages.resolve()) or not resolved.is_file():
                 raise ValueError("Missing or unsafe shared asset reference")
+        verify_planner_assets(pages, page.stem, text)
+
+
+PLANNER_URL_KEYS = ("course_url", "worker_url", "engine_url", "core_url")
+
+
+def verify_planner_assets(pages: Path, slug: str, text: str) -> None:
+    """A planner page loads its worker, engine, core and course from URLs in its
+    config JSON, which the href/src scan cannot see. Each must ship in the
+    package, under its content hash, and the course must be this race's."""
+    match = re.search(r'<script type="application/json" class="gg-planner-config">(.*?)</script>', text, re.S)
+    if not match:
+        return
+    try:
+        config = json.loads(match.group(1))
+    except ValueError:
+        raise ValueError("Unreadable planner config") from None
+    for key in PLANNER_URL_KEYS:
+        url = config.get(key)
+        name = re.fullmatch(r"/race/assets/planner/([a-z0-9]+(?:-[a-z0-9]+)*)\.([0-9a-f]{8})\.(js|json)", url or "")
+        if not name:
+            raise ValueError("Missing or unsafe planner asset reference")
+        path = pages / "assets" / "planner" / url.rsplit("/", 1)[1]
+        if not path.is_file() or hashlib.md5(path.read_bytes()).hexdigest()[:8] != name.group(2):
+            raise ValueError("Planner asset missing or hash mismatch: " + key)
+        if key == "course_url" and (name.group(1) != slug or name.group(3) != "json"):
+            raise ValueError("Planner course does not belong to this race")
 
 
 def package_files(package: Path, slugs: list[str]) -> dict[str, dict]:
@@ -315,7 +357,10 @@ def package_files(package: Path, slugs: list[str]) -> dict[str, dict]:
         if not path.is_file():
             continue
         rel = path.relative_to(package).as_posix()
-        if rel not in expected and not re.fullmatch(r"pages/assets/(?:gg-(?:styles|scripts)\.[0-9a-f]{8}\.(?:css|js)|fonts/[A-Za-z0-9_-]+\.woff2)", rel):
+        planner_course = re.fullmatch(r"pages/assets/planner/([a-z0-9]+(?:-[a-z0-9]+)*)\.[0-9a-f]{8}\.json", rel)
+        if rel not in expected and not (re.fullmatch(r"pages/assets/(?:gg-(?:styles|scripts)\.[0-9a-f]{8}\.(?:css|js)|fonts/[A-Za-z0-9_-]+\.woff2"
+                                                     r"|planner/(?:engine7|gg-planner|gg-planner-core|gg-planner-worker)\.[0-9a-f]{8}\.(?:js|css))", rel)
+                                        or (planner_course and planner_course.group(1) in slugs)):
             raise ValueError("Unexpected publishing file: " + rel)
         if not path.stat().st_size:
             raise ValueError("Empty publishing file")

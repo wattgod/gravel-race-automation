@@ -7,8 +7,7 @@ sit beside plans and coaching rather than being one of them. Title, price
 and lesson count come from each data/courses/*/course.json.
 
 Reads every data/courses/*/course.json and writes the file named by its
-og_image field to wordpress/output/course/assets/. Also generates the
-Academy bundle image (course-academy-og.png).
+og_image field to wordpress/output/course/assets/.
 
 Usage:
     python3 scripts/generate_course_og.py
@@ -40,13 +39,11 @@ def generate_course_og(title: str, lessons: int, price: int, output_path: Path,
 
 def main():
     generated = []
-    total_lessons = 0
     with og_topo.Renderer() as r:
         for course_json in sorted(COURSES_DIR.glob("*/course.json")):
             with open(course_json) as f:
                 course = json.load(f)
             lessons = sum(len(m["lessons"]) for m in course.get("modules", []))
-            total_lessons += lessons
             og_name = course.get("og_image")
             if not og_name:
                 continue
@@ -55,13 +52,6 @@ def main():
             generated.append(out)
             print(f"  ✓ {out.relative_to(REPO_ROOT)}")
 
-        # Academy bundle. Lesson count is summed from the courses above (the
-        # old hardcoded "20" went stale); the old "SAVE 19%" kicker was dropped
-        # because it no longer matched the course prices.
-        out = generate_course_og("Gravel Academy 2-Pack", total_lessons, 39,
-                                 OUTPUT_DIR / "course-academy-og.png", r, kicker="COURSE BUNDLE")
-        generated.append(out)
-        print(f"  ✓ {out.relative_to(REPO_ROOT)}")
     print(f"\n{len(generated)} OG images generated.")
 
 

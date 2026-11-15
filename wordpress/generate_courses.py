@@ -542,14 +542,6 @@ body:has(.gg-pwa-banner-show) .gg-course-chip{{bottom:96px}}
 .gg-course-module-lessons li .gg-course-lesson-mins-landing{{margin-left:auto;font-family:var(--gg-font-data,'Sometype Mono',monospace);font-size:11px;color:var(--gg-color-secondary-brown,#7d695d);white-space:nowrap}}
 .gg-course-lesson-lock{{font-size:11px;opacity:.55}}
 
-/* ── Landing: bundle cross-sell strip ── */
-.gg-course-bundle{{border:3px solid var(--gg-color-dark-brown,#3a2e25);background:var(--gg-color-warm-paper,#f5efe6);padding:24px;margin:40px 0 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}}
-.gg-course-bundle-kicker{{font-family:var(--gg-font-data,'Sometype Mono',monospace);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gg-color-teal,#178079);margin:0 0 6px}}
-.gg-course-bundle-copy{{font-family:var(--gg-font-editorial,'Source Serif 4',Georgia,serif);font-size:1rem;color:var(--gg-color-dark-brown,#3a2e25);margin:0 0 12px}}
-.gg-course-bundle-copy a{{color:var(--gg-color-teal,#178079);text-decoration:underline}}
-.gg-course-bundle-copy a:hover{{color:var(--gg-color-dark-brown,#3a2e25)}}
-.gg-course-bundle-cta{{display:inline-block;background:var(--gg-color-dark-brown,#3a2e25);color:#fff;font-family:var(--gg-font-data,'Sometype Mono',monospace);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:12px 24px;border:2px solid var(--gg-color-dark-brown,#3a2e25);text-decoration:none;white-space:nowrap}}
-.gg-course-bundle-cta:hover{{background:var(--gg-color-teal,#178079);border-color:var(--gg-color-teal,#178079)}}
 
 /* ── Course Index ── */
 .gg-course-index{{padding:80px 24px 60px}}
@@ -2115,54 +2107,6 @@ def build_og_meta(course: dict, og_title: str, og_desc: str, og_url: str,
     return "\n  ".join(parts)
 
 
-def get_bundle_payment_link() -> str:
-    """Return the Academy bundle Stripe payment link from the manifest
-    written by scripts/create_course_products.py, or "" if absent."""
-    manifest_path = Path(__file__).resolve().parent.parent / "data" / "stripe-course-products.json"
-    if not manifest_path.exists():
-        return ""
-    try:
-        with open(manifest_path) as f:
-            manifest = json.load(f)
-    except (json.JSONDecodeError, OSError):
-        return ""
-    for link in manifest.get("payment_links", []):
-        if link.get("bundle") and link.get("url", "").startswith("https://buy.stripe.com/"):
-            return link["url"]
-    return ""
-
-
-def build_bundle_strip(course: dict, all_courses: list) -> str:
-    """Cross-sell strip pointing at the other course(s). CTA goes straight
-    to the bundle Stripe payment link when one exists in the manifest,
-    otherwise falls back to the /course/ index."""
-    others = [c for c in (all_courses or []) if c["id"] != course["id"]]
-    if not others:
-        return ""
-    bundle_link = get_bundle_payment_link()
-    if len(others) == 1:
-        other = others[0]
-        copy = (f'Pair <strong>{esc(course["title"])}</strong> with '
-                f'<a href="{SITE_BASE_URL}/course/{esc(other["id"])}/">'
-                f'{esc(other["title"])}</a> &mdash; get both courses for $39 '
-                f'at bundle checkout.')
-    else:
-        copy = (f'{esc(course["title"])} is one of {len(others) + 1} Gravel God '
-                f'courses &mdash; bundle pricing available at checkout.')
-    if bundle_link:
-        cta = (f'<a href="{esc(bundle_link)}" class="gg-course-bundle-cta" '
-               f'data-bundle-cta="1">GET THE 2-PACK &mdash; $39</a>')
-    else:
-        cta = f'<a href="{SITE_BASE_URL}/course/" class="gg-course-bundle-cta">VIEW ALL COURSES</a>'
-    return f'''<div class="gg-course-bundle">
-      <div>
-        <p class="gg-course-bundle-kicker">BUNDLE &amp; SAVE</p>
-        <p class="gg-course-bundle-copy">{copy}</p>
-      </div>
-      {cta}
-    </div>'''
-
-
 def build_landing_page(course: dict, all_courses: list = None) -> str:
     """Build the ungated course landing/sales page."""
     slug = course["id"]
@@ -2199,7 +2143,6 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
         </div>''')
 
     total_time_str = esc(format_course_total_time(course))
-    bundle_html = build_bundle_strip(course, all_courses)
 
     # Already-enrolled sign-in — verified against the course-access worker,
     # then straight into lesson 1 (the lesson gate reads the same cache).
@@ -2281,8 +2224,6 @@ def build_landing_page(course: dict, all_courses: list = None) -> str:
   </div>
 
   {instructor_html}
-
-  {bundle_html}
 
   <div class="gg-course-signin" id="gg-course-signin">
     <div class="gg-course-gate-badge">ALREADY ENROLLED?</div>
@@ -3018,7 +2959,7 @@ def main():
                 print(f"Would generate: 1 landing + {len(flat)} lessons for {course['id']}")
             return 0
 
-        all_courses = load_all_courses()  # for the bundle cross-sell strip
+        all_courses = load_all_courses()
         count = generate_course(course_dir, output_dir, all_courses=all_courses)
         if count == 0:
             print("No lessons generated.")

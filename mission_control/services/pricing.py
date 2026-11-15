@@ -19,6 +19,45 @@ with open(PRICING_JSON_PATH, encoding="utf-8") as _f:
 
 RACE_PLAN = PRICING["products"]["race_plan"]
 SEASON_PLAN = PRICING["products"]["season_plan"]
+RACE_PLAN_4WEEKLY = PRICING["products"]["race_plan_4weekly"]
+
+# ── Plan billed every 4 weeks (Gravel God, 2026-11-13) ──
+# Same math as wordpress.pricing and the checkout server's
+# race_plan_subscription.payment_plan.
+BLOCK_WEEKS = RACE_PLAN_4WEEKLY["block_weeks"]                   # 4
+BLOCK_PRICE_CENTS = RACE_PLAN_4WEEKLY["block_price_cents"]       # 4999
+BLOCK_PRICE = RACE_PLAN_4WEEKLY["block_price_display"]           # "$49.99"
+WEEK_PRICE_CENTS = -(-BLOCK_PRICE_CENTS // BLOCK_WEEKS)          # 1250
+PLAN_PRICE_LINE = f"{BLOCK_PRICE} every {BLOCK_WEEKS} weeks"
+RACE_PLAN_4WEEKLY_RECONCILIATION_LABEL = RACE_PLAN_4WEEKLY["reconciliation_label"]
+
+
+def _money(cents: int) -> str:
+    return f"${cents // 100:,}.{cents % 100:02d}"
+
+
+def payment_plan(weeks: int) -> dict:
+    """Payments and total for ``weeks`` of plan; mirrors
+    wordpress.pricing.payment_plan."""
+    if isinstance(weeks, bool) or not isinstance(weeks, int) or weeks < 1:
+        raise ValueError("A plan needs at least one week")
+    full_blocks, leftover_weeks = divmod(weeks, BLOCK_WEEKS)
+    payments = [BLOCK_PRICE_CENTS] * full_blocks
+    if leftover_weeks:
+        payments.append(WEEK_PRICE_CENTS * leftover_weeks)
+    total = sum(payments)
+    return {
+        "weeks": weeks,
+        "full_blocks": full_blocks,
+        "leftover_weeks": leftover_weeks,
+        "payment_count": len(payments),
+        "payments_cents": payments,
+        "total_cents": total,
+        "total_display": _money(total),
+        "first_payment_cents": payments[0],
+    }
+
+# ── Retired one-off race plan: paid orders, reconciliation, Roadie Labs copy ──
 
 PRICE_PER_WEEK = RACE_PLAN["weekly_rate_display"]            # "$15"
 PRICE_PER_WEEK_CENTS = RACE_PLAN["weekly_rate_cents"]         # 1500
@@ -60,6 +99,7 @@ def compute_season_plan_rebuild_dates(purchase_date: date) -> list[date]:
 # reporting as "Unattributed Stripe charge" instead of a real product name.
 RECONCILIATION_LABELS = {
     RACE_PLAN_RECONCILIATION_LABEL: RACE_PLAN["name"],
+    RACE_PLAN_4WEEKLY_RECONCILIATION_LABEL: f'{RACE_PLAN_4WEEKLY["name"]}, every 4 weeks',
     SEASON_PLAN_RECONCILIATION_LABEL: SEASON_PLAN["name"],
     "consulting": "Consulting",
     "consult_addon": "Consulting add-on",

@@ -2,7 +2,8 @@
  * Cloudflare Worker: Race Review Intake
  *
  * Receives inline race review submissions from race profile pages.
- * Validates, sends Resend notification to coaching team.
+ * Validates, stores the review in KV (RACE_REVIEWS), then emails Matti via
+ * Resend. Success is returned only after the store succeeds.
  */
 
 const DISPOSABLE_DOMAINS = [
@@ -45,26 +46,63 @@ export default {
       return jsonResponse({ error: validation.error }, 400, origin);
     }
 
+    const brand = brandFromOrigin(origin);
     const reviewId = generateReviewId(data.email, data.race_slug);
-    const review = formatReview(data, reviewId);
+    const review = formatReview(data, reviewId, brand);
 
-    // Downstream: notification email. Failures logged, don't affect user response.
+    // Store first. The rider is told the review arrived only once it is
+    // saved, so a mail outage can't lose it.
+    if (!env.RACE_REVIEWS) {
+      console.error('RACE_REVIEWS binding missing; review not stored');
+      return jsonResponse({ error: 'Review could not be saved. Please try again.' }, 503, origin);
+    }
     try {
-      if (env.RESEND_API_KEY && env.NOTIFICATION_EMAIL) {
-        await sendNotificationEmail(env, review);
-      }
-    } catch (downstreamError) {
-      console.error('Downstream error (user unaffected):', downstreamError);
+      await env.RACE_REVIEWS.put(`review:${reviewId}`, JSON.stringify(review), {
+        metadata: { brand, race_slug: review.race_slug, stars: review.stars }
+      });
+    } catch (storeError) {
+      console.error('Review store failed:', storeError && storeError.message);
+      return jsonResponse({ error: 'Review could not be saved. Please try again.' }, 503, origin);
     }
 
-    console.log('Review submitted:', { review_id: reviewId, race: data.race_slug, stars: data.stars });
+    // Notification email: stored already, so a send failure is logged and
+    // marked on the record rather than shown to the rider.
+    let notified = false;
+    if (env.RESEND_API_KEY && env.NOTIFICATION_EMAIL) {
+      notified = await sendNotificationEmail(env, review);
+    } else {
+      console.error('Review notification not configured (RESEND_API_KEY / NOTIFICATION_EMAIL)');
+    }
+    // Separate key: KV allows one write per key per second, so the review
+    // record itself is written exactly once.
+    if (notified) {
+      try {
+        await env.RACE_REVIEWS.put(`notified:${reviewId}`, new Date().toISOString());
+      } catch (e) {
+        console.error('Review notified marker failed:', e && e.message);
+      }
+    }
+
+    console.log('Review stored:', { review_id: reviewId, brand, race: data.race_slug, stars: data.stars, notified });
 
     return jsonResponse({
       success: true,
+      review_id: reviewId,
       message: 'Review submitted — thank you!'
     }, 200, origin);
   }
 };
+
+const BRANDS = {
+  gravelgod: { from: 'Gravel God Reviews <noreply@gravelgodcycling.com>', tag: 'GG' },
+  roadielabs: { from: 'Roadie Labs Reviews <noreply@roadielabs.com>', tag: 'RL' }
+};
+
+function brandFromOrigin(origin) {
+  let host = '';
+  try { host = new URL(origin).hostname.replace(/^www\./, ''); } catch (e) { host = ''; }
+  return host === 'roadielabs.com' ? 'roadielabs' : 'gravelgod';
+}
 
 // --- HTML Escaping ---
 
@@ -104,9 +142,10 @@ function generateReviewId(email, raceSlug) {
   return `rv-${raceSlug.substring(0, 20)}-${hash}-${ts}`;
 }
 
-function formatReview(data, reviewId) {
+function formatReview(data, reviewId, brand) {
   return {
     review_id: reviewId,
+    brand,
     race_slug: data.race_slug,
     race_name: data.race_name || data.race_slug,
     email: data.email,
@@ -144,26 +183,32 @@ async function sendNotificationEmail(env, review) {
     <p style="color:#999;font-size:12px">Submitted: ${esc(review.submitted_at)}</p>
   `;
 
-  try {
-    const resp = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        from: 'Gravel God Reviews <noreply@gravelgodcycling.com>',
-        to: [env.NOTIFICATION_EMAIL],
-        reply_to: review.email,
-        subject: `[GG Review] ${(review.race_name).substring(0, 60)} - ${stars} (${review.stars}/5)`,
-        html
-      })
-    });
-    const detail = await resp.text();
-    console.log('Review notification (resend):', resp.status, detail.slice(0, 200));
-  } catch (error) {
-    console.error('Resend notification failed:', error);
+  const sender = BRANDS[review.brand] || BRANDS.gravelgod;
+  const body = JSON.stringify({
+    from: sender.from,
+    to: [env.NOTIFICATION_EMAIL],
+    reply_to: review.email,
+    subject: `[${sender.tag} Review] ${(review.race_name).substring(0, 60)} - ${stars} (${review.stars}/5)`,
+    html
+  });
+
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      const resp = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body
+      });
+      if (resp.ok) return true;
+      console.error('Review notification (resend) failed:', resp.status, 'attempt', attempt);
+    } catch (error) {
+      console.error('Review notification (resend) error:', error && error.message, 'attempt', attempt);
+    }
   }
+  return false;
 }
 
 // --- CORS + Response Helpers ---

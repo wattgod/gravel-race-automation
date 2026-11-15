@@ -22,7 +22,7 @@ Every input name must be unique within a variant; each `checks` option is
 its own input, named by its key.
 """
 
-from pricing import PRICE_PER_WEEK
+import plan_offer
 
 SEASON = 2026
 NEXT = SEASON + 1
@@ -463,9 +463,9 @@ GOAL_2027 = {
         "plans": [
             {
                 "key": "race",
-                "price": f"Custom plan: {PRICE_PER_WEEK} a week until your race, paid once",
+                "price": f"Custom plan: {plan_offer.PRICE_TO_RACE}, one 4-week block at a time",
                 "cta": f"Build my {NEXT} plan",
-                "cta_href": "/training-plans/start/?src=goals",
+                "cta_href": "/questionnaire/?src=goals",
             },
         ],
         "decline": "Just the poster, thanks",

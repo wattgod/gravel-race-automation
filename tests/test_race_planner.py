@@ -216,13 +216,12 @@ def test_analytics_events_go_through_gtag_behind_consent():
 
 def test_plan_button_goes_to_the_existing_checkout():
     cfg = config(page("unbound-200"))
-    assert cfg["offer"]["href"] == "https://gravelgodcycling.com/training-plans/start/?race=unbound-200&src=race_planner"
-    from pricing import PRICE_PER_WEEK
-    assert cfg["offer"]["price"] == f"{PRICE_PER_WEEK} / week"
-    # a weekly price next to "one-time payment" must say how the two fit
-    from pricing import MIN_WEEKS
-    assert cfg["offer"]["price_note"] == (f"Priced by the weeks until race day ({PRICE_PER_WEEK} a week, "
-                                          f"{MIN_WEEKS}-week minimum), paid once at checkout.")
+    assert cfg["offer"]["href"] == "https://gravelgodcycling.com/questionnaire/?race=unbound-200&src=race_planner"
+    import plan_offer
+    assert cfg["offer"]["price"] == plan_offer.PRICE_LINE == "$49.99 every 4 weeks"
+    assert cfg["offer"]["price_note"] == plan_offer.TERMS_SHORT
+    assert not plan_offer.stale_offer_phrases(" ".join([cfg["offer"]["price"], cfg["offer"]["price_note"],
+                                                         *cfg["offer"]["includes"]]))
     assert "o.price_note" in (PLANNER_JS / "gg-planner.js").read_text()
 
 

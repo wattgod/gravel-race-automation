@@ -37,7 +37,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
-from pricing import PRICE_PER_WEEK  # data/pricing.json (D18)
+from plan_offer import CTA_PRICE  # data/pricing.json (D18)
 
 # ── Valid data-ab selectors (keep in sync with generators) ───
 
@@ -88,54 +88,9 @@ TEMPLATES: dict[str, list[dict]] = {
         # research" and "Riders in 43 states trust these scores" are counts
         # nobody can check (receipts spec, tests/test_no_unsourced_proof.py).
         # ── Training price framing ──
-        {
-            "id": "price_daily_vs_weekly",
-            "description": "Test daily vs weekly price anchor on training plans",
-            "selector": _selector("training_price"),
-            "pages": ["/", "/index.html", "/about/"],
-            "conversion_selector": _selector("training_cta_btn"),
-            "variants": [
-                {
-                    "id": "control",
-                    "name": "control",
-                    "content": "Race-specific. Built for your target event. $2/day.",
-                },
-                {
-                    "id": "variant_a",
-                    "name": "weekly",
-                    "content": f"Race-specific. Built for your target event. {PRICE_PER_WEEK}/week.",
-                },
-                {
-                    "id": "variant_b",
-                    "name": "per_ride",
-                    "content": "Race-specific. Built for your target event. ~$2 per ride.",
-                },
-            ],
-        },
-        {
-            "id": "price_comparison_object",
-            "description": "Test what riders compare plan cost to",
-            "selector": _selector("training_price"),
-            "pages": ["/", "/index.html", "/about/"],
-            "conversion_selector": _selector("training_cta_btn"),
-            "variants": [
-                {
-                    "id": "control",
-                    "name": "control",
-                    "content": "Less than your race hotel — $2/day.",
-                },
-                {
-                    "id": "variant_a",
-                    "name": "gel_anchor",
-                    "content": f"Less than one gel per ride — {PRICE_PER_WEEK}/week.",
-                },
-                {
-                    "id": "variant_b",
-                    "name": "entry_fee",
-                    "content": "Your entry fee was $175. Your plan is $2/day.",
-                },
-            ],
-        },
+        # price_daily_vs_weekly and price_comparison_object were removed
+        # 2026-11-15: per-day prices and "less than your hotel" comparisons
+        # break the selling rules in docs/AI_WRITING_POLICY.md.
         # ── Training CTA button text ──
         {
             "id": "cta_button_verb",
@@ -175,17 +130,17 @@ TEMPLATES: dict[str, list[dict]] = {
                 {
                     "id": "control",
                     "name": "control",
-                    "content": f"BUILD MY PLAN — {PRICE_PER_WEEK}/WK",
+                    "content": f"BUILD MY PLAN — {CTA_PRICE}",
                 },
                 {
                     "id": "variant_a",
                     "name": "race_specific",
-                    "content": f"TRAIN FOR THIS RACE — {PRICE_PER_WEEK}/WK",
+                    "content": f"TRAIN FOR THIS RACE — {CTA_PRICE}",
                 },
                 {
                     "id": "variant_b",
                     "name": "get_plan",
-                    "content": f"GET YOUR RACE PLAN — {PRICE_PER_WEEK}/WK",
+                    "content": f"GET YOUR RACE PLAN — {CTA_PRICE}",
                 },
             ],
         },
@@ -199,17 +154,17 @@ TEMPLATES: dict[str, list[dict]] = {
                 {
                     "id": "control",
                     "name": "control",
-                    "content": f"BUILD MY PLAN — {PRICE_PER_WEEK}/WK",
+                    "content": f"BUILD MY PLAN — {CTA_PRICE}",
                 },
                 {
                     "id": "variant_a",
                     "name": "build_phase",
-                    "content": f"START YOUR BUILD PHASE — {PRICE_PER_WEEK}/WK",
+                    "content": f"START YOUR BUILD PHASE — {CTA_PRICE}",
                 },
                 {
                     "id": "variant_b",
                     "name": "see_plan",
-                    "content": f"SEE YOUR TRAINING PLAN — {PRICE_PER_WEEK}/WK",
+                    "content": f"SEE YOUR TRAINING PLAN — {CTA_PRICE}",
                 },
             ],
         },
@@ -223,12 +178,12 @@ TEMPLATES: dict[str, list[dict]] = {
                 {
                     "id": "control",
                     "name": "control",
-                    "content": f"BUILD MY PLAN — {PRICE_PER_WEEK}/WK",
+                    "content": f"BUILD MY PLAN — {CTA_PRICE}",
                 },
                 {
                     "id": "variant_a",
-                    "name": "daily_price",
-                    "content": "BUILD MY PLAN — $2/DAY",
+                    "name": "price_to_race",
+                    "content": f"BUILD MY PLAN — {CTA_PRICE} UNTIL RACE WEEK",
                 },
                 {
                     "id": "variant_b",

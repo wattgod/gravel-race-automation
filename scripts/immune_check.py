@@ -65,10 +65,10 @@ GREEN, YELLOW, RED = "green", "yellow", "red"
 # Money-path CTA markers — the conversion links a visitor clicks (buy the plan /
 # talk to a coach). Anything on these paths is RED, never auto-healed.
 MONEY_PATH_MARKERS = ("/questionnaire/", "/training-plans/start/", "/coaching/")
-# The CTAs the race-page generator itself must emit. /questionnaire/ is still a
-# money path (it redirects to the start page) but race pages link the start
-# page directly, so it isn't required here.
-RACE_PAGE_CTA_MARKERS = ("/training-plans/start/", "/coaching/")
+# The CTAs the race-page generator itself must emit. Since 2026-11-13 the plan
+# billed every 4 weeks sells from /questionnaire/ and the retired start page
+# 302s there; the start path stays a money path for old links.
+RACE_PAGE_CTA_MARKERS = ("/questionnaire/", "/coaching/")
 
 # Make audit_race_data.py importable and reuse its logic (don't reinvent it).
 sys.path.insert(0, str(SCRIPT_DIR))

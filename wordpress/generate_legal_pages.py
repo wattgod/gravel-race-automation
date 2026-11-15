@@ -25,7 +25,7 @@ from brand_tokens import get_favicon_head_snippet, get_ga4_head_snippet, get_pre
 from shared_footer import get_mega_footer_html, get_mega_footer_css
 from shared_header import get_site_header_html, get_site_header_css
 from cookie_consent import get_consent_banner_html
-from pricing import PRICE_PER_WEEK
+from pricing import BLOCK_PRICE, BLOCK_WEEKS, PLAN_REFUND_DAYS, WEEK_PRICE
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 
@@ -104,14 +104,15 @@ def get_terms_content() -> str:
 
 <h2>Training Plans &amp; Coaching</h2>
 <ul>
-<li><strong>Training plans</strong> are one-time purchases delivered to your TrainingPeaks calendar. Pricing is calculated at checkout based on weeks until your target race ({PRICE_PER_WEEK} per week, four-week minimum).</li>
-<li><strong>Coaching</strong> is billed every 4 weeks (13 billing cycles per year), not monthly. A one-time $99 setup fee applies. You may cancel at the end of any 4-week cycle with no penalty.</li>
+<li><strong>Training plans</strong> are billed every {BLOCK_WEEKS} weeks: {BLOCK_PRICE} per {BLOCK_WEEKS}-week block from the day you sign up, one payment per block, until your target race week. If your race isn&rsquo;t a whole number of {BLOCK_WEEKS}-week blocks away, the last, shorter block costs {WEEK_PRICE} a week. Checkout shows the number of payments and the total before you pay, and the plan ends after your race week. Your plan is delivered to your TrainingPeaks calendar one block at a time; each block is released after its payment clears and I have approved it. You can cancel any time from your plan page (every plan email links to it); you keep the block you&rsquo;ve paid for. Your plan carries on to another race only if you name that race and agree to the new number of payments and total.</li>
+<li><strong>Coaching</strong> is billed every 4 weeks (13 billing cycles per year). A one-time $99 setup fee applies. You may cancel at the end of any 4-week cycle with no penalty.</li>
 <li><strong>Consulting</strong> is a one-time $150 payment for a 60-minute video call plus a written action plan.</li>
 </ul>
 <p>All training and coaching content is general fitness guidance. It is not medical advice. Consult a physician before starting any exercise program, especially if you have health conditions.</p>
 
 <h2>Payments &amp; Refunds</h2>
-<p>All payments are processed by Stripe. If you are not satisfied with a custom training plan, contact <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a> within 7 days of purchase for a full refund, no questions asked. For consulting sessions, contact us within 7 days; we handle those requests on a case-by-case basis and aim to be fair.</p>
+<p>All payments are processed by Stripe. Training plans: full refund within {PLAN_REFUND_DAYS} days of your first payment, from your plan page; refunding it ends the plan. This applies once, not again when your plan carries on to a new race. Later payments aren&rsquo;t refunded, except where the law says otherwise.</p>
+<p>For consulting sessions, contact <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a> within 7 days; we handle those requests on a case-by-case basis and aim to be fair.</p>
 <p>Coaching subscriptions can be cancelled at any time. No refunds are issued for partially completed billing cycles.</p>
 
 <h2>Intellectual Property</h2>

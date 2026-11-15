@@ -30,7 +30,7 @@ from functools import lru_cache
 from pathlib import Path
 
 from brand_tokens import SITE_BASE_URL
-from pricing import MIN_WEEKS, PRICE_PER_WEEK, RACE_PLAN
+import plan_offer
 
 REPO = Path(__file__).resolve().parent.parent
 PLANNER_DIR = REPO / "data" / "planner"
@@ -46,7 +46,7 @@ UI_JS = JS_DIR / "gg-planner.js"
 ASSET_DIR = "planner"            # under the race output's assets/
 ASSET_URL = "/race/assets/planner"
 SHOWN = ("eligible", "flagged")
-PLAN_URL = f"{SITE_BASE_URL}/training-plans/start/"
+PLAN_URL = f"{SITE_BASE_URL}/questionnaire/"
 EVENT_RESULT = "planner_result_shown"
 EVENT_CTA = "plan_cta_click"
 
@@ -302,10 +302,9 @@ def planner_config(rd: dict, show_offer: bool) -> dict | None:
         "gels": [{"id": x["id"], "label": x["model"], "g": x["g"], "url": x["url"]} for x in gear["gels"]],
         "offer": ({
             "href": f"{PLAN_URL}?race={slug}&src=race_planner",
-            "price": f"{PRICE_PER_WEEK} / week",
-            "price_note": (f"Priced by the weeks until race day ({PRICE_PER_WEEK} a week, "
-                           f"{MIN_WEEKS}-week minimum), paid once at checkout."),
-            "includes": list(RACE_PLAN["inclusions"]),
+            "price": plan_offer.PRICE_LINE,
+            "price_note": plan_offer.TERMS_SHORT,
+            "includes": [plan_offer.BLOCKS_LINE, plan_offer.FIRST_BLOCK_LINE],
         } if show_offer else None),
         "events": {"result": EVENT_RESULT, "cta": EVENT_CTA},
         "map": PLANNER_MAP,

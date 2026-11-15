@@ -88,6 +88,9 @@ ALLOWLIST = {
         "the $ figure is a historical build-log entry, not a live price quote",
     "scripts/create_stripe_products.py": "top-of-file usage docstring; the "
         "actual price table (TRAINING_PLAN_PRICES) is pricing.json-driven",
+    "wordpress/plan_offer.py": "STALE_OFFER_PATTERNS names the retired $249 "
+        "one-off price so stale_offer_phrases can fail a page that still shows "
+        "it next to the 4-weekly plan; a guard, not an offered price",
 
     # The source of truth and its loaders — the numbers legitimately live here.
     "data/pricing.json": "the source of truth",

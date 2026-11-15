@@ -46,7 +46,7 @@ def training_plans_card_html() -> str:
         pillar="plans", key="training-plans", kicker="CUSTOM TRAINING PLANS",
         title_html="Your Race.<br>Your Hours.<br>Your Plan.", size=80, lines=3,
         line=f"ONE {BLOCK_WEEKS}-WEEK BLOCK AT A TIME",
-        tag=(f"EVERY {BLOCK_WEEKS} WEEKS", BLOCK_PRICE))
+        tag=(f"EVERY {BLOCK_WEEKS} WEEKS", BLOCK_PRICE), tag_width=340)
 
 
 def coaching_card_html() -> str:

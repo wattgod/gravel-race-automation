@@ -141,11 +141,13 @@ def _strip(active: str | None, f) -> str:
             f'GRAVELGODCYCLING.COM</div></div>')
 
 
-def _tag(f, label: str, value: str, prefix: str = "") -> str:
+def _tag(f, label: str, value: str, prefix: str = "", *, width: int | None = None) -> str:
     *_, tag_bg, tag_fg = f
     pre = (f'<span style="font-size:34px;font-style:italic;font-weight:500">{e(prefix)} </span>'
            if prefix else "")
-    width = 350 if prefix else 292
+    # A wider value ("$49.99") passes its own width; the overflow check in
+    # Renderer.render still fails a card whose tag text doesn't fit.
+    width = width or (350 if prefix else 292)
     return (f'<div class="box" style="position:absolute;right:64px;bottom:118px;width:{width}px;height:196px;'
             f'background:{tag_bg};clip-path:polygon(0 0,calc(100% - 34px) 0,100% 34px,100% 100%,0 100%);'
             f'padding:24px 26px;color:{tag_fg};overflow:hidden">'
@@ -195,9 +197,10 @@ def race_card(*, key: str, tier_label: str, location: str, name: str, verdict: s
 
 def pillar_card(*, pillar: str, key: str, kicker: str, title_html: str, size: int = 84,
                 line: str | None = None, serif_line: bool = False, tag: tuple | None = None,
-                lines: int = 2, width: int = 740, active: str | None = "pillar") -> str:
+                lines: int = 2, width: int = 740, active: str | None = "pillar",
+                tag_width: int | None = None) -> str:
     f = FIELDS[pillar]
-    tag_html = _tag(f, *tag) if tag else ""
+    tag_html = _tag(f, *tag, width=tag_width) if tag else ""
     return _frame(pillar, pillar if active == "pillar" else active, key,
                   _headline(f, kicker, title_html, size, line=line, serif_line=serif_line,
                             width=width, lines=lines) + tag_html)

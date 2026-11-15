@@ -31,10 +31,23 @@ _MAX_GOAL_ANSWER_LEN = 4000
 # text answer at 4000). The worker's MAX_ANSWERS_TOTAL is the same number.
 _MAX_GOAL_ANSWERS_TOTAL = 40000
 # Sources whose questionnaire answers ride along as goal_answers.
-_ANSWER_SOURCES = ("goal_2027", "athlete_review", "athlete_exit", "plan_debrief")
+_ANSWER_SOURCES = ("goal_2027", "athlete_review", "athlete_exit", "plan_debrief", "plan_intake")
 # Neither a goal nor a lead: a leaving athlete and a plan buyer's debrief.
 # Their record is built from scratch and a resubmission replaces it.
 _NOT_LEAD_SOURCES = ("athlete_exit", "plan_debrief")
+# Leads that get no automated email BY DESIGN: a skier asking for a custom plan
+# (xcskilabs.com/questionnaire/, source=plan_intake). Matti replies to each one
+# personally, so nothing is enrolled, and that is not an [UNROUTED] miss. The
+# whole submission is stored in gg_audit_log (action plan_intake_received) and
+# Matti gets an inbox-visible alert with every answer.
+_NO_SEQUENCE_SOURCES = ("plan_intake",)
+_SUPPORTED_BRANDS = ("gravelgod", "roadielabs", "xcskilabs")
+# Sources that must name a supported brand: 400 otherwise, never a gravelgod
+# default (a skier's plan questionnaire filed as Gravel God reaches Matti as a
+# [GG] alert). The worker checks the same list (BRAND_REQUIRED in
+# workers/fueling-lead-intake/worker.js). Every other source still turns a
+# missing or unknown brand into gravelgod; that default is a known follow-up.
+_BRAND_REQUIRED_SOURCES = ("plan_intake",)
 # A pick'em entry's racing answer (workers/pickem-intake: "xl", "200",
 # "lottery", "no", ...). The worker sends race_slug only for a distance.
 _PICKEM_ANSWER_RE = re.compile(r"^[a-z0-9_]{1,24}$")
@@ -177,6 +190,9 @@ async def _send_enrollment_alert(
     elif source == "goal_2027":
         subject = (f"[{plan_debrief.brand_tag(brand)}] Goal review "
                    f"{'updated' if updated else 'filed'} · {name or email}")
+    elif source == "plan_intake":
+        # Never "new lead ·": that subject is filtered past the inbox.
+        subject = f"[{plan_debrief.brand_tag(brand)}] Plan questionnaire filed · {name or email}"
     else:
         subject = f"new lead · {name or email} · {context} [{brand}]"
     if unrouted:
@@ -215,6 +231,23 @@ async def _send_enrollment_alert(
             f"Ask what their first week will look like. No automatic reply was sent from this alert.</p>"
             f"<p>Entry: {escape(str(source_data.get('entry_src') or 'unknown'))}"
             f" · Offer: {escape(str(source_data.get('offer_variant') or 'unknown'))}</p>"
+        )
+        await asyncio.to_thread(_send_email_sync, to, subject, html, brand)
+        return
+    if source == "plan_intake":
+        rows = "".join(
+            f"<tr><td style='padding:3px 12px 3px 0;color:#7d695d;vertical-align:top;"
+            f"font-family:monospace;font-size:12px'>{escape(k)}</td>"
+            f"<td style='padding:3px 0'>{escape(str(v))}</td></tr>"
+            for k, v in answers.items()
+        )
+        race = source_data.get("race_name") or answers.get("target_race") or "no race given"
+        html = (
+            f"<p><b>{escape(name) or '(no name)'}</b> &lt;{escape(email)}&gt;"
+            f" &middot; {escape(race)}</p>"
+            f"<p style='font-family:monospace;font-size:12px'>NEXT ACTIONS</p>"
+            f"<ul><li>Reply personally. No automatic email went to them.</li></ul>"
+            f"<table style='border-collapse:collapse;font-family:Georgia,serif;font-size:15px'>{rows}</table>"
         )
         await asyncio.to_thread(_send_email_sync, to, subject, html, brand)
         return
@@ -281,9 +314,14 @@ async def subscriber_webhook(
     name = _truncate(body.get("name", "").strip(), _MAX_NAME_LEN)
     source = _truncate(body.get("source", "unknown"), _MAX_SOURCE_LEN)
 
-    # Brand routing (worker sends the brand key; unknown → gravelgod)
-    brand = str(body.get("brand", "gravelgod")).lower()
-    if brand not in ("gravelgod", "roadielabs", "xcskilabs"):
+    # Brand routing (worker sends the brand key). A brand-required source must
+    # name a supported brand; for the rest, missing or unknown → gravelgod.
+    raw_brand = body.get("brand")
+    if source in _BRAND_REQUIRED_SOURCES:
+        if not isinstance(raw_brand, str) or raw_brand.lower() not in _SUPPORTED_BRANDS:
+            raise HTTPException(status_code=400, detail="Unknown brand")
+    brand = str(raw_brand or "gravelgod").lower()
+    if brand not in _SUPPORTED_BRANDS:
         brand = "gravelgod"
 
     source_data = {"brand": brand}
@@ -386,6 +424,11 @@ async def subscriber_webhook(
             brand, _cap_goal_answers(body.get("goal_answers")),
             plan=body.get("plan"), ref=body.get("ref"),
         )
+    elif source == "plan_intake":
+        # A lead: the race context above stays. The answers ride along capped.
+        kept = _cap_goal_answers(body.get("goal_answers"))
+        if kept:
+            source_data["goal_answers"] = kept
     elif source in ("goal_2027", "athlete_review"):
         kept = _cap_goal_answers(body.get("goal_answers"))
         if kept:
@@ -455,6 +498,9 @@ async def subscriber_webhook(
         # Nor a plan buyer's race debrief. Not the race_debrief trigger, which
         # is the post-race marketing email to leads.
         "plan_debrief": "plan_debrief",
+        # A custom-plan questionnaire: no sequence by design (_NO_SEQUENCE_SOURCES).
+        # Mapped explicitly so it can never fall through to new_subscriber.
+        "plan_intake": "plan_intake",
         # Plan purchases (Stripe / WooCommerce / own-site) -> post-purchase
         # onboarding + review flywheel. The payment webhook must POST a source in
         # this set, with brand + plan_weeks (+ race_slug). Until that POST exists
@@ -472,7 +518,17 @@ async def subscriber_webhook(
     # without this the newer answers are silently discarded and the filing
     # script would keep handing Matti the stale ones.
     updated_in_place = False
-    if source in _ANSWER_SOURCES and source_data.get("goal_answers"):
+    no_sequence = source in _NO_SEQUENCE_SOURCES
+    if no_sequence:
+        # Stored before anything else happens: if this write fails the request
+        # fails, the worker answers 503, and the page keeps the skier's draft.
+        # Not truncated: the answers are already capped (_cap_goal_answers).
+        db.log_action(
+            "plan_intake_received", "webhook", email,
+            json.dumps({"name": name, "brand": brand, "source": source,
+                        "source_data": source_data}, default=str),
+        )
+    if source in _ANSWER_SOURCES and source_data.get("goal_answers") and not no_sequence:
         for seq in get_sequences_for_trigger(trigger, brand):
             existing = db.select_one(
                 "gg_sequence_enrollments",
@@ -558,7 +614,7 @@ async def subscriber_webhook(
 
     # Enroll in matching sequences (brand-scoped)
     enrolled = []
-    matching = get_sequences_for_trigger(trigger, brand=brand)
+    matching = [] if no_sequence else get_sequences_for_trigger(trigger, brand=brand)
     for seq in matching:
         result = enroll(email, name, seq["id"], source=source, source_data=source_data)
         if result:
@@ -584,14 +640,14 @@ async def subscriber_webhook(
     # showed success, nothing was stored, nobody was told (found Sep 28 when
     # XC goals leads had no XC sequence yet). Keep the whole lead in the audit
     # log and alert Matti, loudly, so a missing route costs a fix, not a lead.
-    unrouted = not matching
+    unrouted = not matching and not no_sequence
     if unrouted:
         db.log_action(
             "lead_unrouted", "webhook", email,
             json.dumps({"name": name, "brand": brand, "source": source, "trigger": trigger,
                         "source_data": source_data}, default=str)[:20000],
         )
-    else:
+    elif not no_sequence:
         db.log_action(
             "subscriber_received", "webhook", email,
             f"Brand: {brand}, source: {source}, enrolled in: "
@@ -606,7 +662,18 @@ async def subscriber_webhook(
     # enrolls; its backup alert still goes, or a failed worker alert would
     # mean none.
     exit_updated = (source in _NOT_LEAD_SOURCES or source == "goal_2027") and updated_in_place and not enrolled
-    if enrolled or unrouted or exit_updated:
+    if no_sequence:
+        # The alert IS the delivery: nobody reads the audit log, and nothing
+        # else tells Matti a skier asked for a plan. If it fails, say so; the
+        # worker answers 503 and the page keeps the draft for a retry. A retry
+        # stores a second row, which costs nothing.
+        try:
+            await _send_enrollment_alert(email, name, brand, source, source_data, enrolled)
+        except Exception:
+            logger.exception("plan_intake alert failed (answers are stored in gg_audit_log)")
+            db.log_action("plan_intake_alert_failed", "webhook", email, f"brand: {brand}")
+            raise HTTPException(status_code=502, detail="Stored, but the alert to Matti failed")
+    elif enrolled or unrouted or exit_updated:
         try:
             await _send_enrollment_alert(email, name, brand, source, source_data, enrolled,
                                          unrouted=unrouted, updated=exit_updated)

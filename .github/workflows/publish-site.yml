@@ -185,7 +185,7 @@ jobs:
           set -euo pipefail
           python3 scripts/push_wordpress.py \
             --sync-pages --sync-plan-pages --sync-training-plans --sync-training \
-            --sync-guide --sync-legal --sync-season-review --sync-plan-intake \
+            --sync-guide --sync-legal --sync-consent --sync-season-review --sync-plan-intake \
             --season-review-variants athlete,goal_2027 \
             --sync-redirects --sync-sitemap --sync-meta-descriptions \
             --sync-insights --sync-about --sync-tire-guides \

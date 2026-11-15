@@ -8,6 +8,7 @@ Also validates consent mode integration, priority ordering, and admin exclusion.
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -15,7 +16,7 @@ from pathlib import Path
 import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
-from cookie_consent import EEA_UK_CH_TIMEZONES, get_consent_banner_html
+from cookie_consent import EEA_UK_CH_TIMEZONES, LOCATIONLESS_TIMEZONES, get_consent_banner_html
 
 MU_PLUGIN = Path(__file__).parent.parent / "wordpress" / "mu-plugins" / "gg-cookie-consent.php"
 TOKENS_CSS = Path(__file__).parent.parent.parent / "gravel-god-brand" / "tokens" / "tokens.css"
@@ -199,6 +200,14 @@ class TestConsentMode:
     def test_missing_timezone_fails_closed(self, php_source):
         defaults = _extract_php_consent_defaults(php_source)
         assert "ggConsentRequiresOptIn=!ggConsentTimezoneKnown||" in defaults
+
+    def test_locationless_timezones_fail_closed(self, php_source):
+        defaults = _extract_php_consent_defaults(php_source)
+        m = re.search(r"ggConsentLocationless=new Set\(\[(.*?)\]\)", defaults)
+        assert m, "PHP locationless-timezone Set literal not found"
+        assert tuple(json.loads(f"[{m.group(1)}]")) == LOCATIONLESS_TIMEZONES
+        assert "ggConsentLocationless.has(ggConsentTimezone)||" in defaults
+        assert "/^Etc\\//.test(ggConsentTimezone)||" in defaults
 
 
 # ── Admin Exclusion ────────────────────────────────────────

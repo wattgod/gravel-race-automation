@@ -283,6 +283,10 @@ class TestTimezoneClassifier:
     def test_switzerland_is_strict(self):
         assert requires_explicit_consent("Europe/Zurich")
 
+    @pytest.mark.parametrize("timezone", ["UTC", "Etc/UTC", "Etc/GMT", "GMT", "Etc/GMT+1", "Zulu"])
+    def test_locationless_timezones_are_strict(self, timezone):
+        assert requires_explicit_consent(timezone)
+
     @pytest.mark.parametrize("timezone", [
         "Europe/Istanbul",
         "Europe/Moscow",

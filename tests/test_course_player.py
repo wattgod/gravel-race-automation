@@ -409,19 +409,30 @@ class TestLanding:
         assert 'YOUR INSTRUCTOR' in landing_html
         assert 'Matti Rowe' in landing_html
 
-    def test_bundle_strip(self, landing_html):
-        assert 'gg-course-bundle' in landing_html
-        assert 'BUNDLE' in landing_html
-        assert 'href="https://gravelgodcycling.com/course/"' in landing_html
+    def test_no_bundle_offered(self, landing_html):
+        # Each course sells on its own at its own price; there is no 2-pack
+        # (retired 2026-11-15).
+        import json
+        from pathlib import Path
+        low = landing_html.lower()
+        for needle in ("bundle", "2-pack", "both courses for"):
+            assert needle not in low, needle
+        manifest = json.loads((Path(__file__).resolve().parents[1]
+                               / "data" / "stripe-course-products.json").read_text())
+        for link in manifest["payment_links"]:
+            if link.get("bundle") or "," in link["course_id"]:
+                assert link.get("retired"), link["course_id"]
+                assert link["url"] not in landing_html
 
-    def test_bundle_strip_names_other_course(self, landing_html):
-        assert 'Gravel Hydration Mastery' in landing_html
-
-    def test_no_bundle_strip_with_single_course(self, dirt_craft):
-        html = build_landing_page(dirt_craft, all_courses=[dirt_craft])
-        assert 'class="gg-course-bundle"' not in html
-        from generate_courses import build_bundle_strip
-        assert build_bundle_strip(dirt_craft, [dirt_craft]) == ""
+    def test_course_index_offers_no_bundle(self, tmp_path):
+        from generate_courses import load_all_courses, generate_course, COURSES_DATA_DIR
+        for course in load_all_courses():
+            generate_course(COURSES_DATA_DIR / course["id"], tmp_path, all_courses=load_all_courses())
+        pages = list(tmp_path.rglob("*.html"))
+        assert pages
+        for page in pages:
+            low = page.read_text().lower()
+            assert "2-pack" not in low and "bundle &amp; save" not in low, page
 
     def test_typography_rhythm(self, course_css):
         css = course_css.replace('{{', '{').replace('}}', '}')

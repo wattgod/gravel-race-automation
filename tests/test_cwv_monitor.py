@@ -123,7 +123,15 @@ class TestMonitoredURLs:
     ]
 
     def test_url_count(self):
-        assert len(MONITORED_URLS) == 7
+        assert len(MONITORED_URLS) == 15
+
+    def test_plan_pages_and_all_brands_measured(self):
+        """Sweep ALL-08: plan pages on all three sites are measured."""
+        urls = [e["url"] for e in MONITORED_URLS]
+        for site in ("gravelgodcycling.com", "roadielabs.com", "xcskilabs.com"):
+            assert any(site in u and "training-plan" in u for u in urls), site
+            assert any(site in u and "/coaching/" in u for u in urls), site
+            assert any(site in u and "/race/" in u for u in urls), site
 
     def test_all_urls_present(self):
         urls = [e["url"] for e in MONITORED_URLS]
@@ -548,6 +556,12 @@ class TestSnapshotIO:
 class TestRunSnapshot:
     """Test full snapshot run with mocked PSI API calls."""
 
+    @pytest.fixture(autouse=True)
+    def _no_rate_limit_sleep(self, monkeypatch):
+        # run_snapshot sleeps 3 s between PSI calls; 15 URLs x 2 strategies
+        # would add ~90 s per test. Tests that assert on sleep patch it again.
+        monkeypatch.setattr("cwv_monitor.time.sleep", lambda s: None)
+
     @patch("cwv_monitor.fetch_psi")
     def test_snapshot_has_all_urls(self, mock_fetch):
         mock_fetch.return_value = _make_psi_response()
@@ -560,7 +574,7 @@ class TestRunSnapshot:
     def test_snapshot_both_strategies(self, mock_fetch):
         mock_fetch.return_value = _make_psi_response()
         snap = run_snapshot(["mobile", "desktop"])
-        assert len(snap["results"]) == 14  # 7 URLs x 2 strategies
+        assert len(snap["results"]) == 2 * len(MONITORED_URLS)
         strategies = {r["strategy"] for r in snap["results"]}
         assert strategies == {"mobile", "desktop"}
 
@@ -568,14 +582,14 @@ class TestRunSnapshot:
     def test_snapshot_mobile_only(self, mock_fetch):
         mock_fetch.return_value = _make_psi_response()
         snap = run_snapshot(["mobile"])
-        assert len(snap["results"]) == 7
+        assert len(snap["results"]) == len(MONITORED_URLS)
         assert all(r["strategy"] == "mobile" for r in snap["results"])
 
     @patch("cwv_monitor.fetch_psi")
     def test_snapshot_desktop_only(self, mock_fetch):
         mock_fetch.return_value = _make_psi_response()
         snap = run_snapshot(["desktop"])
-        assert len(snap["results"]) == 7
+        assert len(snap["results"]) == len(MONITORED_URLS)
         assert all(r["strategy"] == "desktop" for r in snap["results"])
 
     @patch("cwv_monitor.fetch_psi")
@@ -585,9 +599,9 @@ class TestRunSnapshot:
             url="http://test", code=429, msg="Too Many Requests", hdrs=None, fp=None
         )
         snap = run_snapshot(["mobile"])
-        assert len(snap["results"]) == 7
+        assert len(snap["results"]) == len(MONITORED_URLS)
         assert all("error" in r for r in snap["results"])
-        assert snap["summary"]["errors"] == 7
+        assert snap["summary"]["errors"] == len(MONITORED_URLS)
 
     @patch("cwv_monitor.fetch_psi")
     def test_generic_exception_captured(self, mock_fetch):
@@ -601,7 +615,7 @@ class TestRunSnapshot:
         mock_fetch.return_value = _make_psi_response()
         run_snapshot(["mobile"])
         # Should sleep between requests (7 URLs, 6 sleeps)
-        assert mock_sleep.call_count == 6
+        assert mock_sleep.call_count == len(MONITORED_URLS) - 1
 
     @patch("cwv_monitor.fetch_psi")
     def test_api_key_passed_through(self, mock_fetch):

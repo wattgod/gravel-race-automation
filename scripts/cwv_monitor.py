@@ -37,6 +37,16 @@ MONITORED_URLS = [
     {"url": "https://gravelgodcycling.com/race/big-sugar/", "label": "T3 Race"},
     {"url": "https://gravelgodcycling.com/race/dirty-pecan/", "label": "T4 Race"},
     {"url": "https://gravelgodcycling.com/coaching/", "label": "Coaching"},
+    # Plan pages and the other two brands (sweep ALL-08, Nov 2026): the plan
+    # pages inline the simulator and were never measured.
+    {"url": "https://gravelgodcycling.com/products/training-plans/", "label": "GG Plans"},
+    {"url": "https://gravelgodcycling.com/race/unbound-200/training-plan/", "label": "GG Race Plan"},
+    {"url": "https://roadielabs.com/training-plans/", "label": "RL Plans"},
+    {"url": "https://roadielabs.com/race/oregon-gran-fondo/", "label": "RL Race"},
+    {"url": "https://roadielabs.com/coaching/", "label": "RL Coaching"},
+    {"url": "https://xcskilabs.com/training-plans/", "label": "XC Plans"},
+    {"url": "https://xcskilabs.com/race/american-birkebeiner/", "label": "XC Race"},
+    {"url": "https://xcskilabs.com/coaching/", "label": "XC Coaching"},
 ]
 
 PSI_API_URL = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed"

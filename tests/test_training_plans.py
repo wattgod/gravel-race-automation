@@ -22,7 +22,6 @@ from generate_training_plans import (
     COACHING_URL,
     DELIVERABLES,
     FAQ_ITEMS,
-    PER_DAY_PRICE,
     QUESTIONNAIRE_URL,
     REALITY_CHECKS,
     SAMPLE_WEEK_BLOCKS,
@@ -146,7 +145,7 @@ class TestHero:
         assert "24 Hours" in hero
         assert "Delivery" in hero
         assert "Matched" in hero
-        assert "$1.79/day" in hero
+        assert "$49.99</strong><span>Every 4 Weeks" in hero
         assert "5 min" in hero
 
     def test_delivery_promise_is_simple_and_specific(self):
@@ -168,9 +167,11 @@ class TestHero:
         assert "coffee" not in hero_lower
         assert "latte" not in hero_lower
 
-    def test_tube_comparison(self):
+    def test_no_per_day_price_or_bargain_comparison(self):
+        """docs/AI_WRITING_POLICY.md, Selling a product."""
         hero = build_hero()
-        assert "Less Than a Tube" in hero
+        assert "/day" not in hero
+        assert "Less Than" not in hero
 
     def test_cta_questionnaire_url(self):
         hero = build_hero()
@@ -374,11 +375,11 @@ class TestPricing:
         assert QUESTIONNAIRE_URL in section
         assert "Build My Plan" in section
 
-    def test_honest_math_daily_rate(self):
-        """$49.99 over 28 days, rounded up to the cent."""
+    def test_no_per_day_price_or_bargain_comparison(self):
+        """docs/AI_WRITING_POLICY.md, Selling a product."""
         section = build_pricing()
-        assert PER_DAY_PRICE == "$1.79"
-        assert "$1.79 a day" in section
+        assert " a day" not in section
+        assert "entry fee" not in section.lower()
 
     def test_example_calculations(self):
         section = build_pricing()

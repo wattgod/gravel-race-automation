@@ -55,7 +55,6 @@ SIX_WEEK_PLAN = plan_summary(6)        # "2 payments, $74.99 in all"
 TWELVE_WEEK_PLAN = plan_summary(12)    # "3 payments, $149.97 in all"
 SIXTEEN_WEEK_PLAN = plan_summary(16)   # "4 payments, $199.96 in all"
 THIRTY_WEEK_PLAN = plan_summary(30)    # "8 payments, $374.93 in all"
-PER_DAY_PRICE = plan_offer.PER_DAY_PRICE  # "$1.79"
 
 
 def esc(text) -> str:
@@ -86,7 +85,7 @@ def build_hero() -> str:
   <div class="gg-tp-hero-bar">
     <div class="gg-tp-hero-bar-item"><strong>24 Hours</strong><span>Delivery</span></div>
     <div class="gg-tp-hero-bar-item"><strong>Matched</strong><span>Methodology</span></div>
-    <div class="gg-tp-hero-bar-item"><strong>{PER_DAY_PRICE}/day</strong><span>Less Than a Tube</span></div>
+    <div class="gg-tp-hero-bar-item"><strong>{BLOCK_PRICE}</strong><span>Every {BLOCK_WEEKS} Weeks</span></div>
     <div class="gg-tp-hero-bar-item"><strong>5 min</strong><span>To Start</span></div>
   </div>
   <p class="gg-tp-delivery-terms">{plan_offer.BLOCKS_LINE} {plan_offer.PRICE_TO_RACE}.</p>
@@ -348,7 +347,6 @@ def build_pricing() -> str:
       <div class="gg-tp-pricing-cta">
         <a href="{QUESTIONNAIRE_URL}?src=product_page" class="gg-tp-btn" data-cta="pricing_build">Build My Plan</a>
       </div>
-      <p class="gg-tp-pricing-note">Your entry fee was $175. Your hotel is $200. Your plan is {PER_DAY_PRICE} a day. Don&rsquo;t show up without one.</p>
     </div>
   </div>
   <div class="gg-tp-guarantee">

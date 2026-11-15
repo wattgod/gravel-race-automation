@@ -160,6 +160,9 @@ jobs:
           # folder answers 403). The per-tire pages stay a laptop step.
           scp "${O[@]}" wordpress/output/tire/index.html "$R/tire/index.html"
 
+      # --sync-ab ships web/ab/experiments.json with the pages: the browser
+      # rewrites data-ab elements from the live config, so a retired price
+      # experiment keeps showing the old offer until the config goes up.
       - name: Push pages
         env:
           OG_FLAG: ${{ steps.og.outcome == 'success' && '--sync-og' || '' }}
@@ -172,7 +175,7 @@ jobs:
             --sync-redirects --sync-sitemap --sync-meta-descriptions \
             --sync-insights --sync-about --sync-tire-guides \
             --sync-series --sync-homepage --sync-index --sync-widget \
-            --sync-llms-txt --sync-rss --sync-embed \
+            --sync-llms-txt --sync-rss --sync-embed --sync-ab \
             $OG_FLAG --purge-cache
 
       - name: Check the live site

@@ -37,8 +37,6 @@ PRICE_LINE = PLAN_PRICE_LINE
 CTA_PRICE = PLAN_PRICE_LINE.upper()
 # "$49.99 every 4 weeks until race week"
 PRICE_TO_RACE = f"{PLAN_PRICE_LINE} until race week"
-# A 4-week block spread over its 28 days, rounded up to the cent ("$1.79").
-PER_DAY_PRICE = money(-(-BLOCK_PRICE_CENTS // (BLOCK_WEEKS * 7)))
 
 BLOCKS_LINE = (f"Your plan goes on your TrainingPeaks calendar one {BLOCK_WEEKS}-week "
                "block at a time, and I look over every block before it goes on.")
@@ -53,7 +51,7 @@ REFUND_LINE = f"Full refund within {PLAN_REFUND_DAYS} days of your first payment
 TERMS_SHORT = (f"{PRICE_TO_RACE}. {REFUND_LINE} Cancel any time from your plan page.")
 
 __all__ = [
-    "BLOCK_PRICE", "PRICE_LINE", "PER_DAY_PRICE", "CTA_PRICE", "PRICE_TO_RACE", "BLOCKS_LINE",
+    "BLOCK_PRICE", "PRICE_LINE", "CTA_PRICE", "PRICE_TO_RACE", "BLOCKS_LINE",
     "LAST_BLOCK_LINE", "ENDS_LINE", "FIRST_BLOCK_LINE", "CANCEL_LINE",
     "REFUND_LINE", "TERMS_SHORT", "PLAN_PRICE_LINE", "stale_offer_phrases",
     "STALE_OFFER_PATTERNS",

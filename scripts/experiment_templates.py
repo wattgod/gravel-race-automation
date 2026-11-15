@@ -37,7 +37,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
-from plan_offer import CTA_PRICE, PER_DAY_PRICE, PRICE_LINE  # data/pricing.json (D18)
+from plan_offer import CTA_PRICE  # data/pricing.json (D18)
 
 # ── Valid data-ab selectors (keep in sync with generators) ───
 
@@ -88,54 +88,9 @@ TEMPLATES: dict[str, list[dict]] = {
         # research" and "Riders in 43 states trust these scores" are counts
         # nobody can check (receipts spec, tests/test_no_unsourced_proof.py).
         # ── Training price framing ──
-        {
-            "id": "price_daily_vs_weekly",
-            "description": "Test daily vs weekly price anchor on training plans",
-            "selector": _selector("training_price"),
-            "pages": ["/", "/index.html", "/about/"],
-            "conversion_selector": _selector("training_cta_btn"),
-            "variants": [
-                {
-                    "id": "control",
-                    "name": "control",
-                    "content": f"Race-specific. Built for your target event. {PER_DAY_PRICE} a day.",
-                },
-                {
-                    "id": "variant_a",
-                    "name": "weekly",
-                    "content": f"Race-specific. Built for your target event. {PRICE_LINE}.",
-                },
-                {
-                    "id": "variant_b",
-                    "name": "per_ride",
-                    "content": f"Race-specific. Built for your target event. {PRICE_LINE}, until race week.",
-                },
-            ],
-        },
-        {
-            "id": "price_comparison_object",
-            "description": "Test what riders compare plan cost to",
-            "selector": _selector("training_price"),
-            "pages": ["/", "/index.html", "/about/"],
-            "conversion_selector": _selector("training_cta_btn"),
-            "variants": [
-                {
-                    "id": "control",
-                    "name": "control",
-                    "content": f"Less than your race hotel — {PER_DAY_PRICE} a day.",
-                },
-                {
-                    "id": "variant_a",
-                    "name": "gel_anchor",
-                    "content": f"Your plan for your race — {PRICE_LINE} until race week.",
-                },
-                {
-                    "id": "variant_b",
-                    "name": "entry_fee",
-                    "content": f"Your entry fee was $175. Your plan is {PER_DAY_PRICE} a day.",
-                },
-            ],
-        },
+        # price_daily_vs_weekly and price_comparison_object were removed
+        # 2026-11-15: per-day prices and "less than your hotel" comparisons
+        # break the selling rules in docs/AI_WRITING_POLICY.md.
         # ── Training CTA button text ──
         {
             "id": "cta_button_verb",
@@ -227,8 +182,8 @@ TEMPLATES: dict[str, list[dict]] = {
                 },
                 {
                     "id": "variant_a",
-                    "name": "daily_price",
-                    "content": f"BUILD MY PLAN — {PER_DAY_PRICE}/DAY",
+                    "name": "price_to_race",
+                    "content": f"BUILD MY PLAN — {CTA_PRICE} UNTIL RACE WEEK",
                 },
                 {
                     "id": "variant_b",

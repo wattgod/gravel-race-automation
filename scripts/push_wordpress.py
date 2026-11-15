@@ -5682,7 +5682,8 @@ def sync_llms_txt():
             [
                 "ssh", "-i", str(SSH_KEY), "-p", port,
                 f"{user}@{host}",
-                f"chmod 644 {remote_base}/llms.txt 2>/dev/null || true",
+                f"chmod 644 {remote_base}/llms.txt 2>/dev/null || true; "
+                f"mkdir -p {remote_base}/.well-known",
             ],
             check=False, capture_output=True, text=True, timeout=30,
         )
@@ -5693,6 +5694,9 @@ def sync_llms_txt():
     # uploaded a second time under the AIOSEO-immune filename (see docstring).
     uploads = [("llms.txt", "llms.txt"), ("llms-full.txt", "llms-full.txt"), ("llms.txt", "llms-repo.txt"),
                ("llms-full.txt", "llms-full-repo.txt")]
+    # RFC 9116 contact for security reports (sweep ALL-09). Ships with the
+    # llms files because Publish Site already runs --sync-llms-txt.
+    uploads.append((".well-known/security.txt", ".well-known/security.txt"))
     filenames = [remote for _, remote in uploads]
     try:
         import indexnow_ping
@@ -5736,10 +5740,11 @@ def sync_llms_txt():
             print(f"✗ Error uploading {remote_filename}: {e}")
             failed_uploads.append(remote_filename)
 
-    required_uploads = {"llms.txt", "llms-full.txt", "llms-repo.txt", "llms-full-repo.txt"}
+    required_uploads = {"llms.txt", "llms-full.txt", "llms-repo.txt", "llms-full-repo.txt",
+                        ".well-known/security.txt"}
     required_failures = required_uploads.intersection(failed_uploads)
     if required_failures:
-        print("✗ Required llms uploads failed: "
+        print("✗ Required uploads failed: "
               + ", ".join(sorted(required_failures)))
         return False
 

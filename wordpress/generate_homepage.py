@@ -643,6 +643,17 @@ def build_jsonld(stats: dict) -> str:
         "name": "Gravel God Cycling",
         "url": SITE_BASE_URL,
         "description": f"The definitive gravel race database. Honest ratings across {stats['dimensions']} criteria.",
+        "legalName": "Gravel God Cycling LLC",
+        "logo": f"{SITE_BASE_URL}/icon-512.png",
+        "email": "gravelgodcoaching@gmail.com",
+        # Only profiles the site itself links. Add others here when they are
+        # real and linked, never guessed.
+        "sameAs": ["https://gravelgodcycling.substack.com"],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "gravelgodcoaching@gmail.com",
+        },
     }
     website = {
         "@context": "https://schema.org",

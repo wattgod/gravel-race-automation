@@ -10,7 +10,8 @@
     },
     {
       "id": "prod_UgF2iGks4AATX2",
-      "name": "Gravel Academy 2-Pack"
+      "name": "Gravel Academy 2-Pack",
+      "retired": "2026-11-15"
     }
   ],
   "prices": [
@@ -27,7 +28,8 @@
     {
       "id": "price_1TgsYlLoaHDbEqSqcIj6fhIT",
       "course_id": "bundle",
-      "amount": 3900
+      "amount": 3900,
+      "retired": "2026-11-15"
     }
   ],
   "payment_links": [
@@ -45,7 +47,8 @@
       "id": "plink_1TgsYmLoaHDbEqSqxwbZRq9d",
       "url": "https://buy.stripe.com/4gMaEY5UGfRz3Bl7ghfjG03",
       "course_id": "gravel-hydration-mastery,dirt-craft",
-      "bundle": true
+      "bundle": true,
+      "retired": "2026-11-15"
     }
   ]
 }

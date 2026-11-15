@@ -490,3 +490,62 @@ def test_a_failed_solve_shows_no_time_and_says_why(solved, slug):
                               "why": "the past race-day weather does not cover your predicted time on course"}
     assert r["empty_weather"] == {"ok": False, "has_time": False, "why": "weather file has no hours or uneven columns"}
     assert r["no_crr"] == {"ok": False, "has_time": False, "why": "the model settings for this course are incomplete"}
+
+
+def test_base_map_is_the_sites_leaflet_and_osm_tiles_with_no_stand_in():
+    """The Replay map is Leaflet (pinned, SRI) over OpenStreetMap tiles, as on the
+    race search page. If the map cannot load, the page says so; it never draws
+    a bare route outline in its place."""
+    cfg = config(page("unbound-200"))
+    m = cfg["map"]
+    assert m["js"] == "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" and m["js_sri"].startswith("sha256-")
+    assert m["css"] == "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" and m["css_sri"].startswith("sha256-")
+    assert m["tiles"] == "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+    assert "OpenStreetMap" in m["attribution"] and "OpenStreetMap" in m["credit"]
+    assert not re.search(r"(token|key|access)=", m["tiles"]), "no keyed tile source"
+    js = (PLANNER_JS / "gg-planner.js").read_text()
+    assert "https://" not in js, "every third-party URL comes from the config"
+    assert "integrity: M.js_sri" in js and "integrity: M.css_sri" in js and 'crossorigin: "anonymous"' in js
+    assert "The map is not shown: " in js and "the map library did not load" in js and "some of the map tiles did not load" in js
+    # No SVG outline map: the route is only ever drawn on the base map.
+    assert "L.polyline(" in js and 'sv("path", { d: d, "class": "gg-planner-route" })' not in js
+    assert "viewBox: \"0 0 \" + W" not in js
+    # Panel layout: map, then profile, then one readout line, then the explanations closed.
+    assert js.index('cls: "gg-planner-basemap"') < js.index('"class": "gg-planner-profile"') < js.index('cls: "gg-planner-readout"')
+    assert 'el("summary", { text: "How this works" })' in js
+
+
+def test_map_fits_the_route_and_keeps_the_visitors_zoom():
+    """Fractional zoom with a 5% margin, refit on resize until the visitor moves
+    the map, drawn only once Leaflet's CSS is in. Replay and scrubbing only
+    move the pins."""
+    js = (PLANNER_JS / "gg-planner.js").read_text()
+    assert "zoomSnap: 0" in js, "whole zoom levels can halve the route on screen"
+    assert "0.05 * Math.min(sz.x, sz.y)" in js
+    assert "new ResizeObserver(" in js and "if (!userView) fit();" in js
+    assert 'map.on("zoomstart movestart", function () { if (!fitting) userView = true; });' in js
+    assert 'css.addEventListener("load"' in js
+    start = js.index("function setMoment(")
+    body = js[start:js.index("function scrubKm(", start)]
+    for call in ("setView", "fitBounds", "setZoom", "panTo", "flyTo"):
+        assert call not in body
+
+
+def test_map_respects_reduced_motion_and_rejects_a_partial_first_view():
+    js = (PLANNER_JS / "gg-planner.js").read_text()
+    assert "zoomAnimation: !still, fadeAnimation: !still, markerZoomAnimation: !still, inertia: !still" in js
+    assert "animate: false" in js.split("map.panBy = function", 1)[1].split("};", 1)[0]
+    assert 'tiles.on("tileerror", function () { if (firstView)' in js
+
+
+def test_tiles_overlap_by_a_pixel_with_normal_blending():
+    """Fractional zoom: each tile is drawn 1 px larger so neighbours overlap,
+    and Leaflet 1.9's plus-lighter tile blend is turned off (it would add the
+    overlapping pixels into a bright line)."""
+    js = (PLANNER_JS / "gg-planner.js").read_text()
+    assert "L.TileLayer.extend({" in js and 'tile.style.width = ts.x + 1 + "px"; tile.style.height = ts.y + 1 + "px";' in js
+    from race_planner import get_race_planner_css
+    css = get_race_planner_css()
+    assert "img.leaflet-tile { mix-blend-mode: normal; }" in css
+    assert "plus-lighter;" not in css
+

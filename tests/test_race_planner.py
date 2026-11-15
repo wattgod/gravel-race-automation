@@ -68,7 +68,23 @@ def test_eligible_and_flagged_pages_carry_the_planner(slug):
     cfg = config(html)
     assert cfg["slug"] == slug and cfg["status"] == STATUS["races"][slug]["status"]
     for flag in STATUS["races"][slug].get("flags", []):
+        if flag["kind"] == "visitor_sets_effort":
+            # Shown as the effort field the visitor must fill, not as the import's wording.
+            assert cfg["visitor_sets_effort"] is True
+            assert "This course has no default effort" in sec and "Effort (IF) (optional)" not in sec
+            continue
         assert flag["text"] in sec or flag["text"][0].upper() + flag["text"][1:] in sec
+
+
+@pytest.mark.parametrize("slug", SHOWN)
+def test_no_default_effort_means_no_time_until_one_is_typed(solved, slug):
+    kinds = {f["kind"] for f in STATUS["races"][slug].get("flags", [])}
+    no_if = solved[slug]["no_if"]
+    if "visitor_sets_effort" not in kinds:
+        assert no_if is None
+        return
+    assert no_if["ok"] is False and no_if["has_time"] is False and no_if["why"] == "missing"
+    assert any("effort" in m for m in no_if["miss"])
 
 
 @pytest.mark.parametrize("slug", HELD)

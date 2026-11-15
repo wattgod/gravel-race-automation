@@ -1,0 +1,34 @@
+name: Uptime
+
+# Every 10 minutes: the three brand home pages, the checkout API and Mission
+# Control /health, and the intake Workers (sweep ALL-06, Nov 2026). An outage
+# opens one issue labelled "uptime" and emails gravelgodcoaching@gmail.com
+# once; recovery closes the issue and emails once more. See
+# scripts/uptime_check.py. GitHub may start scheduled runs a few minutes late.
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: uptime
+  cancel-in-progress: false
+
+jobs:
+  uptime:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: scripts/uptime_check.py
+          sparse-checkout-cone-mode: false
+      - name: Check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: python3 scripts/uptime_check.py

@@ -41,6 +41,13 @@ _NOT_LEAD_SOURCES = ("athlete_exit", "plan_debrief")
 # whole submission is stored in gg_audit_log (action plan_intake_received) and
 # Matti gets an inbox-visible alert with every answer.
 _NO_SEQUENCE_SOURCES = ("plan_intake",)
+_SUPPORTED_BRANDS = ("gravelgod", "roadielabs", "xcskilabs")
+# Sources that must name a supported brand: 400 otherwise, never a gravelgod
+# default (a skier's plan questionnaire filed as Gravel God reaches Matti as a
+# [GG] alert). The worker checks the same list (BRAND_REQUIRED in
+# workers/fueling-lead-intake/worker.js). Every other source still turns a
+# missing or unknown brand into gravelgod; that default is a known follow-up.
+_BRAND_REQUIRED_SOURCES = ("plan_intake",)
 # A pick'em entry's racing answer (workers/pickem-intake: "xl", "200",
 # "lottery", "no", ...). The worker sends race_slug only for a distance.
 _PICKEM_ANSWER_RE = re.compile(r"^[a-z0-9_]{1,24}$")
@@ -307,9 +314,14 @@ async def subscriber_webhook(
     name = _truncate(body.get("name", "").strip(), _MAX_NAME_LEN)
     source = _truncate(body.get("source", "unknown"), _MAX_SOURCE_LEN)
 
-    # Brand routing (worker sends the brand key; unknown → gravelgod)
-    brand = str(body.get("brand", "gravelgod")).lower()
-    if brand not in ("gravelgod", "roadielabs", "xcskilabs"):
+    # Brand routing (worker sends the brand key). A brand-required source must
+    # name a supported brand; for the rest, missing or unknown → gravelgod.
+    raw_brand = body.get("brand")
+    if source in _BRAND_REQUIRED_SOURCES:
+        if not isinstance(raw_brand, str) or raw_brand.lower() not in _SUPPORTED_BRANDS:
+            raise HTTPException(status_code=400, detail="Unknown brand")
+    brand = str(raw_brand or "gravelgod").lower()
+    if brand not in _SUPPORTED_BRANDS:
         brand = "gravelgod"
 
     source_data = {"brand": brand}

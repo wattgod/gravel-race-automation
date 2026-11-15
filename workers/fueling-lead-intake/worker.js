@@ -2,7 +2,9 @@
  * Cloudflare Worker: Lead Intake (All Email Capture Points)
  *
  * Multi-brand: serves gravelgodcycling.com (default), roadielabs.com, and
- * xcskilabs.com. The page sends `brand`; absent → gravelgod. Brand is
+ * xcskilabs.com. The page sends `brand`; absent → gravelgod, except for
+ * plan_intake (BRAND_REQUIRED), which must name a supported brand or gets a
+ * 400. The gravelgod default for the other sources is a known follow-up. Brand is
  * tagged on the Mission Control payload and the notification email
  * subject/sender so road leads are distinguishable in the shared inbox.
  *
@@ -87,17 +89,26 @@ export default {
       return jsonResponse({ error: 'Bot detected' }, 400, origin);
     }
 
-    // Brand routing (multi-brand intake). Defaults to gravelgod for back-compat
-    // with the gravel pages that don't send a brand field.
-    const brand = (String(data.brand || 'gravelgod')).toLowerCase();
-    data.brand = brand;
-
     // Detect source: fueling_calculator has weight_lbs but no source field
     const source = data.source || (data.weight_lbs ? 'fueling_calculator' : null);
 
     if (!source || (source !== 'fueling_calculator' && !KNOWN_SOURCES.includes(source))) {
       return jsonResponse({ error: 'Unknown source' }, 400, origin);
     }
+
+    // Brand routing (multi-brand intake). A BRAND_REQUIRED source must name a
+    // supported brand: a skier's plan questionnaire filed as Gravel God would
+    // reach Matti as a [GG] alert. Every other source still defaults to
+    // gravelgod for back-compat with the gravel pages that send no brand
+    // (known follow-up: those pages should send it too).
+    if (BRAND_REQUIRED.includes(source)) {
+      const named = typeof data.brand === 'string' ? data.brand.toLowerCase() : '';
+      if (!SUPPORTED_BRANDS.includes(named)) {
+        return jsonResponse({ error: 'Unknown brand' }, 400, origin);
+      }
+    }
+    const brand = (String(data.brand || 'gravelgod')).toLowerCase();
+    data.brand = brand;
 
     // Sanitize string inputs: truncate to sane lengths
     if (data.email) data.email = String(data.email).substring(0, 254);
@@ -264,7 +275,8 @@ export default {
       }
     }
 
-    console.log('Lead captured:', { source, email: data.email, race_slug: data.race_slug || '' });
+    // No email or name in logs: Cloudflare logs are not a place for addresses.
+    console.log('Lead captured:', { source, brand: data.brand, race_slug: data.race_slug || '' });
 
     const responseBody = { success: true, message: 'Your personalized plan is ready' };
     if (mcResultPromise) {
@@ -278,6 +290,10 @@ export default {
 // --- Brand helpers (multi-brand intake) ---
 
 const BRAND_LABELS = { gravelgod: 'Gravel God', roadielabs: 'Roadie Labs', xcskilabs: 'XC Ski Labs' };
+const SUPPORTED_BRANDS = Object.keys(BRAND_LABELS);
+// Sources that must name their brand (no gravelgod default). Mission Control
+// checks the same list (_BRAND_REQUIRED_SOURCES in routers/webhooks.py).
+const BRAND_REQUIRED = ['plan_intake'];
 const BRAND_SENDERS = {
   gravelgod: { email: 'leads@gravelgodcycling.com', name: 'Gravel God Fueling' },
   roadielabs: { email: 'leads@gravelgodcycling.com', name: 'Roadie Labs Fueling' },
@@ -991,7 +1007,7 @@ async function notifyMissionControl(env, data, source) {
       signal: AbortSignal.timeout(STORAGE_REQUIRED.includes(source) ? MC_STORAGE_TIMEOUT_MS : MC_TIMEOUT_MS),
     });
 
-    console.log('Mission Control notified:', data.email, source, resp.status);
+    console.log('Mission Control notified:', source, resp.status);
     if (!resp.ok && STORAGE_REQUIRED.includes(source)) {
       throw new Error(`Mission Control returned ${resp.status}`);
     }

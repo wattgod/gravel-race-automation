@@ -547,6 +547,75 @@ test('plan_intake honeypot filled is refused', async () => {
   assert.deepEqual(requests, []);
 });
 
+// plan_intake must name its brand: no gravelgod default (a skier filed as GG).
+for (const [label, extra] of [
+  ['missing', { brand: undefined }],
+  ['empty', { brand: '' }],
+  ['unknown', { brand: 'nordicgod' }],
+  ['not a string', { brand: ['xcskilabs'] }],
+]) {
+  test(`plan_intake with brand ${label} is a 400 and sends nothing`, async () => {
+    const { response, requests } = await runExit(planIntakePayload(extra));
+    assert.equal(response.status, 400);
+    assert.deepEqual(await response.json(), { error: 'Unknown brand' });
+    assert.deepEqual(requests, []);
+  });
+}
+
+test('plan_intake accepts every supported brand, case-insensitive', async () => {
+  for (const brand of ['xcskilabs', 'XCSkiLabs', 'roadielabs', 'gravelgod']) {
+    const { response, mc } = await runExit(planIntakePayload({ brand }));
+    assert.equal(response.status, 200, brand);
+    assert.equal(mc.brand, brand.toLowerCase());
+  }
+});
+
+test('other sources keep the gravelgod default when no brand is sent (known follow-up)', async () => {
+  const { response, mc } = await runExit({ source: 'exit_intent', email: 'popup@example.com' });
+  assert.equal(response.status, 200);
+  assert.equal(mc.brand, 'gravelgod');
+});
+
+// No submitted address (or name) in any worker log line, on success or failure.
+async function planIntakeLogs(opts) {
+  const lines = [];
+  const saved = {};
+  for (const level of ['log', 'info', 'warn', 'error', 'debug']) {
+    saved[level] = console[level];
+    console[level] = (...args) => {
+      lines.push(args.map((a) => (typeof a === 'string' ? a : JSON.stringify(a) ?? String(a))).join(' '));
+    };
+  }
+  try {
+    const result = await runExit(planIntakePayload(), opts);
+    return { ...result, lines: [...lines, ...result.errors] };
+  } finally {
+    for (const [level, fn] of Object.entries(saved)) console[level] = fn;
+  }
+}
+
+test('a stored plan_intake logs nothing containing the skier\'s address or name', async () => {
+  const { response, lines } = await planIntakeLogs();
+  assert.equal(response.status, 200);
+  assert.ok(lines.length > 0, 'the success path does log something');
+  for (const line of lines) {
+    assert.ok(!line.includes('skier@example.com'), line);
+    assert.ok(!line.includes('Test Skier'), line);
+  }
+});
+
+test('a failed plan_intake logs nothing containing the skier\'s address or name', async () => {
+  for (const mcStatus of [500, 502]) {
+    const { response, lines } = await planIntakeLogs({ mcStatus });
+    assert.equal(response.status, 503);
+    assert.ok(lines.length > 0, 'the failure path does log something');
+    for (const line of lines) {
+      assert.ok(!line.includes('skier@example.com'), line);
+      assert.ok(!line.includes('Test Skier'), line);
+    }
+  }
+});
+
 // --- Storage-required sources with no Mission Control URL (Devin on #421) ---
 
 const STORAGE_REQUIRED_BODIES = {

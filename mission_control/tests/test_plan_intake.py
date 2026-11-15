@@ -163,3 +163,44 @@ class TestPlanIntake:
         assert any(e["sequence_id"] == "xc_welcome_v1"
                    for e in fake_db.store.get("gg_sequence_enrollments", []))
         assert sent and sent[0]["subject"].startswith("new lead ·")
+
+
+class TestPlanIntakeBrandRequired:
+    """plan_intake must name a supported brand: no gravelgod default.
+
+    A skier's questionnaire filed as Gravel God would be stored under the
+    wrong brand and reach Matti as a [GG] alert. Other sources keep the
+    gravelgod default for now (known follow-up)."""
+
+    @pytest.mark.parametrize("brand", [None, "", "nordicgod", ["xcskilabs"], 7])
+    def test_missing_or_unknown_brand_is_a_400_and_nothing_happens(
+            self, client, fake_db, monkeypatch, brand):
+        sent = _capture_sends(monkeypatch)
+        body = _body(brand=brand)
+        if brand is None:
+            del body["brand"]
+        resp = _post(client, body)
+        assert resp.status_code == 400
+        assert resp.json() == {"detail": "Unknown brand"}
+        assert _audit(fake_db, "plan_intake_received") == []
+        assert fake_db.store.get("gg_audit_log", []) == []
+        assert sent == []
+
+    @pytest.mark.parametrize("brand", ["xcskilabs", "XCSkiLabs", "roadielabs", "gravelgod"])
+    def test_every_supported_brand_is_accepted(self, client, fake_db, monkeypatch, brand):
+        _capture_sends(monkeypatch)
+        resp = _post(client, _body(brand=brand))
+        assert resp.status_code == 200
+        stored = json.loads(_audit(fake_db, "plan_intake_received")[0]["details"])
+        assert stored["brand"] == brand.lower()
+
+    def test_other_sources_keep_the_gravelgod_default(self, client, fake_db, monkeypatch):
+        _capture_sends(monkeypatch)
+        for brand in (None, "nordicgod"):
+            body = {"email": "guide@example.com", "name": "Guide", "source": "training_guide"}
+            if brand:
+                body["brand"] = brand
+            assert _post(client, body).status_code == 200
+        assert {e["sequence_id"] for e in fake_db.store.get("gg_sequence_enrollments", [])} \
+            and not any(e["sequence_id"].startswith("xc_")
+                        for e in fake_db.store.get("gg_sequence_enrollments", []))

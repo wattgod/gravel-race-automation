@@ -22,8 +22,102 @@ with open(PRICING_JSON_PATH, encoding="utf-8") as _f:
 
 RACE_PLAN = PRICING["products"]["race_plan"]
 SEASON_PLAN = PRICING["products"]["season_plan"]
+RACE_PLAN_4WEEKLY = PRICING["products"]["race_plan_4weekly"]
 
-# ── Race plan (backward-compatible names used across wordpress/generate_*.py) ──
+# ── The plan offer: custom training plan billed every 4 weeks (2026-11-13) ──
+# Replaces the one-off race plan on every Gravel God page (SUBSCRIPTION_DESIGN
+# §8.7). The math mirrors the checkout server's race_plan_subscription.py
+# exactly: there is no quote endpoint, so a price shown here that differs from
+# what Stripe charges is a lie on the page. tests/test_race_plan_4weekly_pricing.py
+# pins the fixed cases and runs the generated JS against the Python.
+PLAN_CHECKOUT_PRODUCT = RACE_PLAN_4WEEKLY["checkout_product"]    # "race_plan_4weekly"
+BLOCK_WEEKS = RACE_PLAN_4WEEKLY["block_weeks"]                   # 4
+BLOCK_PRICE_CENTS = RACE_PLAN_4WEEKLY["block_price_cents"]       # 4999
+BLOCK_PRICE = RACE_PLAN_4WEEKLY["block_price_display"]           # "$49.99"
+# Last, shorter block: block price / 4, rounded to the cent above ($12.50).
+WEEK_PRICE_CENTS = -(-BLOCK_PRICE_CENTS // BLOCK_WEEKS)
+PLAN_REFUND_DAYS = RACE_PLAN_4WEEKLY["refund_window_days"]       # 14
+PLAN_DELIVERY_HOURS = RACE_PLAN_4WEEKLY["delivery_hours"]        # 24
+PLAN_PRICE_LINE = f"{BLOCK_PRICE} every {BLOCK_WEEKS} weeks"     # "$49.99 every 4 weeks"
+
+
+def money(cents: int) -> str:
+    """"$49.99" style, always two decimals (the server's money())."""
+    cents = int(cents)
+    return f"${cents // 100:,}.{cents % 100:02d}"
+
+
+WEEK_PRICE = money(WEEK_PRICE_CENTS)                              # "$12.50"
+
+
+def weeks_until(race_date: date, today: date) -> int:
+    """Whole weeks from today to the race, a part week counting as one.
+    Same rule as the server's weeks_until; a race today or earlier has no
+    plan (ValueError)."""
+    days = (race_date - today).days
+    if days <= 0:
+        raise ValueError("Race date must be after today")
+    return -(-days // 7)
+
+
+def payment_plan(weeks: int) -> dict:
+    """Payments and total for ``weeks`` of plan: full 4-week blocks at the
+    block price, then one shorter block at the week price. No cap, no
+    minimum. Same shape as the server's payment_plan."""
+    if isinstance(weeks, bool) or not isinstance(weeks, int) or weeks < 1:
+        raise ValueError("A plan needs at least one week")
+    full_blocks, leftover_weeks = divmod(weeks, BLOCK_WEEKS)
+    payments = [BLOCK_PRICE_CENTS] * full_blocks
+    if leftover_weeks:
+        payments.append(WEEK_PRICE_CENTS * leftover_weeks)
+    total = sum(payments)
+    return {
+        "weeks": weeks,
+        "full_blocks": full_blocks,
+        "leftover_weeks": leftover_weeks,
+        "payment_count": len(payments),
+        "payments_cents": payments,
+        "total_cents": total,
+        "total_display": money(total),
+        "first_payment_cents": payments[0],
+    }
+
+
+def plan_summary(weeks: int) -> str:
+    """"3 payments, $149.97 in all" for a given plan length."""
+    plan = payment_plan(weeks)
+    n = plan["payment_count"]
+    return f'{n} payment{"s" if n != 1 else ""}, {plan["total_display"]} in all'
+
+
+def plan_quote_js() -> str:
+    """The browser copy of weeks_until + payment_plan, constants from
+    data/pricing.json. Defines ``ggPlanQuote(raceDateStr[, todayStr])`` returning
+    {weeks, payments, totalCents, total, firstCents, first, summary} or null (no date, bad
+    date, race today or past). Days are counted with Math.round so a DST
+    shift (N days +/- 1 hour) can't add a week."""
+    return (
+        "function ggPlanMoney(c){c=Math.round(c);var d=Math.floor(c/100),r=c%100;"
+        "return '$'+d.toLocaleString('en-US')+'.'+(r<10?'0':'')+r;}\n"
+        "function ggPlanQuote(raceDateStr,todayStr){\n"
+        "  if(!raceDateStr||!/^\\d{4}-\\d{2}-\\d{2}$/.test(raceDateStr))return null;\n"
+        "  var race=new Date(raceDateStr+'T00:00:00');if(isNaN(race.getTime()))return null;\n"
+        "  var today=todayStr?new Date(todayStr+'T00:00:00'):new Date();today.setHours(0,0,0,0);\n"
+        "  var days=Math.round((race-today)/86400000);if(days<=0)return null;\n"
+        "  var weeks=Math.ceil(days/7);\n"
+        f"  var full=Math.floor(weeks/{BLOCK_WEEKS}),left=weeks%{BLOCK_WEEKS};\n"
+        "  var payments=full+(left?1:0);\n"
+        f"  var total=full*{BLOCK_PRICE_CENTS}+left*{WEEK_PRICE_CENTS};\n"
+        f"  var first=full?{BLOCK_PRICE_CENTS}:left*{WEEK_PRICE_CENTS};\n"
+        "  return {weeks:weeks,payments:payments,totalCents:total,total:ggPlanMoney(total),\n"
+        "    firstCents:first,first:ggPlanMoney(first),\n"
+        "    summary:payments+(payments===1?' payment, ':' payments, ')+ggPlanMoney(total)+' in all'};\n"
+        "}\n"
+    )
+
+
+# ── Retired one-off race plan (kept for paid orders, reconciliation, and the
+# Roadie Labs copy that hasn't switched). Never quote on a Gravel God page. ──
 PRICE_PER_WEEK = RACE_PLAN["weekly_rate_display"]           # "$15"
 PRICE_PER_WEEK_CENTS = RACE_PLAN["weekly_rate_cents"]        # 1500
 MIN_WEEKS = RACE_PLAN["minimum_weeks"]                       # 4

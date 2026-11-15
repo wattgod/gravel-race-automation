@@ -1,38 +1,7 @@
 {
   "version": 1,
-  "generated": "2026-09-28",
+  "generated": "2026-11-13",
   "experiments": [
-    {
-      "id": "training_price_frame",
-      "selector": "[data-ab='training_price']",
-      "pages": [
-        "/",
-        "/index.html",
-        "/about/"
-      ],
-      "traffic": 1.0,
-      "variants": [
-        {
-          "id": "control",
-          "name": "Hotel anchor",
-          "content": "Race-specific. Built for your target event. Less than your race hotel — $2/day."
-        },
-        {
-          "id": "variant_a",
-          "name": "Gel anchor",
-          "content": "Race-specific. Built for your target event. $15/week. Less than one gel per ride."
-        },
-        {
-          "id": "variant_b",
-          "name": "Entry fee anchor",
-          "content": "Race-specific. Built for your target event. Your entry fee was $175. Your plan is $2/day."
-        }
-      ],
-      "conversion": {
-        "type": "click",
-        "selector": "[data-ab='training_cta_btn']"
-      }
-    },
     {
       "id": "cta_button_text",
       "selector": "[data-ab='training_cta_btn']",

@@ -50,7 +50,7 @@ from brand_tokens import (
 from season import season_year
 from shared_footer import get_mega_footer_css, get_mega_footer_html
 from cookie_consent import get_consent_banner_html
-from pricing import PRICE_PER_WEEK
+import plan_offer
 
 # Disable glossary tooltips in guide renderers (we don't need them here)
 import generate_guide
@@ -65,7 +65,7 @@ from generate_guide import (
 
 # ── Constants ──────────────────────────────────────────────────
 
-QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/training-plans/start/"
+QUESTIONNAIRE_URL = f"{SITE_BASE_URL}/questionnaire/"
 GUIDE_DIR = Path(__file__).parent.parent / "guide"
 CONTENT_JSON = GUIDE_DIR / "gravel-guide-content.json"
 OUTPUT_DIR = Path(__file__).parent / "output" / "prep-kit"
@@ -2382,7 +2382,7 @@ def build_pk_footer_cta(rd: dict) -> str:
          specifically for {name} — structured workouts, nutrition protocols, and race-day
          strategy — get a custom training plan.</p>
       <div class="gg-pk-footer-buttons">
-        <a href="{esc(TRAINING_PLANS_URL)}" class="gg-pk-btn gg-pk-btn--primary">BUILD MY PLAN &mdash; {PRICE_PER_WEEK}/WK</a>
+        <a href="{esc(TRAINING_PLANS_URL)}" class="gg-pk-btn gg-pk-btn--primary">BUILD MY PLAN &mdash; {plan_offer.CTA_PRICE}</a>
         <a href="{esc(COACHING_URL)}" class="gg-pk-btn gg-pk-btn--secondary">1:1 COACHING</a>
       </div>
       <p class="gg-pk-footer-back">

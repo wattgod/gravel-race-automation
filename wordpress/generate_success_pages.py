@@ -259,8 +259,8 @@ def build_training_plan_success() -> str:
   <div class="gg-success-hero" data-product-type="training_plan">
     <div class="gg-success-check">&check;</div>
     <h1>Your Training Plan Is on the Way</h1>
-    <p>Payment confirmed. Your custom plan is being generated and will be
-    delivered to your email shortly.</p>
+    <p>Payment confirmed. Your plan goes onto your TrainingPeaks calendar
+    one 4-week block at a time.</p>
   </div>"""
 
     steps = """
@@ -270,25 +270,27 @@ def build_training_plan_success() -> str:
       <div class="gg-success-step-num">1</div>
       <div class="gg-success-step-text">
         <h3>Check Your Email</h3>
-        <p>Your plan is being built right now. You'll receive an email
-        once it's ready. Check spam if you don't see it within an hour,
-        and reply to that email if you have questions.</p>
+        <p>Your payment confirmation is on its way, with a link to
+        connect your TrainingPeaks account. Check spam if you don't see it
+        within an hour, and reply to that email if you have questions.</p>
       </div>
     </div>
     <div class="gg-success-step">
       <div class="gg-success-step-num">2</div>
       <div class="gg-success-step-text">
-        <h3>Import Your Workouts</h3>
-        <p>The package includes .zwo files for TrainingPeaks, Zwift,
-        and Wahoo. Import them into your platform of choice.</p>
+        <h3>Connect TrainingPeaks</h3>
+        <p>Block 1 goes on your calendar within 24 hours of your payment
+        or of you connecting TrainingPeaks, whichever is later. I look over
+        every block before it goes on.</p>
       </div>
     </div>
     <div class="gg-success-step">
       <div class="gg-success-step-num">3</div>
       <div class="gg-success-step-text">
         <h3>Read the Training Guide</h3>
-        <p>Start with the phase overview. Week 1 is calibration &mdash;
-        workouts may feel easy. That's intentional.</p>
+        <p>Your training guide and the guide to block 1 arrive with
+        block 1. Week 1 is calibration &mdash; workouts may feel easy.
+        That's intentional.</p>
       </div>
     </div>
   </div>

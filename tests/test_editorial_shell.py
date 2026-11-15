@@ -347,20 +347,24 @@ class TestInShortAndLadder:
 
 class TestLadderPricing:
     def test_prices_come_from_pricing_json(self, page):
-        race, season = pricing.RACE_PLAN, pricing.SEASON_PLAN
+        # Plan billed every 4 weeks (2026-11-13) replaced the one-off plan.
+        race, season = pricing.RACE_PLAN_4WEEKLY, pricing.SEASON_PLAN
         coaching = pricing.PRICING["products"]["coaching"]
-        assert f'{race["weekly_rate_display"]}/week \u00b7 paid once' in page
+        assert f'{race["block_price_display"]} every {race["block_weeks"]} weeks until race week' in page
+        assert f'Full refund within {race["refund_window_days"]} days of your first payment.' in page
+        assert "paid once" not in page
+        assert pricing.RACE_PLAN["weekly_rate_display"] + "/week" not in page
         assert "capped at" not in page
         assert season["price_display"] not in page  # Season Plan retired
         assert f'From {coaching["from_display"]} every {coaching["interval_weeks"]} weeks' in page
-        assert f'within {race["delivery_hours"]} hours. {race["refund_window_days"]}-day refund.' in page
 
     def test_ladder_follows_a_price_change(self, monkeypatch):
-        monkeypatch.setitem(pricing.RACE_PLAN, "weekly_rate_display", "$99")
-        monkeypatch.setitem(pricing.RACE_PLAN, "refund_window_days", 3)
+        import plan_offer
+        monkeypatch.setattr(plan_offer, "PRICE_TO_RACE", "$99.99 every 4 weeks until race week")
+        monkeypatch.setattr(plan_offer, "REFUND_LINE", "Full refund within 3 days of your first payment.")
         html = es.render_ladder()
-        assert "$99/week" in html
-        assert "3-day refund" in html
+        assert "$99.99 every 4 weeks" in html
+        assert "within 3 days" in html
 
     def test_no_money_literals_in_shell_source(self):
         src = (PROJECT_ROOT / "wordpress" / "editorial_shell.py").read_text()

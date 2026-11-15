@@ -100,6 +100,6 @@ console.log(JSON.stringify(events));
 
 def test_plan_offer_reads_canonical_price(monkeypatch):
     import article_offers
-    monkeypatch.setitem(article_offers.pricing.RACE_PLAN, 'weekly_rate_display', '$123')
+    monkeypatch.setattr(article_offers.plan_offer, 'PRICE_TO_RACE', '$123.45 every 4 weeks until race week')
     offer = article_offers.offer_for_slug('sweet-spot-training-cycling')
-    assert offer['detail'] == '$123/week · paid once'
+    assert offer['detail'] == '$123.45 every 4 weeks until race week'

@@ -38,3 +38,11 @@ def test_season_pages_are_built_before_redirects_are_pushed():
 def test_live_check_covers_this_seasons_pages():
     assert '"/race/calendar/$season/"' in WF
     assert '"/race/power-rankings-$season/"' in WF
+
+
+def test_pushes_the_ab_config_with_the_pages():
+    """The browser rewrites data-ab elements from the live
+    /ab/experiments.json. A retired price experiment (training_price_frame,
+    2026-11-13) keeps overwriting the homepage and About price with the old
+    offer until the new config ships, so Publish Site pushes it."""
+    assert "--sync-ab" in WF

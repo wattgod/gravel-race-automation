@@ -9,9 +9,9 @@ DESCRIPTION replaces the live meta description ("how to build a data-driven
 pacing strategy"): the post is not about pacing; it estimates how much time
 equipment, weight and fitness changes save at Unbound 200.
 
-The closing price tables are the converter's price-table mapping. The coaching
-table's "Apply Now" button has an empty link on the live page, so it stays
-plain text.
+Sales tables removed (Matti, 2026-11-15): old prices and 'Monthly' billing.
+DROP leaves out the closing "Say 'No' to 'Slow'!" section (its intro line and
+the converter's two price tables: training plan $100, coaching $175 Monthly).
 
 Restored tables (2026-10-09, Matt: "1. try"): the post's four tables (the
 dollars-per-watt aero list, the ~9:30 and ~12:30 finisher FTP tables and the
@@ -203,10 +203,17 @@ CSS = (",".join(f"#{f.id} thead th" for f in (AERO, FTP_930, FTP_1230, COMBINED)
        + ",".join(f"{t} .gg-cards" for t in SHORT_TABLES) + "{display:none}}")
 
 
+# Whole sections left out of the page (wp_post.drop_sections); the converter's
+# body keeps them, so a regeneration cannot bring them back.
+DROP = {
+    "Say 'No' to 'Slow'!": "Sales tables removed (Matti, 2026-11-15): old prices and 'Monthly' billing.",
+}
+
+
 def render() -> str:
     return wp_post.render_post(SOURCE, alt=ALT, in_short=IN_SHORT, restored=RESTORED,
                                restored_corrections=RESTORED_CORRECTIONS, extra_css=CSS,
-                               description=DESCRIPTION)
+                               description=DESCRIPTION, drop=DROP)
 
 
 def main() -> None:

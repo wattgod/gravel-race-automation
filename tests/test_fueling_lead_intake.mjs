@@ -814,3 +814,76 @@ test('goal_2027 still hands back its poster_token', async () => {
     console.log = originalLog;
   }
 });
+
+// --- newsletter_subscribe: a brand's own newsletter list (RL-16, Roadie Labs first) ---
+
+const roadieNewsletter = { source: 'newsletter_subscribe', brand: 'roadielabs', email: 'roadie@example.com' };
+
+test('newsletter_subscribe from roadielabs.com reaches Mission Control as a Roadie lead', async () => {
+  const toml = readFileSync(new URL('../workers/fueling-lead-intake/wrangler.toml', import.meta.url), 'utf8');
+  const origins = toml.match(/^ALLOWED_ORIGINS = "([^"]+)"/m)[1];
+  const originalFetch = globalThis.fetch;
+  const requests = [];
+  globalThis.fetch = async (url, options) => {
+    requests.push({ url: String(url), body: JSON.parse(options.body) });
+    return new Response('{}', { status: 200 });
+  };
+  try {
+    const response = await worker.fetch(new Request('https://fueling-lead-intake.example.test', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Origin: 'https://roadielabs.com' },
+      body: JSON.stringify({ website: '', ...roadieNewsletter }),
+    }), { ...exitEnv, ALLOWED_ORIGINS: origins });
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get('Access-Control-Allow-Origin'), 'https://roadielabs.com');
+    const mc = requests.filter((r) => r.url.endsWith('/webhooks/subscriber'));
+    assert.equal(mc.length, 1);
+    assert.deepEqual(mc[0].body, {
+      email: 'roadie@example.com', name: '', brand: 'roadielabs',
+      source: 'newsletter_subscribe', race_slug: '', race_name: '',
+    });
+    assert.equal(requests.some((r) => r.url.includes('resend')), false, 'no alert on success');
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+// No gravelgod default: a sign-up with no brand has no list to join.
+for (const [label, extra] of [
+  ['missing', { brand: undefined }],
+  ['empty', { brand: '' }],
+  ['unknown', { brand: 'roadgod' }],
+  ['not a string', { brand: ['roadielabs'] }],
+]) {
+  test(`newsletter_subscribe with brand ${label} is a 400 and sends nothing`, async () => {
+    const { response, requests } = await runExit({ ...roadieNewsletter, ...extra });
+    assert.equal(response.status, 400);
+    assert.deepEqual(await response.json(), { error: 'Unknown brand' });
+    assert.deepEqual(requests, []);
+  });
+}
+
+test('newsletter_subscribe still needs a real email address', async () => {
+  for (const email of ['', 'not-an-email', 'x@mailinator.com']) {
+    const { response, requests } = await runExit({ ...roadieNewsletter, email });
+    assert.equal(response.status, 400, email);
+    assert.deepEqual(requests, []);
+  }
+});
+
+test('newsletter_subscribe honeypot filled is refused', async () => {
+  const { response, requests } = await runExit({ ...roadieNewsletter, website: 'bot' });
+  assert.equal(response.status, 400);
+  assert.deepEqual(requests, []);
+});
+
+test('newsletter_subscribe MC 500: the lost-lead alert fires with the Roadie brand', async () => {
+  const w = await freshWorker();
+  const { response, alerts } = await runLead(w, roadieNewsletter, { mc: 500 });
+  assert.equal(response.status, 200);
+  assert.equal(alerts.length, 1);
+  assert.equal(alerts[0].body.subject, 'Lead not saved: newsletter_subscribe');
+  for (const want of ['roadie@example.com', 'roadielabs', '500']) {
+    assert.ok(alerts[0].body.text.includes(want), `alert body lacks ${want}`);
+  }
+});

@@ -977,6 +977,28 @@ def sync_coaching(coaching_file: str):
         print(f"✗ Failed to create remote directory: {e.stderr.strip()}")
         return None
 
+    # Upload the page's images (photo, v6.7 cartoon, close art) to
+    # /coaching/img/ BEFORE the page, so the live page never points at a
+    # picture that isn't there. Any failure stops the deploy.
+    img_dir = html_path.parent / "coaching-img"
+    images = sorted(img_dir.glob("*.webp")) if img_dir.is_dir() else []
+    if not images:
+        print(f"✗ No coaching images in {img_dir}. Run: python3 wordpress/generate_coaching.py")
+        return None
+    try:
+        subprocess.run(
+            ["ssh", "-i", str(SSH_KEY), "-p", port, f"{user}@{host}", f"mkdir -p {remote_base}/img"],
+            check=True, capture_output=True, text=True, timeout=15,
+        )
+        subprocess.run(
+            ["scp", "-i", str(SSH_KEY), "-P", port, *[str(i) for i in images],
+             f"{user}@{host}:{remote_base}/img/"],
+            check=True, capture_output=True, text=True, timeout=60,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"✗ Failed to upload coaching images: {e.stderr.strip()}")
+        return None
+
     # Upload coaching.html as index.html
     try:
         subprocess.run(

@@ -1,17 +1,10 @@
 """Tests for the Gravel God coaching page generator.
 
-Coaching page rewritten 2026-07-18 into "The Dossier" structure: hero →
-terms → tiers → fit → faq → final-cta (replacing the old band sequence
-hero → problem → deliverables → how-it-works → tiers → testimonials →
-honest-check → faq → final-cta). This suite describes the page as it now
-ships, not the old one — no lingering assertions about problem,
-deliverables, how-it-works, or testimonials sections, none of which exist
-anymore.
-
-Modeled on road-race-automation/tests/test_coaching.py (the sibling-brand
-rebuild's test suite), adapted for Gravel God: gg- class prefix, gravel
-URLs, GA4 property G-EJJZ9T6M52, and gravel's slop_rules module for the
-restraint guard.
+Rebuilt 2026-11-15 as "Field Notes" (Matti picked mock Opus C, with the
+Astra B photo card): hero + ID card (real photo crossfading to the v6.7
+cartoon) -> fit -> terms (what you get) -> week -> how-it-works -> tiers
+(ledger + 3-question picker) -> faq -> final-cta. This suite describes the
+page as it ships now.
 """
 from __future__ import annotations
 
@@ -27,11 +20,21 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 
 from generate_coaching import (
+    ID_ROWS,
+    IMAGES,
+    IMG_OUTPUT_SUBDIR,
+    IMG_SRC_DIR,
+    LEDGER_GROUPS,
+    PICKER_QUESTIONS,
     QUESTIONNAIRE_URL,
+    TIER_BLURBS,
     TIERS,
     build_nav,
     build_hero,
+    build_id_card,
     build_terms,
+    build_week,
+    build_how_it_works,
     build_tiers,
     build_fit_check,
     build_honest_check,
@@ -43,6 +46,7 @@ from generate_coaching import (
     build_coaching_js,
     build_jsonld,
     generate_coaching_page,
+    write_coaching_images,
 )
 
 
@@ -126,671 +130,338 @@ class TestNav:
 # ── Hero — "The Dossier" hero with corner CTA ───────────────
 
 
-class TestHero:
-    def test_hero_id(self):
-        assert 'id="hero"' in build_hero()
 
-    def test_hero_has_corner_cta(self):
-        """Owner revision 2026-07-18: an obvious CTA on arrival, no scroll
-        required. One link, the corner imperative."""
+# ── Hero + ID card ───────────────────────────────────────────
+
+
+class TestHero:
+    def test_hero_id_and_cta(self):
         hero = build_hero()
-        assert 'class="gg-coach-hero-cta"' in hero
+        assert 'id="hero"' in hero
+        assert f'href="{QUESTIONNAIRE_URL}"' in hero
         assert 'data-cta="hero_apply"' in hero
         assert "APPLY FOR COACHING &rarr;" in hero
 
-    def test_no_old_hero_artifacts(self):
-        hero = build_hero()
-        assert "gg-coach-file-strip" not in hero
-        assert "TERMS OF WORK" not in hero
-        assert "COURSES ON FILE" not in hero
-        assert "Fitness is common" not in hero
+    def test_headline_visible_text(self, coaching_html):
+        h1 = re.search(r"<h1>(.*?)</h1>", coaching_html, re.DOTALL).group(1)
+        text = re.sub(r"<[^>]+>", "", h1)
+        assert text == "Gravel coaching for people who want to throw down but still like to get down."
 
-    def test_headline(self):
-        """Matti's own headline, 2026-11-15. Verbatim."""
+    def test_highlights(self):
         hero = build_hero()
-        assert (
-            "<h1>Gravel coaching for people who want to throw down but still "
-            "like to get down.</h1>"
-        ) in hero
-
-    def test_old_headline_gone(self, coaching_html):
-        for old in ("better than you think", "train alone", "in your corner",
-                    "IN YOUR CORNER", "Not an AI", "The terms are below."):
-            assert old not in coaching_html, old
+        assert "<mark>throw down</mark>" in hero
+        assert "<mark>get down.</mark>" in hero
 
     def test_subhead(self):
         hero = build_hero()
-        assert "Three levels, from a weekly look at your training" in hero
-        assert "$199 to $1,200 every 4 weeks." in hero
-
-
-# ── Terms — five numbered clauses ───────────────────────────
-
-
-class TestTerms:
-    def test_terms_id(self):
-        assert 'id="terms"' in build_terms()
-
-    def test_five_clauses(self):
-        t = build_terms()
-        assert t.count('class="gg-coach-term"') == 5
-
-    def test_clause_numbers(self):
-        t = build_terms()
-        for n in ("01", "02", "03", "04", "05"):
-            assert f'<div class="gg-coach-term-num">{n}</div>' in t
-
-    def test_clause_titles(self):
-        t = build_terms()
-        for title in (
-            "I read your rides",
-            "A plan for your gravel race",
-            "Fueling for the long day",
-            "The week moves when your life does",
-            "Straight answers",
-        ):
-            assert title in t
-
-    def test_clause_bodies(self):
-        t = build_terms()
-        assert "When you bail on an interval" in t
-        assert "At Min I look once a week. At Max I look the day the file lands." in t
-        assert "A race-day nutrition plan" in t
-        assert "At Mid and Max, the week changes that week." in t
-        assert "If you&#39;re sandbagging, I&#39;ll say so." in t
-
-    def test_tier_claims_match_inclusions(self):
-        """Same-week plan changes are a Mid/Max inclusion ("Weekly plan
-        adjustments"), so the terms must not promise them to Min."""
-        t = build_terms()
-        assert "At Mid and Max" in t
-
-    def test_last_clause_no_bottom_border(self, coaching_css):
-        """Clause 05 has no border-bottom — tiers render immediately after
-        with no visual gap, so the terms list must not double-close."""
-        assert ".gg-coach-term:last-child" in coaching_css
-
-
-# ── Full-Bleed Layout ────────────────────────────────────────
-
-
-class TestFullBleedLayout:
-    def test_container_override(self, coaching_css):
-        assert "max-width: none" in coaching_css
-
-    def test_inner_measure(self, coaching_css):
-        assert "gg-coach-inner" in coaching_css
-        assert "max-width: 1200px" in coaching_css
-
-    def test_bands_present(self, coaching_html):
-        assert 'class="gg-coach-band' in coaching_html
-        assert "gg-coach-band--dark" in coaching_html
-
-    def test_no_sand_band_anywhere(self, coaching_html, coaching_css):
-        """gg-coach-band--sand is fully removed — tiers no longer sit on a
-        sand background, they sit on the same paper as terms."""
-        assert "gg-coach-band--sand" not in coaching_html
-        assert "gg-coach-band--sand" not in coaching_css
-
-    def test_all_sections_use_inner_wrapper(self, coaching_html):
-        bands = coaching_html.count('<section class="gg-coach-band')
-        inners = coaching_html.count('class="gg-coach-inner"')
-        assert bands == inners == 6
-
-    def test_terms_tiers_seamless(self, coaching_css):
-        """Terms section has zero bottom padding, tiers section has zero
-        top padding — the two must read as one continuous document, not
-        two visually separated bands."""
-        assert ".gg-coach-terms {\n  padding-bottom: 0;\n}" in coaching_css
-        assert ".gg-coach-tiers-section {\n  padding-top: 0;\n}" in coaching_css
-
-    def test_consent_banner_rendered(self, coaching_html):
-        """Regression: an unescaped template tail would leave the literal
-        placeholder string in the shipped HTML instead of the banner."""
-        assert "{get_consent_banner_html()}" not in coaching_html
-
-
-# ── Service Tiers ────────────────────────────────────────────
-
-
-class TestServiceTiers:
-    def test_tiers_id(self):
-        assert 'id="tiers"' in build_tiers()
-
-    def test_three_tier_columns(self):
-        tiers = build_tiers()
-        assert tiers.count('class="gg-coach-tier-col"') == 3
-        assert "Min" in tiers
-        assert "Mid" in tiers
-        assert "Max" in tiers
-
-    def test_prices(self):
-        tiers = build_tiers()
-        assert "$199" in tiers
-        assert "$299" in tiers
-        assert "$1,200" in tiers
-        assert "/ 4 WEEKS" in tiers
-
-    def test_get_started_links(self):
-        tiers = build_tiers()
-        assert tiers.count("GET STARTED") == 3
-        assert 'data-cta="tier_min"' in tiers
-        assert 'data-cta="tier_mid"' in tiers
-        assert 'data-cta="tier_max"' in tiers
-        assert f"{QUESTIONNAIRE_URL}?tier=min" in tiers
-        assert f"{QUESTIONNAIRE_URL}?tier=mid" in tiers
-        assert f"{QUESTIONNAIRE_URL}?tier=max" in tiers
-
-    def test_setup_fee(self):
-        tiers = build_tiers()
-        assert "$99 setup fee" in tiers
-        assert "TrainingPeaks Premium is included" in tiers
-        assert "NOSETUP" not in tiers
-        assert "privately, case by case" in tiers
-
-    def test_tier_blurbs(self):
-        tiers = build_tiers()
-        assert "You train on your own and want me checking the work once a week." in tiers
-        assert "I read your files between sessions and change the plan the same week your life changes." in tiers
-        assert "I read every file the day it lands." in tiers
-        assert "Most athletes belong here" not in tiers
-        assert "Someone reads" not in tiers
-
-    def test_feature_lists_verbatim(self):
-        tiers = build_tiers()
-        for item in (
-            "Weekly training review", "File analysis", "Quarterly strategy calls",
-            "Structured workouts for your trainer or head unit",
-            "Race-day nutrition plan", "Custom training guide",
-            "Everything in Min", "Detailed power-file analysis",
-            "Every-4-week strategy calls", "Weekly plan adjustments",
-            "Direct message access", "Blindspot detection",
-            "Everything in Mid", "Daily file review", "On-demand calls",
-            "Race-week strategy", "Multi-race season planning", "Priority response",
-        ):
-            assert item in tiers, f"Missing tier feature: {item}"
-
-    def test_no_normie_jargon(self):
-        """No raw jargon in tier feature lists (WKO, TSB, TSS, CTL)."""
-        tiers = build_tiers()
-        for term in ("WKO", "TSB", "TSS", "CTL"):
-            assert term not in tiers, f"Raw jargon in tiers: {term}"
-
-    def test_no_animation_on_tiers(self):
-        """The Dossier is a still document — pricing must never depend on
-        an observer firing."""
-        assert 'data-animate' not in build_tiers()
-
-
-# ── Fit check — three-question tier recommender ─────────────
-
-
-def _fit_score_tier(q1: int, q2: int, q3) -> str:
-    """Spec scoring, written independently of the page JS."""
-    score = q1 + q2 + (1 if q3 == 2 else 0)
-    if score <= 1:
-        return "min"
-    if score <= 3:
-        return "mid"
-    return "max"
-
-
-def _ancestor_classes(fragment: str, target_class: str) -> list:
-    """Class names of every ancestor of the first element carrying
-    target_class in an HTML fragment."""
-    from html.parser import HTMLParser
-
-    class _Walk(HTMLParser):
-        def __init__(self):
-            super().__init__()
-            self.stack, self.found = [], None
-
-        def handle_starttag(self, tag, attrs):
-            cls = dict(attrs).get("class") or ""
-            if self.found is None and target_class in cls.split():
-                self.found = [c for _, c in self.stack]
-            self.stack.append((tag, cls))
-
-        def handle_endtag(self, tag):
-            while self.stack:
-                if self.stack.pop()[0] == tag:
-                    break
-
-    walker = _Walk()
-    walker.feed(fragment)
-    assert walker.found is not None, target_class
-    return " ".join(walker.found).split()
-
-
-def _fitcheck_js_iife(coaching_js: str) -> str:
-    start = coaching_js.index("/* Fit check")
-    end = coaching_js.index("/* Scroll depth tracking */")
-    return coaching_js[start:end]
-
-
-# Minimal DOM for the fit-check IIFE: just enough surface (hidden,
-# attributes, classList, click listeners, the selectors the IIFE uses) to
-# run the real script in Node and read back what it rendered.
-_FITCHECK_DOM_HARNESS = r"""
-const iife = process.argv[1];
-const plan = JSON.parse(process.argv[2]);
-const narrow = process.argv[3] === 'mobile';
-global.window = { matchMedia: function(q) { return { matches: q === '(max-width: 768px)' && narrow }; } };
-function el(attrs, hidden) {
-  const cls = new Set();
-  return {
-    hidden: !!hidden, attrs: Object.assign({}, attrs), listeners: [],
-    getAttribute(n) { return n in this.attrs ? String(this.attrs[n]) : null; },
-    setAttribute(n, v) { this.attrs[n] = String(v); },
-    addEventListener(t, f) { if (t === 'click') this.listeners.push(f); },
-    click() { this.listeners.forEach(function(f) { f(); }); },
-    classList: {
-      toggle(n, on) { if (on) cls.add(n); else cls.delete(n); },
-      contains(n) { return cls.has(n); },
-    },
-  };
-}
-function run(clicks) {
-  const events = [];
-  global.gtag = function(kind, name, params) { events.push([name, params]); };
-  const empty = el({}, false), answer = el({}, true), tight = el({}, true);
-  const scrolls = [];
-  const result = el({});
-  result.scrollIntoView = function(opts) { scrolls.push(opts); };
-  const fits = [];
-  ['min', 'mid', 'max'].forEach(function(t) { fits.push(el({'data-fit': t, kind: 'rec'}, true)); });
-  ['min', 'mid', 'max'].forEach(function(t) { fits.push(el({'data-fit': t, kind: 'cta'}, true)); });
-  const buttons = [];
-  [1, 2, 3].forEach(function(q) {
-    const group = [0, 1, 2].map(function(a) { return el({'data-q': q, 'data-a': a, 'aria-pressed': 'false'}); });
-    const parent = { querySelectorAll: function() { return group; } };
-    group.forEach(function(b) { b.parentNode = parent; buttons.push(b); });
-  });
-  const box = el({}, true);
-  box.querySelector = function(sel) {
-    return { '.gg-coach-fitcheck-empty': empty, '.gg-coach-fitcheck-answer': answer,
-             '.gg-coach-fitcheck-tight': tight, '.gg-coach-fitcheck-result': result }[sel];
-  };
-  box.querySelectorAll = function(sel) {
-    if (sel === '[data-fit]') return fits;
-    if (sel === '.gg-coach-fitcheck-opt') return buttons;
-    throw new Error('unexpected selector ' + sel);
-  };
-  const cols = ['min', 'mid', 'max'].map(function(t) {
-    const c = el({'data-tier': t});
-    const label = el({}, true);
-    c.querySelector = function() { return label; };
-    c.label = label;
-    return c;
-  });
-  global.document = {
-    getElementById: function(id) { return id === 'gg-coach-fitcheck' ? box : null; },
-    querySelectorAll: function(sel) {
-      if (sel === '.gg-coach-tier-col[data-tier]') return cols;
-      throw new Error('unexpected selector ' + sel);
-    },
-  };
-  new Function(iife)();
-  const boxHiddenAfterInit = box.hidden;
-  clicks.forEach(function(qa) {
-    buttons.find(function(b) { return b.attrs['data-q'] == qa[0] && b.attrs['data-a'] == qa[1]; }).click();
-  });
-  return {
-    boxHidden: boxHiddenAfterInit,
-    emptyHidden: empty.hidden, answerHidden: answer.hidden, tightHidden: tight.hidden,
-    recs: fits.filter(function(f) { return f.attrs.kind === 'rec' && !f.hidden; }).map(function(f) { return f.attrs['data-fit']; }),
-    ctas: fits.filter(function(f) { return f.attrs.kind === 'cta' && !f.hidden; }).map(function(f) { return f.attrs['data-fit']; }),
-    fitCols: cols.filter(function(c) { return c.classList.contains('gg-coach-is-fit'); }).map(function(c) { return c.attrs['data-tier']; }),
-    fitLabels: cols.filter(function(c) { return !c.label.hidden; }).map(function(c) { return c.attrs['data-tier']; }),
-    pressed: buttons.filter(function(b) { return b.attrs['aria-pressed'] === 'true'; }).map(function(b) { return [Number(b.attrs['data-q']), Number(b.attrs['data-a'])]; }),
-    events: events,
-    scrolls: scrolls,
-  };
-}
-console.log(JSON.stringify(plan.map(run)));
-"""
-
-
-def _run_fitcheck(coaching_js: str, plans: list, viewport: str = "mobile") -> list:
-    import json
-    result = subprocess.run(
-        ["node", "-e", _FITCHECK_DOM_HARNESS, _fitcheck_js_iife(coaching_js), json.dumps(plans), viewport],
-        capture_output=True, text=True, timeout=30,
-    )
-    assert result.returncode == 0, f"fit-check harness failed: {result.stderr}"
-    return json.loads(result.stdout)
-
-
-class TestFitCheck:
-    """Tier recommender above the tier columns. Owner-voice copy is pinned
-    verbatim; the whole block is JS-revealed so the no-JS page is
-    unchanged."""
-
-    @pytest.fixture(scope="class")
-    def fit(self):
-        return build_fit_check()
-
-    def test_in_tiers_section_directly_above_columns(self):
-        tiers = build_tiers()
-        start = tiers.index('id="gg-coach-fitcheck"')
-        assert tiers.index('id="tiers"') < start < tiers.index('class="gg-coach-tiers"')
-        between = tiers[start:tiers.index('class="gg-coach-tiers"')]
-        assert "gg-coach-tier-col" not in between
-
-    def test_renders_hidden_for_no_js(self, fit, coaching_html):
-        opening = '<div class="gg-coach-fitcheck" id="gg-coach-fitcheck" hidden>'
-        assert fit.startswith(opening)
-        assert coaching_html.count(opening) == 1
-
-    def test_not_confused_with_fit_section(self, coaching_html):
-        """The existing 'A fit, or not' section keeps id="fit"; the fit
-        check must not collide with it or the scroll-depth label."""
-        assert coaching_html.count('id="fit"') == 1
-        assert 'id="gg-coach-fitcheck"' in coaching_html
-
-    def test_three_labelled_groups(self, fit):
-        groups = re.findall(r'<div class="gg-coach-fitcheck-opts" role="group" aria-labelledby="([\w-]+)">', fit)
-        assert groups == ["gg-coach-fitcheck-q1", "gg-coach-fitcheck-q2", "gg-coach-fitcheck-q3"]
-        for gid in groups:
-            assert fit.count(f'id="{gid}"') == 1
-
-    def test_nine_real_buttons_unpressed(self, fit):
-        buttons = re.findall(r'<button\b[^>]*>', fit)
-        assert len(buttons) == 9
-        for b in buttons:
-            assert 'type="button"' in b
-            assert 'aria-pressed="false"' in b
-        pairs = set(re.findall(r'data-q="(\d)" data-a="(\d)"', fit))
-        assert pairs == {(str(q), str(a)) for q in (1, 2, 3) for a in (0, 1, 2)}
-
-    def test_aria_live_result_region(self, fit):
-        assert fit.count('aria-live="polite"') == 1
-        assert '<div class="gg-coach-fitcheck-result" aria-live="polite">' in fit
-
-    def test_data_tier_on_all_columns(self):
-        tiers = build_tiers()
-        for key in ("min", "mid", "max"):
-            assert tiers.count(f'class="gg-coach-tier-col" data-tier="{key}"') == 1
-
-    def test_your_fit_labels_prerendered_hidden(self):
-        tiers = build_tiers()
-        labels = re.findall(r'<span class="gg-coach-tier-fit-label"([^>]*)>YOUR FIT</span>', tiers)
-        assert len(labels) == 3
-        assert all(attrs.strip() == "hidden" for attrs in labels)
-
-    def test_cta_href_and_tracking(self, fit):
-        from urllib.parse import urlsplit, parse_qs
-        ctas = re.findall(r'<a href="([^"]+)" class="gg-coach-fitcheck-cta" data-cta="([\w]+)" data-fit="(\w+)" hidden>([^<]+)</a>', fit)
-        assert [c[2] for c in ctas] == ["min", "mid", "max"]
-        for href, data_cta, key, label in ctas:
-            assert href == f"{QUESTIONNAIRE_URL}?tier={key}&amp;src=fitcheck"
-            assert data_cta == f"fitcheck_apply_{key}"
-            assert label == f"APPLY FOR {key.upper()} &rarr;"
-            # The apply page preselects via URLSearchParams.get("tier");
-            # the extra src param must not disturb it.
-            query = parse_qs(urlsplit(html.unescape(href)).query)
-            assert query == {"tier": [key], "src": ["fitcheck"]}
-
-    def test_result_states_all_start_hidden(self, fit):
-        assert '<div class="gg-coach-fitcheck-answer" hidden>' in fit
-        assert '<p class="gg-coach-fitcheck-tight" hidden>' in fit
-        assert len(re.findall(r'data-fit="(?:min|mid|max)" hidden', fit)) == 6
-
-    def test_name_and_price_match_tier_columns(self, fit):
-        """Result name/price come from the same TIERS source as the
-        columns, so they can't drift."""
-        tiers = build_tiers()
-        assert [(k, n, p) for k, n, p in TIERS] == [
-            ("min", "Min", "$199"), ("mid", "Mid", "$299"), ("max", "Max", "$1,200"),
-        ]
-        for key, name, price in TIERS:
-            assert f'<p class="gg-coach-fitcheck-tier">{name} <span class="gg-coach-fitcheck-price">{price} / 4 WEEKS</span></p>' in fit
-            assert f'<div class="gg-coach-tier-name">{name} <span' in tiers
-            assert f'<div class="gg-coach-tier-price">{price}<span class="gg-coach-tier-interval">/ 4 WEEKS</span></div>' in tiers
-
-    @pytest.mark.parametrize("copy", [
-        "Three questions to pick a tier.",
-        "When a week goes sideways, you want…",
-        "I'll adjust it myself. Check my work weekly.",
-        "The plan moved that same week.",
-        "Someone on it the same day.",
-        "Your ride files should be…",
-        "Skimmed. I know what I did.",
-        "Read between sessions.",
-        "Read every one, every day.",
-        "Your A race is…",
-        "16+ weeks out",
-        "8–16 weeks out",
-        "Under 8 weeks",
-        "Answer the first two. The race date only changes what I tell you.",
-        "YOU PROBABLY WANT",
-        "You train on your own and want the work checked once a week.",
-        "You want the plan to move the same week your life does.",
-        "You want every file read the day it lands. Worth it for one race that matters more than the rest.",
-        "Under 8 weeks is tight. I'll tell you straight if it's too late to change much.",
-        "APPLY FOR MIN →",
-        "APPLY FOR MID →",
-        "APPLY FOR MAX →",
-    ])
-    def test_verbatim_copy(self, fit, copy):
-        rendered = html.unescape(re.sub(r"<[^>]+>", "\n", fit))
-        lines = {line.strip() for line in rendered.splitlines()}
-        assert copy in lines, f"Fit-check copy missing or altered: {copy!r}"
-
-    def test_css_hidden_beats_display_rules(self, coaching_css):
-        """Toggled elements set their own display (grid, inline-flex,
-        inline-block); without this override `hidden` would not hide them
-        and the block would show with JS off."""
-        assert ".gg-coach-tiers-section [hidden] {\n  display: none;\n}" in coaching_css
-
-    def test_touch_targets(self, coaching_css):
-        for selector in (".gg-coach-fitcheck-opt {", ".gg-coach-fitcheck-cta {"):
-            block = coaching_css.split(selector, 1)[1].split("}", 1)[0]
-            assert "min-height: 44px;" in block, selector
-
-    def test_selected_state_is_solid_inverted(self, coaching_css):
-        block = coaching_css.split('.gg-coach-fitcheck-opt[aria-pressed="true"] {', 1)[1].split("}", 1)[0]
-        assert "background: var(--gg-color-dark-brown);" in block
-        assert "color: var(--gg-color-warm-paper);" in block
-
-    def test_mobile_result_clears_sticky_cta(self, coaching_css):
-        """The first result is scrolled into view with block 'nearest';
-        on mobile the fixed sticky CTA (56px) would cover its bottom
-        without a scroll margin."""
-        mobile = coaching_css.split("/* ── Responsive", 1)[1]
-        block = mobile.split(".gg-coach-fitcheck-result {", 1)[1].split("}", 1)[0]
-        margin = re.search(r"scroll-margin-bottom:\s*(\d+)px;", block)
-        assert margin and int(margin.group(1)) >= 56
-
-    def test_fit_column_marked(self, coaching_css):
-        assert ".gg-coach-tier-col.gg-coach-is-fit {" in coaching_css
-
-    def test_focus_visible_not_suppressed(self, coaching_css):
-        """Buttons and links get the shared focus ring
-        (.gg-neo-brutalist-page button:focus-visible); nothing here may
-        remove it."""
-        from generate_neo_brutalist import get_page_css
-        assert ".gg-neo-brutalist-page button:focus-visible" in get_page_css()
-        assert ".gg-neo-brutalist-page a:focus-visible" in get_page_css()
-        assert not re.search(r"outline:\s*(none|0)\b", coaching_css)
-
-    def test_no_persistence(self, coaching_js):
-        iife = _fitcheck_js_iife(coaching_js)
-        assert "localStorage" not in iife
-        assert "sessionStorage" not in iife
-        assert "document.cookie" not in iife
-
-    def test_analytics_events(self, coaching_js):
-        iife = _fitcheck_js_iife(coaching_js)
-        assert "gtag('event', 'coaching_fitcheck_answer', { question: q, answer: a })" in iife
-        assert "gtag('event', 'coaching_fitcheck_result', { tier: tier })" in iife
-        assert iife.count("typeof gtag === 'function'") == 2
-
-    def test_js_selectors_exist_in_html(self, coaching_js, coaching_html):
-        iife = _fitcheck_js_iife(coaching_js)
-        for cls in set(re.findall(r"'\.(gg-coach-[\w-]+)", iife)):
-            assert f'class="{cls}' in coaching_html or f' {cls}"' in coaching_html, cls
-
-    def test_cta_listener_binds_fitcheck_ctas(self, coaching_js, fit):
-        """cta_click binds once at load via querySelectorAll('[data-cta]').
-        The fit-check CTAs are pre-rendered (hidden, never created later),
-        so they are in the DOM when the listener binds."""
-        assert "document.querySelectorAll('[data-cta]').forEach" in coaching_js
-        assert "el.getAttribute('data-cta')" in coaching_js
-        assert fit.count('data-cta="fitcheck_apply_') == 3
-        assert "createElement" not in _fitcheck_js_iife(coaching_js)
-
-    def test_scoring_every_combination(self, coaching_js):
-        """Run the real IIFE against a DOM stub for every answer
-        combination (Q3 unanswered or 0/1/2) and compare with the spec."""
-        plans, expected = [], []
-        for q1 in (0, 1, 2):
-            for q2 in (0, 1, 2):
-                for q3 in (None, 0, 1, 2):
-                    clicks = [[1, q1], [2, q2]] + ([[3, q3]] if q3 is not None else [])
-                    plans.append(clicks)
-                    expected.append((_fit_score_tier(q1, q2, q3), q3 == 2))
-        results = _run_fitcheck(coaching_js, plans)
-        for clicks, (tier, tight), r in zip(plans, expected, results):
-            assert r["boxHidden"] is False, clicks
-            assert r["emptyHidden"] is True and r["answerHidden"] is False, clicks
-            assert r["recs"] == [tier] and r["ctas"] == [tier], (clicks, r)
-            assert r["fitCols"] == [tier] and r["fitLabels"] == [tier], (clicks, r)
-            assert r["tightHidden"] is (not tight), clicks
-            assert sorted(r["pressed"]) == sorted(clicks), clicks
-            assert r["scrolls"] == [{"block": "nearest", "behavior": "instant"}], (clicks, r["scrolls"])
-
-    def test_named_combinations(self, coaching_js):
-        cases = [
-            ([[1, 0], [2, 0]], "min"),
-            ([[1, 1], [2, 1]], "mid"),
-            ([[1, 0], [2, 2]], "mid"),
-            ([[1, 2], [2, 2]], "max"),
-            ([[1, 1], [2, 2], [3, 2]], "max"),
-            ([[1, 1], [2, 2]], "mid"),
-        ]
-        results = _run_fitcheck(coaching_js, [c for c, _ in cases])
-        for (clicks, tier), r in zip(cases, results):
-            assert r["recs"] == [tier], (clicks, r["recs"])
-
-    def test_waits_for_first_two_answers(self, coaching_js):
-        results = _run_fitcheck(coaching_js, [[], [[1, 2]], [[2, 2], [3, 2]]])
-        for r in results:
-            assert r["emptyHidden"] is False and r["answerHidden"] is True
-            assert r["recs"] == [] and r["ctas"] == [] and r["fitCols"] == [] and r["fitLabels"] == []
-            assert not [e for e in r["events"] if e[0] == "coaching_fitcheck_result"]
-            assert r["scrolls"] == []
-        # The tight note lives inside the answer container, so while that
-        # is hidden the note can't show, whatever Q3 says.
-        assert "gg-coach-fitcheck-answer" in _ancestor_classes(build_fit_check(), "gg-coach-fitcheck-tight")
-
-    def test_answers_change_live_and_result_fires_only_on_change(self, coaching_js):
-        clicks = [[1, 0], [2, 0], [2, 0], [3, 0], [2, 2], [3, 2], [1, 2], [1, 0]]
-        # min -> (same) -> (same) -> mid -> mid(3) -> max(5) -> mid(3)
-        (r,) = _run_fitcheck(coaching_js, [clicks])
-        answers = [e[1] for e in r["events"] if e[0] == "coaching_fitcheck_answer"]
-        assert answers == [{"question": q, "answer": a} for q, a in clicks]
-        tiers = [e[1]["tier"] for e in r["events"] if e[0] == "coaching_fitcheck_result"]
-        assert tiers == ["min", "mid", "max", "mid"]
-        assert r["recs"] == ["mid"] and r["fitCols"] == ["mid"]
-        assert sorted(r["pressed"]) == [[1, 0], [2, 2], [3, 2]]
-        # Scrolls once, on the first reveal; later answer changes never do.
-        assert r["scrolls"] == [{"block": "nearest", "behavior": "instant"}]
-
-    def test_desktop_never_scrolls(self, coaching_js):
-        """Side by side (above the 768px breakpoint) the result is beside
-        the questions and there is no sticky bar: the page must not move."""
-        plans = [[[1, a], [2, b], [3, 2]] for a in (0, 1, 2) for b in (0, 1, 2)]
-        for r in _run_fitcheck(coaching_js, plans, viewport="desktop"):
-            assert r["scrolls"] == []
-            assert r["recs"] and r["answerHidden"] is False
-
-    def test_scroll_breakpoint_matches_css(self, coaching_js, coaching_css):
-        assert "window.matchMedia('(max-width: 768px)')" in _fitcheck_js_iife(coaching_js)
-        assert "@media (max-width: 768px)" in coaching_css.split("/* ── Responsive", 1)[1]
-
-
-# ── A fit, or not ─────────────────────────────────────────────
+        assert "Three levels, from a weekly look at your training to every file read the day it lands." in hero
+        assert "<strong>$199 to $1,200</strong> every 4 weeks." in hero
+
+
+class TestIdCard:
+    def test_bio_line_verbatim(self):
+        """Matti, 2026-11-15: the bio line, word for word."""
+        card = build_id_card()
+        assert "I&#39;m Matti Rowe. Peddler of bikes and hot takes, and really fast clients." in card
+
+    def test_resume_rows(self):
+        card = build_id_card()
+        for label, value in ID_ROWS:
+            assert f"<span>{label}</span>{value}" in card
+
+    def test_talent_line(self):
+        """Matti asked the resume to say very few have gotten farther on less talent."""
+        values = " ".join(v for _l, v in ID_ROWS)
+        assert "Very few people have gotten farther on less of it." in values
+
+    def test_only_public_facts(self):
+        values = " ".join(v for _l, v in ID_ROWS)
+        for fact in ("12 years at TrainingPeaks", "Cat 1", "NRC", "Rio Grande Elite",
+                     "third kid", "Unbound 200", "SBT GRVL", "Red Granite Grinder in 2021 and 2022"):
+            assert fact in values
+
+    def test_photo_and_cartoon(self):
+        card = build_id_card()
+        photo, pw, ph = IMAGES["photo"]
+        toon, tw, th = IMAGES["cartoon"]
+        assert f'src="/coaching/img/{photo}"' in card
+        assert f'width="{pw}" height="{ph}"' in card
+        assert f'src="/coaching/img/{toon}"' in card
+        assert 'class="gg-coach-id-toon"' in card
+        # The cartoon repeats the photo, so screen readers hear one picture.
+        assert re.search(r'<img class="gg-coach-id-toon"[^>]*alt=""[^>]*aria-hidden="true"', card)
+        assert re.search(r'<img class="gg-coach-id-real"[^>]*alt="[^"]+"', card)
+
+    def test_swap_animation_and_reduced_motion(self, coaching_css):
+        assert "@keyframes gg-coach-idswap" in coaching_css
+        assert "animation: gg-coach-idswap" in coaching_css
+        rm = coaching_css.split("prefers-reduced-motion: reduce", 1)[1]
+        assert ".gg-coach-id-toon { animation: none; opacity: 0; }" in rm
+
+    def test_photo_preloaded(self, coaching_html):
+        assert f'<link rel="preload" as="image" href="/coaching/img/{IMAGES["photo"][0]}">' in coaching_html
+
+    def test_no_reading_applications_line(self, coaching_html):
+        """Matti, 2026-11-15: don't say I read every application myself. Of course I do."""
+        visible = _visible_text(coaching_html).lower()
+        for phrase in ("read every application", "read your application", "read it myself",
+                       "i read it and reply", "myself, every time"):
+            assert phrase not in visible, phrase
+
+
+class TestCoachingImages:
+    def test_every_image_is_in_the_repo(self):
+        for name, w, h in IMAGES.values():
+            path = IMG_SRC_DIR / name
+            assert path.is_file(), f"missing {path}"
+            from PIL import Image
+            with Image.open(path) as im:
+                assert im.size == (w, h), f"{name} is {im.size}, page says {(w, h)}"
+
+    def test_write_copies_all(self, tmp_path):
+        dest = write_coaching_images(tmp_path)
+        assert dest == tmp_path / IMG_OUTPUT_SUBDIR
+        assert sorted(p.name for p in dest.iterdir()) == sorted(n for n, _w, _h in IMAGES.values())
+
+    def test_missing_image_refuses(self, tmp_path, monkeypatch):
+        import generate_coaching
+        monkeypatch.setattr(generate_coaching, "IMG_SRC_DIR", tmp_path / "nowhere")
+        with pytest.raises(FileNotFoundError):
+            generate_coaching.write_coaching_images(tmp_path / "out")
+
+
+# ── Fit check (is this for me) ───────────────────────────────
 
 
 class TestFit:
-    def test_fit_id(self):
-        assert 'id="fit"' in build_honest_check()
+    def test_fit_id_dark_band(self):
+        fit = build_honest_check()
+        assert 'id="fit"' in fit
+        assert "gg-coach-band--dark" in fit
 
-    def test_yes_no_columns(self):
-        h = build_honest_check()
-        assert "Coaching fits if:" in h
-        assert "Probably not a fit if:" in h
-        assert "I&#39;m not a doctor or a physio." in h
+    def test_yes_no_lists(self):
+        fit = build_honest_check()
+        yes, no = fit.split('class="gg-coach-fit-no"')
+        assert yes.count("<li>") == 3
+        assert no.count("<li>") == 3
+        assert "Coaching fits if" in yes
+        assert "Probably not a fit if" in no
+        assert "I&#39;m not a doctor or a physio." in no
 
-    def test_six_list_items(self):
-        h = build_honest_check()
-        assert h.count("<li>") == 6
 
-    def test_no_sand_bg(self):
-        assert "gg-coach-band--sand" not in build_honest_check()
+# ── What you get ─────────────────────────────────────────────
+
+
+class TestTerms:
+    def test_five_items(self):
+        terms = build_terms()
+        assert 'id="terms"' in terms
+        assert terms.count("<li>") == 5
+        for t in ("I read your rides.", "A plan for your gravel race.", "Fueling for the long day.",
+                  "The week moves when your life does.", "Straight answers."):
+            assert f"<h3>{t}</h3>" in terms
+
+    def test_tier_claims_match_inclusions(self):
+        terms = build_terms()
+        assert "At Min I look once a week. At Max I look the day the file lands." in terms
+        assert "At Mid and Max, the week changes that week." in terms
+
+
+# ── A week with me ───────────────────────────────────────────
+
+
+class TestWeek:
+    def test_rows(self):
+        week = build_week()
+        assert 'id="week"' in week
+        rows = re.findall(r'<th scope="row">([^<]+)</th>', week)
+        assert rows == ["Each ride", "Each week", "Life happens", "Strategy calls", "Race week", "The season"]
+
+    def test_phone_labels_follow_tiers(self):
+        week = build_week()
+        for _k, name, _p in TIERS:
+            assert f'data-t="{name.upper()}"' in week
+
+    def test_calls_match_ledger(self):
+        week = build_week()
+        assert ">Quarterly<" in week and ">Every 4 weeks<" in week
+
+
+# ── How it works ─────────────────────────────────────────────
+
+
+class TestHowItWorks:
+    def test_five_steps(self):
+        how = build_how_it_works()
+        assert 'id="how-it-works"' in how
+        assert how.count("<li>") == 5
+
+    def test_real_flow(self):
+        how = build_how_it_works()
+        for bit in ("About 10 min", "2 business days", "a link for your first 4 weeks plus the $99 setup fee",
+                    "I set you up on TrainingPeaks"):
+            assert bit in how
+
+
+# ── Levels: ledger + picker ──────────────────────────────────
+
+
+class TestTiers:
+    def test_tiers_id(self):
+        assert 'id="tiers"' in build_tiers()
+
+    def test_prices_from_tiers(self):
+        tiers = build_tiers()
+        for key, name, price in TIERS:
+            assert f'data-tier="{key}"' in tiers
+            assert f'<span class="gg-coach-tprice">{price}</span>' in tiers
+            assert TIER_BLURBS[key] in tiers
+        assert tiers.count('<span class="gg-coach-tper">every 4 weeks</span>') == 3
+
+    def test_apply_links(self):
+        tiers = build_tiers()
+        for key, name, _p in TIERS:
+            assert f'href="{QUESTIONNAIRE_URL}?tier={key}"' in tiers
+            assert f'data-cta="tier_{key}"' in tiers
+            assert f">APPLY FOR {name.upper()}</a>" in tiers
+
+    def test_ledger_rows(self):
+        tiers = build_tiers()
+        rows = re.findall(r'<th scope="row">([^<]+)</th>', tiers)
+        expected = [label for _g, group in LEDGER_GROUPS for label, *_v in group]
+        assert rows == expected
+        assert len(rows) == 15
+
+    def test_inclusions_are_cumulative(self):
+        """Nothing a lower tier gets is missing from a higher one."""
+        for _g, group in LEDGER_GROUPS:
+            for label, mn, md, mx in group:
+                if mn is True:
+                    assert md is True and mx is True, label
+                if md is True:
+                    assert mx is True, label
+
+    def test_setup_fee_and_cancel_fine_print(self):
+        tiers = build_tiers()
+        assert "$99 one-time setup fee" in tiers
+        assert "Any waiver is offered privately, case by case." in tiers
+        assert "No cancellation fee." in tiers
+
+    def test_phone_tabs_default_mid(self, coaching_js):
+        tiers = build_tiers()
+        assert 'data-tab="mid" aria-selected="true"' in tiers
+        assert tiers.count('role="tab"') == 3
+        assert "show('mid');" in coaching_js
+
+    def test_no_js_phone_shows_every_level(self, coaching_css):
+        """Devin #613: without JS no level may be hidden on a phone. The
+        markup has no data-show and the tabs render hidden; JS adds both."""
+        tiers = build_tiers()
+        assert "data-show=" not in tiers
+        assert 'role="tablist" aria-label="Levels" hidden>' in tiers
+        assert ".gg-coach-tabs:not([hidden]) { display: grid;" in coaching_css
+
+    def test_no_month_language(self, coaching_html):
+        visible = _visible_text(coaching_html).lower()
+        for bad in ("monthly", "/mo", "per month", "a month"):
+            assert bad not in visible
+
+
+class TestPicker:
+    @pytest.fixture(scope="class")
+    def picker(self):
+        return build_fit_check()
+
+    def test_hidden_without_js(self, picker):
+        assert '<form class="gg-coach-picker" id="gg-coach-picker" aria-label="Three questions to pick a level" hidden>' in picker
+        assert 'id="gg-coach-picker-out" aria-live="polite" hidden' in picker
+
+    def test_three_questions_nine_radios(self, picker):
+        assert picker.count("<fieldset>") == 3
+        assert picker.count('type="radio"') == 9
+        for qi, (text, options) in enumerate(PICKER_QUESTIONS, start=1):
+            assert f"<p>{text}</p>" in picker
+            for opt in options:
+                assert f"<span>{opt}</span>" in picker
+
+    def test_js_shows_it(self, coaching_js):
+        assert "form.hidden = false;" in coaching_js
+        assert "out.hidden = false;" in coaching_js
+
+    def test_scoring_every_combination(self, coaching_js):
+        """Rounded mean of the three answers: 1 → min, 2 → mid, 3 → max,
+        for all 27 answer sets."""
+        js = coaching_js.replace("<script>", "").replace("</script>", "")
+        m = re.search(r"var names = (\{[^}]*\});", js)
+        assert m
+        script = (
+            "var names=" + m.group(1) + ";var out=[];"
+            "for(var a=1;a<4;a++)for(var b=1;b<4;b++)for(var c=1;c<4;c++)"
+            "out.push(names[Math.round((a+b+c)/3)]);console.log(out.join(','));"
+        )
+        res = subprocess.run(["node", "-e", script], capture_output=True, text=True, timeout=30)
+        got = res.stdout.strip().split(",")
+        names = {1: "min", 2: "mid", 3: "max"}
+        # Three integers over 3 never land on .5, so Python's round agrees with Math.round.
+        want = [names[round((a + b + c) / 3)] for a in (1, 2, 3) for b in (1, 2, 3) for c in (1, 2, 3)]
+        assert got == want
+
+    def test_result_labels_from_tiers(self, coaching_js):
+        for _k, name, price in TIERS:
+            assert f"Marked: {name}, {price} every 4 weeks." in coaching_js
+
+    def test_analytics(self, coaching_js):
+        assert "coaching_fitcheck_answer" in coaching_js
+        assert "coaching_fitcheck_result" in coaching_js
 
 
 # ── FAQ ──────────────────────────────────────────────────────
 
 
 class TestFAQ:
-    def test_faq_id(self):
-        assert 'id="faq"' in build_faq()
+    def test_eight_details(self):
+        faq = build_faq()
+        assert 'id="faq"' in faq
+        assert faq.count('<details class="gg-coach-faq-item">') == 8
+        assert faq.count("<summary>") == 8
 
-    def test_eight_questions(self):
-        f = build_faq()
-        assert f.count('class="gg-coach-faq-item"') == 8
+    def test_setup_fee_and_cancel(self):
+        faq = build_faq()
+        assert "What&#39;s the $99 setup fee?" in faq
+        assert "Can I cancel anytime?" in faq
 
-    def test_accordion_toggle(self):
-        f = build_faq()
-        assert "gg-coach-faq-toggle" in f
-        assert "gg-coach-faq-q" in f
-
-    def test_setup_fee_faq(self):
-        f = build_faq()
-        assert "$99 setup fee" in f
-
-    def test_has_aria(self):
-        f = build_faq()
-        assert 'aria-expanded' in f
-        assert 'role="button"' in f
+    def test_after_apply(self):
+        faq = build_faq()
+        assert "You hear back from me within two business days" in faq
 
 
 # ── Application close ────────────────────────────────────────
 
 
 class TestApplicationClose:
-    def test_final_cta_id(self):
-        assert 'id="final-cta"' in build_application_close()
+    def test_close(self):
+        close = build_application_close()
+        assert 'id="final-cta"' in close
+        assert "Start your file." in close
+        assert 'data-cta="final_fill_intake"' in close
+        assert f'href="{QUESTIONNAIRE_URL}"' in close
+        assert 'href="mailto:gravelgodcoaching@gmail.com"' in close
 
-    def test_dark_band(self):
-        assert "gg-coach-band--dark" in build_application_close()
-
-    def test_kicker(self):
-        assert "APPLICATION" in build_application_close()
-
-    def test_line_copy(self):
-        c = build_application_close()
-        assert "About ten minutes of questions about your riding, your race and your week." in c
-        assert "I read every application and reply within two business days." in c
-
-    def test_cta_link(self):
-        c = build_application_close()
-        assert "APPLY FOR COACHING &rarr;" in c
-        assert f'href="{QUESTIONNAIRE_URL}"' in c
-        assert 'data-cta="final_fill_intake"' in c
-
-    def test_cta_border_is_paper_toned(self, coaching_css):
-        assert "border: 1px solid var(--gg-color-warm-paper);" in coaching_css
-
-    def test_contact_line(self):
-        c = build_application_close()
-        assert 'href="mailto:gravelgodcoaching@gmail.com"' in c
-        assert "if you have questions first." in c
+    def test_close_art(self):
+        close = build_application_close()
+        name, w, h = IMAGES["close"]
+        assert f'src="/coaching/img/{name}"' in close
+        assert f'width="{w}" height="{h}"' in close
 
 
-# ── Mobile sticky CTA ────────────────────────────────────────
+class TestNothingUnbuiltShips:
+    def test_no_placeholders(self, coaching_html):
+        """The proof slot and capacity line wait on Matti's real words and
+        number; nothing stands in for them."""
+        visible = _visible_text(coaching_html)
+        assert "NOT BUILT" not in visible
+        assert "placeholder" not in visible.lower()
+        assert coaching_html.count("<blockquote") == 0
 
 
 class TestMobileStickyCTA:
@@ -802,6 +473,9 @@ class TestMobileStickyCTA:
         sticky = build_mobile_sticky_cta()
         assert 'data-cta="sticky_cta"' in sticky
         assert f'href="{QUESTIONNAIRE_URL}"' in sticky
+
+
+SECTION_IDS = ("hero", "fit", "terms", "week", "how-it-works", "tiers", "faq", "final-cta")
 
 
 # ── Brand Compliance ─────────────────────────────────────────
@@ -825,11 +499,6 @@ class TestBrandCompliance:
 
     def test_no_bounce_easing(self, coaching_css):
         assert "cubic-bezier(0.34, 1.56" not in coaching_css
-
-    def test_no_gold_anywhere(self, coaching_css):
-        """Prestige = restraint. Gold is not used anywhere in this page's
-        own CSS — it stays reserved for header/footer chrome elsewhere."""
-        assert "var(--gg-color-gold)" not in coaching_css
 
     def test_correct_class_prefix(self, coaching_css):
         allowed_roots = (
@@ -878,17 +547,15 @@ class TestGA4Events:
 
     def test_scroll_depth_section_ids_match_real_sections(self, coaching_js, coaching_html):
         """Every id referenced by the scroll-depth IIFE must exist in the
-        shipped HTML, and the set must be exactly the six real content
-        sections — no dead ids, no missing sections."""
+        shipped HTML, and the set must be exactly the real content
+        sections: no dead ids, no missing sections."""
         section_ids = re.findall(r"id:\s*'([\w-]+)'", coaching_js)
-        assert set(section_ids) == {
-            "hero", "terms", "tiers", "fit", "faq", "final-cta",
-        }
+        assert set(section_ids) == set(SECTION_IDS)
         for sid in section_ids:
             assert f'id="{sid}"' in coaching_html, f"Dead section id in scroll-depth JS: {sid}"
 
     def test_old_section_labels_removed(self, coaching_js):
-        for old_id in ("'problem'", "'deliverables'", "'how-it-works'", "'results'", "'honest-check'"):
+        for old_id in ("'problem'", "'deliverables'", "'results'", "'honest-check'"):
             assert old_id not in coaching_js, f"Stale scroll-depth id still present: {old_id}"
 
 
@@ -958,9 +625,14 @@ class TestAccessibility:
     def test_reduced_motion_css(self, coaching_css):
         assert "prefers-reduced-motion: reduce" in coaching_css
 
-    def test_faq_aria_controls(self, coaching_html):
-        assert 'aria-controls="gg-coach-faq-ans-' in coaching_html
-        assert 'role="region"' in coaching_html
+    def test_faq_uses_native_disclosure(self, coaching_html):
+        assert "<details" in coaching_html and "<summary>" in coaching_html
+        assert 'role="button"' not in build_faq()
+
+    def test_ledger_marks_have_names(self):
+        tiers = build_tiers()
+        assert 'role="img" aria-label="Included"' in tiers
+        assert 'role="img" aria-label="Not included"' in tiers
 
 
 # ── Scroll Animations (shared guards) ───────────────────────
@@ -1097,25 +769,24 @@ class TestRequiredContent:
 
     def test_setup_fee(self, coaching_html):
         assert "$99 setup fee" in coaching_html
-        assert "TrainingPeaks Premium is included" in coaching_html
+        assert "includes TrainingPeaks Premium" in coaching_html
         assert "NOSETUP" not in coaching_html
 
     def test_hero_h1(self, coaching_html):
         assert coaching_html.count("<h1>") == 1
-        assert "throw down but still like to get down" in coaching_html
+        assert "throw down</mark> but still like to <mark>get down." in coaching_html
 
     def test_final_contact_line(self, coaching_html):
         assert "gravelgodcoaching@gmail.com" in coaching_html
         assert 'href="mailto:gravelgodcoaching@gmail.com"' in coaching_html
 
     def test_removed_sections_absent(self, coaching_html):
-        for old_id in ("how-it-works", "problem", "deliverables", "results", "honest-check"):
+        for old_id in ("problem", "deliverables", "results", "honest-check"):
             assert f'id="{old_id}"' not in coaching_html
-        assert "How it works" not in coaching_html
 
     def test_no_testimonials(self, coaching_html):
         assert coaching_html.count("<blockquote") == 0
 
     def test_all_section_ids_present(self, coaching_html):
-        for sid in ("hero", "terms", "tiers", "fit", "faq", "final-cta"):
+        for sid in SECTION_IDS:
             assert f'id="{sid}"' in coaching_html

@@ -1127,5 +1127,4 @@ Each race profile (JSON) contains:
 - `race.tire_recommendations`: primary tires, pressure tables
 
 Access individual profiles at: https://gravelgodcycling.com/race/{slug}/
-Machine-readable JSON index: https://gravelgodcycling.com/race-index.json
-REST API: https://gravelgodcycling.com/api/v1/docs
+Machine-readable JSON index: https://gravelgodcycling.com/wp-content/uploads/race-index.json

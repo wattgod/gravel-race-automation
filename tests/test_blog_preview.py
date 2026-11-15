@@ -367,6 +367,38 @@ def test_blog_index_page_responsive(tmp_path):
     assert "@media" in content
 
 
+def test_blog_index_page_omits_withdrawn_articles(tmp_path, monkeypatch):
+    """A withdrawn article (410 live) never gets a card, even from a stale index.
+
+    Audit 2026-11-14: /blog/ still linked
+    /articles/your-training-app-doesnt-know-your-race-exists/ after it was
+    retired, because the deployed page had been rendered from an older index.
+    """
+    import generate_blog_index_page as gbip
+
+    slug = "your-training-app-doesnt-know-your-race-exists"
+    stale = tmp_path / "blog-index.json"
+    stale.write_text(json.dumps([
+        {"slug": slug, "title": "Retired", "category": "article",
+         "date": "2026-07-02", "url": f"/articles/{slug}/"},
+        {"slug": "kept", "title": "Kept", "category": "article",
+         "date": "2026-07-01", "url": "/articles/kept/"},
+    ]))
+    monkeypatch.setattr(gbip, "INDEX_JSON", stale)
+    content = gbip.generate_blog_index_page(tmp_path).read_text()
+    assert slug in json.loads(gbip.WITHDRAWN_JSON.read_text())
+    assert f'href="/articles/{slug}/"' not in content
+    assert 'href="/articles/kept/"' in content
+
+
+def test_committed_blog_index_has_no_withdrawn_articles():
+    import generate_blog_index_page as gbip
+
+    withdrawn = set(json.loads(gbip.WITHDRAWN_JSON.read_text()))
+    slugs = {e.get("slug") for e in json.loads(gbip.INDEX_JSON.read_text())}
+    assert not withdrawn & slugs
+
+
 # ── generate_blog_sitemap ──
 
 

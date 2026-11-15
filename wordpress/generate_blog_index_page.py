@@ -26,6 +26,10 @@ from cookie_consent import get_consent_banner_html
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT_ROOT / "wordpress" / "output"
 INDEX_JSON = PROJECT_ROOT / "web" / "blog-index.json"
+# Retired articles (each returns 410). scripts/generate_blog_index.py already
+# drops them from blog-index.json; the server-rendered cards drop them again
+# so a stale index can never put a dead link back on /blog/.
+WITHDRAWN_JSON = PROJECT_ROOT / "web" / "withdrawn-articles.json"
 SITE_URL = "https://gravelgodcycling.com"
 
 TIER_COLORS = {1: "#59473c", 2: "#7d695d", 3: "#766a5e", 4: "#5e6868"}
@@ -79,6 +83,8 @@ def generate_blog_index_page(output_dir=None):
     if INDEX_JSON.exists():
         try:
             entries = json.loads(INDEX_JSON.read_text())
+            withdrawn = set(json.loads(WITHDRAWN_JSON.read_text()))
+            entries = [e for e in entries if e.get("slug") not in withdrawn]
             ssr_count = len(entries)
             ssr_cards_html = "\n".join(_render_card_ssr(e) for e in entries)
         except (json.JSONDecodeError, KeyError):

@@ -60,9 +60,18 @@ class TestLlmsTxt:
     def test_has_machine_readable_links(self, index, training_plan_slugs):
         txt = generate_llms_txt(index, training_plan_slugs)
         assert "llms-full.txt" in txt
-        assert "race-index.json" in txt
-        assert "api/v1/docs" in txt
+        assert "https://gravelgodcycling.com/wp-content/uploads/race-index.json" in txt
         assert "feed/races.xml" in txt
+
+    def test_no_links_the_deploy_does_not_publish(self, index, training_plan_slugs):
+        """/race-index.json (root) and /api/v1/docs were 404 live (2026-11-14):
+        sync_index() uploads the index to wp-content/uploads and no REST API
+        is deployed to gravelgodcycling.com."""
+        txt = generate_llms_txt(index, training_plan_slugs)
+        full = generate_llms_full_txt(index, RACE_DATA_DIR)
+        for body in (txt, full):
+            assert "gravelgodcycling.com/race-index.json" not in body
+            assert "api/v1" not in body
 
     def test_has_training_plans_section(self, index, training_plan_slugs):
         txt = generate_llms_txt(index, training_plan_slugs)

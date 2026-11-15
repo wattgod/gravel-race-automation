@@ -23,6 +23,11 @@ INDEX_FILE = PROJECT_ROOT / "web" / "race-index.json"
 RACE_DATA_DIR = PROJECT_ROOT / "race-data"
 OUTPUT_DIR = PROJECT_ROOT / "web"
 SITE_URL = "https://gravelgodcycling.com"
+# push_wordpress.py::sync_index() uploads web/race-index.json to WP uploads,
+# not the site root; /race-index.json is a 404. There is no REST API on this
+# host (the /api/v1 routes live in mission_control, which is not deployed to
+# gravelgodcycling.com), so llms.txt must not advertise one.
+RACE_INDEX_URL = f"{SITE_URL}/wp-content/uploads/race-index.json"
 
 TIER_LABELS = {
     1: "Tier 1 (Elite)",
@@ -116,8 +121,7 @@ Regions: {', '.join(regions)}.
 ## Machine-Readable Resources
 
 - [Full LLM context (this database as text)]({SITE_URL}/llms-full.txt)
-- [Race index JSON ({len(index)} entries)]({SITE_URL}/race-index.json)
-- [REST API (OpenAPI)]({SITE_URL}/api/v1/docs)
+- [Race index JSON ({len(index)} entries)]({RACE_INDEX_URL})
 - [RSS feed]({SITE_URL}/feed/races.xml)
 - [MCP Server (GitHub)](https://github.com/wattgod/gravel-race-automation)
 - [Individual race profiles]({SITE_URL}/race/{{slug}}/)
@@ -322,8 +326,7 @@ def generate_llms_full_txt(index: list[dict], race_data_dir: Path) -> str:
     lines.append("- `race.tire_recommendations`: primary tires, pressure tables")
     lines.append("")
     lines.append(f"Access individual profiles at: {SITE_URL}/race/{{slug}}/")
-    lines.append(f"Machine-readable JSON index: {SITE_URL}/race-index.json")
-    lines.append(f"REST API: {SITE_URL}/api/v1/docs")
+    lines.append(f"Machine-readable JSON index: {RACE_INDEX_URL}")
     lines.append("")
 
     return "\n".join(lines)

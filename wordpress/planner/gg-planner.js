@@ -322,13 +322,21 @@
     leafState = "loading";
     var M = cfg.map;
     var done = function (ok) { leafState = ok ? "ok" : "fail"; var w = leafWait; leafWait = []; w.forEach(function (f) { f(ok); }); };
-    document.head.appendChild(el("link", { rel: "stylesheet", href: M.css, integrity: M.css_sri, crossorigin: "anonymous" }));
+    // Draw only once both the script and its stylesheet are in: a map laid
+    // out before Leaflet's CSS arrives places its panes and tiles wrongly.
+    var left = 2, ok = true;
+    var one = function (good) { ok = ok && good; if (--left === 0) done(ok && !!(window.L && window.L.map)); };
+    var css = el("link", { rel: "stylesheet", href: M.css, integrity: M.css_sri, crossorigin: "anonymous" });
+    css.addEventListener("load", function () { one(true); }); css.addEventListener("error", function () { one(false); });
     var js = el("script", { src: M.js, integrity: M.js_sri, crossorigin: "anonymous" });
-    js.addEventListener("load", function () { done(!!(window.L && window.L.map)); });
-    js.addEventListener("error", function () { done(false); });
-    document.head.appendChild(js);
+    js.addEventListener("load", function () { one(true); }); js.addEventListener("error", function () { one(false); });
+    document.head.appendChild(css); document.head.appendChild(js);
   }
-  function dropMap() { if (leaf) { try { leaf.remove(); } catch (e) {} leaf = null; } }
+  var leafRO = null;
+  function dropMap() {
+    if (leafRO) { leafRO.disconnect(); leafRO = null; }
+    if (leaf) { try { leaf.remove(); } catch (e) {} leaf = null; }
+  }
 
   function mapCard(m) {
     var R = m.ride;
@@ -360,9 +368,10 @@
         if (!ok) { noMap("the map library did not load"); return; }
         var L = window.L, M = cfg.map;
         dropMap();
-        // Whole zoom levels keep tiles seamless. On touch screens one finger
-        // scrolls the page, not the map; the zoom buttons still work.
-        var map = L.map(box, { scrollWheelZoom: false, dragging: !L.Browser.mobile, tap: false });
+        // Fractional zoom so the route fills the map (whole levels can halve it).
+        // On touch screens one finger scrolls the page, not the map; the zoom
+        // buttons still work.
+        var map = L.map(box, { scrollWheelZoom: false, dragging: !L.Browser.mobile, tap: false, zoomSnap: 0, zoomDelta: 1 });
         map.attributionControl.setPrefix(M.prefix);
         leaf = map;
         var tiles = L.tileLayer(M.tiles, { attribution: M.attribution, maxZoom: M.max_zoom }), gotTile = false;
@@ -371,7 +380,26 @@
         tiles.addTo(map);
         var line = geo.la.map(function (la, i) { return [la, geo.lo[i]]; });
         var route = L.polyline(line, { className: "gg-planner-route", weight: 4, opacity: 1, interactive: false }).addTo(map);
-        map.fitBounds(route.getBounds(), { padding: [24, 24] });
+        // Fit the route with a margin of 5% of the map's shorter side, now and
+        // whenever the map changes size (resize, orientation), until the
+        // visitor zooms or pans; after that their view is kept. Replay and
+        // scrubbing only move the pins.
+        var fitting = false, userView = false, bounds = route.getBounds();
+        function fit() {
+          var sz = map.getSize(); if (!sz.x || !sz.y) return;
+          var pad = Math.round(0.05 * Math.min(sz.x, sz.y));
+          fitting = true; map.fitBounds(bounds, { padding: [pad, pad], animate: false }); fitting = false;
+        }
+        map.on("zoomstart movestart", function () { if (!fitting) userView = true; });
+        fit();
+        if (window.ResizeObserver) {
+          leafRO = new ResizeObserver(function () {
+            if (!leaf) return;
+            fitting = true; map.invalidateSize({ animate: false }); fitting = false;
+            if (!userView) fit();
+          });
+          leafRO.observe(box);
+        }
         m.hours.forEach(function (p) { L.circleMarker([p.la, p.lo], { radius: 5, className: "gg-planner-dot", fillOpacity: 1, opacity: 1, interactive: false }).addTo(map); });
         if (!R) return;
         pins = {

@@ -456,6 +456,10 @@ def get_race_planner_css() -> str:
 {p}-basemap .leaflet-bar {{ border: 2px solid var(--gg-color-dark-brown); }}
 {p}-basemap .leaflet-bar a {{ color: var(--gg-color-dark-brown); }}
 {p}-basemap .leaflet-control-attribution {{ font-size: 11px; }}
+/* Fractional zoom leaves hairline gaps between tiles in Chromium; blending the tiles with each other
+   inside an isolated pane (not with the background) closes them (Leaflet issue 3575). */
+{p}-basemap .leaflet-tile-pane {{ isolation: isolate; }}
+{p}-basemap img.leaflet-tile {{ mix-blend-mode: plus-lighter; }}
 {p}-profile {{ width: 100%; height: auto; display: block; }}
 {p}-route {{ fill: none; stroke: var(--gg-color-teal); stroke-width: 4; stroke-linejoin: round; }}
 {p}-prof {{ fill: var(--gg-color-tan); stroke: var(--gg-color-dark-brown); stroke-width: 1; }}

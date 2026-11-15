@@ -514,3 +514,19 @@ def test_base_map_is_the_sites_leaflet_and_osm_tiles_with_no_stand_in():
     assert js.index('cls: "gg-planner-basemap"') < js.index('"class": "gg-planner-profile"') < js.index('cls: "gg-planner-readout"')
     assert 'el("summary", { text: "How this works" })' in js
 
+
+def test_map_fits_the_route_and_keeps_the_visitors_zoom():
+    """Fractional zoom with a 5% margin, refit on resize until the visitor moves
+    the map, drawn only once Leaflet's CSS is in. Replay and scrubbing only
+    move the pins."""
+    js = (PLANNER_JS / "gg-planner.js").read_text()
+    assert "zoomSnap: 0" in js, "whole zoom levels can halve the route on screen"
+    assert "0.05 * Math.min(sz.x, sz.y)" in js
+    assert "new ResizeObserver(" in js and "if (!userView) fit();" in js
+    assert 'map.on("zoomstart movestart", function () { if (!fitting) userView = true; });' in js
+    assert 'css.addEventListener("load"' in js
+    start = js.index("function setMoment(")
+    body = js[start:js.index("function scrubKm(", start)]
+    for call in ("setView", "fitBounds", "setZoom", "panTo", "flyTo"):
+        assert call not in body
+

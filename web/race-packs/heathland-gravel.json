@@ -8,21 +8,11 @@
     "vo2_power": 4,
     "threshold": 7,
     "technical": 4,
-    "heat_resilience": 3,
+    "heat_resilience": 0,
     "altitude": 2,
     "race_specificity": 4
   },
   "top_categories": [
-    {
-      "category": "Durability",
-      "score": 100,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 99, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
     {
       "category": "TT_Threshold",
       "score": 100,
@@ -53,6 +43,16 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Heathland Gravel. Train it until it feels boring."
     },
     {
+      "category": "Durability",
+      "score": 75,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 99, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
       "category": "Race_Simulation",
       "score": 75,
       "workouts": [
@@ -71,15 +71,6 @@
         "Norwegian 4x8"
       ],
       "workout_context": "When someone attacks on belgian heathland gravel, you have 10 seconds to respond or you're off the back. This builds that response."
-    },
-    {
-      "category": "Endurance",
-      "score": 65,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 99 miles, base fitness is the difference between racing and surviving."
     },
     {
       "category": "Over_Under",
@@ -109,16 +100,6 @@
       "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 99 miles, sustainable FTP gains matter more than peak power."
     },
     {
-      "category": "HVLI_Extended",
-      "score": 54,
-      "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
-      ],
-      "workout_context": "The aerobic base that lets you ride belgian heathland gravel at tempo for 99 miles without cracking. No shortcuts."
-    },
-    {
       "category": "Anaerobic_Capacity",
       "score": 50,
       "workouts": [
@@ -126,12 +107,30 @@
         "90sec Repeats"
       ],
       "workout_context": "2-minute all-out efforts on belgian heathland gravel. Closing gaps, responding to attacks, sprinting for position. Train the burn."
+    },
+    {
+      "category": "Endurance",
+      "score": 46,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 99 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Tempo",
+      "score": 46,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is Heathland Gravel's race pace. The wattage you'll hold for 99 miles on belgian heathland gravel. Train it until it's automatic."
     }
   ],
   "race_overlay": {
     "nutrition": "Target 60\u201380g carbs/hour for Heathland Gravel\u2019s 99 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Heathland Gravel requires surface adaptability. Include weekly rides on belgian heathland gravel to build confidence. Expect: belgian heathland, european gravel, regional event."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, TT Threshold, and Gravel Specific to prepare you for 99 miles of belgian heathland gravel in Belgium.",
-  "generated_at": "2026-11-05"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and G Spot to prepare you for 99 miles of belgian heathland gravel in Belgium.",
+  "generated_at": "2026-11-15"
 }

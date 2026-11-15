@@ -8,7 +8,7 @@
     "vo2_power": 4,
     "threshold": 5,
     "technical": 6,
-    "heat_resilience": 2,
+    "heat_resilience": 0,
     "altitude": 4,
     "race_specificity": 6
   },
@@ -25,16 +25,16 @@
     },
     {
       "category": "Gravel_Specific",
-      "score": 81,
+      "score": 91,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Edition Zero's New Zealand mountains, South Island gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 154 miles."
+      "workout_context": "Edition Zero's 75% gravel, South Island back roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 154 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 73,
+      "score": 82,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -44,7 +44,7 @@
     },
     {
       "category": "TT_Threshold",
-      "score": 69,
+      "score": 77,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
@@ -53,17 +53,8 @@
       "workout_context": "75ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
-      "category": "Endurance",
-      "score": 68,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 154 miles, base fitness is the difference between racing and surviving."
-    },
-    {
       "category": "Over_Under",
-      "score": 68,
+      "score": 76,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -71,18 +62,17 @@
       "workout_context": "At Edition Zero, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "HVLI_Extended",
-      "score": 59,
+      "category": "Endurance",
+      "score": 67,
       "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
       ],
-      "workout_context": "154 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 154 miles, base fitness is the difference between racing and surviving."
     },
     {
       "category": "VO2max",
-      "score": 59,
+      "score": 67,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
@@ -92,7 +82,7 @@
     },
     {
       "category": "Mixed_Climbing",
-      "score": 57,
+      "score": 64,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
@@ -100,8 +90,18 @@
       "workout_context": "11,500ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
+      "category": "HVLI_Extended",
+      "score": 61,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "154 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
       "category": "G_Spot",
-      "score": 53,
+      "score": 59,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -111,7 +111,7 @@
     },
     {
       "category": "Blended",
-      "score": 49,
+      "score": 55,
       "workouts": [
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
@@ -120,7 +120,7 @@
     },
     {
       "category": "Critical_Power",
-      "score": 49,
+      "score": 55,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -134,5 +134,5 @@
     "terrain": "Mixed terrain at Edition Zero requires surface adaptability. Include weekly rides on new zealand mountain gravel to build confidence. Expect: new zealand mountains, south island gravel, regional event."
   },
   "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 154 miles of new zealand mountain gravel in Waimate, New Zealand.",
-  "generated_at": "2026-07-13"
+  "generated_at": "2026-11-15"
 }

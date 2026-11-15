@@ -384,6 +384,33 @@ class TestScoreHeatResilience:
         race = race_data["race"]
         assert _score_heat_resilience(race) == 2
 
+    def test_substring_hits_are_not_heat(self):
+        """'hot' inside 'photo'/'shot' and cold-weather text are not heat."""
+        race_data = _make_race(
+            rating=_make_rating(climate=5),
+            youtube_data={"rider_intel": {"search_text": "Great photo spots; I shot the descent."}},
+            climate={"primary": "Cold mountain mornings", "description": "Temperature can drop near freezing.",
+                     "challenges": ["Snow on the pass", "Photographers on every hairpin"]},
+        )
+        assert _score_heat_resilience(race_data["race"]) == 0
+
+    def test_hydration_alone_is_not_heat(self):
+        """Fluids matter on every long ride, so 'hydration' is not heat evidence."""
+        race_data = _make_race(
+            rating=_make_rating(climate=5),
+            youtube_data={"rider_intel": {"search_text": "Plan your hydration between aid stations."}},
+        )
+        assert _score_heat_resilience(race_data["race"]) == 0
+
+    def test_climate_summary_heat_opens_base_without_challenge_bonus(self):
+        """Heat in primary/description opens the climate base, but only heat
+        in challenges adds the +1."""
+        race_data = _make_race(
+            rating=_make_rating(climate=4),
+            climate={"primary": "Hot and dry", "challenges": ["Afternoon wind"]},
+        )
+        assert _score_heat_resilience(race_data["race"]) == 6
+
     def test_empty_challenges(self):
         """Empty climate evidence does not turn weather severity into heat."""
         race_data = _make_race(

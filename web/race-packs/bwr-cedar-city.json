@@ -8,24 +8,14 @@
     "vo2_power": 8,
     "threshold": 8,
     "technical": 8,
-    "heat_resilience": 10,
+    "heat_resilience": 0,
     "altitude": 6,
     "race_specificity": 10
   },
   "top_categories": [
     {
-      "category": "Durability",
-      "score": 100,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 117, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
-    {
       "category": "Gravel_Specific",
-      "score": 83,
+      "score": 100,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
@@ -34,17 +24,17 @@
     },
     {
       "category": "Race_Simulation",
-      "score": 79,
+      "score": 95,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
       ],
-      "workout_context": "Race-pace efforts that mimic Belgian Waffle Ride Cedar City's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
+      "workout_context": "Race-pace efforts that mimic Belgian Waffle Ride Cedar City's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
     },
     {
       "category": "VO2max",
-      "score": 74,
+      "score": 89,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
@@ -53,17 +43,18 @@
       "workout_context": "5,940ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
-      "category": "Endurance",
-      "score": 68,
+      "category": "Durability",
+      "score": 75,
       "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 117 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "At mile 60 of 117, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "TT_Threshold",
-      "score": 62,
+      "score": 75,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
@@ -73,7 +64,7 @@
     },
     {
       "category": "Critical_Power",
-      "score": 53,
+      "score": 64,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -82,7 +73,7 @@
     },
     {
       "category": "Over_Under",
-      "score": 51,
+      "score": 61,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -91,7 +82,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 49,
+      "score": 59,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -100,18 +91,8 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Belgian Waffle Ride Cedar City. Train it until it feels boring."
     },
     {
-      "category": "HVLI_Extended",
-      "score": 47,
-      "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
-      ],
-      "workout_context": "117 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
-    },
-    {
       "category": "Anaerobic_Capacity",
-      "score": 45,
+      "score": 55,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
@@ -119,21 +100,38 @@
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on fast-rolling gravel with hidden treachery. If you haven't trained them, you'll crack."
     },
     {
+      "category": "Endurance",
+      "score": 48,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 117 miles, base fitness is the difference between racing and surviving."
+    },
+    {
       "category": "Blended",
-      "score": 36,
+      "score": 43,
       "workouts": [
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
       "workout_context": "Endurance with intensity spikes baked in. Exactly what 5,940ft of climbing on fast-rolling gravel with hidden treachery does to your power file on race day."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 41,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "5,940ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     }
   ],
   "race_overlay": {
-    "heat": "June in Cedar City, Utah \u2014 Mid-June at 5,846 ft can still bring cool mornings and afternoon thunderstorm risk at elevation. Good years run warm and dry (50s-70s\u00b0F); high-desert weather can turn fast. Begin heat acclimatization 10\u201314 days before Belgian Waffle Ride Cedar City \u2014 20\u201330min sauna sessions or midday rides in full kit. Pre-load sodium 48 hours out. Target 500\u2013750ml/hr with electrolytes on race day. Race-day realities: Dehydration risk once sun and pace pick up.",
     "nutrition": "Target 60\u201380g carbs/hour for Belgian Waffle Ride Cedar City\u2019s 117 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "altitude": "Moderate altitude at Belgian Waffle Ride Cedar City. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
     "terrain": "Highly technical terrain at Belgian Waffle Ride Cedar City demands practice on similar surfaces. Ride fast-rolling gravel with hidden treachery at race-day cadence weekly. Expect: 60% unroad (gravel/sand/rock), 40% pavement, sandy washboard sectors, packed-dirt rollers. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 117 miles."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 117 miles of fast-rolling gravel with hidden treachery in Cedar City, Utah.",
-  "generated_at": "2026-07-13"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and VO2max to prepare you for 117 miles of fast-rolling gravel with hidden treachery in Cedar City, Utah.",
+  "generated_at": "2026-11-15"
 }

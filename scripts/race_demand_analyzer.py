@@ -16,6 +16,7 @@ Dimensions:
 import argparse
 import json
 import os
+import re
 import sys
 
 DIMENSIONS = [
@@ -29,15 +30,23 @@ DIMENSIONS = [
     "race_specificity",
 ]
 
+# Whole words only: substring matching let "hot" fire inside "photo" and
+# "shot". "hydration" is gone because every long event needs fluids, so it is
+# not evidence of heat.
 HEAT_KEYWORDS = [
     "heat",
     "hot",
-    "hydration",
     "sun exposure",
     "humidity",
     "heat adaptation",
     "overheating",
 ]
+_HEAT_RE = re.compile(r"\b(?:" + "|".join(re.escape(k) for k in HEAT_KEYWORDS) + r")\b")
+
+
+def _mentions_heat(text: str) -> bool:
+    """True when ``text`` contains a heat keyword as a whole word."""
+    return bool(_HEAT_RE.search(str(text).lower()))
 
 
 def _clamp(value: int) -> int:
@@ -172,6 +181,7 @@ def _score_heat_resilience(race: dict) -> int:
     4 -> 6; otherwise 0.
     Scan rider intel search_text for heat keywords: +2 if found (cap 10).
     Scan climate.challenges for heat keywords: +1 if found (cap 10).
+    Keywords match whole words only.
     """
     rating = race.get("gravel_god_rating") or {}
     climate_score = _safe_get(rating, "climate", 0)
@@ -181,7 +191,7 @@ def _score_heat_resilience(race: dict) -> int:
     rider_intel = youtube_data.get("rider_intel") or {}
     search_text = _safe_get(rider_intel, "search_text", "")
     search_lower = search_text.lower() if search_text else ""
-    rider_heat = any(keyword in search_lower for keyword in HEAT_KEYWORDS)
+    rider_heat = _mentions_heat(search_lower)
 
     # Climate challenges boost
     climate_block = race.get("climate") or {}
@@ -194,7 +204,7 @@ def _score_heat_resilience(race: dict) -> int:
             challenges_text,
         ]
     ).lower()
-    climate_heat = any(keyword in climate_text for keyword in HEAT_KEYWORDS)
+    climate_heat = _mentions_heat(climate_text)
 
     if climate_heat or rider_heat:
         if climate_score >= 5:
@@ -208,7 +218,7 @@ def _score_heat_resilience(race: dict) -> int:
 
     if rider_heat:
         score += 2
-    if any(keyword in challenges_text for keyword in HEAT_KEYWORDS):
+    if _mentions_heat(challenges_text):
         score += 1
 
     return _clamp(score)

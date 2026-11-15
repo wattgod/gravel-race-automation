@@ -8,7 +8,7 @@
     "vo2_power": 10,
     "threshold": 8,
     "technical": 6,
-    "heat_resilience": 2,
+    "heat_resilience": 0,
     "altitude": 2,
     "race_specificity": 10
   },
@@ -33,16 +33,6 @@
       "workout_context": "Le Grand du Nord's North Shore forest roads, Minnesota Northwoods gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 110 miles."
     },
     {
-      "category": "Durability",
-      "score": 95,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 110, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
-    {
       "category": "VO2max",
       "score": 90,
       "workouts": [
@@ -51,6 +41,16 @@
         "Norwegian 4x8"
       ],
       "workout_context": "6,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+    },
+    {
+      "category": "Durability",
+      "score": 85,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 110, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "TT_Threshold",
@@ -109,15 +109,6 @@
       "workout_context": "Endurance with intensity spikes baked in. Exactly what 6,000ft of climbing on rolling North Shore gravel does to your power file on race day."
     },
     {
-      "category": "Endurance",
-      "score": 46,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 110 miles, base fitness is the difference between racing and surviving."
-    },
-    {
       "category": "Mixed_Climbing",
       "score": 46,
       "workouts": [
@@ -125,12 +116,21 @@
         "Variable Grade Simulation"
       ],
       "workout_context": "6,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 41,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 110 miles, sustainable FTP gains matter more than peak power."
     }
   ],
   "race_overlay": {
     "nutrition": "Target 60\u201380g carbs/hour for Le Grand du Nord\u2019s 110 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Le Grand du Nord requires surface adaptability. Include weekly rides on rolling north shore gravel to build confidence. Expect: north shore forest roads, minnesota northwoods gravel, lake superior scenic routes."
   },
-  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and Durability to prepare you for 110 miles of rolling north shore gravel in Grand Marais, Minnesota.",
-  "generated_at": "2026-07-16"
+  "pack_summary": "This 10-workout pack focuses on Race Simulation, Gravel Specific, and VO2max to prepare you for 110 miles of rolling north shore gravel in Grand Marais, Minnesota.",
+  "generated_at": "2026-11-15"
 }

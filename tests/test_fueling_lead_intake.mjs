@@ -480,6 +480,73 @@ test('a debrief can carry a full form: every answer at 4000 characters', async (
   assert.deepEqual(Object.keys(mc.goal_answers), Object.keys(answers));
 });
 
+// --- plan_intake: the XC Ski Labs custom-plan questionnaire (/questionnaire/) ---
+
+const PLAN_INTAKE_ANSWERS = {
+  target_race: 'American Birkebeiner', race_date: 'February 27, 2027', race_distance: '50km',
+  technique: 'classic', weekly_hours: '8', email: 'skier@example.com', name: 'Test Skier',
+  injuries: 'Test answer: left knee', goal_ref: 'a'.repeat(64),
+};
+
+function planIntakePayload(extra = {}) {
+  return {
+    source: 'plan_intake', brand: 'xcskilabs', name: 'Test Skier', email: 'skier@example.com',
+    race_slug: 'american-birkebeiner', race_name: 'American Birkebeiner',
+    goal_answers: PLAN_INTAKE_ANSWERS, ...extra,
+  };
+}
+
+test('plan_intake forwards every answer and keeps its race context (it is a lead)', async () => {
+  const { response, mc } = await runExit(planIntakePayload());
+  assert.equal(response.status, 200);
+  assert.equal((await response.json()).success, true);
+  assert.equal(mc.source, 'plan_intake');
+  assert.equal(mc.brand, 'xcskilabs');
+  assert.equal(mc.name, 'Test Skier');
+  assert.equal(mc.race_slug, 'american-birkebeiner');
+  assert.equal(mc.race_name, 'American Birkebeiner');
+  assert.deepEqual(mc.goal_answers, PLAN_INTAKE_ANSWERS);
+});
+
+test('plan_intake sends no worker alert: Mission Control alerts Matti after storing', async () => {
+  const { requests } = await runExit(planIntakePayload());
+  assert.equal(requests.some((r) => r.url.includes('resend')), false);
+});
+
+test('plan_intake is storage-required: a Mission Control failure is a 503, nothing lost', async () => {
+  for (const mcStatus of [500, 502]) {
+    const { response, requests } = await runExit(planIntakePayload(), { mcStatus });
+    assert.equal(response.status, 503);
+    assert.deepEqual(await response.json(),
+      { error: 'Could not store your answers. Nothing was lost — please try again.' });
+    assert.equal(requests.some((r) => r.url.includes('resend')), false, 'no lost-lead alert either');
+  }
+});
+
+test('plan_intake from xcskilabs.com passes CORS with the deployed origin list', async () => {
+  const toml = readFileSync(new URL('../workers/fueling-lead-intake/wrangler.toml', import.meta.url), 'utf8');
+  const origins = toml.match(/^ALLOWED_ORIGINS = "([^"]+)"/m)[1];
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () => new Response('{}', { status: 200 });
+  try {
+    const response = await worker.fetch(new Request('https://fueling-lead-intake.example.test', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Origin: 'https://xcskilabs.com' },
+      body: JSON.stringify({ website: '', ...planIntakePayload() }),
+    }), { ...exitEnv, ALLOWED_ORIGINS: origins });
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get('Access-Control-Allow-Origin'), 'https://xcskilabs.com');
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('plan_intake honeypot filled is refused', async () => {
+  const { response, requests } = await runExit(planIntakePayload({ website: 'bot' }));
+  assert.equal(response.status, 400);
+  assert.deepEqual(requests, []);
+});
+
 // --- Storage-required sources with no Mission Control URL (Devin on #421) ---
 
 const STORAGE_REQUIRED_BODIES = {
@@ -487,6 +554,7 @@ const STORAGE_REQUIRED_BODIES = {
   athlete_review: { source: 'athlete_review', email: 'review@example.com', goal_answers: { proudest: 'Test answer: x' } },
   athlete_exit: exitPayload(),
   plan_debrief: debriefPayload(),
+  plan_intake: planIntakePayload(),
 };
 
 for (const [source, body] of Object.entries(STORAGE_REQUIRED_BODIES)) {

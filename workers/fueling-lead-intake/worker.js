@@ -6,7 +6,7 @@
  * tagged on the Mission Control payload and the notification email
  * subject/sender so road leads are distinguishable in the shared inbox.
  *
- * Handles 16 capture sources:
+ * Handles 17 capture sources:
  *   - exit_intent:        email only (race profile exit popup)
  *   - race_profile:       email + race context (prep kit CTA)
  *   - prep_kit_gate:      email + race context (content unlock)
@@ -23,6 +23,9 @@
  *   - gravel_tv_subscribe: legacy Gravel TV subscriber source (retained during migration)
  *   - gravel_weekly_subscribe: Gravel Weekly publication signup
  *   - fueling_calculator: email + weight + race + fueling data (detected by weight_lbs, no source field)
+ *   - plan_intake:        a custom-plan questionnaire (xcskilabs.com/questionnaire/): goal_answers +
+ *                         race context. A lead, but no automated email: Mission Control stores it,
+ *                         alerts Matti, and he replies personally. Storage-required.
  *
  * Transactional sources (not leads, never marketed to):
  *   - athlete_review:     a coached athlete's season review (goal_answers + athlete tag)
@@ -33,7 +36,8 @@
  *                         ref (custom plan). Not Mission Control's race_debrief email.
  *
  * Notification emails fire for fueling_calculator (contains actionable athlete data),
- * athlete_review, athlete_exit and plan_debrief.
+ * athlete_review, athlete_exit and plan_debrief. plan_intake's alert comes from
+ * Mission Control, after it has stored the answers.
  * Mission Control's database is the lead list of record — nothing else reads a marketing
  * contacts list, so this worker does not maintain one.
  */
@@ -44,10 +48,10 @@ const DISPOSABLE_DOMAINS = [
   'yopmail.com', 'temp-mail.org', 'getnada.com', 'mohmal.com'
 ];
 
-const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe', 'goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief'];
+const KNOWN_SOURCES = ['exit_intent', 'race_profile', 'prep_kit_gate', 'race_quiz', 'quiz_shared', 'tire_guide', 'race_review', 'state_hub', 'date_reminder', 'race_plan_ladder', 'training_guide', 'bikepacking_guide', 'race_watch', 'gravel_tv_subscribe', 'gravel_weekly_subscribe', 'goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief', 'plan_intake'];
 
 // Sources whose questionnaire answers ride along as goal_answers.
-const ANSWER_SOURCES = ['goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief'];
+const ANSWER_SOURCES = ['goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief', 'plan_intake'];
 
 // Not leads: a leaving athlete and a plan buyer's debrief. None of the lead
 // context rides along (stripLeadContext), and Matti gets an alert of his own.
@@ -939,7 +943,7 @@ function sanitizeAnswers(raw) {
 // refusing the payload is a failure the visitor must hear about — otherwise
 // the page shows a poster, wipes the saved draft, and the answers exist
 // nowhere.
-const STORAGE_REQUIRED = ['goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief'];
+const STORAGE_REQUIRED = ['goal_2027', 'athlete_review', 'athlete_exit', 'plan_debrief', 'plan_intake'];
 
 // Mission Control normally answers in well under a second.
 // Ordinary leads: fail fast so the lost-lead alert fires. Questionnaires:

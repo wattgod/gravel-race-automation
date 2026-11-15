@@ -116,7 +116,12 @@
     if (P.heatKeep > 0) r = E.heat(B, r, P.heatKeep, P.m, P.cda, D.crr, D.wf, P.cap);
     var total = E.total(B, r.T);
     if (!(total > 0) || !isFinite(total)) return { ok: false, why: "solve:time" };
-    return { ok: true, total: total, T: r.T, Pw: r.Pw, np: cool.np, ap: cool.ap };
+    var hw = new Float64Array(B.length);
+    for (var j = 0; j < B.length; j++) hw[j] = B[j].hw;
+    // ap: the plan before heat (what the effort targets); apRide: what the
+    // ride actually averages once the race day's heat is applied.
+    var ride = P.heatKeep > 0 ? E.stats(B, r) : cool;
+    return { ok: true, total: total, T: r.T, Pw: r.Pw, np: cool.np, ap: cool.ap, apRide: ride.ap, hw: hw };
   }
 
   function engineData(course, wx) {
@@ -258,6 +263,114 @@
     };
   }
 
+  /* ---------- replay and pacing: read from the same model runs ---------- */
+
+  /* Climbs: grade averaged over about 250 m (centred) at 2% or more, gaps of
+     up to about 125 m merged, at least 10 m of gain. */
+  function climbsOf(g, step) {
+    var n = g.length, half = Math.max(1, Math.round(125 / step)), s = new Float64Array(n), i, j;
+    for (i = 0; i < n; i++) {
+      var a = 0, c = 0;
+      for (j = Math.max(0, i - half); j <= Math.min(n - 1, i + half); j++) { a += g[j]; c++; }
+      s[i] = a / c;
+    }
+    var runs = [], st = -1;
+    for (i = 0; i <= n; i++) {
+      var up = i < n && s[i] >= 0.02;
+      if (up && st < 0) st = i;
+      if (!up && st >= 0) { runs.push([st, i - 1]); st = -1; }
+    }
+    var merged = [];
+    runs.forEach(function (r) {
+      if (merged.length && r[0] - merged[merged.length - 1][1] <= half) merged[merged.length - 1][1] = r[1];
+      else merged.push(r.slice());
+    });
+    return merged.map(function (r) {
+      var gain = 0;
+      for (var k = r[0]; k <= r[1]; k++) gain += g[k] * step;
+      var len = (r[1] - r[0] + 1) * step;
+      return { a: r[0], b: r[1], gain: gain, len: len, grade: gain / len };
+    }).filter(function (c) { return c.gain >= 10; });
+  }
+
+  /* The ride, grouped into about 600 points for drawing and scrubbing. Times
+     are cumulative riding seconds at the end of each point for the middle,
+     fast and slow ends; power is time-weighted over the point's riding bins
+     (null where the course has no ridden bins). Wind and temperature are the
+     past race day's, placed by the middle run's clock. */
+  function series(est, course, points) {
+    var cols = course.bins.cols, n = cols.g.length, step = course.bins.step_m;
+    var k = Math.max(1, Math.floor(n / (points || 600)));
+    var out = { step_km: k * step / 1000, km: [], alt: [], grade: [], la: [], lo: [], temp: [], hw: [],
+      mid: { t: [], w: [] }, fast: { t: [], w: [] }, slow: { t: [], w: [] } };
+    var acc = { mid: 0, fast: 0, slow: 0 };
+    for (var i0 = 0; i0 < n; i0 += k) {
+      var i1 = Math.min(n - 1, i0 + k - 1), gs = 0, ts = 0, hs = 0, cnt = i1 - i0 + 1;
+      for (var i = i0; i <= i1; i++) { gs += cols.g[i]; ts += est.D.cols.T[i]; hs += est.mid.hw[i]; }
+      out.km.push((i1 + 1) * step / 1000); out.alt.push(cols.alt[i1]); out.grade.push(gs / cnt);
+      out.la.push(cols.la[i1]); out.lo.push(cols.lo[i1]); out.temp.push(ts / cnt); out.hw.push(hs / cnt);
+      ["mid", "fast", "slow"].forEach(function (key) {
+        var r = est[key], tt = 0, pp = 0;
+        for (var q = i0; q <= i1; q++) { acc[key] += r.T[q]; if (cols.ok[q]) { tt += r.T[q]; pp += r.Pw[q] * r.T[q]; } }
+        out[key].t.push(acc[key]); out[key].w.push(tt > 0 ? pp / tt : null);
+      });
+    }
+    return out;
+  }
+
+  /* Race average power over FTP that the climb pacing was built from. Climb
+     watts are not printed for an effort outside it. */
+  var PACE_AP_LO = 0.50, PACE_AP_HI = 0.81;
+
+  /* Pacing notes for the middle of the range. Every number is a model run:
+     flat = the same course at the same average power held evenly. */
+  function pacing(E, est, rider, course) {
+    var cols = course.bins.cols, step = course.bins.step_m, r = est.mid, n = cols.g.length, i;
+    var P = est.withNP(est.IF * est.ftp.mid), D = est.D, ap = r.apRide, out = { ap: ap, why: {} };
+    // the same course with the ride's realized average power held evenly
+    // (no heat model on top: the held power is the power ridden)
+    out.flat_s = null;
+    var B = E.prep(D, { share: P.share, dcut: DRAG_CUT }), w = new Float64Array(B.length);
+    for (i = 0; i < B.length; i++) w[i] = 1;
+    var fr = E.planW(B, w, ap, P.m, P.cda, D.crr, D.wf, P.cap);
+    var ft = fr && fr.ok !== false && fr.T ? E.total(B, fr.T) : NaN;
+    if (ft > 0 && isFinite(ft)) out.flat_s = ft - r.total;
+    else out.why.flat = "the model could not solve the even-power ride";
+    // time above FTP (only for a typed FTP)
+    out.over = null;
+    if (rider.ftp != null) {
+      var over = 0, nEff = 0, lng = 0, cur = 0;
+      for (i = 0; i < n; i++) {
+        var up = cols.ok[i] && r.Pw[i] > rider.ftp;
+        if (up) { cur += r.T[i]; over += r.T[i]; }
+        else if (cur > 0) { nEff++; lng = Math.max(lng, cur); cur = 0; }
+      }
+      if (cur > 0) { nEff++; lng = Math.max(lng, cur); }
+      out.over = { t: over, n: nEff, longest: lng };
+    }
+    // power on 4-6% grades against the day's average
+    var a = 0, t = 0;
+    for (i = 0; i < n; i++) if (cols.ok[i] && cols.g[i] > 0.04 && cols.g[i] <= 0.06) { a += r.Pw[i] * r.T[i]; t += r.T[i]; }
+    out.r46 = t > 0 && ap > 0 ? a / t / ap : null;
+    if (out.r46 == null) out.why.r46 = "this course has no 4–6% grades";
+    // longest climb by riding time
+    var best = null;
+    climbsOf(cols.g, step).forEach(function (c) {
+      var tt = 0, pp = 0;
+      for (var q = c.a; q <= c.b; q++) if (cols.ok[q]) { tt += r.T[q]; pp += r.Pw[q] * r.T[q]; }
+      if (tt > 0 && (!best || tt > best.t)) best = { start_km: c.a * step / 1000, len_m: c.len, grade: c.grade, t: tt, w: pp / tt };
+    });
+    out.climb = best;
+    if (!best) out.why.climb = "no stretch of this course meets the climb rule (2% or more over about 250 m, at least 10 m of gain)";
+    var ratio = ap / est.ftp.mid;
+    out.climb_watts_shown = ratio >= PACE_AP_LO && ratio <= PACE_AP_HI;
+    // what 3 kg of unlisted kit would add
+    var kit = runOnce(E, D, est.withNP(est.IF * est.ftp.mid, { m: P.m + 3 }));
+    out.kit3_s = kit.ok ? kit.total - r.total : null;
+    if (!kit.ok) out.why.kit3 = "the model could not solve the heavier ride";
+    return out;
+  }
+
   /* ---------- improvement rows: each on its own, never summed ---------- */
   function smithAt(gh) {
     if (gh <= 0) return 0;
@@ -326,6 +439,7 @@
     LEVELS: LEVELS, HOURS: HOURS, GROUPS: GROUPS, BANDS: BANDS, IF_MIN: IF_MIN, IF_MAX: IF_MAX,
     hourly: hourly, placeWeather: placeWeather, runOnce: runOnce, estimate: estimate,
     improvements: improvements, fuel: fuel, binAt: binAt, checkRider: checkRider,
-    levelOf: levelOf, checkCourse: checkCourse, effortSpan: effortSpan, smithAt: smithAt
+    levelOf: levelOf, checkCourse: checkCourse, effortSpan: effortSpan, smithAt: smithAt,
+    climbsOf: climbsOf, series: series, pacing: pacing, PACE_AP_LO: PACE_AP_LO, PACE_AP_HI: PACE_AP_HI
   };
 });

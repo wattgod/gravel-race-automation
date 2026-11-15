@@ -369,6 +369,70 @@ def test_sample_rider_gets_a_time_on_every_shown_course(solved, slug):
 
 
 @pytest.mark.parametrize("slug", SHOWN)
+def test_replay_series_and_pacing_come_from_the_same_runs(solved, slug):
+    r = solved[slug]
+    ride, pace = r["ride"], r["pace"]
+    assert 300 <= ride["n"] <= 1300 and ride["mono"] and ride["finite"]
+    assert ride["mid_end"] == pytest.approx(r["mid_s"]) and ride["fast_end"] == pytest.approx(r["fast_s"])
+    assert ride["slow_end"] == pytest.approx(r["slow_s"])
+    assert pace["ap"] > 0 and pace["over"] is not None  # sample rider typed an FTP
+    assert pace["flat_s"] is not None and abs(pace["flat_s"]) < r["mid_s"]
+    assert pace["kit3_s"] > 0, "3 kg more is slower"
+    assert pace["climb"] is None or (pace["climb"]["t"] > 0 and pace["climb"]["grade"] >= 0.02)
+    assert isinstance(pace["climb_watts_shown"], bool)
+
+
+def test_climbs_follow_the_250_m_rule():
+    if shutil.which("node") is None:
+        pytest.skip("node not installed")
+    script = (
+        "const c=require(process.argv[1]);"
+        "const g=[...Array(40).fill(0),...Array(40).fill(0.05),...Array(40).fill(0),...Array(8).fill(0.03),...Array(40).fill(0)];"
+        "process.stdout.write(JSON.stringify(c.climbsOf(g,25)));"
+    )
+    res = subprocess.run(["node", "-e", script, str(PLANNER_JS / "gg-planner-core.js")], capture_output=True, text=True, timeout=60)
+    assert res.returncode == 0, res.stderr
+    climbs = json.loads(res.stdout)
+    assert len(climbs) == 1, "the 200 m at 3% gains under 10 m and is not a climb"
+    # the smoothing window widens the ends onto flat bins: same gain, a little longer
+    assert climbs[0]["gain"] == pytest.approx(40 * 25 * 0.05)
+    assert 40 * 25 <= climbs[0]["len"] <= 52 * 25 and 0.038 <= climbs[0]["grade"] <= 0.05
+
+
+def test_replay_ui_is_built_without_markup_strings_and_respects_reduced_motion():
+    js = (PLANNER_JS / "gg-planner.js").read_text()
+    assert "prefers-reduced-motion" in js and "requestAnimationFrame" in js
+    assert 'role", "slider"' in js.replace("'", '"') or 'setAttribute("role", "slider")' in js
+    assert "not a forecast" in js and "race day" in js
+    # the replay never fires analytics: only the result and the plan button do
+    assert js.count("gtag(") == 2
+
+
+def test_gear_choices_are_maker_listed():
+    gear = json.loads((ROOT / "data" / "planner" / "gear.json").read_text())
+    assert any(b["ml"] == 750 for b in gear["bottles"]) and all(b["url"] for b in gear["bottles"])
+    assert all(q["url"] for q in gear["packs"])
+    ids = {g["id"] for g in gear["gels"]}
+    assert "sisgo" not in ids, "held: its recorded link is not the product's page"
+    assert all(g["url"] or g["id"] == "gg25" for g in gear["gels"])
+    cfg = config(page("unbound-200"))
+    assert cfg["bottles"][cfg["bottle_default"]]["ml"] == 750
+    sec = section(page("unbound-200"))
+    for needle in ('name="bikekg"', 'name="geartot"', 'name="bottle"', 'name="pack"', 'value="own"'):
+        assert needle in sec
+
+
+def test_import_refuses_weather_in_the_wrong_units():
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import import_planner_bundles as imp
+    bundle = {"slug": "x", "route": {}, "bins": {"cols": {}},
+              "weather": {"editions": [{"start_iso": "2025-06-01T06:00:00-05:00", "openmeteo": [
+                  {"hourly_units": {"wind_speed_10m": "km/h", "temperature_2m": "°C"}}]}]}}
+    with pytest.raises(SystemExit, match="m/s"):
+        imp.trim_course(bundle)
+
+
+@pytest.mark.parametrize("slug", SHOWN)
 def test_unpicked_sizes_give_no_number(solved, slug):
     rows = {row["key"]: row for row in solved[slug]["rows_unpicked"]}
     for key in ("fit", "pos", "stops"):

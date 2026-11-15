@@ -274,7 +274,10 @@ def planner_config(rd: dict, show_offer: bool) -> dict | None:
         "visitor_sets_effort": "visitor_sets_effort" in kinds,
         "brackets": duration_brackets(),
         "bikes": [{"id": b["id"], "label": b["label"], "kg": b["kg"]} for b in gear["bikes"]],
-        "bottle": {"ml": gear["bottle"]["ml"], "kg": round((gear["bottle"]["ml"] + gear["bottle"]["g"]) / 1000, 3)},
+        "bottles": [{"label": b["model"], "ml": b["ml"], "kg": round((b["ml"] + b["g"]) / 1000, 3)} for b in gear["bottles"]],
+        "bottle_default": next(i for i, b in enumerate(gear["bottles"]) if b["ml"] == 750),
+        "packs": [{"label": q["model"], "litres": q["litres"], "kg": round(q["g"] / 1000 + q["litres"], 3)} for q in gear["packs"]],
+        "gels": [{"id": x["id"], "label": x["model"], "g": x["g"], "url": x["url"]} for x in gear["gels"]],
         "offer": ({
             "href": f"{PLAN_URL}?race={slug}&src=race_planner",
             "price": f"{PRICE_PER_WEEK} / week",
@@ -295,9 +298,13 @@ def _gear_sources_html() -> str:
             f'<a href="{_esc(m["url"])}" rel="noopener" target="_blank">{_esc(m["model"])}</a> {m["kg"]:.2f} kg'
             for m in b["models"])
         parts.append(f"<li><b>{_esc(b['label'])}</b>, average {b['kg']:.2f} kg: {models}.</li>")
-    bt = gear["bottle"]
-    parts.append(f'<li><b>Bottles</b>: <a href="{_esc(bt["url"])}" rel="noopener" target="_blank">'
-                 f'{_esc(bt["model"])}</a>, {bt["g"]} g empty, full of water.</li>')
+    bottles = ", ".join(f'<a href="{_esc(b["url"])}" rel="noopener" target="_blank">{_esc(b["model"])}</a> '
+                        f'({b["ml"]} ml, {b["g"]} g empty)' for b in gear["bottles"])
+    parts.append(f"<li><b>Bottles</b>, counted full of water: {bottles}.</li>")
+    if gear["packs"]:
+        packs = ", ".join(f'<a href="{_esc(q["url"])}" rel="noopener" target="_blank">{_esc(q["model"])}</a> '
+                          f'({q["g"]} g with its bladder, {q["litres"]:g} L of water)' for q in gear["packs"])
+        parts.append(f"<li><b>Hydration pack</b>, counted full: {packs}.</li>")
     return f'<ul class="gg-planner-sources">{"".join(parts)}</ul><p>Weights as listed on the makers\' pages, checked {_esc(gear["checked"])}.</p>'
 
 
@@ -318,7 +325,13 @@ def build_race_planner(rd: dict, show_offer: bool = True) -> str:
     bikes = "".join(
         f'<label class="gg-planner-chip"><input type="radio" name="bike" value="{_esc(b["id"])}"'
         f'{" checked" if b["id"] == "all_round_carbon" else ""}> {_esc(b["label"])}</label>'
-        for b in cfg["bikes"])
+        for b in cfg["bikes"]) + '<label class="gg-planner-chip"><input type="radio" name="bike" value="own"> My own bike weight</label>'
+    bottle_opts = "".join(
+        f'<option value="{i}"{" selected" if i == cfg["bottle_default"] else ""}>{b["ml"]} ml ({round(b["ml"] / 29.5735)} oz)</option>'
+        for i, b in enumerate(cfg["bottles"]))
+    packs = '<label class="gg-planner-chip"><input type="radio" name="pack" value="none" checked> No pack</label>' + "".join(
+        f'<label class="gg-planner-chip"><input type="radio" name="pack" value="{i}"> {_esc(q["label"])} ({q["litres"]:g} L)</label>'
+        for i, q in enumerate(cfg["packs"]))
     levels = "".join(
         f'<label class="gg-planner-chip"><input type="radio" name="level" value="{v}"> {t}</label>'
         for v, t in (("", "From my hours"), ("beginner", "Beginner"), ("intermediate", "Intermediate"),
@@ -350,7 +363,10 @@ def build_race_planner(rd: dict, show_offer: bool = True) -> str:
       <fieldset class="gg-planner-field"><legend>Hours a week you can train</legend><div class="gg-planner-chips">{hours}</div><small>Sets your level, and your level sets your default effort.</small></fieldset>
       <fieldset class="gg-planner-field"><legend>Who will you ride with?</legend><div class="gg-planner-chips">{groups}</div><small>Inside a group you have about a third less drag on flat road {_cite(cite["group"])}. Climbs and descents get no shelter.</small></fieldset>
       <fieldset class="gg-planner-field"><legend>Your bike</legend><div class="gg-planner-chips">{bikes}</div>
-        <label class="gg-planner-inline">Bottles of {cfg["bottle"]["ml"]} ml <input name="bottles" inputmode="numeric" value="2" aria-label="Number of full bottles" size="2"></label>
+        <label class="gg-planner-field gg-planner-ownbike" hidden><span>My bike's weight</span><span class="gg-planner-in"><input name="bikekg" inputmode="decimal" autocomplete="off" aria-label="Your bike's weight"><em data-unit="weight">lb</em></span><small>As it would be on race day, without water.</small></label>
+        <div class="gg-planner-inline"><label>Bottles <input name="bottles" inputmode="numeric" value="2" aria-label="Number of full bottles" size="2"></label> <label>of <select name="bottle" aria-label="Bottle size">{bottle_opts}</select></label></div>
+        <div class="gg-planner-chips" role="radiogroup" aria-label="Hydration pack">{packs}</div>
+        <details class="gg-planner-info"><summary>Or type your own total for bike, water and gear</summary><label class="gg-planner-field"><span>Total</span><span class="gg-planner-in"><input name="geartot" inputmode="decimal" autocomplete="off" aria-label="Total weight of bike, water and gear"><em data-unit="weight">lb</em></span><small>Used instead of the bike and water above.</small></label></details>
         <details class="gg-planner-info"><summary>Where the weights come from</summary>{_gear_sources_html()}</details></fieldset>
       <div class="gg-planner-row">
         <label class="gg-planner-field"><span>Time stopped, all day (optional)</span><span class="gg-planner-in"><input name="stops" inputmode="numeric" autocomplete="off" aria-label="Minutes stopped"><em>min</em></span><small>Blank shows riding time only.</small></label>
@@ -416,6 +432,24 @@ def get_race_planner_css() -> str:
 {p}-dot {{ fill: var(--gg-color-gold); stroke: var(--gg-color-dark-brown); stroke-width: 2; }}
 {p}-tick {{ stroke: var(--gg-color-dark-brown); stroke-width: 1; stroke-dasharray: 2 3; }}
 {p}-tlabel {{ font-family: var(--gg-font-data); font-size: 11px; fill: var(--gg-color-dark-brown); }}
+{p} select {{ min-height: 36px; padding: 0 var(--gg-spacing-xs); border: 2px solid var(--gg-color-dark-brown); background: var(--gg-color-white); color: var(--gg-color-dark-brown); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); }}
+{p}-gels {{ margin-top: var(--gg-spacing-xs); font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); }}
+{p}-ownbike[hidden] {{ display: none; }}
+{p}-ridehead {{ display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--gg-spacing-xs); }}
+{p}-ridehead h3 {{ margin: 0; }}
+{p}-pin {{ stroke: var(--gg-color-dark-brown); stroke-width: 3; }}
+{p}-pin-fast {{ fill: var(--gg-color-dark-brown); }}
+{p}-pin-slow {{ fill: var(--gg-color-white); }}
+{p}-profile {{ touch-action: pan-y; cursor: crosshair; }}
+{p}-p0 {{ fill: var(--gg-color-sand); }}
+{p}-p1 {{ fill: var(--gg-color-light-teal); }}
+{p}-p2 {{ fill: var(--gg-color-teal); }}
+{p}-p3 {{ fill: var(--gg-color-warm-brown); }}
+{p}-p4 {{ fill: var(--gg-color-dark-brown); }}
+{p}-ahead {{ opacity: .3; }}
+{p}-cursor {{ stroke: var(--gg-color-dark-brown); stroke-width: 2; }}
+{p}-readout {{ margin: var(--gg-spacing-xs) 0 0; font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-variant-numeric: tabular-nums; font-weight: 700; min-height: 1.5em; }}
+{p}-pace {{ margin: var(--gg-spacing-xs) 0 0; padding-left: 1.2em; font-size: var(--gg-font-size-sm); line-height: 1.5; }}
 {p}-table {{ overflow-x: auto; }}
 {p}-table table {{ border-collapse: collapse; width: 100%; font-family: var(--gg-font-data); font-size: var(--gg-font-size-xs); font-variant-numeric: tabular-nums; }}
 {p}-table th, {p}-table td {{ border-bottom: 1px solid var(--gg-color-tan); padding: 6px 8px; text-align: left; white-space: nowrap; }}
@@ -430,6 +464,6 @@ def get_race_planner_css() -> str:
 {p}-cite {{ color: var(--gg-color-dark-teal); text-decoration: none; font-family: var(--gg-font-data); }}
 {p}-cite:hover {{ text-decoration: underline; }}
 {p} :focus-visible {{ outline: 3px solid var(--gg-color-teal); outline-offset: 2px; }}
-@media (max-width: 640px) {{ {p} {{ padding: var(--gg-spacing-md); }} {p}-map {{ grid-template-columns: 1fr; }} }}
+@media (max-width: 640px) {{ {p} {{ padding: var(--gg-spacing-md); }} {p}-map {{ grid-template-columns: 1fr; }} {p}-map > svg:first-child {{ max-height: 340px; }} }}
 @media (max-width: 420px) {{ {p}-row {{ grid-template-columns: 1fr; }} }}
 '''

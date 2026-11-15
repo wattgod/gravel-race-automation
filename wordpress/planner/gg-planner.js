@@ -58,16 +58,22 @@
   function radio(name) { var f = form.querySelector('input[name="' + name + '"]:checked'); return f ? f.value : null; }
 
   /* ---------- units ---------- */
+  var MASS = ["kg", "bikekg", "geartot"];
   function setUnits(u) {
-    var kg = readKg();
+    var held = MASS.map(function (n) { return mass(n); });
     units = u;
     try { localStorage.setItem("gg_planner_units", u); } catch (e) {}
     section.querySelectorAll("[data-units]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-units") === u)); });
     section.querySelectorAll('[data-unit="weight"]').forEach(function (n) { n.textContent = u === "imp" ? "lb" : "kg"; });
-    if (kg != null && !isNaN(kg)) form.elements.kg.value = String(+(u === "imp" ? kg / LB : kg).toFixed(1));
+    MASS.forEach(function (n, i) {
+      var v = held[i];
+      if (v != null && !isNaN(v) && form.elements[n]) form.elements[n].value = String(+(u === "imp" ? v / LB : v).toFixed(1));
+    });
     if (lastResult) render(lastResult);
   }
-  function readKg() { var v = num("kg"); if (v == null || isNaN(v)) return v; return units === "imp" ? v * LB : v; }
+  /* A weight field in kg: null when blank, NaN when not a number. */
+  function mass(name) { var v = num(name); if (v == null || isNaN(v)) return v; return units === "imp" ? v * LB : v; }
+  function readKg() { return mass("kg"); }
 
   /* ---------- worker ---------- */
   function start() {
@@ -95,9 +101,15 @@
 
   function rider() {
     var noftp = form.elements.noftp.checked;
-    var bikeId = radio("bike"), bike = cfg.bikes.filter(function (b) { return b.id === bikeId; })[0];
-    var bottles = num("bottles");
-    var gearKg = bike && bottles != null && bottles >= 0 && bottles <= 4 && Math.round(bottles) === bottles ? bike.kg + bottles * cfg.bottle.kg : null;
+    var bikeId = radio("bike"), bikeKg = null;
+    if (bikeId === "own") bikeKg = mass("bikekg");
+    else { var bike = cfg.bikes.filter(function (b) { return b.id === bikeId; })[0]; bikeKg = bike ? bike.kg : null; }
+    var bottles = num("bottles"), bt = cfg.bottles[+form.elements.bottle.value], pk = radio("pack");
+    var packKg = pk && pk !== "none" && cfg.packs[+pk] ? cfg.packs[+pk].kg : 0;
+    var tot = mass("geartot"), gearKg = null;
+    if (tot != null) gearKg = tot;
+    else if (bikeKg != null && !isNaN(bikeKg) && bt && bottles != null && bottles >= 0 && bottles <= 4 && Math.round(bottles) === bottles)
+      gearKg = bikeKg + bottles * bt.kg + packKg;
     return {
       ftp: noftp ? null : num("ftp"),
       band: noftp && radio("band") ? { sex: radio("sex") || "m", name: radio("band") } : null,
@@ -115,8 +127,12 @@
     if (typed(r.IF) && !(r.IF >= 0.40 && r.IF <= 1.05)) bad.push("effort (IF 0.40–1.05)");
     if (typed(r.stops) && !(r.stops >= 0 && r.stops <= 600)) bad.push("time stopped (0–600 min)");
     if (typed(r.carbs) && !(r.carbs >= 0 && r.carbs <= 200)) bad.push("carbs an hour (0–200 g)");
-    var bottles = num("bottles");
-    if (bottles != null && !(bottles >= 0 && bottles <= 4 && Math.round(bottles) === bottles)) bad.push("bottles (0–4)");
+    var bottles = num("bottles"), bk = mass("bikekg"), tot = mass("geartot");
+    if (tot == null) {  // a typed total replaces the bike and water fields
+      if (bottles != null && !(bottles >= 0 && bottles <= 4 && Math.round(bottles) === bottles)) bad.push("bottles (0–4)");
+      if (radio("bike") === "own" && bk != null && !(bk >= 5 && bk <= 25)) bad.push(units === "imp" ? "bike weight (11–55 lb)" : "bike weight (5–25 kg)");
+    }
+    if (tot != null && !(tot >= 5 && tot <= 45)) bad.push(units === "imp" ? "total for bike, water and gear (11–99 lb)" : "total for bike, water and gear (5–45 kg)");
     return bad;
   }
 
@@ -126,8 +142,11 @@
     if (r.kg == null) m.push("your weight");
     if (!r.hours) m.push("hours a week you can train");
     if (!r.group) m.push("who you'll ride with");
-    if (!radio("bike")) m.push("your bike");
-    else if (num("bottles") == null) m.push("bottles (0–4)");
+    if (mass("geartot") == null) {
+      if (!radio("bike")) m.push("your bike");
+      else if (radio("bike") === "own" && mass("bikekg") == null) m.push("your bike's weight");
+      if (num("bottles") == null) m.push("bottles (0–4)");
+    }
     if (cfg.visitor_sets_effort && r.IF == null) m.push("your effort (IF)");
     return m;
   }
@@ -142,7 +161,7 @@
   /* An input problem withdraws any time on screen: an old result never
      stands in for the inputs now in the form. */
   function withdraw() {
-    runId++; pending = null; lastResult = null;
+    stopAnim(); runId++; pending = null; lastResult = null;
     clear(out); out.hidden = true; out.removeAttribute("aria-busy");
   }
 
@@ -179,7 +198,7 @@
     "effort:span": "the effort range could not be worked out"
   };
   function fail(why) {
-    lastResult = null; out.hidden = false; out.removeAttribute("aria-busy"); clear(out);
+    stopAnim(); lastResult = null; out.hidden = false; out.removeAttribute("aria-busy"); clear(out);
     out.appendChild(el("div", { cls: "gg-planner-card gg-planner-fail" }, [
       el("p", { cls: "gg-planner-eyebrow", text: "No estimate" }),
       el("p", { text: "No time is shown because " + (WHY[why] || why) + "." })
@@ -201,6 +220,7 @@
 
   /* ---------- result ---------- */
   function render(m) {
+    stopAnim();
     out.hidden = false; out.removeAttribute("aria-busy"); clear(out);
     var stops = rider().stops;
     var lo = Math.min(m.fast, m.slow), hi = Math.max(m.fast, m.slow);
@@ -235,13 +255,46 @@
     out.appendChild(fuelCard(m, stops));
     out.appendChild(rowsCard(m));
     if (cfg.offer) out.appendChild(offerCard(m));
-    out.appendChild(finePrint());
+    out.appendChild(finePrint(m));
   }
 
+  /* ---------- your ride: map, profile, replay and scrub ----------
+     Everything drawn here comes from the model runs for this rider. The two
+     pins are the fast and slow ends of the range at the same moment. */
+  var anim = null;
+  function stopAnim() { if (anim) { cancelAnimationFrame(anim.raf); anim = null; } }
+  function reducedMotion() { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } }
+  function idxAt(arr, v) { var lo = 0, hi = arr.length - 1; if (v <= arr[0]) return 0; while (lo < hi) { var md = (lo + hi) >> 1; if (arr[md] < v) lo = md + 1; else hi = md; } return lo; }
+  /* Riding seconds at a distance, from cumulative end-of-point times. */
+  function timeAt(R, run, km) {
+    var j = idxAt(R.km, km), k0 = j ? R.km[j - 1] : 0, t0 = j ? run.t[j - 1] : 0;
+    var f = R.km[j] > k0 ? Math.max(0, Math.min(1, (km - k0) / (R.km[j] - k0))) : 1;
+    return t0 + f * (run.t[j] - t0);
+  }
+  /* Distance reached after a number of riding seconds. */
+  function kmAt(R, run, sec) {
+    if (sec >= run.t[run.t.length - 1]) return R.km[R.km.length - 1];
+    var j = idxAt(run.t, sec), t0 = j ? run.t[j - 1] : 0, k0 = j ? R.km[j - 1] : 0;
+    var f = run.t[j] > t0 ? (sec - t0) / (run.t[j] - t0) : 1;
+    return k0 + f * (R.km[j] - k0);
+  }
+  function powerClass(w, ap) {
+    if (w == null) return "gg-planner-p0";
+    var r = w / ap;
+    return r < 0.85 ? "gg-planner-p1" : r < 1.15 ? "gg-planner-p2" : r < 1.45 ? "gg-planner-p3" : "gg-planner-p4";
+  }
+  function dist1(km) { return units === "imp" ? (km / MI).toFixed(1) + " mi" : km.toFixed(1) + " km"; }
+  function speedTxt(ms) { var kmh = Math.abs(ms) * 3.6; return units === "imp" ? Math.round(kmh / MI) + " mph" : Math.round(kmh) + " km/h"; }
+  function rng(a, b, f) { var x = f(Math.min(a, b)), y = f(Math.max(a, b)); return x === y ? x : x + "–" + y; }
+
   function mapCard(m) {
-    var card = el("div", { cls: "gg-planner-card" }, [el("h3", { text: "Where you are each hour" })]);
+    var R = m.ride, edYear = String(m.edition.date).slice(0, 4);
+    var card = el("div", { cls: "gg-planner-card gg-planner-ride" });
+    var headRow = el("div", { cls: "gg-planner-ridehead" }, [el("h3", { text: "Your " + cfg.race })]);
+    var play = null;
+    if (R) { play = el("button", { type: "button", cls: "gg-planner-edit", "aria-pressed": "false", text: "Replay" }); headRow.appendChild(play); }
+    card.appendChild(headRow);
     var wrap = el("div", { cls: "gg-planner-map" });
-    // route, equirectangular with latitude scaling
     var la0 = Math.min.apply(null, geo.la), la1 = Math.max.apply(null, geo.la), lo0 = Math.min.apply(null, geo.lo), lo1 = Math.max.apply(null, geo.lo);
     var kx = Math.cos((la0 + la1) / 2 * Math.PI / 180), w = (lo1 - lo0) * kx || 1e-6, h = (la1 - la0) || 1e-6, S = 280 / Math.max(w, h);
     var W = Math.max(40, w * S) + 20, H = Math.max(40, h * S) + 20;
@@ -249,29 +302,157 @@
     var map = sv("svg", { viewBox: "0 0 " + W.toFixed(0) + " " + H.toFixed(0), role: "img", "aria-label": "Course map with your position at each riding hour" });
     var d = geo.la.map(function (la, i) { return (i ? "L" : "M") + X(geo.lo[i]).toFixed(1) + " " + Y(la).toFixed(1); }).join("");
     map.appendChild(sv("path", { d: d, "class": "gg-planner-route" }));
-    m.hours.forEach(function (p) { map.appendChild(sv("circle", { cx: X(p.lo).toFixed(1), cy: Y(p.la).toFixed(1), r: 5, "class": "gg-planner-dot" })); });
+    m.hours.forEach(function (p) { map.appendChild(sv("circle", { cx: X(p.lo).toFixed(1), cy: Y(p.la).toFixed(1), r: 4, "class": "gg-planner-dot" })); });
+    var pinSlow = sv("circle", { r: 7, "class": "gg-planner-pin gg-planner-pin-slow" });
+    var pinFast = sv("circle", { r: 7, "class": "gg-planner-pin gg-planner-pin-fast" });
+    if (R) { map.appendChild(pinSlow); map.appendChild(pinFast); }
     wrap.appendChild(map);
-    // elevation profile with hour ticks
-    var PW = 600, PH = 160, a0 = Math.min.apply(null, geo.alt), a1 = Math.max.apply(null, geo.alt), T = geo.total_km;
-    var px = function (km) { return 30 + km / T * (PW - 40); }, py = function (a) { return PH - 20 - (a - a0) / ((a1 - a0) || 1) * (PH - 40); };
-    var prof = sv("svg", { viewBox: "0 0 " + PW + " " + PH, role: "img", "aria-label": "Elevation profile with riding hours marked" });
-    var pd = "M" + px(0) + " " + (PH - 20) + geo.km.map(function (k, i) { return "L" + px(k).toFixed(1) + " " + py(geo.alt[i]).toFixed(1); }).join("") + "L" + px(T) + " " + (PH - 20) + "Z";
-    prof.appendChild(sv("path", { d: pd, "class": "gg-planner-prof" }));
-    var every = m.hours.length > 10 ? 2 : 1;
+
+    // A narrower drawing on phones keeps labels readable and the slider tall enough to touch.
+    var PW = section.clientWidth && section.clientWidth < 560 ? 360 : 600, PH = 170, T = geo.total_km;
+    var a0 = Math.min.apply(null, geo.alt), a1 = Math.max.apply(null, geo.alt);
+    var px = function (km) { return 30 + km / T * (PW - 40); }, py = function (a) { return PH - 22 - (a - a0) / ((a1 - a0) || 1) * (PH - 44); };
+    var prof = sv("svg", { viewBox: "0 0 " + PW + " " + PH, "class": "gg-planner-profile" });
+    var cursor = null, clipRect = null;
+    if (R) {
+      var clipId = "gg-planner-clip-" + cfg.slug;
+      var defs = sv("defs", {}), clip = sv("clipPath", { id: clipId });
+      clipRect = sv("rect", { x: 0, y: 0, width: px(0), height: PH }); clip.appendChild(clipRect); defs.appendChild(clip); prof.appendChild(defs);
+      var ahead = sv("g", { "class": "gg-planner-ahead" }), done = sv("g", { "clip-path": "url(#" + clipId + ")" });
+      for (var j = 0; j < R.km.length; j++) {
+        var xa = px(j ? R.km[j - 1] : 0), xb = px(R.km[j]) + 0.6, y = py(R.alt[j]);
+        var attrs = { x: xa.toFixed(1), y: y.toFixed(1), width: Math.max(0.6, xb - xa).toFixed(1), height: Math.max(0, PH - 22 - y).toFixed(1) };
+        var cls = powerClass(R.mid.w[j], m.apRide);
+        ahead.appendChild(sv("rect", Object.assign({ "class": cls }, attrs)));
+        done.appendChild(sv("rect", Object.assign({ "class": cls }, attrs)));
+      }
+      prof.appendChild(ahead); prof.appendChild(done);
+      prof.setAttribute("tabindex", "0"); prof.setAttribute("role", "slider");
+      prof.setAttribute("aria-label", "Position on the course. Arrow keys move along it.");
+      prof.setAttribute("aria-valuemin", "0"); prof.setAttribute("aria-valuemax", String(Math.round(T * 10) / 10));
+    } else {
+      var pd = "M" + px(0) + " " + (PH - 22) + geo.km.map(function (k, i) { return "L" + px(k).toFixed(1) + " " + py(geo.alt[i]).toFixed(1); }).join("") + "L" + px(T) + " " + (PH - 22) + "Z";
+      prof.appendChild(sv("path", { d: pd, "class": "gg-planner-prof" }));
+      prof.setAttribute("role", "img"); prof.setAttribute("aria-label", "Elevation profile with riding hours marked");
+    }
+    var every = m.hours.length > 10 ? 2 : 1, lastX = -1e9;
     m.hours.forEach(function (p) {
       if (p.h % every && p.h !== m.hours.length) return;
-      var x = px(Math.min(p.km, T)).toFixed(1);
-      prof.appendChild(sv("line", { x1: x, x2: x, y1: 14, y2: PH - 20, "class": "gg-planner-tick" }));
+      var xn = px(Math.min(p.km, T));
+      if (xn - lastX < 28) return;
+      lastX = xn;
+      var x = xn.toFixed(1);
+      prof.appendChild(sv("line", { x1: x, x2: x, y1: 14, y2: PH - 22, "class": "gg-planner-tick" }));
       var t = sv("text", { x: x, y: 11, "text-anchor": "middle", "class": "gg-planner-tlabel" }); t.textContent = "h" + p.h; prof.appendChild(t);
     });
     var lbl = function (x, y, s, anchor) { var t = sv("text", { x: x, y: y, "class": "gg-planner-tlabel", "text-anchor": anchor || "start" }); t.textContent = s; prof.appendChild(t); };
     lbl(2, py(a1) + 4, units === "imp" ? Math.round(a1 * 3.28084) + " ft" : Math.round(a1) + " m");
-    lbl(2, PH - 22, units === "imp" ? Math.round(a0 * 3.28084) + " ft" : Math.round(a0) + " m");
-    lbl(PW - 4, PH - 4, dist(T), "end");
+    lbl(2, PH - 24, units === "imp" ? Math.round(a0 * 3.28084) + " ft" : Math.round(a0) + " m");
+    lbl(PW - 4, PH - 6, dist(T), "end");
+    if (R) { cursor = sv("line", { x1: px(0), x2: px(0), y1: 14, y2: PH - 22, "class": "gg-planner-cursor" }); prof.appendChild(cursor); }
     wrap.appendChild(prof);
     card.appendChild(wrap);
-    card.appendChild(el("p", { cls: "gg-planner-fine", text: "Dots: where the middle of your range is at the end of each riding hour. Route and elevation from the race's public Ride with GPS route." }));
+
+    if (!R) {
+      card.appendChild(el("p", { cls: "gg-planner-fine", text: "Dots: where the middle of your range is at the end of each riding hour. The replay is not shown: the model could not lay out your ride point by point." }));
+      return card;
+    }
+    // Not a live region: it changes every frame during Replay. Keyboard and
+    // screen-reader users get the same text through the slider's valuetext.
+    var readout = el("p", { cls: "gg-planner-readout", "aria-live": "off" });
+    card.appendChild(readout);
+    card.appendChild(el("p", { cls: "gg-planner-fine", text: "Dots: the middle of your range at the end of each riding hour. Filled pin: the fast end of your range; open pin: the slow end, at the same moment. Profile colour: planned power against your day's average, from easy (light teal) to hardest (dark brown); grey where the course has no riding data. Wind and temperature are the " + edYear + " race day's at that time, not a forecast. Route and elevation from the race's public Ride with GPS route." }));
+
+    var endT = R.slow.t[R.slow.t.length - 1];
+    function setMoment(sec, kmCursor) {
+      var kc = kmCursor != null ? kmCursor : kmAt(R, R.mid, sec);
+      var kf = kmAt(R, R.fast, sec), ks = kmAt(R, R.slow, sec);
+      var jf = idxAt(R.km, kf), js = idxAt(R.km, ks);
+      pinFast.setAttribute("cx", X(R.lo[jf]).toFixed(1)); pinFast.setAttribute("cy", Y(R.la[jf]).toFixed(1));
+      pinSlow.setAttribute("cx", X(R.lo[js]).toFixed(1)); pinSlow.setAttribute("cy", Y(R.la[js]).toFixed(1));
+      var x = px(kc).toFixed(1);
+      cursor.setAttribute("x1", x); cursor.setAttribute("x2", x); clipRect.setAttribute("width", x);
+      var j = idxAt(R.km, kc), tf = timeAt(R, R.fast, kc), ts = timeAt(R, R.slow, kc);
+      var wf = R.fast.w[j], ws = R.slow.w[j], hw = R.hw[j];
+      var parts = [dist1(kc), (units === "imp" ? Math.round(R.alt[j] * 3.28084) + " ft" : Math.round(R.alt[j]) + " m") + " · " + (R.grade[j] * 100).toFixed(1) + "%",
+        "riding time " + rng(tf, ts, hm),
+        wf == null || ws == null ? "no riding power here" : "about " + rng(wf, ws, Math.round) + " W",
+        (Math.abs(hw) * 3.6 < 1 ? "calm" : speedTxt(hw) + " " + (hw > 0 ? "headwind" : "tailwind")) + ", " + temp(R.temp[j]) + " on the " + edYear + " race day"];
+      readout.textContent = parts.join(" · ");
+      prof.setAttribute("aria-valuenow", String(Math.round(kc * 10) / 10));
+      prof.setAttribute("aria-valuetext", readout.textContent);
+    }
+    function scrubKm(km) { stopAnim(); play.setAttribute("aria-pressed", "false"); play.textContent = "Replay"; km = Math.max(0, Math.min(T, km)); setMoment(timeAt(R, R.mid, km), km); }
+    function finish() { setMoment(endT, T); }
+    finish();
+
+    play.addEventListener("click", function () {
+      if (anim) { stopAnim(); play.setAttribute("aria-pressed", "false"); play.textContent = "Replay"; return; }
+      if (reducedMotion()) { finish(); return; }
+      var t0 = null, DUR = 8000;
+      play.setAttribute("aria-pressed", "true"); play.textContent = "Stop";
+      anim = { raf: 0 };
+      var tick = function (now) {
+        if (!anim) return;
+        if (t0 == null) t0 = now;
+        var f = Math.min(1, (now - t0) / DUR), e = f < 0.5 ? 2 * f * f : 1 - Math.pow(-2 * f + 2, 2) / 2;
+        setMoment(e * endT);
+        if (f < 1) anim.raf = requestAnimationFrame(tick);
+        else { anim = null; play.setAttribute("aria-pressed", "false"); play.textContent = "Replay"; finish(); }
+      };
+      anim.raf = requestAnimationFrame(tick);
+    });
+    function profKm(ev) { var r = prof.getBoundingClientRect(); var xv = (ev.clientX - r.left) / r.width * PW; return (xv - 30) / (PW - 40) * T; }
+    prof.addEventListener("pointerdown", function (ev) { try { prof.setPointerCapture(ev.pointerId); } catch (e) {} scrubKm(profKm(ev)); });
+    prof.addEventListener("pointermove", function (ev) { if (ev.buttons) scrubKm(profKm(ev)); });
+    prof.addEventListener("keydown", function (ev) {
+      var unit = units === "imp" ? MI : 1, cur = parseFloat(prof.getAttribute("aria-valuenow")) || 0, step = { ArrowRight: 1, ArrowUp: 1, ArrowLeft: -1, ArrowDown: -1, PageUp: 10, PageDown: -10 }[ev.key];
+      if (step) { ev.preventDefault(); scrubKm(cur + step * unit); }
+      else if (ev.key === "Home") { ev.preventDefault(); scrubKm(0); }
+      else if (ev.key === "End") { ev.preventDefault(); scrubKm(T); }
+    });
+    function mapKm(ev) {
+      var r = map.getBoundingClientRect(), vb = map.viewBox.baseVal;
+      var x = (ev.clientX - r.left) / r.width * vb.width, y = (ev.clientY - r.top) / r.height * vb.height, best = 0, bd = Infinity;
+      for (var j = 0; j < R.km.length; j++) { var dx = X(R.lo[j]) - x, dy = Y(R.la[j]) - y, dd = dx * dx + dy * dy; if (dd < bd) { bd = dd; best = j; } }
+      return R.km[best];
+    }
+    map.addEventListener("pointerdown", function (ev) { try { map.setPointerCapture(ev.pointerId); } catch (e) {} scrubKm(mapKm(ev)); });
+    map.addEventListener("pointermove", function (ev) { if (ev.buttons) scrubKm(mapKm(ev)); });
+
+    card.appendChild(paceNotes(m));
     return card;
+  }
+
+  function paceNotes(m) {
+    var P = m.pace, ul = el("ul", { cls: "gg-planner-pace" });
+    if (!P) { ul.appendChild(el("li", { text: "Pacing notes are not shown: the model could not work them out for this ride." })); return ul; }
+    var why = P.why || {}, ftpTyped = rider().ftp != null, W = Math.round(P.ap) + " W";
+    if (P.over && P.over.t >= 60) {
+      var lg = Math.ceil(P.over.longest / 60);
+      ul.appendChild(el("li", { text: "This plan has you above your FTP for about " + mins(P.over.t) + " minutes in total, in " + P.over.n + " short efforts on climbs, none longer than " + lg + " minute" + (lg > 1 ? "s" : "") + "." }));
+    } else if (P.flat_s != null) {
+      var lead = P.flat_s >= 30 ? "Pushing the climbs and easing the descents the way this plan does is worth about " + mins(P.flat_s) + " minutes over holding " + W + " (your ride's average) all day."
+        : P.flat_s <= -30 ? "Holding " + W + " (your ride's average) all day would be about " + mins(-P.flat_s) + " minutes quicker than this plan's pacing on this course."
+        : "Holding " + W + " (your ride's average) all day comes out within a minute of this plan's pacing on this course.";
+      var ftpNote = "";
+      if (ftpTyped && P.over) ftpNote = P.over.t === 0 ? " At this effort the plan never takes you above your FTP." : " At this effort the plan is above your FTP for under a minute in total.";
+      ul.appendChild(el("li", { text: lead + ftpNote }));
+    } else {
+      ul.appendChild(el("li", { text: "The even-pacing comparison is not shown: " + (why.flat || "the model could not work it out") + "." }));
+    }
+    ul.appendChild(el("li", { text: P.r46 != null ? "On 4–6% grades this plan rides at about " + P.r46.toFixed(1) + "× your ride's average power."
+      : "No 4–6% figure: " + (why.r46 || "the model could not work it out") + "." }));
+    if (P.climb) {
+      var c = P.climb, len = units === "imp" ? (c.len_m / 1609.344).toFixed(1) + " mi" : (c.len_m / 1000).toFixed(1) + " km";
+      var tx = "Your longest climb starts at " + dist(c.start_km) + " (" + len + " at " + (c.grade * 100).toFixed(1) + "%): " + (c.t < 60 ? "under a minute" : "about " + mins(c.t) + " minutes");
+      tx += P.climb_watts_shown ? " at about " + Math.round(c.w) + " W." : ". Climb watts aren't printed at this effort: it is outside the range of race efforts the climb pacing was built from.";
+      ul.appendChild(el("li", { text: tx }));
+    } else {
+      ul.appendChild(el("li", { text: "No longest-climb note: " + (why.climb || "the model could not work it out") + "." }));
+    }
+    ul.appendChild(el("li", { cls: "gg-planner-fine", text: "All at the middle of your range, from the same model run as your time." }));
+    return ul;
   }
 
   function fuelFor(seconds) {
@@ -289,6 +470,7 @@
       .forEach(function (p) { kv.appendChild(el("div", null, [el("b", { text: p[0] }), p[1]])); });
     card.appendChild(kv);
     card.appendChild(el("p", { cls: "gg-planner-fine", text: F.label + ": the fuelling range our race guides use for a day this long. General guidance, not medical advice: test it in training." }));
+    if (cfg.gels.length) card.appendChild(gelPicker(F));
     var r = rider();
     if (typeof r.carbs === "number" && r.carbs < F.lo)
       card.appendChild(el("p", { cls: "gg-planner-fine", text: "You eat " + r.carbs + " g an hour now. Building to " + F.lo + "–" + F.hi + " g takes about " + F.weeks + " weeks of gut training." }));
@@ -306,6 +488,29 @@
     det.appendChild(el("p", { cls: "gg-planner-fine", text: "Times are riding time from the start, without stops. Temperatures are that past race day's hourly weather where you would be, not a forecast." }));
     card.appendChild(det);
     return card;
+  }
+
+  var gelPick = "";
+  function gelPicker(F) {
+    var box = el("div", { cls: "gg-planner-gels" });
+    var sel = el("select", { "aria-label": "Count it in gels" });
+    sel.appendChild(el("option", { value: "", text: "Grams only" }));
+    cfg.gels.forEach(function (g) { var o = el("option", { value: g.id, text: g.label + " · " + g.g + " g" }); if (g.id === gelPick) o.selected = true; sel.appendChild(o); });
+    var line = el("p", { cls: "gg-planner-fine" });
+    function show() {
+      clear(line);
+      var g = cfg.gels.filter(function (x) { return x.id === gelPick; })[0];
+      if (!g) return;
+      line.appendChild(document.createTextNode("About " + (F.lo / g.g).toFixed(1) + "–" + (F.hi / g.g).toFixed(1) + " an hour, " +
+        Math.ceil(F.tlo / g.g) + "–" + Math.ceil(F.thi / g.g) + " in the day, at " + g.g + " g of carbs each "));
+      if (g.url) { line.appendChild(document.createTextNode("(")); line.appendChild(el("a", { href: g.url, rel: "noopener", target: "_blank", text: "maker's page" })); line.appendChild(document.createTextNode(").")); }
+      else line.appendChild(document.createTextNode("(the 25 g unit our race guides count in)."));
+    }
+    sel.addEventListener("change", function () { gelPick = sel.value; show(); });
+    box.appendChild(el("label", null, ["Count it in gels: ", sel]));
+    box.appendChild(line);
+    show();
+    return box;
   }
 
   /* Notes are lists of text and {cite: key}; each cite becomes an [n] link to
@@ -387,7 +592,17 @@
     ]);
   }
 
-  function finePrint() {
+  function kitNote(m) {
+    var typedTotal = mass("geartot") != null;
+    var base = typedTotal ? "Your typed total is used for bike, water and gear. " : "Clothes, shoes, helmet, tools and spares are not counted. ";
+    var k = m && m.pace ? m.pace.kit3_s : null;
+    if (k == null) return base + "What extra weight would cost is not shown: " + (m && m.pace && m.pace.why && m.pace.why.kit3 || "the model could not work it out") + ".";
+    var amt = units === "imp" ? "An additional 6.6 lb" : "An additional 3 kg";
+    if (Math.abs(k) < 30) return base + amt + " would change the middle of your range by under a minute.";
+    return base + amt + " would " + (k > 0 ? "add" : "take off") + " about " + mins(Math.abs(k)) + " minutes " + (k > 0 ? "to" : "from") + " the middle of your range.";
+  }
+
+  function finePrint(m) {
     var det = el("details", { cls: "gg-planner-info" }, [el("summary", { text: "What this estimate assumes" })]);
     var ul = el("ul", { cls: "gg-planner-fine" });
     ["This is an estimate of riding time, not a prediction of your race. Real days vary with weather, stops, mechanicals and how you feel.",
@@ -397,7 +612,8 @@
      "Surface is one rolling-resistance value for the whole course; tyres, mud and sand are not modelled.",
      "Riding position, cornering and how effort spreads over climbs come from the model's fixed settings, not from you.",
      "Your weight, bike and full bottles are carried all day; you drink them down, so this errs slow.",
-     "Stops, walking, neutral starts and flats are not in the riding time."]
+     "Stops, walking, neutral starts and flats are not in the riding time.",
+     kitNote(m)]
       .forEach(function (s) { ul.appendChild(el("li", { text: s })); });
     det.appendChild(ul);
     return det;
@@ -419,6 +635,10 @@
   });
   form.addEventListener("submit", function (e) { e.preventDefault(); run(); });
   form.addEventListener("focusin", start, { once: true });
+  var ownBike = section.querySelector(".gg-planner-ownbike");
+  form.querySelectorAll('input[name="bike"]').forEach(function (b) {
+    b.addEventListener("change", function () { ownBike.hidden = radio("bike") !== "own"; });
+  });
   form.elements.noftp.addEventListener("change", function () {
     var on = form.elements.noftp.checked; band.hidden = !on; ftpField.hidden = on;
   });

@@ -60,6 +60,23 @@ def test_pilot_statuses_are_imported():
     assert SHOWN, "no eligible or flagged race imported"
 
 
+def test_every_tier1_race_is_in_the_rollout_and_nothing_else():
+    """Independent of the importer: read the race profiles themselves."""
+    tier1 = set()
+    for path in (ROOT / "race-data").glob("*.json"):
+        rating = json.loads(path.read_text()).get("race", {}).get("gravel_god_rating", {})
+        try:
+            if float(rating.get("tier")) == 1:
+                tier1.add(path.stem)
+        except (TypeError, ValueError):
+            pass
+    assert len(tier1) >= 20, "Tier 1 list looks wrong"
+    assert set(STATUS["races"]) == tier1, "every Tier 1 race has an imported status, and only those"
+    # A race outside Tier 1 keeps its calculator.
+    other = sorted(p.stem for p in (ROOT / "race-data").glob("*.json") if p.stem not in tier1)[0]
+    assert 'id="finish-time"' not in page(other)
+
+
 @pytest.mark.parametrize("slug", SHOWN)
 def test_eligible_and_flagged_pages_carry_the_planner(slug):
     html = page(slug)
@@ -69,10 +86,12 @@ def test_eligible_and_flagged_pages_carry_the_planner(slug):
     assert cfg["slug"] == slug and cfg["status"] == STATUS["races"][slug]["status"]
     for flag in STATUS["races"][slug].get("flags", []):
         if flag["kind"] == "visitor_sets_effort":
-            # Shown as the effort field the visitor must fill, not as the import's wording.
+            # Shown in the page's own words, plus an effort field the visitor must fill.
             assert cfg["visitor_sets_effort"] is True
+            assert "No default effort for this course: type the effort you plan to ride." in sec
             assert "This course has no default effort" in sec and "Effort (IF) (optional)" not in sec
             continue
+        assert flag["kind"] in ("climbing", "edition"), f"unhandled flag kind {flag['kind']}"
         assert flag["text"] in sec or flag["text"][0].upper() + flag["text"][1:] in sec
 
 

@@ -50,3 +50,58 @@ def test_missing_resend_key_fails_loudly(monkeypatch):
     monkeypatch.delenv("RESEND_API_KEY", raising=False)
     with pytest.raises(SystemExit):
         uc.email("s", "b")
+
+
+def test_only_siteground_homes_can_be_unknown(monkeypatch):
+    import urllib.error
+
+    def fake_urlopen(req, timeout):
+        raise urllib.error.HTTPError(req.full_url, 403, "Forbidden", {}, None)
+    monkeypatch.setattr(uc.urllib.request, "urlopen", fake_urlopen)
+    assert uc.probe("https://x/", "GET", 200, None, challengeable=True)[0] == "unknown"
+    assert uc.probe("https://x/", "GET", 200, None, challengeable=False)[0] == "down"
+    api = [t for t in uc.TARGETS if t[0] == "Checkout API /health"][0]
+    assert api[0] not in uc.SITEGROUND_PAGES
+
+
+def _run_main(monkeypatch, states, open_issues, email_fails=False):
+    calls = []
+    monkeypatch.setattr(uc, "TARGETS", [(f"T{i}", "u", "GET", 200, None) for i in range(len(states))])
+    it = iter(states)
+    monkeypatch.setattr(uc, "check", lambda t: (next(it), "d"))
+
+    def fake_gh(method, path, payload=None):
+        calls.append(("gh", method, path))
+        return open_issues if method == "GET" else {}
+
+    def fake_email(subject, text):
+        calls.append(("email", subject))
+        if email_fails:
+            raise SystemExit("resend down")
+    monkeypatch.setattr(uc, "_gh", fake_gh)
+    monkeypatch.setattr(uc, "email", fake_email)
+    monkeypatch.setattr(sys, "argv", ["uptime_check.py"])
+    return calls
+
+
+def test_failed_alert_email_leaves_no_issue_so_next_run_retries(monkeypatch):
+    import pytest
+    calls = _run_main(monkeypatch, ["down"], [], email_fails=True)
+    with pytest.raises(SystemExit):
+        uc.main()
+    assert ("gh", "POST", "/issues") not in calls
+
+
+def test_failed_recovery_email_keeps_issue_open(monkeypatch):
+    import pytest
+    calls = _run_main(monkeypatch, ["up"], [{"number": 7}], email_fails=True)
+    with pytest.raises(SystemExit):
+        uc.main()
+    assert not any(c[0] == "gh" and c[1] == "PATCH" for c in calls)
+
+
+def test_alert_emails_then_opens_issue(monkeypatch):
+    calls = _run_main(monkeypatch, ["down", "up"], [])
+    assert uc.main() == 0
+    kinds = [c[0] if c[0] == "email" else c[1] for c in calls if c[1:] != ("GET",) and c[0] != "gh" or c[1] != "GET"]
+    assert kinds.index("email") < kinds.index("POST")

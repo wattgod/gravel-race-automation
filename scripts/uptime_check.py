@@ -28,6 +28,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 
 ALERT_TO = "gravelgodcoaching@gmail.com"
@@ -35,7 +36,11 @@ ALERT_FROM = "Gravel God Uptime <noreply@gravelgodcycling.com>"
 LABEL = "uptime"
 UA = "GravelGodUptime/1.0 (+https://gravelgodcycling.com/)"  # SiteGround resets UAs that claim to be a browser or "compatible; bot"
 
-# name, url, method, expected status, text the body must contain (or None)
+# name, url, method, expected status, text the body must contain (or None).
+# The three SiteGround homes are the only targets where a bot challenge can
+# be read as "unknown" (see SITEGROUND_PAGES); for the APIs and Workers a
+# 403/429 is an outage like any other.
+SITEGROUND_PAGES = {"Gravel God home", "Roadie Labs home", "XC Ski Labs home"}
 TARGETS = [
     ("Gravel God home", "https://gravelgodcycling.com/", "GET", 200, "Gravel God"),
     ("Roadie Labs home", "https://roadielabs.com/", "GET", 200, "Roadie Labs"),
@@ -60,7 +65,8 @@ TARGETS = [
 CHALLENGE_STATUSES = {202, 403, 429}
 
 
-def probe(url: str, method: str, expect: int, marker: str | None) -> tuple[str, str]:
+def probe(url: str, method: str, expect: int, marker: str | None,
+          challengeable: bool = False) -> tuple[str, str]:
     """('up' | 'down' | 'unknown', detail)."""
     headers = {"User-Agent": UA}
     if method == "OPTIONS":
@@ -77,7 +83,7 @@ def probe(url: str, method: str, expect: int, marker: str | None) -> tuple[str, 
     except Exception as e:  # timeouts, DNS, TLS, resets
         return "down", f"no response ({type(e).__name__})"
     took = time.monotonic() - started
-    if status != expect and status in CHALLENGE_STATUSES and expect == 200:
+    if status != expect and challengeable and status in CHALLENGE_STATUSES:
         return "unknown", f"HTTP {status} (bot challenge to this checker, not an outage)"
     if status != expect:
         return "down", f"HTTP {status}, expected {expect}"
@@ -93,7 +99,7 @@ def check(target, tries: int = 3, gap: float = 30.0, sleep=time.sleep,
     probe_fn = probe_fn or probe
     state, detail = "down", ""
     for attempt in range(tries):
-        state, detail = probe_fn(url, method, expect, marker)
+        state, detail = probe_fn(url, method, expect, marker, name in SITEGROUND_PAGES)
         if state == "up":
             return state, detail
         if attempt < tries - 1:
@@ -149,10 +155,11 @@ def main() -> int:
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
-    results = []
-    for target in TARGETS:
-        state, detail = check(target)
-        results.append((target[0], target[1], state, detail))
+    # In parallel, so even if every target needs all three tries the run
+    # takes about a minute, well inside the workflow timeout.
+    with ThreadPoolExecutor(max_workers=len(TARGETS)) as pool:
+        checked = list(pool.map(check, TARGETS))
+    results = [(t[0], t[1], st, d) for t, (st, d) in zip(TARGETS, checked)]
     body = report(results)
     print(body)
     down = [r[0] for r in results if r[2] == "down"]
@@ -163,17 +170,19 @@ def main() -> int:
     issue = open_issues[0] if open_issues else None
     action = decide([r[2] for r in results], issue is not None)
 
+    # Email first, then change the issue: if the email fails, the issue state
+    # is unchanged and the next run tries the email again.
     if action == "alert":
         title = "Uptime: " + ", ".join(down) + " down"
-        _gh("POST", "/issues", {"title": title, "body": body, "labels": [LABEL]})
         email(title, body + "\n\nThe uptime check emails again when everything is back.")
+        _gh("POST", "/issues", {"title": title, "body": body, "labels": [LABEL]})
     elif action == "update":
         title = "Uptime: " + ", ".join(down) + " down"
         _gh("PATCH", f"/issues/{issue['number']}", {"title": title, "body": body})
     elif action == "recover":
+        email("Uptime: everything is back up", body)
         _gh("POST", f"/issues/{issue['number']}/comments", {"body": "Recovered.\n\n" + body})
         _gh("PATCH", f"/issues/{issue['number']}", {"state": "closed"})
-        email("Uptime: everything is back up", body)
     # Exit 0 once the alert is handled: a failing run would also make GitHub
     # email its own failure notice every 10 minutes.
     return 0

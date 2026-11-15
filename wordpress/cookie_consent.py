@@ -102,11 +102,22 @@ def requires_explicit_consent(timezone: str | None) -> bool:
     """
     if not timezone:
         return True
+    if is_locationless_timezone(timezone):
+        return True
     try:
         ZoneInfo(timezone)
     except (TypeError, ValueError, ZoneInfoNotFoundError):
         return True
     return timezone in EEA_UK_CH_TIMEZONES
+
+
+# Zones that say nothing about where the visitor is (UTC-set machines, Tor,
+# Firefox fingerprint resistance). Like an unknown zone, they fail closed.
+LOCATIONLESS_TIMEZONES = ("UTC", "UCT", "GMT", "Greenwich", "Universal", "Zulu")
+
+
+def is_locationless_timezone(timezone: str) -> bool:
+    return timezone in LOCATIONLESS_TIMEZONES or timezone.startswith("Etc/")
 
 
 def get_consent_head_script(ga_measurement_id: str) -> str:
@@ -126,7 +137,10 @@ def get_consent_head_script(ga_measurement_id: str) -> str:
         "if(ggConsentTimezone){new Intl.DateTimeFormat('en-US',"
         "{timeZone:ggConsentTimezone});ggConsentTimezoneKnown=true}}"
         "catch(ggConsentTimezoneError){}"
+        f"var ggConsentLocationless=new Set({json.dumps(LOCATIONLESS_TIMEZONES, separators=(',', ':'))});"
         "var ggConsentRequiresOptIn=!ggConsentTimezoneKnown||"
+        "ggConsentLocationless.has(ggConsentTimezone)||"
+        "/^Etc\\//.test(ggConsentTimezone)||"
         "ggConsentStrictTimezones.has(ggConsentTimezone);"
         "window.ggConsentRequiresOptIn=ggConsentRequiresOptIn;"
         "var ggConsentAccepted=/(^|; )gg_consent=accepted/.test(document.cookie);"

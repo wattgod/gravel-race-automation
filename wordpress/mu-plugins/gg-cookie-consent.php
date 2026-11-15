@@ -37,7 +37,8 @@ window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
 var ggConsentStrictTimezones=new Set(["Africa/Ceuta","Asia/Famagusta","Asia/Nicosia","Atlantic/Azores","Atlantic/Canary","America/Cayenne","America/Guadeloupe","America/Marigot","America/Martinique","Arctic/Longyearbyen","Atlantic/Faeroe","Indian/Mayotte","Indian/Reunion","Atlantic/Faroe","Atlantic/Madeira","Atlantic/Reykjavik","Europe/Amsterdam","Europe/Athens","Europe/Belfast","Europe/Berlin","Europe/Bratislava","Europe/Brussels","Europe/Bucharest","Europe/Budapest","Europe/Busingen","Europe/Copenhagen","Europe/Dublin","Europe/Helsinki","Europe/Lisbon","Europe/Ljubljana","Europe/London","Europe/Luxembourg","Europe/Madrid","Europe/Malta","Europe/Mariehamn","Europe/Nicosia","Europe/Oslo","Europe/Paris","Europe/Prague","Europe/Riga","Europe/Rome","Europe/Sofia","Europe/Stockholm","Europe/Tallinn","Europe/Vaduz","Europe/Vienna","Europe/Vilnius","Europe/Warsaw","Europe/Zagreb","Europe/Zurich"]);
 var ggConsentTimezone='';var ggConsentTimezoneKnown=false;
 try{ggConsentTimezone=Intl.DateTimeFormat().resolvedOptions().timeZone||'';if(ggConsentTimezone){new Intl.DateTimeFormat('en-US',{timeZone:ggConsentTimezone});ggConsentTimezoneKnown=true}}catch(ggConsentTimezoneError){}
-var ggConsentRequiresOptIn=!ggConsentTimezoneKnown||ggConsentStrictTimezones.has(ggConsentTimezone);
+var ggConsentLocationless=new Set(["UTC","UCT","GMT","Greenwich","Universal","Zulu"]);
+var ggConsentRequiresOptIn=!ggConsentTimezoneKnown||ggConsentLocationless.has(ggConsentTimezone)||/^Etc\//.test(ggConsentTimezone)||ggConsentStrictTimezones.has(ggConsentTimezone);
 window.ggConsentRequiresOptIn=ggConsentRequiresOptIn;
 var ggConsentAccepted=/(^|; )gg_consent=accepted/.test(document.cookie);
 var ggConsentDeclined=/(^|; )gg_consent=declined/.test(document.cookie);

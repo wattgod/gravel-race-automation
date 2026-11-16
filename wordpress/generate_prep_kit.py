@@ -28,6 +28,8 @@ from typing import Any, Optional
 
 # Import shared constants from the race page generator
 sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+from race_demand_analyzer import _mentions_heat  # noqa: E402
 from generate_neo_brutalist import (
     SITE_BASE_URL,
     SUBSTACK_URL,
@@ -595,6 +597,20 @@ DRINK_CARBS_500ML = 40  # 500ml mix = 40g carbs
 BAR_CARBS = 35      # 1 bar/rice cake = 35g carbs
 
 
+# Heat words are matched whole-word by race_demand_analyzer._mentions_heat (the
+# same matcher the race-pack heat overlay uses), so "photo" is not "hot" and
+# "Sunday" is not sun. A temperature counts only as a whole 90-119 reading with
+# a degree sign ("90°", "105 °F") or the literal "85-95" range, never a bare
+# number inside a distance, elevation or speed ("190 km", "1,100 m", "90 km/h").
+_HOT_TEMP_RE = re.compile(r"(?<![\d.,])(?:(?:9\d|1[01]\d)\s*°|85-95(?!\d))")
+
+
+def _mentions_hot_climate(text: str) -> bool:
+    """True when text names heat as a whole word or gives a hot °F reading."""
+    text = str(text).lower()
+    return _mentions_heat(text) or bool(_HOT_TEMP_RE.search(text))
+
+
 def classify_climate_heat(climate: Optional[dict], climate_score: Optional[int]) -> str:
     """Classify race climate into cool|mild|warm|hot|extreme at build time.
 
@@ -622,8 +638,10 @@ def classify_climate_heat(climate: Optional[dict], climate_score: Optional[int])
         return "extreme"
 
     # Hot: strong heat keywords AND score >= 4, OR very strong keywords alone
-    strong_heat_kw = ["heat", "hot", "humid", "85-95", "90°", "95°"]
-    if score >= 4 and any(kw in combined for kw in strong_heat_kw):
+    # The classifier has always counted "humid" as strong heat; the shared
+    # matcher only knows "humidity", so keep the adjective here, whole-word.
+    strong_heat = _mentions_hot_climate(combined) or bool(re.search(r"\bhumid\b", combined))
+    if score >= 4 and strong_heat:
         return "hot"
     if any(kw in combined for kw in ["scorching", "brutal heat", "heat stroke"]):
         return "hot"
@@ -633,7 +651,7 @@ def classify_climate_heat(climate: Optional[dict], climate_score: Optional[int])
         return "cool"
 
     # Warm: heat-adjacent keywords with moderate score, or explicit warmth
-    if any(kw in combined for kw in strong_heat_kw) and score >= 3:
+    if strong_heat and score >= 3:
         return "warm"
     if any(kw in combined for kw in ["warm", "summer", "sun", "75-85", "75°", "80°"]):
         return "warm"
@@ -1056,7 +1074,7 @@ def build_climate_gear_callout(climate_data: dict, weather: Optional[dict] = Non
         challenge_text = " ".join(c.lower() for c in challenges if isinstance(c, str))
         combined = desc + " " + challenge_text
 
-        if any(kw in combined for kw in ["heat", "hot", "90", "95", "100", "sun"]):
+        if _mentions_hot_climate(combined):
             recs.extend([
                 "Sun sleeves or arm coolers",
                 "Extra water bottles or hydration vest",

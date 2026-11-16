@@ -1,7 +1,7 @@
 name: "XC Weekly Collect"
 
 # Daily snapshot of the XC Ski Labs Weekly sources. NRK's sport feeds only
-# hold about a day of stories, so the Monday draft merges these snapshots
+# hold about a day of stories, so the Sunday brief merges these snapshots
 # with a fresh collection. Read-only: no email, no commits.
 on:
   schedule:

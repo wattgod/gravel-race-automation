@@ -89,8 +89,8 @@ def shared_run(copy: str, source: str, length: int = SHARED_RUN_WORDS) -> str | 
     return None
 
 
-def assemble_issue(selection: dict, evidence: dict, issue_number: int, issue_date: str) -> dict:
-    """Join the model's selection to the evidence. Unknown ids are refused."""
+def _join_items(selection: dict, evidence: dict) -> tuple[list[dict], list[dict]]:
+    """Join picked stories and podcasts to the evidence. Unknown ids are refused."""
     by_id = {item["id"]: item for item in evidence["items"]}
     stories = []
     for pick in selection["stories"]:
@@ -120,6 +120,23 @@ def assemble_issue(selection: dict, evidence: dict, issue_number: int, issue_dat
             "lang": item["lang"],
             "published": item["published"],
         })
+    return stories, podcasts
+
+
+def assemble_brief(selection: dict, evidence: dict) -> dict:
+    """The Sunday shortlist Matti reads and reacts to. It has no take yet."""
+    stories, podcasts = _join_items(selection, evidence)
+    return {
+        "brand": BRAND,
+        "window": {"since": evidence["since"], "until": evidence["collectedAt"]},
+        "stories": stories,
+        "podcasts": podcasts,
+    }
+
+
+def assemble_issue(selection: dict, evidence: dict, issue_number: int, issue_date: str) -> dict:
+    """Join the model's selection to the evidence. Unknown ids are refused."""
+    stories, podcasts = _join_items(selection, evidence)
     issue = {
         "brand": BRAND,
         "issueNumber": issue_number,
@@ -150,22 +167,8 @@ def _check_copy(label: str, text: str, problems: list[str], *, allow_em_dash: in
         problems.append(f"{label}: too many em dashes")
 
 
-def validate_issue(issue: dict, evidence: dict | None = None) -> dict:
-    """Raise IssueError listing every problem; return the issue when clean."""
-    problems: list[str] = []
-    if issue.get("brand") != BRAND:
-        problems.append("brand must be xcskilabs")
-    if issue.get("contentHash") != content_hash(issue):
-        problems.append("contentHash does not match the issue body")
-    subject = issue.get("subject", "")
-    if not subject or len(subject) > MAX_SUBJECT_CHARS:
-        problems.append(f"subject must be 1-{MAX_SUBJECT_CHARS} characters")
-    _check_copy("subject", subject, problems)
-    preheader = issue.get("preheader", "")
-    if not preheader or len(preheader) > MAX_PREHEADER_CHARS:
-        problems.append(f"preheader must be 1-{MAX_PREHEADER_CHARS} characters")
-    _check_copy("preheader", preheader, problems)
-
+def _check_items(issue: dict, evidence: dict | None, problems: list[str]) -> None:
+    """Story and podcast checks shared by the brief and the issue gate."""
     stories = issue.get("stories", [])
     if not MIN_STORIES <= len(stories) <= MAX_STORIES:
         problems.append(f"needs {MIN_STORIES}-{MAX_STORIES} stories, has {len(stories)}")
@@ -219,6 +222,37 @@ def validate_issue(issue: dict, evidence: dict | None = None) -> dict:
                 run = shared_run(blurb, f"{item['title']} {item['excerpt']}")
                 if run:
                     problems.append(f"{label}: reprints the source ({run!r})")
+
+
+def validate_brief(brief: dict, evidence: dict) -> dict:
+    """Raise IssueError listing every problem in the shortlist; return it when clean."""
+    problems: list[str] = []
+    if brief.get("brand") != BRAND:
+        problems.append("brand must be xcskilabs")
+    _check_items(brief, evidence, problems)
+    if problems:
+        raise IssueError("; ".join(problems))
+    return brief
+
+
+def validate_issue(issue: dict, evidence: dict | None = None) -> dict:
+    """Raise IssueError listing every problem; return the issue when clean."""
+    problems: list[str] = []
+    if issue.get("brand") != BRAND:
+        problems.append("brand must be xcskilabs")
+    if issue.get("contentHash") != content_hash(issue):
+        problems.append("contentHash does not match the issue body")
+    subject = issue.get("subject", "")
+    if not subject or len(subject) > MAX_SUBJECT_CHARS:
+        problems.append(f"subject must be 1-{MAX_SUBJECT_CHARS} characters")
+    _check_copy("subject", subject, problems)
+    preheader = issue.get("preheader", "")
+    if not preheader or len(preheader) > MAX_PREHEADER_CHARS:
+        problems.append(f"preheader must be 1-{MAX_PREHEADER_CHARS} characters")
+    _check_copy("preheader", preheader, problems)
+
+    _check_items(issue, evidence, problems)
+    stories = issue.get("stories", [])
 
     take = issue.get("take", [])
     if not 1 <= len(take) <= 2:
@@ -349,11 +383,30 @@ def render_review_markdown(issue: dict, coverage: list[dict] | None = None) -> s
         lines += ["", "### In your ears", ""]
         for p in issue["podcasts"]:
             lines.append(f"- **[{p['show']}: {p['episodeTitle']}]({p['url']})**{_lang_note(p['lang'])}: {p['blurb']}")
-    if coverage is not None:
-        lines += ["", "<details><summary>Source coverage this week</summary>", "",
-                  "| Source | Kind | In window | Error |", "|---|---|---|---|"]
-        for cov in coverage:
-            error = "; ".join(cov["errors"]) or ""
-            lines.append(f"| {cov['name']} | {cov['kind']} | {cov['kept']} | {error} |")
-        lines += ["", "</details>"]
+    lines += _coverage_lines(coverage)
     return "\n".join(lines) + "\n"
+
+
+def render_brief_markdown(brief: dict, coverage: list[dict] | None = None) -> str:
+    """The Sunday headline brief Matti reads before reacting."""
+    lines = ["### The week's headlines", ""]
+    for n, s in enumerate(brief["stories"], 1):
+        lines.append(f"{n}. **[{s['headline']}]({s['url']})** · {s['sourceName']}{_lang_note(s['lang'])}  ")
+        lines.append(f"   {s['blurb']}")
+    if brief["podcasts"]:
+        lines += ["", "### Podcasts", ""]
+        for p in brief["podcasts"]:
+            lines.append(f"- **[{p['show']}: {p['episodeTitle']}]({p['url']})**{_lang_note(p['lang'])}: {p['blurb']}")
+    lines += _coverage_lines(coverage)
+    return "\n".join(lines) + "\n"
+
+
+def _coverage_lines(coverage: list[dict] | None) -> list[str]:
+    if coverage is None:
+        return []
+    lines = ["", "<details><summary>Source coverage this week</summary>", "",
+             "| Source | Kind | In window | Error |", "|---|---|---|---|"]
+    for cov in coverage:
+        error = "; ".join(cov["errors"]) or ""
+        lines.append(f"| {cov['name']} | {cov['kind']} | {cov['kept']} | {error} |")
+    return lines + ["", "</details>"]

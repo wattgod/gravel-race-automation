@@ -1,13 +1,19 @@
 name: "XC Weekly Draft Staging"
 
-# Every Monday after the race weekend: collect the week's cross-country news
-# and podcasts, draft the issue, run the publication gate, email a preview to
-# the review inbox and open a review issue here. Nothing goes to subscribers
-# from this workflow; sending is xc-weekly-send.yml with the approved hash.
+# Matti's comment on a Sunday brief issue (label xc-weekly-brief) drafts the
+# issue: the shortlist plus his reactions go to the drafter, the publication
+# gate runs, a preview goes to the review inbox and the staged review is posted
+# back on the same issue. Only Matti's comments count. Nothing goes to
+# subscribers from this workflow; sending is xc-weekly-send.yml with the
+# approved hash.
 on:
-  schedule:
-    - cron: "30 6 * * 1"
+  issue_comment:
+    types: [created]
   workflow_dispatch:
+    inputs:
+      brief_issue:
+        description: "Number of the xc-weekly-brief issue to draft from"
+        required: true
 
 permissions:
   contents: read
@@ -15,8 +21,8 @@ permissions:
   actions: read
 
 concurrency:
-  group: xc-weekly-draft-staging
-  cancel-in-progress: false
+  group: xc-weekly-draft-${{ github.event.issue.number || inputs.brief_issue }}
+  cancel-in-progress: true
 
 defaults:
   run:
@@ -24,8 +30,16 @@ defaults:
 
 jobs:
   stage:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.issue.pull_request == null &&
+       contains(github.event.issue.labels.*.name, 'xc-weekly-brief') &&
+       github.event.comment.user.login == 'wattgod')
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BRIEF_ISSUE: ${{ github.event.issue.number || inputs.brief_issue }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -35,24 +49,25 @@ jobs:
       - name: Install canonical runtime
         run: pip install -r requirements.txt
 
-      - name: Collect now and gather the week's daily snapshots
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Fetch the brief and Matti's reactions
         run: |
-          mkdir -p "$RUNNER_TEMP/evidence"
-          python scripts/collect_xc_weekly.py --days 8 --output "$RUNNER_TEMP/evidence/now.json"
-          gh api --paginate "repos/$GITHUB_REPOSITORY/actions/artifacts?per_page=100" \
-            --jq '.artifacts[] | select(.name | startswith("xc-weekly-items-")) | select(.expired == false) | "\(.id) \(.created_at)"' \
-            > "$RUNNER_TEMP/snapshots.txt"
-          cutoff="$(date -u -d '8 days ago' +%Y-%m-%dT%H:%M:%SZ)"
-          while read -r id created; do
-            if [[ "$created" > "$cutoff" ]]; then
-              gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id/zip" > "$RUNNER_TEMP/snap-$id.zip"
-              unzip -o -q "$RUNNER_TEMP/snap-$id.zip" -d "$RUNNER_TEMP/evidence/snap-$id"
-            fi
-          done < "$RUNNER_TEMP/snapshots.txt"
-          find "$RUNNER_TEMP/evidence" -name '*.json' | sort > "$RUNNER_TEMP/evidence-files.txt"
-          echo "Evidence files: $(wc -l < "$RUNNER_TEMP/evidence-files.txt")"
+          gh issue view "$BRIEF_ISSUE" --json body,labels > "$RUNNER_TEMP/brief-issue.json"
+          python3 - <<'PY'
+          import json, os, re, sys
+          issue = json.load(open(os.path.join(os.environ["RUNNER_TEMP"], "brief-issue.json")))
+          if "xc-weekly-brief" not in [label["name"] for label in issue["labels"]]:
+              sys.exit("not an xc-weekly-brief issue")
+          match = re.search(r"xc-weekly-brief-run: (\d+)", issue["body"])
+          if not match:
+              sys.exit("brief issue has no run marker")
+          with open(os.environ["GITHUB_ENV"], "a") as env:
+              env.write(f"BRIEF_RUN={match.group(1)}\n")
+          PY
+          gh run download "$BRIEF_RUN" -n "xc-weekly-brief-$BRIEF_RUN" -D "$RUNNER_TEMP/brief"
+          gh api --paginate "repos/$GITHUB_REPOSITORY/issues/$BRIEF_ISSUE/comments" \
+            --jq '.[] | select(.user.login == "wattgod") | .body | @json' \
+            | python3 -c 'import json, sys; print(json.dumps([json.loads(l) for l in sys.stdin if l.strip()]))' \
+            > "$RUNNER_TEMP/reactions.json"
 
       - name: Draft and gate the issue
         id: draft
@@ -61,41 +76,49 @@ jobs:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: |
           number="$(python scripts/send_xc_weekly.py --next-issue-number)"
-          mapfile -t files < "$RUNNER_TEMP/evidence-files.txt"
-          python scripts/draft_xc_weekly.py "${files[@]}" \
-            --issue-number "$number" --output-dir artifacts/xc-weekly-stage \
-            | tee "$RUNNER_TEMP/manifest-line.json"
+          set +e
+          python scripts/draft_xc_weekly.py --from-brief "$RUNNER_TEMP/brief" \
+            --reactions "$RUNNER_TEMP/reactions.json" \
+            --issue-number "$number" --output-dir artifacts/xc-weekly-stage
+          rc=$?
+          set -e
+          if [[ $rc -eq 3 ]]; then
+            echo "staged=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          [[ $rc -eq 0 ]] || exit "$rc"
           python3 - <<'PY'
           import json, os
           from pathlib import Path
           m = json.loads(Path("artifacts/xc-weekly-stage/manifest.json").read_text())
           assert m["humanApprovalRequired"] is True and m["autoSendAllowed"] is False
           with open(os.environ["GITHUB_OUTPUT"], "a") as out:
-              out.write(f"number={m['issueNumber']}\ndate={m['issueDate']}\nhash={m['contentHash']}\n")
+              out.write(f"staged=true\nnumber={m['issueNumber']}\ndate={m['issueDate']}\nhash={m['contentHash']}\n")
           PY
 
       - uses: actions/upload-artifact@v4
+        if: steps.draft.outputs.staged == 'true'
         with:
           name: xc-weekly-stage-${{ github.run_id }}
           path: artifacts/xc-weekly-stage/
           retention-days: 90
 
       - name: Email the preview to the review inbox
+        if: steps.draft.outputs.staged == 'true'
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: python scripts/send_xc_weekly.py --preview artifacts/xc-weekly-stage
 
-      - name: Open the review issue
+      - name: Post the staged issue back on the brief
+        if: steps.draft.outputs.staged == 'true'
         env:
-          GH_TOKEN: ${{ github.token }}
           NUMBER: ${{ steps.draft.outputs.number }}
-          ISSUE_DATE: ${{ steps.draft.outputs.date }}
           HASH: ${{ steps.draft.outputs.hash }}
         run: |
           {
-            echo "Staged XC Ski Labs Weekly. A preview went to the review inbox. Nothing has gone to subscribers."
+            echo "Staged XC Ski Labs Weekly No. $(printf '%03d' "$NUMBER") from your reactions. A preview went to the review inbox. Nothing has gone to subscribers."
             echo
-            echo "To send it, run **XC Weekly Send** with stage run \`$GITHUB_RUN_ID\` and approved hash \`$HASH\`."
+            echo "Comment again to redraft. To send this version, run **XC Weekly Send** with stage run \`$GITHUB_RUN_ID\` and approved hash \`$HASH\`."
             echo
             echo "[Stage artifacts (issue.json, preview.html, evidence)]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)"
             echo
@@ -104,5 +127,5 @@ jobs:
             cat artifacts/xc-weekly-stage/review.md
           } > "$RUNNER_TEMP/review-body.md"
           gh label create xc-weekly-draft --color 1e2b3c --description "Staged XC Ski Labs Weekly awaiting review" --force
-          title="XC Ski Labs Weekly No. $(printf '%03d' "$NUMBER") staged — $ISSUE_DATE"
-          gh issue create --title "$title" --label xc-weekly-draft --body-file "$RUNNER_TEMP/review-body.md"
+          gh issue comment "$BRIEF_ISSUE" --body-file "$RUNNER_TEMP/review-body.md"
+          gh issue edit "$BRIEF_ISSUE" --add-label xc-weekly-draft

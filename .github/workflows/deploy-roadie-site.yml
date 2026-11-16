@@ -91,8 +91,8 @@ jobs:
       - name: Check the live header
         run: |
           set -euo pipefail
-          css=$(ls "$STAGE"/assets/rl-styles.*.css | xargs -n1 basename)
-          slug=$(ls "$STAGE"/*.html | head -1 | xargs -n1 basename | sed 's/\.html$//')
+          css=$(basename "$(find "$STAGE/assets" -name "rl-styles.*.css" -print -quit)")
+          slug=$(basename "$(find "$STAGE" -maxdepth 1 -name "*.html" ! -name methodology.html -print -quit)" .html)
           fail=0
           for path in / /about/ /coaching/ /consulting/ /courses/ /insights/ /training-plans/ /road-races/ \
                       /privacy/ /questionnaire/ /coaching/apply/ /methodology/ /race/methodology/ /prep-kit/ /race/calendar/2027/ \
@@ -102,8 +102,10 @@ jobs:
             for i in 1 2 3 4 5 6; do
               rm -f live.html
               curl -sf "https://roadielabs.com${path}?v=$GITHUB_RUN_ID-$i" -o live.html || { sleep 20; continue; }
-              if grep -qF 'rl-site-header-toggle span { display: block; flex: none;' live.html \
-                 || grep -qF "/race/assets/$css" live.html; then ok=1; break; fi
+              # Menu icon CSS (inline or the new hashed file) AND the bind-once tap script.
+              if { grep -qF 'rl-site-header-toggle span { display: block; flex: none;' live.html \
+                   || grep -qF "/race/assets/$css" live.html; } \
+                 && grep -qF 'data-rl-nav-bound' live.html; then ok=1; break; fi
               sleep 20
             done
             if [ -n "$ok" ]; then echo "live ok: $path"; else echo "live header not updated: $path"; fail=1; fi

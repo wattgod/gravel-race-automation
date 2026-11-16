@@ -88,32 +88,33 @@ jobs:
             --sync-coaching-apply --sync-consult-intake --sync-questionnaire \
             --sync-exit-interview --sync-goals --sync-race-debrief --sync-widget \
             --purge-cache
-      - name: Check the live header
+      - name: Check the deployed header
         run: |
           set -euo pipefail
+          # Verified on the server over SSH: SiteGround answers GitHub runners
+          # with its bot challenge (HTTP 202, ~200 bytes) instead of the page,
+          # so an HTTP check from here can never see the site.
+          base=$(python3 -c "import sys; sys.path.insert(0, 'scripts'); import push_wordpress as p; print(p.REMOTE_BASE)")
           css=$(basename "$(find "$STAGE/assets" -name "rl-styles.*.css" -print -quit)")
           slug=$(basename "$(find "$STAGE" -maxdepth 1 -name "*.html" ! -name methodology.html -print -quit)" .html)
           fail=0
           for path in / /about/ /coaching/ /consulting/ /courses/ /insights/ /training-plans/ /road-races/ \
                       /privacy/ /questionnaire/ /coaching/apply/ /methodology/ /race/methodology/ /prep-kit/ /race/calendar/2027/ \
                       "/race/$slug/" "/race/$slug/training-plan/"; do
-            ok=""
-            # One request per try, 15s apart: SiteGround's bot filter refuses
-            # bursts (a 20-page burst got nothing back). Say what was served.
-            for i in 1 2 3 4; do
-              rm -f live.html
-              code=$(curl -s -o live.html -w '%{http_code}' "https://roadielabs.com${path}?v=$GITHUB_RUN_ID-$i") || code="curl-exit-$?"
-              # Menu icon CSS (inline or the new hashed file) AND the bind-once tap script.
-              if [ "$code" = 200 ] \
-                 && { grep -qF 'rl-site-header-toggle span { display: block; flex: none;' live.html \
-                      || grep -qF "/race/assets/$css" live.html; } \
-                 && grep -qF 'data-rl-nav-bound' live.html; then ok=1; break; fi
-              echo "  $path try $i: HTTP $code, $(wc -c < live.html 2>/dev/null || echo 0) bytes"
-              sleep 15
-            done
-            if [ -n "$ok" ]; then echo "live ok: $path"; else echo "live header not updated: $path"; fail=1; fi
-            sleep 3
+            rm -f live.html
+            if ! scp -q -i ~/.ssh/roadlabs_key -P "$SSH_PORT" "$SSH_USER@$SSH_HOST:$base${path}index.html" live.html; then
+              echo "deployed page missing: $path"; fail=1; continue
+            fi
+            # Menu icon CSS (inline or the new hashed file) AND the bind-once tap script.
+            if { grep -qF 'rl-site-header-toggle span { display: block; flex: none;' live.html \
+                 || grep -qF "/race/assets/$css" live.html; } \
+               && grep -qF 'data-rl-nav-bound' live.html; then
+              echo "deployed ok: $path"
+            else
+              echo "deployed header not updated: $path"; fail=1
+            fi
           done
-          code=$(curl -s -o live.css -w '%{http_code}' "https://roadielabs.com/race/assets/$css?v=$GITHUB_RUN_ID") || code="curl-exit-$?"
-          { [ "$code" = 200 ] && grep -qF 'flex: none; width: 20px; height: 2px' live.css; } || { echo "live $css lacks the menu icon fix (HTTP $code)"; fail=1; }
+          rm -f live.css
+          scp -q -i ~/.ssh/roadlabs_key -P "$SSH_PORT" "$SSH_USER@$SSH_HOST:$base/race/assets/$css" live.css || true
+          grep -qF 'flex: none; width: 20px; height: 2px' live.css 2>/dev/null || { echo "deployed $css missing or lacks the menu icon fix"; fail=1; }
           exit $fail

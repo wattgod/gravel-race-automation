@@ -194,13 +194,22 @@ class TestPlanIntakeBrandRequired:
         stored = json.loads(_audit(fake_db, "plan_intake_received")[0]["details"])
         assert stored["brand"] == brand.lower()
 
-    def test_other_sources_keep_the_gravelgod_default(self, client, fake_db, monkeypatch):
-        _capture_sends(monkeypatch)
-        for brand in (None, "nordicgod"):
-            body = {"email": "guide@example.com", "name": "Guide", "source": "training_guide"}
-            if brand:
-                body["brand"] = brand
-            assert _post(client, body).status_code == 200
-        assert {e["sequence_id"] for e in fake_db.store.get("gg_sequence_enrollments", [])} \
-            and not any(e["sequence_id"].startswith("xc_")
-                        for e in fake_db.store.get("gg_sequence_enrollments", []))
+    @pytest.mark.parametrize("source", ["training_guide", "exit_intent", "race_quiz", "goal_2027"])
+    @pytest.mark.parametrize("brand", [None, "", "nordicgod", ["gravelgod"]])
+    def test_every_source_refuses_a_missing_or_unknown_brand(self, client, fake_db, monkeypatch,
+                                                             source, brand):
+        sends = _capture_sends(monkeypatch)
+        body = {"email": "guide@example.com", "name": "Guide", "source": source, "brand": brand}
+        resp = _post(client, body)
+        assert resp.status_code == 400
+        assert resp.json()["detail"] == "Unknown brand"
+        assert not fake_db.store.get("gg_sequence_enrollments")
+        assert not fake_db.store.get("gg_audit_log")
+        assert sends == []
+
+    def test_no_gravelgod_default_left_in_brand_routing(self):
+        import inspect
+        import mission_control.routers.webhooks as wh
+        src = inspect.getsource(wh.subscriber_webhook)
+        assert 'raw_brand or "gravelgod"' not in src
+        assert 'brand = "gravelgod"' not in src

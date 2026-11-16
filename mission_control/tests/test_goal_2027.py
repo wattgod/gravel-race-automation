@@ -22,6 +22,8 @@ ANSWERS = {
 
 
 def _post(client, body):
+    # The lead worker always names the brand (from the page's Origin).
+    body = {"brand": "gravelgod", **body}
     return client.post(
         "/webhooks/subscriber",
         json=body,
@@ -624,7 +626,7 @@ class TestUnroutedLeads:
         monkeypatch.setattr(se, "_send_email_sync", lambda to, subject, *a: sent.append(subject) or "rs")
         monkeypatch.setattr(wh, "get_sequences_for_trigger", lambda *a, **k: [])
         resp = _post(client, {"email": "lost@example.com", "name": "Lost", "source": "goal_2027",
-                              "brand": "newbrand", "goal_answers": ANSWERS})
+                              "brand": "xcskilabs", "goal_answers": ANSWERS})
         assert resp.status_code == 200
         logs = [r for r in fake_db.store.get("gg_audit_log", []) if r.get("action") == "lead_unrouted"]
         assert logs and "lost@example.com" == logs[0]["entity_id"]

@@ -42,14 +42,11 @@ _NOT_LEAD_SOURCES = ("athlete_exit", "plan_debrief")
 # Matti gets an inbox-visible alert with every answer.
 _NO_SEQUENCE_SOURCES = ("plan_intake",)
 _SUPPORTED_BRANDS = ("gravelgod", "roadielabs", "xcskilabs")
-# Sources that must name a supported brand: 400 otherwise, never a gravelgod
-# default (a skier's plan questionnaire filed as Gravel God reaches Matti as a
-# [GG] alert). The worker checks the same list (BRAND_REQUIRED in
-# workers/fueling-lead-intake/worker.js). Every other source still turns a
-# missing or unknown brand into gravelgod; that default is a known follow-up.
-# newsletter_subscribe is a brand's own newsletter list (Roadie Labs first,
-# RL-16): a sign-up with no brand has no list to join, so it is refused too.
-_BRAND_REQUIRED_SOURCES = ("plan_intake", "newsletter_subscribe")
+# Every subscriber must name a supported brand: 400 otherwise, never a
+# gravelgod default. A Roadie or XC lead filed as Gravel God gets the wrong
+# sequence and a [GG] alert. Both callers always send one: the lead worker
+# (workers/fueling-lead-intake, brand taken from the page's Origin) and the
+# pick'em worker (always gravelgod).
 # A pick'em entry's racing answer (workers/pickem-intake: "xl", "200",
 # "lottery", "no", ...). The worker sends race_slug only for a distance.
 _PICKEM_ANSWER_RE = re.compile(r"^[a-z0-9_]{1,24}$")
@@ -316,15 +313,12 @@ async def subscriber_webhook(
     name = _truncate(body.get("name", "").strip(), _MAX_NAME_LEN)
     source = _truncate(body.get("source", "unknown"), _MAX_SOURCE_LEN)
 
-    # Brand routing (worker sends the brand key). A brand-required source must
-    # name a supported brand; for the rest, missing or unknown → gravelgod.
+    # Brand routing: the caller names the brand. No default (see
+    # _SUPPORTED_BRANDS): a missing or unknown brand is refused.
     raw_brand = body.get("brand")
-    if source in _BRAND_REQUIRED_SOURCES:
-        if not isinstance(raw_brand, str) or raw_brand.lower() not in _SUPPORTED_BRANDS:
-            raise HTTPException(status_code=400, detail="Unknown brand")
-    brand = str(raw_brand or "gravelgod").lower()
-    if brand not in _SUPPORTED_BRANDS:
-        brand = "gravelgod"
+    if not isinstance(raw_brand, str) or raw_brand.lower() not in _SUPPORTED_BRANDS:
+        raise HTTPException(status_code=400, detail="Unknown brand")
+    brand = raw_brand.lower()
 
     source_data = {"brand": brand}
     if body.get("race_slug"):
@@ -493,7 +487,7 @@ async def subscriber_webhook(
         "pickem": "new_subscriber",
         # A brand newsletter sign-up (roadielabs.com homepage and footer,
         # RL-16): that brand's welcome (road_welcome_v1 for roadielabs).
-        # Brand-required (_BRAND_REQUIRED_SOURCES), so it never lands on GG.
+        # Brand is required for every subscriber, so it never lands on GG.
         "newsletter_subscribe": "new_subscriber",
         "goal_2027": "goal_2027",
         # A coached athlete filing their season review is not a lead: the only

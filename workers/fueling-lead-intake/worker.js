@@ -1,10 +1,13 @@
 /**
  * Cloudflare Worker: Lead Intake (All Email Capture Points)
  *
- * Multi-brand: serves gravelgodcycling.com (default), roadielabs.com, and
- * xcskilabs.com. The page sends `brand`; absent → gravelgod, except for
- * plan_intake and newsletter_subscribe (BRAND_REQUIRED), which must name a
- * supported brand or get a 400. The gravelgod default for the other sources is a known follow-up. Brand is
+ * Multi-brand: serves gravelgodcycling.com, roadielabs.com and xcskilabs.com.
+ * The brand is the site the form was on, read from the request's Origin
+ * (ORIGIN_BRANDS). A page may also send `brand`; if it does, it must be a
+ * supported brand that matches the Origin, or the request gets a 400. There is
+ * no default brand: an allowed origin missing from ORIGIN_BRANDS gets a 400.
+ * plan_intake and newsletter_subscribe (BRAND_REQUIRED) must also name their
+ * brand explicitly. Brand is
  * tagged on the Mission Control payload and the notification email
  * subject/sender so road leads are distinguishable in the shared inbox.
  *
@@ -99,18 +102,15 @@ export default {
       return jsonResponse({ error: 'Unknown source' }, 400, origin);
     }
 
-    // Brand routing (multi-brand intake). A BRAND_REQUIRED source must name a
-    // supported brand: a skier's plan questionnaire filed as Gravel God would
-    // reach Matti as a [GG] alert. Every other source still defaults to
-    // gravelgod for back-compat with the gravel pages that send no brand
-    // (known follow-up: those pages should send it too).
-    if (BRAND_REQUIRED.includes(source)) {
-      const named = typeof data.brand === 'string' ? data.brand.toLowerCase() : '';
-      if (!SUPPORTED_BRANDS.includes(named)) {
-        return jsonResponse({ error: 'Unknown brand' }, 400, origin);
-      }
+    // Brand routing (multi-brand intake). The brand is the site the form was
+    // on: the Origin, already checked against ALLOWED_ORIGINS above. Nothing
+    // defaults to gravelgod — a Roadie or XC lead filed as Gravel God gets the
+    // wrong sequence and the wrong alert. A brand the page names must be
+    // supported and agree with its Origin; a BRAND_REQUIRED source must name it.
+    const brand = resolveBrand(origin, data.brand, BRAND_REQUIRED.includes(source));
+    if (!brand) {
+      return jsonResponse({ error: 'Unknown brand' }, 400, origin);
     }
-    const brand = (String(data.brand || 'gravelgod')).toLowerCase();
     data.brand = brand;
 
     // Sanitize string inputs: truncate to sane lengths
@@ -294,9 +294,37 @@ export default {
 
 const BRAND_LABELS = { gravelgod: 'Gravel God', roadielabs: 'Roadie Labs', xcskilabs: 'XC Ski Labs' };
 const SUPPORTED_BRANDS = Object.keys(BRAND_LABELS);
-// Sources that must name their brand (no gravelgod default). Mission Control
-// checks the same list (_BRAND_REQUIRED_SOURCES in routers/webhooks.py).
+// Sources whose page must also name its brand explicitly (it must still match
+// the Origin). Mission Control refuses a missing brand from every source.
 const BRAND_REQUIRED = ['plan_intake', 'newsletter_subscribe'];
+// Which brand each site is. Keyed by hostname so www and apex agree.
+const ORIGIN_BRANDS = {
+  'gravelgodcycling.com': 'gravelgod',
+  'www.gravelgodcycling.com': 'gravelgod',
+  'roadielabs.com': 'roadielabs',
+  'www.roadielabs.com': 'roadielabs',
+  'xcskilabs.com': 'xcskilabs',
+  'www.xcskilabs.com': 'xcskilabs',
+};
+
+// The lead's brand, or null when it cannot be known for certain: an origin
+// with no brand, a named brand that is not supported or disagrees with the
+// origin, or a BRAND_REQUIRED source that named none.
+function resolveBrand(origin, named, mustName) {
+  let host = '';
+  try { host = new URL(origin).hostname; } catch (_) { return null; }
+  const fromOrigin = Object.prototype.hasOwnProperty.call(ORIGIN_BRANDS, host)
+    ? ORIGIN_BRANDS[host] : null;
+  if (!fromOrigin) return null;
+  if (named === undefined || named === null || named === '') {
+    return mustName ? null : fromOrigin;
+  }
+  if (typeof named !== 'string') return null;
+  const lower = named.toLowerCase();
+  if (!SUPPORTED_BRANDS.includes(lower) || lower !== fromOrigin) return null;
+  return lower;
+}
+
 const BRAND_SENDERS = {
   gravelgod: { email: 'leads@gravelgodcycling.com', name: 'Gravel God Fueling' },
   roadielabs: { email: 'leads@gravelgodcycling.com', name: 'Roadie Labs Fueling' },
@@ -371,7 +399,7 @@ function formatFuelingLead(data, leadId) {
     lead_id: leadId,
     timestamp: new Date().toISOString(),
     source: 'prep-kit-fueling-calculator',
-    brand: data.brand || 'gravelgod',
+    brand: data.brand,
     email: data.email,
     race_slug: data.race_slug,
     race_name: data.race_name || '',
@@ -465,7 +493,7 @@ async function sendAthleteReviewEmail(env, data) {
       },
       body: JSON.stringify({
         personalizations: [{ to: [{ email: env.NOTIFICATION_EMAIL }], subject }],
-        from: brandSender(data.brand || 'gravelgod'),
+        from: brandSender(data.brand),
         reply_to: { email: data.email },
         content: [{ type: 'text/html', value: html }]
       })
@@ -712,7 +740,7 @@ async function sendQuestionnaireAlert(env, data, { kicker, meta, subject, action
 async function sendAthleteExitEmail(env, data) {
   const answers = data.goal_answers || {};
   const reason = exitLabel('exit_reason', answers.exit_reason) || 'no reason given';
-  const brand = data.brand || 'gravelgod';
+  const brand = data.brand;
   return sendQuestionnaireAlert(env, data, {
     kicker: 'ATHLETE EXIT SURVEY',
     meta: `${esc(brandLabel(brand))} &middot; ${esc(data.athlete || 'no athlete tag')} &middot; ${esc(data.email)} &middot; ${esc(reason)}`,
@@ -978,7 +1006,7 @@ async function notifyMissionControl(env, data, source) {
     const payload = {
       email: data.email,
       name: data.name || '',
-      brand: data.brand || 'gravelgod',
+      brand: data.brand,
       source: source,
       race_slug: data.race_slug || '',
       race_name: data.race_name || '',
@@ -1078,7 +1106,7 @@ async function alertLeadNotSaved(env, data, source, status) {
       `Name: ${data.name || ''}`,
       `Source: ${source}`,
       `Race slug: ${data.race_slug || ''}`,
-      `Brand: ${data.brand || 'gravelgod'}`,
+      `Brand: ${data.brand}`,
       `Mission Control status: ${status}`,
     ].join('\n');
     await sendResendEmail(env, {

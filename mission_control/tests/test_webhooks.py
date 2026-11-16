@@ -78,6 +78,8 @@ class TestSubscriberWebhook:
     """POST /webhooks/subscriber — enrolls contacts in sequences."""
 
     def _post(self, client, payload):
+        # The lead worker always names the brand (from the page's Origin).
+        payload = {"brand": "gravelgod", **payload}
         return client.post(
             "/webhooks/subscriber",
             json=payload,
@@ -158,6 +160,8 @@ class TestPlanPurchasedEnrollment:
     """POST /webhooks/subscriber with a purchase source -> post_purchase + plan_weeks."""
 
     def _post(self, client, payload):
+        # The lead worker always names the brand (from the page's Origin).
+        payload = {"brand": "gravelgod", **payload}
         return client.post(
             "/webhooks/subscriber",
             json=payload,
@@ -283,6 +287,7 @@ class TestFriendRegisterEnrollment:
     """WS-E + wb_* context (docs/specs/friend-first-sequences.md §4)."""
 
     def _enroll(self, client, payload):
+        payload = {"brand": "gravelgod", **payload}
         resp = client.post(
             "/webhooks/subscriber", json=payload,
             headers={"Authorization": "Bearer test-secret-123"},
@@ -483,6 +488,7 @@ class TestNewsletterSubscribe:
     filed as Gravel God."""
 
     def _post(self, client, payload):
+        payload = {"brand": "gravelgod", **payload}
         return client.post(
             "/webhooks/subscriber", json=payload,
             headers={"Authorization": "Bearer test-secret-123"},
@@ -531,13 +537,11 @@ class TestNewsletterSubscribe:
         import mission_control.routers.webhooks as wh
         src = inspect.getsource(wh.subscriber_webhook)
         assert '"newsletter_subscribe": "new_subscriber"' in src
-        assert "newsletter_subscribe" in wh._BRAND_REQUIRED_SOURCES
 
     @pytest.mark.parametrize("brand", [None, "", "roadgod", ["roadielabs"]])
     def test_without_a_supported_brand_is_refused(self, client, fake_db, brand):
-        body = {"email": "no-brand-news@example.com", "source": "newsletter_subscribe"}
-        if brand is not None:
-            body["brand"] = brand
+        body = {"email": "no-brand-news@example.com", "source": "newsletter_subscribe",
+                "brand": brand}
         resp = self._post(client, body)
         assert resp.status_code == 400
         assert resp.json() == {"detail": "Unknown brand"}

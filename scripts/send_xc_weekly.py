@@ -18,6 +18,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.parse
@@ -166,6 +167,22 @@ def broadcast(issue: dict, approved_hash: str) -> str:
             f"membership(s); {removed} opted-out contact(s) removed")
 
 
+_ADDRESS = re.compile(r"[^\s\"'/?&=<>@]+(?:@|%40)[^\s\"'/?&=<>]+")
+
+
+def _redact(text: str) -> str:
+    """Strip anything address-shaped: this log is public."""
+    return _ADDRESS.sub("[address]", text)
+
+
+def _error_body(exc: urllib.error.HTTPError) -> str:
+    """The API's own error reason (JSON from Resend or Supabase), addresses removed."""
+    try:
+        return _redact(exc.read().decode(errors="replace")[:300])
+    except Exception:  # noqa: BLE001 - a body we cannot read is reported as such
+        return "(no response body)"
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     mode = parser.add_mutually_exclusive_group(required=True)
@@ -193,6 +210,10 @@ def main(argv: list[str] | None = None) -> int:
             print(f"Preview of No. {issue['issueNumber']:03d} sent to the review inbox (id {send_preview(issue)})")
         else:
             print(broadcast(issue, args.approved_hash))
+    except urllib.error.HTTPError as exc:
+        print(f"XC Weekly send failed: {exc} on {_redact(exc.url or '')}: {_error_body(exc)}",
+              file=sys.stderr)
+        return 1
     except (IssueError, RuntimeError, urllib.error.URLError, KeyError) as exc:
         print(f"XC Weekly send failed: {exc}", file=sys.stderr)
         return 1

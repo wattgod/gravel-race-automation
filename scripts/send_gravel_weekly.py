@@ -34,7 +34,8 @@ def _req(url: str, method: str = "GET", body: dict | None = None,
     request = urllib.request.Request(
         url,
         method=method,
-        headers={"Content-Type": "application/json", **(headers or {})},
+        headers={"Content-Type": "application/json",
+                 "User-Agent": "gravelgod-weekly/1", **(headers or {})},
         data=json.dumps(body).encode() if body is not None else None,
     )
     with urllib.request.urlopen(request, timeout=30) as response:

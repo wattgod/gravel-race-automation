@@ -349,3 +349,44 @@ def test_subscriber_query_is_xc_opt_ins(monkeypatch):
     assert send.fetch_subscribers() == ["a@example.com"]
     assert "source_data-%3E%3Ebrand=eq.xcskilabs" in seen[0]
     assert "newsletter_opt_in_at=not.is.null" in seen[0]
+
+
+def test_http_errors_show_the_api_reason_without_addresses(capsys, monkeypatch):
+    import io
+    import urllib.error
+
+    import send_xc_weekly as sx
+
+    body = b'{"message":"Contact rider@example.com is restricted","name":"restricted_api_key"}'
+    error = urllib.error.HTTPError(
+        "https://api.resend.com/contacts/rider%40example.com", 403, "Forbidden", {}, io.BytesIO(body))
+    monkeypatch.setenv("RESEND_API_KEY", "test")
+    monkeypatch.setattr(sx, "next_issue_number", lambda: (_ for _ in ()).throw(error))
+    assert sx.main(["--next-issue-number"]) == 1
+    err = capsys.readouterr().err
+    assert "restricted_api_key" in err and "403" in err
+    assert "rider" not in err and "example.com" not in err
+
+
+def test_resend_requests_carry_a_user_agent(monkeypatch):
+    import send_gravel_weekly as sg
+
+    seen = {}
+
+    class Response:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+        def read(self):
+            return b"{}"
+
+    def fake_urlopen(request, timeout):
+        seen.update(request.header_items())
+        return Response()
+
+    monkeypatch.setattr(sg.urllib.request, "urlopen", fake_urlopen)
+    sg._req("https://api.resend.com/broadcasts")
+    assert seen.get("User-agent", "").startswith("gravelgod-weekly/")

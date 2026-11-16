@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
-"""Draft one XC Ski Labs Weekly issue from collected evidence and stage it.
+"""Build the XC Ski Labs Weekly in two steps, with Matti reacting in between.
 
-Merges one or more evidence files from collect_xc_weekly.py, keeps the last
-seven days, asks Claude to pick and summarise the week in Matti's wax-bench
-voice (prompts/xc-weekly-voice.md), then runs the publication gate in
-xc_weekly_issue.validate_issue. A draft that fails the gate gets one repair
-attempt with the gate's findings; if it still fails, nothing is staged and
-the script exits non-zero. There is no template or fallback issue.
+1. ``--brief``: merge the evidence files from collect_xc_weekly.py, keep the
+   last seven days, and ask Claude for the week's shortlist (headline, blurb
+   and link per story, podcasts). Writes brief.json, evidence.json, brief.md.
+   Matti reads it and replies with his reactions.
+2. ``--from-brief DIR --reactions FILE``: write the issue from that shortlist
+   and Matti's reactions. The take states his judgments, not the model's.
+   The publication gate in xc_weekly_issue.validate_issue runs on the result;
+   a draft that fails gets one repair attempt, then nothing is staged.
+   Writes issue.json, evidence.json, preview.html, review.md, manifest.json.
 
-Writes to --output-dir: issue.json, evidence.json, preview.html, review.md,
-manifest.json. Nothing here sends email.
+There is no template, fallback issue, or take without Matti's reactions.
+Nothing here sends email.
 """
 
 from __future__ import annotations
@@ -17,6 +20,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -26,12 +30,18 @@ sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 
 from collect_xc_weekly import merge_items  # noqa: E402
 from xc_weekly_issue import (  # noqa: E402
-    IssueError, assemble_issue, render_email_html, render_review_markdown, validate_issue,
+    IssueError, assemble_brief, assemble_issue, render_brief_markdown, render_email_html,
+    render_review_markdown, validate_brief, validate_issue,
 )
 
 MODEL = "claude-opus-5-5"
 VOICE_PATH = PROJECT_ROOT / "prompts" / "xc-weekly-voice.md"
 WINDOW_DAYS = 7
+
+# A comment that only approves the staged issue is not a reaction to redraft
+# from; sending is a separate, manual step with the approved hash.
+APPROVAL_ONLY = re.compile(
+    r"^\W*(go|send|send it|ship it|approved?|lgtm|looks good|good to go|yes)\W*$", re.I)
 
 SELECTION_SCHEMA = {
     "type": "object",
@@ -70,6 +80,15 @@ SELECTION_SCHEMA = {
 }
 
 
+_ITEM_SCHEMAS = {k: SELECTION_SCHEMA["properties"][k] for k in ("stories", "podcasts")}
+BRIEF_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "required": ["stories", "podcasts"],
+    "properties": _ITEM_SCHEMAS,
+}
+
+
 def load_evidence(paths: list[Path], now: datetime) -> dict:
     """Merge evidence files and keep the items from the last WINDOW_DAYS."""
     since = now - timedelta(days=WINDOW_DAYS)
@@ -105,7 +124,7 @@ def evidence_prompt(evidence: dict) -> str:
     )
 
 
-def ask_claude(client, messages: list[dict]) -> tuple[dict, list]:
+def ask_claude(client, messages: list[dict], schema: dict = SELECTION_SCHEMA) -> tuple[dict, list]:
     response = client.beta.messages.create(
         model=MODEL,
         max_tokens=16000,
@@ -113,7 +132,7 @@ def ask_claude(client, messages: list[dict]) -> tuple[dict, list]:
         fallbacks="default",
         thinking={"type": "adaptive"},
         output_config={"effort": "high",
-                       "format": {"type": "json_schema", "schema": SELECTION_SCHEMA}},
+                       "format": {"type": "json_schema", "schema": schema}},
         system=VOICE_PATH.read_text(),
         messages=messages,
     )
@@ -125,27 +144,93 @@ def ask_claude(client, messages: list[dict]) -> tuple[dict, list]:
     return json.loads(text), response.content
 
 
-def draft(evidence: dict, issue_number: int, issue_date: str, client=None) -> dict:
-    if client is None:
-        import anthropic
-        client = anthropic.Anthropic()
-    messages = [{"role": "user", "content": evidence_prompt(evidence)}]
-    selection, content = ask_claude(client, messages)
+def _with_one_repair(client, messages: list[dict], schema: dict, build) -> dict:
+    """Ask, build and gate; on a gate failure ask once more with the problems."""
+    selection, content = ask_claude(client, messages, schema)
     try:
-        issue = assemble_issue(selection, evidence, issue_number, issue_date)
-        return validate_issue(issue, evidence)
+        return build(selection)
     except IssueError as exc:
         problems = str(exc)
-    messages += [
+    messages = messages + [
         {"role": "assistant", "content": content},
         {"role": "user", "content": (
             "The issue failed the publication check. Fix every problem below and return "
             "the whole issue again. Do not drop the take or the citations to get around a "
             f"rule.\n\nProblems: {problems}")},
     ]
-    selection, _ = ask_claude(client, messages)
-    issue = assemble_issue(selection, evidence, issue_number, issue_date)
-    return validate_issue(issue, evidence)
+    selection, _ = ask_claude(client, messages, schema)
+    return build(selection)
+
+
+def _client(client):
+    if client is None:
+        import anthropic
+        client = anthropic.Anthropic()
+    return client
+
+
+def shortlist(evidence: dict, client=None) -> dict:
+    """Step 1: the week's stories and podcasts for Matti to read. No take."""
+    messages = [{"role": "user", "content": (
+        evidence_prompt(evidence)
+        + "\n\nThis is the shortlist step. Matti reads these headlines and reacts before "
+        "anything else is written, so return only the stories and podcasts, each with its "
+        "headline and blurb. Order the stories by what a cross-country skier would most "
+        "want to know.")}]
+    return _with_one_repair(_client(client), messages, BRIEF_SCHEMA,
+                            lambda sel: validate_brief(assemble_brief(sel, evidence), evidence))
+
+
+def reactions_from_comments(bodies: list[str]) -> str | None:
+    """Matti's reactions, oldest first, or None when there is nothing to draft from.
+
+    The latest comment decides: if it only approves the staged issue, nothing
+    is redrafted (sending is a separate manual step).
+    """
+    kept = [b.strip() for b in bodies if b and b.strip()]
+    if not kept or APPROVAL_ONLY.match(kept[-1]):
+        return None
+    kept = [b for b in kept if not APPROVAL_ONLY.match(b)]
+    return "\n\n---\n\n".join(kept)
+
+
+def reaction_prompt(evidence: dict, brief: dict, reactions: str) -> str:
+    listed = [{"n": n, "itemId": s["itemId"], "headline": s["headline"], "blurb": s["blurb"]}
+              for n, s in enumerate(brief["stories"], 1)]
+    pods = [{"itemId": p["itemId"], "blurb": p["blurb"]} for p in brief["podcasts"]]
+    return (
+        evidence_prompt(evidence)
+        + "\n\nThis is the shortlist Matti read, numbered as he saw it:\n"
+        + json.dumps({"stories": listed, "podcasts": pods}, ensure_ascii=False, indent=1)
+        + "\n\nThese are Matti's reactions, oldest first; where they disagree, the later one "
+        "wins. When he refers to a number, he means the shortlist number above.\n"
+        "<reactions>\n" + reactions + "\n</reactions>\n\n"
+        "Write the issue. Keep the shortlist's stories, headlines and blurbs unless his "
+        "reactions ask you to add, drop, reorder or change one. The take states the "
+        "judgments in his reactions, in his first person, keeping his own phrasing where it "
+        "reads well. Add no opinion he did not give. If he reacted to only one story, the "
+        "take is about that story. Cite stories by their number in your final story order."
+    )
+
+
+def draft(evidence: dict, brief: dict, reactions: str, issue_number: int, issue_date: str,
+          client=None) -> dict:
+    """Step 2: the issue, written from the shortlist and Matti's reactions."""
+    if not reactions or not reactions.strip():
+        raise IssueError("no reactions from Matti; the take is never written without them")
+    messages = [{"role": "user", "content": reaction_prompt(evidence, brief, reactions)}]
+    return _with_one_repair(
+        _client(client), messages, SELECTION_SCHEMA,
+        lambda sel: validate_issue(assemble_issue(sel, evidence, issue_number, issue_date), evidence))
+
+
+def stage_brief(brief: dict, evidence: dict, out: Path) -> dict:
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "brief.json").write_text(json.dumps(brief, ensure_ascii=False, indent=2))
+    (out / "evidence.json").write_text(json.dumps(evidence, ensure_ascii=False, indent=2))
+    (out / "brief.md").write_text(render_brief_markdown(brief, evidence["coverage"]))
+    return {"stories": len(brief["stories"]), "podcasts": len(brief["podcasts"]),
+            "since": evidence["since"], "until": evidence["collectedAt"]}
 
 
 def stage(issue: dict, evidence: dict, out: Path) -> dict:
@@ -171,23 +256,49 @@ def stage(issue: dict, evidence: dict, out: Path) -> dict:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("evidence", nargs="+", type=Path)
-    parser.add_argument("--issue-number", type=int, required=True)
+    parser.add_argument("evidence", nargs="*", type=Path, help="collector output (with --brief)")
+    parser.add_argument("--brief", action="store_true", help="step 1: write the headline shortlist")
+    parser.add_argument("--from-brief", type=Path, help="step 2: a staged brief directory")
+    parser.add_argument("--reactions", type=Path,
+                        help="step 2: JSON list of Matti's comment bodies, oldest first")
+    parser.add_argument("--issue-number", type=int)
     parser.add_argument("--issue-date", help="YYYY-MM-DD; defaults to today (UTC)")
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args(argv)
+    if args.brief == bool(args.from_brief):
+        parser.error("use exactly one of --brief or --from-brief")
     if not os.environ.get("ANTHROPIC_API_KEY"):
         print("ANTHROPIC_API_KEY is not set; nothing drafted", file=sys.stderr)
         return 1
     now = datetime.now(timezone.utc)
+
+    if args.brief:
+        if not args.evidence:
+            parser.error("--brief needs at least one evidence file")
+        evidence = load_evidence(args.evidence, now)
+        news = sum(1 for i in evidence["items"] if i["kind"] == "news")
+        if news < 4:
+            print(f"Only {news} news items this week; not enough for an issue, nothing staged", file=sys.stderr)
+            return 1
+        try:
+            brief = shortlist(evidence)
+        except (IssueError, RuntimeError, json.JSONDecodeError) as exc:
+            print(f"XC Weekly shortlist refused: {exc}", file=sys.stderr)
+            return 1
+        print(json.dumps(stage_brief(brief, evidence, args.output_dir)))
+        return 0
+
+    if args.reactions is None or args.issue_number is None:
+        parser.error("--from-brief needs --reactions and --issue-number")
+    reactions = reactions_from_comments(json.loads(args.reactions.read_text()))
+    if reactions is None:
+        print("No new reaction from Matti to draft from; nothing staged", file=sys.stderr)
+        return 3
+    evidence = json.loads((args.from_brief / "evidence.json").read_text())
+    brief = json.loads((args.from_brief / "brief.json").read_text())
     issue_date = args.issue_date or now.date().isoformat()
-    evidence = load_evidence(args.evidence, now)
-    news = sum(1 for i in evidence["items"] if i["kind"] == "news")
-    if news < 4:
-        print(f"Only {news} news items this week; not enough for an issue, nothing staged", file=sys.stderr)
-        return 1
     try:
-        issue = draft(evidence, args.issue_number, issue_date)
+        issue = draft(evidence, brief, reactions, args.issue_number, issue_date)
     except (IssueError, RuntimeError, json.JSONDecodeError) as exc:
         print(f"XC Weekly draft refused: {exc}", file=sys.stderr)
         return 1

@@ -276,23 +276,109 @@ class FakeClient:
                                content=[SimpleNamespace(type="text", text=json.dumps(reply))])
 
 
+def brief_selection():
+    sel = selection()
+    return {"stories": sel["stories"], "podcasts": sel["podcasts"]}
+
+
+def test_shortlist_has_no_take_and_passes_the_item_gate(tmp_path):
+    client = FakeClient([brief_selection()])
+    brief = draft.shortlist(evidence(), client=client)
+    assert "take" not in brief and len(brief["stories"]) == 5
+    assert client.requests[0]["output_config"]["format"]["schema"] is draft.BRIEF_SCHEMA
+    assert "shortlist step" in client.requests[0]["messages"][0]["content"]
+    draft.stage_brief(brief, evidence(), tmp_path)
+    md = (tmp_path / "brief.md").read_text()
+    assert "1. **[Story 1 in plain words](https://www.langrenn.com/1)**" in md
+    assert (tmp_path / "evidence.json").exists() and (tmp_path / "brief.json").exists()
+
+
+def test_shortlist_gate_refuses_banned_copy():
+    bad = brief_selection()
+    bad["stories"][0]["blurb"] = "An AI summary of the race."
+    with pytest.raises(xi.IssueError):
+        draft.shortlist(evidence(), client=FakeClient([bad, bad]))
+
+
+def make_brief():
+    return xi.validate_brief(xi.assemble_brief(brief_selection(), evidence()), evidence())
+
+
 def test_draft_uses_opus_with_schema_and_repairs_once():
     bad = selection(take=["Matti thinks the opener mattered [1], and the rest of the week was quiet "
                           "enough that I spent it waxing."])
     client = FakeClient([bad, selection()])
-    issue = draft.draft(evidence(), 3, "2026-11-16", client=client)
+    issue = draft.draft(evidence(), make_brief(), "1: lead with this. I think FIS is stalling.",
+                        3, "2026-11-16", client=client)
     assert issue["issueNumber"] == 3
     first = client.requests[0]
     assert first["model"] == "claude-opus-5-5"
-    assert first["output_config"]["format"]["type"] == "json_schema"
+    assert first["output_config"]["format"]["schema"] is draft.SELECTION_SCHEMA
     assert first["fallbacks"] == "default"
     assert "third person" in client.requests[1]["messages"][-1]["content"]
+
+
+def test_draft_carries_the_shortlist_and_reactions():
+    client = FakeClient([selection()])
+    draft.draft(evidence(), make_brief(), "2: drop it. I think FIS is stalling.", 1, "2026-11-16",
+                client=client)
+    prompt = client.requests[0]["messages"][0]["content"]
+    assert "<reactions>\n2: drop it. I think FIS is stalling.\n</reactions>" in prompt
+    assert '"n": 1' in prompt and "Add no opinion he did not give" in prompt
+
+
+def test_draft_refuses_without_reactions():
+    client = FakeClient([selection()])
+    with pytest.raises(xi.IssueError, match="no reactions"):
+        draft.draft(evidence(), make_brief(), "  ", 1, "2026-11-16", client=client)
+    assert client.requests == []
 
 
 def test_draft_gives_up_after_one_repair():
     bad = selection(subject="An AI round-up")
     with pytest.raises(xi.IssueError):
-        draft.draft(evidence(), 1, "2026-11-16", client=FakeClient([bad, bad]))
+        draft.draft(evidence(), make_brief(), "I think it was a good week.", 1, "2026-11-16",
+                    client=FakeClient([bad, bad]))
+
+
+@pytest.mark.parametrize("bodies, expected", [
+    ([], None),
+    (["   "], None),
+    (["Lead with 3."], "Lead with 3."),
+    (["Lead with 3.", "Go!"], None),
+    (["Lead with 3.", "looks good", "Drop 5, it's sponsor fluff."],
+     "Lead with 3.\n\n---\n\nDrop 5, it's sponsor fluff."),
+])
+def test_reactions_from_comments(bodies, expected):
+    assert draft.reactions_from_comments(bodies) == expected
+
+
+def test_main_without_a_new_reaction_stages_nothing(tmp_path, monkeypatch):
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "x")
+    draft.stage_brief(make_brief(), evidence(), tmp_path / "brief")
+    (tmp_path / "r.json").write_text(json.dumps(["Lead with 1.", "send it"]))
+    rc = draft.main(["--from-brief", str(tmp_path / "brief"), "--reactions", str(tmp_path / "r.json"),
+                     "--issue-number", "2", "--output-dir", str(tmp_path / "stage")])
+    assert rc == 3 and not (tmp_path / "stage").exists()
+
+
+def test_workflows_wait_for_matti():
+    wf = ROOT / ".github" / "workflows"
+    staging = (wf / "xc-weekly-draft-staging.yml").read_text()
+    assert "schedule:" not in staging and "issue_comment:" in staging
+    assert "github.event.comment.user.login == 'wattgod'" in staging
+    assert 'select(.user.login == "wattgod")' in staging
+    assert "contains(github.event.issue.labels.*.name, 'xc-weekly-brief')" in staging
+    assert "--broadcast" not in staging
+    # Devin review on #642: the run id must be usable in the same step, and a
+    # skipped job (someone else's comment) must not cancel Matti's draft.
+    assert 'BRIEF_RUN="$(python3' in staging and "GITHUB_ENV" not in staging
+    assert staging.index("concurrency:") > staging.index("  stage:")
+    send = (wf / "xc-weekly-send.yml").read_text()
+    assert "any(.comments[]; .body | contains(env.HASH))" in send
+    brief = (wf / "xc-weekly-brief.yml").read_text()
+    assert "--assignee wattgod" in brief and "xc-weekly-brief-run: $GITHUB_RUN_ID" in brief
+    assert "send_xc_weekly" not in brief
 
 
 def test_load_evidence_merges_snapshots_and_trims_to_seven_days(tmp_path):

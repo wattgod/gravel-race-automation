@@ -1,0 +1,91 @@
+name: "XC Weekly Brief"
+
+# Sunday: collect the week's cross-country news and podcasts, shortlist them,
+# and open an issue assigned to Matti with the headlines. He replies to the
+# notification email or comments on the issue with his reactions; that comment
+# starts xc-weekly-draft-staging.yml. Nothing is drafted or sent from here.
+on:
+  schedule:
+    - cron: "0 18 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+concurrency:
+  group: xc-weekly-brief
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash  # -eo pipefail: a failed step piped through tee still fails
+
+jobs:
+  brief:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install canonical runtime
+        run: pip install -r requirements.txt
+
+      - name: Collect now and gather the week's daily snapshots
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/evidence"
+          python scripts/collect_xc_weekly.py --days 8 --output "$RUNNER_TEMP/evidence/now.json"
+          gh api --paginate "repos/$GITHUB_REPOSITORY/actions/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.name | startswith("xc-weekly-items-")) | select(.expired == false) | "\(.id) \(.created_at)"' \
+            > "$RUNNER_TEMP/snapshots.txt"
+          cutoff="$(date -u -d '8 days ago' +%Y-%m-%dT%H:%M:%SZ)"
+          while read -r id created; do
+            if [[ "$created" > "$cutoff" ]]; then
+              gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id/zip" > "$RUNNER_TEMP/snap-$id.zip"
+              unzip -o -q "$RUNNER_TEMP/snap-$id.zip" -d "$RUNNER_TEMP/evidence/snap-$id"
+            fi
+          done < "$RUNNER_TEMP/snapshots.txt"
+          find "$RUNNER_TEMP/evidence" -name '*.json' | sort > "$RUNNER_TEMP/evidence-files.txt"
+          echo "Evidence files: $(wc -l < "$RUNNER_TEMP/evidence-files.txt")"
+
+      - name: Shortlist the week
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          mapfile -t files < "$RUNNER_TEMP/evidence-files.txt"
+          python scripts/draft_xc_weekly.py --brief "${files[@]}" --output-dir artifacts/xc-weekly-brief
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xc-weekly-brief-${{ github.run_id }}
+          path: artifacts/xc-weekly-brief/
+          retention-days: 30
+
+      - name: Open the brief for Matti
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "<!-- xc-weekly-brief-run: $GITHUB_RUN_ID -->"
+            echo "Here is this week's shortlist. Reply to this email or comment here with your reactions:"
+            echo "what you think of the news, which story to lead with, anything to drop or add."
+            echo "A line per story is plenty; refer to stories by number."
+            echo
+            echo "Your reply starts the draft. The take is written from your reactions only,"
+            echo "and the staged issue comes back here with a preview in the review inbox."
+            echo "Each new comment redrafts it with everything you've said so far."
+            echo "Nothing is drafted until you reply, and nothing is sent without your go."
+            echo
+            echo "---"
+            echo
+            cat artifacts/xc-weekly-brief/brief.md
+          } > "$RUNNER_TEMP/brief-body.md"
+          gh label create xc-weekly-brief --color 2d5f8b --description "XC Ski Labs Weekly headlines awaiting Matti's reactions" --force
+          gh issue create --title "XC Ski Labs Weekly: this week's headlines, $(date -u +%Y-%m-%d)" \
+            --label xc-weekly-brief --assignee wattgod --body-file "$RUNNER_TEMP/brief-body.md"

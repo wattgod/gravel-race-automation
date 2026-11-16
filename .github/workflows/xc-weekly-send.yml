@@ -69,7 +69,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           HASH: ${{ inputs.approved_hash }}
         run: |
-          issue="$(gh issue list --label xc-weekly-draft --state open --search "$HASH in:body" --json number --jq '.[0].number')"
+          # The hash is in the issue body (older staging) or in a staged-review
+          # comment on a Sunday brief issue.
+          issue="$(gh issue list --label xc-weekly-draft --state open --limit 50 --json number,body,comments \
+            --jq '[.[] | select((.body | contains(env.HASH)) or any(.comments[]; .body | contains(env.HASH)))][0].number // empty')"
           if [[ -n "$issue" ]]; then
             gh issue comment "$issue" --body "Sent: $(cat "$RUNNER_TEMP/receipt.txt")"
             gh issue close "$issue"

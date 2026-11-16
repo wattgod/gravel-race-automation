@@ -370,6 +370,13 @@ class TestPricing:
         section = build_pricing()
         assert 'class="gg-tp-fine"' in section and "Day Full Refund" not in section
         assert "Refunding it ends the plan" in section
+        fine = re.search(r'<div class="gg-tp-fine">.*?</div>', section, re.S).group(0)
+        assert section.lower().count("refund") == fine.lower().count("refund")
+
+    def test_questionnaire_trust_badges_carry_no_refund(self):
+        html = (Path(__file__).resolve().parents[1] / "web" / "training-plans-questionnaire.html").read_text()
+        badges = re.findall(r'<span class="gg-trust-badge">(.*?)</span>', html)
+        assert badges and not [b for b in badges if "refund" in b.lower()]
 
     def test_pricing_cta(self):
         section = build_pricing()
@@ -678,7 +685,6 @@ class TestContentGuards:
 
     def test_no_box_shadow_anywhere(self, tp_html):
         """No box-shadow except 'box-shadow: none' resets from shared header."""
-        import re
         # Remove all "box-shadow: none" occurrences (valid resets)
         cleaned = re.sub(r'box-shadow:\s*none\s*!important;?', '', tp_html)
         assert "box-shadow" not in cleaned

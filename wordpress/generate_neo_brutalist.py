@@ -7234,6 +7234,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-training-primary {{ border: 1px solid var(--gg-color-tan); border-left: 4px solid var(--gg-color-gold); background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); padding: 32px; margin-bottom: 16px; }}
 .gg-neo-brutalist-page .gg-training-primary h3 {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-lg); font-weight: 700; text-transform: uppercase; letter-spacing: var(--gg-letter-spacing-wider); margin-bottom: 6px; color: var(--gg-color-dark-brown); }}
 .gg-neo-brutalist-page .gg-training-primary .gg-training-subtitle {{ font-family: var(--gg-font-editorial); font-size: 12px; color: var(--gg-color-secondary-brown); margin-bottom: 20px; }}
+.gg-neo-brutalist-page .gg-training-terms {{ font-family: var(--gg-font-editorial); font-size: 12px; line-height: var(--gg-line-height-relaxed); color: var(--gg-color-secondary-brown); margin: 12px 0 0; }}
 .gg-neo-brutalist-page .gg-training-bullets {{ list-style: none; padding: 0; margin-bottom: 24px; }}
 .gg-neo-brutalist-page .gg-training-bullets li {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-xs); line-height: var(--gg-line-height-relaxed); color: var(--gg-color-primary-brown); padding: 6px 0; padding-left: 20px; position: relative; }}
 .gg-neo-brutalist-page .gg-training-bullets li::before {{ content: '\\2014'; position: absolute; left: 0; color: var(--gg-color-gold); }}

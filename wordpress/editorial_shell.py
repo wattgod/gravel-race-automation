@@ -554,7 +554,7 @@ def render_ladder(lead: str = DEFAULT_LADDER_LEAD) -> str:
         "  </div>\n"
         f'  <div class="pair">\n{pair_html}\n  </div>\n'
         f'  <p class="fine" style="font:400 13px/1.45 var(--serif);color:var(--ink3);margin:10px 0 0">'
-        f'{esc(plan_offer.REFUND_LINE)}</p>\n'
+        f'{esc(main["name"])}: {esc(plan_offer.REFUND_LINE)}</p>\n'
         "</aside>\n</div>"
     )
 

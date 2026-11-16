@@ -5,18 +5,11 @@
       "distance: vitals say 50 mi, guide_variables.race_distance says 62 mi",
       "distance: vitals say 50 mi, workout pack says 62 mi (regenerate: python scripts/generate_race_pack_previews.py --slug cedar-blitz)"
     ],
-    "forbidden-gravel": [
-      "distance: vitals say 68.4 mi, workout pack says 55 mi (regenerate: python scripts/generate_race_pack_previews.py --slug forbidden-gravel)"
-    ],
     "gravel-and-tar-classic": [
       "distance: vitals say 75 mi, workout pack says 99 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravel-and-tar-classic)"
     ],
-    "gravel-grit-n-grind": [
-      "distance: vitals say 83 mi, workout pack says 50 mi (regenerate: python scripts/generate_race_pack_previews.py --slug gravel-grit-n-grind)"
-    ],
     "grusk": [
-      "distance: vitals say 82 mi, guide_variables.race_distance says 65 mi",
-      "distance: vitals say 82 mi, workout pack says 65 mi (regenerate: python scripts/generate_race_pack_previews.py --slug grusk)"
+      "distance: vitals say 82 mi, guide_variables.race_distance says 65 mi"
     ]
   }
 }

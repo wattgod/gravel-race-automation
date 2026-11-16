@@ -103,3 +103,8 @@ def test_degree_reading_still_classifies_hot():
         "challenges": [],
     }
     assert classify_climate_heat(climate, 4) == "hot"
+
+
+def test_humid_adjective_still_classifies_hot():
+    climate = {"primary": "", "description": "Humid afternoons", "challenges": []}
+    assert classify_climate_heat(climate, 4) == "hot"

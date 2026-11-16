@@ -638,7 +638,9 @@ def classify_climate_heat(climate: Optional[dict], climate_score: Optional[int])
         return "extreme"
 
     # Hot: strong heat keywords AND score >= 4, OR very strong keywords alone
-    strong_heat = _mentions_hot_climate(combined)
+    # The classifier has always counted "humid" as strong heat; the shared
+    # matcher only knows "humidity", so keep the adjective here, whole-word.
+    strong_heat = _mentions_hot_climate(combined) or bool(re.search(r"\bhumid\b", combined))
     if score >= 4 and strong_heat:
         return "hot"
     if any(kw in combined for kw in ["scorching", "brutal heat", "heat stroke"]):

@@ -370,6 +370,12 @@ def test_workflows_wait_for_matti():
     assert 'select(.user.login == "wattgod")' in staging
     assert "contains(github.event.issue.labels.*.name, 'xc-weekly-brief')" in staging
     assert "--broadcast" not in staging
+    # Devin review on #642: the run id must be usable in the same step, and a
+    # skipped job (someone else's comment) must not cancel Matti's draft.
+    assert 'BRIEF_RUN="$(python3' in staging and "GITHUB_ENV" not in staging
+    assert staging.index("concurrency:") > staging.index("  stage:")
+    send = (wf / "xc-weekly-send.yml").read_text()
+    assert "any(.comments[]; .body | contains(env.HASH))" in send
     brief = (wf / "xc-weekly-brief.yml").read_text()
     assert "--assignee wattgod" in brief and "xc-weekly-brief-run: $GITHUB_RUN_ID" in brief
     assert "send_xc_weekly" not in brief

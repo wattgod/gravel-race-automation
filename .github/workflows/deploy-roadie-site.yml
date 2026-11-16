@@ -92,7 +92,9 @@ jobs:
         run: |
           set -euo pipefail
           css=$(ls "$STAGE"/assets/rl-styles.*.css | xargs -n1 basename)
-          slug=$(ls "$STAGE"/*.html | head -1 | xargs -n1 basename | sed 's/\.html$//')
+          # A glob, not ls | head: under pipefail, head closing early kills ls (broken pipe).
+          pages=("$STAGE"/*.html)
+          slug=$(basename "${pages[0]}" .html)
           fail=0
           for path in / /about/ /coaching/ /consulting/ /courses/ /insights/ /training-plans/ /road-races/ \
                       /privacy/ /questionnaire/ /coaching/apply/ /methodology/ /race/methodology/ /prep-kit/ /race/calendar/2027/ \

@@ -72,7 +72,7 @@ run the full suite).
 
 Three different Python versions are in play, verified directly:
 - **CI** (`test.yml`, `actions/setup-python@v5`): pins `python-version: '3.11'`
-- **Runtime** (`Dockerfile`, `railway.toml` → `dockerfilePath: Dockerfile`):
+- **Runtime** (`Dockerfile`, `.railway/railway.ts` → `dockerfilePath: "Dockerfile"`):
   `FROM python:3.12-slim`
 - **Local dev** (this machine): `python3 --version` → 3.14.3
 

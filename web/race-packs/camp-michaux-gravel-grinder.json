@@ -4,7 +4,7 @@
   "distance_mi": 50.0,
   "demands": {
     "durability": 2,
-    "climbing": 5,
+    "climbing": 6,
     "vo2_power": 2,
     "threshold": 6,
     "technical": 4,
@@ -21,11 +21,11 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "80ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "114ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
-      "score": 84,
+      "score": 89,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -43,8 +43,17 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Camp Michaux Gravel Grinder. Train it until it feels boring."
     },
     {
+      "category": "Mixed_Climbing",
+      "score": 67,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "5,725ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
       "category": "Gravel_Specific",
-      "score": 71,
+      "score": 67,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
@@ -52,17 +61,8 @@
       "workout_context": "Camp Michaux Gravel Grinder's Pennsylvania rolling, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 50 miles."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 59,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "Varied gradients on Pennsylvania rolling gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
-    },
-    {
       "category": "Race_Simulation",
-      "score": 59,
+      "score": 56,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -72,7 +72,7 @@
     },
     {
       "category": "Durability",
-      "score": 49,
+      "score": 46,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
@@ -81,8 +81,17 @@
       "workout_context": "50 miles on Pennsylvania rolling gravel burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
+      "category": "SFR_Muscle_Force",
+      "score": 44,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 5,725ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
       "category": "Norwegian_Double",
-      "score": 47,
+      "score": 44,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
@@ -91,17 +100,17 @@
     },
     {
       "category": "VO2max",
-      "score": 43,
+      "score": 41,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "When someone attacks on Pennsylvania rolling gravel, you have 10 seconds to respond or you're off the back. This builds that response."
+      "workout_context": "5,725ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Critical_Power",
-      "score": 43,
+      "score": 41,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -109,17 +118,8 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Camp Michaux Gravel Grinder, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "SFR_Muscle_Force",
-      "score": 39,
-      "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
-      ],
-      "workout_context": "Low-cadence force work for 4,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
-    },
-    {
       "category": "Endurance",
-      "score": 33,
+      "score": 31,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
@@ -132,5 +132,5 @@
     "terrain": "Mixed terrain at Camp Michaux Gravel Grinder requires surface adaptability. Include weekly rides on pennsylvania rolling gravel to build confidence. Expect: pennsylvania rolling, local event, northeast gravel."
   },
   "pack_summary": "This 10-workout pack focuses on TT Threshold, Over Under, and G Spot to prepare you for 50 miles of pennsylvania rolling gravel in Gardners, Pennsylvania.",
-  "generated_at": "2026-03-06"
+  "generated_at": "2026-11-15"
 }

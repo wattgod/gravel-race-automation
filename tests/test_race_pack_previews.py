@@ -941,3 +941,25 @@ def test_heat_overlay_quotes_only_whole_word_heat_challenges():
 
     realities = overlay["heat"].split("Race-day realities: ", 1)[1]
     assert realities == "Extreme heat after noon; Sun exposure on open climbs."
+
+
+def test_committed_pack_demands_match_analyzer():
+    """Every committed race pack's demands must equal what the analyzer
+    computes from its profile now. Packs drift silently when a profile or the
+    analyzer changes without regenerating the pack (Nov 2026: 34 packs, incl.
+    Leadville showing heat 6 instead of 0)."""
+    root = Path(__file__).resolve().parent.parent
+    stale = []
+    for pack_path in sorted((root / "web" / "race-packs").glob("*.json")):
+        pack = json.loads(pack_path.read_text())
+        demands = pack.get("demands")
+        profile = root / "race-data" / pack_path.name
+        if not demands or not profile.exists():
+            continue
+        expected = analyze_race_demands(json.loads(profile.read_text()))
+        if demands != expected:
+            stale.append(pack_path.stem)
+    assert not stale, (
+        f"Stale race-pack demands (regenerate with "
+        f"scripts/generate_race_pack_previews.py --slug <slug>): {stale}"
+    )

@@ -4,11 +4,11 @@
   "distance_mi": 100.0,
   "demands": {
     "durability": 6,
-    "climbing": 5,
+    "climbing": 6,
     "vo2_power": 4,
     "threshold": 8,
     "technical": 4,
-    "heat_resilience": 1,
+    "heat_resilience": 0,
     "altitude": 2,
     "race_specificity": 6
   },
@@ -21,17 +21,26 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "Hungry Bear 100's northwoods gravel roads rewards steady threshold power. Surging and recovering costs more watts than just holding."
+      "workout_context": "50ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Durability",
-      "score": 92,
+      "score": 82,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
       "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Over_Under",
+      "score": 82,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Hungry Bear 100, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "G_Spot",
@@ -44,26 +53,17 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Hungry Bear 100. Train it until it feels boring."
     },
     {
-      "category": "Over_Under",
-      "score": 78,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Hungry Bear 100, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
       "category": "Gravel_Specific",
-      "score": 76,
+      "score": 73,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Hungry Bear 100's Gravel roads, Northwoods terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
+      "workout_context": "Hungry Bear 100's Chequamegon-Nicolet National Forest, Northwoods fortified forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 76,
+      "score": 73,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -72,27 +72,36 @@
       "workout_context": "Race-pace efforts that mimic Hungry Bear 100's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
     },
     {
+      "category": "Mixed_Climbing",
+      "score": 55,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "5,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
       "category": "VO2max",
-      "score": 54,
+      "score": 52,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "When someone attacks on northwoods gravel roads, you have 10 seconds to respond or you're off the back. This builds that response."
+      "workout_context": "5,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
-      "category": "Endurance",
-      "score": 52,
+      "category": "Norwegian_Double",
+      "score": 48,
       "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 100 miles, sustainable FTP gains matter more than peak power."
     },
     {
       "category": "HVLI_Extended",
-      "score": 51,
+      "score": 45,
       "workouts": [
         "HVLI Extended Z2",
         "Multi-Hour Z2",
@@ -101,37 +110,28 @@
       "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
     },
     {
-      "category": "Norwegian_Double",
-      "score": 51,
+      "category": "Endurance",
+      "score": 45,
       "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
       ],
-      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 100 miles, sustainable FTP gains matter more than peak power."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
     },
     {
       "category": "Blended",
-      "score": 48,
+      "score": 45,
       "workouts": [
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 4,500ft of climbing on northwoods gravel roads does to your power file on race day."
-    },
-    {
-      "category": "Mixed_Climbing",
-      "score": 48,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "Varied gradients on northwoods gravel roads demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 5,000ft of climbing on northwoods gravel roads does to your power file on race day."
     }
   ],
   "race_overlay": {
     "nutrition": "Target 60\u201380g carbs/hour for Hungry Bear 100\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Hungry Bear 100 requires surface adaptability. Include weekly rides on northwoods gravel roads to build confidence. Expect: gravel roads, northwoods terrain, rolling to hilly."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and G Spot to prepare you for 100 miles of northwoods gravel roads in Cable, Wisconsin.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and Over Under to prepare you for 100 miles of northwoods gravel roads in Cable, Wisconsin.",
+  "generated_at": "2026-11-15"
 }

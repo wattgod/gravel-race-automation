@@ -4,7 +4,7 @@
   "distance_mi": 60.0,
   "demands": {
     "durability": 2,
-    "climbing": 5,
+    "climbing": 7,
     "vo2_power": 2,
     "threshold": 6,
     "technical": 6,
@@ -14,8 +14,18 @@
   },
   "top_categories": [
     {
-      "category": "Gravel_Specific",
+      "category": "TT_Threshold",
       "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "100ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 98,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
@@ -23,28 +33,8 @@
       "workout_context": "Bear Howard Gravel's Arizona mountains, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 60 miles."
     },
     {
-      "category": "TT_Threshold",
-      "score": 91,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "67ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "Race_Simulation",
-      "score": 86,
-      "workouts": [
-        "Breakaway Simulation",
-        "Variable Pace Chaos",
-        "Sector Simulation"
-      ],
-      "workout_context": "Race-pace efforts that mimic Bear Howard Gravel's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before April."
-    },
-    {
       "category": "Over_Under",
-      "score": 77,
+      "score": 93,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -52,18 +42,18 @@
       "workout_context": "At Bear Howard Gravel, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "VO2max",
-      "score": 75,
+      "category": "Race_Simulation",
+      "score": 84,
       "workouts": [
-        "5x3 VO2 Classic",
-        "Descending VO2 Pyramid",
-        "Norwegian 4x8"
+        "Breakaway Simulation",
+        "Variable Pace Chaos",
+        "Sector Simulation"
       ],
-      "workout_context": "When someone attacks on Arizona mountain gravel, you have 10 seconds to respond or you're off the back. This builds that response."
+      "workout_context": "Race-pace efforts that mimic Bear Howard Gravel's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before August."
     },
     {
       "category": "G_Spot",
-      "score": 71,
+      "score": 77,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -73,16 +63,26 @@
     },
     {
       "category": "Mixed_Climbing",
-      "score": 54,
+      "score": 74,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "Varied gradients on Arizona mountain gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+      "workout_context": "6,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "VO2max",
+      "score": 74,
+      "workouts": [
+        "5x3 VO2 Classic",
+        "Descending VO2 Pyramid",
+        "Norwegian 4x8"
+      ],
+      "workout_context": "6,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Critical_Power",
-      "score": 54,
+      "score": 53,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -90,8 +90,17 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Bear Howard Gravel, that number decides whether you bridge or get dropped."
     },
     {
+      "category": "SFR_Muscle_Force",
+      "score": 49,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 6,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
       "category": "Durability",
-      "score": 48,
+      "score": 47,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
@@ -110,21 +119,12 @@
     },
     {
       "category": "Norwegian_Double",
-      "score": 43,
+      "score": 42,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
       ],
       "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
-    },
-    {
-      "category": "Cadence_Work",
-      "score": 43,
-      "workouts": [
-        "High Cadence Drills",
-        "Cadence Pyramids"
-      ],
-      "workout_context": "Smooth pedaling at 60 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
     }
   ],
   "race_overlay": {
@@ -132,6 +132,6 @@
     "altitude": "Moderate altitude at Bear Howard Gravel. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
     "terrain": "Mixed terrain at Bear Howard Gravel requires surface adaptability. Include weekly rides on arizona mountain gravel to build confidence. Expect: arizona mountains, local event, mountain west gravel."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Race Simulation to prepare you for 60 miles of arizona mountain gravel in Flagstaff, Arizona.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 60 miles of arizona mountain gravel in Flagstaff, Arizona.",
+  "generated_at": "2026-11-15"
 }

@@ -365,9 +365,10 @@ class TestPricing:
         section = build_pricing()
         assert "Cancel any time from your plan page" in section
 
-    def test_guarantee(self):
+    def test_refund_is_fine_print_only(self):
+        # Refund terms are fine print, never a headline in the pitch (Matti, 2026-11-16).
         section = build_pricing()
-        assert "14-Day Full Refund" in section
+        assert 'class="gg-tp-fine"' in section and "Day Full Refund" not in section
         assert "Refunding it ends the plan" in section
 
     def test_pricing_cta(self):

@@ -364,7 +364,9 @@ class TestLadderPricing:
         monkeypatch.setattr(plan_offer, "REFUND_LINE", "Full refund within 3 days of your first payment.")
         html = es.render_ladder()
         assert "$99.99 every 4 weeks" in html
-        assert "within 3 days" in html
+        # Refund terms sit in the fine print under the rungs, never in a rung's pitch (Matti, 2026-11-16).
+        assert re.search(r'<p class="fine"[^>]*>Full refund within 3 days of your first payment\.</p>', html)
+        assert html.lower().count("refund") == 1
 
     def test_no_money_literals_in_shell_source(self):
         src = (PROJECT_ROOT / "wordpress" / "editorial_shell.py").read_text()

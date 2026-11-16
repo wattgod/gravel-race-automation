@@ -4,7 +4,7 @@
   "distance_mi": 65.0,
   "demands": {
     "durability": 2,
-    "climbing": 6,
+    "climbing": 7,
     "vo2_power": 2,
     "threshold": 6,
     "technical": 6,
@@ -14,8 +14,18 @@
   },
   "top_categories": [
     {
-      "category": "Gravel_Specific",
+      "category": "TT_Threshold",
       "score": 100,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "102ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Gravel_Specific",
+      "score": 98,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
@@ -23,18 +33,8 @@
       "workout_context": "The GRiT Adventure's Washington Cascades, Mountain gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 65 miles."
     },
     {
-      "category": "TT_Threshold",
-      "score": 96,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "85ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
       "category": "Over_Under",
-      "score": 86,
+      "score": 93,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -43,7 +43,7 @@
     },
     {
       "category": "Race_Simulation",
-      "score": 86,
+      "score": 84,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -53,7 +53,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 75,
+      "score": 77,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -63,26 +63,26 @@
     },
     {
       "category": "Mixed_Climbing",
-      "score": 64,
+      "score": 74,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
       ],
-      "workout_context": "5,500ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+      "workout_context": "6,600ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "VO2max",
-      "score": 57,
+      "score": 56,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "5,500ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "6,600ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Critical_Power",
-      "score": 54,
+      "score": 53,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -90,8 +90,17 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At The GRiT Adventure, that number decides whether you bridge or get dropped."
     },
     {
+      "category": "SFR_Muscle_Force",
+      "score": 49,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 6,600ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
       "category": "Durability",
-      "score": 48,
+      "score": 47,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
@@ -100,17 +109,8 @@
       "workout_context": "65 miles on Washington Cascades gravel burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
-      "category": "SFR_Muscle_Force",
-      "score": 43,
-      "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
-      ],
-      "workout_context": "Low-cadence force work for 5,500ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
-    },
-    {
       "category": "Norwegian_Double",
-      "score": 43,
+      "score": 42,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
@@ -119,7 +119,7 @@
     },
     {
       "category": "Cadence_Work",
-      "score": 43,
+      "score": 42,
       "workouts": [
         "High Cadence Drills",
         "Cadence Pyramids"
@@ -129,9 +129,9 @@
   ],
   "race_overlay": {
     "nutrition": "Target 40\u201360g carbs/hour for The GRiT Adventure\u2019s 65 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
-    "altitude": "Moderate altitude at The GRiT Adventure. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
-    "terrain": "Mixed terrain at The GRiT Adventure requires surface adaptability. Include weekly rides on washington cascades gravel to build confidence. Expect: washington cascades, mountain gravel, pacific northwest."
+    "terrain": "Mixed terrain at The GRiT Adventure requires surface adaptability. Include weekly rides on washington cascades gravel to build confidence. Expect: washington cascades, mountain gravel, pacific northwest.",
+    "altitude": "Moderate altitude at The GRiT Adventure. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, TT Threshold, and Over Under to prepare you for 65 miles of washington cascades gravel in Snoqualmie Pass, WA.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 65 miles of washington cascades gravel in Snoqualmie Pass, WA.",
+  "generated_at": "2026-11-15"
 }

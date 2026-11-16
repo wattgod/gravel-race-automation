@@ -1,14 +1,14 @@
 {
   "slug": "de-ronde-van-grampian",
   "race_name": "De Ronde Van Grampian",
-  "distance_mi": 50.0,
+  "distance_mi": 52.0,
   "demands": {
     "durability": 2,
-    "climbing": 3,
+    "climbing": 4,
     "vo2_power": 2,
     "threshold": 5,
     "technical": 4,
-    "heat_resilience": 0,
+    "heat_resilience": 1,
     "altitude": 2,
     "race_specificity": 3
   },
@@ -21,16 +21,25 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "De Ronde Van Grampian's Michigan rolling gravel rewards steady threshold power. Surging and recovering costs more watts than just holding."
+      "workout_context": "60ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Gravel_Specific",
-      "score": 92,
+      "score": 86,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "De Ronde Van Grampian's Michigan rolling, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 50 miles."
+      "workout_context": "De Ronde Van Grampian's 99% gravel roads, Rolling Oakland and Lapeer County roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 52 miles."
+    },
+    {
+      "category": "Over_Under",
+      "score": 83,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At De Ronde Van Grampian, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "G_Spot",
@@ -43,17 +52,8 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of De Ronde Van Grampian. Train it until it feels boring."
     },
     {
-      "category": "Over_Under",
-      "score": 77,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At De Ronde Van Grampian, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
       "category": "Race_Simulation",
-      "score": 77,
+      "score": 71,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -62,18 +62,37 @@
       "workout_context": "Race-pace efforts that mimic De Ronde Van Grampian's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before August."
     },
     {
+      "category": "Durability",
+      "score": 60,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "52 miles on rolling Michigan gravel with a technical finish burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 57,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on rolling Michigan gravel with a technical finish demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
       "category": "VO2max",
-      "score": 56,
+      "score": 52,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "When someone attacks on Michigan rolling gravel, you have 10 seconds to respond or you're off the back. This builds that response."
+      "workout_context": "When someone attacks on rolling Michigan gravel with a technical finish, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
       "category": "Critical_Power",
-      "score": 56,
+      "score": 52,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -81,18 +100,8 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At De Ronde Van Grampian, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Durability",
-      "score": 54,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "50 miles on Michigan rolling gravel burns energy faster than the distance suggests. Train the fade resistance now."
-    },
-    {
       "category": "Norwegian_Double",
-      "score": 51,
+      "score": 48,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
@@ -100,37 +109,28 @@
       "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 46,
+      "category": "Endurance",
+      "score": 40,
       "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
       ],
-      "workout_context": "Varied gradients on Michigan rolling gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+      "workout_context": "Base fitness for De Ronde Van Grampian. Without this, the hard workouts break you down instead of building you up."
     },
     {
-      "category": "Anaerobic_Capacity",
-      "score": 41,
+      "category": "SFR_Muscle_Force",
+      "score": 38,
       "workouts": [
-        "2min Killers",
-        "90sec Repeats"
+        "SFR Low Cadence",
+        "Force Repeats"
       ],
-      "workout_context": "2-minute all-out efforts on Michigan rolling gravel. Closing gaps, responding to attacks, sprinting for position. Train the burn."
-    },
-    {
-      "category": "Cadence_Work",
-      "score": 41,
-      "workouts": [
-        "High Cadence Drills",
-        "Cadence Pyramids"
-      ],
-      "workout_context": "Smooth pedaling at 50 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+      "workout_context": "Low-cadence force work for 3,123ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     }
   ],
   "race_overlay": {
     "nutrition": "Target 40\u201360g carbs/hour for De Ronde Van Grampian\u2019s 50 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
     "terrain": "Mixed terrain at De Ronde Van Grampian requires surface adaptability. Include weekly rides on michigan rolling gravel to build confidence. Expect: michigan rolling, local event, midwest gravel."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and G Spot to prepare you for 50 miles of michigan rolling gravel in Oxford, Michigan.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 52 miles of rolling michigan gravel with a technical finish in Oxford, Michigan.",
+  "generated_at": "2026-11-15"
 }

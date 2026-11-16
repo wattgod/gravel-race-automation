@@ -4,7 +4,7 @@
   "distance_mi": 350.0,
   "demands": {
     "durability": 10,
-    "climbing": 9,
+    "climbing": 10,
     "vo2_power": 10,
     "threshold": 5,
     "technical": 8,
@@ -40,7 +40,7 @@
         "Variable Pace Chaos",
         "Sector Simulation"
       ],
-      "workout_context": "Race-pace efforts that mimic Unbound XL's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
+      "workout_context": "Race-pace efforts that mimic Unbound XL's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before June."
     },
     {
       "category": "VO2max",
@@ -72,6 +72,15 @@
       "workout_context": "350 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
     },
     {
+      "category": "Over_Under",
+      "score": 53,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Unbound XL, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
       "category": "Critical_Power",
       "score": 51,
       "workouts": [
@@ -81,17 +90,17 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Unbound XL, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Over_Under",
+      "category": "Mixed_Climbing",
       "score": 49,
       "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
       ],
-      "workout_context": "At Unbound XL, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+      "workout_context": "14,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "TT_Threshold",
-      "score": 47,
+      "score": 49,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
@@ -109,15 +118,6 @@
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on pure limestone gravel \u2014 sharp edges regularly. If you haven't trained them, you'll crack."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 44,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "14,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
-    },
-    {
       "category": "Blended",
       "score": 41,
       "workouts": [
@@ -130,9 +130,9 @@
   "race_overlay": {
     "heat": "May in Emporia, Kansas. Begin heat acclimatization 10\u201314 days before Unbound XL \u2014 20\u201330min sauna sessions or midday rides in full kit. Pre-load sodium 48 hours out. Target 500\u2013750ml/hr with electrolytes on race day.",
     "nutrition": "Ultra-distance fueling for 350 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 350 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
-    "altitude": "Moderate altitude at Unbound XL. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
-    "terrain": "Highly technical terrain at Unbound XL demands practice on similar surfaces. Ride pure limestone gravel \u2014 sharp edges regularly destroy tires, constant line-choice decisions at race-day cadence weekly. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 350 miles."
+    "terrain": "Highly technical terrain at Unbound XL demands practice on similar surfaces. Ride pure limestone gravel \u2014 sharp edges regularly destroy tires, constant line-choice decisions at race-day cadence weekly. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 350 miles.",
+    "altitude": "Moderate altitude at Unbound XL. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively."
   },
   "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 350 miles of pure limestone gravel \u2014 sharp edges regularly destroy tires, constant line-choice decisions in Emporia, Kansas.",
-  "generated_at": "2026-03-06"
+  "generated_at": "2026-11-15"
 }

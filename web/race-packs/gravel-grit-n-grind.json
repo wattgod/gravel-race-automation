@@ -1,12 +1,12 @@
 {
   "slug": "gravel-grit-n-grind",
   "race_name": "Gravel Grit 'n Grind",
-  "distance_mi": 50.0,
+  "distance_mi": 83.0,
   "demands": {
-    "durability": 2,
-    "climbing": 3,
+    "durability": 4,
+    "climbing": 4,
     "vo2_power": 5,
-    "threshold": 5,
+    "threshold": 7,
     "technical": 6,
     "heat_resilience": 0,
     "altitude": 2,
@@ -20,7 +20,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Gravel Grit 'n Grind's Gravel roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 50 miles."
+      "workout_context": "Gravel Grit 'n Grind's Swedish farm and forest gravel, UCI Gravel World Series forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 83 miles."
     },
     {
       "category": "Race_Simulation",
@@ -33,6 +33,45 @@
       "workout_context": "Race-pace efforts that mimic Gravel Grit 'n Grind's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before August."
     },
     {
+      "category": "TT_Threshold",
+      "score": 84,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Gravel Grit 'n Grind's halland farm and forest gravel rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Durability",
+      "score": 70,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 83, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "G_Spot",
+      "score": 67,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Gravel Grit 'n Grind. Train it until it feels boring."
+    },
+    {
+      "category": "Over_Under",
+      "score": 64,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Gravel Grit 'n Grind, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
       "category": "VO2max",
       "score": 62,
       "workouts": [
@@ -40,17 +79,7 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "When someone attacks on mixed gravel, you have 10 seconds to respond or you're off the back. This builds that response."
-    },
-    {
-      "category": "TT_Threshold",
-      "score": 61,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "Gravel Grit 'n Grind's mixed gravel rewards steady threshold power. Surging and recovering costs more watts than just holding."
+      "workout_context": "When someone attacks on halland farm and forest gravel, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
       "category": "Critical_Power",
@@ -62,75 +91,46 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Gravel Grit 'n Grind, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Durability",
-      "score": 52,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "50 miles on mixed gravel burns energy faster than the distance suggests. Train the fade resistance now."
-    },
-    {
       "category": "Anaerobic_Capacity",
       "score": 50,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
       ],
-      "workout_context": "2-minute all-out efforts on mixed gravel. Closing gaps, responding to attacks, sprinting for position. Train the burn."
-    },
-    {
-      "category": "G_Spot",
-      "score": 48,
-      "workouts": [
-        "G-Spot Standard",
-        "G-Spot Extended",
-        "Criss-Cross"
-      ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Gravel Grit 'n Grind. Train it until it feels boring."
-    },
-    {
-      "category": "Over_Under",
-      "score": 47,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Gravel Grit 'n Grind, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
-      "category": "Cadence_Work",
-      "score": 38,
-      "workouts": [
-        "High Cadence Drills",
-        "Cadence Pyramids"
-      ],
-      "workout_context": "Smooth pedaling at 50 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
-    },
-    {
-      "category": "Blended",
-      "score": 31,
-      "workouts": [
-        "Z2 + VO2 Combo",
-        "Endurance with Spikes"
-      ],
-      "workout_context": "Long rides with hard efforts mixed in. Simulates what Gravel Grit 'n Grind's mixed gravel actually does to you."
+      "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on halland farm and forest gravel. If you haven't trained them, you'll crack."
     },
     {
       "category": "Norwegian_Double",
-      "score": 31,
+      "score": 44,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
       ],
-      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 83 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Blended",
+      "score": 41,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 3,926ft of climbing on halland farm and forest gravel does to your power file on race day."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 38,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on halland farm and forest gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
     }
   ],
   "race_overlay": {
     "nutrition": "Target 40\u201360g carbs/hour for Gravel Grit 'n Grind\u2019s 50 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
     "terrain": "Mixed terrain at Gravel Grit 'n Grind requires surface adaptability. Include weekly rides on mixed gravel to build confidence. Expect: gravel roads."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and VO2max to prepare you for 50 miles of mixed gravel in Halmstad, Sweden.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 83 miles of halland farm and forest gravel in Halmstad, Sweden.",
+  "generated_at": "2026-11-15"
 }

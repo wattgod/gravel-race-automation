@@ -557,7 +557,8 @@ def test_load_evidence_keeps_every_runs_errors(tmp_path):
     row = merged["coverage"][0]
     assert row["runs"] == 2 and row["errors"] == []
     assert row["failedRuns"] == [{"at": (NOW - timedelta(days=4)).isoformat(), "errors": ["ParseError"]}]
-    assert draft.missing_core_sources(merged) == []
+    assert draft.missing_core_sources(merged, {"langrenn"}) == []
+    assert draft.missing_core_sources(merged, {"langrenn", "nrk"}) == ["nrk"]  # absent counts as missing
     md = xi.render_brief_markdown(xi.validate_brief(xi.assemble_brief(brief_selection(), evidence()), evidence()),
                                   merged["coverage"])
     assert md.startswith("> [!WARNING]") and "Langrenn (core): failed 2026-11-12; 1 of 2 runs fetched" in md
@@ -603,10 +604,53 @@ def test_take_may_not_reprint_a_source():
         xi.validate_issue(xi.assemble_issue(sel, evidence(), 1, "2026-11-16"), evidence())
 
 
-def test_subject_and_preheader_limits_match_the_brief():
-    assert xi.MAX_SUBJECT_CHARS == 60 and xi.MAX_PREHEADER_CHARS == 110
-    with pytest.raises(xi.IssueError, match="subject must be"):
-        xi.validate_issue(xi.assemble_issue(selection(subject="x" * 61), evidence(), 1, "2026-11-16"))
+def test_new_drafts_follow_the_brief_limits_but_staged_issues_still_send():
+    assert (xi.DRAFT_SUBJECT_CHARS, xi.DRAFT_PREHEADER_CHARS) == (60, 110)
+    long = xi.assemble_issue(selection(subject="Sixty-five characters of subject line for an older staged issue"),
+                             evidence(), 1, "2026-11-16")
+    assert 60 < len(long["subject"]) <= xi.MAX_SUBJECT_CHARS
+    xi.validate_issue(long, evidence())  # already-staged issues keep their publication contract
+    with pytest.raises(xi.IssueError, match="at most 60"):
+        xi.check_draft_limits(long)
+    client = FakeClient([selection(subject=long["subject"]), selection()])
+    issue = draft.draft(evidence(), make_brief(), "I think it was a good week.", 1, "2026-11-16", client=client)
+    assert len(issue["subject"]) <= 60 and "at most 60" in client.requests[1]["messages"][-1]["content"]
+
+
+def test_html_block_page_is_a_failed_fetch_not_an_empty_feed():
+    session = FlakySession([b"<html><body>Access denied</body></html>"] * 3)
+    source = {"id": "langrenn", "name": "Langrenn.com", "lang": "no", "feed": "https://www.langrenn.com/feed"}
+    items, coverage = collect.collect_source(source, "news", NOW - timedelta(days=7), session, lambda s: None)
+    assert items == [] and len(session.calls) == 3
+    assert "not an RSS or Atom feed" in coverage["errors"][0]
+
+
+def test_merge_keeps_one_item_per_article_across_id_schemes():
+    old = {**evidence()["items"][0], "id": "legacyhash", "url": "https://www.langrenn.com/1?utm_source=rss"}
+    merged = collect.merge_items(evidence()["items"], [old])
+    assert sum(1 for i in merged if "langrenn.com/1" in i["url"]) == 1
+
+
+def test_runs_before_the_window_do_not_vouch_for_the_week(tmp_path):
+    (tmp_path / "old.json").write_text(json.dumps(snapshot(NOW - timedelta(days=7, hours=12), {"langrenn": []})))
+    (tmp_path / "now.json").write_text(json.dumps(snapshot(NOW, {"langrenn": ["ParseError"]})))
+    merged = draft.load_evidence([tmp_path / "old.json", tmp_path / "now.json"], NOW)
+    assert draft.missing_core_sources(merged, {"langrenn"}) == ["Langrenn"]
+
+
+def test_reader_copy_is_checked_against_all_evidence_and_attribution():
+    ev = evidence()
+    ev["items"].append({**ev["items"][0], "id": "x9", "url": "https://www.langrenn.com/x9",
+                        "excerpt": "", "detail": "Johaug sier at sesongen blir den siste hun går på ski"})
+    sel = selection(take=["I think Johaug sier at sesongen blir den siste hun går på ski [1], which is a "
+                          "bigger deal than the opener and worth a long spring of reading."])
+    with pytest.raises(xi.IssueError, match="take: reprints a source"):
+        xi.validate_issue(xi.assemble_issue(sel, ev, 1, "2026-11-16"), ev)
+    issue = xi.assemble_issue(also_selection(), evidence(), 1, "2026-11-16")
+    issue["stories"][0]["also"][0]["sourceName"] = "Matti uses AI to write this"
+    issue["contentHash"] = xi.content_hash(issue)
+    with pytest.raises(xi.IssueError, match="also-at link is not in the evidence"):
+        xi.validate_issue(issue, evidence())
 
 
 def test_email_puts_the_week_first_with_one_link_per_story_and_dark_mode():

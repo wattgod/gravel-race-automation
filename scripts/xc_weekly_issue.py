@@ -56,8 +56,12 @@ MAX_HEADLINE_CHARS = 90
 MAX_BLURB_WORDS = 60
 MAX_TAKE_WORDS = 220
 MIN_TAKE_WORDS = 40
-MAX_SUBJECT_CHARS = 60      # prompts/xc-weekly-voice.md rule 10
-MAX_PREHEADER_CHARS = 110
+# Publication limits: every staged issue, old or new, must pass these to send.
+MAX_SUBJECT_CHARS = 70
+MAX_PREHEADER_CHARS = 130
+# Drafting limits (prompts/xc-weekly-voice.md rule 10), enforced on new drafts.
+DRAFT_SUBJECT_CHARS = 60
+DRAFT_PREHEADER_CHARS = 110
 SHARED_RUN_WORDS = 8
 
 # Customer copy never brings up AI or the machinery, and never talks about
@@ -171,6 +175,18 @@ def assemble_issue(selection: dict, evidence: dict, issue_number: int, issue_dat
     return issue
 
 
+def check_draft_limits(issue: dict) -> dict:
+    """New drafts follow the brief's tighter subject and preheader limits."""
+    problems = []
+    if len(issue.get("subject", "")) > DRAFT_SUBJECT_CHARS:
+        problems.append(f"subject must be at most {DRAFT_SUBJECT_CHARS} characters")
+    if len(issue.get("preheader", "")) > DRAFT_PREHEADER_CHARS:
+        problems.append(f"preheader must be at most {DRAFT_PREHEADER_CHARS} characters")
+    if problems:
+        raise IssueError("; ".join(problems))
+    return issue
+
+
 def content_hash(issue: dict) -> str:
     body = {k: v for k, v in issue.items() if k not in ("status", "contentHash")}
     canonical = json.dumps(body, sort_keys=True, ensure_ascii=False, separators=(",", ":"))
@@ -217,9 +233,12 @@ def _check_items(issue: dict, evidence: dict | None, problems: list[str]) -> Non
             else:
                 if item["url"] != story.get("url"):
                     problems.append(f"{label}: link differs from the evidence")
+                if (story.get("sourceName"), story.get("lang")) != (item["sourceName"], item["lang"]):
+                    problems.append(f"{label}: outlet differs from the evidence")
                 for other in story.get("also", []):
                     known = evidence_by_id.get(other["itemId"])
-                    if known is None or known["url"] != other["url"]:
+                    if known is None or (other.get("url"), other.get("sourceName"), other.get("lang")) != (
+                            known["url"], known["sourceName"], known["lang"]):
                         problems.append(f"{label}: an also-at link is not in the evidence")
                 # Every collected text about the event, drafting detail included.
                 related = [item] + [evidence_by_id[a["itemId"]] for a in story.get("also", [])
@@ -245,6 +264,9 @@ def _check_items(issue: dict, evidence: dict | None, problems: list[str]) -> Non
             else:
                 if item["url"] != pod.get("url"):
                     problems.append(f"{label}: link differs from the evidence")
+                if (pod.get("show"), pod.get("episodeTitle"), pod.get("lang")) != (
+                        item["sourceName"], item["title"], item["lang"]):
+                    problems.append(f"{label}: show or episode differs from the evidence")
                 run = shared_run(blurb, f"{item['title']} {item['excerpt']} {item.get('detail', '')}")
                 if run:
                     problems.append(f"{label}: reprints the source ({run!r})")
@@ -297,10 +319,9 @@ def validate_issue(issue: dict, evidence: dict | None = None) -> dict:
             problems.append(f"take marker [{marker}] has no story")
 
     if evidence is not None:
-        # The take, subject and preheader may not reprint any story's sources either.
-        story_ids = {s["itemId"] for s in stories} | {a["itemId"] for s in stories for a in s.get("also", [])}
+        # The take, subject and preheader may not reprint anything the drafter saw.
         all_text = " ".join(f"{i['title']} {i['excerpt']} {i.get('detail', '')}"
-                            for i in evidence_by_id.values() if i["id"] in story_ids)
+                            for i in evidence_by_id.values())
         for label, text in (("take", MARKER_RE.sub("", take_text)), ("subject", subject),
                             ("preheader", preheader)):
             run = shared_run(text, all_text)

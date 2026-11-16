@@ -84,9 +84,16 @@ def item_id(key: str) -> str:
     return hashlib.sha1(key.encode()).hexdigest()[:10]
 
 
+class NotAFeedError(ValueError):
+    """The document parsed but is not RSS or Atom."""
+
+
 def parse_feed(xml_bytes: bytes) -> tuple[list[dict], str]:
     """Return (entries, channel_link) from RSS 2.0 or Atom bytes."""
     root = ET.fromstring(xml_bytes)
+    if root.tag not in ("rss", f"{ATOM}feed"):
+        # Well-formed HTML (a block or consent page) is not an empty feed.
+        raise NotAFeedError(f"root element is <{root.tag}>, not an RSS or Atom feed")
     entries: list[dict] = []
     channel = root.find("channel")
     if channel is not None:
@@ -181,8 +188,8 @@ def fetch_feed(url: str, session: requests.Session, sleep=time.sleep) -> tuple[l
             body = fetch(url, session)
             try:
                 return parse_feed(body)
-            except ET.ParseError as exc:
-                raise FeedParseError(f"ParseError: {exc}; got {_describe(body)}") from exc
+            except (ET.ParseError, NotAFeedError) as exc:
+                raise FeedParseError(f"{type(exc).__name__}: {exc}; got {_describe(body)}") from exc
         except requests.HTTPError as exc:
             status = exc.response.status_code if exc.response is not None else None
             if status is not None and 400 <= status < 500 and status != 429:
@@ -266,11 +273,17 @@ def collect_source(source: dict, kind: str, since: datetime, session: requests.S
 
 
 def merge_items(*groups: list[dict]) -> list[dict]:
-    """Union item lists by id, newest first."""
+    """Union item lists, newest first.
+
+    News is keyed by normalized URL, so one article stays one item even when
+    older snapshots hashed its id differently. Podcast episodes can share a
+    show URL, so they stay keyed by id.
+    """
     merged: dict[str, dict] = {}
     for group in groups:
         for item in group:
-            merged.setdefault(item["id"], item)
+            key = f"url:{normalize_url(item['url'])}" if item["kind"] == "news" else f"id:{item['id']}"
+            merged.setdefault(key, item)
     return sorted(merged.values(), key=lambda item: item["published"], reverse=True)
 
 

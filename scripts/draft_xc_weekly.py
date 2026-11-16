@@ -28,9 +28,9 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 
-from collect_xc_weekly import merge_items  # noqa: E402
+from collect_xc_weekly import load_sources, merge_items  # noqa: E402
 from xc_weekly_issue import (  # noqa: E402
-    IssueError, assemble_brief, assemble_issue, render_brief_markdown, render_email_html,
+    IssueError, assemble_brief, assemble_issue, check_draft_limits, render_brief_markdown, render_email_html,
     render_review_markdown, validate_brief, validate_issue,
 )
 
@@ -103,6 +103,8 @@ def load_evidence(paths: list[Path], now: datetime) -> dict:
     for path in paths:
         data = json.loads(path.read_text())
         groups.append(data["items"])
+        if datetime.fromisoformat(data["collectedAt"]) < since:
+            continue  # a run before the week cannot vouch for this week's coverage
         for cov in data["coverage"]:
             row = coverage.setdefault(cov["id"], {**cov, "runs": 0, "failedRuns": [], "_at": ""})
             row["runs"] += 1
@@ -120,10 +122,17 @@ def load_evidence(paths: list[Path], now: datetime) -> dict:
             "items": items, "coverage": sorted(coverage.values(), key=lambda c: (c["kind"], c["id"]))}
 
 
-def missing_core_sources(evidence: dict) -> list[str]:
-    """Core sources that never fetched cleanly in any run this week."""
-    return [c["name"] for c in evidence["coverage"]
-            if c.get("core") and c.get("runs", 1) <= len(c.get("failedRuns", []))]
+def missing_core_sources(evidence: dict, core_ids: set[str] | None = None) -> list[str]:
+    """Core sources (from config) that never fetched cleanly in a run this week."""
+    if core_ids is None:
+        core_ids = {s["id"] for s in load_sources()["news"] if s.get("core")}
+    rows = {c["id"]: c for c in evidence["coverage"]}
+    missing = []
+    for source_id in sorted(core_ids):
+        row = rows.get(source_id)
+        if row is None or row.get("runs", 1) <= len(row.get("failedRuns", [])):
+            missing.append(row["name"] if row else source_id)
+    return missing
 
 
 def evidence_prompt(evidence: dict) -> str:
@@ -239,7 +248,8 @@ def draft(evidence: dict, brief: dict, reactions: str, issue_number: int, issue_
     messages = [{"role": "user", "content": reaction_prompt(evidence, brief, reactions)}]
     return _with_one_repair(
         _client(client), messages, SELECTION_SCHEMA,
-        lambda sel: validate_issue(assemble_issue(sel, evidence, issue_number, issue_date), evidence))
+        lambda sel: validate_issue(check_draft_limits(assemble_issue(sel, evidence, issue_number, issue_date)),
+                                   evidence))
 
 
 def stage_brief(brief: dict, evidence: dict, out: Path) -> dict:

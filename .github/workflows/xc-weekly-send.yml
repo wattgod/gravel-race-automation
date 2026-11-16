@@ -1,0 +1,76 @@
+name: "XC Weekly Send"
+
+# Sends one staged XC Ski Labs Weekly issue to its subscribers. Manual only:
+# give it the staging run and the content hash that was approved. A staged
+# issue whose hash differs is refused, and a rerun never sends twice.
+on:
+  workflow_dispatch:
+    inputs:
+      stage_run_id:
+        description: "XC Weekly Draft Staging run ID"
+        required: true
+        type: string
+      approved_hash:
+        description: "Content hash that was approved"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+concurrency:
+  group: xc-weekly-send
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash  # -eo pipefail: a failed step piped through tee still fails
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Require main and well-formed inputs
+        env:
+          DEPLOY_REF: ${{ github.ref }}
+          RUN_ID: ${{ inputs.stage_run_id }}
+          HASH: ${{ inputs.approved_hash }}
+        run: |
+          [[ "$DEPLOY_REF" == "refs/heads/main" ]] || { echo "::error::send from main only"; exit 1; }
+          [[ "$RUN_ID" =~ ^[0-9]+$ ]] || { echo "::error::stage_run_id must be a run ID"; exit 1; }
+          [[ "$HASH" =~ ^[0-9a-f]{16}$ ]] || { echo "::error::approved_hash must be 16 hex characters"; exit 1; }
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install canonical runtime
+        run: pip install -r requirements.txt
+      - name: Download the staged issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ inputs.stage_run_id }}
+        run: |
+          name="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID" --jq .name)"
+          [[ "$name" == "XC Weekly Draft Staging" ]] || { echo "::error::run $RUN_ID is not an XC Weekly staging run"; exit 1; }
+          gh run download "$RUN_ID" --name "xc-weekly-stage-$RUN_ID" --dir stage
+      - name: Send the broadcast
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          HASH: ${{ inputs.approved_hash }}
+        run: python scripts/send_xc_weekly.py --broadcast stage --approved-hash "$HASH" | tee "$RUNNER_TEMP/receipt.txt"
+      - name: Record the send on the review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HASH: ${{ inputs.approved_hash }}
+        run: |
+          issue="$(gh issue list --label xc-weekly-draft --state open --search "$HASH in:body" --json number --jq '.[0].number')"
+          if [[ -n "$issue" ]]; then
+            gh issue comment "$issue" --body "Sent: $(cat "$RUNNER_TEMP/receipt.txt")"
+            gh issue close "$issue"
+          fi

@@ -38,7 +38,17 @@ COLORS = {
     "salmon": "#e3876d",
 }
 
-LANG_NAMES = {"no": "Norwegian", "sv": "Swedish", "de": "German", "en": None}
+LANG_NAMES = {"no": "Norwegian", "sv": "Swedish", "de": "German", "fi": "Finnish", "fr": "French", "en": None}
+
+# Dark-mode surfaces (prefers-color-scheme: dark). Inline styles keep the light
+# palette for clients that ignore the media query.
+DARK = {
+    "page": "#141c27",
+    "card": "#1e2b3c",
+    "text": "#f1e9dc",
+    "muted": "#c9bfae",
+    "take": "#3a2a26",
+}
 
 MIN_STORIES, MAX_STORIES = 4, 10
 MAX_PODCASTS = 5
@@ -46,8 +56,8 @@ MAX_HEADLINE_CHARS = 90
 MAX_BLURB_WORDS = 60
 MAX_TAKE_WORDS = 220
 MIN_TAKE_WORDS = 40
-MAX_SUBJECT_CHARS = 70
-MAX_PREHEADER_CHARS = 130
+MAX_SUBJECT_CHARS = 60      # prompts/xc-weekly-voice.md rule 10
+MAX_PREHEADER_CHARS = 110
 SHARED_RUN_WORDS = 8
 
 # Customer copy never brings up AI or the machinery, and never talks about
@@ -97,6 +107,13 @@ def _join_items(selection: dict, evidence: dict) -> tuple[list[dict], list[dict]
         item = by_id.get(pick["itemId"])
         if item is None or item["kind"] != "news":
             raise IssueError(f"story itemId {pick['itemId']!r} is not a collected news item")
+        also = []
+        for other_id in pick.get("alsoItemIds", []):
+            other = by_id.get(other_id)
+            if other is None or other["kind"] != "news" or other_id == item["id"]:
+                raise IssueError(f"alsoItemId {other_id!r} is not another collected news item")
+            also.append({"itemId": other["id"], "sourceName": other["sourceName"],
+                         "url": other["url"], "lang": other["lang"]})
         stories.append({
             "itemId": item["id"],
             "headline": pick["headline"].strip(),
@@ -105,6 +122,7 @@ def _join_items(selection: dict, evidence: dict) -> tuple[list[dict], list[dict]
             "sourceName": item["sourceName"],
             "lang": item["lang"],
             "published": item["published"],
+            "also": also,
         })
     podcasts = []
     for pick in selection.get("podcasts", []):
@@ -175,7 +193,8 @@ def _check_items(issue: dict, evidence: dict | None, problems: list[str]) -> Non
     podcasts = issue.get("podcasts", [])
     if len(podcasts) > MAX_PODCASTS:
         problems.append(f"at most {MAX_PODCASTS} podcasts")
-    ids = [s["itemId"] for s in stories] + [p["itemId"] for p in podcasts]
+    ids = ([s["itemId"] for s in stories] + [a["itemId"] for s in stories for a in s.get("also", [])]
+           + [p["itemId"] for p in podcasts])
     if len(ids) != len(set(ids)):
         problems.append("an item is used twice")
 
@@ -198,7 +217,14 @@ def _check_items(issue: dict, evidence: dict | None, problems: list[str]) -> Non
             else:
                 if item["url"] != story.get("url"):
                     problems.append(f"{label}: link differs from the evidence")
-                source_text = f"{item['title']} {item['excerpt']}"
+                for other in story.get("also", []):
+                    known = evidence_by_id.get(other["itemId"])
+                    if known is None or known["url"] != other["url"]:
+                        problems.append(f"{label}: an also-at link is not in the evidence")
+                # Every collected text about the event, drafting detail included.
+                related = [item] + [evidence_by_id[a["itemId"]] for a in story.get("also", [])
+                                    if a["itemId"] in evidence_by_id]
+                source_text = " ".join(f"{i['title']} {i['excerpt']} {i.get('detail', '')}" for i in related)
                 for part in (headline, blurb):
                     run = shared_run(part, source_text)
                     if run:
@@ -219,7 +245,7 @@ def _check_items(issue: dict, evidence: dict | None, problems: list[str]) -> Non
             else:
                 if item["url"] != pod.get("url"):
                     problems.append(f"{label}: link differs from the evidence")
-                run = shared_run(blurb, f"{item['title']} {item['excerpt']}")
+                run = shared_run(blurb, f"{item['title']} {item['excerpt']} {item.get('detail', '')}")
                 if run:
                     problems.append(f"{label}: reprints the source ({run!r})")
 
@@ -253,6 +279,7 @@ def validate_issue(issue: dict, evidence: dict | None = None) -> dict:
 
     _check_items(issue, evidence, problems)
     stories = issue.get("stories", [])
+    evidence_by_id = {i["id"]: i for i in (evidence or {}).get("items", [])}
 
     take = issue.get("take", [])
     if not 1 <= len(take) <= 2:
@@ -269,6 +296,17 @@ def validate_issue(issue: dict, evidence: dict | None = None) -> dict:
         if not 1 <= marker <= len(stories):
             problems.append(f"take marker [{marker}] has no story")
 
+    if evidence is not None:
+        # The take, subject and preheader may not reprint any story's sources either.
+        story_ids = {s["itemId"] for s in stories} | {a["itemId"] for s in stories for a in s.get("also", [])}
+        all_text = " ".join(f"{i['title']} {i['excerpt']} {i.get('detail', '')}"
+                            for i in evidence_by_id.values() if i["id"] in story_ids)
+        for label, text in (("take", MARKER_RE.sub("", take_text)), ("subject", subject),
+                            ("preheader", preheader)):
+            run = shared_run(text, all_text)
+            if run:
+                problems.append(f"{label}: reprints a source ({run!r})")
+
     if problems:
         raise IssueError("; ".join(problems))
     return issue
@@ -282,15 +320,20 @@ def _lang_note(lang: str) -> str:
 
 
 def _take_html(paragraph: str, stories: list[dict]) -> str:
+    """Markers become short outlet-name links, e.g. (TV 2), not bare footnotes."""
     out, last = [], 0
     for match in MARKER_RE.finditer(paragraph):
-        out.append(html.escape(paragraph[last:match.start()]))
+        out.append(html.escape(paragraph[last:match.start()].rstrip()))
         story = stories[int(match.group(1)) - 1]
-        out.append(f'<a href="{html.escape(story["url"])}" style="color:{COLORS["navy"]};">'
-                   f'[{match.group(1)}]</a>')
+        out.append(f' (<a class="xl" href="{html.escape(story["url"])}" style="color:{COLORS["navy"]};">'
+                   f'{html.escape(story["sourceName"])}</a>)')
         last = match.end()
     out.append(html.escape(paragraph[last:]))
     return "".join(out)
+
+
+def _take_text(paragraph: str, stories: list[dict]) -> str:
+    return MARKER_RE.sub(lambda m: f"({stories[int(m.group(1)) - 1]['sourceName']})", paragraph)
 
 
 def _date_label(issue_date: str) -> str:
@@ -303,69 +346,164 @@ def footer_line() -> str:
     return f"{BRAND_FOOTER_NAMES[BRAND]} · {SENDER_POSTAL_ADDRESS}"
 
 
-def render_email_html(issue: dict, *, preview_banner: str | None = None) -> str:
-    """The broadcast body. {{{RESEND_UNSUBSCRIBE_URL}}} is filled by Resend."""
+def _attribution_html(story: dict) -> str:
+    """Outlet and language, then any other outlets that covered the same event."""
     c = COLORS
-    label = f"No. {issue['issueNumber']:03d} · {_date_label(issue['issueDate'])}"
-    banner = ""
-    if preview_banner:
-        banner = (f'<div style="background:{c["navy"]};color:{c["wool"]};padding:10px 16px;'
-                  f'font:700 13px Arial,sans-serif;letter-spacing:1px;">{html.escape(preview_banner)}</div>')
-    take = "".join(
-        f'<p style="margin:0 0 12px;font:17px/1.55 Georgia,serif;color:{c["navy"]};">{_take_html(p, issue["stories"])}</p>'
-        for p in issue["take"]
-    )
-    stories = ""
-    for n, s in enumerate(issue["stories"], 1):
-        stories += f'''<tr><td style="padding:0 0 12px;">
-  <div style="background:{c["oat"]};border-left:4px solid {c["navy"]};padding:14px 16px;">
-    <div style="font:700 11px Arial,sans-serif;letter-spacing:2px;color:{c["graphite"]};text-transform:uppercase;">{n} · {html.escape(s["sourceName"])}{html.escape(_lang_note(s["lang"]))}</div>
-    <div style="font:700 20px/1.25 Georgia,serif;color:{c["navy"]};margin:6px 0 8px;"><a href="{html.escape(s["url"])}" style="color:{c["navy"]};text-decoration:none;">{html.escape(s["headline"])}</a></div>
-    <p style="margin:0 0 8px;font:16px/1.5 Georgia,serif;color:{c["navy"]};">{html.escape(s["blurb"])}</p>
-    <a href="{html.escape(s["url"])}" style="font:700 13px Arial,sans-serif;color:{c["navy"]};">Read it at {html.escape(s["sourceName"])} &rarr;</a>
+    line = f"{html.escape(story['sourceName'])}{html.escape(_lang_note(story['lang']))}"
+    also = story.get("also", [])
+    if also:
+        links = ", ".join(
+            f'<a class="xm" href="{html.escape(a["url"])}" style="color:{c["graphite"]};">'
+            f'{html.escape(a["sourceName"])}</a>' for a in also)
+        line += f" · also at {links}"
+    return (f'<div class="xm" style="font:13px/1.5 Arial,sans-serif;color:{c["graphite"]};'
+            f'margin-top:6px;">{line}</div>')
+
+
+_DARK_CSS = """
+:root{{color-scheme:light dark;supported-color-schemes:light dark;}}
+@media (prefers-color-scheme: dark){{
+  body,.xp{{background:{page}!important;}}
+  .xc{{background:{card}!important;}}
+  .xt{{background:{take}!important;}}
+  .xh,.xh a,.xb,.xl{{color:{text}!important;}}
+  .xm,.xm a{{color:{muted}!important;}}
+}}
+[data-ogsc] .xh,[data-ogsc] .xh a,[data-ogsc] .xb,[data-ogsc] .xl{{color:{text}!important;}}
+[data-ogsc] .xm,[data-ogsc] .xm a{{color:{muted}!important;}}
+"""
+
+_HEADING = ('<tr><td style="padding:{pad};"><h2 class="xh" style="margin:0;font:700 12px Arial,sans-serif;'
+            'letter-spacing:3px;color:{navy};">{text}</h2></td></tr>')
+
+_LEAD = """<tr><td style="padding:0 0 16px;">
+  <div class="xc" style="background:{oat};border-left:4px solid {navy};padding:16px 18px;">
+    <h3 class="xh" style="margin:0 0 8px;font:700 22px/1.25 Georgia,serif;color:{navy};"><a href="{url}" style="color:{navy};text-decoration:none;">{headline}</a></h3>
+    <p class="xb" style="margin:0;font:17px/1.5 Georgia,serif;color:{navy};">{blurb}</p>
+    {attribution}
   </div>
-</td></tr>'''
-    podcasts = ""
-    if issue["podcasts"]:
-        rows = "".join(
-            f'''<p style="margin:0 0 12px;font:16px/1.5 Georgia,serif;color:{c["navy"]};"><a href="{html.escape(p["url"])}" style="color:{c["navy"]};font-weight:700;">{html.escape(p["show"])}: {html.escape(p["episodeTitle"])}</a>{html.escape(_lang_note(p["lang"]))}<br>{html.escape(p["blurb"])}</p>'''
-            for p in issue["podcasts"]
-        )
-        podcasts = f'''<tr><td style="padding:8px 0 4px;"><div style="font:700 12px Arial,sans-serif;letter-spacing:3px;color:{c["navy"]};">IN YOUR EARS</div></td></tr>
-<tr><td style="padding:8px 0 4px;">{rows}</td></tr>'''
-    preheader = html.escape(issue["preheader"])
-    return f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{html.escape(issue["subject"])}</title></head>
-<body style="margin:0;padding:0;background:{c["wool"]};">
-<div style="display:none;max-height:0;overflow:hidden;">{preheader}</div>
-{banner}
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{c["wool"]};"><tr><td align="center" style="padding:0 16px;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:620px;">
-<tr><td style="background:{c["navy"]};padding:18px 20px;">
-  <div style="font:800 26px Arial,sans-serif;letter-spacing:3px;color:{c["wool"]};">XC SKI LABS WEEKLY</div>
-  <div style="font:700 12px Arial,sans-serif;letter-spacing:2px;color:{c["wool"]};margin-top:6px;">{html.escape(label)}</div>
+</td></tr>"""
+
+_ROW = """<tr><td style="padding:0 0 14px;border-bottom:1px solid {oat};">
+  <h3 class="xh" style="margin:0 0 4px;font:700 18px/1.3 Georgia,serif;color:{navy};"><a href="{url}" style="color:{navy};text-decoration:none;display:inline-block;padding:2px 0;">{headline}</a></h3>
+  <p class="xb" style="margin:0;font:16px/1.5 Georgia,serif;color:{navy};">{blurb}</p>
+  {attribution}
 </td></tr>
-<tr><td style="padding:20px 0 8px;">
-  <div style="background:{c["salmon"]};padding:16px 18px;">
-    <div style="font:700 12px Arial,sans-serif;letter-spacing:3px;color:{c["navy"]};margin-bottom:8px;">MY TAKE</div>
+<tr><td style="height:12px;line-height:12px;font-size:0;">&nbsp;</td></tr>"""
+
+_PODCAST = ('<p class="xb" style="margin:0 0 14px;font:16px/1.5 Georgia,serif;color:{navy};">'
+            '<a class="xl" href="{url}" style="color:{navy};font-weight:700;display:inline-block;padding:2px 0;">{show}</a> '
+            '{blurb}<br><span class="xm" style="font:13px/1.5 Arial,sans-serif;color:{graphite};">'
+            'Episode: {title}{lang}</span></p>')
+
+_PAGE = """<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark"><meta name="supported-color-schemes" content="light dark">
+<title>{subject}</title><style>{css}</style></head>
+<body style="margin:0;padding:0;background:{wool};">
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">{preheader}</div>
+{banner}
+<table class="xp" role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:{wool};"><tr><td align="center" style="padding:0 16px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:620px;">
+<tr><td style="background:{navy};padding:18px 20px;">
+  <h1 style="margin:0;font:800 26px Arial,sans-serif;letter-spacing:3px;color:{wool};">XC SKI LABS WEEKLY</h1>
+  <div style="font:700 12px Arial,sans-serif;letter-spacing:2px;color:{wool};margin-top:6px;">{label}</div>
+</td></tr>
+{week_heading}
+{stories}
+<tr><td style="padding:8px 0 16px;">
+  <div class="xt" style="background:{salmon};padding:16px 18px;">
+    <h2 class="xh" style="margin:0 0 8px;font:700 12px Arial,sans-serif;letter-spacing:3px;color:{navy};">MY TAKE</h2>
     {take}
   </div>
 </td></tr>
-<tr><td style="padding:12px 0 8px;"><div style="font:700 12px Arial,sans-serif;letter-spacing:3px;color:{c["navy"]};">THE WEEK</div></td></tr>
-{stories}
 {podcasts}
-<tr><td style="padding:12px 0 24px;border-top:2px solid {c["navy"]};">
-  <p style="margin:12px 0 6px;font:14px/1.5 Georgia,serif;color:{c["navy"]};">Reply to this email and it comes straight to me.</p>
-  <p style="margin:0 0 6px;font:12px/1.5 Arial,sans-serif;color:{c["graphite"]};">You signed up for the XC Ski Labs Weekly at xcskilabs.com. <a href="{{{{{{RESEND_UNSUBSCRIBE_URL}}}}}}" style="color:{c["graphite"]};">Unsubscribe</a>.</p>
-  <p style="margin:0;font:12px/1.5 Arial,sans-serif;color:{c["graphite"]};">{html.escape(footer_line())}</p>
+<tr><td style="padding:12px 0 28px;border-top:2px solid {navy};">
+  <p class="xb" style="margin:12px 0 8px;font:15px/1.5 Georgia,serif;color:{navy};">Reply to this email and it comes straight to me.</p>
+  <p class="xm" style="margin:0 0 8px;font:14px/1.5 Arial,sans-serif;color:{graphite};">Forwarded this? <a class="xm" href="{signup}" style="color:{graphite};">Get it every week at xcskilabs.com/weekly</a>.</p>
+  <p class="xm" style="margin:0 0 8px;font:14px/1.5 Arial,sans-serif;color:{graphite};">You signed up for the XC Ski Labs Weekly at xcskilabs.com.</p>
+  <p style="margin:0 0 12px;font:14px/1.5 Arial,sans-serif;"><a class="xm" href="{{{{{{RESEND_UNSUBSCRIBE_URL}}}}}}" style="color:{graphite};display:inline-block;padding:6px 0;">Unsubscribe</a></p>
+  <p class="xm" style="margin:0;font:13px/1.5 Arial,sans-serif;color:{graphite};">{footer}</p>
 </td></tr>
 </table></td></tr></table>
-</body></html>'''
+</body></html>"""
+
+
+def render_email_html(issue: dict, *, preview_banner: str | None = None) -> str:
+    """The broadcast body. {{{RESEND_UNSUBSCRIBE_URL}}} is filled by Resend.
+
+    Order: masthead, the week (one lead story, then compact rows), my take,
+    podcasts, footer. Each story has one link (its headline) plus an
+    attribution line naming every outlet that covered it.
+    """
+    c = COLORS
+    esc = html.escape
+    banner = ""
+    if preview_banner:
+        banner = (f'<div style="background:{c["navy"]};color:{c["wool"]};padding:10px 16px;'
+                  f'font:700 13px Arial,sans-serif;letter-spacing:1px;">{esc(preview_banner)}</div>')
+
+    def story_html(template: str, s: dict) -> str:
+        return template.format(oat=c["oat"], navy=c["navy"], url=esc(s["url"]), headline=esc(s["headline"]),
+                               blurb=esc(s["blurb"]), attribution=_attribution_html(s))
+
+    stories = story_html(_LEAD, issue["stories"][0]) + "".join(story_html(_ROW, s) for s in issue["stories"][1:])
+    take = "".join(
+        f'<p class="xb" style="margin:0 0 12px;font:17px/1.55 Georgia,serif;color:{c["navy"]};">'
+        f'{_take_html(p, issue["stories"])}</p>' for p in issue["take"])
+    podcasts = ""
+    if issue["podcasts"]:
+        rows = "".join(_PODCAST.format(navy=c["navy"], graphite=c["graphite"], url=esc(p["url"]),
+                                       show=esc(p["show"]), blurb=esc(p["blurb"]), title=esc(p["episodeTitle"]),
+                                       lang=esc(_lang_note(p["lang"]))) for p in issue["podcasts"])
+        podcasts = (_HEADING.format(pad="8px 0 8px", navy=c["navy"], text="IN YOUR EARS")
+                    + f'\n<tr><td style="padding:4px 0;">{rows}</td></tr>')
+    # Pad the hidden preheader so the inbox snippet stops after it.
+    preheader = esc(issue["preheader"]) + "&#847;&zwnj;&nbsp;" * 60
+    return _PAGE.format(
+        subject=esc(issue["subject"]), css=_DARK_CSS.format(**DARK), preheader=preheader, banner=banner,
+        label=esc(f"No. {issue['issueNumber']:03d} · {_date_label(issue['issueDate'])}"),
+        week_heading=_HEADING.format(pad="20px 0 10px", navy=c["navy"], text="THE WEEK"),
+        stories=stories, take=take, podcasts=podcasts, signup=SIGNUP_URL, footer=esc(footer_line()),
+        **c)
+
+
+def render_email_text(issue: dict) -> str:
+    """The plain-text edition sent alongside the HTML: same order, numbered links."""
+    links: list[str] = []
+
+    def ref(url: str) -> str:
+        links.append(url)
+        return f"[{len(links)}]"
+
+    lines = [f"XC SKI LABS WEEKLY · No. {issue['issueNumber']:03d} · {_date_label(issue['issueDate'])}", "",
+             "THE WEEK", ""]
+    for s in issue["stories"]:
+        lines += [f"{s['headline']} {ref(s['url'])}", s["blurb"]]
+        attribution = f"{s['sourceName']}{_lang_note(s['lang'])}"
+        if s.get("also"):
+            attribution += " · also at " + ", ".join(f"{a['sourceName']} {ref(a['url'])}" for a in s["also"])
+        lines += [attribution, ""]
+    lines += ["MY TAKE", ""]
+    for paragraph in issue["take"]:
+        lines += [_take_text(paragraph, issue["stories"]), ""]
+    if issue["podcasts"]:
+        lines += ["IN YOUR EARS", ""]
+        for p in issue["podcasts"]:
+            lines += [f"{p['show']} {ref(p['url'])}: {p['blurb']}",
+                      f"Episode: {p['episodeTitle']}{_lang_note(p['lang'])}", ""]
+    lines += ["Links:"] + [f"[{n}] {url}" for n, url in enumerate(links, 1)]
+    lines += ["", "Reply to this email and it comes straight to me.",
+              f"Forwarded this? Get it every week at {SIGNUP_URL}",
+              "You signed up for the XC Ski Labs Weekly at xcskilabs.com.",
+              "Unsubscribe: {{{RESEND_UNSUBSCRIBE_URL}}}",
+              footer_line()]
+    return "\n".join(lines) + "\n"
 
 
 def render_review_markdown(issue: dict, coverage: list[dict] | None = None) -> str:
     """The staged review Matti reads in the GitHub issue."""
-    lines = [
+    lines = _partial_week_lines(coverage) + [
         f"**Subject:** {issue['subject']}  ",
         f"**Preheader:** {issue['preheader']}  ",
         f"**Issue:** No. {issue['issueNumber']:03d} · {issue['issueDate']} · hash `{issue['contentHash']}`",
@@ -377,7 +515,7 @@ def render_review_markdown(issue: dict, coverage: list[dict] | None = None) -> s
         lines += [MARKER_RE.sub(lambda m: f"[[{m.group(1)}]]({issue['stories'][int(m.group(1)) - 1]['url']})", paragraph), ""]
     lines += ["### The week", ""]
     for n, s in enumerate(issue["stories"], 1):
-        lines.append(f"{n}. **[{s['headline']}]({s['url']})** · {s['sourceName']}{_lang_note(s['lang'])}  ")
+        lines.append(f"{n}. **[{s['headline']}]({s['url']})** · {s['sourceName']}{_lang_note(s['lang'])}{_also_md(s)}  ")
         lines.append(f"   {s['blurb']}")
     if issue["podcasts"]:
         lines += ["", "### In your ears", ""]
@@ -389,9 +527,9 @@ def render_review_markdown(issue: dict, coverage: list[dict] | None = None) -> s
 
 def render_brief_markdown(brief: dict, coverage: list[dict] | None = None) -> str:
     """The Sunday headline brief Matti reads before reacting."""
-    lines = ["### The week's headlines", ""]
+    lines = _partial_week_lines(coverage) + ["### The week's headlines", ""]
     for n, s in enumerate(brief["stories"], 1):
-        lines.append(f"{n}. **[{s['headline']}]({s['url']})** · {s['sourceName']}{_lang_note(s['lang'])}  ")
+        lines.append(f"{n}. **[{s['headline']}]({s['url']})** · {s['sourceName']}{_lang_note(s['lang'])}{_also_md(s)}  ")
         lines.append(f"   {s['blurb']}")
     if brief["podcasts"]:
         lines += ["", "### Podcasts", ""]
@@ -401,12 +539,35 @@ def render_brief_markdown(brief: dict, coverage: list[dict] | None = None) -> st
     return "\n".join(lines) + "\n"
 
 
+def _also_md(story: dict) -> str:
+    also = story.get("also", [])
+    if not also:
+        return ""
+    return " · also at " + ", ".join(f"[{a['sourceName']}]({a['url']})" for a in also)
+
+
+def _partial_week_lines(coverage: list[dict] | None) -> list[str]:
+    """Failed fetches go above everything else, never only in the collapsed table."""
+    failed = [c for c in (coverage or []) if c.get("failedRuns") or c.get("errors")]
+    if not failed:
+        return []
+    lines = ["> [!WARNING]", "> **Partial week.** These sources failed at least once, so stories may be missing:"]
+    for cov in failed:
+        runs = cov.get("failedRuns") or [{"at": "latest run", "errors": cov.get("errors", [])}]
+        total = cov.get("runs", len(runs))
+        when = ", ".join(r["at"][:10] for r in runs)
+        lines.append(f"> - {cov['name']}{' (core)' if cov.get('core') else ''}: failed {when}; "
+                     f"{total - len(runs)} of {total} runs fetched")
+    return lines + [""]
+
+
 def _coverage_lines(coverage: list[dict] | None) -> list[str]:
     if coverage is None:
         return []
     lines = ["", "<details><summary>Source coverage this week</summary>", "",
              "| Source | Kind | In window | Error |", "|---|---|---|---|"]
     for cov in coverage:
-        error = "; ".join(cov["errors"]) or ""
+        error = ("; ".join(e for r in cov.get("failedRuns", []) for e in r["errors"])
+                 or "; ".join(cov["errors"]))
         lines.append(f"| {cov['name']} | {cov['kind']} | {cov['kept']} | {error} |")
     return lines + ["", "</details>"]

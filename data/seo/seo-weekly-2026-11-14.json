@@ -1,0 +1,1709 @@
+{
+  "buckets": {
+    "content_gaps": [
+      {
+        "clicks": 5,
+        "ctr": 0.08620689655172414,
+        "impressions": 58,
+        "page": null,
+        "position": 7.586206896551724,
+        "query": "gravel races",
+        "reason": "'gravel races' gets 58 impressions/28d with no dedicated page (best match: none) \u2014 create or link content.",
+        "recommended_target_path": "/articles/gravel-races/",
+        "score": 0.0
+      }
+    ],
+    "ctr_underperformers": [
+      {
+        "clicks": 3,
+        "ctr": 0.023622047244094488,
+        "impressions": 127,
+        "page": "/race/croatan-buck-fifty/",
+        "position": 4.118110236220472,
+        "prior": {
+          "clicks": 5,
+          "ctr": 0.05154639175257732,
+          "impressions": 97,
+          "position": 3.1237113402061856
+        },
+        "query": "croatan buck fifty 2027",
+        "reason": "'croatan buck fifty 2027' on /race/croatan-buck-fifty/ gets 2.4% CTR at position 4.1, well below the 7.3% expected \u2014 rewrite title/meta.",
+        "score": 6.300000000000001
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 80,
+        "page": "/race/seven/",
+        "position": 5.0125,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 114,
+          "position": 4.991228070175438
+        },
+        "query": "seven gravel race 2027",
+        "reason": "'seven gravel race 2027' on /race/seven/ gets 0.0% CTR at position 5.0, well below the 6.0% expected \u2014 rewrite title/meta.",
+        "score": 4.785
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 60,
+        "page": "/race/homegrown-gravel-adventure/",
+        "position": 4.833333333333334,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 16,
+          "position": 4.125
+        },
+        "query": "homegrown gravel 2027",
+        "reason": "'homegrown gravel 2027' on /race/homegrown-gravel-adventure/ gets 0.0% CTR at position 4.8, well below the 6.2% expected \u2014 rewrite title/meta.",
+        "score": 3.749999999999999
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 105,
+        "page": "/race/series/gravel-earth-series/",
+        "position": 7.523809523809524,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 208,
+          "position": 6.846153846153846
+        },
+        "query": "gravel earth series",
+        "reason": "'gravel earth series' on /race/series/gravel-earth-series/ gets 0.0% CTR at position 7.5, well below the 3.2% expected \u2014 rewrite title/meta.",
+        "score": 3.4000000000000004
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 104,
+        "page": "/race/series/grasshopper-adventure-series/",
+        "position": 8.240384615384615,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 96,
+          "position": 7.0
+        },
+        "query": "grasshopper adventure series",
+        "reason": "'grasshopper adventure series' on /race/series/grasshopper-adventure-series/ gets 0.0% CTR at position 8.2, well below the 2.9% expected \u2014 rewrite title/meta.",
+        "score": 2.995
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 87,
+        "page": "/race/gravel-burn/",
+        "position": 7.390804597701149,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 24,
+          "position": 4.708333333333334
+        },
+        "query": "gravel burn 2027",
+        "reason": "'gravel burn 2027' on /race/gravel-burn/ gets 0.0% CTR at position 7.4, well below the 3.3% expected \u2014 rewrite title/meta.",
+        "score": 2.875
+      },
+      {
+        "clicks": 1,
+        "ctr": 0.012048192771084338,
+        "impressions": 83,
+        "page": "/race/marji-gesick/",
+        "position": 6.554216867469879,
+        "query": "marji gesick 2027",
+        "reason": "'marji gesick 2027' on /race/marji-gesick/ gets 1.2% CTR at position 6.6, well below the 3.9% expected \u2014 rewrite title/meta.",
+        "score": 2.2750000000000004
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 60,
+        "page": "/race/eislek-gravel/",
+        "position": 6.8,
+        "prior": {
+          "clicks": 3,
+          "ctr": 0.045454545454545456,
+          "impressions": 66,
+          "position": 5.924242424242424
+        },
+        "query": "eislek gravel 2027",
+        "reason": "'eislek gravel 2027' on /race/eislek-gravel/ gets 0.0% CTR at position 6.8, well below the 3.7% expected \u2014 rewrite title/meta.",
+        "score": 2.22
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 97,
+        "page": "/race/chino-grinder/",
+        "position": 9.484536082474227,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 151,
+          "position": 9.251655629139073
+        },
+        "query": "chino grinder",
+        "reason": "'chino grinder' on /race/chino-grinder/ gets 0.0% CTR at position 9.5, well below the 2.3% expected \u2014 rewrite title/meta.",
+        "score": 2.19
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 51,
+        "page": "/race/dirty-dino/",
+        "position": 7.568627450980392,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 40,
+          "position": 6.675
+        },
+        "query": "dirty dino",
+        "reason": "'dirty dino' on /race/dirty-dino/ gets 0.0% CTR at position 7.6, well below the 3.2% expected \u2014 rewrite title/meta.",
+        "score": 1.6400000000000001
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 68,
+        "page": "/race/chino-grinder/",
+        "position": 9.264705882352942,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 269,
+          "position": 9.319702602230484
+        },
+        "query": "chino grinder 2026",
+        "reason": "'chino grinder 2026' on /race/chino-grinder/ gets 0.0% CTR at position 9.3, well below the 2.4% expected \u2014 rewrite title/meta.",
+        "score": 1.6099999999999999
+      }
+    ],
+    "decliners": [
+      {
+        "clicks": 24,
+        "ctr": 0.14634146341463414,
+        "impressions": 164,
+        "page": "/race/big-sugar/tires/",
+        "position": 5.2926829268292686,
+        "prior": {
+          "clicks": 69,
+          "ctr": 0.1513157894736842,
+          "impressions": 456,
+          "position": 4.81359649122807
+        },
+        "query": null,
+        "reason": "/race/big-sugar/tires/ clicks fell from 69 to 24 \u2014 refresh content.",
+        "score": 45.0
+      },
+      {
+        "clicks": 27,
+        "ctr": 0.1534090909090909,
+        "impressions": 176,
+        "page": "/race/uci-gravel-worlds/tires/",
+        "position": 4.994318181818182,
+        "prior": {
+          "clicks": 69,
+          "ctr": 0.15862068965517243,
+          "impressions": 435,
+          "position": 4.395402298850575
+        },
+        "query": null,
+        "reason": "/race/uci-gravel-worlds/tires/ clicks fell from 69 to 27 \u2014 refresh content.",
+        "score": 42.0
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 310,
+        "page": "/race/the-rad/",
+        "position": 6.541935483870968,
+        "prior": {
+          "clicks": 33,
+          "ctr": 0.01515847496554892,
+          "impressions": 2177,
+          "position": 5.8966467615985305
+        },
+        "query": null,
+        "reason": "/race/the-rad/ clicks fell from 33 to 0 \u2014 refresh content.",
+        "score": 33.0
+      },
+      {
+        "clicks": 8,
+        "ctr": 0.027874564459930314,
+        "impressions": 287,
+        "page": "/race/big-sugar/",
+        "position": 11.665505226480835,
+        "prior": {
+          "clicks": 31,
+          "ctr": 0.027264731750219876,
+          "impressions": 1137,
+          "position": 7.08179419525066
+        },
+        "query": null,
+        "reason": "/race/big-sugar/ clicks fell from 31 to 8, position worsened 7.1 \u2192 11.7 \u2014 refresh content.",
+        "score": 23.0
+      },
+      {
+        "clicks": 2,
+        "ctr": 0.009433962264150943,
+        "impressions": 212,
+        "page": "/race/marji-gesick/",
+        "position": 11.141509433962264,
+        "prior": {
+          "clicks": 25,
+          "ctr": 0.03486750348675035,
+          "impressions": 717,
+          "position": 8.803347280334728
+        },
+        "query": null,
+        "reason": "/race/marji-gesick/ clicks fell from 25 to 2 \u2014 refresh content.",
+        "score": 23.0
+      },
+      {
+        "clicks": 2,
+        "ctr": 0.15384615384615385,
+        "impressions": 13,
+        "page": "/race/flanders-legacy-gravel/tires/",
+        "position": 6.3076923076923075,
+        "prior": {
+          "clicks": 25,
+          "ctr": 0.1953125,
+          "impressions": 128,
+          "position": 3.0703125
+        },
+        "query": null,
+        "reason": "/race/flanders-legacy-gravel/tires/ clicks fell from 25 to 2 \u2014 refresh content.",
+        "score": 23.0
+      },
+      {
+        "clicks": 5,
+        "ctr": 0.07352941176470588,
+        "impressions": 68,
+        "page": "/race/red-granite-grinder/",
+        "position": 10.102941176470589,
+        "prior": {
+          "clicks": 27,
+          "ctr": 0.030716723549488054,
+          "impressions": 879,
+          "position": 8.37542662116041
+        },
+        "query": null,
+        "reason": "/race/red-granite-grinder/ clicks fell from 27 to 5 \u2014 refresh content.",
+        "score": 22.0
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 9,
+        "page": "/i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/",
+        "position": 9.11111111111111,
+        "prior": {
+          "clicks": 21,
+          "ctr": 0.04516129032258064,
+          "impressions": 465,
+          "position": 7.455913978494624
+        },
+        "query": null,
+        "reason": "/i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/ clicks fell from 21 to 0 \u2014 refresh content.",
+        "score": 21.0
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 9,
+        "page": "/i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/",
+        "position": 9.11111111111111,
+        "prior": {
+          "clicks": 21,
+          "ctr": 0.04516129032258064,
+          "impressions": 465,
+          "position": 7.455913978494624
+        },
+        "query": null,
+        "reason": "/i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/ clicks fell from 21 to 0 \u2014 refresh content.",
+        "score": 21.0
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 9,
+        "page": "/i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/",
+        "position": 9.11111111111111,
+        "prior": {
+          "clicks": 21,
+          "ctr": 0.04516129032258064,
+          "impressions": 465,
+          "position": 7.455913978494624
+        },
+        "query": null,
+        "reason": "/i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/ clicks fell from 21 to 0 \u2014 refresh content.",
+        "score": 21.0
+      },
+      {
+        "clicks": 21,
+        "ctr": 0.05614973262032086,
+        "impressions": 374,
+        "page": "/race/best-gravel-races-texas/",
+        "position": 5.973262032085562,
+        "prior": {
+          "clicks": 41,
+          "ctr": 0.10962566844919786,
+          "impressions": 374,
+          "position": 4.994652406417112
+        },
+        "query": null,
+        "reason": "/race/best-gravel-races-texas/ clicks fell from 41 to 21 \u2014 refresh content.",
+        "score": 20.0
+      },
+      {
+        "clicks": 8,
+        "ctr": 0.021447721179624665,
+        "impressions": 373,
+        "page": "/race/rebeccas-private-idaho/",
+        "position": 7.024128686327078,
+        "prior": {
+          "clicks": 24,
+          "ctr": 0.048,
+          "impressions": 500,
+          "position": 6.196
+        },
+        "query": null,
+        "reason": "/race/rebeccas-private-idaho/ clicks fell from 24 to 8 \u2014 refresh content.",
+        "score": 16.0
+      },
+      {
+        "clicks": 24,
+        "ctr": 0.03709428129829984,
+        "impressions": 647,
+        "page": "/race/calendar/2026/",
+        "position": 31.26584234930448,
+        "prior": {
+          "clicks": 38,
+          "ctr": 0.043528064146620846,
+          "impressions": 873,
+          "position": 14.754868270332189
+        },
+        "query": null,
+        "reason": "/race/calendar/2026/ clicks fell from 38 to 24, position worsened 14.8 \u2192 31.3 \u2014 refresh content.",
+        "score": 14.0
+      },
+      {
+        "clicks": 3,
+        "ctr": 0.08333333333333333,
+        "impressions": 36,
+        "page": "/race/seven/tires/",
+        "position": 4.805555555555555,
+        "prior": {
+          "clicks": 17,
+          "ctr": 0.13934426229508196,
+          "impressions": 122,
+          "position": 4.663934426229508
+        },
+        "query": null,
+        "reason": "/race/seven/tires/ clicks fell from 17 to 3 \u2014 refresh content.",
+        "score": 14.0
+      },
+      {
+        "clicks": 3,
+        "ctr": 0.027777777777777776,
+        "impressions": 108,
+        "page": "/race/uwharrie-forest-gravel-grinder/",
+        "position": 5.87962962962963,
+        "prior": {
+          "clicks": 16,
+          "ctr": 0.1523809523809524,
+          "impressions": 105,
+          "position": 5.20952380952381
+        },
+        "query": null,
+        "reason": "/race/uwharrie-forest-gravel-grinder/ clicks fell from 16 to 3 \u2014 refresh content.",
+        "score": 13.0
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 83,
+        "page": "/race/flanders-legacy-gravel/",
+        "position": 7.602409638554217,
+        "prior": {
+          "clicks": 13,
+          "ctr": 0.04924242424242424,
+          "impressions": 264,
+          "position": 6.674242424242424
+        },
+        "query": null,
+        "reason": "/race/flanders-legacy-gravel/ clicks fell from 13 to 0 \u2014 refresh content.",
+        "score": 13.0
+      },
+      {
+        "clicks": 10,
+        "ctr": 0.09900990099009901,
+        "impressions": 101,
+        "page": "/race/the-rift/tires/",
+        "position": 4.613861386138614,
+        "prior": {
+          "clicks": 22,
+          "ctr": 0.13253012048192772,
+          "impressions": 166,
+          "position": 4.753012048192771
+        },
+        "query": null,
+        "reason": "/race/the-rift/tires/ clicks fell from 22 to 10 \u2014 refresh content.",
+        "score": 12.0
+      },
+      {
+        "clicks": 1,
+        "ctr": 0.06666666666666667,
+        "impressions": 15,
+        "page": "/race/chino-grinder/tires/",
+        "position": 5.2,
+        "prior": {
+          "clicks": 13,
+          "ctr": 0.203125,
+          "impressions": 64,
+          "position": 4.5
+        },
+        "query": null,
+        "reason": "/race/chino-grinder/tires/ clicks fell from 13 to 1 \u2014 refresh content.",
+        "score": 12.0
+      },
+      {
+        "clicks": 15,
+        "ctr": 0.02564102564102564,
+        "impressions": 585,
+        "page": "/race/the-rift/",
+        "position": 8.148717948717948,
+        "prior": {
+          "clicks": 26,
+          "ctr": 0.03687943262411347,
+          "impressions": 705,
+          "position": 7.692198581560284
+        },
+        "query": null,
+        "reason": "/race/the-rift/ clicks fell from 26 to 15 \u2014 refresh content.",
+        "score": 11.0
+      },
+      {
+        "clicks": 8,
+        "ctr": 0.10810810810810811,
+        "impressions": 74,
+        "page": "/race/best-gravel-races-montana/",
+        "position": 5.72972972972973,
+        "prior": {
+          "clicks": 19,
+          "ctr": 0.16101694915254236,
+          "impressions": 118,
+          "position": 6.169491525423729
+        },
+        "query": null,
+        "reason": "/race/best-gravel-races-montana/ clicks fell from 19 to 8 \u2014 refresh content.",
+        "score": 11.0
+      },
+      {
+        "clicks": 2,
+        "ctr": 0.009708737864077669,
+        "impressions": 206,
+        "page": "/tire/schwalbe-g-one-rs-vs-vittoria-terreno-dry/",
+        "position": 7.029126213592233,
+        "prior": {
+          "clicks": 12,
+          "ctr": 0.06382978723404255,
+          "impressions": 188,
+          "position": 6.101063829787234
+        },
+        "query": null,
+        "reason": "/tire/schwalbe-g-one-rs-vs-vittoria-terreno-dry/ clicks fell from 12 to 2 \u2014 refresh content.",
+        "score": 10.0
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 36,
+        "page": "/race/gravel-worlds/tires/",
+        "position": 6.027777777777778,
+        "prior": {
+          "clicks": 10,
+          "ctr": 0.10416666666666667,
+          "impressions": 96,
+          "position": 5.239583333333333
+        },
+        "query": null,
+        "reason": "/race/gravel-worlds/tires/ clicks fell from 10 to 0 \u2014 refresh content.",
+        "score": 10.0
+      },
+      {
+        "clicks": 12,
+        "ctr": 0.08759124087591241,
+        "impressions": 137,
+        "page": "/",
+        "position": 10.394160583941606,
+        "prior": {
+          "clicks": 21,
+          "ctr": 0.1242603550295858,
+          "impressions": 169,
+          "position": 7.810650887573964
+        },
+        "query": null,
+        "reason": "/ clicks fell from 21 to 12 \u2014 refresh content.",
+        "score": 9.0
+      },
+      {
+        "clicks": 2,
+        "ctr": 0.011428571428571429,
+        "impressions": 175,
+        "page": "/race/leadville-100/",
+        "position": 44.89714285714286,
+        "prior": {
+          "clicks": 7,
+          "ctr": 0.06930693069306931,
+          "impressions": 101,
+          "position": 14.168316831683168
+        },
+        "query": null,
+        "reason": "/race/leadville-100/ clicks fell from 7 to 2, position worsened 14.2 \u2192 44.9 \u2014 refresh content.",
+        "score": 5.0
+      },
+      {
+        "clicks": 6,
+        "ctr": 0.04,
+        "impressions": 150,
+        "page": "/race/spirit-world-100/",
+        "position": 6.913333333333333,
+        "prior": {
+          "clicks": 11,
+          "ctr": 0.08333333333333333,
+          "impressions": 132,
+          "position": 5.984848484848484
+        },
+        "query": null,
+        "reason": "/race/spirit-world-100/ clicks fell from 11 to 6 \u2014 refresh content.",
+        "score": 5.0
+      },
+      {
+        "clicks": 2,
+        "ctr": 0.019230769230769232,
+        "impressions": 104,
+        "page": "/race/best-gravel-races-portugal/",
+        "position": 10.634615384615385,
+        "prior": {
+          "clicks": 6,
+          "ctr": 0.09230769230769231,
+          "impressions": 65,
+          "position": 6.8
+        },
+        "query": null,
+        "reason": "/race/best-gravel-races-portugal/ clicks fell from 6 to 2, position worsened 6.8 \u2192 10.6 \u2014 refresh content.",
+        "score": 4.0
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 55,
+        "page": "/race/migration-gravel-race/",
+        "position": 9.672727272727272,
+        "prior": {
+          "clicks": 4,
+          "ctr": 0.03076923076923077,
+          "impressions": 130,
+          "position": 6.584615384615384
+        },
+        "query": null,
+        "reason": "/race/migration-gravel-race/ clicks fell from 4 to 0, position worsened 6.6 \u2192 9.7 \u2014 refresh content.",
+        "score": 4.0
+      },
+      {
+        "clicks": 4,
+        "ctr": 0.015384615384615385,
+        "impressions": 260,
+        "page": "/race/mid-south/",
+        "position": 14.057692307692308,
+        "prior": {
+          "clicks": 6,
+          "ctr": 0.014634146341463415,
+          "impressions": 410,
+          "position": 8.487804878048781
+        },
+        "query": null,
+        "reason": "/race/mid-south/ clicks fell from 6 to 4, position worsened 8.5 \u2192 14.1 \u2014 refresh content.",
+        "score": 2.0
+      },
+      {
+        "clicks": 5,
+        "ctr": 0.02252252252252252,
+        "impressions": 222,
+        "page": "/race/best-gravel-races-italy/",
+        "position": 39.153153153153156,
+        "prior": {
+          "clicks": 6,
+          "ctr": 0.025210084033613446,
+          "impressions": 238,
+          "position": 20.357142857142858
+        },
+        "query": null,
+        "reason": "/race/best-gravel-races-italy/ clicks fell from 6 to 5, position worsened 20.4 \u2192 39.2 \u2014 refresh content.",
+        "score": 1.0
+      },
+      {
+        "clicks": 3,
+        "ctr": 0.024390243902439025,
+        "impressions": 123,
+        "page": "/race/bwr-california/",
+        "position": 14.487804878048781,
+        "prior": {
+          "clicks": 4,
+          "ctr": 0.013986013986013986,
+          "impressions": 286,
+          "position": 8.307692307692307
+        },
+        "query": null,
+        "reason": "/race/bwr-california/ clicks fell from 4 to 3, position worsened 8.3 \u2192 14.5 \u2014 refresh content.",
+        "score": 1.0
+      },
+      {
+        "clicks": 1,
+        "ctr": 0.0024509803921568627,
+        "impressions": 408,
+        "page": "/race/nova-eroica/",
+        "position": 43.7671568627451,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 192,
+          "position": 36.197916666666664
+        },
+        "query": null,
+        "reason": "/race/nova-eroica/ clicks fell from 0 to 1, position worsened 36.2 \u2192 43.8 \u2014 refresh content.",
+        "score": 0.0
+      },
+      {
+        "clicks": 12,
+        "ctr": 0.041237113402061855,
+        "impressions": 291,
+        "page": "/gravel-races/",
+        "position": 33.54295532646048,
+        "prior": {
+          "clicks": 4,
+          "ctr": 0.020942408376963352,
+          "impressions": 191,
+          "position": 17.10994764397906
+        },
+        "query": null,
+        "reason": "/gravel-races/ clicks fell from 4 to 12, position worsened 17.1 \u2192 33.5 \u2014 refresh content.",
+        "score": 0.0
+      },
+      {
+        "clicks": 4,
+        "ctr": 0.018779342723004695,
+        "impressions": 213,
+        "page": "/race/bear-100/",
+        "position": 33.901408450704224,
+        "prior": {
+          "clicks": 2,
+          "ctr": 0.006230529595015576,
+          "impressions": 321,
+          "position": 18.102803738317757
+        },
+        "query": null,
+        "reason": "/race/bear-100/ clicks fell from 2 to 4, position worsened 18.1 \u2192 33.9 \u2014 refresh content.",
+        "score": 0.0
+      },
+      {
+        "clicks": 14,
+        "ctr": 0.0945945945945946,
+        "impressions": 148,
+        "page": "/race/best-gravel-races-south-carolina/",
+        "position": 7.851351351351352,
+        "prior": {
+          "clicks": 13,
+          "ctr": 0.07738095238095238,
+          "impressions": 168,
+          "position": 4.809523809523809
+        },
+        "query": null,
+        "reason": "/race/best-gravel-races-south-carolina/ clicks fell from 13 to 14, position worsened 4.8 \u2192 7.9 \u2014 refresh content.",
+        "score": 0.0
+      },
+      {
+        "clicks": 5,
+        "ctr": 0.04032258064516129,
+        "impressions": 124,
+        "page": "/race/best-gravel-races-arizona/",
+        "position": 9.39516129032258,
+        "prior": {
+          "clicks": 1,
+          "ctr": 0.011235955056179775,
+          "impressions": 89,
+          "position": 6.112359550561798
+        },
+        "query": null,
+        "reason": "/race/best-gravel-races-arizona/ clicks fell from 1 to 5, position worsened 6.1 \u2192 9.4 \u2014 refresh content.",
+        "score": 0.0
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 112,
+        "page": "/guide/training-fundamentals/",
+        "position": 20.839285714285715,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 155,
+          "position": 12.980645161290322
+        },
+        "query": null,
+        "reason": "/guide/training-fundamentals/ clicks fell from 0 to 0, position worsened 13.0 \u2192 20.8 \u2014 refresh content.",
+        "score": 0.0
+      },
+      {
+        "clicks": 1,
+        "ctr": 0.010526315789473684,
+        "impressions": 95,
+        "page": "/race/barry-roubaix/",
+        "position": 16.08421052631579,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 78,
+          "position": 10.038461538461538
+        },
+        "query": null,
+        "reason": "/race/barry-roubaix/ clicks fell from 0 to 1, position worsened 10.0 \u2192 16.1 \u2014 refresh content.",
+        "score": 0.0
+      },
+      {
+        "clicks": 2,
+        "ctr": 0.02666666666666667,
+        "impressions": 75,
+        "page": "/race/bwr-arizona/",
+        "position": 15.813333333333333,
+        "prior": {
+          "clicks": 2,
+          "ctr": 0.011235955056179775,
+          "impressions": 178,
+          "position": 11.162921348314606
+        },
+        "query": null,
+        "reason": "/race/bwr-arizona/ clicks fell from 2 to 2, position worsened 11.2 \u2192 15.8 \u2014 refresh content.",
+        "score": 0.0
+      },
+      {
+        "clicks": 3,
+        "ctr": 0.05,
+        "impressions": 60,
+        "page": "/race/rooted-vermont/",
+        "position": 8.95,
+        "prior": {
+          "clicks": 3,
+          "ctr": 0.04411764705882353,
+          "impressions": 68,
+          "position": 5.176470588235294
+        },
+        "query": null,
+        "reason": "/race/rooted-vermont/ clicks fell from 3 to 3, position worsened 5.2 \u2192 8.9 \u2014 refresh content.",
+        "score": 0.0
+      }
+    ],
+    "striking_distance": [
+      {
+        "clicks": 8,
+        "ctr": 0.037914691943127965,
+        "impressions": 211,
+        "page": "/race/gravel-revival/",
+        "position": 6.478672985781991,
+        "query": "gravel revival 2026 results",
+        "reason": "'gravel revival 2026 results' ranks 6.5 on /race/gravel-revival/ with 211 impressions/28d \u2014 pushing to top 3 could add ~13 clicks.",
+        "score": 13.100000000000001
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 105,
+        "page": "/race/series/gravel-earth-series/",
+        "position": 7.523809523809524,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 208,
+          "position": 6.846153846153846
+        },
+        "query": "gravel earth series",
+        "reason": "'gravel earth series' ranks 7.5 on /race/series/gravel-earth-series/ with 105 impressions/28d \u2014 pushing to top 3 could add ~10 clicks.",
+        "score": 10.5
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 104,
+        "page": "/race/series/grasshopper-adventure-series/",
+        "position": 8.240384615384615,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 96,
+          "position": 7.0
+        },
+        "query": "grasshopper adventure series",
+        "reason": "'grasshopper adventure series' ranks 8.2 on /race/series/grasshopper-adventure-series/ with 104 impressions/28d \u2014 pushing to top 3 could add ~10 clicks.",
+        "score": 10.4
+      },
+      {
+        "clicks": 3,
+        "ctr": 0.023622047244094488,
+        "impressions": 127,
+        "page": "/race/croatan-buck-fifty/",
+        "position": 4.118110236220472,
+        "prior": {
+          "clicks": 5,
+          "ctr": 0.05154639175257732,
+          "impressions": 97,
+          "position": 3.1237113402061856
+        },
+        "query": "croatan buck fifty 2027",
+        "reason": "'croatan buck fifty 2027' ranks 4.1 on /race/croatan-buck-fifty/ with 127 impressions/28d \u2014 pushing to top 3 could add ~10 clicks.",
+        "score": 9.700000000000001
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 97,
+        "page": "/race/chino-grinder/",
+        "position": 9.484536082474227,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 151,
+          "position": 9.251655629139073
+        },
+        "query": "chino grinder",
+        "reason": "'chino grinder' ranks 9.5 on /race/chino-grinder/ with 97 impressions/28d \u2014 pushing to top 3 could add ~10 clicks.",
+        "score": 9.700000000000001
+      },
+      {
+        "clicks": 6,
+        "ctr": 0.04054054054054054,
+        "impressions": 148,
+        "page": "/race/gravel-revival/",
+        "position": 6.878378378378378,
+        "prior": {
+          "clicks": 5,
+          "ctr": 0.01079913606911447,
+          "impressions": 463,
+          "position": 5.980561555075594
+        },
+        "query": "gravel revival 2026",
+        "reason": "'gravel revival 2026' ranks 6.9 on /race/gravel-revival/ with 148 impressions/28d \u2014 pushing to top 3 could add ~9 clicks.",
+        "score": 8.8
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 87,
+        "page": "/race/gravel-burn/",
+        "position": 7.390804597701149,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 24,
+          "position": 4.708333333333334
+        },
+        "query": "gravel burn 2027",
+        "reason": "'gravel burn 2027' ranks 7.4 on /race/gravel-burn/ with 87 impressions/28d \u2014 pushing to top 3 could add ~9 clicks.",
+        "score": 8.700000000000001
+      },
+      {
+        "clicks": 2,
+        "ctr": 0.02,
+        "impressions": 100,
+        "page": "/race/rebeccas-private-idaho/",
+        "position": 7.59,
+        "prior": {
+          "clicks": 8,
+          "ctr": 0.07272727272727272,
+          "impressions": 110,
+          "position": 6.6454545454545455
+        },
+        "query": "rebecca's private idaho",
+        "reason": "'rebecca's private idaho' ranks 7.6 on /race/rebeccas-private-idaho/ with 100 impressions/28d \u2014 pushing to top 3 could add ~8 clicks.",
+        "score": 8.0
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 80,
+        "page": "/race/seven/",
+        "position": 5.0125,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 114,
+          "position": 4.991228070175438
+        },
+        "query": "seven gravel race 2027",
+        "reason": "'seven gravel race 2027' ranks 5.0 on /race/seven/ with 80 impressions/28d \u2014 pushing to top 3 could add ~8 clicks.",
+        "score": 8.0
+      },
+      {
+        "clicks": 1,
+        "ctr": 0.012048192771084338,
+        "impressions": 83,
+        "page": "/race/marji-gesick/",
+        "position": 6.554216867469879,
+        "query": "marji gesick 2027",
+        "reason": "'marji gesick 2027' ranks 6.6 on /race/marji-gesick/ with 83 impressions/28d \u2014 pushing to top 3 could add ~7 clicks.",
+        "score": 7.300000000000001
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 68,
+        "page": "/race/chino-grinder/",
+        "position": 9.264705882352942,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 269,
+          "position": 9.319702602230484
+        },
+        "query": "chino grinder 2026",
+        "reason": "'chino grinder 2026' ranks 9.3 on /race/chino-grinder/ with 68 impressions/28d \u2014 pushing to top 3 could add ~7 clicks.",
+        "score": 6.800000000000001
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 60,
+        "page": "/race/eislek-gravel/",
+        "position": 6.8,
+        "prior": {
+          "clicks": 3,
+          "ctr": 0.045454545454545456,
+          "impressions": 66,
+          "position": 5.924242424242424
+        },
+        "query": "eislek gravel 2027",
+        "reason": "'eislek gravel 2027' ranks 6.8 on /race/eislek-gravel/ with 60 impressions/28d \u2014 pushing to top 3 could add ~6 clicks.",
+        "score": 6.0
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 60,
+        "page": "/race/homegrown-gravel-adventure/",
+        "position": 4.833333333333334,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 16,
+          "position": 4.125
+        },
+        "query": "homegrown gravel 2027",
+        "reason": "'homegrown gravel 2027' ranks 4.8 on /race/homegrown-gravel-adventure/ with 60 impressions/28d \u2014 pushing to top 3 could add ~6 clicks.",
+        "score": 6.0
+      },
+      {
+        "clicks": 2,
+        "ctr": 0.02564102564102564,
+        "impressions": 78,
+        "page": "/race/croatan-buck-fifty/",
+        "position": 7.961538461538462,
+        "prior": {
+          "clicks": 1,
+          "ctr": 0.008064516129032258,
+          "impressions": 124,
+          "position": 7.459677419354839
+        },
+        "query": "croatan buck fifty",
+        "reason": "'croatan buck fifty' ranks 8.0 on /race/croatan-buck-fifty/ with 78 impressions/28d \u2014 pushing to top 3 could add ~6 clicks.",
+        "score": 5.800000000000001
+      },
+      {
+        "clicks": 1,
+        "ctr": 0.015625,
+        "impressions": 64,
+        "page": "/race/whiskey-off-road/",
+        "position": 8.828125,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 44,
+          "position": 8.454545454545453
+        },
+        "query": "whiskey off road 2027",
+        "reason": "'whiskey off road 2027' ranks 8.8 on /race/whiskey-off-road/ with 64 impressions/28d \u2014 pushing to top 3 could add ~5 clicks.",
+        "score": 5.4
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 51,
+        "page": "/race/dirty-dino/",
+        "position": 7.568627450980392,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 40,
+          "position": 6.675
+        },
+        "query": "dirty dino",
+        "reason": "'dirty dino' ranks 7.6 on /race/dirty-dino/ with 51 impressions/28d \u2014 pushing to top 3 could add ~5 clicks.",
+        "score": 5.1000000000000005
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 48,
+        "page": "/race/the-rift/",
+        "position": 8.895833333333332,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 10,
+          "position": 9.0
+        },
+        "query": "the rift 2026",
+        "reason": "'the rift 2026' ranks 8.9 on /race/the-rift/ with 48 impressions/28d \u2014 pushing to top 3 could add ~5 clicks.",
+        "score": 4.800000000000001
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 45,
+        "page": "/i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/",
+        "position": 7.511111111111111,
+        "prior": {
+          "clicks": 1,
+          "ctr": 0.007692307692307693,
+          "impressions": 130,
+          "position": 6.430769230769231
+        },
+        "query": "fascat",
+        "reason": "'fascat' ranks 7.5 on /i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/ with 45 impressions/28d \u2014 pushing to top 3 could add ~4 clicks.",
+        "score": 4.5
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 44,
+        "page": "/race/grasshopper-series/",
+        "position": 7.704545454545454,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 91,
+          "position": 6.175824175824176
+        },
+        "query": "grasshopper adventure series",
+        "reason": "'grasshopper adventure series' ranks 7.7 on /race/grasshopper-series/ with 44 impressions/28d \u2014 pushing to top 3 could add ~4 clicks.",
+        "score": 4.4
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 44,
+        "page": "/race/iceman-cometh/",
+        "position": 9.840909090909092,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 36,
+          "position": 11.38888888888889
+        },
+        "query": "iceman bike race",
+        "reason": "'iceman bike race' ranks 9.8 on /race/iceman-cometh/ with 44 impressions/28d \u2014 pushing to top 3 could add ~4 clicks.",
+        "score": 4.4
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 43,
+        "page": "/race/bwr-montana/tires/",
+        "position": 8.232558139534884,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 48,
+          "position": 6.916666666666667
+        },
+        "query": "best tires for montana",
+        "reason": "'best tires for montana' ranks 8.2 on /race/bwr-montana/tires/ with 43 impressions/28d \u2014 pushing to top 3 could add ~4 clicks.",
+        "score": 4.3
+      },
+      {
+        "clicks": 2,
+        "ctr": 0.03333333333333333,
+        "impressions": 60,
+        "page": "/race/unbound-100/",
+        "position": 9.183333333333334,
+        "prior": {
+          "clicks": 1,
+          "ctr": 0.023255813953488372,
+          "impressions": 43,
+          "position": 5.767441860465116
+        },
+        "query": "unbound 100",
+        "reason": "'unbound 100' ranks 9.2 on /race/unbound-100/ with 60 impressions/28d \u2014 pushing to top 3 could add ~4 clicks.",
+        "score": 4.000000000000001
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 37,
+        "page": "/race/the-rad/",
+        "position": 4.351351351351351,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 259,
+          "position": 4.235521235521236
+        },
+        "query": "the rad gravel race",
+        "reason": "'the rad gravel race' ranks 4.4 on /race/the-rad/ with 37 impressions/28d \u2014 pushing to top 3 could add ~4 clicks.",
+        "score": 3.7
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 35,
+        "page": "/race/uci-gravel-dustman/",
+        "position": 8.82857142857143,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 32,
+          "position": 8.40625
+        },
+        "query": "dustman gravel",
+        "reason": "'dustman gravel' ranks 8.8 on /race/uci-gravel-dustman/ with 35 impressions/28d \u2014 pushing to top 3 could add ~4 clicks.",
+        "score": 3.5
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 34,
+        "page": "/race/iceman-cometh/",
+        "position": 9.5,
+        "query": "iceman waves 2026",
+        "reason": "'iceman waves 2026' ranks 9.5 on /race/iceman-cometh/ with 34 impressions/28d \u2014 pushing to top 3 could add ~3 clicks.",
+        "score": 3.4000000000000004
+      },
+      {
+        "clicks": 2,
+        "ctr": 0.03773584905660377,
+        "impressions": 53,
+        "page": "/race/gravel-revival/",
+        "position": 6.320754716981132,
+        "prior": {
+          "clicks": 2,
+          "ctr": 0.006968641114982578,
+          "impressions": 287,
+          "position": 5.898954703832753
+        },
+        "query": "gravel revival",
+        "reason": "'gravel revival' ranks 6.3 on /race/gravel-revival/ with 53 impressions/28d \u2014 pushing to top 3 could add ~3 clicks.",
+        "score": 3.3000000000000003
+      },
+      {
+        "clicks": 1,
+        "ctr": 0.023255813953488372,
+        "impressions": 43,
+        "page": "/tire/maxxis-rambler-vs-maxxis-reaver/",
+        "position": 5.232558139534884,
+        "prior": {
+          "clicks": 2,
+          "ctr": 0.0392156862745098,
+          "impressions": 51,
+          "position": 6.745098039215686
+        },
+        "query": "maxxis reaver vs rambler",
+        "reason": "'maxxis reaver vs rambler' ranks 5.2 on /tire/maxxis-rambler-vs-maxxis-reaver/ with 43 impressions/28d \u2014 pushing to top 3 could add ~3 clicks.",
+        "score": 3.3000000000000003
+      },
+      {
+        "clicks": 1,
+        "ctr": 0.023809523809523808,
+        "impressions": 42,
+        "page": "/race/grusk/",
+        "position": 5.071428571428571,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 30,
+          "position": 4.733333333333333
+        },
+        "query": "grusk 2027",
+        "reason": "'grusk 2027' ranks 5.1 on /race/grusk/ with 42 impressions/28d \u2014 pushing to top 3 could add ~3 clicks.",
+        "score": 3.2
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 31,
+        "page": "/race/unbound-xl/",
+        "position": 6.774193548387097,
+        "prior": {
+          "clicks": 1,
+          "ctr": 0.05263157894736842,
+          "impressions": 19,
+          "position": 5.052631578947368
+        },
+        "query": "unbound xl 2027",
+        "reason": "'unbound xl 2027' ranks 6.8 on /race/unbound-xl/ with 31 impressions/28d \u2014 pushing to top 3 could add ~3 clicks.",
+        "score": 3.1
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 30,
+        "page": "/race/oregon-coast-gravel-epic/",
+        "position": 7.466666666666667,
+        "prior": {
+          "clicks": 1,
+          "ctr": 0.03125,
+          "impressions": 32,
+          "position": 5.6875
+        },
+        "query": "oregon coast gravel epic",
+        "reason": "'oregon coast gravel epic' ranks 7.5 on /race/oregon-coast-gravel-epic/ with 30 impressions/28d \u2014 pushing to top 3 could add ~3 clicks.",
+        "score": 3.0
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 30,
+        "page": "/tire/maxxis-rambler-vs-maxxis-reaver/",
+        "position": 6.066666666666666,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 19,
+          "position": 7.578947368421052
+        },
+        "query": "maxxis rambler vs reaver",
+        "reason": "'maxxis rambler vs reaver' ranks 6.1 on /tire/maxxis-rambler-vs-maxxis-reaver/ with 30 impressions/28d \u2014 pushing to top 3 could add ~3 clicks.",
+        "score": 3.0
+      },
+      {
+        "clicks": 1,
+        "ctr": 0.02702702702702703,
+        "impressions": 37,
+        "page": "/race/iceman-cometh/",
+        "position": 10.0,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 26,
+          "position": 10.807692307692308
+        },
+        "query": "iceman cometh bike race",
+        "reason": "'iceman cometh bike race' ranks 10.0 on /race/iceman-cometh/ with 37 impressions/28d \u2014 pushing to top 3 could add ~3 clicks.",
+        "score": 2.7
+      },
+      {
+        "clicks": 1,
+        "ctr": 0.03125,
+        "impressions": 32,
+        "page": "/race/rebeccas-private-idaho/",
+        "position": 7.71875,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 30,
+          "position": 5.966666666666667
+        },
+        "query": "rebeccas private idaho",
+        "reason": "'rebeccas private idaho' ranks 7.7 on /race/rebeccas-private-idaho/ with 32 impressions/28d \u2014 pushing to top 3 could add ~2 clicks.",
+        "score": 2.2
+      },
+      {
+        "clicks": 1,
+        "ctr": 0.03333333333333333,
+        "impressions": 30,
+        "page": "/race/the-equalizer/",
+        "position": 4.066666666666666,
+        "query": "equalizer gravel race 2026",
+        "reason": "'equalizer gravel race 2026' ranks 4.1 on /race/the-equalizer/ with 30 impressions/28d \u2014 pushing to top 3 could add ~2 clicks.",
+        "score": 2.0000000000000004
+      },
+      {
+        "clicks": 3,
+        "ctr": 0.06521739130434782,
+        "impressions": 46,
+        "page": "/race/fuego-mtb/",
+        "position": 4.913043478260869,
+        "prior": {
+          "clicks": 2,
+          "ctr": 0.038461538461538464,
+          "impressions": 52,
+          "position": 3.0961538461538463
+        },
+        "query": "sea otter fuego xl",
+        "reason": "'sea otter fuego xl' ranks 4.9 on /race/fuego-mtb/ with 46 impressions/28d \u2014 pushing to top 3 could add ~2 clicks.",
+        "score": 1.6000000000000003
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 48,
+        "page": "/race/hungry-bear-100/",
+        "position": 10.9375,
+        "prior": {
+          "clicks": 1,
+          "ctr": 0.03225806451612903,
+          "impressions": 31,
+          "position": 17.35483870967742
+        },
+        "query": "hungry bear gravel race",
+        "reason": "'hungry bear gravel race' ranks 10.9 on /race/hungry-bear-100/ with 48 impressions/28d \u2014 pushing to top 8 could add ~1 clicks.",
+        "score": 1.44
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 48,
+        "page": "/race/unbound-xl/",
+        "position": 17.270833333333332,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 40,
+          "position": 15.225
+        },
+        "query": "unbound gravel race",
+        "reason": "'unbound gravel race' ranks 17.3 on /race/unbound-xl/ with 48 impressions/28d \u2014 pushing to top 8 could add ~1 clicks.",
+        "score": 1.44
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 42,
+        "page": "/the-big-three-frequency-duration-and-intensity/",
+        "position": 10.023809523809524,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 30,
+          "position": 9.833333333333334
+        },
+        "query": "duration vs frequency",
+        "reason": "'duration vs frequency' ranks 10.0 on /the-big-three-frequency-duration-and-intensity/ with 42 impressions/28d \u2014 pushing to top 8 could add ~1 clicks.",
+        "score": 1.26
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 37,
+        "page": "/race/bear-100/",
+        "position": 14.702702702702704,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 30,
+          "position": 8.933333333333334
+        },
+        "query": "bear 100 gravel",
+        "reason": "'bear 100 gravel' ranks 14.7 on /race/bear-100/ with 37 impressions/28d \u2014 pushing to top 8 could add ~1 clicks.",
+        "score": 1.1099999999999999
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 34,
+        "page": "/the-big-three-frequency-duration-and-intensity/",
+        "position": 10.176470588235293,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 69,
+          "position": 9.594202898550725
+        },
+        "query": "frequency vs duration",
+        "reason": "'frequency vs duration' ranks 10.2 on /the-big-three-frequency-duration-and-intensity/ with 34 impressions/28d \u2014 pushing to top 8 could add ~1 clicks.",
+        "score": 1.02
+      },
+      {
+        "clicks": 2,
+        "ctr": 0.06666666666666667,
+        "impressions": 30,
+        "page": "/race/northcape-4000/",
+        "position": 7.866666666666666,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 16,
+          "position": 8.0
+        },
+        "query": "north cape 4000 cost",
+        "reason": "'north cape 4000 cost' ranks 7.9 on /race/northcape-4000/ with 30 impressions/28d \u2014 pushing to top 3 could add ~1 clicks.",
+        "score": 1.0000000000000002
+      },
+      {
+        "clicks": 0,
+        "ctr": 0.0,
+        "impressions": 31,
+        "page": "/race/the-traka/",
+        "position": 15.35483870967742,
+        "prior": {
+          "clicks": 0,
+          "ctr": 0.0,
+          "impressions": 33,
+          "position": 12.272727272727273
+        },
+        "query": "traka 200",
+        "reason": "'traka 200' ranks 15.4 on /race/the-traka/ with 31 impressions/28d \u2014 pushing to top 8 could add ~1 clicks.",
+        "score": 0.9299999999999999
+      },
+      {
+        "clicks": 7,
+        "ctr": 0.1590909090909091,
+        "impressions": 44,
+        "page": "/i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/",
+        "position": 6.75,
+        "prior": {
+          "clicks": 2,
+          "ctr": 0.06666666666666667,
+          "impressions": 30,
+          "position": 8.433333333333334
+        },
+        "query": "fascat coaching reviews",
+        "reason": "'fascat coaching reviews' ranks 6.8 on /i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/ with 44 impressions/28d \u2014 pushing to top 3 could add ~0 clicks.",
+        "score": 0.0
+      }
+    ]
+  },
+  "cooldown_excluded": [
+    "/race/bwr-california/",
+    "/race/rebeccas-private-idaho/",
+    "/race/the-rad/",
+    "/race/unbound-xl/"
+  ],
+  "current_window": {
+    "end": "2026-11-14",
+    "start": "2026-10-18"
+  },
+  "data_boundary": "2026-11-14",
+  "generated_at_utc": "2026-11-16T11:27:59.355713Z",
+  "noncanonical": {},
+  "overall": {
+    "clicks": 1665,
+    "ctr": 0.04116091073150231,
+    "impressions": 40451,
+    "position": 9.717238139971817,
+    "prior": {
+      "clicks": 2134,
+      "ctr": 0.03895795680668894,
+      "impressions": 54777,
+      "position": 7.6920605363565
+    }
+  },
+  "prior_window": {
+    "end": "2026-10-17",
+    "start": "2026-09-20"
+  },
+  "pulls": [
+    {
+      "dimensions": [],
+      "requests": 1,
+      "rows": 1,
+      "window": "current"
+    },
+    {
+      "dimensions": [
+        "query"
+      ],
+      "requests": 1,
+      "rows": 1569,
+      "window": "current"
+    },
+    {
+      "dimensions": [
+        "query",
+        "page"
+      ],
+      "requests": 1,
+      "rows": 1956,
+      "window": "current"
+    },
+    {
+      "dimensions": [
+        "page"
+      ],
+      "requests": 1,
+      "rows": 1372,
+      "window": "current"
+    },
+    {
+      "dimensions": [],
+      "requests": 1,
+      "rows": 1,
+      "window": "prior"
+    },
+    {
+      "dimensions": [
+        "query"
+      ],
+      "requests": 1,
+      "rows": 1860,
+      "window": "prior"
+    },
+    {
+      "dimensions": [
+        "query",
+        "page"
+      ],
+      "requests": 1,
+      "rows": 2266,
+      "window": "prior"
+    },
+    {
+      "dimensions": [
+        "page"
+      ],
+      "requests": 1,
+      "rows": 1496,
+      "window": "prior"
+    }
+  ],
+  "schema_version": 1,
+  "score_version": 1,
+  "site": "sc-domain:gravelgodcycling.com",
+  "top_candidates": [
+    {
+      "action": "refresh_content",
+      "bucket": "decliners",
+      "clicks": 24,
+      "combined_upside": 45.0,
+      "ctr": 0.14634146341463414,
+      "impressions": 164,
+      "page": "/race/big-sugar/tires/",
+      "position": 5.2926829268292686,
+      "prior": {
+        "clicks": 69,
+        "ctr": 0.1513157894736842,
+        "impressions": 456,
+        "position": 4.81359649122807
+      },
+      "query": null,
+      "rank": 1,
+      "reason": "/race/big-sugar/tires/ clicks fell from 69 to 24 \u2014 refresh content.",
+      "score": 45.0,
+      "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+      "supporting_queries": [],
+      "target_path": "/race/big-sugar/tires/"
+    },
+    {
+      "action": "refresh_content",
+      "bucket": "decliners",
+      "clicks": 27,
+      "combined_upside": 42.0,
+      "ctr": 0.1534090909090909,
+      "impressions": 176,
+      "page": "/race/uci-gravel-worlds/tires/",
+      "position": 4.994318181818182,
+      "prior": {
+        "clicks": 69,
+        "ctr": 0.15862068965517243,
+        "impressions": 435,
+        "position": 4.395402298850575
+      },
+      "query": null,
+      "rank": 2,
+      "reason": "/race/uci-gravel-worlds/tires/ clicks fell from 69 to 27 \u2014 refresh content.",
+      "score": 42.0,
+      "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+      "supporting_queries": [],
+      "target_path": "/race/uci-gravel-worlds/tires/"
+    },
+    {
+      "action": "refresh_content",
+      "bucket": "decliners",
+      "clicks": 8,
+      "combined_upside": 23.0,
+      "ctr": 0.027874564459930314,
+      "impressions": 287,
+      "page": "/race/big-sugar/",
+      "position": 11.665505226480835,
+      "prior": {
+        "clicks": 31,
+        "ctr": 0.027264731750219876,
+        "impressions": 1137,
+        "position": 7.08179419525066
+      },
+      "query": null,
+      "rank": 3,
+      "reason": "/race/big-sugar/ clicks fell from 31 to 8, position worsened 7.1 \u2192 11.7 \u2014 refresh content.",
+      "score": 23.0,
+      "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+      "supporting_queries": [],
+      "target_path": "/race/big-sugar/"
+    },
+    {
+      "action": "refresh_content",
+      "bucket": "decliners",
+      "clicks": 2,
+      "combined_upside": 32.575,
+      "ctr": 0.009433962264150943,
+      "impressions": 212,
+      "page": "/race/marji-gesick/",
+      "position": 11.141509433962264,
+      "prior": {
+        "clicks": 25,
+        "ctr": 0.03486750348675035,
+        "impressions": 717,
+        "position": 8.803347280334728
+      },
+      "query": null,
+      "rank": 4,
+      "reason": "/race/marji-gesick/ clicks fell from 25 to 2 \u2014 refresh content.",
+      "score": 23.0,
+      "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+      "supporting_queries": [
+        {
+          "clicks": 1,
+          "ctr": 0.012048192771084338,
+          "impressions": 83,
+          "position": 6.554216867469879,
+          "query": "marji gesick 2027"
+        },
+        {
+          "clicks": 1,
+          "ctr": 0.012048192771084338,
+          "impressions": 83,
+          "position": 6.554216867469879,
+          "query": "marji gesick 2027"
+        }
+      ],
+      "target_path": "/race/marji-gesick/"
+    },
+    {
+      "action": "refresh_content",
+      "bucket": "decliners",
+      "clicks": 2,
+      "combined_upside": 23.0,
+      "ctr": 0.15384615384615385,
+      "impressions": 13,
+      "page": "/race/flanders-legacy-gravel/tires/",
+      "position": 6.3076923076923075,
+      "prior": {
+        "clicks": 25,
+        "ctr": 0.1953125,
+        "impressions": 128,
+        "position": 3.0703125
+      },
+      "query": null,
+      "rank": 5,
+      "reason": "/race/flanders-legacy-gravel/tires/ clicks fell from 25 to 2 \u2014 refresh content.",
+      "score": 23.0,
+      "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+      "supporting_queries": [],
+      "target_path": "/race/flanders-legacy-gravel/tires/"
+    }
+  ]
+}

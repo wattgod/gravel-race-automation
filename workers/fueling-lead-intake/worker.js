@@ -332,9 +332,10 @@ const BRAND_SENDERS = {
 };
 // The short tag on Matti's alert subjects: [GG], [RL], [XC].
 const BRAND_TAGS = { gravelgod: 'GG', roadielabs: 'RL', xcskilabs: 'XC' };
-function brandLabel(brand) { return BRAND_LABELS[brand] || 'Gravel God'; }
-function brandSender(brand) { return BRAND_SENDERS[brand] || BRAND_SENDERS.gravelgod; }
-function brandTag(brand) { return BRAND_TAGS[brand] || 'GG'; }
+// brand is always resolveBrand()'s answer, so these never need a default.
+function brandLabel(brand) { return BRAND_LABELS[brand]; }
+function brandSender(brand) { return BRAND_SENDERS[brand]; }
+function brandTag(brand) { return BRAND_TAGS[brand]; }
 
 const LEAD_CONTEXT_KEYS = ['race_slug', 'race_name', 'guide_chapter', 'offer_variant',
   'entry_src', 'goal_type', 'viewed_races'];

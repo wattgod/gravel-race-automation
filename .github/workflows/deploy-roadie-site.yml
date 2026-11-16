@@ -101,14 +101,21 @@ jobs:
             # The CDN edge the runner hits can lag the push: retry, then say what it served.
             for i in 1 2 3 4 5 6; do
               rm -f live.html
-              curl -sf "https://roadielabs.com${path}?v=$GITHUB_RUN_ID-$i" -o live.html || { sleep 20; continue; }
+              code=$(curl -s -o live.html -w '%{http_code}' "https://roadielabs.com${path}?v=$GITHUB_RUN_ID-$i" || echo curl-failed)
               # Menu icon CSS (inline or the new hashed file) AND the bind-once tap script.
               if { grep -qF 'rl-site-header-toggle span { display: block; flex: none;' live.html \
                    || grep -qF "/race/assets/$css" live.html; } \
                  && grep -qF 'data-rl-nav-bound' live.html; then ok=1; break; fi
               sleep 20
             done
-            if [ -n "$ok" ]; then echo "live ok: $path"; else echo "live header not updated: $path"; fail=1; fi
+            if [ -n "$ok" ]; then echo "live ok: $path"; else
+              # Say what the runner was actually served, so a bot wall or an old page is told apart.
+              title=$(grep -o '<title>[^<]*' live.html 2>/dev/null | head -c 120 || true)
+              echo "live header not updated: $path (HTTP $code, $(wc -c < live.html 2>/dev/null || echo 0) bytes, ${title:-no title};" \
+                   "icon css inline=$(grep -cF 'rl-site-header-toggle span { display: block; flex: none;' live.html || true)" \
+                   "css file=$(grep -cF "/race/assets/$css" live.html || true) bind-once=$(grep -cF 'data-rl-nav-bound' live.html || true))"
+              fail=1
+            fi
           done
           curl -sf "https://roadielabs.com/race/assets/$css?v=$GITHUB_RUN_ID" -o live.css
           grep -qF 'flex: none; width: 20px; height: 2px' live.css || { echo "live $css lacks the menu icon fix"; fail=1; }

@@ -4,7 +4,7 @@
   "distance_mi": 55.0,
   "demands": {
     "durability": 2,
-    "climbing": 5,
+    "climbing": 4,
     "vo2_power": 2,
     "threshold": 6,
     "technical": 6,
@@ -21,20 +21,20 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "73ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+      "workout_context": "Forbidden Gravel's bC coastal mountain gravel rewards steady threshold power. Surging and recovering costs more watts than just holding."
     },
     {
       "category": "Gravel_Specific",
-      "score": 94,
+      "score": 100,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Forbidden Gravel's BC coastal mountains, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 55 miles."
+      "workout_context": "Forbidden Gravel's BC coastal mountains, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 68 miles."
     },
     {
       "category": "Over_Under",
-      "score": 84,
+      "score": 79,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -43,7 +43,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 78,
+      "score": 79,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -53,7 +53,7 @@
     },
     {
       "category": "Race_Simulation",
-      "score": 71,
+      "score": 75,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -62,17 +62,8 @@
       "workout_context": "Race-pace efforts that mimic Forbidden Gravel's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before September."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 59,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "Varied gradients on bC coastal mountain gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
-    },
-    {
       "category": "Critical_Power",
-      "score": 59,
+      "score": 62,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -80,8 +71,17 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Forbidden Gravel, that number decides whether you bridge or get dropped."
     },
     {
+      "category": "Mixed_Climbing",
+      "score": 50,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "Varied gradients on bC coastal mountain gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+    },
+    {
       "category": "Norwegian_Double",
-      "score": 47,
+      "score": 50,
       "workouts": [
         "Norwegian 4x8 Classic",
         "Double Threshold"
@@ -90,16 +90,16 @@
     },
     {
       "category": "Cadence_Work",
-      "score": 47,
+      "score": 50,
       "workouts": [
         "High Cadence Drills",
         "Cadence Pyramids"
       ],
-      "workout_context": "Smooth pedaling at 55 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+      "workout_context": "Smooth pedaling at 68 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
     },
     {
       "category": "VO2max",
-      "score": 43,
+      "score": 46,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
@@ -109,28 +109,28 @@
     },
     {
       "category": "Durability",
-      "score": 41,
+      "score": 44,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
         "Progressive Fatigue"
       ],
-      "workout_context": "55 miles on bC coastal mountain gravel burns energy faster than the distance suggests. Train the fade resistance now."
+      "workout_context": "68 miles on bC coastal mountain gravel burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
-      "category": "SFR_Muscle_Force",
-      "score": 39,
+      "category": "Anaerobic_Capacity",
+      "score": 42,
       "workouts": [
-        "SFR Low Cadence",
-        "Force Repeats"
+        "2min Killers",
+        "90sec Repeats"
       ],
-      "workout_context": "Low-cadence force work for 4,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "2-minute all-out efforts on bC coastal mountain gravel. Closing gaps, responding to attacks, sprinting for position. Train the burn."
     }
   ],
   "race_overlay": {
     "nutrition": "Target 40\u201360g carbs/hour for Forbidden Gravel\u2019s 55 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
     "terrain": "Mixed terrain at Forbidden Gravel requires surface adaptability. Include weekly rides on bc coastal mountain gravel to build confidence. Expect: bc coastal mountains, local event, canadian gravel."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 55 miles of bc coastal mountain gravel in Cumberland, British Columbia, Canada.",
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Gravel Specific, and Over Under to prepare you for 68 miles of bc coastal mountain gravel in Cumberland, British Columbia, Canada.",
   "generated_at": "2026-03-06"
 }

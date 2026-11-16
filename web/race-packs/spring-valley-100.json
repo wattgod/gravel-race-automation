@@ -4,13 +4,13 @@
   "distance_mi": 100.0,
   "demands": {
     "durability": 6,
-    "climbing": 5,
+    "climbing": 6,
     "vo2_power": 2,
     "threshold": 8,
     "technical": 4,
     "heat_resilience": 1,
     "altitude": 2,
-    "race_specificity": 3
+    "race_specificity": 5
   },
   "top_categories": [
     {
@@ -21,7 +21,26 @@
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "Spring Valley 100's Minnesota rolling gravel rewards steady threshold power. Surging and recovering costs more watts than just holding."
+      "workout_context": "51ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
+    },
+    {
+      "category": "Durability",
+      "score": 83,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 102, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
+      "category": "Over_Under",
+      "score": 82,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Spring Valley Wilder 100, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "G_Spot",
@@ -31,106 +50,87 @@
         "G-Spot Extended",
         "Criss-Cross"
       ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Spring Valley 100. Train it until it feels boring."
-    },
-    {
-      "category": "Durability",
-      "score": 78,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
-    {
-      "category": "Over_Under",
-      "score": 78,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Spring Valley 100, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Spring Valley Wilder 100. Train it until it feels boring."
     },
     {
       "category": "Gravel_Specific",
-      "score": 57,
+      "score": 67,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "Spring Valley 100's Minnesota rolling, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 100 miles."
-    },
-    {
-      "category": "Endurance",
-      "score": 52,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
-    },
-    {
-      "category": "HVLI_Extended",
-      "score": 51,
-      "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
-      ],
-      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
-    },
-    {
-      "category": "Norwegian_Double",
-      "score": 51,
-      "workouts": [
-        "Norwegian 4x8 Classic",
-        "Double Threshold"
-      ],
-      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 100 miles, sustainable FTP gains matter more than peak power."
-    },
-    {
-      "category": "Mixed_Climbing",
-      "score": 48,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "Varied gradients on Minnesota rolling gravel demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
+      "workout_context": "Spring Valley Wilder 100's Minnesota rolling, Local event forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 102 miles."
     },
     {
       "category": "Race_Simulation",
-      "score": 48,
+      "score": 64,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
         "Sector Simulation"
       ],
-      "workout_context": "Race-pace efforts that mimic Spring Valley 100's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
+      "workout_context": "Race-pace efforts that mimic Spring Valley Wilder 100's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before May."
     },
     {
-      "category": "Tempo",
-      "score": 44,
+      "category": "Mixed_Climbing",
+      "score": 55,
       "workouts": [
-        "Tempo Blocks",
-        "Extended Tempo"
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
       ],
-      "workout_context": "Tempo is Spring Valley 100's race pace. The wattage you'll hold for 100 miles on Minnesota rolling gravel. Train it until it's automatic."
+      "workout_context": "5,174ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Endurance",
+      "score": 50,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 102 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "HVLI_Extended",
+      "score": 48,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "102 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 48,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 102 miles, sustainable FTP gains matter more than peak power."
     },
     {
       "category": "Blended",
-      "score": 38,
+      "score": 42,
       "workouts": [
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 4,000ft of climbing on Minnesota rolling gravel does to your power file on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 5,174ft of climbing on Minnesota rolling gravel does to your power file on race day."
+    },
+    {
+      "category": "Tempo",
+      "score": 42,
+      "workouts": [
+        "Tempo Blocks",
+        "Extended Tempo"
+      ],
+      "workout_context": "Tempo is Spring Valley Wilder 100's race pace. The wattage you'll hold for 102 miles on Minnesota rolling gravel. Train it until it's automatic."
     }
   ],
   "race_overlay": {
     "nutrition": "Target 60\u201380g carbs/hour for Spring Valley 100\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Spring Valley 100 requires surface adaptability. Include weekly rides on minnesota rolling gravel to build confidence. Expect: minnesota rolling, local event, midwest gravel."
   },
-  "pack_summary": "This 10-workout pack focuses on TT Threshold, G Spot, and Durability to prepare you for 100 miles of minnesota rolling gravel in Spring Valley, Minnesota.",
+  "pack_summary": "This 10-workout pack focuses on TT Threshold, Durability, and Over Under to prepare you for 102 miles of minnesota rolling gravel in Spring Valley, Minnesota.",
   "generated_at": "2026-03-06"
 }

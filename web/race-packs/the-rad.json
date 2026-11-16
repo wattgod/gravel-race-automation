@@ -7,8 +7,8 @@
     "climbing": 10,
     "vo2_power": 6,
     "threshold": 8,
-    "technical": 6,
-    "heat_resilience": 1,
+    "technical": 4,
+    "heat_resilience": 0,
     "altitude": 8,
     "race_specificity": 9
   },
@@ -43,17 +43,8 @@
       "workout_context": "At The Rad Dirt Fest, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "Gravel_Specific",
-      "score": 92,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "The Rad Dirt Fest's High-desert gravel, Mesa terrain forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 113 miles."
-    },
-    {
       "category": "Race_Simulation",
-      "score": 92,
+      "score": 85,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -63,7 +54,7 @@
     },
     {
       "category": "Durability",
-      "score": 86,
+      "score": 81,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
@@ -91,22 +82,22 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of The Rad Dirt Fest. Train it until it feels boring."
     },
     {
+      "category": "Gravel_Specific",
+      "score": 77,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "The Rad Dirt Fest's Maintained high-desert gravel (more than 90%), Mostly forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 113 miles."
+    },
+    {
       "category": "Endurance",
-      "score": 65,
+      "score": 62,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
       "workout_context": "Every hard session works better with a bigger aerobic base. At 113 miles, base fitness is the difference between racing and surviving."
-    },
-    {
-      "category": "Critical_Power",
-      "score": 54,
-      "workouts": [
-        "Above CP Repeats",
-        "W-Prime Depletion"
-      ],
-      "workout_context": "How long can you hold 105% FTP before you blow? At The Rad Dirt Fest, that number decides whether you bridge or get dropped."
     },
     {
       "category": "SFR_Muscle_Force",
@@ -125,6 +116,15 @@
         "Endurance with Spikes"
       ],
       "workout_context": "Endurance with intensity spikes baked in. Exactly what 10,613ft of climbing on high-desert gravel with long sustained climbs does to your power file on race day."
+    },
+    {
+      "category": "Critical_Power",
+      "score": 44,
+      "workouts": [
+        "Above CP Repeats",
+        "W-Prime Depletion"
+      ],
+      "workout_context": "How long can you hold 105% FTP before you blow? At The Rad Dirt Fest, that number decides whether you bridge or get dropped."
     }
   ],
   "race_overlay": {

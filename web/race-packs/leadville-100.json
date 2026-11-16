@@ -8,7 +8,7 @@
     "vo2_power": 10,
     "threshold": 8,
     "technical": 8,
-    "heat_resilience": 6,
+    "heat_resilience": 0,
     "altitude": 10,
     "race_specificity": 10
   },
@@ -22,16 +22,6 @@
         "Norwegian 4x8"
       ],
       "workout_context": "11,900ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
-    },
-    {
-      "category": "Durability",
-      "score": 82,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "Gravel_Specific",
@@ -72,13 +62,14 @@
       "workout_context": "At Leadville Trail 100 MTB, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
-      "category": "Endurance",
-      "score": 65,
+      "category": "Durability",
+      "score": 60,
       "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
       ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "At mile 60 of 100, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
       "category": "Critical_Power",
@@ -118,22 +109,29 @@
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on mixed mountain terrain\u2014singletrack, fire roads,. If you haven't trained them, you'll crack."
     },
     {
-      "category": "HVLI_Extended",
-      "score": 38,
+      "category": "Endurance",
+      "score": 49,
       "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
       ],
-      "workout_context": "100 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 100 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 36,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 11,900ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     }
   ],
   "race_overlay": {
-    "heat": "August in Leadville, Colorado can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Leadville Trail 100 MTB. Increase sodium intake 48 hours before race day.",
     "nutrition": "Target 60\u201380g carbs/hour for Leadville Trail 100 MTB\u2019s 100 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "altitude": "Leadville Trail 100 MTB with 11,900ft of climbing, much of it above 8,000ft demands altitude preparation. Arrive 5\u20137 days early for acclimatization. Expect 5\u201315% power reduction at altitude. Increase iron intake 4 weeks out. Hydrate aggressively \u2014 altitude increases fluid loss by 20\u201340%. Starts at 10,200 feet elevation; Columbine summit at 12,600 feet.",
     "terrain": "Highly technical terrain at Leadville Trail 100 MTB demands practice on similar surfaces. Ride mixed mountain terrain\u2014singletrack, fire roads, pavement at race-day cadence weekly. Expect: singletrack, gravel roads, paved sections. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 100 miles."
   },
-  "pack_summary": "This 10-workout pack focuses on VO2max, Durability, and Gravel Specific to prepare you for 100 miles of mixed mountain terrain\u2014singletrack, fire roads, pavement in Leadville, Colorado.",
+  "pack_summary": "This 10-workout pack focuses on VO2max, Gravel Specific, and Race Simulation to prepare you for 100 miles of mixed mountain terrain\u2014singletrack, fire roads, pavement in Leadville, Colorado.",
   "generated_at": "2026-03-06"
 }

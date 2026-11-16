@@ -8,7 +8,7 @@
     "vo2_power": 6,
     "threshold": 6,
     "technical": 6,
-    "heat_resilience": 6,
+    "heat_resilience": 0,
     "altitude": 6,
     "race_specificity": 9
   },
@@ -43,16 +43,6 @@
       "workout_context": "When someone attacks on mixed terrain, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
-      "category": "Durability",
-      "score": 88,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "52 miles on mixed terrain burns energy faster than the distance suggests. Train the fade resistance now."
-    },
-    {
       "category": "TT_Threshold",
       "score": 71,
       "workouts": [
@@ -61,15 +51,6 @@
         "Descending Threshold"
       ],
       "workout_context": "76ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "Endurance",
-      "score": 61,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Base fitness for Birkebeinerrittet Sykkel. Without this, the hard workouts break you down instead of building you up."
     },
     {
       "category": "Over_Under",
@@ -100,6 +81,16 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Birkebeinerrittet Sykkel. Train it until it feels boring."
     },
     {
+      "category": "Durability",
+      "score": 54,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "52 miles on mixed terrain burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
       "category": "Anaerobic_Capacity",
       "score": 50,
       "workouts": [
@@ -118,6 +109,15 @@
       "workout_context": "Varied gradients on mixed terrain demand climbing versatility. Sit the shallow stuff, stand the steep stuff, switch without thinking."
     },
     {
+      "category": "Endurance",
+      "score": 36,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Base fitness for Birkebeinerrittet Sykkel. Without this, the hard workouts break you down instead of building you up."
+    },
+    {
       "category": "Blended",
       "score": 33,
       "workouts": [
@@ -128,7 +128,6 @@
     }
   ],
   "race_overlay": {
-    "heat": "August in Rena to Lillehammer, Norway can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Birkebeinerrittet Sykkel. Increase sodium intake 48 hours before race day.",
     "nutrition": "Target 40\u201360g carbs/hour for Birkebeinerrittet Sykkel\u2019s 52 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
     "altitude": "Moderate altitude at Birkebeinerrittet Sykkel. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
     "terrain": "Mixed terrain at Birkebeinerrittet Sykkel requires surface adaptability. Include weekly rides on mixed terrain to build confidence."

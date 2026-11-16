@@ -4,7 +4,7 @@
   "distance_mi": 200.0,
   "demands": {
     "durability": 10,
-    "climbing": 7,
+    "climbing": 10,
     "vo2_power": 10,
     "threshold": 5,
     "technical": 8,
@@ -72,6 +72,15 @@
       "workout_context": "11,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
+      "category": "Over_Under",
+      "score": 50,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Unbound Gravel 200, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
       "category": "Critical_Power",
       "score": 48,
       "workouts": [
@@ -79,6 +88,25 @@
         "W-Prime Depletion"
       ],
       "workout_context": "How long can you hold 105% FTP before you blow? At Unbound Gravel 200, that number decides whether you bridge or get dropped."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 46,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "11,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 46,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "55ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Anaerobic_Capacity",
@@ -90,16 +118,6 @@
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on rolling gravel with punchy climbs. If you haven't trained them, you'll crack."
     },
     {
-      "category": "TT_Threshold",
-      "score": 39,
-      "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
-      ],
-      "workout_context": "55ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
       "category": "Blended",
       "score": 38,
       "workouts": [
@@ -107,24 +125,6 @@
         "Endurance with Spikes"
       ],
       "workout_context": "Endurance with intensity spikes baked in. Exactly what 11,000ft of climbing on rolling gravel with punchy climbs does to your power file on race day."
-    },
-    {
-      "category": "Over_Under",
-      "score": 38,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Unbound Gravel 200, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
-    },
-    {
-      "category": "Mixed_Climbing",
-      "score": 32,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "11,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     }
   ],
   "race_overlay": {

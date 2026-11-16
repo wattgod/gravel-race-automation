@@ -8,24 +8,14 @@
     "vo2_power": 7,
     "threshold": 8,
     "technical": 8,
-    "heat_resilience": 10,
+    "heat_resilience": 0,
     "altitude": 2,
     "race_specificity": 10
   },
   "top_categories": [
     {
-      "category": "Durability",
-      "score": 100,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 124, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
-    {
       "category": "Gravel_Specific",
-      "score": 83,
+      "score": 100,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
@@ -34,7 +24,7 @@
     },
     {
       "category": "Race_Simulation",
-      "score": 79,
+      "score": 95,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -43,27 +33,28 @@
       "workout_context": "Race-pace efforts that mimic The Rift's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before July."
     },
     {
+      "category": "Durability",
+      "score": 75,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 124, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
       "category": "TT_Threshold",
-      "score": 62,
+      "score": 75,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "52ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "Endurance",
-      "score": 57,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 124 miles, base fitness is the difference between racing and surviving."
+      "workout_context": "69ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Over_Under",
-      "score": 51,
+      "score": 61,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -72,7 +63,7 @@
     },
     {
       "category": "Critical_Power",
-      "score": 50,
+      "score": 60,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -81,7 +72,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 49,
+      "score": 59,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -91,27 +82,17 @@
     },
     {
       "category": "VO2max",
-      "score": 49,
+      "score": 59,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "6,400ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
-    },
-    {
-      "category": "HVLI_Extended",
-      "score": 47,
-      "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
-      ],
-      "workout_context": "124 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+      "workout_context": "8,530ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Anaerobic_Capacity",
-      "score": 42,
+      "score": 50,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
@@ -120,19 +101,36 @@
     },
     {
       "category": "Blended",
-      "score": 36,
+      "score": 43,
       "workouts": [
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 6,400ft of climbing on black volcanic sand and sharp lava rock does to your power file on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 8,530ft of climbing on black volcanic sand and sharp lava rock does to your power file on race day."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 41,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "8,530ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 36,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 124 miles, sustainable FTP gains matter more than peak power."
     }
   ],
   "race_overlay": {
-    "heat": "July in Hvolsv\u00f6llur, Southern Iceland \u2014 10-15\u00b0C (50-59\u00b0F) with extreme variability. Cold + wet + wind. Hypothermia risk is real. Begin heat acclimatization 10\u201314 days before The Rift \u2014 20\u201330min sauna sessions or midday rides in full kit. Pre-load sodium 48 hours out. Target 500\u2013750ml/hr with electrolytes on race day.",
     "nutrition": "Target 60\u201380g carbs/hour for The Rift\u2019s 124 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Highly technical terrain at The Rift demands practice on similar surfaces. Ride black volcanic sand and sharp lava rock at race-day cadence weekly. Expect: black volcanic sand, sharp lava rock, loose highland roads. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 124 miles."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 124 miles of black volcanic sand and sharp lava rock in Hvolsv\u00f6llur, Southern Iceland.",
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and Durability to prepare you for 124 miles of black volcanic sand and sharp lava rock in Hvolsv\u00f6llur, Southern Iceland.",
   "generated_at": "2026-03-06"
 }

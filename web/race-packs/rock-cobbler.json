@@ -8,24 +8,14 @@
     "vo2_power": 6,
     "threshold": 8,
     "technical": 6,
-    "heat_resilience": 6,
+    "heat_resilience": 0,
     "altitude": 2,
     "race_specificity": 9
   },
   "top_categories": [
     {
-      "category": "Durability",
-      "score": 100,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "At mile 60 of 82, glycogen is gone. This workout teaches your body to produce watts on fumes."
-    },
-    {
       "category": "Gravel_Specific",
-      "score": 96,
+      "score": 100,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
@@ -34,7 +24,7 @@
     },
     {
       "category": "Race_Simulation",
-      "score": 96,
+      "score": 100,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -44,7 +34,7 @@
     },
     {
       "category": "TT_Threshold",
-      "score": 88,
+      "score": 92,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
@@ -54,7 +44,7 @@
     },
     {
       "category": "Over_Under",
-      "score": 72,
+      "score": 75,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -63,7 +53,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 69,
+      "score": 72,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -72,8 +62,18 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Rock Cobbler. Train it until it feels boring."
     },
     {
+      "category": "Durability",
+      "score": 71,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "At mile 60 of 82, glycogen is gone. This workout teaches your body to produce watts on fumes."
+    },
+    {
       "category": "VO2max",
-      "score": 61,
+      "score": 64,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
@@ -83,7 +83,7 @@
     },
     {
       "category": "Critical_Power",
-      "score": 56,
+      "score": 58,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -91,17 +91,8 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Rock Cobbler, that number decides whether you bridge or get dropped."
     },
     {
-      "category": "Endurance",
-      "score": 53,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 82 miles, base fitness is the difference between racing and surviving."
-    },
-    {
       "category": "Mixed_Climbing",
-      "score": 48,
+      "score": 50,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
@@ -110,7 +101,7 @@
     },
     {
       "category": "Anaerobic_Capacity",
-      "score": 48,
+      "score": 50,
       "workouts": [
         "2min Killers",
         "90sec Repeats"
@@ -118,21 +109,28 @@
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on central Valley gravel and dirt\u2014rocks, rollers. If you haven't trained them, you'll crack."
     },
     {
-      "category": "HVLI_Extended",
-      "score": 43,
+      "category": "Norwegian_Double",
+      "score": 44,
       "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
       ],
-      "workout_context": "The aerobic base that lets you ride central Valley gravel and dirt\u2014rocks, rollers at tempo for 82 miles without cracking. No shortcuts."
+      "workout_context": "Two threshold sessions per week without the recovery cost of VO2max work. For 82 miles, sustainable FTP gains matter more than peak power."
+    },
+    {
+      "category": "Blended",
+      "score": 42,
+      "workouts": [
+        "Z2 + VO2 Combo",
+        "Endurance with Spikes"
+      ],
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 8,700ft of climbing on central Valley gravel and dirt\u2014rocks, rollers does to your power file on race day."
     }
   ],
   "race_overlay": {
-    "heat": "February in Bakersfield, California can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Rock Cobbler. Increase sodium intake 48 hours before race day.",
     "nutrition": "Target 60\u201380g carbs/hour for Rock Cobbler\u2019s 82 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at Rock Cobbler requires surface adaptability. Include weekly rides on central valley gravel and dirt\u2014rocks, rollers to build confidence. Expect: central valley gravel, rocky sections, dirt roads."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and Race Simulation to prepare you for 82 miles of central valley gravel and dirt\u2014rocks, rollers in Bakersfield, California.",
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 82 miles of central valley gravel and dirt\u2014rocks, rollers in Bakersfield, California.",
   "generated_at": "2026-07-16"
 }

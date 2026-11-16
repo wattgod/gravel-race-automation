@@ -8,7 +8,7 @@
     "vo2_power": 8,
     "threshold": 6,
     "technical": 10,
-    "heat_resilience": 6,
+    "heat_resilience": 0,
     "altitude": 6,
     "race_specificity": 10
   },
@@ -41,16 +41,6 @@
         "Norwegian 4x8"
       ],
       "workout_context": "7,800ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
-    },
-    {
-      "category": "Durability",
-      "score": 66,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "60 miles on mixed dirt roads with technical singletrack burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "Critical_Power",
@@ -109,13 +99,14 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Grinduro. Train it until it feels boring."
     },
     {
-      "category": "Endurance",
-      "score": 44,
+      "category": "Durability",
+      "score": 42,
       "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
       ],
-      "workout_context": "Base fitness for Grinduro. Without this, the hard workouts break you down instead of building you up."
+      "workout_context": "60 miles on mixed dirt roads with technical singletrack burns energy faster than the distance suggests. Train the fade resistance now."
     },
     {
       "category": "Cadence_Work",
@@ -125,10 +116,18 @@
         "Cadence Pyramids"
       ],
       "workout_context": "Smooth pedaling at 60 miles saves muscle. Bad technique at mile 10 is invisible. At mile 80 it's a cramp."
+    },
+    {
+      "category": "SFR_Muscle_Force",
+      "score": 32,
+      "workouts": [
+        "SFR Low Cadence",
+        "Force Repeats"
+      ],
+      "workout_context": "Low-cadence force work for 7,800ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     }
   ],
   "race_overlay": {
-    "heat": "Complete 3\u20134 heat exposure sessions in the final 2 weeks before Grinduro. Increase sodium intake 48 hours before race day.",
     "nutrition": "Target 40\u201360g carbs/hour for Grinduro\u2019s 60 miles. Front-load calories in the first half. One bottle per hour minimum, more in heat.",
     "altitude": "Moderate altitude at Grinduro. Arrive 2\u20133 days early. Reduce intensity expectations by 5\u201310%. Hydrate aggressively.",
     "terrain": "Highly technical terrain at Grinduro demands practice on similar surfaces. Ride mixed dirt roads with technical singletrack sections \u2014 pushes gravel bike limits at race-day cadence weekly. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 60 miles."

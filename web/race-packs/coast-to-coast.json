@@ -4,9 +4,9 @@
   "distance_mi": 204.0,
   "demands": {
     "durability": 10,
-    "climbing": 4,
+    "climbing": 7,
     "vo2_power": 4,
-    "threshold": 4,
+    "threshold": 5,
     "technical": 4,
     "heat_resilience": 1,
     "altitude": 2,
@@ -32,6 +32,25 @@
         "Back-to-Back Long"
       ],
       "workout_context": "204 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "TT_Threshold",
+      "score": 62,
+      "workouts": [
+        "Single Sustained Threshold",
+        "Threshold Ramps",
+        "Descending Threshold"
+      ],
+      "workout_context": "Coast to Coast's Michigan gravel roads rewards steady threshold power. Surging and recovering costs more watts than just holding."
+    },
+    {
+      "category": "Over_Under",
+      "score": 61,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Coast to Coast, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
     },
     {
       "category": "Endurance",
@@ -68,17 +87,26 @@
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
       ],
-      "workout_context": "Endurance with intensity spikes baked in. Exactly what 5,000ft of climbing on Michigan gravel roads does to your power file on race day."
+      "workout_context": "Endurance with intensity spikes baked in. Exactly what 6,500ft of climbing on Michigan gravel roads does to your power file on race day."
     },
     {
-      "category": "TT_Threshold",
-      "score": 44,
+      "category": "Mixed_Climbing",
+      "score": 51,
       "workouts": [
-        "Single Sustained Threshold",
-        "Threshold Ramps",
-        "Descending Threshold"
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
       ],
-      "workout_context": "Coast to Coast's Michigan gravel roads rewards steady threshold power. Surging and recovering costs more watts than just holding."
+      "workout_context": "6,500ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
+    },
+    {
+      "category": "G_Spot",
+      "score": 48,
+      "workouts": [
+        "G-Spot Standard",
+        "G-Spot Extended",
+        "Criss-Cross"
+      ],
+      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Coast to Coast. Train it until it feels boring."
     },
     {
       "category": "VO2max",
@@ -88,50 +116,22 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "5,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
-    },
-    {
-      "category": "Over_Under",
-      "score": 39,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Coast to Coast, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+      "workout_context": "6,500ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Tempo",
-      "score": 34,
+      "score": 37,
       "workouts": [
         "Tempo Blocks",
         "Extended Tempo"
       ],
       "workout_context": "Tempo is Coast to Coast's race pace. The wattage you'll hold for 204 miles on Michigan gravel roads. Train it until it's automatic."
-    },
-    {
-      "category": "G_Spot",
-      "score": 34,
-      "workouts": [
-        "G-Spot Standard",
-        "G-Spot Extended",
-        "Criss-Cross"
-      ],
-      "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Coast to Coast. Train it until it feels boring."
-    },
-    {
-      "category": "Critical_Power",
-      "score": 34,
-      "workouts": [
-        "Above CP Repeats",
-        "W-Prime Depletion"
-      ],
-      "workout_context": "How long can you hold 105% FTP before you blow? At Coast to Coast, that number decides whether you bridge or get dropped."
     }
   ],
   "race_overlay": {
     "nutrition": "Ultra-distance fueling for 204 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 204 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
     "terrain": "Mixed terrain at Coast to Coast requires surface adaptability. Include weekly rides on michigan gravel roads to build confidence. Expect: gravel roads, rural michigan, rolling terrain."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, HVLI Extended, and Endurance to prepare you for 204 miles of michigan gravel roads in Au Gres to Ludington, Michigan.",
+  "pack_summary": "This 10-workout pack focuses on Durability, HVLI Extended, and TT Threshold to prepare you for 204 miles of michigan gravel roads in Au Gres to Ludington, Michigan.",
   "generated_at": "2026-03-06"
 }

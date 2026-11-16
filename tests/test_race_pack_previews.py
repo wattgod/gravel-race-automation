@@ -941,3 +941,26 @@ def test_heat_overlay_quotes_only_whole_word_heat_challenges():
 
     realities = overlay["heat"].split("Race-day realities: ", 1)[1]
     assert realities == "Extreme heat after noon; Sun exposure on open climbs."
+
+
+def test_every_pack_demands_match_the_analyzer():
+    """Shipped packs must carry the demands the generator computes today.
+
+    Packs went stale after analyzer and profile changes (leadville-100 kept
+    heat 6 from cold-weather copy; the-rift kept heat 10). Packs whose slug
+    has no gravel race-data profile are skipped as orphans.
+    """
+    root = Path(__file__).resolve().parent.parent
+    stale = []
+    for pack_path in sorted((root / "web" / "race-packs").glob("*.json")):
+        race_path = root / "race-data" / pack_path.name
+        if not race_path.exists():
+            continue
+        pack = json.loads(pack_path.read_text())
+        expected = generate_preview(json.loads(race_path.read_text()))["demands"]
+        if pack.get("demands") != expected:
+            stale.append(pack_path.stem)
+    assert not stale, (
+        f"{len(stale)} race packs carry stale demands; regenerate them: "
+        + ", ".join(stale)
+    )

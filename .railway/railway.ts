@@ -18,8 +18,9 @@ import { defineRailway, github, preserve, project, service } from "railway/iac";
 //
 // Environment variables: every one is listed by NAME only and kept with
 // preserve(), so its value stays what is set on Railway and no secret is in
-// git. Apply DELETES any variable missing from this list. Before an apply, add
-// any variable set since with `railway variables --set`, and read the plan:
+// git. Apply DELETES any variable missing from this list. When a variable is
+// added on Railway (`railway variables --set NAME=...`), add NAME here in the
+// same change, and update tests/test_railway_config.py. Read the plan:
 // a "Delete variable" line means the list is behind. Never pass
 // --confirm-destructive to get past one.
 export const partial = "athlete-profiles";

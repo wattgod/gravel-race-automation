@@ -17,7 +17,12 @@ TS = REPO / ".railway" / "railway.ts"
 
 def _ts() -> str:
     """The file with // comments removed, so text in a comment proves nothing."""
-    return re.sub(r"^\s*//.*$", "", TS.read_text(), flags=re.M)
+    raw = TS.read_text()
+    assert "*/" not in raw, "use // comments only, so the checks below see live code"
+    trailing = [l for l in raw.splitlines() if "//" in l and not l.strip().startswith("//")
+                and not re.search(r'"[^"]*//[^"]*"', l)]
+    assert trailing == [], "comments go on their own line, so the checks below see live code"
+    return re.sub(r"^\s*//.*$", "", raw, flags=re.M)
 
 
 def test_no_config_as_code_file():
@@ -43,6 +48,9 @@ def test_build_and_deploy_settings():
     assert 'healthcheckPath: "/health"' in ts
     assert "healthcheckTimeout: 120" in ts
     assert "restartPolicyMaxRetries: 3" in ts
+    # ON_FAILURE is Railway's stored default; any other type is a change.
+    assert "restartPolicyType" not in ts
+    assert "export default defineRailway(" in ts
     assert "startCommand" not in ts
     dockerfile = (REPO / "Dockerfile").read_text()
     assert re.search(r'^CMD \["python3", "mission_control.py"\]', dockerfile, re.M)
@@ -52,8 +60,22 @@ def test_watch_patterns_cover_the_build():
     block = re.search(r"const WATCH_PATTERNS = \[(.*?)\];", _ts(), re.S)
     assert block
     patterns = re.findall(r'"([^"]+)"', block.group(1))
-    for needed in ("mission_control/**", "mission_control.py", "requirements.txt", "Dockerfile"):
-        assert needed in patterns
+    # Every path the container reads (docs/specs/mission-control-hardening-notes.md).
+    # Dropping one means a push touching it no longer redeploys Mission Control.
+    assert patterns == [
+        "mission_control/**",
+        "mission_control.py",
+        "requirements.txt",
+        "Dockerfile",
+        "pipeline/__init__.py",
+        "pipeline/nutrition.py",
+        "scripts/jev_client.py",
+        "race-data/**",
+        "web/race-index.json",
+        "data/pricing.json",
+        "guide/fonts/**",
+        "templates/emails/**",
+    ]
     assert "build: {" in _ts() and "watchPatterns: WATCH_PATTERNS" in _ts()
 
 
@@ -64,7 +86,20 @@ def test_variables_are_names_only():
     names = re.findall(r'"([^"]+)"', block.group(1))
     assert names == sorted(set(names))
     assert all(re.fullmatch(r"[A-Z][A-Z0-9_]*", n) for n in names)
-    required = {"MISSION_CONTROL_SECRET", "RESEND_API_KEY", "SUPABASE_SERVICE_KEY",
-                "SUPABASE_URL", "WEBHOOK_SECRET", "UNSUBSCRIBE_SECRET"}
-    assert required - set(names) == set()
+    # The live inventory on 2026-11-16. Apply deletes any name missing here, so
+    # removing one must be a deliberate edit to this test too.
+    assert names == [
+        "GA4_CREDENTIALS_JSON",
+        "GA4_PROPERTY_ID",
+        "GG_RACE_DATES_URL",
+        "MISSION_CONTROL_SECRET",
+        "RACE_COUNTDOWN_MAX_PER_RUN",
+        "RESEND_API_KEY",
+        "RESEND_WEBHOOK_SECRET",
+        "RL_RACE_DATES_URL",
+        "SUPABASE_SERVICE_KEY",
+        "SUPABASE_URL",
+        "UNSUBSCRIBE_SECRET",
+        "WEBHOOK_SECRET",
+    ]
     assert "env: Object.fromEntries(VARIABLES.map((name) => [name, preserve()]))" in ts

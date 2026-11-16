@@ -618,6 +618,26 @@ async def subscriber_webhook(
                           {"source_data": _pickem_merge(existing.get("source_data") or {}, source_data)},
                           match={"id": existing["id"]})
 
+    # A brand newsletter sign-up is a standing opt-in to that brand's weekly
+    # broadcast (scripts/send_xc_weekly.py reads newsletter_opt_in_at). A
+    # contact already in the brand's welcome sequence from another source
+    # would otherwise be refused by enroll() and the opt-in lost, so it is
+    # merged onto that record. An earlier opt-out is never taken back.
+    if source == "newsletter_subscribe":
+        from datetime import datetime, timezone
+        opted_in_at = datetime.now(timezone.utc).isoformat()
+        source_data["newsletter_opt_in_at"] = opted_in_at
+        for seq in get_sequences_for_trigger(trigger, brand):
+            existing = db.select_one(
+                "gg_sequence_enrollments",
+                match={"sequence_id": seq["id"], "contact_email": email},
+            )
+            if existing and not (existing.get("source_data") or {}).get("newsletter_opt_in_at"):
+                db.update("gg_sequence_enrollments",
+                          {"source_data": {**(existing.get("source_data") or {}),
+                                           "newsletter_opt_in_at": opted_in_at}},
+                          match={"id": existing["id"]})
+
     # Enroll in matching sequences (brand-scoped)
     enrolled = []
     matching = [] if no_sequence else get_sequences_for_trigger(trigger, brand=brand)

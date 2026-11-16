@@ -499,6 +499,33 @@ class TestNewsletterSubscribe:
                 if e["contact_email"] == "roadie-news@example.com"]
         assert [r["sequence_id"] for r in rows] == ["road_welcome_v1"]
 
+    def test_xc_signup_records_the_weekly_opt_in(self, client, fake_db):
+        resp = self._post(client, {
+            "email": "xc-news@example.com", "source": "newsletter_subscribe",
+            "brand": "xcskilabs",
+        })
+        assert resp.status_code == 200
+        assert resp.json()["enrolled"] == ["xc_welcome_v1"]
+        row = next(e for e in fake_db.store["gg_sequence_enrollments"]
+                   if e["contact_email"] == "xc-news@example.com")
+        assert row["source"] == "newsletter_subscribe"
+        assert row["source_data"]["brand"] == "xcskilabs"
+        assert row["source_data"]["newsletter_opt_in_at"]
+
+    def test_existing_lead_who_signs_up_gets_the_opt_in_merged(self, client, fake_db):
+        first = self._post(client, {"email": "xc-lead@example.com", "source": "race_profile",
+                                    "brand": "xcskilabs", "race_slug": "vasaloppet"})
+        assert first.json()["enrolled"] == ["xc_welcome_v1"]
+        resp = self._post(client, {"email": "xc-lead@example.com", "source": "newsletter_subscribe",
+                                   "brand": "xcskilabs"})
+        assert resp.status_code == 200
+        assert resp.json()["enrolled"] == []
+        rows = [e for e in fake_db.store["gg_sequence_enrollments"]
+                if e["contact_email"] == "xc-lead@example.com"]
+        assert len(rows) == 1
+        assert rows[0]["source_data"]["newsletter_opt_in_at"]
+        assert rows[0]["source_data"]["race_slug"] == "vasaloppet"
+
     def test_routes_to_new_subscriber_explicitly(self):
         import inspect
         import mission_control.routers.webhooks as wh

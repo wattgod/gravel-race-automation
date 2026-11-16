@@ -1,0 +1,150 @@
+{
+  "_comment": "XC Ski Labs Weekly sources. Every feed URL was fetched and parsed on verified_on; a source that stops answering is reported in the staged review, never replaced. Filters keep the cross-country items from mixed winter-sport feeds.",
+  "verified_on": "2026-11-15",
+  "news": [
+    {
+      "id": "langrenn",
+      "name": "Langrenn.com",
+      "lang": "no",
+      "feed": "https://www.langrenn.com/feed",
+      "pages": 8,
+      "exclude_categories": [
+        "skiskyting"
+      ]
+    },
+    {
+      "id": "fasterskier",
+      "name": "FasterSkier",
+      "lang": "en",
+      "feed": "https://fasterskier.com/feed.xml",
+      "exclude_categories": [
+        "jobs",
+        "sponsor news"
+      ]
+    },
+    {
+      "id": "nrk",
+      "name": "NRK Sport",
+      "lang": "no",
+      "feed": "https://www.nrk.no/sport/toppsaker.rss",
+      "extra_feeds": [
+        "https://www.nrk.no/sport/siste.rss"
+      ],
+      "include_keywords": [
+        "langrenn"
+      ],
+      "exclude_categories": [
+        "skiskyting"
+      ]
+    },
+    {
+      "id": "tv2",
+      "name": "TV 2",
+      "lang": "no",
+      "feed": "https://www.tv2.no/rss/sport/vintersport",
+      "include_keywords": [
+        "langrenn"
+      ],
+      "exclude_categories": [
+        "skiskyting"
+      ]
+    },
+    {
+      "id": "skisport",
+      "name": "Skisport.no",
+      "lang": "no",
+      "feed": "https://www.skisport.no/feed",
+      "pages": 3
+    },
+    {
+      "id": "langd",
+      "name": "Längd.se",
+      "lang": "sv",
+      "feed": "https://www.langd.se/feed",
+      "pages": 8,
+      "exclude_categories": [
+        "skidskytte"
+      ]
+    },
+    {
+      "id": "xcskide",
+      "name": "xc-ski.de",
+      "lang": "de",
+      "feed": "https://www.xc-ski.de/feed",
+      "pages": 4,
+      "include_keywords": [
+        "langlauf"
+      ],
+      "exclude_categories": [
+        "biathlon",
+        "nordische kombination",
+        "skispringen"
+      ]
+    },
+    {
+      "id": "skiclassics",
+      "name": "Ski Classics",
+      "lang": "en",
+      "feed": "https://skiclassics.com/feed",
+      "pages": 3
+    },
+    {
+      "id": "birkie",
+      "name": "American Birkebeiner",
+      "lang": "en",
+      "feed": "https://www.birkie.com/feed/",
+      "pages": 2
+    }
+  ],
+  "podcasts": [
+    {
+      "id": "kershaw",
+      "name": "The Devon Kershaw Show",
+      "lang": "en",
+      "feed": "https://feeds.transistor.fm/the-devon-kershaw-show-by-fasterskier"
+    },
+    {
+      "id": "fasttracks",
+      "name": "Fast Tracks (FasterSkier)",
+      "lang": "en",
+      "feed": "https://feeds.transistor.fm/fast-tracks"
+    },
+    {
+      "id": "langloppspodden",
+      "name": "Långloppspodden",
+      "lang": "sv",
+      "feed": "https://feeds.acast.com/public/shows/639ecff797b20600112679ad"
+    },
+    {
+      "id": "frollesvahn",
+      "name": "Frolle & Svahn",
+      "lang": "sv",
+      "feed": "https://anchor.fm/s/10af56418/podcast/rss"
+    },
+    {
+      "id": "skidsnack",
+      "name": "Skidsnack",
+      "lang": "sv",
+      "feed": "https://podcast.stream.schibsted.media/ab/1167?podcast",
+      "show_url": "https://www.aftonbladet.se/sportbladet/a/P38rv7/skidsnack-en-podcast-om-langdskidor-och-skidskytte"
+    },
+    {
+      "id": "vinterpasset",
+      "name": "Vinterpasset",
+      "lang": "sv",
+      "feed": "https://feed.pod.space/vinterpasset"
+    },
+    {
+      "id": "gukildjohaug",
+      "name": "Gukild & Johaug",
+      "lang": "no",
+      "feed": "https://feeds.acast.com/public/shows/68d6ddef60e4b2ea7d46017f"
+    },
+    {
+      "id": "xcskidestammtisch",
+      "name": "xc-ski.de Stammtisch",
+      "lang": "de",
+      "feed": "https://anchor.fm/s/f4dfe40/podcast/rss"
+    }
+  ]
+}

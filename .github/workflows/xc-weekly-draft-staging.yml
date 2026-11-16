@@ -1,0 +1,108 @@
+name: "XC Weekly Draft Staging"
+
+# Every Monday after the race weekend: collect the week's cross-country news
+# and podcasts, draft the issue, run the publication gate, email a preview to
+# the review inbox and open a review issue here. Nothing goes to subscribers
+# from this workflow; sending is xc-weekly-send.yml with the approved hash.
+on:
+  schedule:
+    - cron: "30 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+concurrency:
+  group: xc-weekly-draft-staging
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash  # -eo pipefail: a failed step piped through tee still fails
+
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install canonical runtime
+        run: pip install -r requirements.txt
+
+      - name: Collect now and gather the week's daily snapshots
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/evidence"
+          python scripts/collect_xc_weekly.py --days 8 --output "$RUNNER_TEMP/evidence/now.json"
+          gh api --paginate "repos/$GITHUB_REPOSITORY/actions/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.name | startswith("xc-weekly-items-")) | select(.expired == false) | "\(.id) \(.created_at)"' \
+            > "$RUNNER_TEMP/snapshots.txt"
+          cutoff="$(date -u -d '8 days ago' +%Y-%m-%dT%H:%M:%SZ)"
+          while read -r id created; do
+            if [[ "$created" > "$cutoff" ]]; then
+              gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id/zip" > "$RUNNER_TEMP/snap-$id.zip"
+              unzip -o -q "$RUNNER_TEMP/snap-$id.zip" -d "$RUNNER_TEMP/evidence/snap-$id"
+            fi
+          done < "$RUNNER_TEMP/snapshots.txt"
+          find "$RUNNER_TEMP/evidence" -name '*.json' | sort > "$RUNNER_TEMP/evidence-files.txt"
+          echo "Evidence files: $(wc -l < "$RUNNER_TEMP/evidence-files.txt")"
+
+      - name: Draft and gate the issue
+        id: draft
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: |
+          number="$(python scripts/send_xc_weekly.py --next-issue-number)"
+          mapfile -t files < "$RUNNER_TEMP/evidence-files.txt"
+          python scripts/draft_xc_weekly.py "${files[@]}" \
+            --issue-number "$number" --output-dir artifacts/xc-weekly-stage \
+            | tee "$RUNNER_TEMP/manifest-line.json"
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          m = json.loads(Path("artifacts/xc-weekly-stage/manifest.json").read_text())
+          assert m["humanApprovalRequired"] is True and m["autoSendAllowed"] is False
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              out.write(f"number={m['issueNumber']}\ndate={m['issueDate']}\nhash={m['contentHash']}\n")
+          PY
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xc-weekly-stage-${{ github.run_id }}
+          path: artifacts/xc-weekly-stage/
+          retention-days: 90
+
+      - name: Email the preview to the review inbox
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: python scripts/send_xc_weekly.py --preview artifacts/xc-weekly-stage
+
+      - name: Open the review issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ steps.draft.outputs.number }}
+          ISSUE_DATE: ${{ steps.draft.outputs.date }}
+          HASH: ${{ steps.draft.outputs.hash }}
+        run: |
+          {
+            echo "Staged XC Ski Labs Weekly. A preview went to the review inbox. Nothing has gone to subscribers."
+            echo
+            echo "To send it, run **XC Weekly Send** with stage run \`$GITHUB_RUN_ID\` and approved hash \`$HASH\`."
+            echo
+            echo "[Stage artifacts (issue.json, preview.html, evidence)]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)"
+            echo
+            echo "---"
+            echo
+            cat artifacts/xc-weekly-stage/review.md
+          } > "$RUNNER_TEMP/review-body.md"
+          gh label create xc-weekly-draft --color 1e2b3c --description "Staged XC Ski Labs Weekly awaiting review" --force
+          title="XC Ski Labs Weekly No. $(printf '%03d' "$NUMBER") staged — $ISSUE_DATE"
+          gh issue create --title "$title" --label xc-weekly-draft --body-file "$RUNNER_TEMP/review-body.md"

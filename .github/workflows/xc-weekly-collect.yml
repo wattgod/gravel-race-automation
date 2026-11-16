@@ -1,0 +1,41 @@
+name: "XC Weekly Collect"
+
+# Daily snapshot of the XC Ski Labs Weekly sources. NRK's sport feeds only
+# hold about a day of stories, so the Monday draft merges these snapshots
+# with a fresh collection. Read-only: no email, no commits.
+on:
+  schedule:
+    - cron: "15 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: xc-weekly-collect
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash  # -eo pipefail: a failed step piped through tee still fails
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install collector dependency
+        run: pip install requests==2.34.2
+      - name: Collect the last two days
+        run: |
+          mkdir -p artifacts
+          python scripts/collect_xc_weekly.py --days 2 --output "artifacts/items-$(date -u +%Y-%m-%d).json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xc-weekly-items-${{ github.run_id }}
+          path: artifacts/
+          retention-days: 21

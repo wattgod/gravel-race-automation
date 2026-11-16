@@ -28,7 +28,7 @@ from datetime import date
 # Ensure scripts/ is importable
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from race_demand_analyzer import analyze_race_demands
+from race_demand_analyzer import _mentions_heat, analyze_race_demands
 
 # =============================================================================
 # DEMAND-TO-CATEGORY WEIGHT MATRIX (same as coaching pipeline)
@@ -378,7 +378,9 @@ def generate_race_overlay(race: dict, demands: dict) -> dict:
             climate_line = f"{climate_desc.rstrip('.')}. "
 
         challenge_line = ''
-        heat_challenges = [c for c in challenges if any(w in c.lower() for w in ['heat', 'hot', 'sun', 'humid', 'hydra'])]
+        # Whole-word match shared with the demand analyzer: substring matching
+        # quoted "Sunday start", "photo spots" and "Dehydration risk" as heat.
+        heat_challenges = [c for c in challenges if _mentions_heat(c)]
         if heat_challenges:
             challenge_line = ' Race-day realities: ' + '; '.join(c.rstrip('.') for c in heat_challenges[:2]) + '.'
 

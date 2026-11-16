@@ -8,7 +8,7 @@
     "vo2_power": 5,
     "threshold": 7,
     "technical": 6,
-    "heat_resilience": 2,
+    "heat_resilience": 1,
     "altitude": 2,
     "race_specificity": 7
   },
@@ -20,7 +20,7 @@
         "Surge and Settle",
         "Terrain Microbursts"
       ],
-      "workout_context": "UCI Gravel Dustman's Gravel roads forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 81 miles."
+      "workout_context": "UCI Gravel Dustman's Jungle and river-valley gravel, UCI Gravel World Series forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 81 miles."
     },
     {
       "category": "Race_Simulation",
@@ -44,7 +44,7 @@
     },
     {
       "category": "Durability",
-      "score": 83,
+      "score": 77,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
@@ -100,15 +100,6 @@
       "workout_context": "2-minute all-out efforts on mixed gravel. Closing gaps, responding to attacks, sprinting for position. Train the burn."
     },
     {
-      "category": "Endurance",
-      "score": 44,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 81 miles, base fitness is the difference between racing and surviving."
-    },
-    {
       "category": "Norwegian_Double",
       "score": 44,
       "workouts": [
@@ -125,12 +116,21 @@
         "Endurance with Spikes"
       ],
       "workout_context": "Long rides with hard efforts mixed in. Simulates what UCI Gravel Dustman's mixed gravel actually does to you."
+    },
+    {
+      "category": "Endurance",
+      "score": 39,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 81 miles, base fitness is the difference between racing and surviving."
     }
   ],
   "race_overlay": {
     "nutrition": "Target 60\u201380g carbs/hour for UCI Gravel Dustman\u2019s 81 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Mixed terrain at UCI Gravel Dustman requires surface adaptability. Include weekly rides on mixed gravel to build confidence. Expect: gravel roads."
   },
-  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 81 miles of mixed gravel in Kanchanaburi, Thailand.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 81 miles of mixed gravel in Kanchanaburi, Thailand (Muang Sing Historical Park).",
+  "generated_at": "2026-11-15"
 }

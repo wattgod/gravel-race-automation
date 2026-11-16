@@ -8,7 +8,7 @@
     "vo2_power": 5,
     "threshold": 4,
     "technical": 4,
-    "heat_resilience": 2,
+    "heat_resilience": 0,
     "altitude": 2,
     "race_specificity": 7
   },
@@ -24,18 +24,8 @@
       "workout_context": "320 miles. Your legs will beg to quit after 120. This trains the power output you need from mile 130 onward."
     },
     {
-      "category": "HVLI_Extended",
-      "score": 61,
-      "workouts": [
-        "HVLI Extended Z2",
-        "Multi-Hour Z2",
-        "Back-to-Back Long"
-      ],
-      "workout_context": "320 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
-    },
-    {
       "category": "Race_Simulation",
-      "score": 61,
+      "score": 67,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -44,17 +34,8 @@
       "workout_context": "Race-pace efforts that mimic Trans Iowa's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before April."
     },
     {
-      "category": "Endurance",
-      "score": 58,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 320 miles, base fitness is the difference between racing and surviving."
-    },
-    {
       "category": "Gravel_Specific",
-      "score": 58,
+      "score": 64,
       "workouts": [
         "Surge and Settle",
         "Terrain Microbursts"
@@ -62,8 +43,27 @@
       "workout_context": "Trans Iowa's Iowa farmland, Rolling gravel forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 320 miles."
     },
     {
+      "category": "HVLI_Extended",
+      "score": 62,
+      "workouts": [
+        "HVLI Extended Z2",
+        "Multi-Hour Z2",
+        "Back-to-Back Long"
+      ],
+      "workout_context": "320 miles rewards fat oxidation. This volume work shifts your fuel mix so you're still burning fat at hour 5, not bonking at hour 3."
+    },
+    {
+      "category": "Endurance",
+      "score": 57,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 320 miles, base fitness is the difference between racing and surviving."
+    },
+    {
       "category": "Blended",
-      "score": 49,
+      "score": 54,
       "workouts": [
         "Z2 + VO2 Combo",
         "Endurance with Spikes"
@@ -72,7 +72,7 @@
     },
     {
       "category": "VO2max",
-      "score": 45,
+      "score": 49,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
@@ -82,7 +82,7 @@
     },
     {
       "category": "TT_Threshold",
-      "score": 44,
+      "score": 48,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
@@ -92,7 +92,7 @@
     },
     {
       "category": "Over_Under",
-      "score": 42,
+      "score": 46,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -101,7 +101,7 @@
     },
     {
       "category": "Critical_Power",
-      "score": 35,
+      "score": 38,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -110,7 +110,7 @@
     },
     {
       "category": "Mixed_Climbing",
-      "score": 34,
+      "score": 37,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
@@ -119,7 +119,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 34,
+      "score": 37,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -132,6 +132,6 @@
     "nutrition": "Ultra-distance fueling for 320 miles: 80\u2013100g carbs/hour from mile 1 \u2014 don\u2019t wait until you\u2019re hungry. Practice your exact race-day nutrition in every long training ride. Carry backup calories. 320 miles burns 8,000\u201312,000+ calories \u2014 you cannot replace them all, but you must try.",
     "terrain": "Mixed terrain at Trans Iowa requires surface adaptability. Include weekly rides on iowa rolling farmland gravel to build confidence. Expect: iowa farmland, rolling gravel, 300+ mile distance."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, HVLI Extended, and Race Simulation to prepare you for 320 miles of iowa rolling farmland gravel in Checkpoint, Iowa.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Durability, Race Simulation, and Gravel Specific to prepare you for 320 miles of iowa rolling farmland gravel in Checkpoint, Iowa.",
+  "generated_at": "2026-11-15"
 }

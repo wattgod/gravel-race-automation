@@ -4,11 +4,11 @@
   "distance_mi": 120.0,
   "demands": {
     "durability": 6,
-    "climbing": 10,
+    "climbing": 9,
     "vo2_power": 5,
     "threshold": 8,
     "technical": 8,
-    "heat_resilience": 1,
+    "heat_resilience": 0,
     "altitude": 10,
     "race_specificity": 8
   },
@@ -21,7 +21,7 @@
         "Descending VO2 Pyramid",
         "Norwegian 4x8"
       ],
-      "workout_context": "10,000ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
+      "workout_context": "9,785ft of climbing means repeated surges above threshold. VO2max work is how you survive the fifth climb, not just the first."
     },
     {
       "category": "Gravel_Specific",
@@ -34,22 +34,13 @@
     },
     {
       "category": "TT_Threshold",
-      "score": 98,
+      "score": 94,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
         "Descending Threshold"
       ],
-      "workout_context": "83ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
-    },
-    {
-      "category": "Over_Under",
-      "score": 92,
-      "workouts": [
-        "Classic Over-Unders",
-        "Ladder Over-Unders"
-      ],
-      "workout_context": "At Gunni Grinder, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+      "workout_context": "81ft/mi means long efforts at or near FTP on every climb. If your threshold cracks at minute 15, you'll walk the rest."
     },
     {
       "category": "Race_Simulation",
@@ -62,8 +53,17 @@
       "workout_context": "Race-pace efforts that mimic Gunni Grinder's demands. Pacing, fueling, and tactical decisions under fatigue. Practice the race before September."
     },
     {
+      "category": "Over_Under",
+      "score": 86,
+      "workouts": [
+        "Classic Over-Unders",
+        "Ladder Over-Unders"
+      ],
+      "workout_context": "At Gunni Grinder, surges push you above threshold and you have to recover while still riding. Over-unders train exactly that."
+    },
+    {
       "category": "Durability",
-      "score": 80,
+      "score": 75,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
@@ -72,17 +72,8 @@
       "workout_context": "At mile 60 of 120, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
-      "category": "Mixed_Climbing",
-      "score": 75,
-      "workouts": [
-        "Seated/Standing Climbs",
-        "Variable Grade Simulation"
-      ],
-      "workout_context": "10,000ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
-    },
-    {
       "category": "G_Spot",
-      "score": 75,
+      "score": 72,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -92,12 +83,21 @@
     },
     {
       "category": "Endurance",
-      "score": 71,
+      "score": 68,
       "workouts": [
         "Pre-Race Openers",
         "Terrain Simulation Z2"
       ],
       "workout_context": "Every hard session works better with a bigger aerobic base. At 120 miles, base fitness is the difference between racing and surviving."
+    },
+    {
+      "category": "Mixed_Climbing",
+      "score": 68,
+      "workouts": [
+        "Seated/Standing Climbs",
+        "Variable Grade Simulation"
+      ],
+      "workout_context": "9,785ft of climbing on grades that change every minute. You need to switch from seated to standing without losing rhythm."
     },
     {
       "category": "Critical_Power",
@@ -110,12 +110,12 @@
     },
     {
       "category": "SFR_Muscle_Force",
-      "score": 50,
+      "score": 45,
       "workouts": [
         "SFR Low Cadence",
         "Force Repeats"
       ],
-      "workout_context": "Low-cadence force work for 10,000ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+      "workout_context": "Low-cadence force work for 9,785ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
     },
     {
       "category": "Anaerobic_Capacity",
@@ -133,5 +133,5 @@
     "terrain": "Highly technical terrain at Gunni Grinder demands practice on similar surfaces. Ride high-altitude mountain gravel at race-day cadence weekly. Expect: high-altitude mountain gravel, colorado rocky mountain roads, alpine meadows and passes. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 120 miles."
   },
   "pack_summary": "This 10-workout pack focuses on VO2max, Gravel Specific, and TT Threshold to prepare you for 120 miles of high-altitude mountain gravel in Gunnison, Colorado.",
-  "generated_at": "2026-03-06"
+  "generated_at": "2026-11-15"
 }

@@ -8,7 +8,7 @@
     "vo2_power": 5,
     "threshold": 6,
     "technical": 6,
-    "heat_resilience": 3,
+    "heat_resilience": 1,
     "altitude": 4,
     "race_specificity": 7
   },
@@ -62,16 +62,6 @@
       "workout_context": "When someone attacks on high country gravel and forest tracks, you have 10 seconds to respond or you're off the back. This builds that response."
     },
     {
-      "category": "Durability",
-      "score": 70,
-      "workouts": [
-        "Tired VO2max",
-        "Double Day Simulation",
-        "Progressive Fatigue"
-      ],
-      "workout_context": "71 miles on high country gravel and forest tracks burns energy faster than the distance suggests. Train the fade resistance now."
-    },
-    {
       "category": "G_Spot",
       "score": 69,
       "workouts": [
@@ -100,6 +90,16 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At MAAP Beechworth Granite Classic, that number decides whether you bridge or get dropped."
     },
     {
+      "category": "Durability",
+      "score": 58,
+      "workouts": [
+        "Tired VO2max",
+        "Double Day Simulation",
+        "Progressive Fatigue"
+      ],
+      "workout_context": "71 miles on high country gravel and forest tracks burns energy faster than the distance suggests. Train the fade resistance now."
+    },
+    {
       "category": "Anaerobic_Capacity",
       "score": 50,
       "workouts": [
@@ -109,15 +109,6 @@
       "workout_context": "Short, max efforts are unavoidable. Punchy climbs, gap closures, attacks on high country gravel and forest tracks. If you haven't trained them, you'll crack."
     },
     {
-      "category": "Endurance",
-      "score": 45,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Base fitness for MAAP Beechworth Granite Classic. Without this, the hard workouts break you down instead of building you up."
-    },
-    {
       "category": "SFR_Muscle_Force",
       "score": 44,
       "workouts": [
@@ -125,6 +116,15 @@
         "Force Repeats"
       ],
       "workout_context": "Low-cadence force work for 4,600ft of climbing. The slow, grinding ascents where you can't spin\u2014you push."
+    },
+    {
+      "category": "Norwegian_Double",
+      "score": 38,
+      "workouts": [
+        "Norwegian 4x8 Classic",
+        "Double Threshold"
+      ],
+      "workout_context": "Double-threshold training builds sustained power with less fatigue. More FTP per hour of training."
     }
   ],
   "race_overlay": {
@@ -132,5 +132,5 @@
     "terrain": "Mixed terrain at MAAP Beechworth Granite Classic requires surface adaptability. Include weekly rides on high country gravel and forest tracks to build confidence. Expect: gravel roads, forest tracks, high country terrain."
   },
   "pack_summary": "This 10-workout pack focuses on Gravel Specific, Race Simulation, and TT Threshold to prepare you for 71 miles of high country gravel and forest tracks in Beechworth, Victoria.",
-  "generated_at": "2026-10-25"
+  "generated_at": "2026-11-15"
 }

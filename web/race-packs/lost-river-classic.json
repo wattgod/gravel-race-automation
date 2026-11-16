@@ -8,14 +8,23 @@
     "vo2_power": 4,
     "threshold": 8,
     "technical": 8,
-    "heat_resilience": 9,
+    "heat_resilience": 7,
     "altitude": 2,
     "race_specificity": 8
   },
   "top_categories": [
     {
-      "category": "Durability",
+      "category": "Gravel_Specific",
       "score": 100,
+      "workouts": [
+        "Surge and Settle",
+        "Terrain Microbursts"
+      ],
+      "workout_context": "Lost River Classic's Appalachian gravel roads, George Washington National Forest forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 85 miles."
+    },
+    {
+      "category": "Durability",
+      "score": 95,
       "workouts": [
         "Tired VO2max",
         "Double Day Simulation",
@@ -24,17 +33,8 @@
       "workout_context": "At mile 60 of 85, glycogen is gone. This workout teaches your body to produce watts on fumes."
     },
     {
-      "category": "Gravel_Specific",
-      "score": 95,
-      "workouts": [
-        "Surge and Settle",
-        "Terrain Microbursts"
-      ],
-      "workout_context": "Lost River Classic's Appalachian gravel roads, George Washington National Forest forces constant power changes. Surge over the rough stuff, settle on the smooth, repeat for 85 miles."
-    },
-    {
       "category": "TT_Threshold",
-      "score": 86,
+      "score": 90,
       "workouts": [
         "Single Sustained Threshold",
         "Threshold Ramps",
@@ -44,7 +44,7 @@
     },
     {
       "category": "Race_Simulation",
-      "score": 86,
+      "score": 90,
       "workouts": [
         "Breakaway Simulation",
         "Variable Pace Chaos",
@@ -54,7 +54,7 @@
     },
     {
       "category": "Over_Under",
-      "score": 76,
+      "score": 80,
       "workouts": [
         "Classic Over-Unders",
         "Ladder Over-Unders"
@@ -63,7 +63,7 @@
     },
     {
       "category": "G_Spot",
-      "score": 67,
+      "score": 70,
       "workouts": [
         "G-Spot Standard",
         "G-Spot Extended",
@@ -72,17 +72,8 @@
       "workout_context": "88\u201392% FTP is where you'll spend the hardest sustained miles of Lost River Classic. Train it until it feels boring."
     },
     {
-      "category": "Endurance",
-      "score": 58,
-      "workouts": [
-        "Pre-Race Openers",
-        "Terrain Simulation Z2"
-      ],
-      "workout_context": "Every hard session works better with a bigger aerobic base. At 85 miles, base fitness is the difference between racing and surviving."
-    },
-    {
       "category": "Mixed_Climbing",
-      "score": 57,
+      "score": 60,
       "workouts": [
         "Seated/Standing Climbs",
         "Variable Grade Simulation"
@@ -91,7 +82,7 @@
     },
     {
       "category": "Critical_Power",
-      "score": 52,
+      "score": 55,
       "workouts": [
         "Above CP Repeats",
         "W-Prime Depletion"
@@ -99,8 +90,17 @@
       "workout_context": "How long can you hold 105% FTP before you blow? At Lost River Classic, that number decides whether you bridge or get dropped."
     },
     {
+      "category": "Endurance",
+      "score": 54,
+      "workouts": [
+        "Pre-Race Openers",
+        "Terrain Simulation Z2"
+      ],
+      "workout_context": "Every hard session works better with a bigger aerobic base. At 85 miles, base fitness is the difference between racing and surviving."
+    },
+    {
       "category": "HVLI_Extended",
-      "score": 45,
+      "score": 42,
       "workouts": [
         "HVLI Extended Z2",
         "Multi-Hour Z2",
@@ -110,7 +110,7 @@
     },
     {
       "category": "VO2max",
-      "score": 40,
+      "score": 42,
       "workouts": [
         "5x3 VO2 Classic",
         "Descending VO2 Pyramid",
@@ -120,7 +120,7 @@
     },
     {
       "category": "SFR_Muscle_Force",
-      "score": 38,
+      "score": 40,
       "workouts": [
         "SFR Low Cadence",
         "Force Repeats"
@@ -129,10 +129,10 @@
     }
   ],
   "race_overlay": {
-    "heat": "August in Mathias, West Virginia \u2014 Mid-August brings 65-85\u00b0F temperatures with 70-90% humidity. Heat index can reach 90-95\u00b0F. Afternoon thunderstorm risk moderate. Dense forest canopy provides intermittent shade but traps humidity. Heat management is the defining climate challenge. Begin heat acclimatization 10\u201314 days before Lost River Classic \u2014 20\u201330min sauna sessions or midday rides in full kit. Pre-load sodium 48 hours out. Target 500\u2013750ml/hr with electrolytes on race day. Race-day realities: High humidity compounds heat stress during long climbs.",
+    "heat": "August in Mathias, West Virginia can bring heat. Complete 3\u20134 heat exposure sessions in the final 2 weeks before Lost River Classic. Increase sodium intake 48 hours before race day.",
     "nutrition": "Target 60\u201380g carbs/hour for Lost River Classic\u2019s 85 miles. Start fueling within the first 30 minutes \u2014 early fueling prevents late-race collapse. Bonking at mile 60 is a nutrition failure, not a fitness failure.",
     "terrain": "Highly technical terrain at Lost River Classic demands practice on similar surfaces. Ride technical appalachian gravel with constant elevation change at race-day cadence weekly. Expect: appalachian gravel roads, george washington national forest service roads, rocky descents with embedded rocks. Practice cornering, descending, and power delivery on unstable surfaces. Dial in tire pressure before race week \u2014 5 PSI wrong costs you 15+ minutes over 85 miles."
   },
-  "pack_summary": "This 10-workout pack focuses on Durability, Gravel Specific, and TT Threshold to prepare you for 85 miles of technical appalachian gravel with constant elevation change in Mathias, West Virginia.",
-  "generated_at": "2026-03-06"
+  "pack_summary": "This 10-workout pack focuses on Gravel Specific, Durability, and TT Threshold to prepare you for 85 miles of technical appalachian gravel with constant elevation change in Mathias, West Virginia.",
+  "generated_at": "2026-11-15"
 }

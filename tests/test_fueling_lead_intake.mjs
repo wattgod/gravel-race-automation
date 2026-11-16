@@ -8,16 +8,29 @@ const { default: worker } = await import(
   `data:text/javascript;base64,${Buffer.from(workerSource).toString('base64')}`,
 );
 
+const ALL_ORIGINS = 'https://gravelgodcycling.com,https://roadielabs.com,https://xcskilabs.com';
 const env = {
-  ALLOWED_ORIGINS: 'https://gravelgodcycling.com',
+  ALLOWED_ORIGINS: ALL_ORIGINS,
 };
 
-function intakeRequest(payload) {
+// The worker takes the brand from the Origin, so a payload that names a
+// brand comes from that brand's site unless the test says otherwise.
+const BRAND_SITES = {
+  gravelgod: 'https://gravelgodcycling.com',
+  roadielabs: 'https://roadielabs.com',
+  xcskilabs: 'https://xcskilabs.com',
+};
+function siteFor(payload) {
+  const named = typeof payload.brand === 'string' ? payload.brand.toLowerCase() : '';
+  return BRAND_SITES[named] || 'https://gravelgodcycling.com';
+}
+
+function intakeRequest(payload, origin = siteFor(payload)) {
   return new Request('https://fueling-lead-intake.example.test', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Origin: 'https://gravelgodcycling.com',
+      Origin: origin,
     },
     body: JSON.stringify({ website: '', ...payload }),
   });
@@ -84,7 +97,7 @@ const exitEnv = {
 };
 
 async function runExit(payload, {
-  mcStatus = 200, resendStatus = 200, now = '2026-09-29T12:00:00Z', envOverrides = {},
+  mcStatus = 200, resendStatus = 200, now = '2026-09-29T12:00:00Z', envOverrides = {}, origin,
 } = {}) {
   const originalFetch = globalThis.fetch;
   const originalError = console.error;
@@ -98,7 +111,7 @@ async function runExit(payload, {
   console.error = (...args) => { errors.push(args.map(String).join(' ')); };
   mock.timers.enable({ apis: ['Date'], now: new Date(now) });
   try {
-    const response = await worker.fetch(intakeRequest(payload), { ...exitEnv, ...envOverrides });
+    const response = await worker.fetch(intakeRequest(payload, origin || siteFor(payload)), { ...exitEnv, ...envOverrides });
     const mc = requests.find((r) => r.url.endsWith('/webhooks/subscriber'));
     const alert = requests.find((r) => r.url === 'https://api.resend.com/emails');
     return { response, requests, errors, mc: mc && mc.body, alert: alert && alert.body };
@@ -570,10 +583,67 @@ test('plan_intake accepts every supported brand, case-insensitive', async () => 
   }
 });
 
-test('other sources keep the gravelgod default when no brand is sent (known follow-up)', async () => {
-  const { response, mc } = await runExit({ source: 'exit_intent', email: 'popup@example.com' });
+// Every source: the brand is the site the form was on (Origin). No default.
+for (const [site, brand] of [
+  ['https://gravelgodcycling.com', 'gravelgod'],
+  ['https://www.gravelgodcycling.com', 'gravelgod'],
+  ['https://roadielabs.com', 'roadielabs'],
+  ['https://www.roadielabs.com', 'roadielabs'],
+  ['https://xcskilabs.com', 'xcskilabs'],
+  ['https://www.xcskilabs.com', 'xcskilabs'],
+]) {
+  test(`a lead with no brand from ${site} is filed as ${brand}`, async () => {
+    const { response, mc } = await runExit({ source: 'exit_intent', email: 'popup@example.com' }, {
+      origin: site,
+      envOverrides: { ALLOWED_ORIGINS: `${ALL_ORIGINS},${site}` },
+    });
+    assert.equal(response.status, 200);
+    assert.equal(mc.brand, brand);
+  });
+}
+
+test('a named brand that matches its site is accepted, case-insensitive', async () => {
+  const { response, mc } = await runExit({ source: 'race_quiz', email: 'q@example.com', brand: 'RoadieLabs' });
   assert.equal(response.status, 200);
-  assert.equal(mc.brand, 'gravelgod');
+  assert.equal(mc.brand, 'roadielabs');
+});
+
+for (const [label, payload, origin] of [
+  ['a Roadie brand sent from gravelgodcycling.com', { brand: 'roadielabs' }, 'https://gravelgodcycling.com'],
+  ['a Gravel God brand sent from xcskilabs.com', { brand: 'gravelgod' }, 'https://xcskilabs.com'],
+  ['an unknown brand', { brand: 'nordicgod' }, 'https://xcskilabs.com'],
+  ['a brand that is not a string', { brand: ['roadielabs'] }, 'https://roadielabs.com'],
+]) {
+  test(`${label} is a 400 and sends nothing`, async () => {
+    const { response, requests } = await runExit(
+      { source: 'exit_intent', email: 'popup@example.com', ...payload }, { origin });
+    assert.equal(response.status, 400);
+    assert.deepEqual(await response.json(), { error: 'Unknown brand' });
+    assert.deepEqual(requests, []);
+  });
+}
+
+test('an allowed origin that is no brand\'s site is a 400, not Gravel God', async () => {
+  const { response, requests } = await runExit({ source: 'exit_intent', email: 'popup@example.com' }, {
+    origin: 'https://staging.example.com',
+    envOverrides: { ALLOWED_ORIGINS: `${ALL_ORIGINS},https://staging.example.com` },
+  });
+  assert.equal(response.status, 400);
+  assert.deepEqual(await response.json(), { error: 'Unknown brand' });
+  assert.deepEqual(requests, []);
+});
+
+test('the fueling calculator (no source field) takes its brand from the site too', async () => {
+  const { response, mc } = await runExit({
+    email: 'fuel@example.com', weight_lbs: 160, race_slug: 'unbound-200', race_name: 'Unbound 200',
+  }, { origin: 'https://roadielabs.com' });
+  assert.equal(response.status, 200);
+  assert.equal(mc.brand, 'roadielabs');
+});
+
+test('no gravelgod default is left in the worker\'s brand routing', () => {
+  assert.doesNotMatch(workerSource, /data\.brand \|\| 'gravelgod'/);
+  assert.doesNotMatch(workerSource, /String\(data\.brand \|\| /);
 });
 
 // No submitted address (or name) in any worker log line, on success or failure.

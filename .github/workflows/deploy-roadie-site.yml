@@ -98,18 +98,22 @@ jobs:
                       /privacy/ /questionnaire/ /coaching/apply/ /methodology/ /race/methodology/ /prep-kit/ /race/calendar/2027/ \
                       "/race/$slug/" "/race/$slug/training-plan/"; do
             ok=""
-            # The CDN edge the runner hits can lag the push: retry, then say what it served.
-            for i in 1 2 3 4 5 6; do
+            # One request per try, 15s apart: SiteGround's bot filter refuses
+            # bursts (a 20-page burst got nothing back). Say what was served.
+            for i in 1 2 3 4; do
               rm -f live.html
-              curl -sf "https://roadielabs.com${path}?v=$GITHUB_RUN_ID-$i" -o live.html || { sleep 20; continue; }
+              code=$(curl -s -o live.html -w '%{http_code}' "https://roadielabs.com${path}?v=$GITHUB_RUN_ID-$i") || code="curl-exit-$?"
               # Menu icon CSS (inline or the new hashed file) AND the bind-once tap script.
-              if { grep -qF 'rl-site-header-toggle span { display: block; flex: none;' live.html \
-                   || grep -qF "/race/assets/$css" live.html; } \
+              if [ "$code" = 200 ] \
+                 && { grep -qF 'rl-site-header-toggle span { display: block; flex: none;' live.html \
+                      || grep -qF "/race/assets/$css" live.html; } \
                  && grep -qF 'data-rl-nav-bound' live.html; then ok=1; break; fi
-              sleep 20
+              echo "  $path try $i: HTTP $code, $(wc -c < live.html 2>/dev/null || echo 0) bytes"
+              sleep 15
             done
             if [ -n "$ok" ]; then echo "live ok: $path"; else echo "live header not updated: $path"; fail=1; fi
+            sleep 3
           done
-          curl -sf "https://roadielabs.com/race/assets/$css?v=$GITHUB_RUN_ID" -o live.css
-          grep -qF 'flex: none; width: 20px; height: 2px' live.css || { echo "live $css lacks the menu icon fix"; fail=1; }
+          code=$(curl -s -o live.css -w '%{http_code}' "https://roadielabs.com/race/assets/$css?v=$GITHUB_RUN_ID") || code="curl-exit-$?"
+          { [ "$code" = 200 ] && grep -qF 'flex: none; width: 20px; height: 2px' live.css; } || { echo "live $css lacks the menu icon fix (HTTP $code)"; fail=1; }
           exit $fail

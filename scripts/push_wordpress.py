@@ -2912,6 +2912,14 @@ RewriteRule ^llms\\.txt$ /llms-repo.txt [L]
 # Same race for llms-full.txt: after a successful upload the public URL still
 # 404'd (2026-11-15), so serve the copy under a name AIOSEO doesn't manage.
 RewriteRule ^llms-full\\.txt$ /llms-full-repo.txt [L]
+
+# /plan/manage -> the custom plan manage page, which the training-plan pipeline
+# serves on Railway (wattgod/athlete-custom-training-plan-pipeline). The page
+# reads its #t= token from the URL fragment, which browsers carry across a
+# redirect, and posts to relative /api/race-plan/* paths, so it can't be copied
+# here. 302, not 301: the Railway address may change and a 301 is cached.
+# Stripe checkout terms and plan emails link riders here.
+RewriteRule ^plan/manage/?$ https://athlete-custom-training-plan-pipeline-production.up.railway.app/plan/manage [R=302,L]
 """ + ROAD_MIGRATION_REDIRECT_SECTION + """
 
 # Roundups orphaned by the road→RL migration (2026-07-24): their races moved

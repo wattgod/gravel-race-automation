@@ -1,0 +1,184 @@
+name: Deploy Redirects
+
+# Manual button: pushes one brand's root .htaccess redirect rules (or all
+# three) from that brand's main branch, without rebuilding any page.
+#   gravelgodcycling.com  push_wordpress.py --sync-redirects (managed block above WordPress)
+#   roadielabs.com        push_wordpress.py --sync-redirects (managed block above web/htaccess-root)
+#   xcskilabs.com         deploy.py --sync-errors (the whole web/.htaccess + 404 page)
+# Each job then reads the live .htaccess back over SSH and fails unless the
+# /plan/manage rule is in it (SiteGround answers GitHub runners' HTTP with a
+# bot challenge, so an HTTP check from here is not proof).
+#
+# Secrets: the same ones deploy-coaching-pages.yml uses.
+
+on:
+  workflow_dispatch:
+    inputs:
+      brand:
+        description: Which site's redirects to deploy
+        type: choice
+        options: [all, gravelgod, roadie, xcski]
+        default: all
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-redirects
+  cancel-in-progress: false
+
+env:
+  PLAN_MANAGE_RULE: "RewriteRule ^plan/manage/?$ https://athlete-custom-training-plan-pipeline-production.up.railway.app/plan/manage [R=302,L]"
+
+jobs:
+  gravelgod:
+    if: inputs.brand == 'all' || inputs.brand == 'gravelgod'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+    steps:
+      - name: Only deploy from main
+        run: test "$GITHUB_REF" = refs/heads/main
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Configure SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOY_KEY"; test -n "$SSH_HOST"; test -n "$SSH_USER"; test -n "$SSH_PORT"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/siteground_key
+          chmod 600 ~/.ssh/siteground_key
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          test -s ~/.ssh/known_hosts
+      # Required before every Gravel God deploy (CLAUDE.md testing rules).
+      - name: Run pre-deploy quality gate
+        run: python3 scripts/preflight_quality.py
+      - name: Push redirects
+        run: python3 scripts/push_wordpress.py --sync-redirects --purge-cache
+      - name: Check the live .htaccess
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/siteground_key -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
+            "cat ~/www/gravelgodcycling.com/public_html/.htaccess" > live.htaccess
+          grep -qxF "$PLAN_MANAGE_RULE" live.htaccess || { echo "/plan/manage rule missing from the live .htaccess"; exit 1; }
+          grep -qF "# BEGIN WordPress" live.htaccess || { echo "WordPress block missing from the live .htaccess"; exit 1; }
+          echo "live .htaccess has the /plan/manage rule"
+
+  roadie:
+    if: inputs.brand == 'all' || inputs.brand == 'roadie'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SSH_HOST: ${{ secrets.RL_SSH_HOST }}
+      SSH_USER: ${{ secrets.RL_SSH_USER }}
+      SSH_PORT: ${{ secrets.RL_SSH_PORT }}
+    steps:
+      - name: Only deploy from main
+        run: test "$GITHUB_REF" = refs/heads/main
+      - uses: actions/checkout@v4
+        with:
+          repository: wattgod/road-race-automation
+          ref: main
+          token: ${{ secrets.GH_PAT }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install -r requirements.txt
+      - name: Configure SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.RL_SSH_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOY_KEY"; test -n "$SSH_HOST"; test -n "$SSH_USER"; test -n "$SSH_PORT"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/roadlabs_key
+          chmod 600 ~/.ssh/roadlabs_key
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          test -s ~/.ssh/known_hosts
+      - name: Run pre-deploy quality gate
+        run: python3 scripts/preflight_quality.py
+      - name: Push redirects
+        run: python3 scripts/push_wordpress.py --sync-redirects --purge-cache
+      - name: Check the live .htaccess
+        run: |
+          set -euo pipefail
+          base=$(python3 -c "import sys; sys.path.insert(0, 'scripts'); import push_wordpress as p; print(p.REMOTE_BASE)")
+          ssh -i ~/.ssh/roadlabs_key -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" "cat $base/.htaccess" > live.htaccess
+          grep -qxF "$PLAN_MANAGE_RULE" live.htaccess || { echo "/plan/manage rule missing from the live .htaccess"; exit 1; }
+          grep -qxF "ErrorDocument 404 /404.html" live.htaccess || { echo "hand-deployed rules (web/htaccess-root) missing from the live .htaccess"; exit 1; }
+          echo "live .htaccess has the /plan/manage rule"
+
+  xcski:
+    if: inputs.brand == 'all' || inputs.brand == 'xcski'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GL_SSH_HOST: ${{ secrets.XC_SSH_HOST }}
+      GL_SSH_USER: ${{ secrets.XC_SSH_USER }}
+      GL_SSH_PORT: ${{ secrets.XC_SSH_PORT }}
+    steps:
+      - name: Only deploy from main
+        run: test "$GITHUB_REF" = refs/heads/main
+      - uses: actions/checkout@v4
+        with:
+          repository: wattgod/xc-ski-labs
+          ref: main
+          token: ${{ secrets.GH_PAT }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      # deploy.py imports dotenv, which requirements.txt does not list.
+      - run: pip install -r requirements.txt python-dotenv
+      - name: Configure SSH
+        env:
+          DEPLOY_KEY: ${{ secrets.XC_SSH_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOY_KEY"; test -n "$GL_SSH_HOST"; test -n "$GL_SSH_USER"; test -n "$GL_SSH_PORT"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/xcskilabs_key
+          chmod 600 ~/.ssh/xcskilabs_key
+          ssh-keyscan -p "$GL_SSH_PORT" "$GL_SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          test -s ~/.ssh/known_hosts
+      # sync_errors uploads the 404 page before the .htaccess that points at it.
+      - name: Build 404 page
+        run: |
+          set -euo pipefail
+          python3 wordpress/generate_404.py
+          test -s output/404.html
+      # --sync-errors replaces the whole live file. Refuse if the live file has
+      # any line web/.htaccess doesn't (a rule added on the server by hand
+      # would otherwise vanish).
+      - name: Check nothing server-only would be lost
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/xcskilabs_key -p "$GL_SSH_PORT" "$GL_SSH_USER@$GL_SSH_HOST" \
+            "cat ~/www/xcskilabs.com/public_html/.htaccess" > live-before.htaccess
+          test -s live-before.htaccess || { echo "could not read the live .htaccess"; exit 1; }
+          extra=$(comm -23 <(grep -v '^[[:space:]]*$' live-before.htaccess | sort -u) \
+                           <(grep -v '^[[:space:]]*$' web/.htaccess | sort -u))
+          if [ -n "$extra" ]; then
+            echo "the live .htaccess has lines web/.htaccess doesn't; add them to the repo first:"
+            echo "$extra"
+            exit 1
+          fi
+      - name: Push .htaccess
+        run: python3 scripts/deploy.py --sync-errors --purge-cache
+      # deploy.py exits 0 even when a step fails, so compare the live file.
+      - name: Check the live .htaccess
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/xcskilabs_key -p "$GL_SSH_PORT" "$GL_SSH_USER@$GL_SSH_HOST" \
+            "cat ~/www/xcskilabs.com/public_html/.htaccess" > live.htaccess
+          cmp -s live.htaccess web/.htaccess || { echo "live .htaccess does not match web/.htaccess"; exit 1; }
+          grep -qxF "$PLAN_MANAGE_RULE" live.htaccess || { echo "/plan/manage rule missing from the live .htaccess"; exit 1; }
+          echo "live .htaccess matches web/.htaccess"

@@ -102,7 +102,7 @@ jobs:
             # bursts (a 20-page burst got nothing back). Say what was served.
             for i in 1 2 3 4; do
               rm -f live.html
-              code=$(curl -s -o live.html -w '%{http_code}' "https://roadielabs.com${path}?v=$GITHUB_RUN_ID-$i" || true)
+              code=$(curl -s -o live.html -w '%{http_code}' "https://roadielabs.com${path}?v=$GITHUB_RUN_ID-$i") || code="curl-exit-$?"
               # Menu icon CSS (inline or the new hashed file) AND the bind-once tap script.
               if [ "$code" = 200 ] \
                  && { grep -qF 'rl-site-header-toggle span { display: block; flex: none;' live.html \
@@ -114,6 +114,6 @@ jobs:
             if [ -n "$ok" ]; then echo "live ok: $path"; else echo "live header not updated: $path"; fail=1; fi
             sleep 3
           done
-          code=$(curl -s -o live.css -w '%{http_code}' "https://roadielabs.com/race/assets/$css?v=$GITHUB_RUN_ID" || true)
-          grep -qF 'flex: none; width: 20px; height: 2px' live.css || { echo "live $css lacks the menu icon fix (HTTP $code)"; fail=1; }
+          code=$(curl -s -o live.css -w '%{http_code}' "https://roadielabs.com/race/assets/$css?v=$GITHUB_RUN_ID") || code="curl-exit-$?"
+          { [ "$code" = 200 ] && grep -qF 'flex: none; width: 20px; height: 2px' live.css; } || { echo "live $css lacks the menu icon fix (HTTP $code)"; fail=1; }
           exit $fail

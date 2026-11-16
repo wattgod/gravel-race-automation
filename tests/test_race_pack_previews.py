@@ -963,3 +963,20 @@ def test_committed_pack_demands_match_analyzer():
         f"Stale race-pack demands (regenerate with "
         f"scripts/generate_race_pack_previews.py --slug <slug>): {stale}"
     )
+
+
+def test_committed_pack_heat_note_matches_generator():
+    """The heat note is the overlay text that pack fixes ship (#619, #627),
+    so it must match what the generator writes from the profile now.
+    Nov 2026: unbound-xl still said May after the race moved to June."""
+    root = Path(__file__).resolve().parent.parent
+    stale = []
+    for pack_path in sorted((root / "web" / "race-packs").glob("*.json")):
+        pack = json.loads(pack_path.read_text())
+        profile = root / "race-data" / pack_path.name
+        if not pack.get("demands") or not profile.exists():
+            continue
+        expected = generate_preview(json.loads(profile.read_text()))
+        if pack.get("race_overlay", {}).get("heat") != expected["race_overlay"].get("heat"):
+            stale.append(pack_path.stem)
+    assert not stale, f"Stale race-pack heat notes: {stale}"

@@ -148,7 +148,7 @@ import that is not `mission_control.*`, the standard library or an installed pac
 |---|---|
 | `mission_control/**` | the app itself, its Jinja templates (`config.WEB_TEMPLATES_DIR`), static files (`config.STATIC_DIR`), sequence email templates (`sequence_engine._render_template`, `race_watch.py:83`) |
 | `mission_control.py` | `Dockerfile` `CMD` |
-| `requirements.txt`, `Dockerfile`, `railway.toml` | the build itself |
+| `requirements.txt`, `Dockerfile` | the build itself (`railway.toml` was here until 2026-11-16; settings now live in `.railway/railway.ts`, which is not a deploy input) |
 | `pipeline/__init__.py`, `pipeline/nutrition.py` | `routers/nutrition_api.py:17` imports `pipeline.nutrition` (which imports only `typing`; `__init__` is empty) |
 | `scripts/jev_client.py` | `services/lead_nurture.py:37` `from scripts import jev_client` (it imports only `os`, `typing`). **Not in the spec's list; added.** |
 | `race-data/**` | `services/race_data.py:20` `RACE_DATA_DIR` (races API) and `sequence_engine.py` race facts (`RACE_DATA_DIR / f"{slug}.json"`) |

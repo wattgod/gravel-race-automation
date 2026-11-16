@@ -155,6 +155,22 @@ jobs:
           set -euo pipefail
           python3 wordpress/generate_404.py
           test -s output/404.html
+      # --sync-errors replaces the whole live file. Refuse if the live file has
+      # any line web/.htaccess doesn't (a rule added on the server by hand
+      # would otherwise vanish).
+      - name: Check nothing server-only would be lost
+        run: |
+          set -euo pipefail
+          ssh -i ~/.ssh/xcskilabs_key -p "$GL_SSH_PORT" "$GL_SSH_USER@$GL_SSH_HOST" \
+            "cat ~/www/xcskilabs.com/public_html/.htaccess" > live-before.htaccess
+          test -s live-before.htaccess || { echo "could not read the live .htaccess"; exit 1; }
+          extra=$(comm -23 <(grep -v '^[[:space:]]*$' live-before.htaccess | sort -u) \
+                           <(grep -v '^[[:space:]]*$' web/.htaccess | sort -u))
+          if [ -n "$extra" ]; then
+            echo "the live .htaccess has lines web/.htaccess doesn't; add them to the repo first:"
+            echo "$extra"
+            exit 1
+          fi
       - name: Push .htaccess
         run: python3 scripts/deploy.py --sync-errors --purge-cache
       # deploy.py exits 0 even when a step fails, so compare the live file.

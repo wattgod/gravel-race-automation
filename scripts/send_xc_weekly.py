@@ -31,7 +31,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 from send_gravel_weekly import (  # noqa: E402
     _req, ensure_segment_contact, fetch_opted_out, remove_segment_contact, resend,
 )
-from xc_weekly_issue import IssueError, render_email_html, validate_issue  # noqa: E402
+from xc_weekly_issue import IssueError, render_email_html, render_email_text, validate_issue  # noqa: E402
 
 SEGMENT_NAME = "XC Ski Labs Weekly"
 FROM_ADDR = "XC Ski Labs Weekly <weekly@xcskilabs.com>"
@@ -118,6 +118,7 @@ def send_preview(issue: dict) -> str:
         "reply_to": REPLY_TO,
         "subject": f"[Preview] {issue['subject']}",
         "html": render_email_html(issue, preview_banner=banner),
+        "text": render_email_text(issue),
     })
     if not result.get("id"):
         raise RuntimeError("Resend returned no id for the preview email")
@@ -143,6 +144,7 @@ def send_broadcast_once(issue: dict, segment_id: str) -> dict:
         "name": name,
         "subject": issue["subject"],
         "html": render_email_html(issue),
+        "text": render_email_text(issue),
         "send": True,
     })
     if not created.get("id"):

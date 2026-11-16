@@ -476,3 +476,207 @@ def test_resend_requests_carry_a_user_agent(monkeypatch):
     monkeypatch.setattr(sg.urllib.request, "urlopen", fake_urlopen)
     sg._req("https://api.resend.com/broadcasts")
     assert seen.get("User-agent", "").startswith("gravelgod-weekly/")
+
+
+# ── Top fixes from the Fable and Astra reviews (#644) ─────────────
+
+class FlakySession:
+    """Serves a block page first, then the real feed, from the same URL."""
+
+    def __init__(self, bodies):
+        self.bodies, self.calls = list(bodies), []
+
+    def get(self, url, timeout, headers):
+        self.calls.append(url)
+        body = self.bodies.pop(0)
+        return SimpleNamespace(raise_for_status=lambda: None, content=body)
+
+
+def test_feed_parse_failure_is_retried_on_the_same_url():
+    feed = rss([("Ny", "https://www.langrenn.com/ny", NOW - timedelta(hours=3), [])])
+    session = FlakySession([b"<html><body>blocked</p></body></html>", feed])
+    waits = []
+    source = {"id": "langrenn", "name": "Langrenn.com", "lang": "no", "feed": "https://www.langrenn.com/feed"}
+    items, coverage = collect.collect_source(source, "news", NOW - timedelta(days=7), session, waits.append)
+    assert [i["title"] for i in items] == ["Ny"] and coverage["errors"] == []
+    assert session.calls == ["https://www.langrenn.com/feed"] * 2 and waits == [5]
+
+
+def test_feed_that_never_parses_records_what_came_back():
+    session = FlakySession([b"<html>blocked</p></html>"] * 3)
+    source = {"id": "langd", "name": "Längd.se", "lang": "sv", "feed": "https://www.langd.se/feed", "core": False}
+    items, coverage = collect.collect_source(source, "news", NOW - timedelta(days=7), session, lambda s: None)
+    assert items == [] and len(session.calls) == 3
+    assert "ParseError" in coverage["errors"][0] and "starting '<html>blocked" in coverage["errors"][0]
+
+
+def test_client_errors_are_not_retried():
+    session = FakeSession({})
+    source = {"id": "nrk", "name": "NRK Sport", "lang": "no", "feed": "https://www.nrk.no/x.rss"}
+    collect.collect_source(source, "news", NOW - timedelta(days=7), session, lambda s: pytest.fail("no retry"))
+    assert len(session.calls) == 1
+
+
+def test_item_ids_follow_the_normalized_url_and_wp_tails_are_stripped():
+    feed = (b'<?xml version="1.0"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">'
+            b"<channel><link>https://x.no/</link>"
+            b"<item><title>Edited headline</title><link>https://x.no/a?utm_source=rss#top</link>"
+            b"<pubDate>Sun, 15 Nov 2026 10:00:00 +0000</pubDate>"
+            b"<description>Short. The post Edited headline appeared first on Langrenn.com.</description>"
+            b"<content:encoded>&lt;p&gt;Full paragraph about the race.&lt;/p&gt;</content:encoded></item>"
+            b"</channel></rss>")
+    source = {"id": "x", "name": "X", "lang": "no", "feed": "https://x.no/feed"}
+    items, _ = collect.collect_source(source, "news", NOW - timedelta(days=7), FakeSession({"https://x.no/feed": feed}))
+    assert items[0]["url"] == "https://x.no/a"
+    assert items[0]["id"] == collect.item_id("https://x.no/a")
+    assert items[0]["excerpt"] == "Short."
+    assert items[0]["detail"] == "Full paragraph about the race."
+    shows = {"id": "s", "name": "S", "lang": "sv", "feed": "https://pod.example/feed",
+             "show_url": "https://pod.example/show"}
+    session = FakeSession({"https://pod.example/feed": rss([("Ep 1", "", NOW - timedelta(days=1), []),
+                                                             ("Ep 2", "", NOW - timedelta(days=2), [])])})
+    eps, _ = collect.collect_source(shows, "podcast", NOW - timedelta(days=7), session)
+    assert len({e["id"] for e in eps}) == 2  # shared show URL, distinct episodes
+
+
+def test_core_sources_are_flagged_in_config():
+    core = {s["id"] for s in collect.load_sources()["news"] if s.get("core")}
+    assert core == {"langrenn", "fasterskier", "nrk"}
+
+
+def snapshot(at, errors_by_source):
+    return {"collectedAt": at.isoformat(), "items": evidence()["items"],
+            "coverage": [{"id": sid, "name": sid.title(), "kind": "news", "core": sid == "langrenn",
+                          "kept": 1, "errors": errs} for sid, errs in errors_by_source.items()]}
+
+
+def test_load_evidence_keeps_every_runs_errors(tmp_path):
+    (tmp_path / "wed.json").write_text(json.dumps(snapshot(NOW - timedelta(days=4), {"langrenn": ["ParseError"]})))
+    (tmp_path / "mon.json").write_text(json.dumps(snapshot(NOW, {"langrenn": []})))
+    merged = draft.load_evidence([tmp_path / "mon.json", tmp_path / "wed.json"], NOW)
+    row = merged["coverage"][0]
+    assert row["runs"] == 2 and row["errors"] == []
+    assert row["failedRuns"] == [{"at": (NOW - timedelta(days=4)).isoformat(), "errors": ["ParseError"]}]
+    assert draft.missing_core_sources(merged, {"langrenn"}) == []
+    assert draft.missing_core_sources(merged, {"langrenn", "nrk"}) == ["nrk"]  # absent counts as missing
+    md = xi.render_brief_markdown(xi.validate_brief(xi.assemble_brief(brief_selection(), evidence()), evidence()),
+                                  merged["coverage"])
+    assert md.startswith("> [!WARNING]") and "Langrenn (core): failed 2026-11-12; 1 of 2 runs fetched" in md
+
+
+def test_brief_refuses_a_week_without_a_core_source(tmp_path, monkeypatch):
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "x")
+    (tmp_path / "a.json").write_text(json.dumps(snapshot(NOW, {"langrenn": ["ParseError"]})))
+    monkeypatch.setattr(draft, "shortlist", lambda ev: pytest.fail("must refuse before drafting"))
+    rc = draft.main(["--brief", str(tmp_path / "a.json"), "--output-dir", str(tmp_path / "out")])
+    assert rc == 1 and not (tmp_path / "out").exists()
+
+
+def also_selection():
+    sel = selection()
+    sel["stories"][0]["alsoItemIds"] = ["n6"]
+    return sel
+
+
+def test_also_at_links_come_from_the_evidence_and_render():
+    issue = xi.validate_issue(xi.assemble_issue(also_selection(), evidence(), 1, "2026-11-16"), evidence())
+    assert issue["stories"][0]["also"] == [{"itemId": "n6", "sourceName": "Langrenn.com",
+                                            "url": "https://www.langrenn.com/6", "lang": "no"}]
+    assert 'also at <a class="xm" href="https://www.langrenn.com/6"' in xi.render_email_html(issue)
+    assert "also at [Langrenn.com](https://www.langrenn.com/6)" in xi.render_review_markdown(issue)
+
+
+def test_also_items_cannot_be_unknown_or_reused():
+    bad = selection()
+    bad["stories"][0]["alsoItemIds"] = ["nope"]
+    with pytest.raises(xi.IssueError, match="alsoItemId"):
+        xi.assemble_issue(bad, evidence(), 1, "2026-11-16")
+    reused = selection()
+    reused["stories"][0]["alsoItemIds"] = ["n2"]  # n2 is already story 2
+    with pytest.raises(xi.IssueError, match="used twice"):
+        xi.validate_issue(xi.assemble_issue(reused, evidence(), 1, "2026-11-16"), evidence())
+
+
+def test_take_may_not_reprint_a_source():
+    sel = selection(take=["I think Klæbo vant sprinten i Ruka foran hele det norske laget [1], and the "
+                          "rest of the week was quiet enough that I spent most of it waxing skis for spring."])
+    with pytest.raises(xi.IssueError, match="take: reprints a source"):
+        xi.validate_issue(xi.assemble_issue(sel, evidence(), 1, "2026-11-16"), evidence())
+
+
+def test_new_drafts_follow_the_brief_limits_but_staged_issues_still_send():
+    assert (xi.DRAFT_SUBJECT_CHARS, xi.DRAFT_PREHEADER_CHARS) == (60, 110)
+    long = xi.assemble_issue(selection(subject="Sixty-five characters of subject line for an older staged issue"),
+                             evidence(), 1, "2026-11-16")
+    assert 60 < len(long["subject"]) <= xi.MAX_SUBJECT_CHARS
+    xi.validate_issue(long, evidence())  # already-staged issues keep their publication contract
+    with pytest.raises(xi.IssueError, match="at most 60"):
+        xi.check_draft_limits(long)
+    client = FakeClient([selection(subject=long["subject"]), selection()])
+    issue = draft.draft(evidence(), make_brief(), "I think it was a good week.", 1, "2026-11-16", client=client)
+    assert len(issue["subject"]) <= 60 and "at most 60" in client.requests[1]["messages"][-1]["content"]
+
+
+def test_html_block_page_is_a_failed_fetch_not_an_empty_feed():
+    session = FlakySession([b"<html><body>Access denied</body></html>"] * 3)
+    source = {"id": "langrenn", "name": "Langrenn.com", "lang": "no", "feed": "https://www.langrenn.com/feed"}
+    items, coverage = collect.collect_source(source, "news", NOW - timedelta(days=7), session, lambda s: None)
+    assert items == [] and len(session.calls) == 3
+    assert "not an RSS or Atom feed" in coverage["errors"][0]
+
+
+def test_merge_keeps_one_item_per_article_across_id_schemes():
+    old = {**evidence()["items"][0], "id": "legacyhash", "url": "https://www.langrenn.com/1?utm_source=rss"}
+    merged = collect.merge_items(evidence()["items"], [old])
+    assert sum(1 for i in merged if "langrenn.com/1" in i["url"]) == 1
+
+
+def test_runs_before_the_window_do_not_vouch_for_the_week(tmp_path):
+    (tmp_path / "old.json").write_text(json.dumps(snapshot(NOW - timedelta(days=7, hours=12), {"langrenn": []})))
+    (tmp_path / "now.json").write_text(json.dumps(snapshot(NOW, {"langrenn": ["ParseError"]})))
+    merged = draft.load_evidence([tmp_path / "old.json", tmp_path / "now.json"], NOW)
+    assert draft.missing_core_sources(merged, {"langrenn"}) == ["Langrenn"]
+
+
+def test_reader_copy_is_checked_against_all_evidence_and_attribution():
+    ev = evidence()
+    ev["items"].append({**ev["items"][0], "id": "x9", "url": "https://www.langrenn.com/x9",
+                        "excerpt": "", "detail": "Johaug sier at sesongen blir den siste hun går på ski"})
+    sel = selection(take=["I think Johaug sier at sesongen blir den siste hun går på ski [1], which is a "
+                          "bigger deal than the opener and worth a long spring of reading."])
+    with pytest.raises(xi.IssueError, match="take: reprints a source"):
+        xi.validate_issue(xi.assemble_issue(sel, ev, 1, "2026-11-16"), ev)
+    issue = xi.assemble_issue(also_selection(), evidence(), 1, "2026-11-16")
+    issue["stories"][0]["also"][0]["sourceName"] = "Matti uses AI to write this"
+    issue["contentHash"] = xi.content_hash(issue)
+    with pytest.raises(xi.IssueError, match="also-at link is not in the evidence"):
+        xi.validate_issue(issue, evidence())
+
+
+def test_email_puts_the_week_first_with_one_link_per_story_and_dark_mode():
+    issue = xi.assemble_issue(selection(), evidence(), 1, "2026-11-16")
+    body = xi.render_email_html(issue)
+    assert body.index("THE WEEK") < body.index("MY TAKE") < body.index("IN YOUR EARS")
+    assert "Read it at" not in body
+    assert body.count('href="https://www.langrenn.com/3"') == 1  # uncited story: headline only
+    assert '(<a class="xl" href="https://www.langrenn.com/1"' in body and "[1]" not in body
+    assert '<meta name="color-scheme" content="light dark">' in body and "prefers-color-scheme: dark" in body
+    assert "font:700 22px" in body  # the lead story is bigger than the rest
+    assert body.index("The Devon Kershaw Show</a>") < body.index("Episode: Season opener")
+    assert 'href="https://xcskilabs.com/weekly/"' in body  # forwarded copies can sign up
+    assert body.count("&zwnj;") >= 30  # preheader padding
+
+
+def test_plain_text_edition_matches_and_is_sent(monkeypatch):
+    import send_xc_weekly as send
+    issue = xi.assemble_issue(also_selection(), evidence(), 1, "2026-11-16")
+    text = xi.render_email_text(issue)
+    assert text.index("THE WEEK") < text.index("MY TAKE")
+    assert "also at Langrenn.com [2]" in text and "[2] https://www.langrenn.com/6" in text
+    assert "(Langrenn.com)" in text and "[1]" in text.split("MY TAKE")[0]
+    assert "Unsubscribe: {{{RESEND_UNSUBSCRIBE_URL}}}" in text and "2183 Lombardy St" in text
+    assert "<" not in text
+    sent = []
+    monkeypatch.setattr(send, "resend", lambda path, method="GET", body=None: sent.append(body) or {"id": "e1"})
+    send.send_preview(issue)
+    assert sent[0]["text"] == text

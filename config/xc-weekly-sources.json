@@ -1,5 +1,5 @@
 {
-  "_comment": "XC Ski Labs Weekly sources. Every feed URL was fetched and parsed on verified_on; a source that stops answering is reported in the staged review, never replaced. Filters keep the cross-country items from mixed winter-sport feeds.",
+  "_comment": "XC Ski Labs Weekly sources. Every feed URL was fetched and parsed on verified_on; a source that stops answering is reported in the staged review, never replaced. Filters keep the cross-country items from mixed winter-sport feeds. Sources marked core must fetch at least once in the week or no brief is staged.",
   "verified_on": "2026-11-15",
   "news": [
     {
@@ -10,7 +10,8 @@
       "pages": 8,
       "exclude_categories": [
         "skiskyting"
-      ]
+      ],
+      "core": true
     },
     {
       "id": "fasterskier",
@@ -20,7 +21,8 @@
       "exclude_categories": [
         "jobs",
         "sponsor news"
-      ]
+      ],
+      "core": true
     },
     {
       "id": "nrk",
@@ -35,7 +37,8 @@
       ],
       "exclude_categories": [
         "skiskyting"
-      ]
+      ],
+      "core": true
     },
     {
       "id": "tv2",

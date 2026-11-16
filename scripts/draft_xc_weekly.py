@@ -28,9 +28,9 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT / "scripts"))
 
-from collect_xc_weekly import merge_items  # noqa: E402
+from collect_xc_weekly import load_sources, merge_items  # noqa: E402
 from xc_weekly_issue import (  # noqa: E402
-    IssueError, assemble_brief, assemble_issue, render_brief_markdown, render_email_html,
+    IssueError, assemble_brief, assemble_issue, check_draft_limits, render_brief_markdown, render_email_html,
     render_review_markdown, validate_brief, validate_issue,
 )
 
@@ -56,9 +56,12 @@ SELECTION_SCHEMA = {
             "items": {
                 "type": "object",
                 "additionalProperties": False,
-                "required": ["itemId", "headline", "blurb"],
+                "required": ["itemId", "alsoItemIds", "headline", "blurb"],
                 "properties": {
                     "itemId": {"type": "string"},
+                    # Other collected news items about the same event, shown as
+                    # "also at" links. Empty when only one outlet covered it.
+                    "alsoItemIds": {"type": "array", "items": {"type": "string"}},
                     "headline": {"type": "string"},
                     "blurb": {"type": "string"},
                 },
@@ -90,30 +93,53 @@ BRIEF_SCHEMA = {
 
 
 def load_evidence(paths: list[Path], now: datetime) -> dict:
-    """Merge evidence files and keep the items from the last WINDOW_DAYS."""
+    """Merge evidence files and keep the items from the last WINDOW_DAYS.
+
+    Coverage keeps every run's errors, not just the latest run's, so a failed
+    Wednesday still shows when Monday's fetch worked.
+    """
     since = now - timedelta(days=WINDOW_DAYS)
     groups, coverage = [], {}
     for path in paths:
         data = json.loads(path.read_text())
         groups.append(data["items"])
+        if datetime.fromisoformat(data["collectedAt"]) < since:
+            continue  # a run before the week cannot vouch for this week's coverage
         for cov in data["coverage"]:
-            prior = coverage.get(cov["id"])
-            # Keep the latest run's coverage row, but remember any error seen.
-            if prior is None or data["collectedAt"] >= prior["_at"]:
-                coverage[cov["id"]] = {**cov, "_at": data["collectedAt"]}
+            row = coverage.setdefault(cov["id"], {**cov, "runs": 0, "failedRuns": [], "_at": ""})
+            row["runs"] += 1
+            if cov["errors"]:
+                row["failedRuns"].append({"at": data["collectedAt"], "errors": cov["errors"]})
+            if data["collectedAt"] >= row["_at"]:
+                row.update({k: v for k, v in cov.items() if k != "kept"}, _at=data["collectedAt"])
     items = [i for i in merge_items(*groups)
              if since <= datetime.fromisoformat(i["published"]) <= now]
     for cov in coverage.values():
         cov["kept"] = sum(1 for i in items if i["sourceId"] == cov["id"])
+        cov["failedRuns"].sort(key=lambda r: r["at"])
         cov.pop("_at", None)
     return {"since": since.isoformat(), "collectedAt": now.isoformat(),
             "items": items, "coverage": sorted(coverage.values(), key=lambda c: (c["kind"], c["id"]))}
+
+
+def missing_core_sources(evidence: dict, core_ids: set[str] | None = None) -> list[str]:
+    """Core sources (from config) that never fetched cleanly in a run this week."""
+    if core_ids is None:
+        core_ids = {s["id"] for s in load_sources()["news"] if s.get("core")}
+    rows = {c["id"]: c for c in evidence["coverage"]}
+    missing = []
+    for source_id in sorted(core_ids):
+        row = rows.get(source_id)
+        if row is None or row.get("runs", 1) <= len(row.get("failedRuns", [])):
+            missing.append(row["name"] if row else source_id)
+    return missing
 
 
 def evidence_prompt(evidence: dict) -> str:
     rows = [{
         "id": i["id"], "kind": i["kind"], "outlet": i["sourceName"], "lang": i["lang"],
         "published": i["published"][:16], "title": i["title"], "excerpt": i["excerpt"],
+        "detail": i.get("detail", ""),
         "categories": i["categories"],
     } for i in evidence["items"]]
     return (
@@ -195,7 +221,8 @@ def reactions_from_comments(bodies: list[str]) -> str | None:
 
 
 def reaction_prompt(evidence: dict, brief: dict, reactions: str) -> str:
-    listed = [{"n": n, "itemId": s["itemId"], "headline": s["headline"], "blurb": s["blurb"]}
+    listed = [{"n": n, "itemId": s["itemId"], "alsoItemIds": [a["itemId"] for a in s.get("also", [])],
+               "headline": s["headline"], "blurb": s["blurb"]}
               for n, s in enumerate(brief["stories"], 1)]
     pods = [{"itemId": p["itemId"], "blurb": p["blurb"]} for p in brief["podcasts"]]
     return (
@@ -221,7 +248,8 @@ def draft(evidence: dict, brief: dict, reactions: str, issue_number: int, issue_
     messages = [{"role": "user", "content": reaction_prompt(evidence, brief, reactions)}]
     return _with_one_repair(
         _client(client), messages, SELECTION_SCHEMA,
-        lambda sel: validate_issue(assemble_issue(sel, evidence, issue_number, issue_date), evidence))
+        lambda sel: validate_issue(check_draft_limits(assemble_issue(sel, evidence, issue_number, issue_date)),
+                                   evidence))
 
 
 def stage_brief(brief: dict, evidence: dict, out: Path) -> dict:
@@ -276,6 +304,11 @@ def main(argv: list[str] | None = None) -> int:
         if not args.evidence:
             parser.error("--brief needs at least one evidence file")
         evidence = load_evidence(args.evidence, now)
+        missing = missing_core_sources(evidence)
+        if missing:
+            print(f"Core sources never fetched this week: {', '.join(missing)}; "
+                  "a partial week is not staged", file=sys.stderr)
+            return 1
         news = sum(1 for i in evidence["items"] if i["kind"] == "news")
         if news < 4:
             print(f"Only {news} news items this week; not enough for an issue, nothing staged", file=sys.stderr)

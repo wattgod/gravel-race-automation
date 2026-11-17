@@ -132,8 +132,12 @@ def expected_pages() -> dict[str, set[str]]:
         f"/tire/{a}-vs-{b}/" for a, b in select_tire_pairs(load_tire_database())}
 
     # Blog: the generator's own pure enumeration (shared predicate).
+    # Same season year as `generate_season_roundup.py --all` (it rolls over
+    # to next year's roundups late in the year; a pinned 2026 broke the
+    # race release on 2026-11-17).
     from generate_season_roundup import expected_roundup_slugs
-    exp["blog"] = {f"/blog/{s}/" for s in expected_roundup_slugs(idx, 2026)}
+    from season import season_year
+    exp["blog"] = {f"/blog/{s}/" for s in expected_roundup_slugs(idx, season_year())}
 
     # Articles are hand-authored artifacts; their files are the only source.
     exp["articles"] = {

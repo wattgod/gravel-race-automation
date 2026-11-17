@@ -652,7 +652,7 @@ def get_css() -> str:
     """Course Dossier styles. Colours are brand tokens; the radius and shadow
     are the mock's (Matti chose it 2026-11-17) and live only on these cards."""
     return '''
-.gg-cd-page{--cd-night:var(--gg-color-near-black);--cd-card:var(--gg-color-white);--cd-well:var(--gg-color-warm-paper);--cd-line:var(--gg-color-sand);--cd-ink:var(--gg-color-near-black);--cd-ink2:var(--gg-color-dark-brown);--cd-ink3:var(--gg-color-secondary-brown);--cd-none:var(--gg-color-tan);--cd-gold:var(--gg-color-light-gold);--cd-gold-d:var(--gg-color-gold);--cd-r:10px;--cd-shadow:0 1px 2px rgba(58,46,37,.08),0 2px 6px rgba(58,46,37,.08);}
+.gg-cd-page{--cd-night:var(--gg-color-near-black);--cd-card:var(--gg-color-white);--cd-well:var(--gg-color-warm-paper);--cd-line:var(--gg-color-sand);--cd-ink:var(--gg-color-near-black);--cd-ink2:var(--gg-color-dark-brown);--cd-ink3:var(--gg-color-secondary-brown);--cd-none:var(--gg-color-tan);--cd-gold:var(--gg-color-light-gold);--cd-gold-d:var(--gg-color-gold);--cd-r:10px;--cd-shadow:0 1px 2px color-mix(in srgb,var(--gg-color-dark-brown) 8%,transparent),0 2px 6px color-mix(in srgb,var(--gg-color-dark-brown) 8%,transparent);}
 .gg-cd-page .gg-cd-lab{font:700 11px/1.4 var(--gg-font-data);letter-spacing:.14em;text-transform:uppercase;color:var(--cd-ink3)}
 .gg-cd-page .gg-cd-lab a{color:inherit}
 .gg-cd-hero{position:relative;background:var(--cd-night);color:var(--gg-color-warm-paper);box-shadow:0 0 0 100vmax var(--cd-night)!important;clip-path:inset(0 -100vmax);padding:40px 0 92px;margin-top:8px}

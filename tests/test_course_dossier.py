@@ -305,3 +305,9 @@ def test_uncited_route_gets_its_own_numbered_source(race_index):
     route_n = next(k for k in numbers if "ridewithgps.com/routes/46551378"
                    in html[html.index(f'id="gg-citation-{k}"'):][:400])
     assert f'href="#gg-citation-{route_n}">[{route_n}]</a>' in html
+
+
+def test_dossier_css_uses_brand_tokens_not_colour_literals():
+    css = cd.get_css()
+    assert not re.search(r"#[0-9a-fA-F]{3,8}\b|rgba?\(|hsla?\(", css)
+    assert "backdrop-filter" not in css

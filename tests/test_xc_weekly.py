@@ -101,7 +101,7 @@ SVT = {"keep_url_paths": ["/sport/langdskidor/"], "include_keywords": ["vasalopp
 ])
 def test_section_path_keeps_items_without_keywords(link, title, kept):
     entry = {"title": title, "description": "", "categories": [], "link": link}
-    assert collect.keep_entry(entry, source) is kept
+    assert collect.keep_entry(entry, SVT) is kept
 
 
 def test_collect_keeps_window_pages_and_drops_unlinkable_items():

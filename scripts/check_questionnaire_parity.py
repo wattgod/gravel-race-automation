@@ -247,7 +247,13 @@ def check_parity(live_html: str = None, repo_html: str = None) -> list:
             findings = _legacy_parity(page.html, repo_html) + _offer_findings(page.html)
         else:
             return ['Unexpected questionnaire redirect or response']
-        details = fetch_live(intake.DETAILS_URL)
+        try:
+            details = fetch_live(intake.DETAILS_URL)
+        except BotChallenge:
+            # Drift already confirmed on the questionnaire is still drift.
+            if findings:
+                return findings
+            raise
         if details.redirects:
             return findings + ['details: unexpected redirect']
         return findings + _two_step_parity(details, 'details')

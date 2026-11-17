@@ -237,3 +237,21 @@ def test_bot_challenge_is_unreachable_not_drift(monkeypatch, capsys, status):
 def test_other_http_failures_stay_drift(monkeypatch, status):
     monkeypatch.setattr(checker.urllib.request, 'build_opener', lambda handler: _opener_answering(status))
     assert checker.main() == 1
+
+
+def test_challenge_on_details_keeps_confirmed_questionnaire_drift(monkeypatch, pages):
+    def fetch(url=checker.LIVE_URL):
+        if url == checker.LIVE_URL:
+            return checker.LivePage('<html>no form</html>', checker.LIVE_URL)
+        raise checker.BotChallenge('challenge')
+    monkeypatch.setattr(checker, 'fetch_live', fetch)
+    assert checker.main() == 1
+
+
+def test_challenge_on_details_with_clean_questionnaire_is_unreachable(monkeypatch, pages):
+    def fetch(url=checker.LIVE_URL):
+        if url == checker.LIVE_URL:
+            return checker.LivePage(pages['questionnaire'], checker.LIVE_URL)
+        raise checker.BotChallenge('challenge')
+    monkeypatch.setattr(checker, 'fetch_live', fetch)
+    assert checker.main() == 2

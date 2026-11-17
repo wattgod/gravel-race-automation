@@ -31,6 +31,7 @@ from pathlib import Path
 
 from brand_tokens import SITE_BASE_URL
 import plan_offer
+from course_dossier import PRICE_RATE
 
 REPO = Path(__file__).resolve().parent.parent
 PLANNER_DIR = REPO / "data" / "planner"
@@ -319,8 +320,8 @@ def planner_config(rd: dict, show_offer: bool) -> dict | None:
         "gels": [{"id": x["id"], "label": x["model"], "g": x["g"], "url": x["url"]} for x in gear["gels"]],
         "offer": ({
             "href": f"{PLAN_URL}?race={slug}&src=race_planner",
-            "price": plan_offer.PRICE_LINE,
-            "price_note": plan_offer.TERMS_SHORT,
+            "price": PRICE_RATE,
+            "price_note": f"{plan_offer.REFUND_LINE} Cancel any time from your plan page.",
             "includes": [plan_offer.BLOCKS_LINE, plan_offer.FIRST_BLOCK_LINE],
         } if show_offer else None),
         "events": {"result": EVENT_RESULT, "cta": EVENT_CTA},

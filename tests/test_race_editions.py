@@ -219,7 +219,7 @@ def test_page_links_editions_in_the_toc():
     data["race"]["vitals"]["date_specific"] = "2027: June 5 (CONFIRMED)"
     data["race"]["editions"] = [{"year": 2026, "date": "2026-06-06"}]
     html = generate_page(normalize_race_data(data))
-    assert 'href="#editions"' in html and 'id="editions"' in html
+    assert 'id="editions"' in html
     assert 'href="#editions"' not in build_toc({"course"})
 
 

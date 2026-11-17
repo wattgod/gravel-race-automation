@@ -161,6 +161,12 @@ def test_estimate_reaches_the_date_label_only(traka):
     """No countdown, calendar export or structured date uses the estimate."""
     html = generate_page(normalize_race_data(_with(traka, date_specific="2026: September 19")), [])
     assert "Sep 18, 2027 (estimate)" in html
+    # The plan strip may count to last year's slot, and says so (#675).
+    start = html.find('<div class="gg-cd-plan">')
+    if start != -1:
+        plan = html[start:html.index('</div>\n    <a class="gg-cd-buy"', start)]
+        assert "isn&#x27;t announced" in plan and "last year&#x27;s slot" in plan
+        html = html.replace(plan, "")
     for leak in ("2027-09-18", "20270918", "Sep 18, 2027<", "September 18, 2027"):
         assert leak not in html
 

@@ -266,6 +266,23 @@ def _weather_line(summary: dict) -> str:
             f"{summary['weather_start']} start), not a forecast.")
 
 
+_RWGPS_ROUTE = re.compile(r"ridewithgps\.com/routes/(\d+)")
+
+
+def _route_link(rd: dict, route_url: str) -> str | None:
+    """The planner's route link, or None when the race no longer lists that route.
+
+    A Ride with GPS route the race profile has dropped (for example one that
+    went private) is not linked: visitors would land on a page they can't open.
+    """
+    m = _RWGPS_ROUTE.search(route_url or "")
+    if not m:
+        return route_url or None
+    course = (rd.get("race") or {}).get("course_description") or {}
+    rid = course.get("ridewithgps_id")
+    return route_url if rid is not None and str(rid) == m.group(1) else None
+
+
 def planner_config(rd: dict, show_offer: bool) -> dict | None:
     slug = rd.get("slug")
     if not planner_shown(slug):
@@ -279,7 +296,7 @@ def planner_config(rd: dict, show_offer: bool) -> dict | None:
     return {
         "slug": slug,
         "race": str(rd.get("name") or slug),
-        "route_url": summary["route_url"],
+        "route_url": _route_link(rd, summary["route_url"]),
         "status": entry["status"],
         "course_url": f"{ASSET_URL}/{_hashed(course_path(slug))}",
         "worker_url": f"{ASSET_URL}/{names['worker']}",
@@ -362,11 +379,13 @@ def build_race_planner(rd: dict, show_offer: bool = True) -> str:
                    if cfg["visitor_sets_effort"] else
                    "Blank uses the default effort for your level and riding time. Type your own to override it.")
     cite = cfg["cite"]
+    route_link = (f' (<a href="{_esc(cfg["route_url"])}" rel="noopener" target="_blank">route</a>)'
+                  if cfg["route_url"] else "")
     return f'''<section id="finish-time" class="gg-planner" aria-labelledby="gg-planner-title">
   <div class="gg-planner-head">
     <span class="gg-planner-kicker">Free · no account</span>
     <h2 id="gg-planner-title">How long will {race} take you?</h2>
-    <p class="gg-planner-course">Course: {_esc(cfg["edition_line"])}, {dist_mi:.1f} mi (<a href="{_esc(cfg["route_url"])}" rel="noopener" target="_blank">route</a>).{(" " + _esc(cfg["target_line"])) if cfg["target_line"] else ""} {_esc(cfg["weather_line"])}</p>
+    <p class="gg-planner-course">Course: {_esc(cfg["edition_line"])}, {dist_mi:.1f} mi{route_link}.{(" " + _esc(cfg["target_line"])) if cfg["target_line"] else ""} {_esc(cfg["weather_line"])}</p>
     {notes}
   </div>
   <form class="gg-planner-form" novalidate>

@@ -548,3 +548,23 @@ def test_tiles_overlap_by_a_pixel_with_normal_blending():
     assert "img.leaflet-tile { mix-blend-mode: normal; }" in css
     assert "plus-lighter;" not in css
 
+
+
+@pytest.mark.parametrize("slug", SHOWN)
+def test_planner_links_only_the_route_the_race_still_lists(slug):
+    """A route dropped from the race profile (e.g. gone private) is not linked."""
+    rd = load_race_data(ROOT / "race-data" / f"{slug}.json")
+    rid = ((rd.get("race") or {}).get("course_description") or {}).get("ridewithgps_id")
+    html = page(slug)
+    cfg = config(html)
+    if rid is None:
+        assert cfg["route_url"] is None
+        assert "ridewithgps.com/routes/" not in html.split('id="finish-time"', 1)[1].split("</section>", 1)[0]
+    else:
+        assert cfg["route_url"].endswith(f"/routes/{rid}")
+
+
+def test_leadville_planner_drops_the_private_route_link():
+    html = page("leadville-100")
+    assert "56516679" not in html
+    assert config(html)["route_url"] is None

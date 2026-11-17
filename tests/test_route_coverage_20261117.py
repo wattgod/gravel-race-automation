@@ -56,7 +56,12 @@ VERIFIED_ROUTES = {
 
 # Rejected on purpose: a rider's deleted copy, a course that changes every
 # year with the next one unpublished, or a route only a series account owns.
-NO_ROUTE = ("tour-divide", "rule-of-three", "toppling-goliath-gravel-grinder")
+NO_ROUTE = (
+    "tour-divide",
+    "rule-of-three",
+    "toppling-goliath-gravel-grinder",
+    "leadville-100",  # 2026 route is private on RideWithGPS
+)
 
 
 def _race(slug):
@@ -87,7 +92,9 @@ def test_every_verified_route_has_matching_geometry():
 
 def test_rejected_routes_stay_off():
     for slug in NO_ROUTE:
-        assert not _race(slug)["course_description"].get("ridewithgps_id"), slug
+        course = _race(slug)["course_description"]
+        assert not course.get("ridewithgps_id"), slug
+        assert "ridewithgps.com/routes/" not in (course.get("map_url") or ""), slug
 
 
 def test_no_geometry_cache_describes_a_different_route():

@@ -545,4 +545,7 @@ class TestRealRaceData:
         # or organizer-owned routes were added across all tiers (real-west-gravel
         # replaced a deleted route); Tour Divide's id was cleared because it
         # pointed at a rider's deleted planning copy.
-        assert rwgps_count >= 204, f"Expected >=204 current RWGPS routes, got {rwgps_count}"
+        # Floor re-pinned 204->203 (Nov 17 2026, #661): Leadville 100's 2026
+        # RideWithGPS route is private; its id and the retired pre-2026
+        # map_url were cleared until the organizer makes the route public.
+        assert rwgps_count >= 203, f"Expected >=203 current RWGPS routes, got {rwgps_count}"

@@ -115,9 +115,12 @@ def test_script_runs_once():
     assert "window.__ggRaceSearchLoaded = true;" in head
 
 
-def test_double_load_registers_listeners_once():
-    """Evaluate the real file twice against a stub DOM: only one click
-    listener may be registered."""
+@pytest.mark.parametrize("ready_state", ["loading", "complete"])
+def test_double_load_matches_single_load(ready_state):
+    """Evaluate the real file once and twice against a stub DOM: the second
+    copy must add no document listeners, no extra fetch/init, and must leave
+    the window.* functions from the first copy in place."""
+    import json
     import shutil
     import subprocess
     if not shutil.which("node"):
@@ -125,19 +128,33 @@ def test_double_load_registers_listeners_once():
     harness = r"""
 const fs = require('fs');
 const src = fs.readFileSync(process.argv[1], 'utf8');
-let clicks = 0;
-const el = () => new Proxy(function () {}, { get: (t, k) => k === Symbol.toPrimitive ? () => '' : el(), apply: () => el() });
-const document = new Proxy({}, { get: (t, k) => {
-  if (k === 'addEventListener') return (type) => { if (type === 'click') clicks++; };
-  if (k === 'readyState') return 'loading';
-  return el(); } });
-const window = {};
-global.fetch = () => new Promise(() => {});
-const localStorage = { getItem: () => null, setItem: () => {} };
-for (let i = 0; i < 2; i++) new Function('window', 'document', 'localStorage', src)(window, document, localStorage);
-console.log(clicks);
+const readyState = process.argv[2];
+function load(times) {
+  const listeners = {};
+  let fetches = 0;
+  const el = () => new Proxy(function () {}, { get: (t, k) => k === Symbol.toPrimitive ? () => '' : el(), apply: () => el() });
+  const document = new Proxy({}, { get: (t, k) => {
+    if (k === 'addEventListener') return (type) => { listeners[type] = (listeners[type] || 0) + 1; };
+    if (k === 'readyState') return readyState;
+    return el(); } });
+  const window = {};
+  global.fetch = () => { fetches++; return new Promise(() => {}); };
+  const localStorage = { getItem: () => null, setItem: () => {} };
+  let firstGlobals = null;
+  for (let i = 0; i < times; i++) {
+    new Function('window', 'document', 'localStorage', src)(window, document, localStorage);
+    if (i === 0) firstGlobals = Object.fromEntries(Object.entries(window));
+  }
+  const globalsKept = Object.entries(firstGlobals).every(([k, v]) => window[k] === v);
+  return { listeners, fetches, globals: Object.keys(window).length, globalsKept };
+}
+console.log(JSON.stringify([load(1), load(2)]));
 """
     path = ROOT / "web" / "gravel-race-search.js"
-    out = subprocess.run(["node", "-e", harness, str(path)],
+    out = subprocess.run(["node", "-e", harness, str(path), ready_state],
                          capture_output=True, text=True, check=True)
-    assert out.stdout.strip() == "1"
+    once, twice = json.loads(out.stdout)
+    assert once["listeners"].get("click") == 1
+    assert twice["listeners"] == once["listeners"]
+    assert twice["fetches"] == once["fetches"]
+    assert twice["globals"] == once["globals"] and twice["globalsKept"]

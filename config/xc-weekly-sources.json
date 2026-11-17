@@ -106,7 +106,17 @@
       "id": "svt",
       "name": "SVT Sport",
       "lang": "sv",
-      "feed": "https://www.svt.se/sport/langdskidor/rss.xml"
+      "feed": "https://www.svt.se/sport/langdskidor/rss.xml",
+      "keep_url_paths": [
+        "/sport/langdskidor/"
+      ],
+      "include_keywords": [
+        "längdskid",
+        "längdåk",
+        "vasalopp",
+        "skidspår",
+        "skid-vm"
+      ]
     },
     {
       "id": "birkie",

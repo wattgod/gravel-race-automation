@@ -87,7 +87,20 @@ def test_parse_rss_and_atom():
     ({"exclude_categories": ["skiskyting"]}, ["skiskyting, sport, vintersport"], "Botn", False),
 ])
 def test_cross_country_filters(source, categories, title, kept):
-    entry = {"title": title, "description": "", "categories": categories}
+    entry = {"title": title, "description": "", "categories": categories, "link": "https://a.example/x"}
+    assert collect.keep_entry(entry, source) is kept
+
+
+SVT = {"keep_url_paths": ["/sport/langdskidor/"], "include_keywords": ["vasalopp"]}
+
+
+@pytest.mark.parametrize("link,title,kept", [
+    ("https://www.svt.se/sport/langdskidor/poromaa", "Poromaa om skadan", True),  # section, no keyword
+    ("https://www.svt.se/nyheter/lokalt/dalarna/x", "Vasaloppet förlänger reptiderna", True),  # keyword
+    ("https://www.svt.se/sport/parasport/arsjo", "Årsjö nominerad på Idrottsgalan", False),
+])
+def test_section_path_keeps_items_without_keywords(link, title, kept):
+    entry = {"title": title, "description": "", "categories": [], "link": link}
     assert collect.keep_entry(entry, source) is kept
 
 

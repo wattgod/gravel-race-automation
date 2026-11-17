@@ -90,6 +90,7 @@ def get_tokens_css() -> str:
   --gg-color-light-gold: #c9a92c;
   --gg-color-teal: #178079;
   --gg-color-light-teal: #4ECDC4;
+  --gg-color-cobalt: #3c6599; /* GG×Glyph: current only (the reader's place) */
   --gg-color-near-black: #1a1613;
   --gg-color-white: #ffffff;
   --gg-color-error: #c0392b;
@@ -261,6 +262,7 @@ COLORS = {
     "light_gold": "#c9a92c",
     "teal": "#178079",
     "light_teal": "#4ECDC4",
+    "cobalt": "#3c6599",
     "near_black": "#1a1613",
     "white": "#ffffff",
     "tier_1": "#59473c",

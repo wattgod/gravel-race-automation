@@ -652,7 +652,7 @@ def get_css() -> str:
     """Course Dossier styles. Colours are brand tokens; the radius and shadow
     are the mock's (Matti chose it 2026-11-17) and live only on these cards."""
     return '''
-.gg-cd-page{--cd-night:var(--gg-color-near-black);--cd-card:var(--gg-color-white);--cd-well:var(--gg-color-warm-paper);--cd-line:var(--gg-color-sand);--cd-ink:var(--gg-color-near-black);--cd-ink2:var(--gg-color-dark-brown);--cd-ink3:var(--gg-color-secondary-brown);--cd-none:var(--gg-color-tan);--cd-gold:var(--gg-color-light-gold);--cd-gold-d:var(--gg-color-gold);--cd-r:10px;--cd-shadow:0 1px 2px color-mix(in srgb,var(--gg-color-dark-brown) 8%,transparent),0 2px 6px color-mix(in srgb,var(--gg-color-dark-brown) 8%,transparent);}
+.gg-cd-page{--cd-night:var(--gg-color-near-black);--cd-card:var(--gg-color-white);--cd-well:var(--gg-color-warm-paper);--cd-line:var(--gg-color-sand);--cd-ink:var(--gg-color-near-black);--cd-ink2:var(--gg-color-dark-brown);--cd-ink3:var(--gg-color-secondary-brown);--cd-none:var(--gg-color-tan);--cd-gold:var(--gg-color-light-gold);--cd-gold-d:var(--gg-color-gold);--cd-r:10px;--cd-now:var(--gg-color-cobalt);--cd-chamfer:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));--cd-shadow:0 1px 2px color-mix(in srgb,var(--gg-color-dark-brown) 8%,transparent),0 2px 6px color-mix(in srgb,var(--gg-color-dark-brown) 8%,transparent);}
 .gg-cd-page .gg-cd-lab{font:700 11px/1.4 var(--gg-font-data);letter-spacing:.14em;text-transform:uppercase;color:var(--cd-ink3)}
 .gg-cd-page .gg-cd-lab a{color:inherit}
 .gg-cd-hero{position:relative;background:var(--cd-night);color:var(--gg-color-warm-paper);box-shadow:0 0 0 100vmax var(--cd-night)!important;clip-path:inset(0 -100vmax);padding:40px 0 92px;margin-top:8px}
@@ -722,7 +722,9 @@ def get_css() -> str:
 .gg-cd-q{font:600 15px/1.3 var(--gg-font-editorial);color:var(--cd-ink)}
 .gg-cd-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
 .gg-cd-fields input{width:100%;min-width:0;font:700 15px/1 var(--gg-font-data);padding:10px;border:1px solid var(--cd-none);border-radius:6px!important;background:var(--cd-card);color:var(--cd-ink)}
-.gg-cd-ghost{font:700 11.5px/1.2 var(--gg-font-data);letter-spacing:.08em;text-transform:uppercase;padding:12px 14px;border-radius:8px!important;border:1px solid var(--cd-ink);background:var(--cd-card);color:var(--cd-ink);width:100%;margin-top:8px;cursor:pointer}
+.gg-cd-ghost{font:700 11.5px/1.2 var(--gg-font-data);letter-spacing:.08em;text-transform:uppercase;padding:12px 14px;border-radius:0!important;border:0;background:var(--cd-ink);clip-path:var(--cd-chamfer);position:relative;isolation:isolate;color:var(--cd-ink);width:100%;margin-top:8px;cursor:pointer}
+.gg-cd-ghost::before{content:"";position:absolute;inset:1px;z-index:-1;background:var(--cd-card);clip-path:var(--cd-chamfer)}
+.gg-cd-ghost:focus-visible,.gg-cd-buy:focus-visible,.gg-cd-cta:focus-visible{clip-path:none;outline:3px solid var(--cd-now);outline-offset:2px}
 .gg-cd-weeks{display:flex;gap:5px;margin:10px 0 6px}
 .gg-cd-blk{display:flex;gap:2px;flex:var(--n) 1 0;min-width:0}
 .gg-cd-w{flex:1;height:26px;border-radius:2px!important;min-width:0}
@@ -735,7 +737,7 @@ def get_css() -> str:
 .gg-cd-key i{display:inline-block;width:10px;height:10px;border-radius:2px!important;vertical-align:-1px;margin-right:5px}
 .gg-cd-key i.gg-cd-w--dress{box-shadow:inset 0 0 0 2px var(--cd-gold-d)!important}
 .gg-cd-fine{font:400 11.5px/1.5 var(--gg-font-data);color:var(--cd-ink3);margin:6px 0 0}
-.gg-cd-buy{display:block;text-align:center;text-decoration:none;font:700 12.5px/1 var(--gg-font-data);letter-spacing:.08em;text-transform:uppercase;padding:15px;border-radius:8px!important;background:var(--cd-ink);color:var(--cd-card)!important}
+.gg-cd-buy{display:block;text-align:center;text-decoration:none;font:700 12.5px/1 var(--gg-font-data);letter-spacing:.08em;text-transform:uppercase;padding:15px;border-radius:0!important;clip-path:var(--cd-chamfer);background:var(--cd-ink);color:var(--cd-card)!important}
 .gg-cd-buy:hover{background:var(--cd-ink2)}
 .gg-cd-coach{font:400 12px/1.4 var(--gg-font-editorial);color:var(--cd-ink2)}
 .gg-cd-route{position:sticky;top:var(--gg-header-height,0px);z-index:20;display:flex;align-items:center;gap:22px;height:70px;margin-top:28px;background:var(--gg-color-warm-paper);box-shadow:0 0 0 100vmax var(--gg-color-warm-paper)!important;clip-path:inset(0 -100vmax -1px);border-bottom:1px solid var(--cd-line)}
@@ -744,12 +746,13 @@ def get_css() -> str:
 .gg-cd-track::before{content:"";position:absolute;left:0;right:0;top:22px;height:2px;background:var(--cd-line)}
 .gg-cd-done{position:absolute;left:0;top:22px;height:2px;background:var(--cd-ink);width:0}
 .gg-cd-track a{position:absolute;top:16px;transform:translateX(-50%);text-decoration:none;text-align:center}
-.gg-cd-track a i{display:block;width:14px;height:14px;margin:0 auto;background:var(--gg-color-warm-paper);border:2px solid var(--cd-ink3)}
+.gg-cd-track a i{display:block;width:14px;height:14px;margin:0 auto;border-radius:50%!important;background:var(--gg-color-warm-paper);box-shadow:inset 0 0 0 2.5px var(--cd-ink3)!important}
 .gg-cd-track a span{display:block;margin-top:7px;font:700 10.5px/1 var(--gg-font-data);letter-spacing:.04em;color:var(--cd-ink2);white-space:nowrap}
 .gg-cd-track a small{display:block;margin-top:3px;font:400 9.5px/1 var(--gg-font-data);color:var(--cd-ink3);white-space:nowrap}
-.gg-cd-track a.gg-cd-past i{background:var(--cd-ink);border-color:var(--cd-ink)}
-.gg-cd-rider-dot{position:absolute;top:15px;left:0;width:16px;height:16px;border-radius:50%!important;background:var(--cd-gold-d);transform:translateX(-50%);box-shadow:0 0 0 3px var(--gg-color-warm-paper)!important;pointer-events:none}
-.gg-cd-cta{font:700 12px/1 var(--gg-font-data);letter-spacing:.08em;text-transform:uppercase;background:var(--cd-ink);color:var(--cd-card)!important;text-decoration:none;padding:12px 14px;border-radius:8px!important;white-space:nowrap}
+.gg-cd-track a.gg-cd-past i{background:var(--cd-ink);box-shadow:none!important}
+.gg-cd-track a.gg-cd-cur span{color:var(--cd-ink)}
+.gg-cd-rider-dot{position:absolute;top:15px;left:0;width:16px;height:16px;border-radius:50%!important;background:var(--cd-now);transform:translateX(-50%);box-shadow:0 0 0 3px var(--gg-color-warm-paper),0 0 0 5.5px var(--cd-now)!important;pointer-events:none}
+.gg-cd-cta{font:700 12px/1 var(--gg-font-data);letter-spacing:.08em;text-transform:uppercase;background:var(--cd-ink);color:var(--cd-card)!important;text-decoration:none;padding:12px 14px;border-radius:0!important;clip-path:var(--cd-chamfer);white-space:nowrap}
 .gg-cd-page .gg-cd-grid::before{content:none;display:none}
 .gg-cd-page .gg-cd-grid{margin-top:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;padding:22px 0 48px;counter-reset:cd}
 .gg-cd-grid>*{grid-column:1/-1;min-width:0}

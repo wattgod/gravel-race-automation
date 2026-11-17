@@ -311,3 +311,40 @@ def test_dossier_css_uses_brand_tokens_not_colour_literals():
     css = cd.get_css()
     assert not re.search(r"#[0-9a-fA-F]{3,8}\b|rgba?\(|hsla?\(", css)
     assert "backdrop-filter" not in css
+
+
+# ── GG×Glyph marks (#680) ───────────────────────────────────────
+
+def _rule(css: str, selector: str) -> str:
+    i = css.index(selector + "{")
+    return css[i:css.index("}", i)]
+
+
+def test_cobalt_is_a_brand_token():
+    from brand_tokens import COLORS, get_tokens_css
+    assert COLORS["cobalt"] == "#3c6599"
+    assert "--gg-color-cobalt: #3c6599;" in get_tokens_css()
+
+
+def test_route_bar_marks_state_with_dots():
+    css = cd.get_css()
+    ahead = _rule(css, ".gg-cd-track a i")
+    assert "border-radius:50%" in ahead and "inset 0 0 0 2.5px var(--cd-ink3)" in ahead
+    assert "background:var(--cd-ink)" in _rule(css, ".gg-cd-track a.gg-cd-past i")
+    now = _rule(css, ".gg-cd-rider-dot")
+    assert "background:var(--cd-now)" in now and "0 0 0 5.5px var(--cd-now)" in now
+
+
+@pytest.mark.parametrize("selector", [".gg-cd-buy", ".gg-cd-cta", ".gg-cd-ghost"])
+def test_real_buttons_are_chamfered(selector):
+    rule = _rule(cd.get_css(), selector)
+    assert "clip-path:var(--cd-chamfer)" in rule
+    assert "border-radius:8px" not in rule
+
+
+def test_cobalt_only_marks_current_and_focus():
+    css = cd.get_css()
+    uses = [m.start() for m in re.finditer(r"var\(--cd-now\)", css)]
+    rules = {css[css.rfind("}", 0, u) + 1:css.index("{", css.rfind("}", 0, u) + 1)].strip() for u in uses}
+    assert rules == {".gg-cd-rider-dot",
+                     ".gg-cd-ghost:focus-visible,.gg-cd-buy:focus-visible,.gg-cd-cta:focus-visible"}

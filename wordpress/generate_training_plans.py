@@ -35,7 +35,6 @@ from pricing import (
     PLAN_DELIVERY_HOURS,
     PLAN_REFUND_DAYS,
     WEEK_PRICE,
-    plan_summary,
 )
 import plan_offer
 
@@ -51,10 +50,6 @@ COACHING_URL = f"{SITE_BASE_URL}/coaching/"
 # Every price comes from pricing.py (data/pricing.json) — do not hardcode a
 # price string here (docs/specs/goals-2027-funnel-spec.md D18). Examples use
 # the same payment_plan math the checkout server charges.
-SIX_WEEK_PLAN = plan_summary(6)        # "2 payments, $74.99 in all"
-TWELVE_WEEK_PLAN = plan_summary(12)    # "3 payments, $149.97 in all"
-SIXTEEN_WEEK_PLAN = plan_summary(16)   # "4 payments, $199.96 in all"
-THIRTY_WEEK_PLAN = plan_summary(30)    # "8 payments, $374.93 in all"
 
 
 def esc(text) -> str:
@@ -334,7 +329,6 @@ def build_pricing() -> str:
       <div class="gg-tp-price">{BLOCK_PRICE}<span> every {BLOCK_WEEKS} weeks until race week</span></div>
       <ul class="gg-tp-pricing-list">
         <li>One payment per {BLOCK_WEEKS}-week block. If your race isn&rsquo;t a whole number of blocks away, the last, shorter block costs {WEEK_PRICE} a week</li>
-        <li>Race 6 weeks away: {SIX_WEEK_PLAN}. 12 weeks: {TWELVE_WEEK_PLAN}. 16 weeks: {SIXTEEN_WEEK_PLAN}</li>
         <li>Ends after race week. Nothing is charged after that</li>
         <li>Cancel any time from your plan page; you keep any block you&rsquo;ve paid for</li>
         <li>On your TrainingPeaks calendar one {BLOCK_WEEKS}-week block at a time. I look over every block before it goes on</li>
@@ -370,7 +364,7 @@ FAQ_ITEMS = [
     ),
     (
         "How is the price calculated?",
-        f"{BLOCK_PRICE} every {BLOCK_WEEKS} weeks, one payment per block, from the day you sign up until race week. If your race isn&rsquo;t a whole number of {BLOCK_WEEKS}-week blocks away, the last, shorter block costs {WEEK_PRICE} a week. A race 6 weeks away is {SIX_WEEK_PLAN}. 12 weeks away is {TWELVE_WEEK_PLAN}. 30 weeks away is {THIRTY_WEEK_PLAN}. The form shows your number before you pay.",
+        f"{BLOCK_PRICE} every {BLOCK_WEEKS} weeks, one payment per block, from the day you sign up until race week. If your race isn&rsquo;t a whole number of {BLOCK_WEEKS}-week blocks away, the last, shorter block costs {WEEK_PRICE} a week. The form shows your first payment before you pay.",
     ),
     (
         "Is this coaching?",

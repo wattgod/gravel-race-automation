@@ -17,7 +17,7 @@ import pytest
 # Add wordpress/ to path so we can import the generator
 sys.path.insert(0, str(Path(__file__).parent.parent / "wordpress"))
 
-from pricing import BLOCK_PRICE, PLAN_PRICE_LINE, payment_plan, plan_summary
+from pricing import BLOCK_PRICE, PLAN_PRICE_LINE, payment_plan
 from generate_training_plans import (
     COACHING_URL,
     DELIVERABLES,
@@ -389,11 +389,11 @@ class TestPricing:
         assert " a day" not in section
         assert "entry fee" not in section.lower()
 
-    def test_example_calculations(self):
+    def test_rate_only_no_totals(self):
+        """Matti, 2026-11-17: rate only, never a total or payment count."""
         section = build_pricing()
-        assert "Race 6 weeks away: 2 payments, $74.99 in all" in section
-        assert "12 weeks: 3 payments, $149.97 in all" in section
-        assert "16 weeks: 4 payments, $199.96 in all" in section
+        assert "in all" not in section
+        assert "payments," not in section
         assert "the last, shorter block costs $12.50 a week" in section
 
     def test_support_boundary(self):
@@ -438,9 +438,9 @@ class TestFaq:
     def test_price_answer_matches_the_payment_plan(self):
         answer = dict(FAQ_ITEMS)["How is the price calculated?"]
         assert "$49.99 every 4 weeks, one payment per block" in answer
-        assert f"30 weeks away is {plan_summary(30)}" in answer
+        assert "in all" not in answer
         assert payment_plan(30)["total_cents"] == 7 * 4999 + 2500
-        assert "The form shows your number before you pay" in answer
+        assert "The form shows your first payment before you pay" in answer
 
     def test_coaching_answer_says_no(self):
         assert dict(FAQ_ITEMS)["Is this coaching?"].startswith("No.")

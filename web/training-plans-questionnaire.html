@@ -598,8 +598,8 @@
     <!-- Purchase terms: what the athlete is buying, before the first field.
          Plan billed every 4 weeks (2026-11-13), terms from the checkout
          server's race_plan_subscription.terms_text and the rider payment
-         email. #gg-plan-total is filled by training-plans-form.js
-         updatePriceDisplay(). -->
+         email. Rate only, never a total or payment count (Matti, 2026-11-17);
+         #gg-plan-total stays as the FORM_VERSION terms marker. -->
     <div class="gg-purchase-terms">
       <dl>
         <div class="gg-purchase-row">
@@ -607,8 +607,8 @@
           <dd>$49.99 every 4 weeks from the day you sign up, one payment per 4-week block, until your race week. If your race isn&rsquo;t a whole number of 4-week blocks away, the last, shorter block costs $12.50 a week.</dd>
         </div>
         <div class="gg-purchase-row">
-          <dt>Your total</dt>
-          <dd><span id="gg-plan-total">set by your A-race date</span></dd>
+          <dt>Ends</dt>
+          <dd><span id="gg-plan-total">after your race week. Nothing is charged after that.</span></dd>
         </div>
         <div class="gg-purchase-row">
           <dt>Delivery</dt>
@@ -1027,7 +1027,7 @@
           <span class="gg-trust-badge">Secure Checkout via Stripe</span>
           <span class="gg-trust-badge">Every Block Reviewed</span>
         </div>
-        <p class="gg-trust-terms">$49.99 every 4 weeks until your race week. Your total is above, set by your A-race date. Nothing is charged after race week.</p>
+        <p class="gg-trust-terms">$49.99 every 4 weeks until your race week. Cancel any time. Nothing is charged after race week.</p>
       </div>
 
       <button type="submit" class="gg-submit-btn">Submit &amp; Pay</button>

@@ -26,7 +26,6 @@ from mission_control.config import (
 from mission_control.sequences import get_sequence, SEQUENCES
 from mission_control.services.pricing import (
     MIN_WEEKS, PLAN_PRICE_LINE, PRICE_PER_WEEK, compute_race_plan_price_cents,
-    payment_plan,
 )
 
 # Triggers that are post-purchase — should NOT be suppressed for customers
@@ -761,14 +760,13 @@ _RACE_FACT_KEYS = ("race_facts", "race_distance_mi", "race_elevation_ft",
 _PRICING_TOKEN_KEYS = (
     "price_weekly", "price_min", "price_6wk", "price_10wk",
     "price_12wk", "price_14wk", "price_10_to_14_delta",
-    "plan_price", "plan_12wk", "plan_12wk_total",
+    "plan_price",
 )
 
 
 def _pricing_tokens() -> dict:
     price_10wk_cents = compute_race_plan_price_cents(10)
     price_14wk_cents = compute_race_plan_price_cents(14)
-    plan_12 = payment_plan(12)
     return {
         "price_weekly": PRICE_PER_WEEK,
         "price_min": f"${compute_race_plan_price_cents(MIN_WEEKS) // 100}",
@@ -778,9 +776,6 @@ def _pricing_tokens() -> dict:
         "price_14wk": f"${price_14wk_cents // 100}",
         "price_10_to_14_delta": f"${(price_14wk_cents - price_10wk_cents) // 100}",
         "plan_price": PLAN_PRICE_LINE,
-        "plan_12wk": (f"{plan_12['payment_count']} payments, "
-                      f"{plan_12['total_display']} in all"),
-        "plan_12wk_total": plan_12["total_display"],
     }
 
 

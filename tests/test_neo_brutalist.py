@@ -480,7 +480,7 @@ class TestNormalize:
         assert vitals["course_status"] == "source_blocked"
 
     def test_date_formatted(self, normalized_data):
-        assert "June 15, 2026" in normalized_data["vitals"]["date"]
+        assert normalized_data["vitals"]["date"] == "Mon, Jun 15, 2026"
 
     def test_entry_cost_extracted(self, normalized_data):
         assert normalized_data["vitals"]["entry_cost"] == "$150-250"

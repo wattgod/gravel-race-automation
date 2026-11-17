@@ -83,17 +83,11 @@ def payment_plan(weeks: int) -> dict:
     }
 
 
-def plan_summary(weeks: int) -> str:
-    """"3 payments, $149.97 in all" for a given plan length."""
-    plan = payment_plan(weeks)
-    n = plan["payment_count"]
-    return f'{n} payment{"s" if n != 1 else ""}, {plan["total_display"]} in all'
-
 
 def plan_quote_js() -> str:
     """The browser copy of weeks_until + payment_plan, constants from
     data/pricing.json. Defines ``ggPlanQuote(raceDateStr[, todayStr])`` returning
-    {weeks, payments, totalCents, total, firstCents, first, summary} or null (no date, bad
+    {weeks, payments, totalCents, total, firstCents, first} or null (no date, bad
     date, race today or past). Days are counted with Math.round so a DST
     shift (N days +/- 1 hour) can't add a week."""
     return (
@@ -110,8 +104,7 @@ def plan_quote_js() -> str:
         f"  var total=full*{BLOCK_PRICE_CENTS}+left*{WEEK_PRICE_CENTS};\n"
         f"  var first=full?{BLOCK_PRICE_CENTS}:left*{WEEK_PRICE_CENTS};\n"
         "  return {weeks:weeks,payments:payments,totalCents:total,total:ggPlanMoney(total),\n"
-        "    firstCents:first,first:ggPlanMoney(first),\n"
-        "    summary:payments+(payments===1?' payment, ':' payments, ')+ggPlanMoney(total)+' in all'};\n"
+        "    firstCents:first,first:ggPlanMoney(first)};\n"
         "}\n"
     )
 

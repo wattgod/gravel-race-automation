@@ -68,3 +68,38 @@ def test_button_reset_and_visible_focus(css):
 def test_fill_is_block_inside_span_track(css):
     m = re.search(r"#gg-race-search \.gg-score-fill \{([^}]*)\}", css)
     assert "display: block" in m.group(1)
+
+
+NODE_HARNESS = r"""
+const src = process.argv[1];
+function classList() { const s = new Set(); return {
+  toggle(c) { if (s.has(c)) { s.delete(c); return false; } s.add(c); return true; },
+  contains(c) { return s.has(c); } }; }
+const panel = { classList: classList() };
+const attrs = { 'aria-controls': 'gg-score-breakdown-x', 'aria-expanded': 'false' };
+const btn = { getAttribute: k => attrs[k], setAttribute: (k, v) => { attrs[k] = v; } };
+const document = { getElementById: id => (id === 'gg-score-breakdown-x' ? panel : null) };
+const e = { target: { closest: sel => (sel === 'button.gg-score-bar' ? btn : null) } };
+const run = new Function('e', 'document', src + '\nreturn "fell-through";');
+const states = [];
+for (let i = 0; i < 2; i++) {
+  const r = run(e, document);
+  states.push([r === undefined, attrs['aria-expanded'], panel.classList.contains('open')]);
+}
+console.log(JSON.stringify(states));
+"""
+
+
+def test_delegated_toggle_executes():
+    """Run the real handler block: two clicks open then close the panel and
+    keep aria-expanded in sync (Enter/Space reach it as native button clicks)."""
+    import json
+    import shutil
+    import subprocess
+    if not shutil.which("node"):
+        pytest.skip("node not installed")
+    start = JS.index("var scoreBtn = e.target.closest('button.gg-score-bar');")
+    end = JS.index("return;\n    }", start) + len("return;\n    }")
+    result = subprocess.run(["node", "-e", NODE_HARNESS, JS[start:end]],
+                            capture_output=True, text=True, check=True)
+    assert json.loads(result.stdout) == [[True, "true", True], [True, "false", False]]

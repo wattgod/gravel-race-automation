@@ -55,13 +55,14 @@ from endure_offer import ENDURE_PLAN_COPY, endure_plan_url
 from page_dates import race_updated_date
 from fact_consistency import check_race
 from race_calculator import build_race_calculator, get_race_calculator_css, race_calculator_context
-from race_planner import (build_race_planner, planner_citation_items, planner_head_tags,
-                          planner_script_tag, write_planner_assets)
+from race_planner import (build_race_planner, planner_citation_items, planner_config,
+                          planner_head_tags, planner_script_tag, write_planner_assets)
 from season import UPCOMING, _status_label, edition_display, edition_state, edition_year, parse_edition, public_date
 from season import today as season_today
 from generate_race_recap import has_results, newest_results_year
 from pickem import game_for_race
 import official_route
+import course_dossier
 
 sys.path.append(str(Path(__file__).resolve().parent.parent / "scripts"))
 from race_facts import edition_event_status, may_estimate, organizer_type  # noqa: E402
@@ -2662,7 +2663,8 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
 (function() {
   if (!window.matchMedia('(max-width: 768px)').matches) return;
   var hash = window.location.hash ? window.location.hash.substring(1) : '';
-  var sections = document.querySelectorAll('.gg-deep-dive > .gg-section, .gg-deep-dive > .gg-racer-reviews');
+  // The ratings card stays open: it is the page's main content.
+  var sections = document.querySelectorAll('.gg-deep-dive > .gg-section:not(.gg-cd-keep-open), .gg-deep-dive > .gg-racer-reviews');
   function setExpanded(section, expanded) {
     var header = section.querySelector('.gg-section-header');
     var body = section.querySelector('.gg-section-body');
@@ -2697,7 +2699,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
     });
     setExpanded(section, startExpanded);
   });
-  document.querySelectorAll('.gg-breakdown-tile, .gg-toc a').forEach(function(link) {
+  document.querySelectorAll('.gg-breakdown-tile, .gg-toc a, .gg-cd-track a').forEach(function(link) {
     link.addEventListener('click', function() {
       var id = (link.getAttribute('href') || '').replace(/^#/, '');
       var target = id ? document.getElementById(id) : null;
@@ -2708,6 +2710,8 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
   });
 })();
 </script>'''
+    head, _sep, tail = _js.rpartition('\n</script>')
+    _js = head + '\n' + course_dossier.get_js() + '\n</script>' + tail
     # Pricing sentinels come from data/pricing.json, not literals (D18).
     return (_js
             .replace('__GG_PLAN_QUOTE_JS__', plan_quote_js())
@@ -2910,6 +2914,30 @@ def upcoming_race_start(date_specific) -> str | None:
     return start
 
 
+def _hero_rider_cell(rd: dict) -> str:
+    """Rider Score cell: a real threshold-gated number, or an honest ask."""
+    rr = rd.get('racer_rating', {})
+    if (rr.get('total_ratings', 0) >= RACER_RATING_THRESHOLD
+            and rr.get('star_average')):
+        rider_value = round(float(rr['star_average']) * 20)
+        n = rr['total_ratings']
+        rider_cell = (
+            f'<div class="gg-hero-score-number gg-hero-rider-number">{rider_value}</div>\n'
+            f'    <div class="gg-hero-score-label">RIDER SCORE &middot; {n} RATING{"S" if n != 1 else ""}</div>'
+        )
+    else:
+        # No number and no dash: a dash beside the Lab score reads as broken.
+        # Below the display threshold the count is still true, so say it.
+        n = rr.get('total_ratings') or 0
+        so_far = (f'{n} RATING{"S" if n != 1 else ""} SO FAR' if n > 0
+                  else 'NO RATINGS YET')
+        rider_cell = (
+            '<a class="gg-hero-score-label gg-hero-rider-ask gg-hero-rider-empty" href="#racer-reviews" data-cta="hero_rate_race">'
+            f'RIDER SCORE &middot; {so_far} &middot; RATE IT &rarr;</a>'
+        )
+    return rider_cell
+
+
 def build_hero(rd: dict) -> str:
     """Build clean editorial hero — race name + score masthead."""
     score = rd['overall_score']
@@ -2957,25 +2985,7 @@ def build_hero(rd: dict) -> str:
     # number; below threshold the cell is an honest ask that feeds the
     # review form. star_average (1-5) maps to 0-100 for visual parity with
     # the Lab score.
-    rr = rd.get('racer_rating', {})
-    if (rr.get('total_ratings', 0) >= RACER_RATING_THRESHOLD
-            and rr.get('star_average')):
-        rider_value = round(float(rr['star_average']) * 20)
-        n = rr['total_ratings']
-        rider_cell = (
-            f'<div class="gg-hero-score-number gg-hero-rider-number">{rider_value}</div>\n'
-            f'    <div class="gg-hero-score-label">RIDER SCORE &middot; {n} RATING{"S" if n != 1 else ""}</div>'
-        )
-    else:
-        # No number and no dash: a dash beside the Lab score reads as broken.
-        # Below the display threshold the count is still true, so say it.
-        n = rr.get('total_ratings') or 0
-        so_far = (f'{n} RATING{"S" if n != 1 else ""} SO FAR' if n > 0
-                  else 'NO RATINGS YET')
-        rider_cell = (
-            '<a class="gg-hero-score-label gg-hero-rider-ask gg-hero-rider-empty" href="#racer-reviews" data-cta="hero_rate_race">'
-            f'RIDER SCORE &middot; {so_far} &middot; RATE IT &rarr;</a>'
-        )
+    rider_cell = _hero_rider_cell(rd)
 
     # "Taking a break" strip — races kept in the catalog between editions
     # (race-data key `taking_a_break: {label, line}`, parent-authored).
@@ -3138,8 +3148,13 @@ def build_route_embed(rd: dict) -> str:
       </div>'''
 
 
-def build_course_overview(rd: dict, race_index: list = None) -> str:
-    """Build [01] Course Overview section — tagline lead + map + stat cards."""
+def build_course_overview(rd: dict, race_index: list = None, figure_html: str = '') -> str:
+    """Build [01] Course Overview section — tagline lead + map + stat cards.
+
+    ``figure_html`` is the Course Dossier's own drawing of the listed
+    RideWithGPS route (map, elevation, marks). When given it replaces the
+    RideWithGPS iframe, which stays one click away as a link.
+    """
     v = rd['vitals']
 
     # Tagline — relocated from hero as editorial lead paragraph
@@ -3148,7 +3163,14 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
     if tagline:
         tagline_html = f'<p class="gg-overview-tagline">{esc(tagline)}</p>'
 
-    map_html = build_route_embed(rd)
+    if figure_html:
+        rid = rd['course'].get('ridewithgps_id')
+        route_url = official_route.rwgps_route_url(
+            rid, rd['course'].get('ridewithgps_privacy_code'))
+        map_html = (f'{figure_html}<p class="gg-cd-route-link"><a href="{esc(route_url)}" '
+                    f'target="_blank" rel="noopener">Open the route on RideWithGPS &#x2197;</a></p>')
+    else:
+        map_html = build_route_embed(rd)
 
     # Stat cards — (value, label, countable). Nothing counts up: a count-up
     # shows readers and screenshots numbers the race doesn't have.
@@ -3227,8 +3249,8 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
   </section>'''
 
 
-def build_history(rd: dict) -> str:
-    """Build a server-rendered Facts & History disclosure for the Course area."""
+def _history_body(rd: dict) -> str:
+    """Facts & History content (origin, reputation, timeline), or ''."""
     h = rd['history']
 
     # Skip entirely if no meaningful content
@@ -3268,7 +3290,30 @@ def build_history(rd: dict) -> str:
     if not body_parts:
         return ''
 
-    body = '\n      '.join(body_parts)
+    return '\n      '.join(body_parts)
+
+
+def build_history_card(rd: dict) -> str:
+    """Facts & History as a Course Dossier section card."""
+    body = _history_body(rd)
+    if not body:
+        return ''
+    founded = str(rd['history'].get('founded') or '').strip()
+    sub = (f'<span class="gg-cd-sub">Since {esc(founded[:4])}</span>'
+           if re.match(r'(19|20)\d{2}\b', founded) else '')
+    return f'''<section id="history" class="gg-section gg-history-card" data-measure-section="history">
+    <div class="gg-section-header">{sub}
+      <h2 class="gg-section-title">Facts &amp; History</h2>
+    </div>
+    <div class="gg-section-body">{body}</div>
+  </section>'''
+
+
+def build_history(rd: dict) -> str:
+    """Build a server-rendered Facts & History disclosure for the Course area."""
+    body = _history_body(rd)
+    if not body:
+        return ''
 
     return f'''<details id="history" class="gg-history-disclosure">
       <summary>Facts &amp; History</summary>
@@ -7789,7 +7834,8 @@ APPROVED_TOP_CSS = '''<style>
 
 def _race_page_style_tags() -> str:
     """One assembly path for inline pages and hashed shared stylesheets."""
-    return get_page_css() + APPROVED_TOP_CSS + '<style>' + get_race_calculator_css() + '</style>'
+    return (get_page_css() + APPROVED_TOP_CSS + '<style>' + get_race_calculator_css() + '</style>'
+            + '<style>' + course_dossier.get_css() + '</style>')
 
 
 def _extract_css_content() -> str:
@@ -7892,77 +7938,120 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 
     # Build sections
     nav_header = build_nav_header(rd, race_index)
-    hero = build_hero(rd)
-    course_overview = build_course_overview(rd, race_index)
-    history = build_history(rd)
-    editions_sec = build_editions(rd)
-    results_sec = build_results(rd)
-    pickem_cta = build_pickem_cta(rd)
-    course_route = build_course_route(rd)
-    from_the_field = build_from_the_field(rd)
-    ratings = build_ratings(rd)
     race_plan_eligible = rd.get('race_plan_eligible', True)
-    racer_reviews = build_racer_reviews(rd) if race_plan_eligible else ''
     source_blocked = rd['vitals'].get('course_status') == 'source_blocked'
     suppress_plan_marketing = (
         source_blocked or bool(rd.get('taking_a_break')) or not race_plan_eligible
     )
-    email_capture = '' if suppress_plan_marketing else build_email_capture(rd)
-    visible_faq = build_visible_faq(rd)
-    news = build_news_section(rd)
-    custom_plan = '' if suppress_plan_marketing else build_custom_plan_offer(rd)
-    coaching = '' if suppress_plan_marketing else build_coaching_footnote(rd)
-    goal_card = '' if suppress_plan_marketing else build_goal_card(rd)
-    training = build_training_intelligence(rd)
+
+    # Course Dossier (mock 6, issue #675): stored route drawing and elevation
+    # of the RideWithGPS route the race still lists; nothing when missing.
+    cd = course_dossier
+    elev = cd.load_elevation(rd)
+    geo = cd.load_geometry(rd)
+    total_mi = (elev['distance_km'][-1] * 1000 / cd.M_PER_MI) if elev else None
+    marks = cd.course_marks(rd, total_mi) if elev else []
+    discipline = rd.get('discipline', 'gravel')
+    hero = cd.build_hero(rd, race_index, elev, marks, _hero_rider_cell(rd), RATED_BY_NAME,
+                         DISCIPLINE_LABELS.get(discipline, discipline.upper()) if discipline != 'gravel' else '')
+
     # Finish-time planner: only for a race whose imported planner status is
     # eligible or flagged (data/planner/status.json). It replaces the Endure
     # Labs calculator handoff on that page; every other page is unchanged.
     race_planner = build_race_planner(rd, show_offer=not suppress_plan_marketing)
     race_calculator = '' if race_planner else build_race_calculator(rd)
-    planner_block = f'\n  {race_planner}\n' if race_planner else ''
+    planner_cfg = planner_config(rd, not suppress_plan_marketing) if race_planner else None
+
+    plan_href = (None if suppress_plan_marketing else
+                 f"{TRAINING_PLANS_URL}?race={rd['slug']}&src=race_profile")
+    coaching_href = None if suppress_plan_marketing else f"{COACHING_URL}?race={rd['slug']}"
+    target = cd.plan_target(rd)
+    fold = cd.build_fold([
+        cd.build_why_card(rd, COURSE_DIMS, OPINION_DIMS, DIM_LABELS, _parse_score),
+        cd.build_course_card(rd, geo, elev),
+        cd.build_yours_card(rd, planner_route=planner_cfg['edition_short'] if planner_cfg else None,
+                            plan_href=plan_href, coaching_href=coaching_href, target=target),
+    ])
+
+    n_sources = len(rd.get('citations') or [])
+    ratings = cd.build_ratings(rd, COURSE_DIMS, OPINION_DIMS, DIM_LABELS, _parse_score, n_sources)
+    course_overview = build_course_overview(
+        rd, race_index, figure_html=cd.build_course_figure(rd, geo, elev, marks))
+    course_route = build_course_route(rd)
+    planner_items = planner_citation_items(rd) if race_planner else []
+    hours = cd.race_day_hours(rd['slug']) if race_planner else None
+    weather_n = len(rd.get('citations') or []) + len(planner_items) + 1 if hours else None
+    race_day = cd.build_race_day(hours, weather_n)
+    alternatives = rd['final_verdict'].get('alternatives') or ''
+    should = cd.build_should(rd, linkify_alternatives(alternatives, race_index) if alternatives else '')
+    logistics_sec = build_logistics_section(rd)
+    history = build_history_card(rd)
+    editions_sec = build_editions(rd)
+    results_sec = build_results(rd)
+    pickem_cta = build_pickem_cta(rd)
+    from_the_field = build_from_the_field(rd)
+    racer_reviews = build_racer_reviews(rd) if race_plan_eligible else ''
+    email_capture = '' if suppress_plan_marketing else build_email_capture(rd)
+    visible_faq = build_visible_faq(rd)
+    news = build_news_section(rd)
+    training = build_training_intelligence(rd)
     train_for_race = '' if suppress_plan_marketing else build_train_for_race(
         rd, email_capture, include_commerce=False)
-    logistics_sec = build_logistics_section(rd)
     tire_picks = build_tire_picks(rd)
     similar = build_similar_races(rd, race_index)
     # The planner's research sources join the page's one numbered list, after
     # the race's own citations, so its [n] markers resolve on this page.
-    citations_sec = build_citations_section(
-        rd, extra_items=planner_citation_items(rd) if race_planner else None)
+    extra_sources = planner_items + ([cd.weather_citation_item(weather_n)] if race_day else [])
+    citations_sec = build_citations_section(rd, extra_items=extra_sources or None)
     footer = build_footer(rd)
     sticky_cta = ''
     latest = build_latest_sidebar(rd, (race_intel or {}).get(rd['slug'], []))
 
-    # Dynamic TOC — only link to sections that have content
-    active = {'course', 'ratings'}
-    if training:
-        active.add('training')
-    if history:
-        active.add('history')
-    if editions_sec:
-        active.add('editions')
-    if results_sec:
-        active.add('results')
-    if course_route:
-        active.add('route')
-    if from_the_field:
-        active.add('from-the-field')
+    # Race day, Should you, Logistics and History pair up two to a row on
+    # desktop; an odd one out runs full width.
+    pairs = [sec for sec in (race_day, should, logistics_sec, history) if sec]
+    half = pairs[:len(pairs) - len(pairs) % 2]
+
+    def _cell(section: str) -> str:
+        if section in half:
+            return section.replace('class="gg-section', 'class="gg-section gg-cd-half', 1)
+        return section
+
+    deep_sections = [ratings, course_overview, course_route, race_planner,
+                     race_day, should, logistics_sec, history,
+                     editions_sec, results_sec, pickem_cta, from_the_field,
+                     racer_reviews, training, train_for_race, race_calculator,
+                     tire_picks, latest, news, similar, visible_faq, citations_sec]
+    deep_content = '\n\n  '.join(_cell(sec) for sec in deep_sections if sec)
+
+    # Route bar: one stop per section card on the page, with its count.
+    n_videos = len(rd.get('youtube_videos') or [])
+    filled_logistics = sum(1 for k in ('airport', 'lodging_strategy', 'food', 'packet_pickup', 'parking')
+                           if rd['logistics'].get(k))
+    stops = [('ratings', 'Ratings', '14')]
+    stops.append(('course', 'Course', f'{len(marks)} marks' if marks else ''))
+    if race_planner:
+        stops.append(('finish-time', 'Finish time', ''))
+    if race_day:
+        stops.append(('race-day', 'Race day', f'{race_day.count("<i ")} h'))
+    if should:
+        stops.append(('should', 'Should you?', ''))
     if logistics_sec:
-        active.add('logistics')
-    if tire_picks:
-        active.add('tires')
-    if racer_reviews:
-        active.add('racer-reviews')
-    # News loads at runtime and may never appear (section starts hidden), so
-    # the TOC and breakdown never link to it.
-    if train_for_race:
-        active.add('train-for-race')
-    if race_calculator:
-        active.add('race-calculator')
+        stops.append(('logistics', 'Logistics', str(filled_logistics) if filled_logistics else ''))
+    if history:
+        founded = str(rd['history'].get('founded') or '')
+        stops.append(('history', 'History', f'since {founded[:4]}' if re.match(r'(19|20)\d{2}\b', founded) else ''))
+    if from_the_field:
+        stops.append(('from-the-field', 'Films', str(n_videos) if n_videos else ''))
     if citations_sec:
-        active.add('citations')
-    toc = build_toc(active)
-    breakdown = build_breakdown_tiles(active)
+        n_cited = n_sources + len(extra_sources)
+        stops.append(('citations', 'Sources', str(n_cited)))
+    route_bar = cd.build_route_bar(stops, None if suppress_plan_marketing else rd['name'])
+
+    deep_body = f'''{route_bar}
+  <div class="gg-deep-dive gg-cd-grid" id="deep-dive" data-measure-section="deep-dive">
+  {deep_content}
+  </div>'''
 
     # Use external assets if provided, otherwise inline
     if external_assets:
@@ -7976,35 +8065,6 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     else:
         css = _race_page_style_tags()
         inline_js = build_inline_js()
-
-    # The approved first pass is locked: ratings, custom plan, coaching
-    # footnote, then the original Full Breakdown navigation.
-    spine_sections = [ratings, goal_card, custom_plan, coaching, breakdown]
-    spine = '\n\n  '.join(section for section in spine_sections if section)
-
-    deep_sections = []
-    for section in [course_overview, history, editions_sec, results_sec, pickem_cta, course_route, from_the_field,
-                    racer_reviews, training, train_for_race, race_calculator, logistics_sec,
-                    tire_picks, news, similar, visible_faq, citations_sec]:
-        if section:
-            deep_sections.append(section)
-
-    deep_content = '\n\n  '.join(deep_sections)
-    if latest:
-        deep_body = f'''<div class="gg-page-body-with-latest">
-    <main class="gg-page-main">
-      {toc}
-      <div class="gg-deep-dive" id="deep-dive" data-measure-section="deep-dive">
-      {deep_content}
-      </div>
-    </main>
-    {latest}
-  </div>'''
-    else:
-        deep_body = f'''{toc}
-  <div class="gg-deep-dive" id="deep-dive" data-measure-section="deep-dive">
-  {deep_content}
-  </div>'''
 
     # SEO-optimized title and description
     seo_title = build_seo_title(rd)
@@ -8053,13 +8113,12 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
 </head>
 <body>
 
-<a href="#ratings" class="gg-skip-link">Skip to content</a>
-<div class="gg-neo-brutalist-page" data-race-slug="{esc(rd['slug'])}" data-page-format="spine-v2-approved" data-plan-marketing="{'suppressed' if suppress_plan_marketing else 'enabled'}">
+<a href="#deep-dive" class="gg-skip-link">Skip to content</a>
+<div class="gg-neo-brutalist-page gg-cd-page" data-race-slug="{esc(rd['slug'])}" data-page-format="course-dossier" data-plan-marketing="{'suppressed' if suppress_plan_marketing else 'enabled'}">
   {nav_header}
 
   {hero}
-{planner_block}
-  {spine}
+  {fold}
 
   {deep_body}
 

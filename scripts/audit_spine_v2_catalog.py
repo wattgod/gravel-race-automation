@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit every staged Gravel God race page against the approved spine."""
+"""Audit every staged Gravel God race page against the Course Dossier layout (#675)."""
 
 from __future__ import annotations
 
@@ -11,11 +11,13 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_OUTPUT = PROJECT_ROOT / "wordpress" / "output-spine-v2-stage"
-EXPECTED_FORMAT = 'data-page-format="spine-v2-approved"'
+EXPECTED_FORMAT = 'data-page-format="course-dossier"'
 GA_ID = "G-EJJZ9T6M52"
 
 
 def audit_page(path: Path) -> list[str]:
+    """Course Dossier layout (mock 6, issue #675): hero, the three cards,
+    the route bar, then the section cards with ratings first."""
     html = path.read_text(encoding="utf-8")
     issues: list[str] = []
     try:
@@ -25,15 +27,11 @@ def audit_page(path: Path) -> list[str]:
         return ["missing Deep Dive boundary"]
 
     top = html[:deep_start]
-    deep = html[deep_start:deep_end]
     marketing_suppressed = 'data-plan-marketing="suppressed"' in html
-    ordered = ['id="ratings"']
+    ordered = ['class="gg-cd-hero', 'class="gg-cd-fold']
     if not marketing_suppressed:
-        ordered.extend([
-            'data-measure-section="custom-plan"',
-            'data-measure-section="coaching"',
-        ])
-    ordered.extend(['id="breakdown"', 'id="deep-dive"', 'id="course"', 'id="training"'])
+        ordered.append('data-measure-section="custom-plan"')
+    ordered.extend(['data-measure-section="route-bar"', 'id="deep-dive"', 'id="ratings"', 'id="course"'])
     missing = [marker for marker in ordered if marker not in html]
     if missing:
         issues.append(f"missing required markers: {', '.join(missing)}")
@@ -45,27 +43,23 @@ def audit_page(path: Path) -> list[str]:
     if html.count(EXPECTED_FORMAT) != 1:
         issues.append("missing or duplicated approved page-format marker")
     expected_ctas = 0 if marketing_suppressed else 1
-    if top.count("START MY CUSTOM PLAN &rarr;") != expected_ctas:
-        issues.append(f"custom-plan CTA must appear exactly {expected_ctas} times above Deep Dive")
-    if top.count("GET ME IN YOUR CORNER &rarr;") != expected_ctas:
-        issues.append(f"coaching CTA must appear exactly {expected_ctas} times above Deep Dive")
+    if top.count('data-cta="approved_custom_plan"') != expected_ctas:
+        issues.append(f"Start my plan must appear exactly {expected_ctas} times above the sections")
+    if top.count('data-cta="route_bar_plan"') != expected_ctas:
+        issues.append(f"route-bar plan button must appear exactly {expected_ctas} times")
     if 'id="verdict"' in html:
         issues.append("standalone verdict is present")
+    body = html[html.index("<body>"):]
+    for retired in ("every 4 weeks", "gg-endure-link", 'id="breakdown"', 'id="gg-toc"'):
+        if retired in body:
+            issues.append(f"retired element on the page: {retired}")
 
-    forbidden = [
-        "BUILD MY PLAN",
-        "PREVIEW MY PLAN",
-        "gg-cfg-bar",
-        "gg-pack-cta",
-        "/training-plan/",
-        "/coaching/",
-        "gg-sticky-cta",
-        "questionnaire",
-    ]
-    deep_lower = deep.lower()
-    leaked = [marker for marker in forbidden if marker.lower() in deep_lower]
+    deep = html[deep_start:deep_end]
+    forbidden = ["BUILD MY PLAN", "PREVIEW MY PLAN", "gg-cfg-bar", "gg-pack-cta", "gg-sticky-cta",
+                 'data-cta="approved_custom_plan"', 'data-cta="approved_coaching"']
+    leaked = [marker for marker in forbidden if marker in deep]
     if leaked:
-        issues.append(f"commerce leaked into Deep Dive: {', '.join(leaked)}")
+        issues.append(f"commerce leaked into the section cards: {', '.join(leaked)}")
 
     if "https://gravelgodcycling.com/race/" not in html:
         issues.append("Gravel God canonical URL is missing")
@@ -102,9 +96,9 @@ def main() -> int:
         for name, issues in failures:
             for issue in issues:
                 print(f"FAIL: {name}: {issue}")
-        print(f"FAIL: {len(failures)}/{len(pages)} pages violated the approved spine")
+        print(f"FAIL: {len(failures)}/{len(pages)} pages violated the Course Dossier layout")
         return 1
-    print(f"PASS: {len(pages)} Gravel God pages match the approved spine")
+    print(f"PASS: {len(pages)} Gravel God pages match the Course Dossier layout")
     return 0
 
 

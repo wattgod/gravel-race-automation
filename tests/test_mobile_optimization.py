@@ -379,13 +379,12 @@ class TestCollapsibleSections:
         assert "collapsibleIds" not in self.js
 
     def test_collapsible_does_not_target_ratings(self):
-        """Ratings remain outside .gg-deep-dive in page assembly."""
-        source = Path(PROJECT_ROOT / "wordpress" / "generate_neo_brutalist.py").read_text()
-        assert "spine_sections = [ratings, goal_card, custom_plan, coaching, breakdown]" in source
-        deep_dive_assembly = source.split("deep_sections = []", 1)[1].split(
-            "deep_content =", 1
-        )[0]
-        assert "ratings" not in deep_dive_assembly
+        """The ratings card stays open on phones (Course Dossier, #675)."""
+        assert ".gg-section:not(.gg-cd-keep-open)" in self.js
+        import course_dossier
+        rd = {"overall_score": 70, "course_profile": 20, "opinion_total": 20, "explanations": {}}
+        html = course_dossier.build_ratings(rd, [], [], {}, float, 0)
+        assert 'id="ratings" class="gg-section gg-cd-section gg-cd-keep-open"' in html
 
     def test_collapsible_sets_aria_expanded(self):
         assert "aria-expanded" in self.js

@@ -1535,7 +1535,7 @@ class TestFullPage:
 
     def test_score_not_zero_in_html(self, normalized_data):
         html = generate_page(normalized_data)
-        assert 'data-target="72">72</div>' in html
+        assert 'data-target="72">72</b>' in html
 
     def test_has_all_sections(self, normalized_data):
         html = generate_page(normalized_data)
@@ -1547,21 +1547,22 @@ class TestFullPage:
         assert 'id="logistics"' in html
         assert 'id="verdict"' not in html
 
-    def test_spine_order_and_deep_dive_demote(self, normalized_data):
+    def test_course_dossier_order(self, normalized_data):
+        """Course Dossier (mock 6, #675): hero, three cards, route bar, then
+        the section cards with ratings first."""
         html = generate_page(normalized_data)
         ordered_markers = [
-            'class="gg-hero"',
-            'id="ratings"',
+            'class="gg-cd-hero',
             'data-measure-section="custom-plan"',
-            'data-measure-section="coaching"',
-            'id="breakdown"',
+            'data-measure-section="route-bar"',
             'id="deep-dive"',
+            'id="ratings"',
             'id="course"',
             'id="training"',
         ]
         positions = [html.index(marker) for marker in ordered_markers]
         assert positions == sorted(positions)
-        assert 'id="breakdown" class="gg-breakdown" aria-label="Full race breakdown" data-measure-section="breakdown"' in html
+        assert 'id="breakdown"' not in html and 'id="gg-toc"' not in html
         assert ".gg-deep-dive > section[id]" in html
         assert "related_race_click" in html
 
@@ -1584,7 +1585,7 @@ class TestFullPage:
 
     def test_deep_dive_keeps_training_intelligence_without_commerce(self, normalized_data):
         html = generate_page(normalized_data)
-        deep = html.split('<div class="gg-deep-dive" id="deep-dive"', 1)[1].split('<footer', 1)[0]
+        deep = html.split('id="deep-dive"', 1)[1].split('<footer', 1)[0]
         assert 'id="training"' in deep
         for forbidden in [
             '/questionnaire/', '/coaching/', 'BUILD MY PLAN',
@@ -1609,7 +1610,7 @@ class TestFullPage:
     def test_js_does_not_temporarily_show_a_false_score(self, normalized_data):
         html = generate_page(normalized_data)
         assert "el.textContent = '0'" not in html
-        assert 'data-target="72">72</div>' in html
+        assert 'data-target="72">72</b>' in html
 
     def test_no_inline_margin_styles(self, normalized_data):
         index = [
@@ -2072,12 +2073,11 @@ class TestGoalCard:
         # the old fixed-height version read canvas.height before drawing
         assert "var W = canvas.width, H = canvas.height, pad = 28;" not in html
 
-    def test_card_sits_after_ratings_before_custom_plan(self, normalized_data):
+    def test_card_is_not_mounted_on_the_course_dossier_page(self, normalized_data):
+        """Mock 6 (#675) has one plan ask, in "Your race"; the goal card is retired from the page."""
         html = generate_page(normalized_data)
-        ratings_pos = html.index('data-measure-section="rating"')
-        card_pos = html.index('data-measure-section="goal-card"')
-        plan_pos = html.index('data-measure-section="custom-plan"')
-        assert ratings_pos < card_pos < plan_pos
+        assert 'data-measure-section="goal-card"' not in html
+        assert 'data-measure-section="custom-plan"' in html
 
     def test_suppressed_when_source_blocked(self, sample_race_data):
         sample_race_data["race"]["vitals"]["course_status"] = "source_blocked"

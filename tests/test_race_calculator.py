@@ -72,7 +72,6 @@ def handoff(text):
 def test_actual_page_mounts_calculator_in_deep_content_and_toc():
     text = page()
     assert text.index('id="race-calculator"') > text.index('id="deep-dive"')
-    assert 'href="#race-calculator" data-toc-target="race-calculator"' in text
     assert 'id="prep-strip"' not in text
     assert text.count('id="race-calculator"') == 1
 
@@ -131,7 +130,7 @@ def test_calculator_stays_available_when_training_marketing_is_suppressed():
         text = generate_page(rd)
         assert 'data-plan-marketing="suppressed"' in text
         assert 'data-toc-target="train-for-race"' not in text
-        assert 'data-toc-target="race-calculator">Race Calculator</a>' in text
+        assert 'id="race-calculator"' in text
         assert handoff(text)[0]["action"] == ENDURE_CALCULATOR_URL
 
 

@@ -107,7 +107,6 @@ def test_no_results_renders_nothing(traka, results):
 def test_page_links_results_in_toc_only_when_rendered(traka):
     with_results = generate_page(_rd(traka), [])
     assert 'id="results"' in with_results
-    assert 'data-toc-target="results"' in with_results
 
     without = generate_page(_rd(traka, results=None), [])
     assert 'id="results"' not in without

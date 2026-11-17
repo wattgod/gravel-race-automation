@@ -56,17 +56,13 @@ def test_no_link_for_unlisted_races_unsure_dates_or_past_dates():
         assert offer.endure_plan_url(r3, TODAY) is None, key
 
 
-def test_page_shows_secondary_link_after_the_main_button():
+def test_race_page_has_one_plan_ask_and_no_endure_link():
+    """Course Dossier (mock 6, #675): the plan card carries one ask; the
+    Endure cross-sell under it is retired from race pages."""
     html = generate_page(normalize_race_data({"race": _race("unbound-200")}), [])
-    assert "Or train in Endure: $24/month, 14 days free" in html
-    main = html.index('data-cta="approved_custom_plan"')
-    link = html.index('data-cta="endure_plan"')
-    assert main < link
-    tag = html[html.rindex("<a", 0, link): html.index("</a>", link)]
-    assert 'class="gg-endure-link"' in tag and "gg-plan-cta" not in tag
-    assert "&amp;utm_campaign=endure_plan" in tag
-    assert "onclick" not in tag
-    assert "endure_plan_click" in html
+    assert 'data-cta="approved_custom_plan"' in html
+    assert 'data-cta="endure_plan"' not in html
+    assert "Or train in Endure" not in html
 
 
 def test_page_without_listing_has_no_endure_link():

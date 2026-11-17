@@ -895,7 +895,7 @@ class TestGuardCatchesPlantedRegressions:
         """Race pages are editorial, but the coaching footnote on every one
         of them is sales copy, so scarcity there still fails."""
         html = _render(f"/race/{SAMPLE_RACE}/")
-        cta = 'data-cta="approved_coaching">GET ME IN YOUR CORNER'
+        cta = 'data-cta="approved_coaching">Or have me coach you all season'
         assert cta in html
         planted = html.replace(cta, 'data-cta="approved_coaching">1:1 COACHING &mdash; LIMITED SPOTS')
         findings = find_unsourced_proof(planted, page_kind=EDITORIAL,

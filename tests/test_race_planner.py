@@ -218,8 +218,9 @@ def test_plan_button_goes_to_the_existing_checkout():
     cfg = config(page("unbound-200"))
     assert cfg["offer"]["href"] == "https://gravelgodcycling.com/questionnaire/?race=unbound-200&src=race_planner"
     import plan_offer
-    assert cfg["offer"]["price"] == plan_offer.PRICE_LINE == "$49.99 every 4 weeks"
-    assert cfg["offer"]["price_note"] == plan_offer.TERMS_SHORT
+    # Rate only, in the race page's one price form (issue #675).
+    assert cfg["offer"]["price"] == "$49.99 / four weeks"
+    assert cfg["offer"]["price_note"] == f"{plan_offer.REFUND_LINE} Cancel any time from your plan page."
     assert not plan_offer.stale_offer_phrases(" ".join([cfg["offer"]["price"], cfg["offer"]["price_note"],
                                                          *cfg["offer"]["includes"]]))
     assert "o.price_note" in (PLANNER_JS / "gg-planner.js").read_text()
@@ -273,7 +274,9 @@ def test_every_planner_marker_resolves_to_the_page_source_list(slug):
     n_race = len(rd.get("citations") or [])
     assert sorted(cfg["cite"].values()) == list(range(n_race + 1, n_race + 1 + len(race_planner.PLANNER_SOURCES)))
     items = re.findall(r'<li class="gg-citation-item" id="gg-citation-(\d+)">', html)
-    assert [int(i) for i in items] == list(range(1, n_race + 1 + len(race_planner.PLANNER_SOURCES)))
+    # The race-day weather archive follows when the page shows race-day hours (#675).
+    weather = 1 if 'id="race-day"' in html else 0
+    assert [int(i) for i in items] == list(range(1, n_race + 1 + len(race_planner.PLANNER_SOURCES) + weather))
     for n in re.findall(r'class="gg-planner-cite" href="#gg-citation-(\d+)">\[(\d+)\]', section(html)):
         assert n[0] == n[1] and int(n[0]) in cfg["cite"].values()
     js = (PLANNER_JS / "gg-planner.js").read_text()

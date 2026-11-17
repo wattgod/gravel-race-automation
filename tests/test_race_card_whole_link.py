@@ -84,6 +84,10 @@ class TestStretchedLinkCss:
     def test_no_intermediate_positioning_context(self, css):
         """A positioned header would trap the ::after inside the header."""
         assert "position" not in _rule(css, "#gg-race-search .gg-card-header")
+        for sel in ("#gg-race-search a.gg-card-name", "#gg-race-search .gg-card-header"):
+            body = _rule(css, sel)
+            for prop in ("position", "transform", "filter", "contain"):
+                assert prop + ":" not in body, (sel, prop)
 
     def test_focus_and_hover_signifiers(self, css):
         focus = _rule(css, "#gg-race-search .gg-card-linked:focus-within")

@@ -262,9 +262,18 @@ def elevation_figure(elev: dict, marks: list[dict], variant: str) -> str:
         f'<line class="gg-cd-prof-mark" x1="{m["mile"] / total * w:.1f}" y1="0" '
         f'x2="{m["mile"] / total * w:.1f}" y2="{h:.0f}"/>'
         for m in marks)
+    # Every mark gets its line; a label is left off when it would collide
+    # with the previous one (labels are ~12% of a phone-width profile).
+    labelled, last = [], None
+    for m in sorted(marks, key=lambda m: m['mile']):
+        pct = m['mile'] / total * 100
+        if last is None or pct - last >= 12:
+            labelled.append((m, pct))
+            last = pct
     mark_labels = ''.join(
-        f'<span class="gg-cd-prof-ml" style="left:{m["mile"] / total * 100:.2f}%">MI {m["mile"]:g}</span>'
-        for m in marks)
+        f'<span class="gg-cd-prof-ml{" gg-cd-prof-ml--end" if pct > 70 else ""}" '
+        f'style="left:{pct:.2f}%">MI {m["mile"]:g}</span>'
+        for m, pct in labelled)
     step = _nice_step(total)
     ticks = [0.0]
     t = step
@@ -438,6 +447,9 @@ def build_yours_card(rd: dict, *, planner_route: str | None, plan_href: str | No
     </form>''')
     if plan_href:
         strip = build_plan_strip(target, on) if target else ''
+        if not strip and target and target['kind'] == 'confirmed':
+            strip = ('<div class="gg-cd-q">My plan</div><p class="gg-cd-fine">It&#x27;s race day, '
+                     'so there are no weeks left to count.</p>')
         if not strip:
             strip = ('<div class="gg-cd-q">My plan</div><p class="gg-cd-fine">The next race date '
                      "isn't announced, so there's no week count yet.</p>")
@@ -641,6 +653,7 @@ def get_css() -> str:
 .gg-cd-prof-marks{position:relative;height:18px}
 .gg-cd-prof-marks span,.gg-cd-prof-ticks span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap;font:400 11px/1.4 var(--gg-font-data)}
 .gg-cd-prof-marks span{transform:none;padding-left:5px;color:var(--gg-color-tan)}
+.gg-cd-prof-marks span.gg-cd-prof-ml--end{transform:translateX(-100%);padding:0 5px 0 0}
 .gg-cd-prof--course .gg-cd-prof-marks span{color:var(--cd-ink);font-weight:700}
 .gg-cd-prof-ticks{position:relative;height:20px;margin-top:6px;color:var(--gg-color-warm-brown)}
 .gg-cd-prof-ticks span:first-child{transform:none}
@@ -862,7 +875,12 @@ def get_js() -> str:
         var from = est.querySelector('input[name="' + name + '"]');
         var to = form && form.querySelector('input[name="' + name + '"]');
         if (from && to && from.value) {
-          to.value = from.value;
+          // The estimator asks for pounds; the planner may be set to kg.
+          var unit = planner.querySelector('[data-units][aria-pressed="true"]');
+          var metric = unit && unit.getAttribute('data-units') === 'met';
+          var lb = parseFloat(from.value);
+          to.value = (name === 'kg' && metric && !isNaN(lb))
+            ? String(Math.round(lb * 0.45359237 * 10) / 10) : from.value;
           to.dispatchEvent(new Event('input', { bubbles: true }));
         }
       });

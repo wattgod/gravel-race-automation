@@ -249,3 +249,35 @@ def test_race_day_temperatures_cite_the_weather_archive(unbound_html):
     item = unbound_html[unbound_html.index(f'id="gg-citation-{n}"'):]
     assert "open-meteo.com" in item[:400]
     assert "Open-Meteo" not in day
+
+
+# ── Review fixes ───────────────────────────────────────────────
+
+def test_race_day_does_not_claim_the_date_is_unannounced():
+    t = cd.plan_target(_rd("2026: November 17 (Tuesday, CONFIRMED)"), ON)
+    assert t == {"date": ON, "kind": "confirmed"}
+    card = cd.build_yours_card({"name": "Test Race"}, planner_route=None, plan_href="/plan", coaching_href=None,
+                               target=t, on=ON)
+    assert "race day" in card and "isn" not in card
+
+
+def test_course_mark_labels_near_the_finish_sit_left_of_the_line():
+    rd = _unbound()
+    elev = cd.load_elevation(rd)
+    total = elev["distance_km"][-1] / 1.609344
+    html = cd.elevation_figure(elev, [{"mile": round(total - 0.5, 1)}, {"mile": 10}], variant="course")
+    end = re.findall(r'<span class="gg-cd-prof-ml([^"]*)"', html)
+    assert end == ["", " gg-cd-prof-ml--end"]
+    close = cd.elevation_figure(elev, [{"mile": 100}, {"mile": 101}], variant="course")
+    assert close.count('class="gg-cd-prof-mark"') == 2 and close.count("gg-cd-prof-ml") == 1
+    assert ".gg-cd-prof-marks span.gg-cd-prof-ml--end{transform:translateX(-100%)" in cd.get_css()
+
+
+def test_estimator_converts_pounds_when_the_planner_reads_kilograms():
+    js = cd.get_js()
+    assert "data-units][aria-pressed=\"true\"]" in js and "0.45359237" in js
+
+
+def test_citation_links_open_the_collapsed_sources_on_phones(race_index):
+    full = gnb.generate_page(_unbound(), race_index)
+    assert ".gg-cd-track a, .gg-cd-cite')" in full

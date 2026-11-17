@@ -2699,7 +2699,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
     });
     setExpanded(section, startExpanded);
   });
-  document.querySelectorAll('.gg-breakdown-tile, .gg-toc a, .gg-cd-track a').forEach(function(link) {
+  document.querySelectorAll('.gg-breakdown-tile, .gg-toc a, .gg-cd-track a, .gg-cd-cite').forEach(function(link) {
     link.addEventListener('click', function() {
       var id = (link.getAttribute('href') || '').replace(/^#/, '');
       var target = id ? document.getElementById(id) : null;

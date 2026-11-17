@@ -884,13 +884,16 @@
       thumbHtml = '<div class="gg-card-thumb"><img src="' + escHtml(race.thumb) + '" alt="" loading="lazy" width="300" height="160"></div>';
     }
 
-    return '<div class="gg-card gg-card-tier-' + race.tier + (race.thumb ? ' gg-card-has-thumb' : '') + '">' +
+    // Whole-card link: the title anchor is the card's one link and its ::after
+    // stretches over the card (CSS); compare, favourite, series pill and score
+    // bar sit above it. No wrapping <a>, so no nested interactive elements.
+    return '<div class="gg-card gg-card-tier-' + race.tier + (race.thumb ? ' gg-card-has-thumb' : '') + (race.has_profile ? ' gg-card-linked' : '') + '">' +
       thumbHtml +
       '<div class="gg-card-header">' +
         compareCheck +
         favBtn +
         nameTag +
-        '<div style="display:flex;gap:6px;align-items:center">' +
+        '<div class="gg-card-badges">' +
           matchBadge +
           distBadge +
           seriesBadge +

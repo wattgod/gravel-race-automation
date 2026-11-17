@@ -430,12 +430,26 @@
     }
     #gg-race-search .gg-card-header {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: flex-start;
+      gap: 6px 8px;
       margin-bottom: 8px;
+    }
+    /* Badges wrap under the title instead of squeezing it against the series pill */
+    #gg-race-search .gg-card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 6px;
+      margin-left: auto;
     }
     #gg-race-search a.gg-card-name,
     #gg-race-search span.gg-card-name {
+      flex: 1 1 160px;
+      min-width: 0;
+      overflow-wrap: anywhere;
       font-family: var(--gg-font-editorial) !important;
       font-size: 16px;
       font-weight: 600;
@@ -445,6 +459,31 @@
       letter-spacing: 0;
     }
     #gg-race-search a.gg-card-name:hover { text-decoration: underline !important; color: var(--gg-color-dark-brown) !important; }
+    /* ── Whole-card link (stretched title anchor) ──
+       The title <a> stays the card's only link; its ::after covers the card.
+       Secondary controls sit above it so they keep their own clicks. */
+    #gg-race-search .gg-card { position: relative; }
+    #gg-race-search .gg-card-linked a.gg-card-name::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    #gg-race-search .gg-card-linked .gg-compare-check,
+    #gg-race-search .gg-card-linked .gg-fav-btn,
+    #gg-race-search .gg-card-linked .gg-series-badge,
+    #gg-race-search .gg-card-linked .gg-score-bar,
+    #gg-race-search .gg-card-linked .gg-score-breakdown {
+      position: relative;
+      z-index: 1;
+    }
+    #gg-race-search .gg-card-linked:hover a.gg-card-name { text-decoration: underline !important; }
+    #gg-race-search .gg-card-linked:hover { border-color: var(--gg-color-teal) !important; }
+    #gg-race-search .gg-card-linked a.gg-card-name:focus-visible { outline: none; text-decoration: underline !important; }
+    #gg-race-search .gg-card-linked:focus-within {
+      outline: 3px solid var(--gg-color-teal);
+      outline-offset: 2px;
+    }
     #gg-race-search span.gg-card-name.no-link { cursor: default; }
     #gg-race-search span.gg-card-name.no-link:hover { text-decoration: none !important; }
     #gg-race-search .gg-tier-badge {
@@ -1472,7 +1511,7 @@
       #gg-race-search .gg-tier-section-body { padding: 12px; }
       #gg-race-search .gg-card { padding: 12px; }
       #gg-race-search .gg-card-name { font-size: 13px; }
-      #gg-race-search .gg-card-header { flex-direction: column; gap: 6px; }
+      #gg-race-search .gg-card-badges { flex-basis: 100%; justify-content: flex-start; margin-left: 0; }
       #gg-race-search .gg-match-banner { flex-direction: column; gap: 8px; text-align: center; }
       #gg-race-search .gg-compare-banner { flex-direction: column; gap: 8px; text-align: center; }
       #gg-race-search .gg-compare-bar { flex-direction: column; gap: 8px; }

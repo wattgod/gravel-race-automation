@@ -478,3 +478,10 @@ def test_real_source_research_citation_does_not_become_a_commerce_failure(slug):
     offer = release.Markup(); offer.feed(generator.build_custom_plan_offer(rd))
     expected = [a["href"] for a in offer.anchors if a.get("data-cta") == "approved_custom_plan"]
     release.verify_page_contract(generator.generate_page(rd), slug, expected, [c["url"] for c in rd["citations"]])
+
+
+def test_committed_race_media_names_match_their_urls():
+    # The release refuses the whole catalog when one race's video still or
+    # preview GIF lists a file name its URL doesn't carry (The Majestics kept
+    # Gravel Suisse's names after the 2026-11 merge and blocked every publish).
+    assert release.media_requests()

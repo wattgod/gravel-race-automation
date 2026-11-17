@@ -79,7 +79,15 @@ def test_profiles_cite_only_official_organizer_or_uci_sources() -> None:
     for slug in SLUGS:
         profile = race(slug)
         assert len(profile["citations"]) >= 3
-        assert all(citation["category"] == "official" for citation in profile["citations"])
+        # The organizer-embedded course route is cited as a "route" (#661).
+        assert all(
+            citation["category"] == "official"
+            or (
+                citation["category"] == "route"
+                and citation["url"].startswith("https://ridewithgps.com/routes/")
+            )
+            for citation in profile["citations"]
+        )
         assert all(citation["url"].startswith("https://") for citation in profile["citations"])
 
 

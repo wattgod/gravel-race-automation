@@ -109,8 +109,12 @@ def build_route_map_v2(rd: dict) -> str:
     # A cache file can outlive the edition it documented. Only surface cached
     # geometry while the current source profile still identifies a verified
     # RideWithGPS route; clearing the source id is the explicit stale-map gate.
+    # The cache must also describe that same route: a profile whose id was
+    # corrected after the cache was built would otherwise draw the old line.
     route_id = (rd.get("course") or {}).get("ridewithgps_id")
     geometry = load_route_geometry(rd["slug"]) if route_id else None
+    if geometry and str(geometry.get("ridewithgps_id")) != str(route_id):
+        geometry = None
 
     if geometry and geometry.get("path_d") and geometry.get("viewbox"):
         vb_parts = geometry["viewbox"].split()

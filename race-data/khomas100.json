@@ -120,7 +120,15 @@
           "description": "Riders must reach the fifth water point by 15:00 and maintain at least a 16 km/h average to remain on course."
         }
       ],
-      "signature_challenge": "Carry speed across exposed Namibian gravel without losing hydration, navigation, or pacing control before the Gross Barmen finish."
+      "signature_challenge": "Carry speed across exposed Namibian gravel without losing hydration, navigation, or pacing control before the Gross Barmen finish.",
+      "official_route": {
+        "provider": "gpx",
+        "url": "https://khomas100.com.na/wp-content/uploads/2026/08/COURSE_Khomas100-2026.gpx_.zip",
+        "provenance_url": "https://khomas100.com.na/routes/",
+        "name": "Khomas100-2026 (Full Distance, 143 km)",
+        "edition": "2027",
+        "verified_at": "2026-11-17"
+      }
     },
     "logistics": {
       "overview": "The full route starts at 07:00 from Tony Rust Race Track in Windhoek and finishes at NWR Gross Barmen Resort near Okahandja.",
@@ -196,6 +204,11 @@
         "snippet": "The UCI series confirms the Windhoek event, category-specific distances, point-to-point format, and predominantly unpaved course.",
         "category": "official",
         "label": "UCI World Series"
+      },
+      {
+        "url": "https://khomas100.com.na/wp-content/uploads/2026/08/COURSE_Khomas100-2026.gpx_.zip",
+        "category": "route",
+        "label": "GPX file: Khomas100-2026 (Full Distance, 143 km)"
       }
     ],
     "results": {

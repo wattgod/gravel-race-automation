@@ -113,7 +113,15 @@
           "description": "The last 21 kilometers mix gravel, trail, fast paved descending, sharp turns, and Ballettbakken before the finish at Håkons Hall."
         }
       ],
-      "signature_challenge": "A mandatory backpack weighing at least 2 kg throughout the race, symbolizing infant heir Håkon Håkonsson, who was carried to safety in 1206."
+      "signature_challenge": "A mandatory backpack weighing at least 2 kg throughout the race, symbolizing infant heir Håkon Håkonsson, who was carried to safety in 1206.",
+      "official_route": {
+        "provider": "racedaymap",
+        "url": "https://app.racedaymap.com/sykkelbirken/birkebeinerrrittet",
+        "provenance_url": "https://birken.no/en/cycling/birkebeinerrittet-84-km",
+        "name": "Birkebeinerrrittet 84 km",
+        "edition": "2027",
+        "verified_at": "2026-11-17"
+      }
     },
     "logistics": {
       "overview": "This is a point-to-point race from central Rena to Håkons Hall in Lillehammer. Birken's current operating page offers participant-and-bike buses from Oslo and Lillehammer to Rena plus luggage transport from start to finish; confirm the 2027 timetable when it is released.",
@@ -201,6 +209,11 @@
         "snippet": "Birken documents the 1993 inaugural race, the route's historical identity, the mandatory backpack symbolism, and peak participation.",
         "category": "official",
         "label": "Official History"
+      },
+      {
+        "url": "https://app.racedaymap.com/sykkelbirken/birkebeinerrrittet",
+        "category": "route",
+        "label": "Raceday Map: Birkebeinerrrittet 84 km"
       }
     ],
     "eligibility": {

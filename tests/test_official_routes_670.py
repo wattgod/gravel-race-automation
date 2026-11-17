@@ -239,3 +239,97 @@ class TestGeometryParsers:
         monkeypatch.setattr(frg, "GEOMETRY_DIR", tmp_path)
         route = {**STRAVA, "provider": "garmin"}
         assert frg.process_official_route("x", route, dry_run=True, force=False) == "no_id"
+
+
+# ── Profiles verified against organizer pages, 17 Nov 2026 ──────────────
+
+RACE_DATA = ROOT / "race-data"
+GEOMETRY_DIR = ROOT / "data" / "route-geometry"
+
+OFFICIAL_ROUTES = {
+    "tour-divide": "gpx",
+    "birkebeinerrittet-road": "racedaymap",
+    "boulder-roubaix": "gpx",
+    "grand-tour-3-cime-lavaredo": "gpx",
+    "jackson-forest-grasshopper": "strava",
+    "khomas100": "gpx",
+    "pyrenees-catalanes-gravel-tour": "strava",
+    "tartu-rattamaraton-gravel": "plotaroute",
+    "tour-aotearoa": "kmz",
+    "barry-roubaix": "strava",
+    "coast-to-coast": "strava",
+    "devils-cardigan": "gpx",
+    "lone-wolf-gravel": "strava",
+    "red-granite-grinder": "komoot",
+    "the-equalizer": "strava",
+    "wyscig-niepolomice": "gpx",
+    "hart-hills": "gpx",
+    "tour-de-gap": "strava",
+    "wild-gravel": "strava",
+}
+
+# Rejected on review: a deleted file, a past edition at a venue that has
+# moved, a copy of an older course, a one-off championship, a cancelled
+# edition, a final edition, a 2027 course not yet out, a single lap of a
+# lap race, a file 15% short of its own label, and a route whose profile
+# distance is 21% off until the profile is corrected.
+NO_OFFICIAL_ROUTE = (
+    "seven", "uci-gravel-worlds", "vuelta-altas-cumbres", "houffa-gravel",
+    "la-dromoise-gravel", "ghost-of-the-gravel", "unbound-100",
+    "rad-am-ring-gravel", "safari-gravel-race", "gravel-of-marathon",
+)
+
+
+def _profile(slug):
+    return json.loads((RACE_DATA / f"{slug}.json").read_text(encoding="utf-8"))["race"]
+
+
+class TestVerifiedProfiles:
+    def test_official_routes_are_complete_and_cited(self):
+        for slug, provider in OFFICIAL_ROUTES.items():
+            race = _profile(slug)
+            route = official_route.get_official_route(race["course_description"])
+            assert route and route["provider"] == provider, slug
+            assert not race["course_description"].get("ridewithgps_id"), slug
+            cited = {c.get("url") for c in race["citations"] if isinstance(c, dict)}
+            assert route["url"] in cited and route["provenance_url"] in cited, slug
+
+    def test_drawable_routes_have_matching_geometry(self):
+        for slug, provider in OFFICIAL_ROUTES.items():
+            if provider not in official_route.GEOMETRY_PROVIDERS or provider == "strava":
+                continue
+            route = _profile(slug)["course_description"]["official_route"]
+            assert official_route.load_official_geometry(slug, route), slug
+
+    def test_rejected_routes_stay_off(self):
+        for slug in NO_OFFICIAL_ROUTE:
+            course = _profile(slug).get("course_description") or {}
+            assert not course.get("official_route"), slug
+            assert not course.get("ridewithgps_privacy_code"), slug
+
+    def test_edition_zero_uses_the_organizers_unlisted_route(self):
+        race = _profile("edition-zero")
+        course = race["course_description"]
+        assert str(course["ridewithgps_id"]) == "53423216"
+        code = official_route.valid_privacy_code(course["ridewithgps_privacy_code"])
+        assert code
+        cited = {c.get("url") for c in race["citations"] if isinstance(c, dict)}
+        assert official_route.rwgps_route_url("53423216", code) in cited
+        geometry = json.loads((GEOMETRY_DIR / "edition-zero.json").read_text())
+        assert geometry["ridewithgps_id"] == "53423216"
+
+    def test_tour_aotearoa_draws_the_main_route_only(self):
+        geometry = json.loads((GEOMETRY_DIR / "tour-aotearoa.json").read_text())
+        # Kennett Bros give 3,001 km with boat legs; the optional bypasses
+        # in the same file would add ~670 km.
+        assert 1800 < geometry["distance_mi_from_geometry"] < 1900
+
+
+class TestKmlExclude:
+    def test_option_placemarks_are_skipped(self):
+        doc = b"""<kml><Document>
+          <Placemark><name>1.1 Main</name><LineString><coordinates>1,1 2,2</coordinates></LineString></Placemark>
+          <Placemark><name>1.1A Option bypass</name><LineString><coordinates>5,5 6,6</coordinates></LineString></Placemark>
+        </Document></kml>"""
+        assert len(frg.points_from_kml(doc)) == 4
+        assert [(p["x"], p["y"]) for p in frg.points_from_kml(doc, r"\bOption\b")] == [(1.0, 1.0), (2.0, 2.0)]

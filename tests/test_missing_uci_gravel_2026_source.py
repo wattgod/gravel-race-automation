@@ -84,7 +84,12 @@ def test_profiles_cite_only_official_organizer_or_uci_sources() -> None:
             citation["category"] == "official"
             or (
                 citation["category"] == "route"
-                and citation["url"].startswith("https://ridewithgps.com/routes/")
+                and (
+                    citation["url"].startswith("https://ridewithgps.com/routes/")
+                    # An organizer route published off RideWithGPS (#670).
+                    or citation["url"]
+                    == profile["course_description"].get("official_route", {}).get("url")
+                )
             )
             for citation in profile["citations"]
         )

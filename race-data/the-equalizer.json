@@ -110,7 +110,15 @@
           "survival_strategy": "Never flat. Power surges on the rollers. Mentally exhausting--there is no rest section on this loop."
         }
       ],
-      "signature_challenge": "The constant rollers, not one single climb. The climbing arrives in dozens of short punches with no flat mile to recover on, and by late October most of the field is riding on fading late-season fitness."
+      "signature_challenge": "The constant rollers, not one single climb. The climbing arrives in dozens of short punches with no flat mile to recover on, and by late October most of the field is riding on fading late-season fitness.",
+      "official_route": {
+        "provider": "strava",
+        "url": "https://www.strava.com/routes/3521651349079861360",
+        "provenance_url": "https://www.bikesignup.com/Race/Info/MO/Marthasville/Equalizer",
+        "name": "2026 EQUALIZER STATE CHAMPIONSHIP ROUTE",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
+      }
     },
     "history": {
       "founded": null,
@@ -249,6 +257,16 @@
         "url": "https://www.bikesignup.com/Race/MO/Marthasville/Equalizer",
         "category": "community",
         "label": "bikesignup.com: Equalizer"
+      },
+      {
+        "url": "https://www.strava.com/routes/3521651349079861360",
+        "category": "route",
+        "label": "Strava: 2026 EQUALIZER STATE CHAMPIONSHIP ROUTE"
+      },
+      {
+        "url": "https://www.bikesignup.com/Race/Info/MO/Marthasville/Equalizer",
+        "category": "official",
+        "label": "Organizer course page: 2026 EQUALIZER STATE CHAMPIONSHIP ROUTE"
       }
     ],
     "results": {

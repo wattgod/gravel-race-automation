@@ -315,13 +315,34 @@ def points_from_gpx(data: bytes) -> list[dict]:
     return pts
 
 
-def points_from_kml(data: bytes) -> list[dict]:
+def _local(tag: str) -> str:
+    return tag.rsplit("}", 1)[-1]
+
+
+def _skipped_line_strings(root, exclude: str | None) -> set:
+    """LineStrings inside Placemarks whose name matches ``exclude`` — e.g. an
+    organizer file that carries optional bypasses beside the main route."""
+    if not exclude:
+        return set()
+    pattern = re.compile(exclude)
+    skipped = set()
+    for pm in root.iter():
+        if _local(pm.tag) != "Placemark":
+            continue
+        name = next((c.text or "" for c in pm if _local(c.tag) == "name"), "")
+        if pattern.search(name):
+            skipped.update(el for el in pm.iter() if _local(el.tag) == "LineString")
+    return skipped
+
+
+def points_from_kml(data: bytes, exclude: str | None = None) -> list[dict]:
     """Coordinates of every LineString in a KML document, in order."""
     root = _parse_xml(data)
+    skipped = _skipped_line_strings(root, exclude)
     pts = []
     seg = -1
     for el in root.iter():
-        if el.tag.rsplit("}", 1)[-1] == "LineString":
+        if _local(el.tag) == "LineString" and el not in skipped:
             seg += 1
             for child in el:
                 if child.tag.rsplit("}", 1)[-1] == "coordinates" and child.text:
@@ -335,7 +356,7 @@ def points_from_kml(data: bytes) -> list[dict]:
     return pts
 
 
-def points_from_archive(data: bytes) -> list[dict]:
+def points_from_archive(data: bytes, exclude: str | None = None) -> list[dict]:
     """A KMZ/ZIP holding exactly one GPX or KML route file."""
     with zipfile.ZipFile(io.BytesIO(data)) as zf:
         names = [n for n in zf.namelist()
@@ -347,7 +368,7 @@ def points_from_archive(data: bytes) -> list[dict]:
         if info.file_size > MAX_DOWNLOAD_BYTES:
             return []
         inner = zf.read(names[0])
-    return points_from_gpx(inner) if names[0].lower().endswith(".gpx") else points_from_kml(inner)
+    return points_from_gpx(inner) if names[0].lower().endswith(".gpx") else points_from_kml(inner, exclude)
 
 
 def decode_polyline(encoded: str) -> list[dict]:
@@ -411,13 +432,14 @@ def official_route_points(route: dict) -> list[dict] | None:
         data = _download(route.get("download_url") or url)
         if not data:
             return None
+        exclude = route.get("exclude_placemarks")
         if data[:2] == b"PK":
-            return points_from_archive(data)
+            return points_from_archive(data, exclude)
         head = data[:2048].lower()
         if b"<gpx" in head:
             return points_from_gpx(data)
         if b"<kml" in head:
-            return points_from_kml(data)
+            return points_from_kml(data, exclude)
         print(f"  {url} is neither GPX, KML nor an archive")
         return []
     return None

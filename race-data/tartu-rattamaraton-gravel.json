@@ -171,6 +171,14 @@
           "gravel": 93,
           "pavement": 7
         }
+      },
+      "official_route": {
+        "provider": "plotaroute",
+        "url": "https://www.plotaroute.com/route/3410148",
+        "provenance_url": "https://tartumaraton.ee/en/tartu-rattamaraton-2026/courses",
+        "name": "Tartu Rattamaraton 123km",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
       }
     },
     "biased_opinion": {
@@ -341,6 +349,16 @@
         "url": "https://ucigravelworldseries.com/en/olepaa-elva/",
         "category": "official",
         "label": "UCI series — course, history, access, and qualifier status"
+      },
+      {
+        "url": "https://www.plotaroute.com/route/3410148",
+        "category": "route",
+        "label": "Plotaroute: Tartu Rattamaraton 123km"
+      },
+      {
+        "url": "https://tartumaraton.ee/en/tartu-rattamaraton-2026/courses",
+        "category": "official",
+        "label": "Organizer course page: Tartu Rattamaraton 123km"
       }
     ],
     "eligibility": {

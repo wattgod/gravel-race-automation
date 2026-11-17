@@ -163,7 +163,15 @@
           "named_section": "Homestretch"
         }
       ],
-      "signature_challenge": "100-mile distance through Michigan farmland with spring weather."
+      "signature_challenge": "100-mile distance through Michigan farmland with spring weather.",
+      "official_route": {
+        "provider": "strava",
+        "url": "https://www.strava.com/routes/3412794902184532350",
+        "provenance_url": "https://barry-roubaix.com/maps-and-files",
+        "name": "2026 Barry-Roubaix 100 mile race day route",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
+      }
     },
     "guide_variables": {
       "race_name": "Barry-Roubaix",
@@ -393,6 +401,16 @@
         "url": "https://www.granfondoguide.com/Contents/Index/6587/thousands-complete-americas-largest-gravel-race-in-freezing-conditions",
         "category": "community",
         "label": "granfondoguide.com: Thousands Complete Americas Largest Gravel Race In Freezi..."
+      },
+      {
+        "url": "https://www.strava.com/routes/3412794902184532350",
+        "category": "route",
+        "label": "Strava: 2026 Barry-Roubaix 100 mile race day route"
+      },
+      {
+        "url": "https://barry-roubaix.com/maps-and-files",
+        "category": "official",
+        "label": "Organizer course page: 2026 Barry-Roubaix 100 mile race day route"
       }
     ],
     "results": {

@@ -164,7 +164,15 @@
       ],
       "signature_challenge": "Three named climbs (Mutual Valley, Ralph Falls, Un-named Climb of Hell) across 106km/66mi and 2,300m/7,545ft — the third arrives in the closing 10km when there's nothing left in the tank.",
       "ridewithgps_id": null,
-      "ridewithgps_name": null
+      "ridewithgps_name": null,
+      "official_route": {
+        "provider": "gpx",
+        "url": "https://www.devilscardigan.com.au/s/2026_Devils_Cardigan_Long_Course.gpx",
+        "provenance_url": "https://www.devilscardigan.com.au/course-2026",
+        "name": "2026 Devils Cardigan Long Course",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
+      }
     },
     "guide_variables": {
       "race_name": "Devils Cardigan",
@@ -399,6 +407,11 @@
         "url": "https://www.cyclingnews.com/pro-cycling/racing/uci-gravel-world-series-brendan-johnston-goes-solo-to-take-third-win-at-devils-cardigans-as-holly-harris-snares-a-first/",
         "category": "other",
         "label": "Cyclingnews: 2026 results"
+      },
+      {
+        "url": "https://www.devilscardigan.com.au/s/2026_Devils_Cardigan_Long_Course.gpx",
+        "category": "route",
+        "label": "GPX file: 2026 Devils Cardigan Long Course"
       }
     ],
     "tire_recommendations": {

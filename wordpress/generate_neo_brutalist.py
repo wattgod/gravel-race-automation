@@ -7128,6 +7128,7 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-official-route-map__glow {{ fill: none; stroke: var(--gg-color-light-teal); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; opacity: 0.2; }}
 .gg-neo-brutalist-page .gg-official-route-map__line {{ fill: none; stroke: var(--gg-color-teal); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }}
 .gg-neo-brutalist-page .gg-official-route-link {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); letter-spacing: var(--gg-letter-spacing-wide); text-transform: uppercase; color: var(--gg-color-secondary-brown); padding: var(--gg-spacing-sm) var(--gg-spacing-md); background: var(--gg-color-warm-paper); border: var(--gg-border-subtle); border-top: none; margin: 0; overflow-wrap: anywhere; }}
+.gg-neo-brutalist-page .gg-official-route-link:first-child {{ border-top: var(--gg-border-subtle); }}
 .gg-neo-brutalist-page .gg-official-route-link a {{ color: var(--gg-color-teal); text-decoration: underline; text-underline-offset: 2px; }}
 
 /* Prose — editorial font */

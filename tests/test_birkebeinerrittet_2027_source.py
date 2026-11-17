@@ -127,4 +127,6 @@ def test_birkebeinerrittet_citations_are_current_primary_sources() -> None:
         "https://birken.no/en/cycling/birkebeinerrittet-84-km",
         "https://birken.no/en/undersider-sykkel/track-description-birkebeinerrittet",
         "https://birken.no/en/about-birken/the-birkebeiner-history/history-birkebeinerrittet",
+        # The course map the 84 km page links (#670).
+        "https://app.racedaymap.com/sykkelbirken/birkebeinerrrittet",
     }

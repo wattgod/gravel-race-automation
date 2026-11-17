@@ -155,7 +155,15 @@
           "named_section": "Checkpoint 3"
         }
       ],
-      "signature_challenge": "Race from a Lake Huron sunrise to Lake Michigan before the 9:33 PM sunset cutoff—or keep riding under lights to the 2:30 AM final cutoff."
+      "signature_challenge": "Race from a Lake Huron sunrise to Lake Michigan before the 9:33 PM sunset cutoff—or keep riding under lights to the 2:30 AM final cutoff.",
+      "official_route": {
+        "provider": "strava",
+        "url": "https://www.strava.com/routes/3259891701307300780",
+        "provenance_url": "https://micoasttocoast.com/204-mile-race/204-race-route/",
+        "name": "2026 Coast to Coast Gravel Grinder",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
+      }
     },
     "guide_variables": {
       "race_name": "Coast to Coast",
@@ -385,6 +393,11 @@
         "url": "https://www.salsacycles.com/blogs/articles/coast-to-coast-gravel-grinder-a-new-epic-is-born",
         "category": "other",
         "label": "Salsa Cycles: Coast to Coast Gravel Grinder"
+      },
+      {
+        "url": "https://www.strava.com/routes/3259891701307300780",
+        "category": "route",
+        "label": "Strava: 2026 Coast to Coast Gravel Grinder"
       }
     ],
     "tire_recommendations": {

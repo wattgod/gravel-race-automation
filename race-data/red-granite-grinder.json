@@ -129,7 +129,15 @@
       "signature_challenge": "Keeping food, fluid, pace, equipment, and attention intact across 150 October miles before the Miltrim Farms finish.",
       "surface_breakdown": null,
       "ridewithgps_id": null,
-      "ridewithgps_name": null
+      "ridewithgps_name": null,
+      "official_route": {
+        "provider": "komoot",
+        "url": "https://www.komoot.com/tour/3273952475",
+        "provenance_url": "https://www.redgranitegrinder.com/bedrock-bruiser-150",
+        "name": "RGG Bedrock Bruiser 150",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
+      }
     },
     "history": {
       "founded": 2019,
@@ -458,6 +466,16 @@
         "url": "https://www.ironbull.org/grinder-results-and-pictures",
         "category": "other",
         "label": "IRONBULL: Results & Pictures"
+      },
+      {
+        "url": "https://www.komoot.com/tour/3273952475",
+        "category": "route",
+        "label": "Komoot: RGG Bedrock Bruiser 150"
+      },
+      {
+        "url": "https://www.redgranitegrinder.com/bedrock-bruiser-150",
+        "category": "official",
+        "label": "Organizer course page: RGG Bedrock Bruiser 150"
       }
     ],
     "results": {

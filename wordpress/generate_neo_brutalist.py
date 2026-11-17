@@ -3109,14 +3109,20 @@ def build_route_embed(rd: dict) -> str:
     route = course.get('official_route')
     if not route:
         return ''
+    # Both the route and the organizer page that links it must be in the
+    # page's numbered sources; an uncited route isn't shown at all.
+    route_ref = official_route.citation_number(rd.get('citations'), route['url'])
+    page_ref = official_route.citation_number(rd.get('citations'), route['provenance_url'])
+    if not (route_ref and page_ref):
+        return ''
     provider = official_route.provider_label(route)
     route_name = route.get('name') or f"{rd['name']} course"
     link = (f'<p class="gg-official-route-link">Official course: '
             f'<a href="{esc(route["url"])}" target="_blank" rel="noopener nofollow">'
-            f'{esc(route_name)} ({esc(provider)}) &#x2197;</a> '
+            f'{esc(route_name)} ({esc(provider)}) &#x2197;</a>[{route_ref}] '
             f'<span class="gg-official-route-source">linked from '
             f'<a href="{esc(route["provenance_url"])}" target="_blank" rel="noopener nofollow">'
-            f'{esc(official_route.provenance_host(route))}</a></span></p>')
+            f'{esc(official_route.provenance_host(route))}</a>[{page_ref}]</span></p>')
     embed = official_route.strava_embed_url(route)
     if embed:
         visual = (f'<div class="gg-map-embed gg-map-embed--strava">'

@@ -1,11 +1,16 @@
 {
   "slug": "tour-aotearoa",
   "official_route_url": "https://www.kennett.co.nz/maps/tour-aotearoa/files/Tour-Aotearoa-route-2026-05-27-Kennett-Bros.kmz",
+  "geometry_inputs": {
+    "url": "https://www.kennett.co.nz/maps/tour-aotearoa/files/Tour-Aotearoa-route-2026-05-27-Kennett-Bros.kmz",
+    "download_url": null,
+    "exclude_placemarks": "\\bOption\\b"
+  },
   "provider": "kmz",
   "provenance_url": "https://www.touraotearoa.nz/p/routegpx-downloads.html",
   "route_name": "Tour Aotearoa route MASTER 2026-05-27 (Kennett Bros)",
   "source_url": "https://www.kennett.co.nz/maps/tour-aotearoa/files/Tour-Aotearoa-route-2026-05-27-Kennett-Bros.kmz",
-  "fetched_at": "2026-11-17T17:42:19Z",
+  "fetched_at": "2026-11-17T18:04:11Z",
   "point_count": 45837,
   "sampled_count": 369,
   "distance_mi_from_geometry": 1864.9,

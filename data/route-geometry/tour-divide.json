@@ -1,11 +1,16 @@
 {
   "slug": "tour-divide",
   "official_route_url": "http://www.topofusion.com/divide/TourDivide2026_v3.gpx",
+  "geometry_inputs": {
+    "url": "http://www.topofusion.com/divide/TourDivide2026_v3.gpx",
+    "download_url": null,
+    "exclude_placemarks": null
+  },
   "provider": "gpx",
   "provenance_url": "https://tourdivide.org/route_info",
-  "route_name": "TourDivide2026_v3.gpx (Tour Divide 2026 'official')",
+  "route_name": "Tour Divide 2026 route (v3)",
   "source_url": "http://www.topofusion.com/divide/TourDivide2026_v3.gpx",
-  "fetched_at": "2026-11-17T17:42:14Z",
+  "fetched_at": "2026-11-17T18:04:06Z",
   "point_count": 27739,
   "sampled_count": 351,
   "distance_mi_from_geometry": 2678.6,

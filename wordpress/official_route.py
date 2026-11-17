@@ -122,6 +122,19 @@ def rwgps_embed_url(route_id, title: str = "", privacy_code=None) -> str:
     return f"{url}&privacyCode={code}" if code else url
 
 
+def citation_number(citations, url: str) -> int | None:
+    """1-based position of ``url`` in the page's numbered source list."""
+    for index, citation in enumerate(citations or [], start=1):
+        if isinstance(citation, dict) and citation.get("url") == url:
+            return index
+    return None
+
+
+def geometry_inputs(route: dict) -> dict:
+    """Everything that decides which line a cached geometry draws."""
+    return {key: route.get(key) for key in ("url", "download_url", "exclude_placemarks")}
+
+
 def provider_label(route: dict) -> str:
     return PROVIDER_LABELS.get(route.get("provider"), PROVIDER_LABELS["other"])
 
@@ -154,6 +167,8 @@ def load_official_geometry(slug: str, route: dict | None,
     except (ValueError, OSError):
         return None
     if geometry.get("official_route_url") != route.get("url"):
+        return None
+    if geometry.get("geometry_inputs") != geometry_inputs(route):
         return None
     if not (geometry.get("path_d") and geometry.get("viewbox")):
         return None

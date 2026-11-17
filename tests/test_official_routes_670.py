@@ -37,10 +37,29 @@ GPX = {
 }
 
 
-def _rd(course_extra: dict, slug: str = "example-race") -> dict:
+CITATIONS = [
+    {"url": "https://www.example-race.com/", "category": "official"},
+    {"url": STRAVA["url"], "category": "route"},
+    {"url": GPX["url"], "category": "route"},
+    {"url": "https://www.example-race.com/course/", "category": "official"},
+]
+
+
+def _geometry(route: dict, **extra) -> str:
+    return json.dumps({
+        "official_route_url": route["url"],
+        "geometry_inputs": official_route.geometry_inputs(route),
+        "viewbox": "0 0 800 600",
+        "path_d": "M10 10L20 20",
+        **extra,
+    })
+
+
+def _rd(course_extra: dict, slug: str = "example-race", citations=None) -> dict:
     return {
         "slug": slug,
         "name": "Example Race",
+        "citations": CITATIONS if citations is None else citations,
         "course": {
             "ridewithgps_id": None,
             "ridewithgps_name": "",
@@ -111,20 +130,28 @@ class TestRouteEmbed:
         assert 'src="https://strava-embeds.com/route/3412794902184532350?' in html
         assert 'href="https://www.strava.com/routes/3412794902184532350"' in html
         assert 'href="https://www.example-race.com/course/"' in html
-        assert "2026 Example 100 (Strava)" in html
-        assert "example-race.com" in html
+        assert "2026 Example 100 (Strava) &#x2197;</a>[2]" in html
+        assert "example-race.com</a>[4]" in html
+
+    def test_uncited_route_is_not_shown(self):
+        cites = [c for c in CITATIONS if c["url"] != STRAVA["url"]]
+        assert v1.build_route_embed(_rd({"official_route": STRAVA}, citations=cites)) == ""
+        cites = [c for c in CITATIONS if c["url"] != STRAVA["provenance_url"]]
+        assert v1.build_route_embed(_rd({"official_route": STRAVA}, citations=cites)) == ""
 
     def test_gpx_route_with_geometry_draws_svg(self, tmp_path, monkeypatch):
-        (tmp_path / "example-race.json").write_text(json.dumps({
-            "official_route_url": GPX["url"],
-            "viewbox": "0 0 800 600",
-            "path_d": "M10 10L20 20",
-        }))
+        (tmp_path / "example-race.json").write_text(_geometry(GPX))
         monkeypatch.setattr(official_route, "GEOMETRY_DIR", tmp_path)
         html = v1.build_route_embed(_rd({"official_route": GPX}))
         assert '<path d="M10 10L20 20" class="gg-official-route-map__line"/>' in html
         assert "Example Long Course (GPX file)" in html
         assert "<iframe" not in html
+
+    def test_geometry_built_with_other_inputs_is_ignored(self, tmp_path, monkeypatch):
+        (tmp_path / "example-race.json").write_text(_geometry(GPX))
+        monkeypatch.setattr(official_route, "GEOMETRY_DIR", tmp_path)
+        route = {**GPX, "exclude_placemarks": r"\bOption\b"}
+        assert "<svg" not in v1.build_route_embed(_rd({"official_route": route}))
 
     def test_geometry_for_another_url_is_ignored(self, tmp_path, monkeypatch):
         (tmp_path / "example-race.json").write_text(json.dumps({
@@ -209,6 +236,29 @@ class TestGeometryParsers:
     def test_dtd_is_refused(self):
         with pytest.raises(ValueError):
             frg.points_from_gpx(b'<!DOCTYPE gpx [<!ENTITY a "b">]><gpx/>')
+
+    def test_utf16_dtd_is_refused(self):
+        doc = '<?xml version="1.0" encoding="UTF-16"?><!DOCTYPE gpx [<!ENTITY a "b">]><gpx/>'
+        with pytest.raises(ValueError):
+            frg.points_from_gpx(doc.encode("utf-16"))
+
+    def test_truncated_polyline_is_an_error_not_a_crash(self, tmp_path, monkeypatch):
+        with pytest.raises(ValueError):
+            frg.decode_polyline("_p~iF~ps|U_ulL")
+        monkeypatch.setattr(frg, "GEOMETRY_DIR", tmp_path)
+        monkeypatch.setattr(frg, "official_route_points",
+                            lambda route: frg.decode_polyline("_p~iF~ps|U_ulL"))
+        assert frg.process_official_route("x", STRAVA, dry_run=True, force=True) == "no_geometry"
+
+    def test_cache_is_refetched_when_inputs_change(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(frg, "GEOMETRY_DIR", tmp_path)
+        (tmp_path / "x.json").write_text(_geometry(GPX))
+        assert frg.process_official_route("x", GPX, dry_run=True, force=False) == "cached"
+        calls = []
+        monkeypatch.setattr(frg, "official_route_points", lambda route: calls.append(route) or None)
+        route = {**GPX, "download_url": "https://www.example-race.com/files/course-v2.gpx"}
+        assert frg.process_official_route("x", route, dry_run=True, force=False) == "fetch_failed"
+        assert calls == [route]
 
     def test_google_polyline(self):
         # Google's documented example polyline.

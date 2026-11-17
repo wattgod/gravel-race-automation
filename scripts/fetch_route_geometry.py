@@ -36,6 +36,7 @@ import sys
 import time
 import zipfile
 import xml.etree.ElementTree as ET
+import xml.parsers.expat
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -288,10 +289,19 @@ def _download(url: str) -> bytes | None:
     return data
 
 
+def _refuse_dtd(*_args):
+    raise ValueError("XML with a DTD or entity declaration is not accepted")
+
+
 def _parse_xml(data: bytes):
-    # Route files are untrusted: refuse DTDs/entities outright.
-    if b"<!DOCTYPE" in data[:4096] or b"<!ENTITY" in data:
-        raise ValueError("XML with a DTD is not accepted")
+    """Parse an untrusted route file, refusing any DTD or entity declaration.
+
+    The refusal sits in the expat parser itself, so it holds whatever the
+    file's encoding (a UTF-16 file hides its DTD from a byte search)."""
+    scan = xml.parsers.expat.ParserCreate()
+    scan.StartDoctypeDeclHandler = _refuse_dtd
+    scan.EntityDeclHandler = _refuse_dtd
+    scan.Parse(data, True)
     return ET.fromstring(data)
 
 
@@ -378,6 +388,8 @@ def decode_polyline(encoded: str) -> list[dict]:
         for which in (0, 1):
             shift = result = 0
             while True:
+                if index >= len(encoded):
+                    raise ValueError("truncated polyline")
                 b = ord(encoded[index]) - 63
                 index += 1
                 result |= (b & 0x1F) << shift
@@ -468,6 +480,7 @@ def build_official_record(slug: str, route: dict, points: list[dict]) -> dict | 
     return {
         "slug": slug,
         "official_route_url": route["url"],
+        "geometry_inputs": official_route.geometry_inputs(route),
         "provider": route["provider"],
         "provenance_url": route["provenance_url"],
         "route_name": route.get("name", ""),
@@ -487,17 +500,19 @@ def process_official_route(slug: str, route: dict, dry_run: bool, force: bool) -
     out_path = GEOMETRY_DIR / f"{slug}.json"
     if out_path.exists() and not force:
         existing = json.load(open(out_path, encoding="utf-8"))
-        if existing.get("official_route_url") == route["url"]:
+        if existing.get("geometry_inputs") == official_route.geometry_inputs(route):
             return "cached"
     print(f"{slug}: fetching official {route['provider']} route {route['url']}...")
     try:
         points = official_route_points(route)
-    except (ValueError, ET.ParseError, zipfile.BadZipFile, json.JSONDecodeError) as e:
+        record = build_official_record(slug, route, points) if points is not None else None
+    except (ValueError, KeyError, TypeError, AttributeError, IndexError,
+            ET.ParseError, xml.parsers.expat.ExpatError, zipfile.BadZipFile) as e:
+        # One bad organizer file must not stop the refresh of every other race.
         print(f"  {slug}: could not read route: {e}")
         return "no_geometry"
     if points is None:
         return "fetch_failed"
-    record = build_official_record(slug, route, points)
     if not record:
         print(f"  {slug}: route has no usable geometry, skipping")
         return "no_geometry"

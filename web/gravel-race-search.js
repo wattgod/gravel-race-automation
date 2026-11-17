@@ -721,7 +721,7 @@
     value: 'Value', expenses: 'Expenses', cultural_impact: 'Cultural Impact'
   };
 
-  function renderScoreBreakdown(scores) {
+  function renderScoreBreakdown(scores, id) {
     if (!scores || Object.keys(scores).length < 7) return '';
     var rows = Object.entries(SCORE_LABELS).filter(function(pair) {
       var key = pair[0];
@@ -736,7 +736,7 @@
       }).join('');
       return '<div class="gg-score-row"><span class="gg-score-row-label">' + label + '</span><span class="gg-score-row-dots">' + dots + '</span></div>';
     }).join('');
-    return '<div class="gg-score-breakdown"><div class="gg-score-grid">' + rows + '</div></div>';
+    return '<div class="gg-score-breakdown" id="' + id + '"><div class="gg-score-grid">' + rows + '</div></div>';
   }
 
   function radarPoints(scores, vars, cx, cy, r) {
@@ -798,7 +798,8 @@
       ? '<a class="gg-card-name" href="' + escHtml(race.profile_url) + '">' + escHtml(race.name) + '</a>'
       : '<span class="gg-card-name no-link">' + escHtml(race.name) + '</span>';
 
-    var breakdown = renderScoreBreakdown(race.scores);
+    var breakdownId = 'gg-score-breakdown-' + escHtml(race.slug);
+    var breakdown = renderScoreBreakdown(race.scores, breakdownId);
 
     // Score hero — prominent score number with bar below
     var scoreHero = '';
@@ -809,13 +810,20 @@
       '</div>';
     }
 
-    var scoreBar = race.overall_score
-      ? '<div class="gg-score-bar" onclick="this.nextElementSibling&&this.nextElementSibling.classList.toggle(\'open\')" title="Click for score breakdown">' +
-          '<div class="gg-score-track">' +
-            '<div class="gg-score-fill" style="width:' + race.overall_score + '%;background:' + scoreColor(race.overall_score) + '"></div>' +
-          '</div>' +
-        '</div>' + breakdown
-      : '';
+    // Score bar: a real toggle button when there is a breakdown to show
+    // (keyboard + screen reader reachable; handled by the delegated click
+    // listener below), a plain bar otherwise.
+    var scoreTrack = '<span class="gg-score-track">' +
+        '<span class="gg-score-fill" style="width:' + race.overall_score + '%;background:' + scoreColor(race.overall_score) + '"></span>' +
+      '</span>';
+    var scoreBar = '';
+    if (race.overall_score && breakdown) {
+      scoreBar = '<button type="button" class="gg-score-bar" aria-expanded="false" aria-controls="' + breakdownId + '" aria-label="Score breakdown, ' + race.overall_score + ' out of 100">' +
+          scoreTrack +
+        '</button>' + breakdown;
+    } else if (race.overall_score) {
+      scoreBar = '<div class="gg-score-bar gg-score-bar--static">' + scoreTrack + '</div>';
+    }
 
     var radar = renderMiniRadar(race.scores);
 
@@ -1578,6 +1586,15 @@
     var favBtn = e.target.closest('.gg-fav-btn');
     if (favBtn && favBtn.dataset.slug) {
       toggleFavorite(favBtn.dataset.slug);
+      return;
+    }
+    var scoreBtn = e.target.closest('button.gg-score-bar');
+    if (scoreBtn) {
+      var panel = document.getElementById(scoreBtn.getAttribute('aria-controls'));
+      if (panel) {
+        var open = panel.classList.toggle('open');
+        scoreBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
       return;
     }
     var removeBtn = e.target.closest('.gg-compare-remove');

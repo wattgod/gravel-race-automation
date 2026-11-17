@@ -511,8 +511,7 @@ def ladder_offers() -> list[dict]:
             "price": plan_offer.PRICE_TO_RACE,
             "desc": (
                 "One race, periodised to your date, on your TrainingPeaks calendar "
-                "one 4-week block at a time. I look over every block first. "
-                f"{plan_offer.REFUND_LINE}"
+                "one 4-week block at a time. I look over every block first."
             ),
             "href": CUSTOM_PLAN_URL,
             "button": "Get a custom plan",
@@ -554,6 +553,8 @@ def render_ladder(lead: str = DEFAULT_LADDER_LEAD) -> str:
         f'    {_btn(main["href"], main["button"], main["key"], cta=main["key"])}\n'
         "  </div>\n"
         f'  <div class="pair">\n{pair_html}\n  </div>\n'
+        f'  <p class="fine" style="font:400 13px/1.45 var(--serif);color:var(--ink3);margin:10px 0 0">'
+        f'{esc(main["name"])}: {esc(plan_offer.REFUND_LINE)}</p>\n'
         "</aside>\n</div>"
     )
 

@@ -462,3 +462,16 @@ class TestSearchPageMobile:
         css_files = list((PROJECT_ROOT / "web").glob("gg-search.*.css"))
         css_name = css_files[0].name
         assert css_name in html, f"HTML references different CSS than {css_name}"
+
+
+class TestTrainingTermsAreFinePrint:
+    """Refund and cancel terms under the race-page plan button are fine
+    print, never a headline (Matti, 2026-11-16)."""
+
+    def test_training_terms_rule_is_small_muted_text(self):
+        from generate_neo_brutalist import get_page_css
+        css = get_page_css()
+        rule = re.search(r'\.gg-neo-brutalist-page \.gg-training-terms \{([^}]*)\}', css)
+        assert rule, ".gg-training-terms has no style rule"
+        assert "font-size: 12px" in rule.group(1)
+        assert "secondary-brown" in rule.group(1)

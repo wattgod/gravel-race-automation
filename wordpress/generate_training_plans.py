@@ -349,8 +349,8 @@ def build_pricing() -> str:
       </div>
     </div>
   </div>
-  <div class="gg-tp-guarantee">
-    <p><strong>{PLAN_REFUND_DAYS}-Day Full Refund.</strong> Within {PLAN_REFUND_DAYS} days of your first payment, cancel from your plan page and you get all of it back. Refunding it ends the plan.</p>
+  <div class="gg-tp-fine">
+    <p>Within {PLAN_REFUND_DAYS} days of your first payment, cancel from your plan page and you get all of it back. Refunding it ends the plan.</p>
   </div>
 </section>'''
 
@@ -974,25 +974,18 @@ def build_training_css() -> str:
   margin: 0;
 }}
 
-/* ── Guarantee ── */
-.gg-tp-guarantee {{
-  margin-top: var(--gg-spacing-lg);
-  padding: var(--gg-spacing-lg);
-  border: var(--gg-border-standard);
-  border-color: var(--gg-color-primary-brown);
-  background: var(--gg-color-sand);
+/* ── Fine print (refund terms) ── */
+.gg-tp-fine {{
+  margin-top: var(--gg-spacing-md);
   text-align: center;
 }}
-.gg-tp-guarantee p {{
+.gg-tp-fine p {{
   font-family: var(--gg-font-editorial);
-  font-size: var(--gg-font-size-sm);
-  color: var(--gg-color-near-black);
-  margin: 0;
+  font-size: var(--gg-font-size-xs);
+  color: var(--gg-color-secondary-brown);
+  margin: 0 auto;
+  max-width: 60ch;
   line-height: var(--gg-line-height-prose);
-}}
-.gg-tp-guarantee strong {{
-  text-transform: uppercase;
-  letter-spacing: var(--gg-letter-spacing-wide);
 }}
 
 /* ── FAQ ── */

@@ -383,3 +383,13 @@ class TestKmlExclude:
         </Document></kml>"""
         assert len(frg.points_from_kml(doc)) == 4
         assert [(p["x"], p["y"]) for p in frg.points_from_kml(doc, r"\bOption\b")] == [(1.0, 1.0), (2.0, 2.0)]
+
+
+def test_route_names_are_finished_labels_not_file_notes():
+    """The name is printed on the page: no file names or research notes."""
+    for slug in OFFICIAL_ROUTES:
+        name = _profile(slug)["course_description"]["official_route"]["name"]
+        lowered = name.lower()
+        assert not any(bad in lowered for bad in (
+            ".gpx", ".kmz", ".zip", "_", "internal name", "master", "copy", "v1", "v3)"
+        )), (slug, name)

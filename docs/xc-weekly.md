@@ -21,6 +21,12 @@ Sources live in `config/xc-weekly-sources.json`; every feed was fetched and
 parsed on its `verified_on` date. A feed that fails shows up in the review
 issue's coverage table. It is never swapped for another source.
 
+FIS publishes no news or results feed (`fis-ski.com/en/rss`, `/feed` and
+`/DB/cross-country/rss.xml` all returned 404 on 2026-11-16), so official
+results are not collected directly; they reach the brief only through the
+outlets above. Several podcasts are seasonal: a show with no episode in the
+window reads 0 kept with no error, which is quiet, not broken.
+
 The draft brief is `prompts/xc-weekly-voice.md` (voice evidence:
 `writing-graph` `inbox/gravel-god/you-know-people-remember-how-you-race-right.md`,
 `your-eating-habits-are-killing-your-performance.md`,

@@ -1,6 +1,6 @@
 {
   "_comment": "XC Ski Labs Weekly sources. Every feed URL was fetched and parsed on verified_on; a source that stops answering is reported in the staged review, never replaced. Filters keep the cross-country items from mixed winter-sport feeds. Sources marked core must fetch at least once in the week or no brief is staged.",
-  "verified_on": "2026-11-15",
+  "verified_on": "2026-11-16",
   "news": [
     {
       "id": "langrenn",
@@ -90,6 +90,33 @@
       "lang": "en",
       "feed": "https://skiclassics.com/feed",
       "pages": 3
+    },
+    {
+      "id": "yle",
+      "name": "Yle Urheilu",
+      "lang": "fi",
+      "feed": "https://yle.fi/rss/t/18-219772/fi",
+      "exclude_categories": [
+        "ampumahiihto",
+        "mäkihyppy",
+        "yhdistetty"
+      ]
+    },
+    {
+      "id": "svt",
+      "name": "SVT Sport",
+      "lang": "sv",
+      "feed": "https://www.svt.se/sport/langdskidor/rss.xml",
+      "keep_url_paths": [
+        "/sport/langdskidor/"
+      ],
+      "include_keywords": [
+        "längdskid",
+        "längdåk",
+        "vasalopp",
+        "skidspår",
+        "skid-vm"
+      ]
     },
     {
       "id": "birkie",

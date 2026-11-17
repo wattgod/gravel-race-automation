@@ -145,6 +145,10 @@ def keep_entry(entry: dict, source: dict) -> bool:
     exclude = {c.lower() for c in source.get("exclude_categories", [])}
     if exclude and any(c in exclude for c in categories):
         return False
+    # A link under one of these paths is cross-country by the outlet's own
+    # section, so it skips the keyword test (SVT's feed carries no categories).
+    if any(path in entry["link"] for path in source.get("keep_url_paths", [])):
+        return True
     keywords = [k.lower() for k in source.get("include_keywords", [])]
     if keywords:
         haystack = " ".join([entry["title"], entry["description"], *categories]).lower()

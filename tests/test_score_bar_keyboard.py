@@ -103,3 +103,41 @@ def test_delegated_toggle_executes():
     result = subprocess.run(["node", "-e", NODE_HARNESS, JS[start:end]],
                             capture_output=True, text=True, check=True)
     assert json.loads(result.stdout) == [[True, "true", True], [True, "false", False]]
+
+
+def test_script_runs_once():
+    """SiteGround bundles this file into its combined JS on top of the direct
+    <script>, so it executes twice; without the guard the delegated score-bar
+    toggle fires twice per click and never opens (live failure, #662)."""
+    head = JS[:600]
+    assert head.startswith("(function() {")
+    assert "if (window.__ggRaceSearchLoaded) return;" in head
+    assert "window.__ggRaceSearchLoaded = true;" in head
+
+
+def test_double_load_registers_listeners_once():
+    """Evaluate the real file twice against a stub DOM: only one click
+    listener may be registered."""
+    import shutil
+    import subprocess
+    if not shutil.which("node"):
+        pytest.skip("node not installed")
+    harness = r"""
+const fs = require('fs');
+const src = fs.readFileSync(process.argv[1], 'utf8');
+let clicks = 0;
+const el = () => new Proxy(function () {}, { get: (t, k) => k === Symbol.toPrimitive ? () => '' : el(), apply: () => el() });
+const document = new Proxy({}, { get: (t, k) => {
+  if (k === 'addEventListener') return (type) => { if (type === 'click') clicks++; };
+  if (k === 'readyState') return 'loading';
+  return el(); } });
+const window = {};
+global.fetch = () => new Promise(() => {});
+const localStorage = { getItem: () => null, setItem: () => {} };
+for (let i = 0; i < 2; i++) new Function('window', 'document', 'localStorage', src)(window, document, localStorage);
+console.log(clicks);
+"""
+    path = ROOT / "web" / "gravel-race-search.js"
+    out = subprocess.run(["node", "-e", harness, str(path)],
+                         capture_output=True, text=True, check=True)
+    assert out.stdout.strip() == "1"

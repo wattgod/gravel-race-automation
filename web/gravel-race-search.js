@@ -1,4 +1,11 @@
 (function() {
+  // Run once. On WordPress the page loads this file directly AND SiteGround's
+  // optimizer bundles it into its combined JS, so it executes twice; a second
+  // run would double every delegated listener (a toggle would open and shut
+  // on one click) and re-render the results. The first (direct) copy wins.
+  if (window.__ggRaceSearchLoaded) return;
+  window.__ggRaceSearchLoaded = true;
+
   const DATA_URL = '/wp-content/uploads/race-index.json?v=20260215';
   const TIER_PAGE_SIZE = 20;
 

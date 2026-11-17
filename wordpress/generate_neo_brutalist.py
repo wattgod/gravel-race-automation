@@ -7952,8 +7952,6 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     total_mi = (elev['distance_km'][-1] * 1000 / cd.M_PER_MI) if elev else None
     marks = cd.course_marks(rd, total_mi) if elev else []
     discipline = rd.get('discipline', 'gravel')
-    hero = cd.build_hero(rd, race_index, elev, marks, _hero_rider_cell(rd), RATED_BY_NAME,
-                         DISCIPLINE_LABELS.get(discipline, discipline.upper()) if discipline != 'gravel' else '')
 
     # Finish-time planner: only for a race whose imported planner status is
     # eligible or flagged (data/planner/status.json). It replaces the Endure
@@ -7962,25 +7960,33 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     race_calculator = '' if race_planner else build_race_calculator(rd)
     planner_cfg = planner_config(rd, not suppress_plan_marketing) if race_planner else None
 
+    # Numbered sources after the race's own: planner research, the stored
+    # route (unless the race already cites it), then race-day weather.
+    n_sources = len(rd.get('citations') or [])
+    planner_items = planner_citation_items(rd) if race_planner else []
+    route_n, route_item = cd.route_citation(rd, elev, n_sources + len(planner_items) + 1)
+    hours = cd.race_day_hours(rd['slug']) if race_planner else None
+    weather_n = (n_sources + len(planner_items) + (1 if route_item else 0) + 1) if hours else None
+
+    hero = cd.build_hero(rd, race_index, elev, marks, _hero_rider_cell(rd), RATED_BY_NAME,
+                         DISCIPLINE_LABELS.get(discipline, discipline.upper()) if discipline != 'gravel' else '',
+                         route_cite=route_n)
+
     plan_href = (None if suppress_plan_marketing else
                  f"{TRAINING_PLANS_URL}?race={rd['slug']}&src=race_profile")
     coaching_href = None if suppress_plan_marketing else f"{COACHING_URL}?race={rd['slug']}"
     target = cd.plan_target(rd)
     fold = cd.build_fold([
         cd.build_why_card(rd, COURSE_DIMS, OPINION_DIMS, DIM_LABELS, _parse_score),
-        cd.build_course_card(rd, geo, elev),
+        cd.build_course_card(rd, geo, elev, route_n),
         cd.build_yours_card(rd, planner_route=planner_cfg['edition_short'] if planner_cfg else None,
                             plan_href=plan_href, coaching_href=coaching_href, target=target),
     ])
 
-    n_sources = len(rd.get('citations') or [])
     ratings = cd.build_ratings(rd, COURSE_DIMS, OPINION_DIMS, DIM_LABELS, _parse_score, n_sources)
     course_overview = build_course_overview(
-        rd, race_index, figure_html=cd.build_course_figure(rd, geo, elev, marks))
+        rd, race_index, figure_html=cd.build_course_figure(rd, geo, elev, marks, route_n))
     course_route = build_course_route(rd)
-    planner_items = planner_citation_items(rd) if race_planner else []
-    hours = cd.race_day_hours(rd['slug']) if race_planner else None
-    weather_n = len(rd.get('citations') or []) + len(planner_items) + 1 if hours else None
     race_day = cd.build_race_day(hours, weather_n)
     alternatives = rd['final_verdict'].get('alternatives') or ''
     should = cd.build_should(rd, linkify_alternatives(alternatives, race_index) if alternatives else '')
@@ -8001,7 +8007,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     similar = build_similar_races(rd, race_index)
     # The planner's research sources join the page's one numbered list, after
     # the race's own citations, so its [n] markers resolve on this page.
-    extra_sources = planner_items + ([cd.weather_citation_item(weather_n)] if race_day else [])
+    extra_sources = (planner_items + ([route_item] if route_item else [])
+                     + ([cd.weather_citation_item(weather_n)] if race_day else []))
     citations_sec = build_citations_section(rd, extra_items=extra_sources or None)
     footer = build_footer(rd)
     sticky_cta = ''

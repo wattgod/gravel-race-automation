@@ -276,7 +276,11 @@ def test_every_planner_marker_resolves_to_the_page_source_list(slug):
     items = re.findall(r'<li class="gg-citation-item" id="gg-citation-(\d+)">', html)
     # The race-day weather archive follows when the page shows race-day hours (#675).
     weather = 1 if 'id="race-day"' in html else 0
-    assert [int(i) for i in items] == list(range(1, n_race + 1 + len(race_planner.PLANNER_SOURCES) + weather))
+    # So does the stored route behind the elevation profile, when the race
+    # doesn't already cite that RideWithGPS route.
+    import course_dossier
+    route = 1 if course_dossier.route_citation(rd, course_dossier.load_elevation(rd), 0)[1] else 0
+    assert [int(i) for i in items] == list(range(1, n_race + 1 + len(race_planner.PLANNER_SOURCES) + route + weather))
     for n in re.findall(r'class="gg-planner-cite" href="#gg-citation-(\d+)">\[(\d+)\]', section(html)):
         assert n[0] == n[1] and int(n[0]) in cfg["cite"].values()
     js = (PLANNER_JS / "gg-planner.js").read_text()

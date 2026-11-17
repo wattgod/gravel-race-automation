@@ -281,3 +281,27 @@ def test_estimator_converts_pounds_when_the_planner_reads_kilograms():
 def test_citation_links_open_the_collapsed_sources_on_phones(race_index):
     full = gnb.generate_page(_unbound(), race_index)
     assert ".gg-cd-track a, .gg-cd-cite')" in full
+
+
+def test_elevation_claims_cite_the_route_the_race_already_lists(unbound_html):
+    rd = _unbound()
+    n = next(i for i, c in enumerate(rd["citations"], 1) if "routes/46551378" in c["url"])
+    hero = unbound_html[unbound_html.index('class="gg-cd-hero'):unbound_html.index('class="gg-cd-fold')]
+    card = unbound_html[unbound_html.index('gg-cd-coursecard'):unbound_html.index('gg-cd-yours')]
+    course = unbound_html[unbound_html.index('id="course"'):]
+    marker = f'href="#gg-citation-{n}">[{n}]</a>'
+    assert marker in hero and marker in course[:course.index("</figcaption>") + 20]
+    assert "high point" + marker.replace('href=', '<a class="gg-cd-cite" href=', 1) in card
+
+
+def test_uncited_route_gets_its_own_numbered_source(race_index):
+    rd = _unbound()
+    rd["citations"] = [c for c in rd["citations"] if "ridewithgps" not in c["url"]]
+    html = _body(gnb.generate_page(rd, race_index))
+    n, item = cd.route_citation(rd, cd.load_elevation(rd), 99)
+    assert item and n == 99
+    numbers = [int(x) for x in re.findall(r'id="gg-citation-(\d+)"', html)]
+    assert numbers == list(range(1, len(numbers) + 1))
+    route_n = next(k for k in numbers if "ridewithgps.com/routes/46551378"
+                   in html[html.index(f'id="gg-citation-{k}"'):][:400])
+    assert f'href="#gg-citation-{route_n}">[{route_n}]</a>' in html

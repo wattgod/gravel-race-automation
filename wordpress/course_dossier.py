@@ -243,7 +243,7 @@ def _nice_step(total: float) -> float:
     return 2000
 
 
-def elevation_figure(elev: dict, marks: list[dict], variant: str) -> str:
+def elevation_figure(elev: dict, marks: list[dict], variant: str, cite_n: int | None = None) -> str:
     """Area profile in miles and feet; labels are HTML so they never stretch."""
     dist_mi = [d * 1000 / M_PER_MI for d in elev['distance_km']]
     ele_ft = [e * FT_PER_M for e in elev['elevation_m']]
@@ -291,7 +291,7 @@ def elevation_figure(elev: dict, marks: list[dict], variant: str) -> str:
   <div class="gg-cd-prof-marks" aria-hidden="true">{mark_labels}</div>
   <svg viewBox="0 0 {w:.0f} {h:.0f}" preserveAspectRatio="none" role="img" aria-label="{esc(label)}"><defs><linearGradient id="{gid}" x1="0" y1="0" x2="0" y2="1"><stop class="gg-cd-stop-a" offset="0"/><stop class="gg-cd-stop-b" offset="1"/></linearGradient></defs><path class="gg-cd-prof-area" d="{area}" fill="url(#{gid})"/><path class="gg-cd-prof-line" d="{line}" vector-effect="non-scaling-stroke"/>{lines}</svg>
   <div class="gg-cd-prof-ticks" aria-hidden="true">{tick_labels}</div>
-  <figcaption>Elevation {lo:,.0f}&ndash;{hi:,.0f} ft &middot; <a href="{esc(elev['source_url'])}" rel="noopener" target="_blank">{route}</a> on RideWithGPS</figcaption>
+  <figcaption>Elevation {lo:,.0f}&ndash;{hi:,.0f} ft &middot; <a href="{esc(elev['source_url'])}" rel="noopener" target="_blank">{route}</a> on RideWithGPS{_cite(cite_n)}</figcaption>
 </figure>'''
 
 
@@ -334,7 +334,8 @@ def _rank(rd: dict, race_index: list) -> tuple[int, int] | None:
 
 
 def build_hero(rd: dict, race_index: list, elev: dict | None, marks: list[dict],
-               rider_cell: str, rated_by: str, discipline_label: str = '') -> str:
+               rider_cell: str, rated_by: str, discipline_label: str = '',
+               route_cite: int | None = None) -> str:
     v = rd.get('vitals') or {}
     lab = [esc(rd.get('tier_label', '').title())]
     if discipline_label:
@@ -351,7 +352,7 @@ def build_hero(rd: dict, race_index: list, elev: dict | None, marks: list[dict],
     meta = 'OF 100'
     if rank:
         meta += f' &middot; #{rank[0]} OF {rank[1]}'
-    profile = elevation_figure(elev, marks, 'hero') if elev else ''
+    profile = elevation_figure(elev, marks, 'hero', route_cite) if elev else ''
     brk = rd.get('taking_a_break') or {}
     break_html = (f'<p class="gg-cd-break"><b>{esc(brk["label"])}</b> {esc(brk["line"])}</p>'
                   if brk.get('label') and brk.get('line') else '')
@@ -407,7 +408,8 @@ def build_why_card(rd: dict, dims_course: list, dims_editorial: list, labels: di
   </div>'''
 
 
-def build_course_card(rd: dict, geo: dict | None, elev: dict | None) -> str:
+def build_course_card(rd: dict, geo: dict | None, elev: dict | None,
+                      route_cite: int | None = None) -> str:
     v = rd.get('vitals') or {}
     facts = []
     if v.get('distance') and v['distance'] != '--':
@@ -415,10 +417,11 @@ def build_course_card(rd: dict, geo: dict | None, elev: dict | None) -> str:
     if v.get('elevation') and v['elevation'] != '--':
         facts.append((v['elevation'], 'climbing'))
     if elev and isinstance(elev.get('high_m'), (int, float)):
-        facts.append((f"{elev['high_m'] * FT_PER_M:,.0f} ft", 'high point'))
+        facts.append((f"{elev['high_m'] * FT_PER_M:,.0f} ft", 'high point', route_cite))
     if not facts and not geo:
         return ''
-    facts_html = ''.join(f'<div><b>{esc(val)}</b><small>{esc(lbl)}</small></div>' for val, lbl in facts)
+    facts_html = ''.join(f'<div><b>{esc(f[0])}</b><small>{esc(f[1])}{_cite(f[2] if len(f) > 2 else None)}</small></div>'
+                         for f in facts)
     map_html = route_map_svg(geo, 'mini') if geo else ''
     foot = []
     reg = str(v.get('registration') or '')
@@ -494,6 +497,32 @@ def build_route_bar(stops: list[tuple[str, str, str]], plan_label: str | None) -
   </div>
   {cta}
 </nav>'''
+
+
+def _cite(n: int | None) -> str:
+    return f'<a class="gg-cd-cite" href="#gg-citation-{n}">[{n}]</a>' if n else ''
+
+
+_ROUTE_ID = re.compile(r'ridewithgps\.com/routes/(\d+)')
+
+
+def route_citation(rd: dict, elev: dict | None, next_n: int) -> tuple[int | None, str]:
+    """The source number for the stored route's elevation: the race's own
+    citation of that RideWithGPS route when it has one, otherwise a new item
+    numbered ``next_n``. Returns (number, extra list item or '')."""
+    if not elev:
+        return None, ''
+    rid = str(elev.get('ridewithgps_id') or '')
+    for i, c in enumerate(rd.get('citations') or [], start=1):
+        m = _ROUTE_ID.search(str((c or {}).get('url') or ''))
+        if m and m.group(1) == rid:
+            return i, ''
+    url = elev['source_url']
+    item = (f'<li class="gg-citation-item" id="gg-citation-{next_n}"><span class="gg-citation-cat">Route Maps</span> '
+            f'<a href="{esc(url)}" target="_blank" rel="noopener noreferrer" class="gg-citation-link">'
+            f'RideWithGPS: {esc(elev.get("route_name") or "course route")}</a>'
+            f'<span class="gg-citation-url">{esc(url.split("://", 1)[1])}</span></li>')
+    return next_n, item
 
 
 WEATHER_SOURCE = ("Open-Meteo historical weather archive",
@@ -601,12 +630,13 @@ def build_ratings(rd: dict, dims_course: list, dims_editorial: list, labels: dic
   </section>'''
 
 
-def build_course_figure(rd: dict, geo: dict | None, elev: dict | None, marks: list[dict]) -> str:
+def build_course_figure(rd: dict, geo: dict | None, elev: dict | None, marks: list[dict],
+                        route_cite: int | None = None) -> str:
     """Map plus light elevation profile and the numbered marks, for the Course card."""
     if not geo and not elev:
         return ''
     fig_map = route_map_svg(geo, 'course') if geo else ''
-    fig_prof = elevation_figure(elev, marks, 'course') if elev else ''
+    fig_prof = elevation_figure(elev, marks, 'course', route_cite) if elev else ''
     marks_html = ''.join(
         f'<div><b>{m["mile"]:g}</b><strong>{esc(m["label"])}</strong> {esc(m["desc"])}</div>'
         for m in marks) if elev else ''

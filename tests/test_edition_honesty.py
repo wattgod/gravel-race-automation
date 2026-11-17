@@ -112,7 +112,7 @@ def test_estimated_edition_is_labelled_estimate(traka):
 
 def test_upcoming_confirmed_edition_shows_as_stored(traka):
     rd = normalize_race_data(_with(traka, date_specific="2027: May 1"))
-    assert rd["vitals"]["date"] == "May 1, 2027"
+    assert rd["vitals"]["date"] == "Sat, May 1, 2027"
     assert rd["vitals"]["edition_note"] == ""
 
 

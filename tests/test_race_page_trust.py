@@ -30,7 +30,8 @@ def test_latest_rail_drops_stale_rescore():
     rd = {"slug": "x", "name": "X", "rating": {"overall_score": 96}}
     stale = [{"date": "2026-10-01", "type": "rescored", "text": "Rescored 93 → 95"}]
     current = [{"date": "2026-10-01", "type": "rescored", "text": "Rescored 95 → 96"}]
-    assert gnb.build_latest_sidebar(rd, stale) == ""
+    stale_html = gnb.build_latest_sidebar(rd, stale)
+    assert "93 → 95" not in stale_html and "WATCH THIS RACE" in stale_html
     assert "95 → 96" in gnb.build_latest_sidebar(rd, current)
     plain = [{"date": "2026-10-01", "type": "rescored", "text": "Rescored"}]
     assert ">Rescored</span>" in gnb.build_latest_sidebar(rd, plain)
@@ -52,3 +53,14 @@ def test_generator_has_no_plan_totals():
     assert "data-plan-quote" not in src
     assert "build_plan_quote" not in src
     assert " in all'" not in src and "pricing.summary" not in src
+
+
+def test_news_never_in_toc_or_breakdown():
+    src = (ROOT / "wordpress" / "generate_neo_brutalist.py").read_text()
+    assert "active.add('news')" not in src
+
+
+def test_no_raw_date_fallback():
+    src = (ROOT / "wordpress" / "generate_neo_brutalist.py").read_text()
+    assert "short_date or vitals.get('date'" not in src
+    assert "short_date = vitals.get('date'" not in src

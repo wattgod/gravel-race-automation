@@ -980,8 +980,8 @@ def normalize_race_data(data: dict) -> dict:
     short_date = (public_date(date_specific, project=may_estimate(race),
                               status_label=break_label)
                   if date_specific else _status_label(break_label))
-    if not short_date and source_blocked:
-        short_date = vitals.get('date', '')
+    # No clean date means no date shown: never the raw vitals.date note, and
+    # never a source-blocked race's historical edition.
     # Past or estimated editions say so instead of passing as confirmed.
     edition_note = (edition_display(date_specific, project=may_estimate(race))
                     if date_specific else None)
@@ -1057,7 +1057,7 @@ def normalize_race_data(data: dict) -> dict:
             'course_status_reason': vitals.get('course_status_reason', ''),
             'location': vitals.get('location', '--'),
             'location_badge': vitals.get('location_badge', vitals.get('location', '--')),
-            'date': short_date or vitals.get('date', '--'),
+            'date': short_date or '--',
             'date_specific': date_specific,
             'edition_note': edition_note or '',
             'field_size': field_size_short,
@@ -2931,12 +2931,9 @@ def build_hero(rd: dict) -> str:
     location = vitals.get('location', '')
     if location:
         parts.append(esc(location))
-    month = vitals.get('month', '')
-    date_specific = vitals.get('date_specific', '')
+    # Only the normalized public date; no raw month or note as a stand-in.
     if vitals.get('date') and vitals['date'] != '--':
         parts.append(esc(vitals['date']))
-    elif month:
-        parts.append(esc(month))
     vitals_line = " &middot; ".join(parts)
 
     # Editorial verdict stays in the critic's register. It is intentionally
@@ -2968,9 +2965,13 @@ def build_hero(rd: dict) -> str:
         )
     else:
         # No number and no dash: a dash beside the Lab score reads as broken.
+        # Below the display threshold the count is still true, so say it.
+        n = rr.get('total_ratings') or 0
+        so_far = (f'{n} RATING{"S" if n != 1 else ""} SO FAR' if n > 0
+                  else 'NO RATINGS YET')
         rider_cell = (
             '<a class="gg-hero-score-label gg-hero-rider-ask gg-hero-rider-empty" href="#racer-reviews" data-cta="hero_rate_race">'
-            'RIDER SCORE &middot; NO RATINGS YET &middot; RATE IT &rarr;</a>'
+            f'RIDER SCORE &middot; {so_far} &middot; RATE IT &rarr;</a>'
         )
 
     # "Taking a break" strip — races kept in the catalog between editions
@@ -6157,7 +6158,7 @@ def build_latest_sidebar(rd: dict, events: list[dict] | None) -> str:
             f'{month}</time>{text_html}</li>'
         )
     if not items:
-        return ""
+        return f'<aside class="gg-latest gg-latest-empty" aria-label="Race updates">{watch}</aside>'
     return f'''<aside class="gg-latest" aria-labelledby="gg-latest-title">
     <h2 id="gg-latest-title">LATEST</h2>
     <ol>{"".join(items)}</ol>
@@ -7901,8 +7902,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         active.add('tires')
     if racer_reviews:
         active.add('racer-reviews')
-    if news:
-        active.add('news')
+    # News loads at runtime and may never appear (section starts hidden), so
+    # the TOC and breakdown never link to it.
     if train_for_race:
         active.add('train-for-race')
     if race_calculator:

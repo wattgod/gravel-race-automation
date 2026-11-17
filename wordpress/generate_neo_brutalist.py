@@ -61,6 +61,7 @@ from season import UPCOMING, _status_label, edition_display, edition_state, edit
 from season import today as season_today
 from generate_race_recap import has_results, newest_results_year
 from pickem import game_for_race
+import official_route
 
 sys.path.append(str(Path(__file__).resolve().parent.parent / "scripts"))
 from race_facts import edition_event_status, may_estimate, organizer_type  # noqa: E402
@@ -1095,6 +1096,8 @@ def normalize_race_data(data: dict) -> dict:
             'signature_challenge': course.get('signature_challenge', ''),
             'ridewithgps_id': course.get('ridewithgps_id'),
             'ridewithgps_name': course.get('ridewithgps_name', ''),
+            'ridewithgps_privacy_code': course.get('ridewithgps_privacy_code'),
+            'official_route': official_route.get_official_route(course),
             'map_url': course.get('map_url', ''),
             # Historical data has used both locations. Terrain is canonical;
             # course_description remains a compatibility fallback.
@@ -3084,6 +3087,51 @@ def _build_nearby_races(rd: dict, race_index: list) -> str:
       </div>'''
 
 
+def build_route_embed(rd: dict) -> str:
+    """The course map: a RideWithGPS embed, or the organizer's official route
+    published elsewhere (issue #670). Nothing when neither is on file."""
+    course = rd['course']
+    # Prefer explicit ridewithgps_id, else extract one from map_url.
+    rwgps_id = course.get('ridewithgps_id')
+    if not rwgps_id:
+        map_url = course.get('map_url', '') or ''
+        m = re.search(r'ridewithgps\.com/routes/(\d+)', map_url)
+        if m:
+            rwgps_id = m.group(1)
+    if rwgps_id:
+        src = official_route.rwgps_embed_url(
+            rwgps_id, course.get('ridewithgps_name', ''),
+            course.get('ridewithgps_privacy_code'))
+        return f'''<div class="gg-map-embed">
+        <iframe src="{esc(src)}" title="Course map for {esc(rd['name'])}" allowfullscreen loading="lazy"></iframe>
+      </div>'''
+
+    route = course.get('official_route')
+    if not route:
+        return ''
+    provider = official_route.provider_label(route)
+    route_name = route.get('name') or f"{rd['name']} course"
+    link = (f'<p class="gg-official-route-link">Official course: '
+            f'<a href="{esc(route["url"])}" target="_blank" rel="noopener nofollow">'
+            f'{esc(route_name)} ({esc(provider)}) &#x2197;</a> '
+            f'<span class="gg-official-route-source">linked from '
+            f'<a href="{esc(route["provenance_url"])}" target="_blank" rel="noopener nofollow">'
+            f'{esc(official_route.provenance_host(route))}</a></span></p>')
+    embed = official_route.strava_embed_url(route)
+    if embed:
+        visual = (f'<div class="gg-map-embed gg-map-embed--strava">'
+                  f'<iframe src="{esc(embed)}" title="Course map for {esc(rd["name"])}" '
+                  f'allowfullscreen loading="lazy"></iframe></div>')
+    else:
+        geometry = official_route.load_official_geometry(rd['slug'], route)
+        visual = (official_route.route_svg_html(geometry, rd['name'], provider)
+                  if geometry else '')
+    return f'''<div class="gg-official-route">
+        {visual}
+        {link}
+      </div>'''
+
+
 def build_course_overview(rd: dict, race_index: list = None) -> str:
     """Build [01] Course Overview section — tagline lead + map + stat cards."""
     v = rd['vitals']
@@ -3094,19 +3142,7 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
     if tagline:
         tagline_html = f'<p class="gg-overview-tagline">{esc(tagline)}</p>'
 
-    # Map embed — prefer explicit ridewithgps_id, fall back to extracting from map_url
-    map_html = ''
-    rwgps_id = rd['course'].get('ridewithgps_id')
-    if not rwgps_id:
-        map_url = rd['course'].get('map_url', '') or ''
-        m = re.search(r'ridewithgps\.com/routes/(\d+)', map_url)
-        if m:
-            rwgps_id = m.group(1)
-    rwgps_name = rd['course'].get('ridewithgps_name', '')
-    if rwgps_id:
-        map_html = f'''<div class="gg-map-embed">
-        <iframe src="https://ridewithgps.com/embeds?type=route&amp;id={esc(rwgps_id)}&amp;sampleGraph=true&amp;title={esc(rwgps_name)}" title="Course map for {esc(rd['name'])}" allowfullscreen loading="lazy"></iframe>
-      </div>'''
+    map_html = build_route_embed(rd)
 
     # Stat cards — (value, label, countable). Nothing counts up: a count-up
     # shows readers and screenshots numbers the race doesn't have.
@@ -7085,6 +7121,14 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 /* Map embed */
 .gg-neo-brutalist-page .gg-map-embed {{ border: var(--gg-border-subtle); margin-bottom: 16px; overflow: hidden; }}
 .gg-neo-brutalist-page .gg-map-embed iframe {{ width: 100%; height: 500px; border: none; display: block; }}
+.gg-neo-brutalist-page .gg-official-route {{ margin-bottom: 16px; }}
+.gg-neo-brutalist-page .gg-official-route .gg-map-embed {{ margin-bottom: 0; }}
+.gg-neo-brutalist-page .gg-official-route-map {{ background: var(--gg-color-near-black); margin: 0; overflow: hidden; max-height: 560px; width: 100%; }}
+.gg-neo-brutalist-page .gg-official-route-map__svg {{ width: 100%; height: 100%; display: block; }}
+.gg-neo-brutalist-page .gg-official-route-map__glow {{ fill: none; stroke: var(--gg-color-light-teal); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; opacity: 0.2; }}
+.gg-neo-brutalist-page .gg-official-route-map__line {{ fill: none; stroke: var(--gg-color-teal); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }}
+.gg-neo-brutalist-page .gg-official-route-link {{ font-family: var(--gg-font-data); font-size: var(--gg-font-size-2xs); letter-spacing: var(--gg-letter-spacing-wide); text-transform: uppercase; color: var(--gg-color-secondary-brown); padding: var(--gg-spacing-sm) var(--gg-spacing-md); background: var(--gg-color-warm-paper); border: var(--gg-border-subtle); border-top: none; margin: 0; overflow-wrap: anywhere; }}
+.gg-neo-brutalist-page .gg-official-route-link a {{ color: var(--gg-color-teal); text-decoration: underline; text-underline-offset: 2px; }}
 
 /* Prose — editorial font */
 .gg-neo-brutalist-page .gg-prose {{ max-width: 68ch; font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); line-height: var(--gg-line-height-prose); color: var(--gg-color-dark-brown); }}

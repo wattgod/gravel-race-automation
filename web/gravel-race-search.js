@@ -349,7 +349,7 @@
           ? '<p class="gg-popup-meta">' + raceDistances[race.slug].toLocaleString() + ' mi away</p>'
           : '') +
         (race.rwgps_id
-          ? '<p class="gg-popup-route"><a href="https://ridewithgps.com/routes/' + race.rwgps_id + '" target="_blank" rel="noopener">View Route &#x2197;</a></p>'
+          ? '<p class="gg-popup-route"><a href="https://ridewithgps.com/routes/' + encodeURIComponent(race.rwgps_id) + (race.rwgps_privacy_code ? '?privacy_code=' + encodeURIComponent(race.rwgps_privacy_code) : '') + '" target="_blank" rel="noopener">View Route &#x2197;</a></p>'
           : '') +
       '</div>';
       marker.bindPopup(popupHtml, { maxWidth: 280 });

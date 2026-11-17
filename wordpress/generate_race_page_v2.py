@@ -112,6 +112,10 @@ def build_route_map_v2(rd: dict) -> str:
     # The cache must also describe that same route: a profile whose id was
     # corrected after the cache was built would otherwise draw the old line.
     route_id = (rd.get("course") or {}).get("ridewithgps_id")
+    if not route_id and (rd.get("course") or {}).get("official_route"):
+        # build_course_overview already draws the organizer's official route
+        # (or links it); a "no verified route" box beside it would be false.
+        return ""
     geometry = load_route_geometry(rd["slug"]) if route_id else None
     if geometry and str(geometry.get("ridewithgps_id")) != str(route_id):
         geometry = None

@@ -27,6 +27,9 @@ from race_facts import (  # noqa: E402
 )
 from season import parse_edition  # noqa: E402
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
+import official_route  # noqa: E402
+
 
 RACE_DATA = Path(__file__).parent.parent / "race-data"
 FLAT_DB = Path(__file__).parent.parent / "db" / "gravel_races_full_database.json"
@@ -267,6 +270,9 @@ def build_index_entry_from_profile(slug: str, data: dict) -> dict:
     rwgps_id = course.get("ridewithgps_id")
     if rwgps_id and str(rwgps_id).strip() and str(rwgps_id).strip().lower() != "tbd":
         entry["rwgps_id"] = str(rwgps_id).strip()
+        privacy_code = official_route.valid_privacy_code(course.get("ridewithgps_privacy_code"))
+        if privacy_code:
+            entry["rwgps_privacy_code"] = privacy_code
 
     # Include racer rating fields if any ratings exist
     racer_rating = race.get("racer_rating", {})

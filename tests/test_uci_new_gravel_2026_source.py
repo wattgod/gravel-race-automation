@@ -73,6 +73,12 @@ def test_new_profiles_cite_only_their_official_race_or_series_sources() -> None:
         "pyrenees-catalanes-gravel-tour", "gravel-chile", "gravel-of-marathon",
     ):
         race = _race(slug)
-        assert all(citation["category"] == "official" for citation in race["citations"])
+        # The organizer-linked course route is cited as a "route" (#670).
+        route_url = race["course_description"].get("official_route", {}).get("url")
+        assert all(
+            citation["category"] == "official"
+            or (citation["category"] == "route" and citation["url"] == route_url)
+            for citation in race["citations"]
+        )
         assert all(citation["url"].startswith("https://") for citation in race["citations"])
         assert "Not published" in json.dumps(race["vitals"])

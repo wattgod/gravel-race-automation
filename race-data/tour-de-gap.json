@@ -146,7 +146,15 @@
       ],
       "signature_challenge": "The Callahan Divide hills, plus a 10:45 a.m. cutoff at the 100K's 40-mile checkpoint.",
       "ridewithgps_id": null,
-      "ridewithgps_name": null
+      "ridewithgps_name": null,
+      "official_route": {
+        "provider": "strava",
+        "url": "https://www.strava.com/routes/3232680125282404484",
+        "provenance_url": "https://tourdegap.com/2026/05/02/is-the-50k-or-100k-right-for-you/",
+        "name": "Tour de Gap 100K Route",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
+      }
     },
     "guide_variables": {
       "race_name": "Tour de Gap",
@@ -385,6 +393,16 @@
         "category": "official",
         "label": "Tour de Gap: \"Ride with us July 24, 2027\"",
         "accessed": "2026-11-06"
+      },
+      {
+        "url": "https://www.strava.com/routes/3232680125282404484",
+        "category": "route",
+        "label": "Strava: Tour de Gap 100K Route"
+      },
+      {
+        "url": "https://tourdegap.com/2026/05/02/is-the-50k-or-100k-right-for-you/",
+        "category": "official",
+        "label": "Organizer course page: Tour de Gap 100K Route"
       }
     ],
     "tire_recommendations": {

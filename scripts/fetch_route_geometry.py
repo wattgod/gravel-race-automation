@@ -25,19 +25,32 @@ Usage:
     python3 scripts/fetch_route_geometry.py --stats
 """
 
+from __future__ import annotations
+
 import argparse
+import io
 import json
 import math
+import re
 import sys
 import time
+import zipfile
+import xml.etree.ElementTree as ET
+import xml.parsers.expat
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "wordpress"))
+import official_route  # noqa: E402
+
 RACE_DATA = Path(__file__).resolve().parent.parent / "race-data"
 GEOMETRY_DIR = Path(__file__).resolve().parent.parent / "data" / "route-geometry"
 ROUTE_JSON_URL = "https://ridewithgps.com/routes/{id}.json"
+STRAVA_EMBED_URL = "https://strava-embeds.com/route/{id}"
+KOMOOT_COORDS_URL = "https://www.komoot.com/api/v007/tours/{id}/coordinates"
+MAX_DOWNLOAD_BYTES = 25 * 1024 * 1024
 RATE_LIMIT_SECONDS = 1.1  # matches fetch_rwgps_routes.py's courtesy rate limit
 REQUEST_TIMEOUT = 15
 USER_AGENT = "GravelGodRaceDB/1.0 (route geometry cache; contact gravelgodcoaching@gmail.com)"
@@ -59,8 +72,17 @@ def get_rwgps_id(race_json: dict) -> str | None:
     return None
 
 
-def fetch_route_json(route_id: str) -> dict | None:
+def get_rwgps_privacy_code(race_json: dict) -> str | None:
+    course = race_json.get("race", {}).get("course_description", {})
+    if isinstance(course, dict):
+        return official_route.valid_privacy_code(course.get("ridewithgps_privacy_code"))
+    return None
+
+
+def fetch_route_json(route_id: str, privacy_code: str | None = None) -> dict | None:
     url = ROUTE_JSON_URL.format(id=route_id)
+    if privacy_code:
+        url += f"?privacy_code={privacy_code}"
     req = urllib.request.Request(url, headers={
         "User-Agent": USER_AGENT,
         "Accept": "application/json",
@@ -95,6 +117,22 @@ def downsample(points: list[dict], target: int) -> list[dict]:
         i += stride
     if out[-1] is not points[-1]:
         out.append(points[-1])
+    return out
+
+
+def downsample_segments(points: list[dict], target: int) -> list[dict]:
+    """Downsample each segment in proportion to its size, keeping its ends."""
+    segments: list[list[dict]] = []
+    for p in points:
+        if not segments or segments[-1][-1].get("seg", 0) != p.get("seg", 0):
+            segments.append([])
+        segments[-1].append(p)
+    out = []
+    for seg in segments:
+        if len(seg) < 2:
+            continue
+        share = max(2, round(target * len(seg) / len(points)))
+        out.extend(downsample(seg, share))
     return out
 
 
@@ -146,8 +184,15 @@ def project_to_viewbox(points: list[dict]) -> dict | None:
         sy = offset_y + (y - min_y) * scale
         return round(sx, 1), round(sy, 1)
 
-    coords = [to_svg(x, y) for x, y in zip(xs, ys)]
-    path_d = "M" + "L".join(f"{x} {y}" for x, y in coords)
+    valid = [p for p in points if "x" in p and "y" in p]
+    parts = []
+    prev_seg = None
+    for p, x, y in zip(valid, xs, ys):
+        sx, sy = to_svg(x, y)
+        seg = p.get("seg", 0)
+        parts.append(f"{'M' if seg != prev_seg else 'L'}{sx} {sy}")
+        prev_seg = seg
+    path_d = "".join(parts)
 
     return {
         "viewbox": f"0 0 {vb_w} {vb_h}",
@@ -155,7 +200,8 @@ def project_to_viewbox(points: list[dict]) -> dict | None:
     }
 
 
-def build_geometry_record(slug: str, route_id: str, route_json: dict) -> dict | None:
+def build_geometry_record(slug: str, route_id: str, route_json: dict,
+                          privacy_code: str | None = None) -> dict | None:
     route = route_json.get("route", route_json)
     track_points = route.get("track_points") or []
     if len(track_points) < 2:
@@ -175,7 +221,7 @@ def build_geometry_record(slug: str, route_id: str, route_json: dict) -> dict | 
         "slug": slug,
         "ridewithgps_id": route_id,
         "route_name": route.get("name", ""),
-        "source_url": f"https://ridewithgps.com/routes/{route_id}",
+        "source_url": official_route.rwgps_route_url(route_id, privacy_code),
         "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "point_count": len(track_points),
         "sampled_count": len(sampled),
@@ -190,7 +236,12 @@ def process_race(filepath: Path, dry_run: bool, force: bool) -> str:
     race_json = json.load(open(filepath, encoding="utf-8"))
     rwgps_id = get_rwgps_id(race_json)
     if not rwgps_id:
+        route = official_route.get_official_route(
+            race_json.get("race", {}).get("course_description"))
+        if route:
+            return process_official_route(slug, route, dry_run, force)
         return "no_id"
+    privacy_code = get_rwgps_privacy_code(race_json)
 
     out_path = GEOMETRY_DIR / f"{slug}.json"
     if out_path.exists() and not force:
@@ -199,14 +250,17 @@ def process_race(filepath: Path, dry_run: bool, force: bool) -> str:
             return "cached"
 
     print(f"{slug}: fetching route {rwgps_id}...")
-    route_json = fetch_route_json(rwgps_id)
+    route_json = fetch_route_json(rwgps_id, privacy_code)
     if not route_json:
         return "fetch_failed"
 
-    record = build_geometry_record(slug, rwgps_id, route_json)
+    record = build_geometry_record(slug, rwgps_id, route_json, privacy_code)
     if not record:
         return "no_geometry"
+    return write_record(out_path, record, dry_run)
 
+
+def write_record(out_path: Path, record: dict, dry_run: bool) -> str:
     if dry_run:
         print(f"  [DRY RUN] Would write {out_path} "
               f"({record['sampled_count']} pts, viewBox {record['viewbox']})")
@@ -217,6 +271,252 @@ def process_race(filepath: Path, dry_run: bool, force: bool) -> str:
             f.write("\n")
         print(f"  Wrote {out_path} ({record['sampled_count']} pts, viewBox {record['viewbox']})")
     return "ok"
+
+
+# ── Official routes published off RideWithGPS (issue #670) ──────────────
+
+def _download(url: str) -> bytes | None:
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    try:
+        with urllib.request.urlopen(req, timeout=REQUEST_TIMEOUT * 2) as resp:
+            data = resp.read(MAX_DOWNLOAD_BYTES + 1)
+    except (urllib.error.URLError, OSError) as e:
+        print(f"  download failed for {url}: {e}")
+        return None
+    if len(data) > MAX_DOWNLOAD_BYTES:
+        print(f"  {url} is larger than {MAX_DOWNLOAD_BYTES} bytes, skipping")
+        return None
+    return data
+
+
+def _refuse_dtd(*_args):
+    raise ValueError("XML with a DTD or entity declaration is not accepted")
+
+
+def _parse_xml(data: bytes):
+    """Parse an untrusted route file, refusing any DTD or entity declaration.
+
+    The refusal sits in the expat parser itself, so it holds whatever the
+    file's encoding (a UTF-16 file hides its DTD from a byte search)."""
+    scan = xml.parsers.expat.ParserCreate()
+    scan.StartDoctypeDeclHandler = _refuse_dtd
+    scan.EntityDeclHandler = _refuse_dtd
+    scan.Parse(data, True)
+    return ET.fromstring(data)
+
+
+def points_from_gpx(data: bytes) -> list[dict]:
+    """Track points (else route points) from a GPX file, as {x: lon, y: lat}."""
+    root = _parse_xml(data)
+    pts = []
+    for container, tag in (("trkseg", "trkpt"), ("rte", "rtept")):
+        for seg, parent in enumerate(
+                el for el in root.iter() if el.tag.rsplit("}", 1)[-1] == container):
+            for el in parent:
+                if el.tag.rsplit("}", 1)[-1] != tag:
+                    continue
+                try:
+                    pts.append({"x": float(el.attrib["lon"]), "y": float(el.attrib["lat"]),
+                                "seg": seg})
+                except (KeyError, ValueError):
+                    continue
+        if pts:
+            break
+    return pts
+
+
+def _local(tag: str) -> str:
+    return tag.rsplit("}", 1)[-1]
+
+
+def _skipped_line_strings(root, exclude: str | None) -> set:
+    """LineStrings inside Placemarks whose name matches ``exclude`` — e.g. an
+    organizer file that carries optional bypasses beside the main route."""
+    if not exclude:
+        return set()
+    pattern = re.compile(exclude)
+    skipped = set()
+    for pm in root.iter():
+        if _local(pm.tag) != "Placemark":
+            continue
+        name = next((c.text or "" for c in pm if _local(c.tag) == "name"), "")
+        if pattern.search(name):
+            skipped.update(el for el in pm.iter() if _local(el.tag) == "LineString")
+    return skipped
+
+
+def points_from_kml(data: bytes, exclude: str | None = None) -> list[dict]:
+    """Coordinates of every LineString in a KML document, in order."""
+    root = _parse_xml(data)
+    skipped = _skipped_line_strings(root, exclude)
+    pts = []
+    seg = -1
+    for el in root.iter():
+        if _local(el.tag) == "LineString" and el not in skipped:
+            seg += 1
+            for child in el:
+                if child.tag.rsplit("}", 1)[-1] == "coordinates" and child.text:
+                    for triple in child.text.split():
+                        parts = triple.split(",")
+                        if len(parts) >= 2:
+                            try:
+                                pts.append({"x": float(parts[0]), "y": float(parts[1]), "seg": seg})
+                            except ValueError:
+                                continue
+    return pts
+
+
+def points_from_archive(data: bytes, exclude: str | None = None) -> list[dict]:
+    """A KMZ/ZIP holding exactly one GPX or KML route file."""
+    with zipfile.ZipFile(io.BytesIO(data)) as zf:
+        names = [n for n in zf.namelist()
+                 if not n.startswith("__MACOSX/") and n.lower().endswith((".gpx", ".kml"))]
+        if len(names) != 1:
+            print(f"  archive holds {len(names)} route files, expected exactly one")
+            return []
+        info = zf.getinfo(names[0])
+        if info.file_size > MAX_DOWNLOAD_BYTES:
+            return []
+        inner = zf.read(names[0])
+    return points_from_gpx(inner) if names[0].lower().endswith(".gpx") else points_from_kml(inner, exclude)
+
+
+def decode_polyline(encoded: str) -> list[dict]:
+    """Google encoded polyline -> [{x: lon, y: lat}]."""
+    pts, index, lat, lng = [], 0, 0, 0
+    while index < len(encoded):
+        for which in (0, 1):
+            shift = result = 0
+            while True:
+                if index >= len(encoded):
+                    raise ValueError("truncated polyline")
+                b = ord(encoded[index]) - 63
+                index += 1
+                result |= (b & 0x1F) << shift
+                shift += 5
+                if b < 0x20:
+                    break
+            delta = ~(result >> 1) if result & 1 else result >> 1
+            if which == 0:
+                lat += delta
+            else:
+                lng += delta
+        pts.append({"x": lng / 1e5, "y": lat / 1e5})
+    return pts
+
+
+_ROUTE_DATA = re.compile(
+    r'<script id="__ROUTE_DATA__" type="application/json">(.*?)</script>', re.S)
+
+
+def points_from_strava_embed(html_text: str) -> list[dict]:
+    """The route line from Strava's public route embed for that route."""
+    m = _ROUTE_DATA.search(html_text)
+    if not m:
+        return []
+    data = json.loads(m.group(1))
+    pts = []
+    for leg in data.get("legs") or []:
+        for path in leg.get("paths") or []:
+            poly = path.get("polyline") or {}
+            if poly.get("encoding") == "Google" and poly.get("data"):
+                pts.extend(decode_polyline(poly["data"]))
+    # Strava splits one continuous route into legs; consecutive legs share
+    # their join point, so they stay a single segment.
+    return pts
+
+
+def official_route_points(route: dict) -> list[dict] | None:
+    provider = route["provider"]
+    url = route["url"]
+    if provider == "strava":
+        rid = official_route.strava_route_id(url)
+        data = _download(STRAVA_EMBED_URL.format(id=rid)) if rid else None
+        return points_from_strava_embed(data.decode("utf-8", "replace")) if data else None
+    if provider == "komoot":
+        tid = official_route.komoot_tour_id(url)
+        data = _download(KOMOOT_COORDS_URL.format(id=tid)) if tid else None
+        if not data:
+            return None
+        items = json.loads(data).get("items") or []
+        return [{"x": p["lng"], "y": p["lat"]} for p in items if "lng" in p and "lat" in p]
+    if provider in ("gpx", "kmz"):
+        data = _download(route.get("download_url") or url)
+        if not data:
+            return None
+        exclude = route.get("exclude_placemarks")
+        if data[:2] == b"PK":
+            return points_from_archive(data, exclude)
+        head = data[:2048].lower()
+        if b"<gpx" in head:
+            return points_from_gpx(data)
+        if b"<kml" in head:
+            return points_from_kml(data, exclude)
+        print(f"  {url} is neither GPX, KML nor an archive")
+        return []
+    return None
+
+
+def track_distance_km(points: list[dict]) -> float:
+    total = 0.0
+    for a, b in zip(points, points[1:]):
+        if a.get("seg", 0) != b.get("seg", 0):
+            continue
+        p1, p2 = math.radians(a["y"]), math.radians(b["y"])
+        dphi = p2 - p1
+        dl = math.radians(b["x"] - a["x"])
+        h = math.sin(dphi / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
+        total += 2 * 6371.0088 * math.asin(math.sqrt(h))
+    return total
+
+
+def build_official_record(slug: str, route: dict, points: list[dict]) -> dict | None:
+    if len(points) < 2:
+        return None
+    sampled = downsample_segments(points, TARGET_POINTS)
+    projected = project_to_viewbox(sampled)
+    if not projected:
+        return None
+    return {
+        "slug": slug,
+        "official_route_url": route["url"],
+        "geometry_inputs": official_route.geometry_inputs(route),
+        "provider": route["provider"],
+        "provenance_url": route["provenance_url"],
+        "route_name": route.get("name", ""),
+        "source_url": route["url"],
+        "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "point_count": len(points),
+        "sampled_count": len(sampled),
+        "distance_mi_from_geometry": round(track_distance_km(points) / 1.609344, 1),
+        "viewbox": projected["viewbox"],
+        "path_d": projected["path_d"],
+    }
+
+
+def process_official_route(slug: str, route: dict, dry_run: bool, force: bool) -> str:
+    if route["provider"] not in official_route.GEOMETRY_PROVIDERS:
+        return "no_id"
+    out_path = GEOMETRY_DIR / f"{slug}.json"
+    if out_path.exists() and not force:
+        existing = json.load(open(out_path, encoding="utf-8"))
+        if existing.get("geometry_inputs") == official_route.geometry_inputs(route):
+            return "cached"
+    print(f"{slug}: fetching official {route['provider']} route {route['url']}...")
+    try:
+        points = official_route_points(route)
+        record = build_official_record(slug, route, points) if points is not None else None
+    except (ValueError, KeyError, TypeError, AttributeError, IndexError,
+            ET.ParseError, xml.parsers.expat.ExpatError, zipfile.BadZipFile) as e:
+        # One bad organizer file must not stop the refresh of every other race.
+        print(f"  {slug}: could not read route: {e}")
+        return "no_geometry"
+    if points is None:
+        return "fetch_failed"
+    if not record:
+        print(f"  {slug}: route has no usable geometry, skipping")
+        return "no_geometry"
+    return write_record(out_path, record, dry_run)
 
 
 def run_stats():

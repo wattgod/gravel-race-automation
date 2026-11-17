@@ -116,7 +116,6 @@
     "status": "active",
     "lat": 51.18,
     "lng": -115.57,
-    "rwgps_id": "53936176",
     "st": "The Tour Divide is a self-supported off-road race from Banff, Alberta to Antelope Wells, New Mexico. Current record stands at 13 days 2 hours. Riders face significant wildlife including bears, mountain lions, grizzly bears, elk, moose, deer, coyotes, antelope, and wild horses. Wildlife encounters require constant vigilance with bears being the primary concern. Wildfire closures are increasingly common due to climate change, forcing major reroutes like the Hay Creek Fire near Whitefish Montana that blocked Red Meadow Lake Road. Smoke conditions can severely impact breathing, especially for riders with asthma. The terrain starts in remote British Columbia with familiar conditions for locals. Essential gear includes rain trousers, and riders choose between fully rigid or full suspension setups. Record attempts require riding 200 miles daily for 14 days with minimal sleep. The route covers diverse terrain from Canadian mountains to southwestern desert, with riders experiencing dramatic transitions from wilderness to civilization.",
     "thumb": "/race-photos/tour-divide/tour-divide-video-1.jpg"
   },
@@ -401,7 +400,6 @@
     "status": "active",
     "lat": 39.2508,
     "lng": -106.2925,
-    "rwgps_id": "3227417",
     "series_id": "life-time-grand-prix",
     "series_name": "Life Time Grand Prix",
     "st": "The Leadville Trail 100 MTB is a 100-mile dirt road race done on mountain bikes at extreme altitude, ranging from 10,000 to 12,000 feet elevation with roughly 12,000 feet of climbing. The notorious Coline climb peaks at 12,500 feet and represents the race's signature challenge. Riders describe the terrain as more dirt roads than traditional mountain biking. The altitude creates massive power drops and requires different approaches to acclimatization, pacing, and nutrition compared to sea level racing. Starting in 1994, this 30th anniversary edition maintains its reputation as one of the most prestigious cross-country mountain bike events globally. Riders emphasize the need to commit fully to race decisions from the start, as the unforgiving nature means you must live with your choices. The race attracts bold people willing to put everything on the line and risk failure. Those completing the course under 12 hours receive coveted gold and silver belt buckles, representing one of cycling's most iconic achievements in the Colorado high peaks.",
@@ -497,8 +495,8 @@
     "region": "South",
     "month": "October",
     "year": 2027,
-    "distance_mi": 99.6,
-    "elevation_ft": 6200,
+    "distance_mi": 101.8,
+    "elevation_ft": 6400,
     "tier": 1,
     "overall_score": 86,
     "scores": {
@@ -527,7 +525,7 @@
     "status": "active",
     "lat": 36.3729,
     "lng": -94.2088,
-    "rwgps_id": "52306059",
+    "rwgps_id": "55885093",
     "series_id": "life-time-grand-prix",
     "series_name": "Life Time Grand Prix",
     "st": "Big Sugar Gravel in Bentonville, Arkansas is known for its challenging terrain featuring category 2-3 gravel with particularly sharp rocks that frequently cause flat tires. The course typically covers 100 miles with roughly 6,200 feet of elevation gain (varies by year and route), though weather conditions can force race organizers to shorten it to 50 miles for safety. The shorter course is notably smoother than the full 100-mile route. Pros recommend endurance-oriented tire casings to handle the sharp rock sections. The race serves as the finale of the Lifetime Grand Prix series, attracting 2,500 riders and featuring $300,000 in prize money. Weather conditions including rain and potential severe storms significantly impact race day decisions. The course is described as punchy with climbs where competitors attack frequently. Nutritionally, top riders consume up to 150g of carbs per hour to maintain energy levels throughout the demanding course.",
@@ -1025,8 +1023,8 @@
     "region": "South",
     "month": "April",
     "year": 2026,
-    "distance_mi": 30,
-    "elevation_ft": 3500,
+    "distance_mi": 32.5,
+    "elevation_ft": 2800,
     "tier": 1,
     "overall_score": 77,
     "scores": {
@@ -1054,7 +1052,7 @@
     "status": "active",
     "lat": 36.3729,
     "lng": -94.2088,
-    "rwgps_id": "53139731",
+    "rwgps_id": "56269717",
     "series_id": "life-time-grand-prix",
     "series_name": "Life Time Grand Prix",
     "st": "Little Sugar MTB in Bentonville, Arkansas is described as the most technical race on the Lifetime Grand Prix calendar. The 30-mile course features 3500 feet of climbing in a saw tooth profile with constant ups and downs. Key challenges include Technical Difficulty with steep technical switchbacks, and The Ledges - a narrow section high above ravines where riders expect the most carnage. The course starts at Coler Mountain Bike Park, heads through Down Under loop, Tunnel Vision for 12 miles of single track, then Technical Difficulty before descending to Windsor Dam crossing and the only aid station at mile 30. The second half climbs through Back 40 to The Ledges, then Mighty Pine Trail to the Bentonville finish. Riders emphasize this is a proper mountain bike race requiring full suspension bikes, technical cornering skills, and durable tires due to Bentonville's reputation for being hard on equipment.",
@@ -1767,6 +1765,7 @@
     "status": "active",
     "lat": 37.133,
     "lng": -113.6541,
+    "rwgps_id": "42244960",
     "st": "The Lauf True Grit Gravel Epic is an 84-mile, 9000-foot elevation gain race through Santa Clara, Utah's challenging terrain. The course travels through the Beaver Dam Wash National Conservation Area, featuring technical sections so difficult that finishing is considered an accomplishment. Key challenges include the technical descent to Zen where races can be won or lost, deep river crossings that catch riders off guard, and terrain accessible only by bike. Weather can transform the course into muddy, cyclocross-like conditions with hypothermia risks, tons of puddles, and cold descents followed by hopeful road sections. Riders recommend carrying tubes for common flats, considering larger 235mm tires for better traction, and preparing for extreme weather. The race combines competitive racing with family-friendly atmosphere, taking place annually in March through some of Utah's most beautiful and remote scenery.",
     "thumb": "/race-photos/lauf-true-grit/lauf-true-grit-video-1.jpg"
   },
@@ -2243,7 +2242,8 @@
     "has_tire_guide": true,
     "status": "active",
     "lat": 60.983,
-    "lng": 25.655
+    "lng": 25.655,
+    "rwgps_id": "53532865"
   },
   {
     "name": "Giro Sardegna Gravel",
@@ -2436,7 +2436,8 @@
     "has_tire_guide": true,
     "status": "active",
     "lat": 39.15017,
-    "lng": -123.20778
+    "lng": -123.20778,
+    "rwgps_id": "53729982"
   },
   {
     "name": "Race Around Rwanda",
@@ -2472,7 +2473,8 @@
     "profile_url": "/race/race-around-rwanda/",
     "discipline": "bikepacking",
     "has_tire_guide": false,
-    "status": "active"
+    "status": "active",
+    "rwgps_id": "53709689"
   },
   {
     "name": "Southern Cross Gravel",
@@ -2627,7 +2629,8 @@
     "has_tire_guide": true,
     "status": "active",
     "lat": 39.15017,
-    "lng": -123.20778
+    "lng": -123.20778,
+    "rwgps_id": "45723133"
   },
   {
     "name": "Vermont Overland",
@@ -2900,6 +2903,7 @@
     "status": "active",
     "lat": 39.931,
     "lng": -120.9536,
+    "rwgps_id": "53291723",
     "series_id": "grinduro",
     "series_name": "Grinduro",
     "st": "Grinduro California features four distinct timed segments that challenge any bike choice: a road time trial, gravel descent, gravel climb, and single track section around Lake Siskiyou. Riders report the course is notoriously dusty with challenging conditions including 90-degree temperatures. At 30 miles riders hit 3000 feet of elevation gain halfway through. The dirt descent segment is described as longer than expected and tiring. The road time trial segment is particularly dreaded, with riders struggling to maintain pace lines in the heat. The event provides full support with breakfast, lunch, dinner, bike support, and aid stations with food and drinks, though navigation can be confusing. Single track sections around Lake Siskiyou offer perfect trail conditions. Riders emphasize pacing strategy to avoid depletion before final segments.",
@@ -2939,7 +2943,8 @@
     "profile_url": "/race/nordsjorittet/",
     "discipline": "gravel",
     "has_tire_guide": true,
-    "status": "active"
+    "status": "active",
+    "rwgps_id": "53719160"
   },
   {
     "name": "Paris to Ancaster",
@@ -3209,6 +3214,7 @@
     "status": "active",
     "lat": 37.1694,
     "lng": -104.5005,
+    "rwgps_id": "51731077",
     "series_id": "life-time-grand-prix",
     "series_name": "Life Time Grand Prix",
     "st": "The Rad Dirt Fest in Trinidad, Colorado features 113 miles with over 10,000 feet of elevation gain. Riders describe fast gravel conditions suitable for slick tires or narrow 38mm options. The course includes varied terrain from smooth pavement to rough two-track with rocks, sand, and mud sections. Key challenges include an early choke point at mile 3.8 where only single riders can pass between fences, creating aggressive positioning battles. The route heads through Trinidad Lake State Park's rowdy Jeep tracks, then climbs gradually at 4-6% grades that are draftable, topping out at 9000 feet around mile 65. A steep paved climb hits riders at 10 miles out and again with 10 miles to go. Descents are mostly smooth but have surprise sharp corners requiring attention. The 9am start time provides better logistics than typical 4am race starts. Roads remain open to traffic requiring riders to stay right on blind corners.",
@@ -3250,6 +3256,7 @@
     "status": "active",
     "lat": 33.72,
     "lng": -111.6727,
+    "rwgps_id": "54018255",
     "series_id": "belgian-waffle-ride",
     "series_name": "Belgian Waffle Ride",
     "thumb": "/race-photos/bwr-arizona/bwr-arizona-video-1.jpg"
@@ -3643,7 +3650,8 @@
     "has_tire_guide": true,
     "status": "active",
     "lat": 25.445,
-    "lng": -100.846
+    "lng": -100.846,
+    "rwgps_id": "53501151"
   },
   {
     "name": "Jackson Forest Grasshopper",
@@ -4028,6 +4036,7 @@
     "status": "active",
     "lat": 31.97085,
     "lng": -6.75165,
+    "rwgps_id": "55605184",
     "st": "The 2027 Atlas Mountain Race starts in Ouzoud on March 13 and runs to Essaouira on a fixed, unsupported 1,331-kilometer route with 24,688 meters of climbing. Riders cross the Atlas and Anti-Atlas on gravel, singletrack, doubletrack, and broken colonial pistes with very little tarmac. The clock runs continuously through an eight-day race window. The route climbs immediately toward the Cathedral of Imsfrane and the high plateau of Toujodine, with the first major resupply at Tabant around 180 kilometers. Long gaps between commercial resupply, mandatory walking, navigation, sleep, equipment, and self-repair decisions define the race.",
     "thumb": "/race-photos/atlas-mountain-race/atlas-mountain-race-video-1.jpg"
   },
@@ -4300,6 +4309,7 @@
     "status": "active",
     "lat": 43.828,
     "lng": -91.304,
+    "rwgps_id": "56274042",
     "st": "USA Cycling Gravel Nationals moved from Nebraska to La Crescent, Minnesota in the driftless region. The 110-mile course features 7,500 feet of elevation gain with nine distinct climbs roughly one mile long and 500 feet high. All courses finish on the chicken ridge gravel climb through an apple orchard, ending with a final one-mile climb averaging 8 percent grade. The terrain features bluffs with flat ridges and 400-500 foot descents into valleys. Riders emphasize pre-riding is essential due to limited visibility, tight turns, and technical descents. The gravel surface is typically good unless freshly graded. The course is described as windy, tight, and hilly like a mountain bike race. Racing starts at 7 AM on Main Street during Apple Fest weekend, drawing 766 riders competing for national championship jerseys across three distance options.",
     "thumb": "/race-photos/usa-cycling-gravel-nationals/usa-cycling-gravel-nationals-video-1.jpg"
   },
@@ -4608,6 +4618,7 @@
     "status": "active",
     "lat": 49.7955,
     "lng": 5.067,
+    "rwgps_id": "56996252",
     "series_id": "the-traka-world-series",
     "series_name": "The Traka World Series"
   },
@@ -4762,6 +4773,7 @@
     "status": "active",
     "lat": 39.6469,
     "lng": -106.9517,
+    "rwgps_id": "52734716",
     "st": "Bighorn Gravel in Gypsum, Colorado is a challenging 85-mile race with 10,000 feet of elevation gain that tests riders at altitude from 6,300 to 11,000 feet. The course features a brutal first climb where many riders lose contact with the field, followed by rolling terrain along creek valleys with pitches that go up and level out repeatedly. Technical sections include swoopy bermed single track and a challenging two-mile downhill. Terrain varies from county roads to rugged Jeep roads that can be rotted out with ruts from weather damage. The elevation significantly impacts power output and recovery, requiring careful pacing strategies. Some sections near the summit are too steep to ride, forcing walking. The race attracts strong competition including Leadville preparation riders, and offers on-site camping with a Sunday morning start schedule.",
     "thumb": "/race-photos/bighorn-gravel/bighorn-gravel-video-1.jpg"
   },
@@ -4837,7 +4849,8 @@
     "has_tire_guide": true,
     "status": "active",
     "lat": 49.8625,
-    "lng": -119.5836
+    "lng": -119.5836,
+    "rwgps_id": "55782704"
   },
   {
     "name": "Truckee Tahoe Gravel",
@@ -5695,7 +5708,8 @@
     "status": "inactive",
     "status_label": "NOT ON THE 2026 CALENDAR",
     "lat": 49.1639,
-    "lng": -123.9381
+    "lng": -123.9381,
+    "rwgps_id": "57411009"
   },
   {
     "name": "Reliance Tennessee Gravel",
@@ -5733,6 +5747,7 @@
     "status": "active",
     "lat": 35.187,
     "lng": -84.4991,
+    "rwgps_id": "56181185",
     "st": "The Reliance Tennessee gravel race features challenging terrain including dangerous bridge sections where crashes resulting in concussions and shoulder injuries have occurred. The course includes sustained climbs with 7% grades where riders slow to 7 miles per hour. Surface conditions can be hazardous, particularly tar sections that become slick when wet. The Web Brothers store serves as a key landmark and appears to be the only store in the area, making it an important logistical point. Riders are using Continental tubeless tires in 28mm widths for the varied terrain. The scenic route passes through beautiful areas that are popular with motorcycles and connects to areas like Cage Cove. The challenging nature of the course requires careful attention to technical descents and sustained climbing efforts.",
     "thumb": "/race-photos/reliance-tennessee-gravel/reliance-tennessee-gravel-video-1.jpg"
   },
@@ -6162,6 +6177,7 @@
     "status": "active",
     "lat": 45.2943,
     "lng": -123.1765,
+    "rwgps_id": "49314729",
     "st": "Sasquatch Duro features wet Oregon fire roads with significant elevation changes and sheltered, tree-covered sections that make it difficult to judge gaps between riders. The course has a high point at 4,400 feet and includes strategic climbs early in the race for breaking up groups. A key feature is the Sasquatch Monster Split at mile 31, described by race promoters as where the race gets interesting. The terrain allows for fast riding on fire roads with Kenda Alluvium Pro 35mm tires proving effective. The final downhill section enables rapid passing of other riders. Race conditions often include Oregon rain, adding to the challenge. With 260 riders registered, the event draws significant participation. The course rewards tactical climbing and gap management skills due to limited visibility between competitors.",
     "thumb": "/race-photos/sasquatch-duro/sasquatch-duro-video-1.jpg"
   },
@@ -6436,6 +6452,8 @@
     "status": "active",
     "lat": -43.5866,
     "lng": 171.2123,
+    "rwgps_id": "53423216",
+    "rwgps_privacy_code": "NBrzGobsZehF7eV3l72IDRzvcswn5VvS",
     "st": "Edition Zero takes place in Waimate, South Island New Zealand, about 20 minutes from Timaru. The 140k entree distance takes around 6 hours. Key challenges include deep gravel sections starting around 6k that cause crashes, and a unique velodrome finish requiring two laps around the historic 1891 Waimate velodrome. The terrain features long straight roads with rolling hills, varying from thick to thin gravel where riders constantly search for smooth lines. The relentless straight sections and rough surface cause significant back fatigue without suspension. Riders report being able to pass others who slow down after the turnaround point, suggesting conservative pacing is effective. Hydration planning is critical with riders finishing water supplies at the halfway point. The event is praised for strong organization and community focus.",
     "thumb": "/race-photos/edition-zero/edition-zero-video-1.jpg"
   },
@@ -6713,6 +6731,7 @@
     "status": "active",
     "lat": 55.0013,
     "lng": -115.0021,
+    "rwgps_id": "55095902",
     "st": "The Range rustler is an 86km gravel race in Alberta featuring mostly public gravel roads in perfect condition with quiet traffic. Key features include a decision junction where riders choose between 60km Rodeo or full rustler distance, and exclusive access to Burke Creek Ranch via private road with fast downhill section. Race starts at 8am in 20C temperatures before afternoon heat reaches mid-30s. Course has one aid station at turnaround point. Terrain feels ancient and fossil-rich through Alberta coulees. Early pace goes really fast requiring pack riding skills. Riders should come self-sufficient with food and water and plan around hot afternoon conditions.",
     "thumb": "/race-photos/the-range/the-range-video-1.jpg"
   },
@@ -6829,7 +6848,8 @@
     "status": "inactive",
     "status_label": "NO 2026 EDITION",
     "lat": 45.2886,
-    "lng": -74.8555
+    "lng": -74.8555,
+    "rwgps_id": "51993288"
   },
   {
     "name": "Grinduro Italy",
@@ -7106,7 +7126,8 @@
     "has_tire_guide": true,
     "status": "active",
     "lat": 38.6709,
-    "lng": -79.4912
+    "lng": -79.4912,
+    "rwgps_id": "47595782"
   },
   {
     "name": "Hot Springs Gravel Gauntlet",
@@ -7184,6 +7205,7 @@
     "status": "active",
     "lat": 41.2444,
     "lng": -77.0186,
+    "rwgps_id": "31304897",
     "st": "Iron Cross in Pennsylvania is a 56-mile gravel race with significant elevation and technical challenges. The course features mixed terrain including road, gravel, soft pack, and technical single track sections. Multiple hike-a-bike sections with steep rocky climbs are a defining feature, with some climbs feeling twice as long as they actually are. Riders report needing granny gears for extended climbing sections, though single speed completion is possible. The constant elevation changes mean no drafting or pack riding - success depends entirely on individual fitness. Technical rock features require bike handling skills. The terrain switches frequently, mixing riders of different abilities throughout the race. Despite the difficulty, riders praise the supportive community atmosphere and beautiful fall scenery in Central Pennsylvania. Many first-time participants find it challenging enough that they don't return, though repeat racers appreciate both the tough reputation and positive vibe.",
     "thumb": "/race-photos/iron-cross/iron-cross-video-1.jpg"
   },
@@ -7262,6 +7284,7 @@
     "status": "active",
     "lat": 39.8105,
     "lng": -120.4695,
+    "rwgps_id": "53119459",
     "st": "Lost and Found Gravel in Portola, California features 96-97 miles with 6,000-8,000 feet of climbing. The race starts with brutal early climbing including 16,000 feet of elevation in the first 5 miles, with steep sections hitting 12% grades before mile 9. Key challenges include a hidden left turn at mile 8.4 miles where the course transitions to dirt, and climb six around mile 33 - a 2.7-mile brutal climb with 650 feet of gain on loose, chunky gravel. Riders face a big empty valley around mile 30 with brutal headwinds that continue to the finish. The course features extremely dusty conditions that affect chain lubrication and visibility, mixed with water crossings. Terrain includes primo gravel sections, washboards, and loose gravel on climbs. Veterans recommend starting conservatively due to early climbing, positioning well in the pack for dust visibility, and bringing chain lube due to harsh conditions.",
     "thumb": "/race-photos/lost-and-found-gravel/lost-and-found-gravel-video-1.jpg"
   },
@@ -7499,7 +7522,8 @@
     "has_tire_guide": true,
     "status": "active",
     "lat": 35.6876,
-    "lng": -105.9385
+    "lng": -105.9385,
+    "rwgps_id": "56411897"
   },
   {
     "name": "Sea Otter Europe Gravel",
@@ -7653,6 +7677,7 @@
     "status": "active",
     "lat": 35.9371,
     "lng": -80.9665,
+    "rwgps_id": "41743773",
     "st": "The Uwharrie Forest trail system features the Wood Run trail with deep historical significance, following the old Fayetteville to Morganton Plank Road through the defunct town of Lawrenceville. Riders encounter Wood Run Creek crossings and multiple power line clearings between wooded sections. Fall conditions create significant leaf surfing opportunities with deep leaf coverage affecting trail surface. Recent controlled burns have left remnants throughout the forest. Key logistical notes include a rerouted trail entrance that now passes Escape rather than the old route. Hunters in orange are common during fall season. The trail connects to other Uwharrie trails including access to Kiwi Trails and connects to the broader trail network. Historical features include visible courthouse foundation remnants from the old Montgomery County seat before it was moved to Troy.",
     "thumb": "/race-photos/uwharrie-forest-gravel-grinder/uwharrie-forest-gravel-grinder-video-1.jpg"
   },
@@ -7732,6 +7757,7 @@
     "status": "active",
     "lat": 39.3348,
     "lng": -108.2153,
+    "rwgps_id": "55845794",
     "st": "Wild Horse Gravel is an inaugural event in De Beque, Colorado featuring two course options - a longer Alton back course with two timed segments and a shorter course with one timed segment. The event follows a grinder format where it's more of a ride than a race, though some riders take the timed segments seriously. The course features loose and rutted conditions requiring careful line choice, with the first timed segment ending in a very steep climb followed by another steep hill to the neutral water station. There's a cut-off time in De Beque for the long course. Riders encounter high desert scenery, wildlife including cows and wild horses, and several flatter open areas with expansive views. Weather starts cool requiring arm warmers but warms to low 70s Fahrenheit by late morning. The format emphasizes scenery and photography over pure racing, making it relaxing compared to traditional timed events.",
     "thumb": "/race-photos/wild-horse-gravel/wild-horse-gravel-video-1.jpg"
   },
@@ -8563,7 +8589,8 @@
     "has_tire_guide": true,
     "status": "active",
     "lat": 44.5068,
-    "lng": -92.9062
+    "lng": -92.9062,
+    "rwgps_id": "56301537"
   },
   {
     "name": "Hell of Hunterdon",
@@ -8991,6 +9018,7 @@
     "status": "active",
     "lat": 47.3984,
     "lng": -121.4144,
+    "rwgps_id": "55128073",
     "st": "The GRiT Adventure at Snoqualmie Pass features challenging descents that riders describe as gnarly and dangerous, especially in wet conditions. Multiple crashes were reported on the descents, with at least one rider developing a knee hematoma from wiping out. Rain significantly increases the difficulty and danger of the course, causing several riders to abandon the race. The event has aid stations where volunteers assist with nutrition needs, particularly electrolytes. Despite the challenging conditions, there's a supportive community atmosphere with riders helping each other and sharing advice about continuing after crashes. The race attracts both experienced and novice gravel riders, with some participants noting the technical difficulty of the terrain.",
     "thumb": "/race-photos/the-grit-adventure/the-grit-adventure-video-1.jpg"
   },
@@ -10562,6 +10590,7 @@
     "status": "active",
     "lat": 47.8223,
     "lng": -122.8752,
+    "rwgps_id": "31776041",
     "st": "The Gravel Unravel - Bon Jon Pass Out in Quilcene, WA features extreme elevation gain starting at sea level and climbing to nearly 4,000 feet. The signature Bon Jon Pass climb hits 3,500 feet by mile 15, requiring an hour and a half of sustained climbing. Riders face 15-18 gravel climbs throughout the course, with many walking sections. Terrain includes loamy, soft ground with moss-covered roads and muddy conditions. Weather can include precipitation with temperatures starting in the 40s. The Pacific Northwest setting offers mountain views and pine forests. Riders recommend 700x44 tires in endurance casing for the sharp rocks and soft terrain, plus low gearing like 30x42 for the steep sections. Equipment security is important due to rough conditions causing mounting failures."
   },
   {
@@ -10718,7 +10747,7 @@
     "status": "active",
     "lat": 45.6721,
     "lng": -118.7886,
-    "rwgps_id": "53678735",
+    "rwgps_id": "50097003",
     "st": "Real West Gravel in Pendleton, Oregon features some of the most amazing gravel roads in the state according to participants. The 62-mile course includes pretty smooth gravel roads overall with good climbing on the back side. First-time racers describe the terrain as good gravel with smooth road conditions throughout most of the route. The event is part of the Mudslinger series and attracts the Oregon cycling community. Riders emphasize the personal challenge aspect of the race and the opportunity to explore the gravel roads that this region has to offer. The climbing sections appear to be a notable feature, particularly on the back portion of the course.",
     "thumb": "/race-photos/real-west-gravel/real-west-gravel-video-1.jpg"
   },
@@ -11933,6 +11962,7 @@
     "status": "active",
     "lat": 39.3139,
     "lng": -104.0869,
+    "rwgps_id": "53870735",
     "st": "Mad Gravel takes place at Peaceful Valley Scout Ranch in Elbert County, Colorado, situated at 6,500-7,000 feet elevation on the Eastern Slope of the Front Range between Colorado Springs and Denver. The 55-mile course features fast-rolling gravel with some challenging corrugations that can sap speed and cause bikes to drift sideways. Riders report sections where the surface becomes more sand than gravel, which significantly slows progress. The course includes some single track sections described as loose and spicy. The altitude at just under 2,000 meters is noticeable and affects performance. The event is part of a 3-day Memorial Day weekend festival with camping, food vendors, live music, and family activities. Weather can impact the race, with heavy rain sometimes forcing course modifications. The venue offers spectacular views of the Colorado Front Range and high peaks.",
     "thumb": "/race-photos/mad-gravel/mad-gravel-video-1.jpg"
   },
@@ -12212,6 +12242,7 @@
     "status": "active",
     "lat": 54.7024,
     "lng": -3.2766,
+    "rwgps_id": "55483772",
     "st": "Dalby Grit is a new 50-mile gravel race in Dalby Forest near York featuring 3500 feet of elevation over three laps. Riders describe steeper climbs than comparable events, with a particularly challenging steep descent followed by a steep ascent midcourse. The course includes chunky gravel sections, twisty 90-degree turns, single track designed to string out the field, and some road sections ideal for nutrition. Weather conditions include 20mph winds with potential drizzle but temperatures above 20 degrees. The race attracts around 400 riders total with 40-50 per age group, creating an intimate atmosphere. The neutralized start is described as very hard with opportunities for strong riders to gain early gaps. Course features both forest roads and sections extending into the North Yorkshire Moors, with generally less severe gravel than other major UK gravel events.",
     "thumb": "/race-photos/dalby-grit/dalby-grit-video-1.jpg"
   },

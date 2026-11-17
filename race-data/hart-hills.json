@@ -154,7 +154,15 @@
       ],
       "signature_challenge": "Michigan rolling terrain.",
       "ridewithgps_id": null,
-      "ridewithgps_name": null
+      "ridewithgps_name": null,
+      "official_route": {
+        "provider": "gpx",
+        "url": "https://www.harthills.com/uploads/6/8/5/7/68570795/hart_hills_55_mile_2025.gpx",
+        "provenance_url": "https://www.harthills.com/course-maps.html",
+        "name": "55 Mile Route (hart_hills_55_mile_2025.gpx; internal name 'Hart Hills 55 Mile 2024')",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
+      }
     },
     "guide_variables": {
       "race_name": "Hart Hills",
@@ -359,6 +367,16 @@
         "url": "https://www.youtube.com/watch?v=8MSTdq4g_hI",
         "category": "community",
         "label": "youtube.com: Watch"
+      },
+      {
+        "url": "https://www.harthills.com/uploads/6/8/5/7/68570795/hart_hills_55_mile_2025.gpx",
+        "category": "route",
+        "label": "GPX file: 55 Mile Route (hart_hills_55_mile_2025.gpx; internal name 'Hart Hills 55 Mile 2024')"
+      },
+      {
+        "url": "https://www.harthills.com/course-maps.html",
+        "category": "official",
+        "label": "Organizer course page: 55 Mile Route (hart_hills_55_mile_2025.gpx; internal name 'Hart Hills 55 Mile 2024')"
       }
     ],
     "tire_recommendations": {

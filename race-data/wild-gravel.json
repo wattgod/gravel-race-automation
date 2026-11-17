@@ -153,7 +153,15 @@
       ],
       "signature_challenge": "Australian remote terrain.",
       "ridewithgps_id": null,
-      "ridewithgps_name": null
+      "ridewithgps_name": null,
+      "official_route": {
+        "provider": "strava",
+        "url": "https://www.strava.com/routes/3450786905012579952",
+        "provenance_url": "https://wildgravel.com.au/choose-your-adventure/",
+        "name": "WG26 100km Ride v1",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
+      }
     },
     "guide_variables": {
       "race_name": "Wild Gravel",
@@ -338,6 +346,16 @@
         "url": "https://gnowangerup.wa.gov.au/wild-gravel",
         "category": "other",
         "label": "Gnowangerup"
+      },
+      {
+        "url": "https://www.strava.com/routes/3450786905012579952",
+        "category": "route",
+        "label": "Strava: WG26 100km Ride v1"
+      },
+      {
+        "url": "https://wildgravel.com.au/choose-your-adventure/",
+        "category": "official",
+        "label": "Organizer course page: WG26 100km Ride v1"
       }
     ],
     "results": {

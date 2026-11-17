@@ -37,7 +37,16 @@
           "description": "Quiet country roads connecting major trail systems."
         }
       ],
-      "difficulty_narrative": "Tour Aotearoa presents a multi-faceted challenge combining extreme distance (3,000km) with diverse and variable terrain. Riders encounter everything from technical singletrack and beach riding to gravel and sealed roads, with five boat crossings adding logistical complexity. The self-supported format requires complete autonomy in navigation, gear management, and resupply. While not technically extreme, the combination of distance, terrain variety, and self-sufficiency requirement creates a substantial endurance and mental challenge."
+      "difficulty_narrative": "Tour Aotearoa presents a multi-faceted challenge combining extreme distance (3,000km) with diverse and variable terrain. Riders encounter everything from technical singletrack and beach riding to gravel and sealed roads, with five boat crossings adding logistical complexity. The self-supported format requires complete autonomy in navigation, gear management, and resupply. While not technically extreme, the combination of distance, terrain variety, and self-sufficiency requirement creates a substantial endurance and mental challenge.",
+      "official_route": {
+        "provider": "kmz",
+        "url": "https://www.kennett.co.nz/maps/tour-aotearoa/files/Tour-Aotearoa-route-2026-05-27-Kennett-Bros.kmz",
+        "provenance_url": "https://www.touraotearoa.nz/p/routegpx-downloads.html",
+        "name": "Tour Aotearoa route MASTER 2026-05-27 (Kennett Bros)",
+        "edition": "2027",
+        "verified_at": "2026-11-17",
+        "exclude_placemarks": "\\bOption\\b"
+      }
     },
     "logistics": {
       "getting_there": "Riders must arrange their own transportation to Cape Reinga, New Zealand's northernmost point. International participants typically fly into New Zealand and arrange ground transport to the start.",
@@ -109,6 +118,16 @@
         "url": "https://www.touraotearoa.nz/p/map_22.html",
         "category": "official",
         "label": "Tour Aotearoa — official route and GPS guidance"
+      },
+      {
+        "url": "https://www.kennett.co.nz/maps/tour-aotearoa/files/Tour-Aotearoa-route-2026-05-27-Kennett-Bros.kmz",
+        "category": "route",
+        "label": "KMZ file: Tour Aotearoa route MASTER 2026-05-27 (Kennett Bros)"
+      },
+      {
+        "url": "https://www.touraotearoa.nz/p/routegpx-downloads.html",
+        "category": "official",
+        "label": "Organizer course page: Tour Aotearoa route MASTER 2026-05-27 (Kennett Bros)"
       }
     ]
   }

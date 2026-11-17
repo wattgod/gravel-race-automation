@@ -263,7 +263,15 @@
           "named_section": "The Dam Finish"
         }
       ],
-      "signature_challenge": "The wind. Not the terrain, not the climbing, not the distance — the wind across open North Boulder County farmland is what defines Boulder Roubaix. In 2024, it shut down the race. On any given edition, it determines whether the dirt roads are fast-rolling or soul-crushing. Combined with the unpredictable surface conditions and spring weather variability, the wind transforms a rolling 30-mile circuit into a legitimate test of tactical racing and survival."
+      "signature_challenge": "The wind. Not the terrain, not the climbing, not the distance — the wind across open North Boulder County farmland is what defines Boulder Roubaix. In 2024, it shut down the race. On any given edition, it determines whether the dirt roads are fast-rolling or soul-crushing. Combined with the unpredictable surface conditions and spring weather variability, the wind transforms a rolling 30-mile circuit into a legitimate test of tactical racing and survival.",
+      "official_route": {
+        "provider": "gpx",
+        "url": "https://dbcevents.com/wp-content/uploads/2026/03/2026_Boulder_Roubaix_29_Mile_Course_Revised_with_Time.gpx",
+        "provenance_url": "https://dbcevents.com/2026-roubaix/2026-course-description/",
+        "name": "29 Mile Course Route - Revised (2026 Boulder Roubaix)",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
+      }
     },
     "guide_variables": {
       "race_name": "Boulder Roubaix Road Race",
@@ -359,6 +367,11 @@
         "title": "Boulder Roubaix — State Road Race Championships — Bicycle Colorado",
         "category": "media",
         "label": "Bicyclecolorado"
+      },
+      {
+        "url": "https://dbcevents.com/wp-content/uploads/2026/03/2026_Boulder_Roubaix_29_Mile_Course_Revised_with_Time.gpx",
+        "category": "route",
+        "label": "GPX file: 29 Mile Course Route - Revised (2026 Boulder Roubaix)"
       }
     ],
     "research_metadata": {

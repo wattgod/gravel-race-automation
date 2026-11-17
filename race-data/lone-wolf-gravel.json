@@ -155,7 +155,15 @@
       ],
       "signature_challenge": "Rolling to hilly Upper Peninsula terrain and remote location.",
       "ridewithgps_id": null,
-      "ridewithgps_name": null
+      "ridewithgps_name": null,
+      "official_route": {
+        "provider": "strava",
+        "url": "https://www.strava.com/routes/3217466130492822234",
+        "provenance_url": "https://www.upsportandspoke.com/lonewolfgravelrace",
+        "name": "2025-2026 LW 100 ROUTE-Cassidy Creek Rd option",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
+      }
     },
     "guide_variables": {
       "race_name": "Lone Wolf Gravel",
@@ -356,6 +364,11 @@
         "url": "https://www.thenxrth.com/post/the-lone-wolf-sequel-2022-reroutes-peak-colors-a-perfect-day-in-dah-u-p",
         "category": "community",
         "label": "thenxrth.com: The Lone Wolf Sequel 2022 Reroutes Peak Colors A Perfect ..."
+      },
+      {
+        "url": "https://www.strava.com/routes/3217466130492822234",
+        "category": "route",
+        "label": "Strava: 2025-2026 LW 100 ROUTE-Cassidy Creek Rd option"
       }
     ],
     "tire_recommendations": {

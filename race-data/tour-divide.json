@@ -341,7 +341,15 @@
       ],
       "signature_challenge": "The complete package—2,745 miles of self-supported suffering through every climate zone, every terrain type, and every mental state across 2-4 weeks on the Continental Divide.",
       "ridewithgps_id": null,
-      "ridewithgps_name": null
+      "ridewithgps_name": null,
+      "official_route": {
+        "provider": "gpx",
+        "url": "http://www.topofusion.com/divide/TourDivide2026_v3.gpx",
+        "provenance_url": "https://tourdivide.org/route_info",
+        "name": "Tour Divide 2026 route (v3)",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
+      }
     },
     "records": {
       "mens_overall": {
@@ -408,11 +416,6 @@
       ]
     },
     "citations": [
-      {
-        "url": "https://ridewithgps.com/routes/53936176",
-        "category": "route",
-        "label": "RideWithGPS: Tour Divide Route--Barb's Planning Copy (based on SS 2023)"
-      },
       {
         "url": "https://www.halfwayanywhere.com/bikepacking/tour-divide/tour-divide-post-race-report-the-body/",
         "category": "community",
@@ -484,11 +487,6 @@
         "label": "Escapecollective"
       },
       {
-        "url": "https://oneofsevenproject.com/tour-divide-journal/",
-        "category": "other",
-        "label": "Oneofsevenproject"
-      },
-      {
         "url": "https://oneofsevenproject.com/tour-divide-planning-guide/",
         "category": "other",
         "label": "Oneofsevenproject"
@@ -507,6 +505,16 @@
         "url": "https://sklarbikes.com/blogs/blog/adams-tour-divide-recap",
         "category": "other",
         "label": "Sklarbikes"
+      },
+      {
+        "url": "http://www.topofusion.com/divide/TourDivide2026_v3.gpx",
+        "category": "route",
+        "label": "GPX file: Tour Divide 2026 route (v3)"
+      },
+      {
+        "url": "https://tourdivide.org/route_info",
+        "category": "official",
+        "label": "Organizer course page: Tour Divide 2026 route (v3)"
       }
     ],
     "results": {

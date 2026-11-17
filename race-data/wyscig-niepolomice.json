@@ -157,7 +157,15 @@
       ],
       "signature_challenge": "Holding race speed for 99 km on a course too flat to give you a recovery climb or a safe place to drift backward.",
       "ridewithgps_id": null,
-      "ridewithgps_name": null
+      "ridewithgps_name": null,
+      "official_route": {
+        "provider": "gpx",
+        "url": "https://wyscig.cc/wp-content/uploads/gpx/2026/niepo/Wyscig_TM_Niepolomice_2026_dlugi.gpx",
+        "provenance_url": "https://wyscig.cc/en/race/niepolomice-en/",
+        "name": "Wyscig Niepolomice dluga 2026 x7 (LONG 99 km)",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
+      }
     },
     "guide_variables": {
       "race_name": "Wyścig Niepołomice",
@@ -342,6 +350,11 @@
         "url": "https://my.raceresult.com/384127/registration",
         "category": "registration",
         "label": "Official 2026 registration"
+      },
+      {
+        "url": "https://wyscig.cc/wp-content/uploads/gpx/2026/niepo/Wyscig_TM_Niepolomice_2026_dlugi.gpx",
+        "category": "route",
+        "label": "GPX file: Wyscig Niepolomice dluga 2026 x7 (LONG 99 km)"
       }
     ],
     "tire_recommendations": {

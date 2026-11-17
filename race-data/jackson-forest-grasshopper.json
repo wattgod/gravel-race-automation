@@ -133,7 +133,15 @@
           "label": "Late aid-point return",
           "description": "Riders pass the same aid location late in the loop, when fueling discipline and mistake-free handling matter most."
         }
-      ]
+      ],
+      "official_route": {
+        "provider": "strava",
+        "url": "https://www.strava.com/routes/3461473370433724616",
+        "provenance_url": "https://www.grasshopperadventureseries.com/jackson-forest-hopper",
+        "name": "Jackson Forest Grasshopper 2026 (Observatory)",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
+      }
     },
     "terrain": {
       "primary": "XC mountain bike and gravel",
@@ -203,6 +211,11 @@
         "url": "https://www.cyclingnews.com/pro-cycling/gavin-sherry-and-flavia-oliveira-scorch-through-timed-sections-to-claim-wins-at-third-event-in-grasshopper-series-king-ridge/",
         "category": "media",
         "label": "Cyclingnews — 2026 series context and Jackson preview"
+      },
+      {
+        "url": "https://www.strava.com/routes/3461473370433724616",
+        "category": "route",
+        "label": "Strava: Jackson Forest Grasshopper 2026 (Observatory)"
       }
     ],
     "eligibility": {

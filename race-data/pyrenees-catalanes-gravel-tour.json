@@ -171,6 +171,14 @@
           "gravel": null,
           "pavement": null
         }
+      },
+      "official_route": {
+        "provider": "strava",
+        "url": "https://www.strava.com/routes/3532321264201333854",
+        "provenance_url": "https://66-degres-sud.fr/le-gravel/",
+        "name": "Gran Fondo - 66 Degres Sud x Pyrenees Catalanes Gravel Tour",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
       }
     },
     "biased_opinion": {
@@ -330,6 +338,11 @@
         "url": "https://ucigravelworldseries.com/en/regulations/",
         "category": "official",
         "label": "UCI Gravel World Series — competition and qualification rules"
+      },
+      {
+        "url": "https://www.strava.com/routes/3532321264201333854",
+        "category": "route",
+        "label": "Strava: Gran Fondo - 66 Degres Sud x Pyrenees Catalanes Gravel Tour"
       }
     ],
     "eligibility": {

@@ -205,3 +205,35 @@ def test_base_outside_main_cannot_redirect_checked_relative_shared_script(monkey
     pages['details'] = pages['details'].replace('</head>', base + '</head>')
     network(monkeypatch, pages)
     assert 'details: base elements are not allowed in the questionnaire contract' in checker.check_parity()
+
+
+def _opener_answering(status):
+    class Response:
+        url = checker.LIVE_URL
+        headers = {'Content-Type': 'text/html'}
+        def __enter__(self): return self
+        def __exit__(self, *args): pass
+        def read(self, size): return b'<html>challenge</html>'
+    Response.status = status
+    class Opener:
+        def open(self, request, timeout):
+            if status >= 400:
+                raise urllib.error.HTTPError(request.full_url, status, 'challenge', {}, None)
+            return Response()
+    return Opener()
+
+
+@pytest.mark.parametrize('status', [202, 403, 429])
+def test_bot_challenge_is_unreachable_not_drift(monkeypatch, capsys, status):
+    monkeypatch.setattr(checker.urllib.request, 'build_opener', lambda handler: _opener_answering(status))
+    with pytest.raises(checker.BotChallenge):
+        checker.fetch_live()
+    assert checker.main() == 2
+    out = capsys.readouterr().out
+    assert 'DRIFT' not in out and f'bot challenge (HTTP {status})' in out
+
+
+@pytest.mark.parametrize('status', [404, 500])
+def test_other_http_failures_stay_drift(monkeypatch, status):
+    monkeypatch.setattr(checker.urllib.request, 'build_opener', lambda handler: _opener_answering(status))
+    assert checker.main() == 1

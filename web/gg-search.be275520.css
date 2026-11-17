@@ -595,8 +595,28 @@
       overflow: hidden;
     }
     #gg-race-search .gg-score-fill {
+      display: block;
       height: 100%;
       transition: width 0.3s;
+    }
+    /* Score bar as a toggle button: strip theme button styling, keep the
+       bar look, enlarge the hit area to 24px and show keyboard focus. */
+    #gg-race-search button.gg-score-bar {
+      width: 100%;
+      min-height: 24px;
+      margin-top: 2px;
+      padding: 0 !important;
+      background: transparent !important;
+      border: 0 !important;
+      color: inherit !important;
+      font: inherit;
+      text-align: left;
+      line-height: 1;
+    }
+    #gg-race-search .gg-score-bar--static { cursor: default; }
+    #gg-race-search button.gg-score-bar:focus-visible {
+      outline: 3px solid var(--gg-color-teal);
+      outline-offset: 2px;
     }
     #gg-race-search .gg-score-num {
       font-size: 13px;

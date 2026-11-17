@@ -48,8 +48,7 @@
     var total=full*4999+left*1250;
     var first=full?4999:left*1250;
     return {weeks:weeks,payments:payments,totalCents:total,total:ggPlanMoney(total),
-      firstCents:first,first:ggPlanMoney(first),
-      summary:payments+(payments===1?' payment, ':' payments, ')+ggPlanMoney(total)+' in all'};
+      firstCents:first,first:ggPlanMoney(first)};
   }
   // GG_PRICING_CONSTANTS_END
 
@@ -62,21 +61,16 @@
   }
 
   function updatePriceDisplay() {
-    var totalEl = document.getElementById('gg-plan-total');
     var races = getRaces();
     var aRace = races.find(function(r) { return r.priority === 'A'; }) || races[0];
     if (aRace && aRace.date) {
       var pricing = computePrice(aRace.date);
       if (pricing) {
         submitBtn.textContent = 'Submit & Pay ' + pricing.first + ' today';
-        if (totalEl) {
-          totalEl.textContent = pricing.summary + ', ending after race week';
-        }
         return;
       }
     }
     submitBtn.textContent = 'Submit & Pay';
-    if (totalEl) totalEl.textContent = 'set by your A-race date';
   }
 
   // ---- GA4 Analytics Helper ----

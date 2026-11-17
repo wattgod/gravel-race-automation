@@ -38,9 +38,11 @@ def test_every_event_carries_entry_surface_and_form_version():
     assert "getElementById('gg-plan-total') ? '2026-09-10-terms' : '2026-09-10'" in FORM_JS
 
 
-def test_purchase_total_mirrors_into_terms_block_when_present():
-    assert "getElementById('gg-plan-total')" in FORM_JS
-    assert "pricing.summary + ', ending after race week'" in FORM_JS
+def test_form_never_shows_a_plan_total():
+    """Matti, 2026-11-17: rate only; the submit button shows the first charge."""
+    assert "pricing.summary" not in FORM_JS
+    assert "in all" not in FORM_JS
+    assert "'Submit & Pay ' + pricing.first + ' today'" in FORM_JS
 
 
 def test_saved_form_survives_stripe_back_navigation():

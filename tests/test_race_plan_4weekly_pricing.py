@@ -24,7 +24,7 @@ sys.path.insert(0, str(ROOT / "wordpress"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import pricing  # noqa: E402
-from pricing import payment_plan, plan_quote_js, plan_summary, weeks_until  # noqa: E402
+from pricing import PLAN_PRICE_LINE, payment_plan, plan_quote_js, weeks_until  # noqa: E402
 
 FORM_JS = (ROOT / "web" / "training-plans-form.js").read_text()
 
@@ -57,11 +57,13 @@ def test_fixed_cases(weeks, payments):
     assert plan["first_payment_cents"] == payments[0]
 
 
-def test_fixed_case_totals_in_words():
-    assert plan_summary(4) == "1 payment, $49.99 in all"
-    assert plan_summary(6) == "2 payments, $74.99 in all"
-    assert plan_summary(8) == "2 payments, $99.98 in all"
-    assert plan_summary(30) == "8 payments, $374.93 in all"
+def test_offer_copy_is_rate_only():
+    """Matti, 2026-11-17: the offer is the 4-weekly rate, never a total or
+    payment count. The browser quote keeps the numbers for checkout and
+    analytics but carries no customer-facing summary string."""
+    assert PLAN_PRICE_LINE == "$49.99 every 4 weeks"
+    assert "in all" not in plan_quote_js()
+    assert "summary" not in plan_quote_js()
 
 
 def test_short_plans_have_no_minimum():
@@ -113,7 +115,7 @@ def test_js_quote_equals_python_for_every_offset():
         assert quote["payments"] == plan["payment_count"], d
         assert quote["totalCents"] == plan["total_cents"], d
         assert quote["firstCents"] == plan["first_payment_cents"], d
-        assert quote["summary"] == plan_summary(weeks), d
+        assert "summary" not in quote, d
 
 
 def test_js_quote_fixed_cases_and_refusals():

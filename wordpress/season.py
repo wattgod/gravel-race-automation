@@ -318,3 +318,61 @@ def edition_display(date_specific, on: date | None = None, *,
 def canonical(ed: Edition) -> str | None:
     """``ed`` in the stored form ("2027: June 5", "2027: June 30 - July 2")."""
     return _stored(ed.date, ed.end_date) if ed.date else None
+
+
+def _range_text(start: date, end: date | None) -> str:
+    """"Sat, Jun 5, 2027", "Aug 20–21, 2027", "Jun 30 – Jul 2, 2027"."""
+    if not end:
+        return f"{start:%a}, {start:%b} {start.day}, {start.year}"
+    if end.month == start.month and end.year == start.year:
+        return f"{start:%b} {start.day}–{end.day}, {start.year}"
+    if end.year == start.year:
+        return f"{start:%b} {start.day} – {end:%b} {end.day}, {start.year}"
+    return f"{_short(start)} – {_short(end)}"
+
+
+def _status_label(label) -> str | None:
+    """"TAKING A BREAK" -> "Taking a break"; keeps years and acronyms legible."""
+    text = " ".join(str(label or "").split())
+    if not text:
+        return None
+    if text.isupper():
+        text = text[0] + text[1:].lower()
+    return text
+
+
+def public_date(date_specific, on: date | None = None, *, project: bool = True,
+                status_label=None) -> str | None:
+    """The race date as a reader should see it, never the stored research note.
+
+    ``date_specific`` often carries provenance ("2027: June 5 (Saturday,
+    CONFIRMED — unboundgravel.com; …)"). This returns only a clean date or
+    an honest status:
+
+    - upcoming, exact: "Sat, Jun 5, 2027" / "Aug 20–21, 2027"
+    - upcoming, estimated: "Jun 5, 2027 (estimate)"
+    - upcoming, month only: "Jul 2027 · exact dates not announced"
+    - past: as ``edition_display`` ("… (estimate)" or "… date not announced · last ran …")
+    - no usable date: ``status_label`` (e.g. a race's ``taking_a_break.label``)
+      if given, else "2027 date not announced" when the stored year is this
+      season or later, else None (the caller prints nothing rather than a guess)
+    """
+    on = on or today()
+    ed = parse_edition(date_specific)
+    state = ed.state(on)
+    if state == UPCOMING:
+        if ed.estimated:
+            return f"{_when(ed)} (estimate)"
+        if ed.date:
+            return _range_text(ed.date, ed.end_date)
+        if ed.month:
+            return f"{date(2000, ed.month, 1):%b} {ed.year} · exact dates not announced"
+        return f"{ed.year} date not announced"
+    if state == PAST:
+        return edition_display(date_specific, on, project=project)
+    label = _status_label(status_label)
+    if label:
+        return label
+    if ed.year and ed.year >= season_year(on):
+        return f"{ed.year} date not announced"
+    return None

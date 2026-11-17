@@ -27,6 +27,7 @@ import json
 import logging
 import math
 import re
+from urllib.parse import unquote, urlparse
 import shutil
 import sys
 from datetime import date, datetime, timedelta
@@ -56,7 +57,7 @@ from fact_consistency import check_race
 from race_calculator import build_race_calculator, get_race_calculator_css, race_calculator_context
 from race_planner import (build_race_planner, planner_citation_items, planner_head_tags,
                           planner_script_tag, write_planner_assets)
-from season import UPCOMING, edition_display, edition_state, edition_year, parse_edition
+from season import UPCOMING, _status_label, edition_display, edition_state, edition_year, parse_edition, public_date
 from season import today as season_today
 from generate_race_recap import has_results, newest_results_year
 from pickem import game_for_race
@@ -966,26 +967,24 @@ def normalize_race_data(data: dict) -> dict:
         _rating_citation_refs(race, 'editorial', editorial_summary),
     )
 
-    # Extract date with year from date_specific like "2026: June 6" -> "June 6, 2026"
+    # The stored date_specific carries research provenance ("2027: June 5
+    # (Saturday, CONFIRMED — site.com; …)"); readers only ever see the clean
+    # date or an honest status from public_date().
     raw_date_specific = vitals.get('date_specific', '')
     source_blocked = vitals.get('course_status') == 'source_blocked'
     # A source-blocked profile may retain the last held edition for research,
     # but that historical date must not become a scheduled event, calendar
     # export, countdown, or plan-start prompt on the public page.
     date_specific = '' if source_blocked else raw_date_specific
-    short_date = date_specific
-    date_match = re.search(r'(\d{4}):\s*(.+)', date_specific)
-    if date_match:
-        year = date_match.group(1)
-        date_part = date_match.group(2).strip()
-        short_date = f"{date_part}, {year}"
-    elif source_blocked:
-        short_date = vitals.get('date', '')
+    break_label = (race.get('taking_a_break') or {}).get('label')
+    short_date = (public_date(date_specific, project=may_estimate(race),
+                              status_label=break_label)
+                  if date_specific else _status_label(break_label))
+    # No clean date means no date shown: never the raw vitals.date note, and
+    # never a source-blocked race's historical edition.
     # Past or estimated editions say so instead of passing as confirmed.
     edition_note = (edition_display(date_specific, project=may_estimate(race))
                     if date_specific else None)
-    if edition_note:
-        short_date = edition_note
 
     # Parse entry cost from registration string, then fallback to rating explanations
     reg = vitals.get('registration', '')
@@ -1058,7 +1057,7 @@ def normalize_race_data(data: dict) -> dict:
             'course_status_reason': vitals.get('course_status_reason', ''),
             'location': vitals.get('location', '--'),
             'location_badge': vitals.get('location_badge', vitals.get('location', '--')),
-            'date': short_date or vitals.get('date', '--'),
+            'date': short_date or '--',
             'date_specific': date_specific,
             'edition_note': edition_note or '',
             'field_size': field_size_short,
@@ -1405,18 +1404,9 @@ def build_inline_js() -> str:
     """Build the inline JavaScript for all interactive features."""
     header_js = get_site_header_js()
     _js = '<script>\n' + header_js + r'''
-// Plan billed every 4 weeks: payments and total for this race, from the
-// race date on the page and today's date. Same math as the checkout server
-// (pricing.plan_quote_js). No date on the page, no number shown.
+// ggPlanQuote() (pricing.plan_quote_js) feeds analytics only; offers show the
+// rate alone, never a total or payment count (Matti, 2026-11-17).
 __GG_PLAN_QUOTE_JS__
-(function() {
-  document.querySelectorAll('[data-plan-quote]').forEach(function(el) {
-    var q = ggPlanQuote(el.getAttribute('data-race-date') || '');
-    if (!q) return;
-    el.textContent = q.summary + ', ending after race week.';
-    el.hidden = false;
-  });
-})();
 
 // Race day countdown (HTML shows date for crawlers; JS replaces with day count)
 (function() {
@@ -1832,6 +1822,8 @@ if ('IntersectionObserver' in window) {
       ticker.style.display = 'none';
       return;
     }
+    var newsSection = document.getElementById('news');
+    if (newsSection) newsSection.hidden = false;
 
     function buildTickerItems(items) {
       var frag = document.createDocumentFragment();
@@ -2443,7 +2435,7 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
     var peak = remaining - base - build;
     if (peak < 1) { peak = 1; base = Math.max(1, base - 1); }
 
-    // Price: plan billed every 4 weeks, payments and total to race day.
+    // Payments and total feed the analytics event below only; the page shows the rate.
     var quote = ggPlanQuote(raceDateStr);
 
     // Session structure
@@ -2538,9 +2530,8 @@ document.querySelectorAll('.gg-pack-workout').forEach(function(card) {
         '&level=' + encodeURIComponent(level) +
         '&hours=' + encodeURIComponent(hours) +
         '&weeks=' + weeks + '&src=race_configurator';
-      cfgCtaDetail.textContent = (quote
-        ? '__GG_PLAN_PRICE_LINE__ \u00b7 ' + quote.summary + ', ending after race week'
-        : '__GG_PLAN_PRICE_LINE__ until race week') +
+      // Rate only, on every brand (Matti, 2026-11-17): never a total or payment count.
+      cfgCtaDetail.textContent = '__GG_PLAN_PRICE_LINE__ until race week' +
         ' \u00b7 Phase-periodized for ' + rd.race_name;
       cfgCta.style.display = 'block';
       cfgCta.removeAttribute('aria-hidden');
@@ -2940,12 +2931,9 @@ def build_hero(rd: dict) -> str:
     location = vitals.get('location', '')
     if location:
         parts.append(esc(location))
-    month = vitals.get('month', '')
-    date_specific = vitals.get('date_specific', '')
-    if date_specific:
-        parts.append(esc(vitals.get('edition_note') or date_specific))
-    elif month:
-        parts.append(esc(month))
+    # Only the normalized public date; no raw month or note as a stand-in.
+    if vitals.get('date') and vitals['date'] != '--':
+        parts.append(esc(vitals['date']))
     vitals_line = " &middot; ".join(parts)
 
     # Editorial verdict stays in the critic's register. It is intentionally
@@ -2976,9 +2964,14 @@ def build_hero(rd: dict) -> str:
             f'    <div class="gg-hero-score-label">RIDER SCORE &middot; {n} RATING{"S" if n != 1 else ""}</div>'
         )
     else:
+        # No number and no dash: a dash beside the Lab score reads as broken.
+        # Below the display threshold the count is still true, so say it.
+        n = rr.get('total_ratings') or 0
+        so_far = (f'{n} RATING{"S" if n != 1 else ""} SO FAR' if n > 0
+                  else 'NO RATINGS YET')
         rider_cell = (
-            '<div class="gg-hero-score-number gg-hero-rider-number gg-hero-rider-empty">&mdash;</div>\n'
-            '    <a class="gg-hero-score-label gg-hero-rider-ask" href="#racer-reviews" data-cta="hero_rate_race">RIDER SCORE &middot; RATE IT &rarr;</a>'
+            '<a class="gg-hero-score-label gg-hero-rider-ask gg-hero-rider-empty" href="#racer-reviews" data-cta="hero_rate_race">'
+            f'RIDER SCORE &middot; {so_far} &middot; RATE IT &rarr;</a>'
         )
 
     # "Taking a break" strip — races kept in the catalog between editions
@@ -3115,19 +3108,17 @@ def build_course_overview(rd: dict, race_index: list = None) -> str:
         <iframe src="https://ridewithgps.com/embeds?type=route&amp;id={esc(rwgps_id)}&amp;sampleGraph=true&amp;title={esc(rwgps_name)}" title="Course map for {esc(rd['name'])}" allowfullscreen loading="lazy"></iframe>
       </div>'''
 
-    # Stat cards — (value, label, countable) where countable means "animate the number"
+    # Stat cards — (value, label, countable). Nothing counts up: a count-up
+    # shows readers and screenshots numbers the race doesn't have.
     stats = [
-        (v.get('distance', '--'), 'Distance', True),
-        (v.get('elevation', '--'), 'Elevation', True),
+        (v.get('distance', '--'), 'Distance', False),
+        (v.get('elevation', '--'), 'Elevation', False),
         (v.get('location', '--'), 'Location', False),
         (v.get('date', '--'), 'Date', False),
-        (v.get('field_size', '--'), 'Field Size', True),
+        (v.get('field_size', '--'), 'Field Size', False),
     ]
-    # Add entry cost if available
     if v.get('entry_cost'):
-        stats.append((v['entry_cost'], 'Entry Cost', True))
-    else:
-        stats.append(('--', 'Entry Cost', False))
+        stats.append((v['entry_cost'], 'Entry Cost', False))
 
     cards = '\n      '.join(
         f'''<div class="gg-stat-card">
@@ -3977,17 +3968,6 @@ def build_racer_reviews(rd: dict) -> str:
   </section>'''
 
 
-def build_plan_quote(race_start: str | None, css_class: str = 'gg-plan-quote') -> str:
-    """Placeholder the inline JS fills with this race's payments and total
-    ("3 payments, $149.97 in all, ending after race week") from the race
-    date and the visitor's today. Nothing without an upcoming date: the
-    page never guesses one, and a static number would go stale."""
-    if not race_start:
-        return ''
-    return (f'<p class="{css_class}" data-plan-quote data-race-date="{esc(race_start)}" '
-            'aria-live="polite" hidden></p>')
-
-
 def build_training(rd: dict) -> str:
     """Build the custom-plan-first offer with coaching as the clear up-tier."""
     race_name = rd['name']
@@ -4003,7 +3983,6 @@ def build_training(rd: dict) -> str:
         display_month = month_names.get(parts[1], parts[1])
         display_date = f"{display_month} {int(parts[2])}, {parts[0]}"
         countdown_html = f'<div class="gg-countdown" data-date="{cd_start}"><span class="gg-countdown-num" id="gg-days-left">{esc(display_date)}</span> {esc(race_name.upper())}</div>'
-    plan_quote_html = build_plan_quote(cd_start)
 
     # Gear intel stays as distinct sourced rider evidence, after the offer.
     gear_html = _build_riders_report([
@@ -4058,7 +4037,6 @@ def build_training(rd: dict) -> str:
       <div class="gg-training-primary">
         <h3>Custom Training Plan</h3>
         <p class="gg-training-subtitle" data-ab="race_offer_price">{esc(plan_offer.PRICE_TO_RACE)}, one 4-week block at a time. I look over every block before it goes on your calendar.</p>
-        {plan_quote_html}
         <p class="gg-training-built-for">Your race date, your available hours, and the demands above determine the build. Start with a short questionnaire; the plan follows from your answers.</p>
         <ul class="gg-training-bullets">
           <li>Race-specific workouts pushed to your device</li>
@@ -4112,7 +4090,7 @@ def build_custom_plan_offer(rd: dict) -> str:
   <div class="gg-approved-inner gg-offer-action">
     <a class="gg-plan-cta" href="{esc(href)}" data-cta="approved_custom_plan">START MY CUSTOM PLAN &rarr;</a>
     <span class="gg-offer-price">{plan_offer.CTA_PRICE}</span>
-    {build_plan_quote(upcoming_race_start(rd.get('vitals', {}).get('date_specific', '')), 'gg-offer-quote')}{endure_link}
+    {endure_link}
   </div>
 </section>'''
 
@@ -6110,7 +6088,7 @@ def build_news_section(rd: dict) -> str:
     name = rd['name']
     search_query = name.replace(' ', '+')
 
-    return f'''<section id="news" class="gg-section gg-fade-section">
+    return f'''<section id="news" class="gg-section gg-fade-section" hidden>
     <div class="gg-section-header">
       <span class="gg-section-kicker">NEWS</span>
       <h2 class="gg-section-title">Latest Coverage</h2>
@@ -6162,6 +6140,12 @@ def build_latest_sidebar(rd: dict, events: list[dict] | None) -> str:
             month = datetime.strptime(str(event.get("date", "")), "%Y-%m-%d").strftime("%b %Y")
         except ValueError:
             continue
+        if event.get("type") == "rescored":
+            m = re.search(r"\u2192\s*(\d+(?:\.\d+)?)", str(event.get("text", "")))
+            current = (rd.get("rating") or {}).get("overall_score", rd.get("overall_score"))
+            # Drop only a rescore that contradicts the score on the page.
+            if m and current is not None and float(m.group(1)) != float(current):
+                continue
         text = esc(event.get("text", ""))
         if not text:
             continue
@@ -6174,7 +6158,7 @@ def build_latest_sidebar(rd: dict, events: list[dict] | None) -> str:
             f'{month}</time>{text_html}</li>'
         )
     if not items:
-        return ""
+        return f'<aside class="gg-latest gg-latest-empty" aria-label="Race updates">{watch}</aside>'
     return f'''<aside class="gg-latest" aria-labelledby="gg-latest-title">
     <h2 id="gg-latest-title">LATEST</h2>
     <ol>{"".join(items)}</ol>
@@ -6639,6 +6623,25 @@ def build_similar_races(rd: dict, race_index: list) -> str:
   </section>'''
 
 
+def _citation_label(label, url: str) -> str:
+    """A source's name as a reader should see it.
+
+    Stored labels are sometimes URL-encoded ("Unbound%20200") or just the
+    domain capitalised ("Ircbike"); the latter shows the real host instead
+    ("ircbike.com"), which says more than a made-up name.
+    """
+    text = unquote(str(label or "")).strip()
+    host = (urlparse(url).hostname or "").lower()
+    if host.startswith("www."):
+        host = host[4:]
+    if not text:
+        return host or "Source"
+    squash = re.sub(r"[^a-z0-9]", "", text.lower())
+    if host and squash and squash == re.sub(r"[^a-z0-9]", "", host.split(".")[0]):
+        return host
+    return text
+
+
 def build_citations_section(rd: dict, extra_items: list | None = None) -> str:
     """Build Sources & Citations section from race.citations data.
 
@@ -6666,7 +6669,7 @@ def build_citations_section(rd: dict, extra_items: list | None = None) -> str:
     for index, c in enumerate(citations, start=1):
         cat_label = category_labels.get(c.get('category', 'other'), 'Other Sources')
         url = c.get('url', '')
-        label = c.get('label', 'Source')
+        label = _citation_label(c.get('label', ''), url)
         # Preserve source-array order so an inline [n] always resolves to item n.
         display_url = url.replace('https://', '').replace('http://', '')
         if len(display_url) > 60:
@@ -7899,8 +7902,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
         active.add('tires')
     if racer_reviews:
         active.add('racer-reviews')
-    if news:
-        active.add('news')
+    # News loads at runtime and may never appear (section starts hidden), so
+    # the TOC and breakdown never link to it.
     if train_for_race:
         active.add('train-for-race')
     if race_calculator:

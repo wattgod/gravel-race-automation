@@ -541,4 +541,8 @@ class TestRealRaceData:
         # Floor re-pinned 175->174 (Nov 6 2026): Barry-Roubaix's route was
         # the 62-mile course; the profile now follows the 100-mile flagship
         # and no official 100-mile route is published.
-        assert rwgps_count >= 174, f"Expected >=174 current RWGPS routes, got {rwgps_count}"
+        # Floor raised 174->204 (Nov 17 2026, issue #661): 32 organizer-linked
+        # or organizer-owned routes were added across all tiers (real-west-gravel
+        # replaced a deleted route); Tour Divide's id was cleared because it
+        # pointed at a rider's deleted planning copy.
+        assert rwgps_count >= 204, f"Expected >=204 current RWGPS routes, got {rwgps_count}"

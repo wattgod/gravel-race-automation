@@ -2785,7 +2785,7 @@ def build_sports_event_jsonld(rd: dict) -> Optional[dict]:
     image_urls = [f"{SITE_BASE_URL}/og/{rd['slug']}.jpg"]
     for photo in rd.get('photos', []):
         photo_url = photo.get('url', '')
-        if photo_url and not photo.get('gif'):
+        if photo_url and not _is_video_derived(photo):
             image_urls.append(f"{SITE_BASE_URL}{photo_url}")
     jsonld["image"] = image_urls if len(image_urls) > 1 else image_urls[0]
 
@@ -3512,6 +3512,15 @@ def _build_riders_report(groups: list[tuple[list[dict], str]]) -> str:
     return '\n      '.join(parts)
 
 
+def _is_video_derived(photo: dict) -> bool:
+    """True for stills and GIFs cut from YouTube videos (#679)."""
+    photo_type = str(photo.get('type') or '')
+    credit = str(photo.get('credit') or '')
+    return bool(photo.get('gif') or photo_type == 'preview-gif'
+                or photo_type.startswith('video-')
+                or credit.lower().startswith('youtube'))
+
+
 def build_course_route(rd: dict, history_html: str = '') -> str:
     """Build [03] The Course section — suffering zones."""
     c = rd['course']
@@ -3519,21 +3528,15 @@ def build_course_route(rd: dict, history_html: str = '') -> str:
 
     body_parts = []
 
-    # YouTube-derived stills render only after relevance QC. Trusted non-video
-    # imagery is left alone because it follows a different provenance path.
+    # Frames pulled from YouTube videos are never shown as photos (#679):
+    # they crop badly, can carry burned-in captions, and the footage isn't
+    # ours to present as photography. Films live in From the Field instead.
     gallery = []
-    video_stills = 0
     for photo in rd.get('photos', []):
-        photo_type = str(photo.get('type') or '')
         photo_url = str(photo.get('url') or '')
-        if (photo.get('gif') or photo_type == 'preview-gif'
-                or photo_url.lower().split('?', 1)[0].endswith('.gif')
-                or not photo_url):
+        if (not photo_url or _is_video_derived(photo)
+                or photo_url.lower().split('?', 1)[0].endswith('.gif')):
             continue
-        if photo_type.startswith('video-'):
-            if _parse_score(photo.get('ai_relevance')) < 4 or video_stills >= 2:
-                continue
-            video_stills += 1
         gallery.append(photo)
         if len(gallery) >= 4:
             break

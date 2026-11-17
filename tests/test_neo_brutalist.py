@@ -1188,21 +1188,30 @@ class TestSections:
         assert "gg-news-ticker" in html
         assert 'id="news" class="gg-section' in html
 
-    def test_video_stills_require_relevance_and_cap_at_two(self, normalized_data):
+    def test_video_stills_never_render_as_photos(self, normalized_data):
+        """#679: frames cut from YouTube videos are not course photos."""
         rd = copy.deepcopy(normalized_data)
         rd["photos"] = [
-            {"type": "video-1", "url": "/missing.jpg", "ai_relevance": None},
-            {"type": "video-2", "url": "/low.jpg", "ai_relevance": "3"},
-            {"type": "video-3", "url": "/pass-a.jpg", "ai_relevance": "4"},
-            {"type": "video-4", "url": "/pass-b.jpg", "ai_relevance": 5},
-            {"type": "video-5", "url": "/capped.jpg", "ai_relevance": 5},
+            {"type": "video-1", "url": "/still-a.jpg", "ai_relevance": 5},
+            {"type": "video-2", "url": "/still-b.jpg", "ai_relevance": "4"},
+            {"type": "landscape", "url": "/yt-credit.jpg", "credit": "YouTube / Someone"},
         ]
         html = build_course_route(rd)
-        assert "/missing.jpg" not in html
-        assert "/low.jpg" not in html
-        assert "/pass-a.jpg" in html
-        assert "/pass-b.jpg" in html
-        assert "/capped.jpg" not in html
+        assert "gg-photo-grid" not in html
+        assert "Photo: YouTube" not in html
+        for url in ("/still-a.jpg", "/still-b.jpg", "/yt-credit.jpg"):
+            assert url not in html
+
+    def test_video_stills_left_out_of_structured_data_images(self, normalized_data):
+        from generate_neo_brutalist import build_sports_event_jsonld
+        rd = copy.deepcopy(normalized_data)
+        rd["photos"] = [
+            {"type": "video-1", "url": "/race-photos/x/x-video-1.jpg", "credit": "YouTube / A"},
+            {"type": "preview-gif", "url": "/race-photos/x/x-preview.gif", "gif": True},
+        ]
+        ld = build_sports_event_jsonld(rd)
+        assert ld is not None
+        assert "race-photos" not in str(ld["image"])
 
     def test_trusted_non_video_images_bypass_video_gate_and_gifs_never_render(self, normalized_data):
         rd = copy.deepcopy(normalized_data)

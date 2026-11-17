@@ -25,7 +25,7 @@ from mission_control.config import (
 )
 from mission_control.sequences import get_sequence, SEQUENCES
 from mission_control.services.pricing import (
-    MIN_WEEKS, PLAN_PRICE_LINE, PRICE_PER_WEEK, compute_race_plan_price_cents,
+    PLAN_PRICE_LINE,
 )
 
 # Triggers that are post-purchase — should NOT be suppressed for customers
@@ -754,29 +754,13 @@ _RACE_FACT_KEYS = ("race_facts", "race_distance_mi", "race_elevation_ft",
 # only place these numbers live (docs/specs/goals-2027-funnel-spec.md D18).
 # Reserved the same way race_facts are: popped from source_data before this
 # runs, so a caller-supplied "price_12wk" can never override the real one.
-# price_* describe the retired one-off plan and stay only for the Roadie Labs
-# templates that still sell it; plan_* describe the Gravel God plan billed
-# every 4 weeks (2026-11-13), with the checkout server's payment_plan math.
-_PRICING_TOKEN_KEYS = (
-    "price_weekly", "price_min", "price_6wk", "price_10wk",
-    "price_12wk", "price_14wk", "price_10_to_14_delta",
-    "plan_price",
-)
+# One token, the 4-weekly rate, on every brand (Matti, 2026-11-17): offer
+# copy never states a total, payment count or per-race sum.
+_PRICING_TOKEN_KEYS = ("plan_price",)
 
 
 def _pricing_tokens() -> dict:
-    price_10wk_cents = compute_race_plan_price_cents(10)
-    price_14wk_cents = compute_race_plan_price_cents(14)
-    return {
-        "price_weekly": PRICE_PER_WEEK,
-        "price_min": f"${compute_race_plan_price_cents(MIN_WEEKS) // 100}",
-        "price_6wk": f"${compute_race_plan_price_cents(6) // 100}",
-        "price_10wk": f"${price_10wk_cents // 100}",
-        "price_12wk": f"${compute_race_plan_price_cents(12) // 100}",
-        "price_14wk": f"${price_14wk_cents // 100}",
-        "price_10_to_14_delta": f"${(price_14wk_cents - price_10wk_cents) // 100}",
-        "plan_price": PLAN_PRICE_LINE,
-    }
+    return {"plan_price": PLAN_PRICE_LINE}
 
 
 def _is_real_number(value) -> bool:

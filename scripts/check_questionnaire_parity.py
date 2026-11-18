@@ -10,7 +10,9 @@ billed every 4 weeks and must not show any retired one-off offer phrase
 back to the retired step 1, or any other redirect, is drift. The two-step
 step 2 (/training-plans/details/) must still match its generated DOM.
 No checkout, private token, saved answer or payment request is made.
-Exit: 0 parity, 1 drift, 2 fetch/parse failure.
+A WAF bot challenge (202, or 403/429) on a datacenter runner proves nothing
+either way, so it is "could not reach", not drift.
+Exit: 0 parity, 1 drift, 2 fetch/parse failure or bot challenge.
 """
 
 from dataclasses import dataclass
@@ -27,6 +29,7 @@ REPO_FILE = ROOT / 'web' / 'training-plans-questionnaire.html'
 LIVE_URL = 'https://gravelgodcycling.com/questionnaire/'
 USER_AGENT = 'Mozilla/5.0 (parity-check; gravel-god-automation)'
 MAX_PAGE_BYTES = 2 * 1024 * 1024
+CHALLENGE_STATUSES = {202, 403, 429}
 sys.path.insert(0, str(ROOT / 'wordpress'))
 import generate_plan_intake_pages as intake  # noqa: E402
 from plan_offer import PLAN_PRICE_LINE, stale_offer_phrases  # noqa: E402
@@ -46,6 +49,10 @@ class LivePage:
     url: str
     status: int = 200
     redirects: tuple = ()
+
+
+class BotChallenge(urllib.error.URLError):
+    """The site answered with a WAF challenge instead of the page."""
 
 
 class _Redirects(urllib.request.HTTPRedirectHandler):
@@ -71,14 +78,20 @@ def fetch_live(url=LIVE_URL) -> LivePage:
     req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
     try:
         with opener.open(req, timeout=30) as resp:
+            if resp.status in CHALLENGE_STATUSES:
+                raise BotChallenge(f'Public questionnaire answered with a bot challenge (HTTP {resp.status})')
             if resp.headers.get('Content-Type', '').split(';')[0].strip().lower() != 'text/html':
                 raise UnexpectedPage('Questionnaire response is not HTML')
             raw = resp.read(MAX_PAGE_BYTES + 1)
             if len(raw) > MAX_PAGE_BYTES:
                 raise UnexpectedPage('Questionnaire response exceeds size bound')
             return LivePage(raw.decode('utf-8'), resp.url, resp.status, tuple(redirects.hops))
-    except urllib.error.HTTPError:
-        raise  # An HTTP failure is a contract failure, not an unreachable warning.
+    except BotChallenge:
+        raise
+    except urllib.error.HTTPError as exc:
+        if exc.code in CHALLENGE_STATUSES:
+            raise BotChallenge(f'Public questionnaire answered with a bot challenge (HTTP {exc.code})') from exc
+        raise  # Any other HTTP failure is a contract failure, not an unreachable warning.
     except (urllib.error.URLError, TimeoutError, OSError) as exc:
         # Only this network boundary may classify transport unavailability.
         raise urllib.error.URLError('Public questionnaire transport unavailable') from exc
@@ -234,7 +247,13 @@ def check_parity(live_html: str = None, repo_html: str = None) -> list:
             findings = _legacy_parity(page.html, repo_html) + _offer_findings(page.html)
         else:
             return ['Unexpected questionnaire redirect or response']
-        details = fetch_live(intake.DETAILS_URL)
+        try:
+            details = fetch_live(intake.DETAILS_URL)
+        except BotChallenge:
+            # Drift already confirmed on the questionnaire is still drift.
+            if findings:
+                return findings
+            raise
         if details.redirects:
             return findings + ['details: unexpected redirect']
         return findings + _two_step_parity(details, 'details')
@@ -247,6 +266,9 @@ def check_parity(live_html: str = None, repo_html: str = None) -> list:
 def main():
     try:
         findings = check_parity()
+    except BotChallenge as exc:
+        print(f'Questionnaire parity check could not reach the page: {exc.reason}')
+        return 2
     except Exception as exc:
         print(f'Questionnaire parity check could not run: {type(exc).__name__}')
         return 2

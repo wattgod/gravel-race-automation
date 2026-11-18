@@ -7862,6 +7862,7 @@ def _glyph_actions_css() -> str:
             '.gg-cd-page .gg-training-primary .gg-btn{--gg-chc:var(--gg-color-gold)}'
             '.gg-cd-page .gg-training-secondary .gg-btn{--gg-chc:var(--gg-color-primary-brown)}'
             '.gg-sticky-cta .gg-btn{--gg-chb:var(--gg-border-width-subtle);--gg-chc:var(--gg-color-teal)}'
+            '.gg-sticky-cta .gg-btn:hover{--gg-chc:var(--gg-color-dark-teal)}'
             '.gg-cd-page .gg-cal-btn{--gg-chb:2px;--gg-chc:var(--gg-color-dark-brown)}'
             '.gg-cd-page .gg-email-capture-btn,.gg-cd-page .gg-email-capture-link{--gg-chb:2px;--gg-chc:var(--gg-color-teal)}'
             '.gg-cd-page .gg-date-reminder-opt-in{--gg-chb:1px;--gg-chc:var(--gg-color-gold)}'

@@ -2294,3 +2294,20 @@ def test_chamfer_is_scoped_to_race_pages_only():
               and ("gg-sticky-cta" in f.read_text() or 'class="gg-neo-brutalist-page gg-cd-page' in f.read_text())]
     assert others == [], others
     assert 'class="gg-neo-brutalist-page gg-cd-page"' in (wp / "generate_neo_brutalist.py").read_text()
+
+
+def test_every_color_token_used_in_page_css_is_defined():
+    """An undefined var() is silently dropped: --gg-color-dark-teal coloured
+    citation links and the sticky button hover for months while undefined."""
+    import brand_tokens
+    wp = Path(__file__).resolve().parent.parent / "wordpress"
+    defined = set(re.findall(r"(--gg-color-[a-z0-9-]+)\s*:", brand_tokens.get_tokens_css()))
+    used = {}
+    for f in wp.glob("*.py"):
+        for name in re.findall(r"var\((--gg-color-[a-z0-9-]+)\)", f.read_text()):
+            used.setdefault(name, set()).add(f.name)
+    missing = {k: sorted(v) for k, v in used.items() if k not in defined}
+    # Known gaps with no agreed brand value yet; each needs a token in
+    # gravel-god-brand tokens.json. Nothing may be added to this set.
+    known_undefined = {"--gg-color-cream", "--gg-color-muted-tan"}
+    assert set(missing) <= known_undefined, {k: v for k, v in missing.items() if k not in known_undefined}

@@ -2215,3 +2215,82 @@ class TestGoalCardStateMath:
     def test_weekday_is_the_races_weekday_not_todays(self):
         # 2026-09-26 is a Saturday
         assert self._compute("2026-09-26", "2026-09-26", "2026-09-24")["weekday"] == "Saturday"
+
+
+# ── GG×Glyph across the race page: action = chamfer, real buttons only ──
+
+def _glyph_css():
+    import generate_neo_brutalist as gnb
+    return gnb, gnb._extract_css_content()
+
+
+def test_glyph_action_css_ships_in_the_race_stylesheet():
+    gnb, css = _glyph_css()
+    assert gnb._glyph_actions_css().removeprefix('<style>').removesuffix('</style>') in css
+
+
+@pytest.mark.parametrize("sel", [
+    ".gg-cd-page .gg-btn", ".gg-sticky-cta .gg-btn",
+    ".gg-cd-page .gg-cal-btn",
+    ".gg-cd-page .gg-email-capture-btn", ".gg-cd-page .gg-email-capture-link",
+    ".gg-cd-page .gg-date-reminder-opt-in",
+])
+def test_action_buttons_are_chamfered(sel):
+    gnb, _ = _glyph_css()
+    assert sel in gnb.GLYPH_ACTION_SELECTORS
+    rule = gnb._glyph_actions_css()
+    assert "clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px" in rule
+
+
+def test_planner_buttons_are_chamfered_in_the_planner_stylesheet_only():
+    import race_planner
+    gnb, css = _glyph_css()
+    planner = race_planner.get_race_planner_css()
+    assert ".gg-neo-brutalist-page .gg-planner-go,.gg-neo-brutalist-page .gg-planner-cta{--gg-chb:3px" in planner
+    assert "gg-planner" not in gnb._glyph_actions_css()
+
+
+@pytest.mark.parametrize("cls", [
+    "gg-pack-toggle-btn", "gg-section-header", "gg-race-watch-toggle",
+    "gg-review-star-btn", "gg-planner-units", "gg-faq-question", "gg-back-to-top",
+])
+def test_disclosures_toggles_and_links_stay_square(cls):
+    gnb, _ = _glyph_css()
+    assert not any(cls in sel for sel in gnb.GLYPH_ACTION_SELECTORS)
+    assert cls not in gnb._glyph_actions_css()
+
+
+def test_focus_drops_clip_and_corner_strokes_for_a_full_ring():
+    gnb, _ = _glyph_css()
+    css = gnb._glyph_actions_css()
+    focus = re.search(r"([^}]*:focus-visible)\{([^}]*)\}", css)
+    assert focus and focus.group(1).count(":focus-visible") == len(gnb.GLYPH_ACTION_SELECTORS)
+    assert "clip-path:none" in focus.group(2)
+    assert "background-image:none!important" in focus.group(2)
+    assert "var(--gg-color-cobalt)" in focus.group(2)
+
+
+def test_corner_stroke_colours_are_tokens_and_tokens_exist():
+    import brand_tokens
+    gnb, _ = _glyph_css()
+    css = gnb._glyph_actions_css()
+    assert not re.search(r"#[0-9a-fA-F]{3,8}\b", css)
+    defined = set(re.findall(r"(--gg-[a-z0-9-]+)\s*:", brand_tokens.get_tokens_css()))
+    used = set(re.findall(r"var\((--gg-[a-z0-9-]+)\)", css)) - {"--gg-chb", "--gg-chc"}
+    assert used and used <= defined, used - defined
+
+
+def test_chamfer_is_scoped_to_race_pages_only():
+    """Coaching, about, methodology etc. link the same shared stylesheet and
+    style their own .gg-btn: the chamfer must not reach them."""
+    gnb, _ = _glyph_css()
+    css = gnb._glyph_actions_css()
+    assert "gg-neo-brutalist-page" not in css
+    for sel in gnb.GLYPH_ACTION_SELECTORS:
+        assert sel.startswith(".gg-cd-page ") or sel.startswith(".gg-sticky-cta "), sel
+    import pathlib
+    wp = pathlib.Path(gnb.__file__).parent
+    others = [f.name for f in wp.glob("*.py") if f.name != "generate_neo_brutalist.py"
+              and ("gg-sticky-cta" in f.read_text() or 'class="gg-neo-brutalist-page gg-cd-page' in f.read_text())]
+    assert others == [], others
+    assert 'class="gg-neo-brutalist-page gg-cd-page"' in (wp / "generate_neo_brutalist.py").read_text()

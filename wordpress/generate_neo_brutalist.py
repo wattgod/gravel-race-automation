@@ -7837,10 +7837,42 @@ APPROVED_TOP_CSS = '''<style>
 </style>'''
 
 
+# GG×Glyph across the race page: action = chamfer, real buttons only (see
+# glyph_chamfer). The Course Dossier already follows it; this carries it to the
+# action buttons below. The finish-time planner chamfers its own buttons in
+# race_planner's stylesheet, which ships only with planner pages. Disclosure
+# toggles, unit switches, rating stars and text links are not actions and stay
+# square. Scoped to .gg-cd-page (race pages only): other pages link the same
+# shared stylesheet and style their own .gg-btn.
+GLYPH_ACTION_SELECTORS = (
+    '.gg-cd-page .gg-btn',
+    '.gg-sticky-cta .gg-btn',
+    '.gg-cd-page .gg-cal-btn',
+    '.gg-cd-page .gg-email-capture-btn',
+    '.gg-cd-page .gg-email-capture-link',
+    '.gg-cd-page .gg-date-reminder-opt-in',
+)
+
+
+def _glyph_actions_css() -> str:
+    from glyph_chamfer import chamfer_css
+    return ('<style>' + chamfer_css(GLYPH_ACTION_SELECTORS)
+            # Stroke colour = each button's border colour.
+            + '.gg-cd-page .gg-btn--outline,.gg-cd-page .gg-pack-cta .gg-btn{--gg-chc:var(--gg-color-teal)}'
+            '.gg-cd-page .gg-training-primary .gg-btn{--gg-chc:var(--gg-color-gold)}'
+            '.gg-cd-page .gg-training-secondary .gg-btn{--gg-chc:var(--gg-color-primary-brown)}'
+            '.gg-sticky-cta .gg-btn{--gg-chb:var(--gg-border-width-subtle);--gg-chc:var(--gg-color-teal)}'
+            '.gg-cd-page .gg-cal-btn{--gg-chb:2px;--gg-chc:var(--gg-color-dark-brown)}'
+            '.gg-cd-page .gg-email-capture-btn,.gg-cd-page .gg-email-capture-link{--gg-chb:2px;--gg-chc:var(--gg-color-teal)}'
+            '.gg-cd-page .gg-date-reminder-opt-in{--gg-chb:1px;--gg-chc:var(--gg-color-gold)}'
+            '.gg-cd-page .gg-date-reminder-opt-in:disabled{--gg-chc:var(--gg-color-tan)}'
+            '</style>')
+
 def _race_page_style_tags() -> str:
     """One assembly path for inline pages and hashed shared stylesheets."""
     return (get_page_css() + APPROVED_TOP_CSS + '<style>' + get_race_calculator_css() + '</style>'
-            + '<style>' + course_dossier.get_css() + '</style>')
+            + '<style>' + course_dossier.get_css() + '</style>'
+            + _glyph_actions_css())
 
 
 def _extract_css_content() -> str:

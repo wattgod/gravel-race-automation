@@ -432,8 +432,10 @@ def planner_script_tag() -> str:
 
 
 def get_race_planner_css() -> str:
+    from glyph_chamfer import chamfer_css
     p = ".gg-neo-brutalist-page .gg-planner"
-    return f'''
+    # GG×Glyph: the planner's buttons are actions, so they are chamfered.
+    return chamfer_css((f'{p}-go', f'{p}-cta'), '3px', 'var(--gg-color-dark-brown)') + f'''
 {p} {{ margin: var(--gg-spacing-lg) 0; padding: var(--gg-spacing-lg); border: var(--gg-border-standard); border-top: 6px solid var(--gg-color-teal); background: var(--gg-color-warm-paper); color: var(--gg-color-dark-brown); scroll-margin-top: calc(var(--gg-header-height, 80px) + var(--gg-spacing-md)); }}
 {p} h2 {{ margin: var(--gg-spacing-2xs) 0 var(--gg-spacing-xs); font-family: var(--gg-font-editorial); line-height: 1.15; }}
 {p} h3 {{ margin: 0 0 var(--gg-spacing-xs); font-family: var(--gg-font-data); font-size: var(--gg-font-size-sm); letter-spacing: .08em; text-transform: uppercase; }}

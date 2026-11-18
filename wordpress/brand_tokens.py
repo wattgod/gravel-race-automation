@@ -84,6 +84,8 @@ def get_tokens_css() -> str:
   --gg-color-secondary-brown: #7d695d;
   --gg-color-warm-brown: #A68E80;
   --gg-color-tan: #d4c5b9;
+  --gg-color-muted-tan: #9c8670; /* borders that must hold 3:1 */
+  --gg-color-cream: #e9dcc6; /* hairlines and soft fills */
   --gg-color-sand: #ede4d8;
   --gg-color-warm-paper: #f5efe6;
   --gg-color-gold: #9a7e0a;
@@ -257,6 +259,8 @@ COLORS = {
     "secondary_brown": "#7d695d",
     "warm_brown": "#A68E80",
     "tan": "#d4c5b9",
+    "muted_tan": "#9c8670",
+    "cream": "#e9dcc6",
     "sand": "#ede4d8",
     "warm_paper": "#f5efe6",
     "gold": "#9a7e0a",

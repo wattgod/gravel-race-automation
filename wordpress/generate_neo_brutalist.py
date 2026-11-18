@@ -2263,18 +2263,28 @@ function ggReadTrail() {
   });
 })();
 
-// Lite-YouTube facade — click to load iframe (zero perf cost until interaction)
-document.querySelectorAll('.gg-lite-youtube').forEach(function(el) {
-  el.addEventListener('click', function() {
-    var id = el.getAttribute('data-videoid');
-    if (!id) return;
+// Films — a row opens the youtube-nocookie player under it; a second click
+// closes it and removes the iframe so playback stops.
+document.querySelectorAll('.gg-film-play').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var id = btn.getAttribute('data-videoid');
+    var player = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!id || !player) return;
+    if (btn.getAttribute('aria-expanded') === 'true') {
+      btn.setAttribute('aria-expanded', 'false');
+      player.hidden = true;
+      player.textContent = '';
+      return;
+    }
     var iframe = document.createElement('iframe');
-    iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0';
+    iframe.title = btn.querySelector('.gg-film-title').textContent;
     iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
     iframe.allowFullscreen = true;
-    iframe.loading = 'lazy';
-    el.textContent = '';
-    el.appendChild(iframe);
+    player.textContent = '';
+    player.appendChild(iframe);
+    player.hidden = false;
+    btn.setAttribute('aria-expanded', 'true');
   });
 });
 
@@ -3699,49 +3709,38 @@ def build_from_the_field(rd: dict) -> str:
                 f'</blockquote>'
             )
 
-    # Video embeds — lite-youtube facade (thumbnail + play, iframe on click)
+    # Films — a typographic list, no YouTube artwork (#679: creator thumbnails
+    # are clickbait art cropped into fixed frames). Each row is a play action;
+    # the youtube-nocookie player opens in a 16:9 frame under it on click.
     if videos:
-        video_cards = []
+        rows = []
         for v in sorted(videos, key=lambda x: x.get('display_order', 99)):
             vid = esc(v.get('video_id', ''))
+            if not vid:
+                continue
             title = esc(v.get('title', ''))
             channel = esc(v.get('channel', ''))
             duration = esc(v.get('duration_string', ''))
             view_count = _format_view_count(v.get('view_count', 0))
-            meta_parts = [channel]
+            meta_parts = [channel] if channel else []
             if view_count:
                 meta_parts.append(f'{esc(view_count)} views')
             if duration:
                 meta_parts.append(duration)
             meta_text = ' &middot; '.join(meta_parts)
-
-            thumb_url = esc(v.get('thumbnail_url', ''))
-            if thumb_url and 'maxresdefault' in thumb_url:
-                thumb_w, thumb_h = 1280, 720
-            else:
-                thumb_url = f'https://i.ytimg.com/vi/{vid}/hqdefault.jpg'
-                thumb_w, thumb_h = 480, 360
-            # YouTube serves every thumbnail as WebP too (the lite-youtube
-            # default); same image, smaller file. Self-hosted thumbs unchanged.
-            yt_jpg = re.match(r'https://i\.ytimg\.com/vi/([\w-]+)/(\w+)\.jpg$', thumb_url)
-            if yt_jpg:
-                thumb_url = f'https://i.ytimg.com/vi_webp/{yt_jpg.group(1)}/{yt_jpg.group(2)}.webp'
-
-            video_cards.append(
-                f'<div class="gg-field-video">'
-                f'<div class="gg-lite-youtube" data-videoid="{vid}">'
-                f'<img src="{thumb_url}" '
-                f'alt="{title}" class="gg-lite-youtube-thumb" loading="lazy" width="{thumb_w}" height="{thumb_h}">'
-                f'<button class="gg-lite-youtube-play" aria-label="Play {title}">'
-                f'<svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.64 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121" fill-opacity=".8"/><path d="M45 24 27 14v20" fill="#fff"/></svg>'
+            rows.append(
+                f'<li class="gg-film">'
+                f'<button type="button" class="gg-film-play" data-videoid="{vid}" '
+                f'aria-expanded="false" aria-controls="gg-film-{vid}">'
+                f'<span class="gg-film-mark" aria-hidden="true"></span>'
+                f'<span class="gg-film-title">{title}</span>'
+                f'<span class="gg-film-meta">{meta_text}</span>'
                 f'</button>'
-                f'</div>'
-                f'<div class="gg-field-video-meta">{meta_text}</div>'
-                f'</div>'
+                f'<div class="gg-film-player" id="gg-film-{vid}" hidden></div>'
+                f'</li>'
             )
-        body_parts.append(
-            f'<div class="gg-field-video-grid">{"".join(video_cards)}</div>'
-        )
+        if rows:
+            body_parts.append(f'<ol class="gg-film-list">{"".join(rows)}</ol>')
 
     body = '\n      '.join(body_parts)
 
@@ -7668,14 +7667,18 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
 .gg-neo-brutalist-page .gg-field-quote {{ border-left: 3px solid var(--gg-color-teal); padding: 12px 16px; margin: 0 0 16px 0; background: var(--gg-color-sand); }}
 .gg-neo-brutalist-page .gg-field-quote-text {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); font-style: italic; line-height: var(--gg-line-height-prose); color: var(--gg-color-primary-brown); margin: 0 0 6px 0; }}
 .gg-neo-brutalist-page .gg-field-quote-cite {{ display: block; font-family: var(--gg-font-data); font-size: 11px; font-style: normal; font-weight: 700; letter-spacing: var(--gg-letter-spacing-wider); text-transform: uppercase; color: var(--gg-color-secondary-brown); }}
-.gg-neo-brutalist-page .gg-field-video-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }}
-.gg-neo-brutalist-page .gg-field-video {{ border: 1px solid var(--gg-color-tan); background: var(--gg-color-warm-paper); }}
-.gg-neo-brutalist-page .gg-lite-youtube {{ position: relative; cursor: pointer; overflow: hidden; aspect-ratio: 16/9; background: var(--gg-color-near-black); }}
-.gg-neo-brutalist-page .gg-lite-youtube-thumb {{ width: 100%; height: 100%; object-fit: cover; display: block; }}
-.gg-neo-brutalist-page .gg-lite-youtube-play {{ position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: none; border: none; cursor: pointer; padding: 0; opacity: 0.85; transition: opacity 0.2s; }}
-.gg-neo-brutalist-page .gg-lite-youtube-play:hover {{ opacity: 1; }}
-.gg-neo-brutalist-page .gg-lite-youtube iframe {{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }}
-.gg-neo-brutalist-page .gg-field-video-meta {{ font-family: var(--gg-font-data); font-size: 11px; color: var(--gg-color-secondary-brown); padding: 8px 10px; letter-spacing: 0.5px; }}
+.gg-neo-brutalist-page .gg-film-list {{ list-style: none; margin: 20px 0 0; padding: 0; border-top: 1px solid var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-film {{ border-bottom: 1px solid var(--gg-color-tan); }}
+.gg-neo-brutalist-page .gg-film-play {{ display: grid; grid-template-columns: 40px minmax(0, 1fr); column-gap: 14px; align-items: center; width: 100%; padding: 14px 0; border: 0; background: none; color: var(--gg-color-dark-brown); text-align: left; cursor: pointer; font: inherit; }}
+.gg-neo-brutalist-page .gg-film-mark {{ grid-row: 1 / span 2; width: 40px; height: 40px; background: var(--gg-color-dark-brown); clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); position: relative; }}
+.gg-neo-brutalist-page .gg-film-mark::after {{ content: ''; position: absolute; left: 15px; top: 12px; border-style: solid; border-width: 8px 0 8px 13px; border-color: transparent transparent transparent var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-film-play[aria-expanded="true"] .gg-film-mark::after {{ left: 13px; top: 13px; width: 14px; height: 14px; border: 0; background: var(--gg-color-warm-paper); }}
+.gg-neo-brutalist-page .gg-film-play:hover .gg-film-title {{ text-decoration: underline; text-underline-offset: 3px; }}
+.gg-neo-brutalist-page .gg-film-title {{ font-family: var(--gg-font-editorial); font-size: var(--gg-font-size-base); font-weight: 700; line-height: 1.3; overflow-wrap: anywhere; }}
+.gg-neo-brutalist-page .gg-film-meta {{ font-family: var(--gg-font-data); font-size: 11px; letter-spacing: 0.5px; color: var(--gg-color-secondary-brown); margin-top: 3px; }}
+.gg-neo-brutalist-page .gg-film-player {{ aspect-ratio: 16 / 9; margin: 0 0 16px; background: var(--gg-color-near-black); }}
+.gg-neo-brutalist-page .gg-film-player[hidden] {{ display: none; }}
+.gg-neo-brutalist-page .gg-film-player iframe {{ display: block; width: 100%; height: 100%; border: 0; }}
 
 /* Responsive — tablet */
 @media (max-width: 1024px) {{
@@ -7722,7 +7725,6 @@ body {{ margin: 0; background: var(--gg-color-warm-paper); }}
   .gg-neo-brutalist-page .gg-email-capture-row {{ flex-direction: column; gap: 8px; }}
   .gg-neo-brutalist-page .gg-email-capture-input {{ border-right: 2px solid var(--gg-color-tan); }}
   .gg-neo-brutalist-page .gg-similar-grid {{ grid-template-columns: 1fr; }}
-  .gg-neo-brutalist-page .gg-field-video-grid {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-review-form-row {{ grid-template-columns: 1fr; }}
   .gg-neo-brutalist-page .gg-countdown-num {{ font-size: 24px; }}
   /* 44px minimum touch targets on mobile */
@@ -8113,7 +8115,6 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="https://ridewithgps.com">
   <link rel="dns-prefetch" href="https://api.rss2json.com">
-  <link rel="dns-prefetch" href="https://i.ytimg.com">
   {preload}
   {og_tags}
   {jsonld_html}

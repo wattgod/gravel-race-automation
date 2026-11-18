@@ -334,7 +334,6 @@ def generate_page_v2(rd: dict, race_index: list = None, external_assets: dict = 
   <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
   <link rel="dns-prefetch" href="https://ridewithgps.com">
   <link rel="dns-prefetch" href="https://api.rss2json.com">
-  <link rel="dns-prefetch" href="https://i.ytimg.com">
   {preload}
   {og_tags}
   {jsonld_html}

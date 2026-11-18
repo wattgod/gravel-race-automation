@@ -793,9 +793,6 @@ def get_css() -> str:
 .gg-cd-yn h3{font:700 11px/1.4 var(--gg-font-data);letter-spacing:.12em;text-transform:uppercase;margin:0 0 6px;color:var(--cd-ink2)}
 .gg-cd-yn ul{margin:0;padding-left:18px;font:400 14.5px/1.5 var(--gg-font-editorial)}
 .gg-cd-alts{margin-top:14px;font:400 15px/1.5 var(--gg-font-editorial)}
-.gg-cd-grid .gg-field-video-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.gg-cd-grid .gg-lite-youtube{aspect-ratio:16/9;height:auto;border-radius:8px!important;overflow:hidden}
-.gg-cd-grid .gg-lite-youtube-thumb{width:100%;height:100%;object-fit:cover}
 .gg-cd-page :focus-visible{outline:2px solid var(--gg-color-teal);outline-offset:3px}
 @media (max-width:1060px){.gg-cd-fold,.gg-cd-fold--2{grid-template-columns:1fr 1fr}.gg-cd-fold--3 .gg-cd-yours{grid-column:1/-1}}
 @media (max-width:900px){

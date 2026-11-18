@@ -316,17 +316,17 @@ OFFICIAL_ROUTES = {
     "hart-hills": "gpx",
     "tour-de-gap": "strava",
     "wild-gravel": "strava",
+    "gravel-of-marathon": "gpx",
 }
 
 # Rejected on review: a deleted file, a past edition at a venue that has
 # moved, a copy of an older course, a one-off championship, a cancelled
 # edition, a final edition, a 2027 course not yet out, a single lap of a
-# lap race, a file 15% short of its own label, and a route whose profile
-# distance is 21% off until the profile is corrected.
+# lap race, and a file 15% short of its own label.
 NO_OFFICIAL_ROUTE = (
     "seven", "uci-gravel-worlds", "vuelta-altas-cumbres", "houffa-gravel",
     "la-dromoise-gravel", "ghost-of-the-gravel", "unbound-100",
-    "rad-am-ring-gravel", "safari-gravel-race", "gravel-of-marathon",
+    "rad-am-ring-gravel", "safari-gravel-race",
 )
 
 
@@ -350,6 +350,18 @@ class TestVerifiedProfiles:
                 continue
             route = _profile(slug)["course_description"]["official_route"]
             assert official_route.load_official_geometry(slug, route), slug
+
+    def test_drawn_route_matches_profile_distance(self):
+        # The organizer's file and the profile must describe the same course.
+        for slug, provider in OFFICIAL_ROUTES.items():
+            if provider not in official_route.GEOMETRY_PROVIDERS or provider == "strava":
+                continue
+            race = _profile(slug)
+            geometry = official_route.load_official_geometry(
+                slug, race["course_description"]["official_route"])
+            drawn = geometry["distance_mi_from_geometry"]
+            stated = float(race["vitals"]["distance_mi"])
+            assert abs(stated - drawn) / drawn <= 0.10, (slug, stated, drawn)
 
     def test_rejected_routes_stay_off(self):
         for slug in NO_OFFICIAL_ROUTE:

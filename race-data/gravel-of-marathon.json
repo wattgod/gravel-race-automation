@@ -7,22 +7,22 @@
       "name": "UCI Gravel World Series"
     },
     "display_name": "The Gravel of Marathon",
-    "tagline": "Greece's first UCI gravel qualifier: three hard laps around Lake Marathon and 90 percent dirt.",
+    "tagline": "Greece's first UCI gravel qualifier: two laps of a 31 km loop around Lake Marathon, three-quarters of it on dirt.",
     "vitals": {
-      "distance_km": 121,
-      "distance_mi": 75.2,
-      "elevation_m": 2020,
-      "elevation_ft": 6627,
+      "distance_km": 95.9,
+      "distance_mi": 59.6,
+      "elevation_m": 1520,
+      "elevation_ft": 4987,
       "location": "Marathon, Attica, Greece",
       "location_badge": "MARATHON, GREECE",
       "country": "Greece",
       "date": "Mid-November",
       "date_specific": "2026: November 15 (Sunday)",
       "terrain_types": [
-        "Lake Marathon gravel",
+        "Lake Marathon soft dirt",
         "Farm roads",
-        "Concrete climbing wall",
-        "Three-lap UCI qualifier"
+        "Rocky opening climb",
+        "Two-lap UCI qualifier"
       ],
       "field_size": "Not published",
       "start_time": "Not published",
@@ -34,8 +34,8 @@
       "lat": 38.153,
       "lng": 23.963,
       "route_options": [
-        "Long: 121 km / 75.2 mi with 2,020 m / 6,627 ft, approximately 90% off-road — qualifier for elites, men 19-59, and women 19-49",
-        "Short: 86 km / 53.4 mi with 1,430 m / 4,692 ft, approximately 90% off-road — qualifier for men 60+ and women 50+"
+        "Long: 95.9 km / 59.6 mi with 1,520 m / 4,987 ft, about 75% off-road, two laps of the 31 km loop — qualifier for elites, men 19-59, and women 19-49",
+        "Short: 65.6 km / 40.8 mi with 1,130 m / 3,707 ft, about 75% off-road, one lap of the 31 km loop — qualifier for men 60+ and women 50+"
       ]
     },
     "climate": {
@@ -49,26 +49,26 @@
       ]
     },
     "terrain": {
-      "primary": "Repeated lake, farm-road, stream, and dam gravel loops",
-      "surface": "The organizer publishes approximately 90% off-road terrain, alternating soft lakeside dirt with rougher and smoother farm-road gravel, a shallow stream crossing, concrete ramps, and a final 1.5 km of asphalt over Marathon Dam.",
+      "primary": "Lake dirt, farm roads, and a rocky opening climb",
+      "surface": "About 75% of the course is dirt: rocky ground on the opening climb, farm roads that switch between dirt and asphalt, two shallow streams, and 4 km of soft dirt beside Lake Marathon.",
       "technical_rating": 3,
       "features": [
-        "A 300 m concrete wall at 12%",
-        "Five kilometres beside Lake Marathon",
-        "A shallow stream crossing",
-        "A 600 m climb reaching 11%",
-        "A 1.5 km asphalt passage over Marathon Dam",
-        "Three repetitions of the 36 km core loop"
+        "A 2 km rocky climb averaging 6%, with a 9% maximum",
+        "5 km of asphalt after Grammatiko",
+        "A shallow stream and a hard 500 m climb before the loop",
+        "4 km of soft dirt beside Lake Marathon",
+        "A 200 m soft-dirt climb reaching 12%",
+        "Two laps of the 31 km loop on the long course"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 57,
+      "overall_score": 54,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 2,
-      "length": 3,
+      "length": 2,
       "technicality": 3,
-      "elevation": 4,
+      "elevation": 3,
       "climate": 2,
       "altitude": 1,
       "adventure": 4,
@@ -80,7 +80,7 @@
       "value": 3,
       "expenses": 2,
       "cultural_impact": 1,
-      "score_note": "The inaugural Greek UCI qualifier has an unusually well-published course, 90 percent off-road, and meaningful climbing. The unproven first-edition field and operations record hold it in Tier 3.",
+      "score_note": "The inaugural Greek UCI qualifier publishes a detailed course, three-quarters dirt with real climbing for its length. The unproven first-edition field and operations record hold it in Tier 3.",
       "discipline": "gravel",
       "display_tier": 3,
       "display_tier_label": "TIER 3"
@@ -91,16 +91,16 @@
         "explanation": "Marathon is roughly 40 km from Athens with broad local lodging choices, which is much easier than most destination gravel races. Airport transfer, city traffic, and bike transport still require planning, but the event is not remote."
       },
       "length": {
-        "score": 3,
-        "explanation": "The long course is 121 km, or 75.2 miles, inside the published score-three band. Three laps turn that moderate distance into a pacing problem because every steep feature returns."
+        "score": 2,
+        "explanation": "The long course is 95.9 km, or 59.6 miles, just inside the published 40-60 mile score-two band. Two laps and a retraced approach make it a short race with a long-race pacing problem."
       },
       "technicality": {
         "score": 3,
-        "explanation": "The official course alternates soft dirt, rough and smooth farm-road gravel, a shallow stream, a concrete wall, and fast asphalt over Marathon Dam. It asks for mixed-surface control without claiming extreme singletrack."
+        "explanation": "About 75% of the course is dirt: rocky ground on the opening climb, farm roads that switch between dirt and asphalt, two shallow streams, soft lakeside dirt, and a 12% soft-dirt ramp. It asks for mixed-surface control without singletrack."
       },
       "elevation": {
-        "score": 4,
-        "explanation": "The long course carries 2,020 metres, about 6,627 feet, of climbing. That clears the published 6,000-foot threshold for score four, compressed into three repetitions of the same hard loop."
+        "score": 3,
+        "explanation": "The long course climbs 1,520 metres, about 4,987 feet, inside the 4,000-6,000-foot score-three band. It comes as a rocky climb out of Marathon, short ramps on each lap, and the climb back over Grammatiko."
       },
       "climate": {
         "score": 2,
@@ -108,11 +108,11 @@
       },
       "altitude": {
         "score": 1,
-        "explanation": "The Marathon and Lake Marathon course stays at low elevation. The 12-percent and 11-percent ramps hurt because they repeat, not because oxygen is scarce."
+        "explanation": "The course tops out below 400 metres. The 12% ramp hurts because it comes back on lap two, not because oxygen is scarce."
       },
       "adventure": {
         "score": 4,
-        "explanation": "The race joins Lake Marathon, farm tracks, a stream crossing, the historic dam, and the town associated with the Battle of Marathon. Repeating terrain usually reduces adventure, but this loop has unusually strong place identity."
+        "explanation": "The race joins Lake Marathon, farm tracks, two stream crossings, Grammatiko and the town of the Battle of Marathon. A repeated loop usually costs adventure, but this one has strong place identity."
       },
       "prestige": {
         "score": 3,
@@ -124,7 +124,7 @@
       },
       "experience": {
         "score": 4,
-        "explanation": "Starting at Marathon Stadium, racing beside the lake, crossing a stream, and passing over Marathon Dam gives each 36 km lap a real narrative. The history-rich setting is likely memorable without relying on invented crowd claims."
+        "explanation": "Starting at Marathon Stadium, riding beside the lake, fording streams and finishing in central Marathon gives each 31 km lap a real narrative without relying on invented crowd claims."
       },
       "community": {
         "score": 2,
@@ -136,7 +136,7 @@
       },
       "value": {
         "score": 3,
-        "explanation": "A 121 km UCI qualifier with 90-percent dirt and an official course description is a substantial product. With no public entry price in the cited page, the honest score is neutral rather than promotional."
+        "explanation": "A 95.9 km UCI qualifier on three-quarters dirt, with a detailed official course and downloadable GPX files, is a substantial product. With no public entry price in the cited pages, the honest score is neutral."
       },
       "expenses": {
         "score": 2,
@@ -144,52 +144,60 @@
       }
     },
     "course_description": {
-      "character": "A three-lap long course built around a 36 km core loop from Marathon Stadium. Each lap includes a gentle 4 km climb, a 300 m concrete wall at 12%, five kilometres beside Lake Marathon, alternating farm-road gravel, a shallow stream, a 600 m climb at up to 11%, and 1.5 km of asphalt over Marathon Dam.",
-      "signature_challenge": "Treating the first lap as reconnaissance, the second as work, and the third as a race—especially when the 12-percent wall and 11-percent climb return with more than 4,000 feet already in the legs.",
+      "character": "The course leaves Marathon Stadium, crosses town and climbs 2 km on rocky ground at 6% (9% at the steepest). It passes Grammatiko, runs 5 km of asphalt, fords a shallow stream and climbs a hard 500 m to the start of a 31 km loop. Each lap is 16 km of farm road alternating dirt and asphalt, 4 km of soft dirt beside Lake Marathon, a second stream, a 200 m climb on soft dirt at up to 12%, and 6 km of dirt back to the loop start. The long course rides the loop twice, the short course once, and both retrace the approach through Grammatiko and Ano Souli to finish in central Marathon.",
+      "signature_challenge": "Keeping enough for the second lap: the 12% soft-dirt climb comes back near mile 45, and the climb out of the loop toward Grammatiko still stands between you and the descent home.",
       "suffering_zones": [
         {
-          "mile": 3,
-          "label": "Concrete wall",
-          "desc": "A gentle 4 km climb ends with 300 metres of concrete at up to 12 percent.",
-          "terrain_detail": "Steep concrete ramp",
-          "named_section": "The Wall"
+          "mile": 2,
+          "label": "Rocky opening climb",
+          "desc": "Two kilometres on rocky ground at 6%, touching 9%, right after the start.",
+          "terrain_detail": "Rocky climb",
+          "named_section": "Approach from Marathon Stadium"
         },
         {
-          "mile": 14,
-          "label": "Lake and farm roads",
-          "desc": "Soft lake-edge dirt transitions repeatedly into rougher and smoother farm-road gravel before the stream crossing.",
-          "terrain_detail": "Variable gravel and shallow water",
+          "mile": 21,
+          "label": "Lake Marathon",
+          "desc": "Four kilometres of soft dirt beside the lake after 16 km of mixed farm road.",
+          "terrain_detail": "Soft lakeside dirt",
+          "named_section": "Lake Marathon"
+        },
+        {
+          "mile": 26,
+          "label": "12% surprise",
+          "desc": "Past the greenhouses and a second shallow stream, 200 metres of soft dirt climbing at up to 12%.",
+          "terrain_detail": "Steep soft-dirt climb",
           "named_section": "Lake Marathon loop"
         },
         {
-          "mile": 20,
-          "label": "Dam return",
-          "desc": "A 600 m climb at up to 11 percent precedes the final asphalt passage over Marathon Dam—and then the long-course riders do it again.",
-          "terrain_detail": "Steep gravel climb into asphalt",
-          "named_section": "Marathon Dam"
-        },
-        {
-          "mile": 63,
-          "label": "Final-lap wall",
-          "desc": "The last return to the concrete wall exposes anyone who raced the first two laps instead of pacing them.",
-          "terrain_detail": "Repeated 12-percent ramp",
-          "named_section": "The Wall, lap three"
+          "mile": 45,
+          "label": "Second-lap climb",
+          "desc": "The same 12% soft-dirt ramp on lap two, with the return over Grammatiko still to come.",
+          "terrain_detail": "Repeated 12% climb",
+          "named_section": "Lake Marathon loop, lap two"
         }
       ],
       "surface_breakdown": {
         "overall": {
-          "gravel": 90,
-          "pavement": 10
+          "gravel": 75,
+          "pavement": 25
         }
+      },
+      "official_route": {
+        "provider": "gpx",
+        "url": "https://gravelchallenge.gr/files/2026-10-12_3343503283_Gravel%20of%20Marathon_95km_1210.gpx",
+        "provenance_url": "https://gravelchallenge.gr/%ce%b4%ce%b9%ce%b1%ce%b4%cf%81%ce%bf%ce%bc%ce%b5%cf%82-gravel-of-marathon/",
+        "name": "The Gravel of Marathon 95 km route",
+        "edition": "2026",
+        "verified_at": "2026-11-17"
       }
     },
     "biased_opinion": {
       "verdict": "The Loop Is the Point",
-      "summary": "Three laps sound less adventurous until you inspect the lap: lake dirt, farm gravel, a stream, a concrete wall, another steep climb, and the Marathon Dam. The repeat format makes pacing brutally legible. If lap one feels heroic, lap three will collect the debt.",
+      "summary": "Two laps sound less adventurous until you look at the lap: farm roads, soft lake dirt, a stream and a 12% ramp, all after a rocky climb out of Marathon. The repeat format makes pacing legible. Spend lap one carelessly and lap two, plus the ride home over Grammatiko, collects the debt.",
       "strengths": [
-        "Approximately 90% off-road",
-        "Detailed official course",
-        "6,627 feet in 75 miles",
+        "About 75% off-road",
+        "Detailed official course and GPX files",
+        "4,987 feet in 60 miles",
         "UCI qualifier stakes",
         "Easy access from Athens relative to most gravel destinations"
       ],
@@ -206,7 +214,7 @@
       "airport": "Athens International Airport (ATH), with Marathon approximately 40 km northeast of central Athens",
       "lodging_strategy": "Stay in Marathon, Nea Makri, or the Schinias area for a short race-morning transfer; Athens works only if you plan traffic and parking carefully.",
       "transport": "A rental car or confirmed event transfer is the practical option with a bike.",
-      "food": "Marathon and the surrounding coast have restaurants and groceries; bring tested race nutrition for the repeated laps.",
+      "food": "Marathon and the surrounding coast have restaurants and groceries. The loop has two feed stations; carry tested race nutrition for the approach and the ride home.",
       "packet_pickup": "Not published",
       "parking": "Not published",
       "official_site": "https://gravelofmarathon.gr/"
@@ -220,17 +228,17 @@
     },
     "guide_variables": {
       "race_name": "The Gravel of Marathon",
-      "race_distance": "121 km / 75.2 miles",
-      "race_elevation": "2,020 m / 6,627 feet",
+      "race_distance": "95.9 km / 59.6 miles",
+      "race_elevation": "1,520 m / 4,987 feet",
       "race_date": "November 15, 2026",
       "race_location": "Marathon, Greece",
-      "race_terrain": "Three 36 km loops of lake dirt, farm gravel, a stream, concrete ramps, and Marathon Dam",
+      "race_terrain": "A rocky approach from Marathon, then two laps of a 31 km loop of farm roads, soft lake dirt, streams and a 12% ramp",
       "race_weather": "Mediterranean late autumn with meaningful rain risk",
       "race_challenges": [
         "Lap discipline",
-        "Repeated steep ramps",
+        "Repeated steep ramp",
         "Variable surface handling",
-        "6,627 feet of climbing",
+        "4,987 feet of climbing",
         "Late-season weather"
       ],
       "altitude_section": false,
@@ -276,19 +284,19 @@
         ],
         "race_specific": true,
         "topics": {
-          "lap_pacing": "Dividing effort across three identical loops",
-          "climbing": "Repeating short 11-12-percent ramps",
-          "handling": "Switching between soft dirt, rough gravel, stream, and asphalt",
+          "lap_pacing": "Splitting effort across two laps and the ride home",
+          "climbing": "A rocky 2 km opener and a repeated 12% soft-dirt ramp",
+          "handling": "Switching between rocky ground, soft dirt, streams, and asphalt",
           "weather": "Adjusting tires and layers for November rain"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "The Gravel of Marathon",
-        "race_hook": "Train the third lap, not the first.",
-        "race_hook_detail": "Seven race-specific plans for Greece's first UCI gravel qualifier: 121 km, 2,020 metres, and the same steep ramps three times.",
-        "distance": "75.2",
-        "dark_mile": "63",
+        "race_hook": "Train the second lap, not the first.",
+        "race_hook_detail": "Seven race-specific plans for Greece's first UCI gravel qualifier: 95.9 km, 1,520 metres, and the same 12% ramp twice.",
+        "distance": "59.6",
+        "dark_mile": "45",
         "non_negotiable_1": "Lap discipline",
         "non_negotiable_2": "Repeat-climb durability",
         "non_negotiable_3": "Variable-surface control",
@@ -299,21 +307,21 @@
       {
         "requirement": "Lap discipline",
         "by_when": "Week 8",
-        "why": "The long course repeats its core 36 km loop three times."
+        "why": "The long course rides its 31 km loop twice, then retraces the approach home."
       },
       {
         "requirement": "Repeat-climb durability",
         "by_when": "Week 9",
-        "why": "The 12-percent concrete wall and 11-percent climb return on every lap."
+        "why": "The 12% soft-dirt climb returns on lap two, after a rocky 2 km opener."
       },
       {
         "requirement": "Variable-surface control",
         "by_when": "Week 7",
-        "why": "The official course alternates soft dirt, rough gravel, farm roads, shallow water, concrete, and asphalt."
+        "why": "The course alternates rocky ground, soft lake dirt, farm roads, shallow streams, and asphalt."
       }
     ],
     "final_verdict": {
-      "score": "57 / 100",
+      "score": "54 / 100",
       "one_liner": "Greece's first UCI gravel qualifier has more verified course substance than many established races.",
       "should_you_race": "Race it if you want UCI stakes and can respect a repeat-lap pacing plan. Wait for first-edition results if operational certainty matters more than being early.",
       "alternatives": "Gravel of Loutraki for an established Greek gravel event; Alentejo Gravel for a later-season European UCI qualifier."
@@ -338,6 +346,16 @@
         "url": "https://ucigravelworldseries.com/en/regulations/",
         "category": "official",
         "label": "UCI Gravel World Series — competition and qualification rules"
+      },
+      {
+        "url": "https://gravelchallenge.gr/%ce%b4%ce%b9%ce%b1%ce%b4%cf%81%ce%bf%ce%bc%ce%b5%cf%82-gravel-of-marathon/",
+        "category": "official",
+        "label": "Organizer — route descriptions, distances, climbing and surface for both courses"
+      },
+      {
+        "url": "https://gravelchallenge.gr/files/2026-10-12_3343503283_Gravel%20of%20Marathon_95km_1210.gpx",
+        "category": "route",
+        "label": "Organizer — 95 km route GPX"
       }
     ],
     "eligibility": {
@@ -348,7 +366,7 @@
       "status_note": "The organizer and UCI confirm a competitive qualifier on Sunday, November 15, 2026, with registration open and complete long- and short-course facts. Current runway supports the full seven-plan ladder."
     },
     "source_review": {
-      "reviewed_at": "2026-08-12",
+      "reviewed_at": "2026-11-17",
       "race_date": "2026-11-15",
       "facts_scope": "The organizer and UCI pages confirm the date, competition status, route distances, climbing totals, approximate off-road percentage, lap structure, named course features, registration state, organizer background, and lodging availability. Unpublished start time, fee, aid plan, cutoff, field size, and parking remain explicitly unknown."
     },
@@ -366,7 +384,7 @@
       ]
     },
     "tire_recommendations": {
-      "generated_at": "2026-11-06",
+      "generated_at": "2026-11-17",
       "primary": [
         {
           "rank": 1,
@@ -378,24 +396,11 @@
           "weight_grams": 668,
           "crr_watts": 15.8,
           "tested_width_mm": 50,
-          "course_cost_watts": 18.31,
-          "why": "Rolls 15.8 W at 50mm on BRR's drum."
+          "course_cost_watts": 19.15,
+          "why": "Rolls 15.8 W at 50mm on BRR's drum. Puncture score 49 for the sharp rock."
         },
         {
           "rank": 2,
-          "tire_id": "schwalbe-g-one-r-pro",
-          "name": "Schwalbe G-One R Pro",
-          "brand": "Schwalbe",
-          "recommended_width_mm": 50,
-          "msrp_usd": 91.0,
-          "weight_grams": 592,
-          "crr_watts": 16.7,
-          "tested_width_mm": 50,
-          "course_cost_watts": 18.46,
-          "why": "Rolls 16.7 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
-        },
-        {
-          "rank": 3,
           "tire_id": "specialized-pathfinder",
           "name": "Specialized Pathfinder",
           "brand": "Specialized",
@@ -404,8 +409,21 @@
           "weight_grams": 567,
           "crr_watts": 17.0,
           "tested_width_mm": 50,
-          "course_cost_watts": 19.3,
-          "why": "Rolls 17 W at 50mm on BRR's drum."
+          "course_cost_watts": 20.5,
+          "why": "Rolls 17 W at 50mm on BRR's drum. Puncture score 46 for the sharp rock."
+        },
+        {
+          "rank": 3,
+          "tire_id": "schwalbe-g-one-r-pro",
+          "name": "Schwalbe G-One R Pro",
+          "brand": "Schwalbe",
+          "recommended_width_mm": 50,
+          "msrp_usd": 91.0,
+          "weight_grams": 592,
+          "crr_watts": 16.7,
+          "tested_width_mm": 50,
+          "course_cost_watts": 21.1,
+          "why": "Rolls 16.7 W at 50mm on BRR's drum. 3.1mm shoulder knobs for loose corners."
         }
       ],
       "front_rear_split": {
@@ -420,7 +438,7 @@
           "name": "Schwalbe G-One R Pro",
           "width_mm": 50
         },
-        "rationale": "The rear carries 53% of the weight and does the traction work on 6,627 ft of climbing, so it gets the 2.1mm center knobs; the front rolls the faster file tread."
+        "rationale": "The rear carries 53% of the weight and does the traction work on 4,987 ft of climbing, so it gets the 2.1mm center knobs; the front rolls the faster file tread."
       },
       "race_surface_profile": "mixed",
       "recommended_width_mm": 50,

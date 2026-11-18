@@ -50,7 +50,7 @@
     },
     "terrain": {
       "primary": "Lake dirt, farm roads, and a rocky opening climb",
-      "surface": "About 75% of the course is dirt: rocky ground on the opening climb, farm roads that switch between dirt and asphalt, two shallow streams, and 4 km of soft dirt beside Lake Marathon.",
+      "surface": "About 75% of the course is dirt: rocky ground on the opening climb, farm roads that switch between dirt and asphalt, two shallow streams, and 4 km of soft dirt beside Lake Marathon. [5]",
       "technical_rating": 3,
       "features": [
         "A 2 km rocky climb averaging 6%, with a 9% maximum",
@@ -92,15 +92,15 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The long course is 95.9 km, or 59.6 miles, just inside the published 40-60 mile score-two band. Two laps and a retraced approach make it a short race with a long-race pacing problem."
+        "explanation": "The long course is 95.9 km, or 59.6 miles, just inside the published 40-60 mile score-two band [5]. Two laps and a retraced approach make it a short race with a long-race pacing problem."
       },
       "technicality": {
         "score": 3,
-        "explanation": "About 75% of the course is dirt: rocky ground on the opening climb, farm roads that switch between dirt and asphalt, two shallow streams, soft lakeside dirt, and a 12% soft-dirt ramp. It asks for mixed-surface control without singletrack."
+        "explanation": "About 75% of the course is dirt: rocky ground on the opening climb, farm roads that switch between dirt and asphalt, two shallow streams, soft lakeside dirt, and a 12% soft-dirt ramp [5]. It asks for mixed-surface control without singletrack."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The long course climbs 1,520 metres, about 4,987 feet, inside the 4,000-6,000-foot score-three band. It comes as a rocky climb out of Marathon, short ramps on each lap, and the climb back over Grammatiko."
+        "explanation": "The long course climbs 1,520 metres, about 4,987 feet, inside the 4,000-6,000-foot score-three band [5]. It comes as a rocky climb out of Marathon, short ramps on each lap, and the climb back over Grammatiko [5][6]."
       },
       "climate": {
         "score": 2,
@@ -144,34 +144,34 @@
       }
     },
     "course_description": {
-      "character": "The course leaves Marathon Stadium, crosses town and climbs 2 km on rocky ground at 6% (9% at the steepest). It passes Grammatiko, runs 5 km of asphalt, fords a shallow stream and climbs a hard 500 m to the start of a 31 km loop. Each lap is 16 km of farm road alternating dirt and asphalt, 4 km of soft dirt beside Lake Marathon, a second stream, a 200 m climb on soft dirt at up to 12%, and 6 km of dirt back to the loop start. The long course rides the loop twice, the short course once, and both retrace the approach through Grammatiko and Ano Souli to finish in central Marathon.",
-      "signature_challenge": "Keeping enough for the second lap: the 12% soft-dirt climb comes back near mile 45, and the climb out of the loop toward Grammatiko still stands between you and the descent home.",
+      "character": "The course leaves Marathon Stadium, crosses town and climbs 2 km on rocky ground at 6% (9% at the steepest) [5]. It passes Grammatiko, runs 5 km of asphalt, fords a shallow stream and climbs a hard 500 m to the start of a 31 km loop [5]. Each lap is 16 km of farm road alternating dirt and asphalt, 4 km of soft dirt beside Lake Marathon, a second stream, a 200 m climb on soft dirt at up to 12%, and 6 km of dirt back to the loop start [5]. The long course rides the loop twice, the short course once, and both retrace the approach through Grammatiko and Ano Souli to finish in central Marathon [5][6].",
+      "signature_challenge": "Keeping enough for the second lap: the 12% soft-dirt climb comes back near mile 45, and the climb out of the loop toward Grammatiko still stands between you and the descent home [5][6].",
       "suffering_zones": [
         {
           "mile": 2,
           "label": "Rocky opening climb",
-          "desc": "Two kilometres on rocky ground at 6%, touching 9%, right after the start.",
+          "desc": "Two kilometres on rocky ground at 6%, touching 9%, right after the start [5].",
           "terrain_detail": "Rocky climb",
           "named_section": "Approach from Marathon Stadium"
         },
         {
           "mile": 21,
           "label": "Lake Marathon",
-          "desc": "Four kilometres of soft dirt beside the lake after 16 km of mixed farm road.",
+          "desc": "Four kilometres of soft dirt beside the lake after 16 km of mixed farm road [5].",
           "terrain_detail": "Soft lakeside dirt",
           "named_section": "Lake Marathon"
         },
         {
           "mile": 26,
           "label": "12% surprise",
-          "desc": "Past the greenhouses and a second shallow stream, 200 metres of soft dirt climbing at up to 12%.",
+          "desc": "Past the greenhouses and a second shallow stream, 200 metres of soft dirt climbing at up to 12% [5].",
           "terrain_detail": "Steep soft-dirt climb",
           "named_section": "Lake Marathon loop"
         },
         {
           "mile": 45,
           "label": "Second-lap climb",
-          "desc": "The same 12% soft-dirt ramp on lap two, with the return over Grammatiko still to come.",
+          "desc": "The same 12% soft-dirt ramp on lap two, with the return over Grammatiko still to come [5][6].",
           "terrain_detail": "Repeated 12% climb",
           "named_section": "Lake Marathon loop, lap two"
         }

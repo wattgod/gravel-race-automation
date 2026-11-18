@@ -50,7 +50,7 @@
     },
     "terrain": {
       "primary": "Lake dirt, farm roads, and a rocky opening climb",
-      "surface": "About 75% of the course is dirt: rocky ground on the opening climb, farm roads that switch between dirt and asphalt, two shallow streams, and 4 km of soft dirt beside Lake Marathon. [5]",
+      "surface": "About 75% of the course is dirt: rocky ground on the opening climb, farm roads that switch between dirt and asphalt, two shallow streams, and 4 km of soft dirt beside Lake Marathon. [7]",
       "technical_rating": 3,
       "features": [
         "A 2 km rocky climb averaging 6%, with a 9% maximum",
@@ -92,19 +92,19 @@
       },
       "length": {
         "score": 2,
-        "explanation": "The long course is 95.9 km, or 59.6 miles, just inside the published 40-60 mile score-two band [5]. Two laps and a retraced approach make it a short race with a long-race pacing problem."
+        "explanation": "The long course is 95.9 km, or 59.6 miles, just inside the published 40-60 mile score-two band [7]. Two laps and a retraced approach make it a short race with a long-race pacing problem."
       },
       "technicality": {
         "score": 3,
-        "explanation": "About 75% of the course is dirt: rocky ground on the opening climb, farm roads that switch between dirt and asphalt, two shallow streams, soft lakeside dirt, and a 12% soft-dirt ramp [5]. It asks for mixed-surface control without singletrack."
+        "explanation": "About 75% of the course is dirt: rocky ground on the opening climb, farm roads that switch between dirt and asphalt, two shallow streams, soft lakeside dirt, and a 12% soft-dirt ramp [7]. It asks for mixed-surface control without singletrack."
       },
       "elevation": {
         "score": 3,
-        "explanation": "The long course climbs 1,520 metres, about 4,987 feet, inside the 4,000-6,000-foot score-three band [5]. It comes as a rocky climb out of Marathon, short ramps on each lap, and the climb back over Grammatiko [5][6]."
+        "explanation": "The long course climbs 1,520 metres, about 4,987 feet, inside the 4,000-6,000-foot score-three band [7]. It comes as a rocky climb out of Marathon, short ramps on each lap, and the climb back over Grammatiko [7][8]."
       },
       "climate": {
         "score": 2,
-        "explanation": "November reduces the heat risk around Attica, while rain could materially change the 90-percent off-road surface. Conditions deserve equipment flexibility but are not inherently an extreme-climate challenge."
+        "explanation": "November reduces the heat risk around Attica, while rain could materially change a course that is roughly 75 percent off-road. Conditions deserve equipment flexibility but are not inherently an extreme-climate challenge."
       },
       "altitude": {
         "score": 1,
@@ -144,34 +144,34 @@
       }
     },
     "course_description": {
-      "character": "The course leaves Marathon Stadium, crosses town and climbs 2 km on rocky ground at 6% (9% at the steepest) [5]. It passes Grammatiko, runs 5 km of asphalt, fords a shallow stream and climbs a hard 500 m to the start of a 31 km loop [5]. Each lap is 16 km of farm road alternating dirt and asphalt, 4 km of soft dirt beside Lake Marathon, a second stream, a 200 m climb on soft dirt at up to 12%, and 6 km of dirt back to the loop start [5]. The long course rides the loop twice, the short course once, and both retrace the approach through Grammatiko and Ano Souli to finish in central Marathon [5][6].",
-      "signature_challenge": "Keeping enough for the second lap: the 12% soft-dirt climb comes back near mile 45, and the climb out of the loop toward Grammatiko still stands between you and the descent home [5][6].",
+      "character": "The course leaves Marathon Stadium, crosses town and climbs 2 km on rocky ground at 6% (9% at the steepest) [7]. It passes Grammatiko, runs 5 km of asphalt, fords a shallow stream and climbs a hard 500 m to the start of a 31 km loop [7]. Each lap is 16 km of farm road alternating dirt and asphalt, 4 km of soft dirt beside Lake Marathon, a second stream, a 200 m climb on soft dirt at up to 12%, and 6 km of dirt back to the loop start [7]. The long course rides the loop twice, the short course once, and both retrace the approach through Grammatiko and Ano Souli to finish in central Marathon [7][8].",
+      "signature_challenge": "Keeping enough for the second lap: the 12% soft-dirt climb comes back near mile 45, and the climb out of the loop toward Grammatiko still stands between you and the descent home [7][8].",
       "suffering_zones": [
         {
           "mile": 2,
           "label": "Rocky opening climb",
-          "desc": "Two kilometres on rocky ground at 6%, touching 9%, right after the start [5].",
+          "desc": "Two kilometres on rocky ground at 6%, touching 9%, right after the start [7].",
           "terrain_detail": "Rocky climb",
           "named_section": "Approach from Marathon Stadium"
         },
         {
           "mile": 21,
           "label": "Lake Marathon",
-          "desc": "Four kilometres of soft dirt beside the lake after 16 km of mixed farm road [5].",
+          "desc": "Four kilometres of soft dirt beside the lake after 16 km of mixed farm road [7].",
           "terrain_detail": "Soft lakeside dirt",
           "named_section": "Lake Marathon"
         },
         {
           "mile": 26,
           "label": "12% surprise",
-          "desc": "Past the greenhouses and a second shallow stream, 200 metres of soft dirt climbing at up to 12% [5].",
+          "desc": "Past the greenhouses and a second shallow stream, 200 metres of soft dirt climbing at up to 12% [7].",
           "terrain_detail": "Steep soft-dirt climb",
           "named_section": "Lake Marathon loop"
         },
         {
           "mile": 45,
           "label": "Second-lap climb",
-          "desc": "The same 12% soft-dirt ramp on lap two, with the return over Grammatiko still to come [5][6].",
+          "desc": "The same 12% soft-dirt ramp on lap two, with the return over Grammatiko still to come [7][8].",
           "terrain_detail": "Repeated 12% climb",
           "named_section": "Lake Marathon loop, lap two"
         }
@@ -348,6 +348,16 @@
         "label": "UCI Gravel World Series — competition and qualification rules"
       },
       {
+        "url": "https://ucigravelworldseries.com/en/thailand-and-greece-close-the-2026-gravelking-uci-gravel-world-series/",
+        "category": "official",
+        "label": "UCI Gravel World Series — race preview: 96 km, 1,320 m, roughly 75% off-road"
+      },
+      {
+        "url": "https://ucigravelworldseries.com/en/malezsewski-and-njemcevic-make-history-at-first-greek-gravelking-uci-gravel-world-series-event/",
+        "category": "official",
+        "label": "UCI Gravel World Series — 2026 race report"
+      },
+      {
         "url": "https://gravelchallenge.gr/%ce%b4%ce%b9%ce%b1%ce%b4%cf%81%ce%bf%ce%bc%ce%b5%cf%82-gravel-of-marathon/",
         "category": "official",
         "label": "Organizer — route descriptions, distances, climbing and surface for both courses"
@@ -368,7 +378,7 @@
     "source_review": {
       "reviewed_at": "2026-11-17",
       "race_date": "2026-11-15",
-      "facts_scope": "The organizer and UCI pages confirm the date, competition status, route distances, climbing totals, approximate off-road percentage, lap structure, named course features, registration state, organizer background, and lodging availability. Unpublished start time, fee, aid plan, cutoff, field size, and parking remain explicitly unknown."
+      "facts_scope": "The organizer's route page and GPX files confirm the date, competition status, 95.9 km / 1,520 m long route, 65.6 km / 1,130 m short route, roughly 75% off-road surface, two laps (long) or one lap (short) of a 31 km loop, and named course features. The UCI pages give 96 km / 1,320 m and 65 km / 1,150 m; the race report gives 95 km. An earlier 121 km / 2,020 m / 90% description was superseded. Unpublished start time, fee, aid plan, cutoff and parking remain explicitly unknown."
     },
     "research_metadata": {
       "data_confidence": "high for date, course, climbing, surface share, competition status, and registration; pending for operations and first-edition results",

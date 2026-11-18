@@ -68,8 +68,9 @@ def test_gravel_of_marathon_uses_the_official_two_lap_course() -> None:
     }
     character = race["course_description"]["character"].lower()
     assert "twice" in character and "31 km" in character
-    profile = json.dumps(race, ensure_ascii=False)
-    for stale in ("121 km", "2,020", "6,627", "three laps", "36 km", "90%"):
+    # source_review records the superseded description on purpose.
+    profile = json.dumps({k: v for k, v in race.items() if k != "source_review"}, ensure_ascii=False)
+    for stale in ("121 km", "2,020", "6,627", "three laps", "three-lap", "36 km", "90%", "90-percent", "90 percent"):
         assert stale not in profile, stale
     assert race["source_review"]["race_date"] == "2026-11-15"
     _assert_score_contract(race, 54, 3)

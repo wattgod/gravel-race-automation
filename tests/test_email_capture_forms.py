@@ -42,7 +42,7 @@ WORKER_PATH = (
 FORM_BLOCKS = {
     "prep_kit_email_capture": ("// Email capture form — prep kit CTA", "// Plan ladder — race-specific plan capture"),
     "plan_ladder": ("// Plan ladder — race-specific plan capture", "// Inline review form"),
-    "racer_review": ("// Inline review form", "// Lite-YouTube facade"),
+    "racer_review": ("// Inline review form", "// Films — a row opens"),
     "date_reminder": ("// Date reminder handler", None),
 }
 

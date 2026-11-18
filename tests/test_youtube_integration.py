@@ -264,15 +264,21 @@ class TestBuildFromTheField:
         assert '<img' not in cite_content
         assert '&lt;img' in cite_content
 
-    def test_video_thumbnails_use_lazy_loading(self, race_with_youtube):
+    def test_films_show_no_youtube_artwork(self, race_with_youtube):
+        """#679: creator thumbnails are clickbait art cropped into frames."""
         rd = normalize_race_data(race_with_youtube)
         html = build_from_the_field(rd)
-        assert 'loading="lazy"' in html
+        assert 'i.ytimg.com' not in html
+        assert '<img' not in html
+        assert '<iframe' not in html  # the player loads only on click
 
-    def test_video_thumbnails_use_ytimg(self, race_with_youtube):
+    def test_each_film_is_a_play_button_with_its_player_slot(self, race_with_youtube):
         rd = normalize_race_data(race_with_youtube)
         html = build_from_the_field(rd)
-        assert 'i.ytimg.com' in html
+        for vid in ('vKCSt1e392M', 'abc123DEF_-'):
+            assert (f'<button type="button" class="gg-film-play" data-videoid="{vid}" '
+                    f'aria-expanded="false" aria-controls="gg-film-{vid}">') in html
+            assert f'<div class="gg-film-player" id="gg-film-{vid}" hidden></div>' in html
 
     def test_teal_accent_class(self, race_with_youtube):
         rd = normalize_race_data(race_with_youtube)
@@ -311,7 +317,7 @@ class TestBuildFromTheField:
         html = build_from_the_field(rd)
         assert html != ''
         assert 'gg-field-quote' in html
-        assert 'gg-lite-youtube' not in html
+        assert 'gg-film-list' not in html
 
     def test_videos_only_no_quotes(self, minimal_race):
         """Section should render with videos only (no quotes)."""
@@ -331,7 +337,7 @@ class TestBuildFromTheField:
         rd = normalize_race_data(minimal_race)
         html = build_from_the_field(rd)
         assert html != ''
-        assert 'gg-lite-youtube' in html
+        assert 'gg-film-list' in html
         assert 'gg-field-quote' not in html
 
 
@@ -457,12 +463,12 @@ class TestTocIntegration:
 # ── DNS Prefetch ──────────────────────────────────────────────
 
 class TestDnsPrefetch:
-    """Verify YouTube thumbnail domain is prefetched."""
+    """No YouTube thumbnails load, so their domain is not prefetched."""
 
-    def test_dns_prefetch_in_generated_page(self, race_with_youtube):
+    def test_no_thumbnail_prefetch_in_generated_page(self, race_with_youtube):
         rd = normalize_race_data(race_with_youtube)
         html = generate_page(rd)
-        assert 'dns-prefetch" href="https://i.ytimg.com"' in html
+        assert 'i.ytimg.com' not in html
 
 
 # ── Search Query Builder ─────────────────────────────────────
@@ -645,32 +651,16 @@ class TestDurationValidation:
         assert _parse_duration_seconds(None) == 0
 
 
-# ── Thumbnail URL in HTML ────────────────────────────────────
+# ── Thumbnail URL is not rendered ────────────────────────────
 
-class TestThumbnailUrlInHtml:
-    """Test that stored thumbnail_url renders in HTML output."""
-
-    def test_thumbnail_url_in_html(self, race_with_youtube):
-        """When a video has thumbnail_url, it should appear in generated HTML."""
+class TestThumbnailUrlNotRendered:
+    def test_stored_thumbnail_url_is_ignored(self, race_with_youtube):
         race_with_youtube["race"]["youtube_data"]["videos"][0]["thumbnail_url"] = \
             "https://i.ytimg.com/vi/vKCSt1e392M/maxresdefault.jpg"
         rd = normalize_race_data(race_with_youtube)
         html = build_from_the_field(rd)
-        # YouTube thumbnails are served as WebP (same image, smaller file)
-        assert "https://i.ytimg.com/vi_webp/vKCSt1e392M/maxresdefault.webp" in html
-        assert ".jpg" not in html
-        assert 'width="1280"' in html
-        assert 'height="720"' in html
-
-    def test_fallback_hqdefault(self, race_with_youtube):
-        """Absent thumbnail_url should use the hqdefault thumbnail (WebP)."""
-        # Ensure no thumbnail_url is set
-        for v in race_with_youtube["race"]["youtube_data"]["videos"]:
-            v.pop("thumbnail_url", None)
-        rd = normalize_race_data(race_with_youtube)
-        html = build_from_the_field(rd)
-        assert "/hqdefault.webp" in html
-        assert 'width="480"' in html
+        assert "maxresdefault" not in html
+        assert 'data-videoid="vKCSt1e392M"' in html
 
 
 # ── Vision API Tests ─────────────────────────────────────────

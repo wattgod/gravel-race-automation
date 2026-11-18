@@ -39,8 +39,9 @@ from pathlib import Path
 try:
     import stripe
 except ImportError:
-    print("ERROR: stripe package not installed. Run: pip install stripe")
-    sys.exit(1)
+    # Only creating products needs Stripe; reading the manifest and --dry-run
+    # do not. create_all() refuses before any call when it is missing.
+    stripe = None
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 COURSES_DIR = REPO_ROOT / "data" / "courses"
@@ -147,6 +148,9 @@ def retired_records() -> dict:
 
 
 def create_all(courses: list[dict]):
+    if stripe is None:
+        print("ERROR: stripe package not installed. Run: pip install stripe")
+        sys.exit(1)
     key = os.environ.get("STRIPE_SECRET_KEY", "")
     if not key:
         print("ERROR: STRIPE_SECRET_KEY not set")

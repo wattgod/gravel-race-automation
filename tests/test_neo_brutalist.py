@@ -2230,10 +2230,10 @@ def test_glyph_action_css_ships_in_the_race_stylesheet():
 
 
 @pytest.mark.parametrize("sel", [
-    ".gg-neo-brutalist-page .gg-btn", ".gg-sticky-cta .gg-btn",
-    ".gg-neo-brutalist-page .gg-cal-btn",
-    ".gg-neo-brutalist-page .gg-email-capture-btn", ".gg-neo-brutalist-page .gg-email-capture-link",
-    ".gg-neo-brutalist-page .gg-date-reminder-opt-in",
+    ".gg-cd-page .gg-btn", ".gg-sticky-cta .gg-btn",
+    ".gg-cd-page .gg-cal-btn",
+    ".gg-cd-page .gg-email-capture-btn", ".gg-cd-page .gg-email-capture-link",
+    ".gg-cd-page .gg-date-reminder-opt-in",
 ])
 def test_action_buttons_are_chamfered(sel):
     gnb, _ = _glyph_css()
@@ -2278,3 +2278,19 @@ def test_corner_stroke_colours_are_tokens_and_tokens_exist():
     defined = set(re.findall(r"(--gg-[a-z0-9-]+)\s*:", brand_tokens.get_tokens_css()))
     used = set(re.findall(r"var\((--gg-[a-z0-9-]+)\)", css)) - {"--gg-chb", "--gg-chc"}
     assert used and used <= defined, used - defined
+
+
+def test_chamfer_is_scoped_to_race_pages_only():
+    """Coaching, about, methodology etc. link the same shared stylesheet and
+    style their own .gg-btn: the chamfer must not reach them."""
+    gnb, _ = _glyph_css()
+    css = gnb._glyph_actions_css()
+    assert "gg-neo-brutalist-page" not in css
+    for sel in gnb.GLYPH_ACTION_SELECTORS:
+        assert sel.startswith(".gg-cd-page ") or sel.startswith(".gg-sticky-cta "), sel
+    import pathlib
+    wp = pathlib.Path(gnb.__file__).parent
+    others = [f.name for f in wp.glob("*.py") if f.name != "generate_neo_brutalist.py"
+              and ("gg-sticky-cta" in f.read_text() or 'class="gg-neo-brutalist-page gg-cd-page' in f.read_text())]
+    assert others == [], others
+    assert 'class="gg-neo-brutalist-page gg-cd-page"' in (wp / "generate_neo_brutalist.py").read_text()

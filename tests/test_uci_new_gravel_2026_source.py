@@ -55,18 +55,23 @@ def test_gravel_chile_keeps_first_edition_unknowns_explicit() -> None:
     _assert_score_contract(race, 54, 3)
 
 
-def test_gravel_of_marathon_uses_the_official_three_lap_course() -> None:
+def test_gravel_of_marathon_uses_the_official_two_lap_course() -> None:
+    # The organizer's 2026 routes page and GPX: 95.9 km, 1,520 m, two laps
+    # of a 31 km loop, 75% dirt. The earlier 121 km three-lap course is gone.
     race = _race("gravel-of-marathon")
     assert race["vitals"]["date_specific"] == "2026: November 15 (Sunday)"
-    # The current UCI course page, preview and race report (#689) supersede
-    # the earlier 121 km / 2,020 m / 90% description.
-    assert race["vitals"]["distance_km"] == 96
-    assert race["vitals"]["elevation_m"] == 1320
+    assert race["vitals"]["distance_km"] == 95.9
+    assert race["vitals"]["distance_mi"] == 59.6
+    assert race["vitals"]["elevation_m"] == 1520
     assert race["course_description"]["surface_breakdown"]["overall"] == {
         "gravel": 75, "pavement": 25,
     }
-    assert "three" in race["course_description"]["character"].lower()
-    assert "31 km loop" in race["course_description"]["character"]
+    character = race["course_description"]["character"].lower()
+    assert "twice" in character and "31 km" in character
+    # source_review records the superseded description on purpose.
+    profile = json.dumps({k: v for k, v in race.items() if k != "source_review"}, ensure_ascii=False)
+    for stale in ("121 km", "2,020", "6,627", "three laps", "three-lap", "36 km", "90%", "90-percent", "90 percent"):
+        assert stale not in profile, stale
     assert race["source_review"]["race_date"] == "2026-11-15"
     _assert_score_contract(race, 54, 3)
 

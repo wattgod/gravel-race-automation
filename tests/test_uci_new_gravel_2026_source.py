@@ -58,14 +58,17 @@ def test_gravel_chile_keeps_first_edition_unknowns_explicit() -> None:
 def test_gravel_of_marathon_uses_the_official_three_lap_course() -> None:
     race = _race("gravel-of-marathon")
     assert race["vitals"]["date_specific"] == "2026: November 15 (Sunday)"
-    assert race["vitals"]["distance_km"] == 121
-    assert race["vitals"]["elevation_m"] == 2020
+    # The current UCI course page, preview and race report (#689) supersede
+    # the earlier 121 km / 2,020 m / 90% description.
+    assert race["vitals"]["distance_km"] == 96
+    assert race["vitals"]["elevation_m"] == 1320
     assert race["course_description"]["surface_breakdown"]["overall"] == {
-        "gravel": 90, "pavement": 10,
+        "gravel": 75, "pavement": 25,
     }
     assert "three" in race["course_description"]["character"].lower()
+    assert "31 km loop" in race["course_description"]["character"]
     assert race["source_review"]["race_date"] == "2026-11-15"
-    _assert_score_contract(race, 57, 3)
+    _assert_score_contract(race, 54, 3)
 
 
 def test_new_profiles_cite_only_their_official_race_or_series_sources() -> None:

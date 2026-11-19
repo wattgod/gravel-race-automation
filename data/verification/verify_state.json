@@ -1,7 +1,21 @@
 {
  "114-gravel-race": {
-  "last_checked": "2026-07-04T16:25:01.077259+00:00",
-  "changed": true
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 85,
+    "tier": 1,
+    "url": "https://114gravelrace.com/en/course/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 3386,
+    "tier": 1,
+    "url": "https://114gravelrace.com/en/rules/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
  },
  "3rides-aachen": {
   "last_checked": "2026-07-04T16:25:01.077259+00:00",
@@ -40,12 +54,52 @@
   "changed": false
  },
  "albia-holy-cow": {
-  "last_checked": "2026-07-04T16:25:01.077259+00:00",
-  "changed": true
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 60,
+    "tier": 1,
+    "url": "https://iowagravelseries.com/albia/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 3258,
+    "tier": 1,
+    "url": "https://iowagravelseries.com/albia/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "100-200 riders",
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/albia-holy-cow/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
  },
  "alentejo-gravel": {
-  "last_checked": "2026-07-04T16:25:01.077259+00:00",
-  "changed": true
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 74,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/alentejo-gravel/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 5741,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/alentejo-gravel/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "200-400 riders",
+    "tier": 4,
+    "url": "https://ucigravelworldseries.com/en/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
  },
  "algarve-gran-fondo": {
   "last_checked": "2026-07-04T16:25:01.077259+00:00",
@@ -84,8 +138,28 @@
   "changed": false
  },
  "ardenne-gravel-stages": {
-  "last_checked": "2026-07-04T16:25:01.077259+00:00",
-  "changed": true
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 165,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/ardenne-gravel-stages/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 14009,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/ardenne-gravel-stages/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "200-400 riders",
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/ardenne-gravel-stages/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
  },
  "5-mila-marche-gran-fondo": {
   "last_checked": "2026-07-09T15:00:05.041570+00:00",
@@ -108,20 +182,80 @@
   "changed": true
  },
  "atlas-mountain-race": {
-  "last_checked": "2026-07-09T15:00:05.041570+00:00",
-  "changed": true
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 827,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/atlas-mountain-race/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 81011,
+    "tier": 4,
+    "url": "https://themountainraces.cc/atlas-mountain-race",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "prize_purse": {
+    "value": "None (self-supported)",
+    "tier": 4,
+    "url": "https://themountainraces.cc/atlas-mountain-race",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
  },
  "axel-merckx-gran-fondo": {
   "last_checked": "2026-07-09T15:00:05.041570+00:00",
   "changed": true
  },
  "back-forty-highlander": {
-  "last_checked": "2026-07-09T15:00:05.041570+00:00",
-  "changed": false
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": true,
+  "sources": {
+   "field_size": {
+    "value": "100-300 riders",
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/back-forty-highlander/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "prize_purse": {
+    "value": "None",
+    "tier": 1,
+    "url": "https://gravelcup.com/gravel-cup-events/back-forty-highlander",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
  },
  "badlands": {
-  "last_checked": "2026-07-09T15:00:05.041570+00:00",
-  "changed": false
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 497,
+    "tier": 4,
+    "url": "https://badlands.cc/badlands2026/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 52493,
+    "tier": 4,
+    "url": "https://badlands.cc/badlands2026/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "~200-300 riders",
+    "tier": 4,
+    "url": "https://badlands.cc/2026preview/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "prize_purse": {
+    "value": "Finisher recognition (self-supported ethos)",
+    "tier": 4,
+    "url": "https://badlands.cc/badlands2026/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
  },
  "balatonfondo": {
   "last_checked": "2026-07-09T15:00:05.041570+00:00",
@@ -132,8 +266,28 @@
   "changed": true
  },
  "barry-roubaix": {
-  "last_checked": "2026-07-09T15:00:05.041570+00:00",
-  "changed": true
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 100,
+    "tier": 4,
+    "url": "https://barry-roubaix.com/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 7000,
+    "tier": 4,
+    "url": "https://barry-roubaix.com/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "1000+ riders",
+    "tier": 1,
+    "url": "https://granfondodailynews.com/2025/04/14/barry-roubaix-5000-riders-set-record-for-worlds-largest-gravel-race-results/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
  },
  "battenkill": {
   "last_checked": "2026-07-09T15:00:05.041570+00:00",
@@ -3888,6 +4042,360 @@
     "tier": 4,
     "url": "https://vaportrail125.com/registration",
     "checked": "2026-11-12T14:02:06.355997+00:00"
+   }
+  }
+ },
+ "veneto-gravel": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": true,
+  "sources": {
+   "prize_purse": {
+    "value": "Modest prizes",
+    "tier": 4,
+    "url": "https://venetogravel.it/en/regolamento/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "vermont-overland": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": true,
+  "sources": {
+   "elevation_ft": {
+    "value": 7000,
+    "tier": 4,
+    "url": "https://www.vermontoverland.com/overland",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "Capped at 1,000 riders",
+    "tier": 4,
+    "url": "https://www.vermontoverland.com/overland",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "vuelta-altas-cumbres": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 75,
+    "tier": 1,
+    "url": "https://www.yahoo.com/lifestyle/articles/uci-gravel-world-series-joaquin-001913267.html",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "wasatch-all-road": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 82,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/wasatch-all-road/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 10560,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/wasatch-all-road/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "100-300 riders",
+    "tier": 1,
+    "url": "https://results.bikereg.com/?map=0&n=results&racetype=all&region=all",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "prize_purse": {
+    "value": "None or minimal",
+    "tier": 1,
+    "url": "https://battistrada.com/en/cycling-calendar/edition/the-wasatch-all-road-bicycle-race-2026/54327/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "waucheesi-bike-race": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 88,
+    "tier": 4,
+    "url": "https://www.rapidexpeditions.com/waucheesi-bike-race.html",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 11500,
+    "tier": 4,
+    "url": "https://www.rapidexpeditions.com/waucheesi-bike-race.html",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "~250 rider cap",
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/waucheesi-bike-race/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "waukon-100": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 62,
+    "tier": 1,
+    "url": "https://www.bikeiowa.com/Event/15674/waukon-one-hundred-iowa-gravel-series",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "west-coast-gravel": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 53,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/west-coast-gravel/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 6690,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/west-coast-gravel/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "300-rider event limit",
+    "tier": 1,
+    "url": "https://www.granfondoguide.com/Events/Index/9349/west-coast-gravel",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "west-coast-slugger": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 76.37,
+    "tier": 4,
+    "url": "https://www.bcgravelseries.com/westcoastslugger",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "Not published by the organizer",
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/west-coast-slugger/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "prize_purse": {
+    "value": "Awards and draw prizes; no cash purse published",
+    "tier": 4,
+    "url": "https://www.bcgravelseries.com/westcoastslugger",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "whiskey-off-road": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 50,
+    "tier": 1,
+    "url": "https://strambecco.com/event/whiskey-off-road/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 6523,
+    "tier": 1,
+    "url": "https://strambecco.com/event/whiskey-off-road/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "~2,000 riders",
+    "tier": 2,
+    "url": "https://velo.outsideonline.com/mountain/nitty-gritty-racing-whiskey-off-road/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "wild-gravel": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 60,
+    "tier": 1,
+    "url": "https://www.gnowangerup.wa.gov.au/events/wild-gravel/10344",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 3500,
+    "tier": 1,
+    "url": "https://trailswa.com.au/trails/trail/wild-gravel-trail-gnowangerup",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "wild-horse-gravel": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 95,
+    "tier": 4,
+    "url": "https://geminiadventures.com/bike/wild-horse-gravel",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 8000,
+    "tier": 4,
+    "url": "https://geminiadventures.com/bike/wild-horse-gravel",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "~400 riders (historical sellout)",
+    "tier": 2,
+    "url": "https://velo.outsideonline.com/gallery/grind-gallery-gravel-fondo-fun-at-wild-horse-gravel/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "prize_purse": {
+    "value": "2000",
+    "tier": 4,
+    "url": "https://geminiadventures.com/bike/wild-horse-gravel",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "wish-one-millau": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 81,
+    "tier": 4,
+    "url": "https://wishonegravelrace.com/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 8200,
+    "tier": 4,
+    "url": "https://wishonegravelrace.com/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "wollombi-gravel-fest": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": true,
+  "sources": {
+   "elevation_ft": {
+    "value": 3500,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/wollombi-gravel-fest/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "prize_purse": {
+    "value": "None",
+    "tier": 4,
+    "url": "https://wollombigravel.com.au/wollombi-gravel-fest/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "worthersee-gravel-race": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 93,
+    "tier": 1,
+    "url": "https://www.trainingpeaks.com/training-plans/cycling/gran-fondo-century/tp-659721/worthersee-gravel-race-compete-12wk",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 5620,
+    "tier": 1,
+    "url": "https://www.trainingpeaks.com/training-plans/cycling/gran-fondo-century/tp-659721/worthersee-gravel-race-compete-12wk",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "1,000 rider cap (2026)",
+    "tier": 4,
+    "url": "https://www.woerthersee-gravel.com/en/competition/faq/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "wyo-131": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 131,
+    "tier": 4,
+    "url": "https://www.wyo131.com/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 7500,
+    "tier": 4,
+    "url": "https://www.wyo131.com/131mile",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "100-250 riders",
+    "tier": 1,
+    "url": "https://county10.com/photos-wyo-131-gravel-bike-race-brings-biketober-fest-to-lander/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "wyscig-niepolomice": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 61.5,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/wyscig-niepolomice/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 889,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/wyscig-niepolomice/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   }
+  }
+ },
+ "yorkshire-coast-dirt-dash": {
+  "last_checked": "2026-11-19T14:01:49.084237+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 45,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/yorkshire-coast-dirt-dash/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "elevation_ft": {
+    "value": 3000,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/yorkshire-coast-dirt-dash/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
+   },
+   "field_size": {
+    "value": "75-125 riders",
+    "tier": 2,
+    "url": "https://bikepacking.com/news/2026-yorkshire-coast-dirt-dash-recap/",
+    "checked": "2026-11-19T14:01:49.084237+00:00"
    }
   }
  }

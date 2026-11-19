@@ -450,6 +450,38 @@ def test_render_report_failed_orders_are_first_and_broken_is_complete(collected)
     assert "possible tracking regression" in report
 
 
+def test_render_report_labels_drill_health_check_not_a_customer(collected):
+    collected["commerce_ledger"].update({
+        "failed_orders": [],
+        "orders": [
+            {
+                "id": "drill-20261011",
+                "name": "Daily",
+                "email": "g***@gmail.com",
+                "product_type": "training_plan",
+                "success": True,
+                "fulfillment_status": "BLOCKED_REVIEW",
+                "blocker_count": 16,
+            },
+            {
+                "id": "real-order-abc123",
+                "name": "Real Rider",
+                "email": "real@example.com",
+                "product_type": "training_plan",
+                "success": True,
+            },
+        ],
+    })
+
+    report = render_report(collected)
+    commerce = report.split("## ORDER PROCESSING (LOCAL RECORDS)\n", 1)[1].split(
+        "\n\n## CONSTRAINT", 1)[0]
+
+    assert "[internal health-check, no customer attached]" in commerce
+    assert "Daily <g***@gmail.com>" not in commerce
+    assert "Real Rider <real@example.com>" in commerce
+
+
 def test_render_report_includes_social_only_when_accounts_are_live(collected):
     collected["social"] = {
         "ok": True,

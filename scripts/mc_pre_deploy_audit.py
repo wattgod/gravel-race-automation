@@ -54,24 +54,28 @@ def warn(name: str, detail: str = ""):
 def check_css_classes():
     print("\n1. CSS CLASS MATCH")
 
-    # Collect all CSS class definitions
+    class_selector = re.compile(r'\.((?:mc|gg)-[\w-]+(?:__[\w-]+)?(?:--[\w-]+)?)\b')
+
+    # Collect shared CSS class definitions
     css_classes = set()
     for css_file in STATIC_DIR.rglob("*.css"):
-        content = css_file.read_text()
-        # Match .class-name patterns (including BEM)
-        for match in re.finditer(r'\.((?:mc|gg)-[\w-]+(?:__[\w-]+)?(?:--[\w-]+)?)\b', content):
-            css_classes.add(match.group(1))
+        css_classes.update(class_selector.findall(css_file.read_text()))
 
     # Collect all CSS class usages in HTML templates
     used_classes = {}
     for html_file in TEMPLATES_DIR.rglob("*.html"):
         content = html_file.read_text()
         rel_path = html_file.relative_to(TEMPLATES_DIR)
+        local_classes = {
+            cls
+            for block in re.findall(r"<style\b[^>]*>(.*?)</style\s*>", content, re.I | re.S)
+            for cls in class_selector.findall(block)
+        }
         for match in re.finditer(r'class="([^"]*)"', content):
             for cls in match.group(1).split():
                 # Skip Jinja2 dynamic classes and non-mc/gg classes
                 if cls.startswith(("mc-", "gg-")) and "{{" not in cls and "{%" not in cls:
-                    if cls not in css_classes:
+                    if cls not in css_classes and cls not in local_classes:
                         if cls not in used_classes:
                             used_classes[cls] = []
                         used_classes[cls].append(str(rel_path))
@@ -89,7 +93,7 @@ def check_css_classes():
 
     if used_classes:
         for cls, files in sorted(used_classes.items()):
-            check("CSS class defined", False, f"'{cls}' used in {', '.join(files[:3])} but not in any CSS file")
+            check("CSS class defined", False, f"'{cls}' used in {', '.join(files[:3])} has no shared or local CSS definition")
     else:
         check("All CSS classes defined", True)
 

@@ -1,4 +1,6 @@
-# WOLLOMBI GRAVEL FEST — COMMUNITY RESEARCH
+# WOLLOMBI GRAVEL — COMMUNITY RESEARCH
+
+These historical rider notes cover the inaugural December 2024 Wollombi Gravel Fest, not the 2027 course.
 
 ## Event Overview & Format
 

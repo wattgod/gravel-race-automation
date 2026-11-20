@@ -56,6 +56,8 @@ _RECEIPT_TRIGGERS = {"athlete_review", "athlete_exit", "plan_debrief"}
 _DAILY_CAP_EXEMPT_TRIGGERS = _RECEIPT_TRIGGERS | {"prep_kit_delivery", "plan_purchased"}
 _DAILY_CAP_HOURS = 24
 
+_RESERVED_RECIPIENT_DOMAINS = ("example.com", "example.net", "example.org")
+
 # Fallback plan length (weeks) for completion-relative steps when the
 # enrollment's source_data carries no usable plan_weeks AND the step has no
 # static delay_days fallback of its own. 12 weeks matches our most common
@@ -287,11 +289,28 @@ async def process_due_sends() -> dict:
         result = q.execute()
         enrollments = result.data or []
 
+        processed = 0
         sent = 0
         errors = 0
 
         for enrollment in enrollments:
+            processed += 1
             try:
+                domain = enrollment["contact_email"].rpartition("@")[2].strip().lower().rstrip(".")
+                if any(domain == base or domain.endswith("." + base)
+                       for base in _RESERVED_RECIPIENT_DOMAINS):
+                    db.update(
+                        "gg_sequence_enrollments",
+                        {"status": "paused"},
+                        {"id": enrollment["id"], "status": "active"},
+                    )
+                    db.log_action(
+                        "sequence_paused", "enrollment", str(enrollment["id"]),
+                        "Reserved example recipient domain",
+                    )
+                    # Quarantined test rows are neither deliveries nor failures.
+                    processed -= 1
+                    continue
                 success = await _send_next_step(enrollment)
                 if success:
                     sent += 1
@@ -307,7 +326,7 @@ async def process_due_sends() -> dict:
                     str(e),
                 )
 
-        return {"processed": len(enrollments), "sent": sent, "errors": errors, "skipped": False}
+        return {"processed": processed, "sent": sent, "errors": errors, "skipped": False}
 
 
 async def _send_next_step(enrollment: dict) -> bool:

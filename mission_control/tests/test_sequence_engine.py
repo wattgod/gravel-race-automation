@@ -741,6 +741,40 @@ class TestProcessingLock:
         assert result["processed"] == 0
 
 
+class TestReservedRecipients:
+    @pytest.mark.parametrize("valid_recipient_due", [False, True])
+    def test_reserved_recipients_pause_without_affecting_delivery(self, fake_db, monkeypatch, valid_recipient_due):
+        import asyncio
+        from unittest.mock import AsyncMock
+        from mission_control.services import sequence_engine as engine
+
+        due = {"status": "active", "next_send_at": "2026-01-01T00:00:00+00:00"}
+        reserved = engine.db.insert("gg_sequence_enrollments", {
+            **due, "contact_email": "test@lab.Example.COM",
+        })
+        if valid_recipient_due:
+            valid = engine.db.insert("gg_sequence_enrollments", {
+                **due, "contact_email": "contact@myexample.com",
+            })
+        send = AsyncMock(return_value=True)
+        monkeypatch.setattr(engine, "_send_next_step", send)
+
+        result = asyncio.run(engine.process_due_sends())
+
+        assert result == {
+            "processed": int(valid_recipient_due), "sent": int(valid_recipient_due),
+            "errors": 0, "skipped": False,
+        }
+        assert engine.db.select_one("gg_sequence_enrollments", match={"id": reserved["id"]})["status"] == "paused"
+        assert [row["action"] for row in fake_db.store["gg_audit_log"]] == ["sequence_paused"]
+        if valid_recipient_due:
+            send.assert_awaited_once_with(valid)
+        else:
+            send.assert_not_awaited()
+            assert asyncio.run(engine.process_due_sends()) == result
+            assert len(fake_db.store["gg_audit_log"]) == 1
+
+
 class TestSvixVerification:
     """Resend signs webhooks Svix-style — bearer auth alone never matches."""
 

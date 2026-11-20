@@ -1,29 +1,29 @@
 {
   "race": {
-    "name": "Wollombi Gravel Fest",
+    "name": "Wollombi Gravel",
     "slug": "wollombi-gravel-fest",
-    "display_name": "Wollombi Gravel Fest",
+    "display_name": "Wollombi Gravel",
     "tagline": "NSW valley gravel festival in historic Wollombi.",
     "vitals": {
-      "distance_mi": 62,
-      "elevation_ft": 3500,
+      "distance_mi": 58.4,
+      "elevation_ft": 4249,
       "location": "Wollombi Valley, New South Wales",
       "location_badge": "WOLLOMBI VALLEY, NSW",
       "county": "Cessnock City Council",
-      "date": "Late December annually",
-      "date_specific": "2025: December 21-22",
+      "date": "March 20, 2027",
+      "date_specific": "2027: March 20 (confirmed)",
       "terrain_types": [
         "Gravel roads",
         "Valley terrain",
         "Rolling hills",
         "Rural NSW"
       ],
-      "field_size": "200-400 riders",
-      "start_time": "8:30am",
-      "registration": "Online. Cost: ~$70-120 AUD",
+      "field_size": "Not announced",
+      "start_time": "8:00am",
+      "registration": "AUD 159–199; entries open December 14, 2026",
       "prize_purse": "None",
-      "aid_stations": "Aid stations on course",
-      "cutoff_time": "None official",
+      "aid_stations": "Yengo: Boree Valley Road (26 km) and Finchley Trig (73 km)",
+      "cutoff_time": "Yengo: Yango Track and Finchley Track junction (45 km) by 10:30am; otherwise follow the Boree course",
       "lat": -32.93,
       "lng": 151.14
     },
@@ -50,11 +50,11 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 47,
+      "overall_score": 46,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 2,
-      "length": 3,
+      "length": 2,
       "technicality": 2,
       "elevation": 3,
       "climate": 2,
@@ -91,7 +91,7 @@
       "bottom_line": "A pleasant regional gravel festival in a historic NSW valley. Perfect for locals or those visiting Hunter Valley. Not worth traveling far for the race alone, but combine it with wine country tourism and it's a nice weekend."
     },
     "final_verdict": {
-      "score": "47 / 100",
+      "score": "46 / 100",
       "one_liner": "Small NSW valley festival with historic charm and modest ambitions.",
       "should_you_race": "Only if you're in NSW or visiting Hunter Valley anyway. Not worth traveling specifically for the race.",
       "alternatives": "For better Australian events: MAAP Beechworth, Gravel Grit. For similar regional vibes: other NSW gravel events."
@@ -100,14 +100,14 @@
       "airport": "Sydney (SYD) 2 hours drive",
       "lodging_strategy": "Very limited lodging in Wollombi. Stay in nearby towns or Hunter Valley. Book early.",
       "food": "Small village with limited dining. Stock up beforehand.",
-      "packet_pickup": "Race morning typically",
-      "parking": "At start/finish",
-      "official_site": "https://wollombigravel.com.au/wollombi-gravel-fest/"
+      "packet_pickup": "At Myrtle & Stone; time to be confirmed",
+      "parking": "Not announced",
+      "official_site": "https://graveleur.cc/wollombi-gravel-event-page"
     },
     "history": {
       "founded": 2024,
       "founder": "Local organizers",
-      "origin_story": "Regional gravel festival showcasing historic Wollombi Valley.",
+      "origin_story": "Kristy Scrymgeour started Wollombi Gravel Fest in 2024. Graveleur and Myrtle & Stone organize the 2027 ride.[4]",
       "notable_moments": [],
       "reputation": "Small regional NSW event with festival atmosphere."
     },
@@ -121,39 +121,32 @@
       }
     ],
     "course_description": {
-      "character": "Rolling valley gravel roads through historic NSW countryside.",
+      "character": "Quiet gravel roads and fire trails around Yengo National Park.[5]",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Valley Rolling",
-          "desc": "Rolling terrain begins.",
-          "terrain_detail": "Valley hills",
-          "named_section": "Early Rolling"
+          "mile": 28,
+          "label": "Yango Track junction",
+          "desc": "Reach the junction by 10:30am or switch to Boree.[5]",
+          "terrain_detail": "Fire trails",
+          "named_section": "Yango Track and Finchley Track"
         },
         {
-          "mile": 40,
-          "label": "Midpoint",
-          "desc": "Halfway through valley.",
-          "terrain_detail": "Continued rolling",
-          "named_section": "Mid-Course"
-        },
-        {
-          "mile": 55,
-          "label": "Final Stretch",
-          "desc": "Last miles to finish.",
-          "terrain_detail": "Final hills",
-          "named_section": "Finish"
+          "mile": 45.4,
+          "label": "Finchley Trig",
+          "desc": "The second Yengo feed zone is at 73 km.[5]",
+          "terrain_detail": "Fire trails",
+          "named_section": "Finchley Trig"
         }
       ],
-      "signature_challenge": "Rolling valley terrain and potential heat.",
-      "ridewithgps_id": null,
-      "ridewithgps_name": null
+      "signature_challenge": "Reach the Yango Track junction by 10:30am to stay on the long course.[5]",
+      "ridewithgps_id": 55252645,
+      "ridewithgps_name": "WG Yengo - 94"
     },
     "guide_variables": {
-      "race_name": "Wollombi Gravel Fest",
-      "race_distance": "62 miles",
-      "race_elevation": "3,500 feet",
-      "race_date": "Autumn or spring",
+      "race_name": "Wollombi Gravel",
+      "race_distance": "58.4 miles (94 km)",
+      "race_elevation": "About 4,249 feet (1,295 m), mapped",
+      "race_date": "March 20, 2027",
       "race_location": "Wollombi Valley, NSW",
       "race_terrain": "Valley gravel roads",
       "race_weather": "NSW weather, potential heat",
@@ -249,11 +242,11 @@
       },
       "tier_overrides": {},
       "marketplace_variables": {
-        "race_name": "Wollombi Gravel Fest",
-        "race_hook": "62 miles of NSW valley gravel in historic Wollombi.",
+        "race_name": "Wollombi Gravel",
+        "race_hook": "94 km of gravel roads and fire trails around Yengo National Park.",
         "race_hook_detail": "Regional festival event with rolling terrain and community vibe.",
-        "distance": "62",
-        "dark_mile": "40",
+        "distance": "58.4",
+        "dark_mile": "28",
         "non_negotiable_1": "Heat acclimatization",
         "non_negotiable_2": "Rolling terrain endurance",
         "non_negotiable_3": "Hydration strategy",
@@ -263,23 +256,23 @@
     "biased_opinion_ratings": {
       "logistics": {
         "score": 2,
-        "explanation": "Friday night check-in at Myrtle & Stone cafe with pre-ride dinner helps, but critical parking and accommodation details remain sparse. The event provides mechanical support and requires riders to \"sign on at the start of each ride and sign off when arriving at the finish,\" though no specific packet pickup logistics are detailed."
+        "explanation": "All courses roll out at 8:00am from Myrtle & Stone. Check-in time is not yet announced.[4]"
       },
       "length": {
-        "score": 3,
-        "explanation": "Day 1's 87.56km route through the Watagans with a shorter Yango Creek Road bailout option gives you choices based on fitness levels. Day 2's 47.61km out-and-back on Boree Valley Road acknowledges that most riders need recovery, with turnarounds allowed \"at any time\" on the flexible format. Similar distance to Crusher in the Tushar."
+        "score": 2,
+        "explanation": "Yengo is 94 km (58.4 mi), under the 60-mile threshold for a 3. Boree is 68 km and Finchley is 51 km.[5]"
       },
       "technicality": {
         "score": 2,
-        "explanation": "The course features \"champagne gravel\" and \"quiet dirt roads\" through paddocks, requiring gravel bikes since \"a road bike would not suffice in certain parts of the course particularly if the weather turns sour.\" Not recommended for riders under 15 on Day 1, but family-friendly options exist. Less technical than The Mid South."
+        "explanation": "Expect gravel roads and fire trails. The rider FAQ notes corrugations, ruts and some rocky descents.[8]"
       },
       "elevation": {
         "score": 3,
-        "explanation": "Day 1 delivers 1,418m of vertical gain over 87.56km, including \"a lovely climb\" up toward Bucketty before descending into the Watagans via Watagan Creek Road. The 8am start time avoids both heat and tourist traffic on the climbs through gorgeous paddocks. Similar elevation profile to Gravel Worlds."
+        "explanation": "The Yengo route map estimates 1,295 m (4,249 ft) of climbing, within the 4,000–6,000 ft band.[7]"
       },
       "climate": {
         "score": 2,
-        "explanation": "December racing in NSW means summer heat conditions where organizers warn \"It'll be hot so ensure you have sunscreen and plenty of water and electrolytes.\" The recommendation for riding March-November tells you everything about December's challenging thermal reality. More weather exposure than Belgian Waffle Ride San Diego."
+        "explanation": "The ride moves from December to March 20 for 2027.[1][4]"
       },
       "altitude": {
         "score": 1,
@@ -287,7 +280,7 @@
       },
       "adventure": {
         "score": 2,
-        "explanation": "Riders navigate via downloadable GPX files through the Watagans backcountry, but with lead and sweep vehicles plus \"trained marshalls and first aid at major points.\" Phone coverage exists in patches, though \"large parts of the course will have no phone coverage.\""
+        "explanation": "Load the route before the ride. Mobile reception is patchy and route markings are limited.[8]"
       },
       "prestige": {
         "score": 2,
@@ -295,34 +288,34 @@
       },
       "race_quality": {
         "score": 2,
-        "explanation": "Organizers emphasize this is \"not a race\" but rather \"a celebration of gravel riding\" focused on \"riding with friends, soaking up nature.\" One rider described it as having \"fantastic organisation\" and \"ideal gravel riding terrain,\" though no competitive timing or racing structure exists."
+        "explanation": "The 2027 ride uses timing and tracking for safety. There are no podiums or prizes.[4]"
       },
       "experience": {
         "score": 3,
-        "explanation": "The three-day festival includes Friday pre-ride dinner, Saturday's ride followed by \"smoked BBQ festival complete with live music, local wines and craft beer,\" and Sunday recovery brunch. A rider called it \"a dream weekend of cycling\" with \"plenty of likeminded people, good vibes, great food.\""
+        "explanation": "Saturday lunch is included. The evening festival is optional, and Sunday’s recovery ride is unsupported.[4]"
       },
       "community": {
         "score": 3,
-        "explanation": "Half-price entry for under-18s and family-friendly Sunday recovery rides show inclusive planning. Riders describe \"plenty of likeminded people, good vibes\" with celebrities mixing casually among participants. The event explicitly focuses on \"making cycling fun\" rather than competitive separation."
+        "explanation": "Local groups run the feed zones. The 51 km Finchley course is the family option.[4][5]"
       },
       "field_depth": {
         "score": 2,
-        "explanation": "With a field of 200-400 riders, the recreational format attracts weekend warriors seeking \"a celebration of riding your bike in nature with family, friends (and celebrities).\" While pros like Cromwell and Bottas participate, they're there for social riding and conversation rather than competitive racing depth. Less competitive depth than Almanzo 100."
+        "explanation": "The 2027 field size has not been announced. The event is a timed social ride.[4]"
       },
       "value": {
         "score": 3,
-        "explanation": "At $180 for Day 1 and $220 for both days, you get rider packs, T-shirts, sausage sizzle, live music, and access to a proper festival atmosphere. Early bird pricing and half-price for kids shows they're thinking about accessibility. Compare that to most gravel events where $180 gets you a water bottle and sunburn."
+        "explanation": "Entry includes lunch and on-course support. Saturday’s evening festival is a separate ticket.[4]"
       },
       "expenses": {
         "score": 3,
-        "explanation": "Registration runs $70-120 AUD. Entry fees remain reasonable with early bird pricing, and riders need \"a moderate level of fitness\" rather than expensive specialized equipment beyond a gravel bike. The event provides spares, CO2, and mechanical support for purchase onsite, keeping gear costs predictable for participants. Similar expense level to Belgian Waffle Ride San Diego."
+        "explanation": "Entry is AUD 159 early, AUD 179 standard or AUD 199 in the final window.[6]"
       }
     },
     "citations": [
       {
         "url": "https://wollombigravel.com.au/wollombi-gravel-fest/",
         "category": "official",
-        "label": "Official Website"
+        "label": "Wollombi Gravel Fest (2024 archive)"
       },
       {
         "url": "https://auscycling.org.au/events/wollombi-gravel-fest",
@@ -333,6 +326,31 @@
         "url": "https://raceroster.com/events/2024/96526/wollombi-gravel-fest/leaderboards/overall",
         "category": "other",
         "label": "Raceroster"
+      },
+      {
+        "url": "https://graveleur.cc/wollombi-gravel-event-page",
+        "category": "official",
+        "label": "Graveleur: Wollombi Gravel 2027"
+      },
+      {
+        "url": "https://graveleur.cc/wollombi-gravel-course-options",
+        "category": "official",
+        "label": "Graveleur: 2027 course options"
+      },
+      {
+        "url": "https://raceroster.com/events/2027/166876/wollombi-gravel-2027",
+        "category": "official",
+        "label": "Race Roster: 2027 registration"
+      },
+      {
+        "url": "https://ridewithgps.com/routes/55252645",
+        "category": "official",
+        "label": "Ride with GPS: official Yengo route"
+      },
+      {
+        "url": "https://graveleur.cc/wollombi-gravel-faq",
+        "category": "official",
+        "label": "Graveleur: 2027 rider FAQ"
       }
     ],
     "results": {
@@ -401,7 +419,7 @@
           "name": "Schwalbe G-One R Pro",
           "width_mm": 45
         },
-        "rationale": "The rear carries 53% of the weight and does the traction work on 3,500 ft of climbing, so it gets the 1.9mm center knobs; the front rolls the faster file tread."
+        "rationale": "The rear carries 53% of the weight and does the traction work on the Yengo course, so it gets the 1.9mm center knobs; the front rolls the faster file tread."
       },
       "race_surface_profile": "mixed",
       "recommended_width_mm": 45,
@@ -541,14 +559,6 @@
           "source_view_count": 11922,
           "category": "race_atmosphere",
           "curated": true
-        },
-        {
-          "text": "First year sold out like that because they had limited spots of about 300 from my understanding, this year 2025 they've got openings for about a thousand people and there's still a few hundred tickets available.",
-          "source_video_id": "_9wru3B5CJo",
-          "source_channel": "ridemedia",
-          "source_view_count": 4513,
-          "category": "logistics",
-          "curated": true
         }
       ],
       "rider_intel": {
@@ -574,14 +584,6 @@
             "curated": true
           },
           {
-            "text": "First year sold out like that because they had limited spots of about 300. For 2025 they've got openings for about a thousand people and there's still a few hundred tickets available.",
-            "source_video_id": "_9wru3B5CJo",
-            "source_channel": "ridemedia",
-            "source_view_count": 4513,
-            "category": "logistics",
-            "curated": true
-          },
-          {
             "text": "The bike brings people together, it blurs the line between one sport and another, it allows discovery and family time and all sorts of benefits.",
             "source_video_id": "_9wru3B5CJo",
             "source_channel": "ridemedia",
@@ -590,7 +592,7 @@
             "curated": true
           }
         ],
-        "search_text": "The Wollombi Gravel Fest takes place in Wollombi Valley, about 150 kilometers north of Sydney, starting from Myrtle and Stone Cafe. The inaugural event featured two days of riding with the first year limited to 300 participants but expanding to 1000 spots for 2025. Day one was described as longer with warmer conditions, while day two featured a shorter out-and-back course that was at least 10 degrees cooler with overcast skies providing relief from UV exposure. Pro cyclists Val Botas and Tiffany Cromwell participated and emphasized the fun, non-competitive nature of gravel riding. The event showcases a region close to Sydney that's appropriate for gravel riding, allowing riders to enjoy off-road pleasure without the usual on-road stress of reaching gravel from the city. The weekend included evening social activities with barbecues and informal talks with pro athletes, emphasizing community building through cycling."
+        "search_text": "Historical rider reports from the inaugural December 2024 festival describe two days of social riding around Wollombi."
       }
     },
     "photos": [

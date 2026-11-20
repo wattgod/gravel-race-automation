@@ -3,12 +3,18 @@ name: Uptime
 # Every 10 minutes: the three brand home pages, the checkout API and Mission
 # Control /health, and the intake Workers (sweep ALL-06, Nov 2026). An outage
 # opens one issue labelled "uptime" and emails gravelgodcoaching@gmail.com
-# once; recovery closes the issue and emails once more. See
+# once; recovery closes the issue and emails once more. Mission Control email
+# delivery (/health/jobs) has its own incident and a 24-hour reminder. See
 # scripts/uptime_check.py. GitHub may start scheduled runs a few minutes late.
 on:
   schedule:
     - cron: "*/10 * * * *"
   workflow_dispatch:
+    inputs:
+      test_jobs_email:
+        description: "Send a labeled Mission Control test email"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -31,4 +37,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-        run: python3 scripts/uptime_check.py
+          TEST_JOBS_EMAIL: ${{ inputs.test_jobs_email }}
+        run: |
+          if [ "$TEST_JOBS_EMAIL" = "true" ]; then
+            python3 scripts/uptime_check.py --test-jobs-email
+          else
+            python3 scripts/uptime_check.py
+          fi

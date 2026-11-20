@@ -24,6 +24,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import time
 import urllib.error
@@ -34,6 +35,13 @@ from datetime import datetime, timezone
 ALERT_TO = "gravelgodcoaching@gmail.com"
 ALERT_FROM = "Gravel God Uptime <noreply@gravelgodcycling.com>"
 LABEL = "uptime"
+MISSION_JOBS_LABEL = "mission-control-email-uptime"
+MISSION_JOBS_TARGET = (
+    "Mission Control email delivery",
+    "https://athlete-profiles-production.up.railway.app/health/jobs",
+    "GET", 200, '"ok":true',
+)
+MISSION_JOBS_REMINDER_SECONDS = 24 * 60 * 60
 UA = "GravelGodUptime/1.0 (+https://gravelgodcycling.com/)"  # SiteGround resets UAs that claim to be a browser or "compatible; bot"
 
 # name, url, method, expected status, text the body must contain (or None).
@@ -127,16 +135,19 @@ def _gh(method: str, path: str, payload: dict | None = None):
         return json.loads(resp.read() or b"null")
 
 
-def email(subject: str, text: str) -> None:
+def email(subject: str, text: str, idempotency_key: str | None = None) -> None:
     key = os.environ.get("RESEND_API_KEY", "")
     if not key:
         raise SystemExit("RESEND_API_KEY is not set; the uptime alert could not be emailed")
+    headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/json",
+               "User-Agent": UA}
+    if idempotency_key:
+        headers["Idempotency-Key"] = idempotency_key
     req = urllib.request.Request(
         "https://api.resend.com/emails", method="POST",
         data=json.dumps({"from": ALERT_FROM, "to": [ALERT_TO],
                          "subject": subject, "text": text}).encode(),
-        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json",
-                 "User-Agent": UA})
+        headers=headers)
     with urllib.request.urlopen(req, timeout=30) as resp:
         if resp.status >= 300:
             raise SystemExit(f"Resend answered {resp.status}")
@@ -150,21 +161,66 @@ def report(results: list[tuple[str, str, str, str]]) -> str:
     return "\n".join(lines)
 
 
+def handle_mission_jobs(result: tuple[str, str, str, str], now: int) -> None:
+    name, url, state, _ = result
+    issues = _gh("GET", f"/issues?state=open&labels={MISSION_JOBS_LABEL}&per_page=5")
+    issue = issues[0] if issues else None
+    if state == "down" and issue is None:
+        issue = _gh("POST", "/issues", {
+            "title": f"{name} is unhealthy",
+            "body": report([result]),
+            "labels": [MISSION_JOBS_LABEL],
+        })
+    if issue is None:
+        return
+
+    issue_path = f"/issues/{issue['number']}"
+    email_key = f"mission-control-email/{issue['number']}"
+    body = issue["body"] or ""
+    marker = re.compile(r"\n\n<!-- last-alert: (\d+) -->$")
+    last_alert = marker.search(body)
+    details = f"Health check: {url}\nIncident: {issue['html_url']}"
+    if state == "up":
+        if last_alert:
+            email(f"{name} recovered", details, f"{email_key}/recovery")
+        _gh("PATCH", issue_path, {"state": "closed"})
+    elif state == "down":
+        if last_alert:
+            last_time = int(last_alert[1])
+            if now - last_time < MISSION_JOBS_REMINDER_SECONDS:
+                return
+            email(f"{name} is still unhealthy", details, f"{email_key}/reminder/{last_time}")
+        else:
+            email(f"{name} is unhealthy", details, f"{email_key}/opened")
+        _gh("PATCH", issue_path, {"body": marker.sub("", body) + f"\n\n<!-- last-alert: {now} -->"})
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--test-jobs-email", action="store_true")
     args = parser.parse_args()
+    if args.test_jobs_email:
+        email("TEST: Mission Control email delivery alert",
+              "This verifies the alert inbox. It does not indicate an outage.",
+              f"mission-control-email/test/{os.environ['GITHUB_RUN_ID']}")
+        return 0
 
     # In parallel, so even if every target needs all three tries the run
     # takes about a minute, well inside the workflow timeout.
-    with ThreadPoolExecutor(max_workers=len(TARGETS)) as pool:
-        checked = list(pool.map(check, TARGETS))
-    results = [(t[0], t[1], st, d) for t, (st, d) in zip(TARGETS, checked)]
+    targets = [*TARGETS, MISSION_JOBS_TARGET]
+    with ThreadPoolExecutor(max_workers=len(targets)) as pool:
+        checked = list(pool.map(check, targets))
+    results = [(t[0], t[1], st, d) for t, (st, d) in zip(targets, checked)]
+    mission_jobs = results.pop()
     body = report(results)
     print(body)
+    print(report([mission_jobs]))
     down = [r[0] for r in results if r[2] == "down"]
     if args.dry_run:
-        return 1 if down else 0
+        return 1 if down or mission_jobs[2] == "down" else 0
+
+    handle_mission_jobs(mission_jobs, int(time.time()))
 
     open_issues = _gh("GET", f"/issues?state=open&labels={LABEL}&per_page=5")
     issue = open_issues[0] if open_issues else None

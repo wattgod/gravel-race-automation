@@ -67,8 +67,9 @@ def test_only_siteground_homes_can_be_unknown(monkeypatch):
 def _run_main(monkeypatch, states, open_issues, email_fails=False):
     calls = []
     monkeypatch.setattr(uc, "TARGETS", [(f"T{i}", "u", "GET", 200, None) for i in range(len(states))])
-    it = iter(states)
+    it = iter([*states, "up"])
     monkeypatch.setattr(uc, "check", lambda t: (next(it), "d"))
+    monkeypatch.setattr(uc, "handle_mission_jobs", lambda result, now: None)
 
     def fake_gh(method, path, payload=None):
         calls.append(("gh", method, path))
@@ -105,3 +106,41 @@ def test_alert_emails_then_opens_issue(monkeypatch):
     assert uc.main() == 0
     kinds = [c[0] if c[0] == "email" else c[1] for c in calls if c[1:] != ("GET",) and c[0] != "gh" or c[1] != "GET"]
     assert kinds.index("email") < kinds.index("POST")
+
+
+def test_mission_jobs_alerts_once_then_reminds_and_recovers(monkeypatch):
+    issue = {}
+    sent = []
+    now = 1_795_200_000
+    day = uc.MISSION_JOBS_REMINDER_SECONDS
+    name, url, *_ = uc.MISSION_JOBS_TARGET
+
+    def gh(method, path, payload=None):
+        if method == "GET":
+            assert f"labels={uc.MISSION_JOBS_LABEL}" in path
+            return [issue] if issue.get("state") == "open" else []
+        if method == "POST":
+            assert payload["labels"] == [uc.MISSION_JOBS_LABEL]
+            issue.update(payload, number=42, html_url="https://github.com/example/repo/issues/42", state="open")
+            return issue
+        assert path == "/issues/42"
+        issue.update(payload)
+
+    monkeypatch.setattr(uc, "_gh", gh)
+    monkeypatch.setattr(uc, "email", lambda subject, details, key: sent.append((subject, key)))
+
+    down = (name, url, "down", "HTTP 503")
+    uc.handle_mission_jobs(down, now)
+    uc.handle_mission_jobs(down, now + 600)
+    uc.handle_mission_jobs(down, now + day)
+    uc.handle_mission_jobs(down, now + day + 600)
+    up = (name, url, "up", "HTTP 200")
+    uc.handle_mission_jobs(up, now + day + 1200)
+    uc.handle_mission_jobs(up, now + day + 1800)
+
+    assert sent == [
+        (f"{name} is unhealthy", "mission-control-email/42/opened"),
+        (f"{name} is still unhealthy", f"mission-control-email/42/reminder/{now}"),
+        (f"{name} recovered", "mission-control-email/42/recovery"),
+    ]
+    assert issue["state"] == "closed"

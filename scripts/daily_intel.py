@@ -29,6 +29,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 from copy import deepcopy
@@ -222,7 +223,22 @@ def collect_ga4(brand: str) -> dict:
         )
         if dimension_filter is not None:
             request_args["dimension_filter"] = dimension_filter
-        return client.run_report(RunReportRequest(**request_args))
+        request = RunReportRequest(**request_args)
+        # One retry on a transient GA4 Data API error (DeadlineExceeded,
+        # ServiceUnavailable, ResourceExhausted): collect_ga4 makes ~15-20
+        # sequential calls per brand, and any single one of these raising
+        # mid-run previously lost the entire day's GA4 collection for that
+        # brand (2026-11-13: gravelgod + roadielabs both blanked by one 504).
+        # A real bug (bad request, missing dimension) still raises on the
+        # first try, unchanged.
+        try:
+            return client.run_report(request)
+        except Exception as e:
+            if any(s in type(e).__name__ for s in
+                   ("Deadline", "Unavailable", "ResourceExhausted", "InternalServerError")):
+                time.sleep(2)
+                return client.run_report(request)
+            raise
 
     # Two event queries per window: custom events property-wide, and the
     # legacy Enhanced-Measurement pair restricted to the questionnaire page.

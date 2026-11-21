@@ -1010,7 +1010,7 @@ class TestGuardAllowsLegitimateMarkup:
 
 SAMPLE_RACE = "unbound-200"
 # Race descriptions that legitimately say registration has limited spots.
-LIMITED_SPOTS_RACES = ("whiskey-off-road", "wollombi-gravel-fest", "final-frontier-patagonia")
+LIMITED_SPOTS_RACES = ("whiskey-off-road", "rift-valley-odyssey", "final-frontier-patagonia")
 
 
 @functools.lru_cache(maxsize=None)

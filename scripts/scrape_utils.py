@@ -23,6 +23,7 @@ import json
 import os
 import re
 import time
+from datetime import date
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -263,24 +264,161 @@ Rules:
 - Distances: convert km to miles if needed (1 km = 0.621371 mi). Round to nearest integer.
 - Elevation: convert meters to feet if needed (1 m = 3.28084 ft). Round to nearest 100.
 - next_edition_date: only a date the page states, with its year, that falls after {today().isoformat()}. A past edition's date or a general pattern ("first Saturday in June") is null.
+- elevation_ft is total climbing for the main route. A summit altitude, or climbing for a side event, is not elevation; use null.
 - Return valid JSON only, no explanation."""
+
+
+# Month names as organizer sites write them (en, fr, it, es, de, nl, pt).
+_MONTH_WORDS = {
+    1: ["january", "jan", "janvier", "gennaio", "enero", "januar", "januari", "janeiro"],
+    2: ["february", "feb", "février", "fevrier", "febbraio", "febrero", "februar", "februari", "fevereiro"],
+    3: ["march", "mar", "mars", "marzo", "märz", "maerz", "maart", "março", "marco"],
+    4: ["april", "apr", "avril", "aprile", "abril"],
+    5: ["may", "mai", "maggio", "mayo", "mei", "maio"],
+    6: ["june", "jun", "juin", "giugno", "junio", "juni", "junho"],
+    7: ["july", "jul", "juillet", "luglio", "julio", "juli", "julho"],
+    8: ["august", "aug", "août", "aout", "agosto", "augustus"],
+    9: ["september", "sep", "sept", "septembre", "settembre", "septiembre", "setembro"],
+    10: ["october", "oct", "octobre", "ottobre", "octubre", "oktober", "outubro"],
+    11: ["november", "nov", "novembre", "noviembre", "novembro"],
+    12: ["december", "dec", "décembre", "decembre", "dicembre", "diciembre", "dezember", "dezembro"],
+}
+
+
+def date_is_on_page(html: str, iso_date) -> bool:
+    """True when the page itself shows this day, month and year as one date.
+
+    A model can project last year's date forward and return a plausible date
+    the organizer never published. Only a date written on the page is kept.
+
+    - The year must be part of the same date or date range. "June 20. 2027
+      registration opens" does not show 20 June 2027.
+    - A slashed or hyphenated date whose day and month could be swapped
+      ("05/06/2027") proves nothing by itself, so it is not accepted. A dotted
+      date is read day-first.
+    - Either day of a range counts: "5–6 June 2027", "July 30 - August 1, 2027".
+    """
+    import html as html_lib
+
+    m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", str(iso_date or "").strip())
+    if not m or not html:
+        return False
+    year, month, day = int(m.group(1)), int(m.group(2)), int(m.group(3))
+    try:
+        date(year, month, day)
+    except ValueError:
+        return False
+    text = html_lib.unescape(re.sub(r"<[^>]+>", " ", html)).lower()
+    text = re.sub(r"\s+", " ", text)
+
+    sep = r"\s?[-/.]\s?"
+    d, mo = rf"0?{day}", rf"0?{month}"
+    if re.search(rf"(?<!\d){year}{sep}{mo}{sep}{d}(?!\d)", text):
+        return True
+    # Year-last numbers are day-first in most of the world and month-first in the
+    # US. Accept them only when the two readings cannot differ.
+    if day > 12 or day == month:
+        if re.search(rf"(?<!\d)(?:{d}{sep}{mo}|{mo}{sep}{d}){sep}{year}(?!\d)", text):
+            return True
+
+    # Dots are the European day-first form ("07.03.2027" is 7 March).
+    if re.search(rf"(?<!\d){d}\s?\.\s?{mo}\s?\.\s?{year}(?!\d)", text):
+        return True
+
+    words = "|".join(re.escape(w) for w in _MONTH_WORDS[month])
+    any_word = r"[^\W\d_]{3,12}\.?"
+    ordinal = r"(?:st|nd|rd|th|er|\.|º)?"
+    joiner = r"(?:\s?[-–&]\s?|\s(?:and|et|e|y|und|en|to)\s)"
+    # "5 june", "5–6 june", "5 and 6 june", and the second day of those.
+    day_first = rf"(?<!\d)(?:\d{{1,2}}{ordinal}{joiner})?{d}{ordinal}(?:{joiner}\d{{1,2}}{ordinal})?\s(?:de\s|of\s)?(?:{words})\b\.?"
+    # "june 5", "june 5-6", "june 5 and 6", and the second day of those.
+    # After a month name a full stop ends the sentence; it is not an ordinal mark.
+    suffix = r"(?:st|nd|rd|th)?"
+    month_first = rf"\b(?:{words})\.?\s(?:\d{{1,2}}{suffix}{joiner})?{d}{suffix}(?!\d)(?:{joiner}\d{{1,2}}{suffix}(?!\d))?"
+    # What may sit between the date and its year: the rest of a range into
+    # another month, then a comma or a space. A full stop ends the date.
+    range_tail = rf"(?:{joiner}(?:\d{{1,2}}{ordinal}\s(?:de\s|of\s)?{any_word}|{any_word}\s\d{{1,2}}{ordinal}))?"
+    year_after = re.compile(rf"{range_tail},?\s(\d{{4}})(?!\d)")
+    # "30 july - 1 august 2027" seen from the first day: the month word is ours,
+    # the range runs on into the next month.
+    for match in re.finditer(rf"{day_first}|{month_first}", text):
+        after = year_after.match(text, match.end())
+        if after:
+            if int(after.group(1)) == year:
+                return True
+            continue
+        before = re.search(r"(?<!\d)(\d{4})[:,]?\s$", text[max(0, match.start() - 7): match.start()])
+        if before and int(before.group(1)) == year:
+            return True
+    return False
+
+
+EXTRACTORS = ("claude", "inkling")
+
+
+def default_extractor() -> str:
+    """The extractor named by SCRAPE_EXTRACTOR, or "claude" when unset or unknown."""
+    chosen = os.environ.get("SCRAPE_EXTRACTOR", "").strip().lower()
+    return chosen if chosen in EXTRACTORS else "claude"
+
+
+def extract_race_facts(html: str, race_name: str, existing_data: dict | None = None,
+                       extractor: str = "claude") -> dict:
+    """Extract structured race facts from official-site HTML.
+
+    extractor "claude" uses Claude Sonnet (ANTHROPIC_API_KEY); "inkling" uses
+    the cheap model in cheap_llm.py (OPENROUTER_API_KEY). The page is public,
+    so either provider may read it.
+
+    Returns the extracted fields plus "extraction_model" (and
+    "extraction_cost_usd" for the cheap model), or {"error": ...}.
+    """
+    if extractor not in EXTRACTORS:
+        return {"error": f"unknown extractor: {extractor}"}
+
+    from youtube_enrich import parse_json_response
+
+    prompt = _build_extraction_prompt(html, race_name, existing_data or {})
+    cost_usd = None
+    try:
+        if extractor == "inkling":
+            from cheap_llm import call_cheap_llm_with_usage
+            # Reasoning tokens share the output cap: at the 2,000 default, half of
+            # a 30-page sample was cut off before any JSON appeared.
+            response, usage = call_cheap_llm_with_usage(
+                prompt, script="scrape_official_sites",
+                max_tokens=8000, reasoning_effort="low")
+            model = usage.get("model")
+            cost_usd = usage.get("cost_usd")
+        else:
+            from youtube_enrich import call_api
+            response = call_api(prompt)
+            model = "claude-sonnet-4-20250514"
+        facts = parse_json_response(response)
+    except Exception as e:
+        return {"error": str(e)}
+
+    if not isinstance(facts, dict):
+        return {"error": "extraction did not return a JSON object"}
+    if not facts:
+        # An empty object would be saved as a successful extract and replace real facts.
+        return {"error": "extraction returned an empty JSON object"}
+
+    # Keep a date only when the page shows it; park anything else for a person.
+    claimed = facts.get("next_edition_date")
+    if claimed and not date_is_on_page(html, claimed):
+        facts["next_edition_date"] = None
+        facts["unverified_date"] = claimed
+    facts["extraction_model"] = model
+    if cost_usd is not None:
+        facts["extraction_cost_usd"] = cost_usd
+    return facts
 
 
 def extract_race_facts_via_claude(html: str, race_name: str,
                                   existing_data: dict | None = None) -> dict:
-    """Send scraped HTML to Claude for structured extraction.
-
-    Returns dict with extracted fields, or empty dict on failure.
-    Requires ANTHROPIC_API_KEY environment variable.
-    """
-    from youtube_enrich import call_api, parse_json_response
-
-    prompt = _build_extraction_prompt(html, race_name, existing_data or {})
-    try:
-        response = call_api(prompt)
-        return parse_json_response(response)
-    except Exception as e:
-        return {"error": str(e)}
+    """Extract race facts with Claude. Kept for existing callers."""
+    return extract_race_facts(html, race_name, existing_data, extractor="claude")
 
 
 # ---------------------------------------------------------------------------

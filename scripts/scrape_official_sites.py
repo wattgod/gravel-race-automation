@@ -32,7 +32,9 @@ from scrape_utils import (
     fetch_url,
     get_cached,
     set_cached,
-    extract_race_facts_via_claude,
+    extract_race_facts,
+    default_extractor,
+    EXTRACTORS,
     load_official_sites,
     save_extract,
     load_extract,
@@ -63,7 +65,7 @@ def _load_existing_vitals(slug: str) -> dict:
 
 def scrape_race(slug: str, url: str, name: str, *,
                 force: bool = False, no_claude: bool = False,
-                verbose: bool = False) -> dict:
+                verbose: bool = False, extractor: str = "claude") -> dict:
     """Scrape a single race's official site and optionally extract data.
 
     Returns dict with keys: slug, url, status, fetcher, extracted, error.
@@ -118,7 +120,7 @@ def scrape_race(slug: str, url: str, name: str, *,
         existing = _load_existing_vitals(slug)
         if verbose:
             print(f"  EXTRACTING via Claude...")
-        extracted = extract_race_facts_via_claude(html, name, existing)
+        extracted = extract_race_facts(html, name, existing, extractor=extractor)
         result["extracted"] = extracted
 
         if extracted and "error" not in extracted:
@@ -146,6 +148,9 @@ def main():
                         help="Process at most N races (highest tier first)")
     parser.add_argument("--no-claude", action="store_true",
                         help="Scrape HTML only, skip Claude extraction")
+    parser.add_argument("--extractor", choices=EXTRACTORS, default=default_extractor(),
+                        help="Model for extraction: claude (Sonnet) or inkling "
+                             "(cheap model via OpenRouter). Default: $SCRAPE_EXTRACTOR or claude")
     parser.add_argument("--force", action="store_true",
                         help="Ignore cache, re-scrape all")
     parser.add_argument("--verbose", action="store_true",
@@ -194,7 +199,7 @@ def main():
         result = scrape_race(
             slug, info["url"], info["name"],
             force=args.force, no_claude=args.no_claude,
-            verbose=args.verbose,
+            verbose=args.verbose, extractor=args.extractor,
         )
 
         if result["error"]:

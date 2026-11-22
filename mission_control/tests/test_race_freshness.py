@@ -104,6 +104,92 @@ class TestUpcoming:
         assert _skips(fake_db)
 
 
+def _endure_offer(brand="gravelgod", slug="unbound-200", name="Unbound 200"):
+    # nurture_v1 variant D / road_nurture_v1 variant B: step 1 = the Endure
+    # offer (day 7), step 2 = the worry question (day 11)
+    seq, variant = (("nurture_v1", "D") if brand == "gravelgod" else ("road_nurture_v1", "B"))
+    sd = {"race_slug": slug, "race_name": name}
+    return {"sequence_id": seq, "variant": variant, "current_step": 1,
+            "source": "prep_kit_gate", "source_data": {k: v for k, v in sd.items() if v}}
+
+
+class TestEndureOffer:
+    """The day-7 Endure offer sends only with its link and an upcoming race;
+    otherwise it is skipped and day 11 follows on its usual schedule."""
+
+    def _skipped_to_day_11(self, fake_db, row, sent, why):
+        assert sent == []
+        assert row["current_step"] == 2 and row["status"] == "active"
+        next_send = datetime.fromisoformat(row["next_send_at"])
+        assert abs((next_send - datetime.now(timezone.utc)) - timedelta(days=4)) < timedelta(seconds=5)
+        [log] = _skips(fake_db)
+        assert why in log["details"], log["details"]
+
+    def test_gravel_offer_sends_with_link(self, fake_db, race_dates, sent):
+        race_dates(**{"unbound-200": _in_days(190)})
+        row = _run(fake_db, **_endure_offer())
+        assert sent == ["your Unbound 200 plan"]
+        assert row["current_step"] == 2
+        [send] = fake_db.store["gg_sequence_sends"]
+        assert send["template"] == "kit_endure_plan"
+
+    def test_road_offer_sends_with_link(self, fake_db, race_dates, sent):
+        race_dates("roadielabs", **{"mallorca-312": _in_days(150)})
+        _run(fake_db, **_endure_offer("roadielabs", "mallorca-312", "Mallorca 312"))
+        assert sent == ["your Mallorca 312 plan"]
+
+    def test_skipped_once_race_has_passed(self, fake_db, race_dates, sent):
+        race_dates(**{"unbound-200": _in_days(-3)})
+        row = _run(fake_db, **_endure_offer())
+        self._skipped_to_day_11(fake_db, row, sent, "not in the future")
+
+    def test_skipped_for_bikepacking(self, fake_db, race_dates, sent):
+        race_dates(**{"tour-divide": _in_days(200)})
+        row = _run(fake_db, **_endure_offer(slug="tour-divide", name="Tour Divide"))
+        self._skipped_to_day_11(fake_db, row, sent, "no Endure plan link")
+        assert "nurture_v1 step 1 (kit_endure_plan) not sent" in _skips(fake_db)[0]["details"]
+
+    @pytest.mark.parametrize("brand,slug", [("gravelgod", "unbound-200"),
+                                            ("roadielabs", "mallorca-312")])
+    def test_skipped_without_race_name(self, fake_db, race_dates, sent, brand, slug):
+        race_dates(brand, **{slug: _in_days(100)})
+        row = _run(fake_db, **_endure_offer(brand, slug, name=""))
+        self._skipped_to_day_11(fake_db, row, sent, "no Endure plan link")
+
+    def test_skipped_without_slug(self, fake_db, race_dates, sent):
+        race_dates(**{"unbound-200": _in_days(100)})
+        row = _run(fake_db, **_endure_offer(slug=""))
+        # the premise check fails first: there is no race to date
+        self._skipped_to_day_11(fake_db, row, sent, "no race_slug")
+
+    def test_worry_question_follows_the_skip(self, fake_db, race_dates, sent):
+        race_dates(**{"tour-divide": _in_days(200)})
+        row = _run(fake_db, **_endure_offer(slug="tour-divide", name="Tour Divide"))
+        assert asyncio.run(se._send_next_step(row)) is True
+        assert sent == ["the part that worries you"]
+        assert row["status"] == "completed"
+
+    def test_unknown_requirement_is_not_sent(self):
+        step = {"template": "x", "subject": "x", "requires": "coupon_code"}
+        assert "unknown requirement" in se._step_requirement_failure(
+            step, {"source_data": {}}, "gravelgod")
+
+    def test_requirement_check_ignores_steps_without_one(self):
+        assert se._step_requirement_failure({"template": "x"}, {"source_data": {}}, "gravelgod") is None
+
+    def test_every_requirement_is_known(self):
+        for seq in SEQUENCES.values():
+            for variant in seq["variants"].values():
+                for step in variant["steps"]:
+                    assert step.get("requires") in (None, *se._STEP_REQUIREMENTS)
+
+    def test_only_endure_offer_steps_require_the_link(self):
+        requiring = {(seq["id"], s["template"]) for seq in SEQUENCES.values()
+                     for v in seq["variants"].values() for s in v["steps"] if s.get("requires")}
+        assert requiring == {("nurture_v1", "kit_endure_plan"),
+                             ("road_nurture_v1", "road_kit_endure_plan")}
+
+
 class TestPassed:
     def test_debrief_sends_after_the_race(self, fake_db, race_dates, sent):
         race_dates(**{SLUG: _in_days(-5)})
@@ -259,6 +345,8 @@ class TestDeclaredPremises:
         ("road_post_purchase_v1", "road_nps_request"): "passed",
         ("nurture_v1", "kit_pitch"): "upcoming",
         ("nurture_v1", "kit_followup"): "upcoming",
+        ("nurture_v1", "kit_endure_plan"): "upcoming",
+        ("road_nurture_v1", "road_kit_endure_plan"): "upcoming",
     }
 
     def _steps(self):

@@ -1313,9 +1313,11 @@ class TestKitPitchPilot:
         assert [s["template"] for s in v["A"]["steps"]] == ["race_prep_tips"]
         assert [s["template"] for s in v["C"]["steps"]] == ["kit_checkin_pilot", "kit_pitch", "kit_followup"]
         assert [s["delay_days"] for s in v["C"]["steps"]] == [2, 7, 11]
-        # C is the track since the Oct 2026 decision; A and B stay for in-flight rows.
-        assert v["A"]["weight"] == 0 and v["C"]["weight"] == 100 and v["B"]["weight"] == 0
+        # D is the track since 2026-11-22 (the Endure offer); A, B and C
+        # stay, unchanged, for in-flight rows.
+        assert {k: x["weight"] for k, x in v.items()} == {"A": 0, "B": 0, "C": 0, "D": 100}
         assert v["A"]["steps"] is not v["C"]["steps"]
+        assert v["D"]["steps"] is not v["C"]["steps"]
 
     def test_single_pitch_plus_one_followup(self, fake_db):
         # Oct 23 2026: recut to Matti's text-a-friend rules (docs/email-voice-model.md).
@@ -1329,7 +1331,8 @@ class TestKitPitchPilot:
         assert pitch.index('class="cta"') < pitch.index("stepping stone")
         follow = self._render("kit_followup", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
         assert follow.count("questionnaire/?race=big-sugar") == 1
-        assert "rebuild the rest of your Big Sugar plan" in follow
+        assert ("Mine goes on your calendar one 4-week block at a time, and I look over "
+                "every block before it goes on.") in follow
         for html in (checkin, pitch, follow):
             assert "48 hours" not in html and "{{" not in html and "{race_" not in html
 
@@ -1385,6 +1388,257 @@ class TestKitPitchPilot:
         assert "questionnaire/?race=big-sugar&src=email_nurture&utm_source=gravel_god" in out
 
 
+def _kit_path_templates():
+    """Every template a prep-kit lead can receive, on every brand."""
+    from mission_control.sequences import SEQUENCES
+    return sorted({step["template"] for seq in SEQUENCES.values()
+                   if seq.get("trigger") in ("prep_kit_download", "prep_kit_delivery")
+                   for v in seq["variants"].values() for step in v["steps"]})
+
+
+# Templates added or reworded on 2026-11-22 (kit follow-ups, Endure offer,
+# XC kit path). Copy DRAFT pending Matti's read.
+_NEW_KIT_TEMPLATES = (
+    "kit_followup", "kit_endure_plan", "kit_worry",
+    "road_prep_kit_delivery_notes", "road_kit_endure_plan", "road_kit_worry",
+    "xc_prep_kit_delivery", "xc_prep_checkin",
+)
+_ENDURE_TEMPLATES = ("kit_endure_plan", "road_kit_endure_plan")
+_TPL_DIR = __import__("pathlib").Path(__file__).resolve().parent.parent / "templates" / "emails" / "sequences"
+
+
+class TestKitEndureOffer:
+    """2026-11-22: new kit leads get the Endure season offer (GG nurture D,
+    Roadie nurture B), XC kit leads get the kit link and one check-in."""
+
+    SD = {"race_name": "Unbound 200", "race_slug": "unbound-200"}
+
+    def _render(self, tpl, source_data=None, brand=None, name="Test Rider"):
+        from mission_control.services.sequence_engine import _render_template
+        if brand is None:
+            brand = ("roadielabs" if tpl.startswith("road_") else
+                     "xcskilabs" if tpl.startswith("xc_") else "gravelgod")
+        sd = self.SD if source_data is None else source_data
+        return _render_template(tpl, {"contact_name": name, "source_data": sd}, brand=brand)
+
+    @staticmethod
+    def _body(html):
+        return html.split('<div class="container">')[1].split("— Matti")[0]
+
+    @staticmethod
+    def _text(fragment):
+        import html as _html
+        import re as _re
+        return _re.sub(r"\s+", " ", _html.unescape(_re.sub(r"<[^>]+>", " ", fragment))).strip()
+
+    def test_new_variants_are_appended_and_take_all_new_enrollments(self, fake_db):
+        from mission_control.sequences import SEQUENCES
+        gg = SEQUENCES["nurture_v1"]["variants"]
+        assert [(s["delay_days"], s["template"]) for s in gg["D"]["steps"]] == [
+            (2, "kit_checkin_pilot"), (7, "kit_endure_plan"), (11, "kit_worry")]
+        assert [s["template"] for s in gg["C"]["steps"]] == ["kit_checkin_pilot", "kit_pitch", "kit_followup"]
+        road = SEQUENCES["road_nurture_v1"]["variants"]
+        assert [s["template"] for s in road["A"]["steps"]] == ["road_prep_variables"]
+        assert road["A"]["weight"] == 0 and road["B"]["weight"] == 100
+        assert [(s["delay_days"], s["template"]) for s in road["B"]["steps"]] == [
+            (2, "road_prep_variables"), (7, "road_kit_endure_plan"), (11, "road_kit_worry")]
+        delivery = SEQUENCES["road_kit_delivery_v1"]["variants"]
+        assert [s["template"] for s in delivery["A"]["steps"]] == ["road_prep_kit_delivery"]
+        assert delivery["A"]["weight"] == 0 and delivery["B"]["weight"] == 100
+        assert [s["template"] for s in delivery["B"]["steps"]] == ["road_prep_kit_delivery_notes"]
+        for steps in (gg["D"]["steps"], road["B"]["steps"]):
+            offer = steps[1]
+            assert offer["subject"] == "your {race_name} plan"
+            assert offer["race_premise"] == "upcoming" and offer["requires"] == "endure_plan_url"
+            assert steps[2]["subject"] == "the part that worries you"
+            assert "race_premise" not in steps[2] and "requires" not in steps[2]
+
+    def test_new_enrollments_land_in_the_new_variants(self, fake_db):
+        from mission_control.services.sequence_engine import enroll
+        for seq_id, want in (("nurture_v1", "D"), ("road_nurture_v1", "B"),
+                             ("road_kit_delivery_v1", "B")):
+            got = {enroll(f"{seq_id}-{i}@example.com", "N", seq_id, source="prep_kit_gate",
+                          source_data=self.SD)["variant"] for i in range(100)}
+            assert got == {want}, seq_id
+
+    def test_xc_kit_sequences(self, fake_db):
+        from mission_control.sequences import SEQUENCES
+        d = SEQUENCES["xc_kit_delivery_v1"]
+        n = SEQUENCES["xc_nurture_v1"]
+        assert (d["brand"], d["trigger"], d["active"]) == ("xcskilabs", "prep_kit_delivery", True)
+        assert (n["brand"], n["trigger"], n["active"]) == ("xcskilabs", "prep_kit_download", True)
+        assert d["variants"]["A"]["steps"] == [{"delay_days": 0, "template": "xc_prep_kit_delivery",
+                                                "subject": "your {race_name} prep kit"}]
+        assert n["variants"]["A"]["steps"] == [{"delay_days": 2, "template": "xc_prep_checkin",
+                                                "subject": "did the prep kit cover it?"}]
+
+    def test_gravel_endure_offer_copy(self, fake_db):
+        from mission_control.services.endure_offer import ENDURE_TRIAL_TERMS
+        html = self._render("kit_endure_plan")
+        text = self._text(self._body(html))
+        assert text == (
+            "Test — if Unbound 200 is the one you're building toward, Endure will build your "
+            "season for it. Your race is already filled in, so it asks for your hours, the days "
+            "you ride and a few things about you. The first 14 days are free, and nothing is "
+            "charged until the plan is on your calendar. Start my Unbound 200 plan "
+            f"{ENDURE_TRIAL_TERMS} How many hours a week do you really have?")
+        assert html.count("https://endurelabs.app/sign-up?") == 1
+
+    def test_road_endure_offer_copy(self, fake_db):
+        from mission_control.services.endure_offer import ENDURE_TRIAL_TERMS
+        html = self._render("road_kit_endure_plan", {"race_name": "Mallorca 312",
+                                                     "race_slug": "mallorca-312"})
+        assert self._text(self._body(html)) == (
+            "Test — if Mallorca 312 is the target, Endure will build your season for it. The "
+            "race is already filled in, so it asks for your hours, the days you ride and a few "
+            "things about you. The first 14 days are free. Nothing is charged until the plan is "
+            f"on your calendar. Start my Mallorca 312 plan {ENDURE_TRIAL_TERMS} "
+            "Where is the training at right now?")
+        assert "utm_source=roadie-labs" in html and "discipline=road" in html
+
+    def test_worry_copy_and_fallback(self, fake_db):
+        gg = self._text(self._body(self._render("kit_worry")))
+        assert gg == ("Test — reply with the one thing about Unbound 200 that worries you and "
+                      "I'll tell you what I'd do about it. Is it the distance, the climbing or "
+                      "eating enough?")
+        anon = self._text(self._body(self._render("kit_worry", {})))
+        assert anon.startswith("Test — reply with the one thing about your race that worries you")
+        road = self._text(self._body(self._render("road_kit_worry", {"race_name": "Mallorca 312"})))
+        assert road.endswith("Is it the distance, the climbing or the pace in the bunch?")
+        road_anon = self._text(self._body(self._render("road_kit_worry", {})))
+        assert "about your race that worries you" in road_anon
+        for tpl in ("kit_worry", "road_kit_worry"):
+            assert "href" not in self._body(self._render(tpl))
+
+    def test_followup_copy(self, fake_db):
+        html = self._render("kit_followup", {"race_name": "Big Sugar", "race_slug": "big-sugar"})
+        body = self._body(html)
+        paras = [self._text(p) for p in __import__("re").findall(r"<p[^>]*>.*?</p>", body, flags=16)]
+        assert paras == [
+            "Test — the week that decides a plan is week six, when work blows up and you miss "
+            "five days. Mine goes on your calendar one 4-week block at a time, and I look over "
+            "every block before it goes on.",
+            "BUILD MY Big Sugar PLAN →",
+            "If it's not this season, that's fine too.",
+            "Which week usually derails you?",
+        ]
+
+    def test_road_day_zero_promises_three_notes(self, fake_db):
+        new = self._render("road_prep_kit_delivery_notes", {"race_name": "Mallorca 312",
+                                                            "race_slug": "mallorca-312"})
+        old = self._render("road_prep_kit_delivery", {"race_name": "Mallorca 312",
+                                                      "race_slug": "mallorca-312"})
+        promise_old = "In a couple of days I’ll send one short note about the race."
+        promise_new = "Over the next two weeks I’ll send up to three short notes about the race."
+        assert promise_new in self._text(new) and promise_old not in self._text(new)
+        assert self._text(new).replace(promise_new, promise_old) == self._text(old)
+
+    def test_xc_delivery_copy(self, fake_db):
+        html = self._render("xc_prep_kit_delivery", {"race_name": "American Birkebeiner",
+                                                     "race_slug": "american-birkebeiner"})
+        assert self._text(self._body(html)) == (
+            "Test — thanks for grabbing the American Birkebeiner prep kit. Here is the link so "
+            "it does not get lost. Open the prep kit . In a couple of days I’ll send one short "
+            "note about the race. Questions about the race, hit reply. What are you trying to "
+            "sort out?")
+        assert '<a href="https://xcskilabs.com/race/american-birkebeiner/prep-kit/">Open the prep kit</a>' in html
+        no_slug = self._render("xc_prep_kit_delivery", {"race_name": "American Birkebeiner"})
+        assert "prep-kit/" not in no_slug and "Here is the link" not in no_slug
+        anon = self._text(self._body(self._render("xc_prep_kit_delivery", {})))
+        assert anon.startswith("Test — thanks for grabbing the prep kit.")
+
+    def test_xc_checkin_copy(self, fake_db):
+        text = self._text(self._body(self._render("xc_prep_checkin", {"race_name": "Vasaloppet"})))
+        assert text == ("Test — thanks for grabbing the Vasaloppet prep kit. Questions about the "
+                        "race, hit reply. Did it cover what you needed?")
+
+    def test_xc_links_get_xc_utm(self, fake_db):
+        from mission_control.services.sequence_engine import _inject_utm_params
+        html = self._render("xc_prep_kit_delivery", {"race_name": "Vasaloppet", "race_slug": "vasaloppet"})
+        out = _inject_utm_params(html, "xc_kit_delivery_v1", "A", 0, brand="xcskilabs")
+        assert "/race/vasaloppet/prep-kit/?utm_source=xc_ski_labs" in out
+
+    @pytest.mark.parametrize("tpl", _NEW_KIT_TEMPLATES)
+    def test_new_copy_is_text_length_and_ends_on_a_question(self, fake_db, tpl):
+        import re as _re
+        body = self._body(self._render(tpl))
+        # Not counted: the button and the small print under it (the sign-off
+        # is already cut). The greeting IS counted, so this is stricter than
+        # the 80-words-excluding-greeting rule.
+        counted = _re.sub(r'<p class="(?:cta|terms)">.*?</p>', " ", body, flags=_re.S)
+        words = _re.findall(r"[\w'’-]+", self._text(counted))
+        assert len(words) <= 80, f"{tpl}: {len(words)} words"
+        last = _re.findall(r"<p[^>]*>(.*?)</p>", body, flags=_re.S)[-1]
+        assert self._text(last).endswith("?"), f"{tpl} ends on {last!r}"
+
+    @pytest.mark.parametrize("tpl", _NEW_KIT_TEMPLATES)
+    def test_new_copy_has_no_em_dash_or_exclamation(self, fake_db, tpl):
+        import re as _re
+        src = (_TPL_DIR / f"{tpl}.html").read_text()
+        body = src.split('<div class="container">')[1].split("<p>— Matti</p>")[0]
+        assert "—" not in body and "&mdash;" not in body, tpl
+        assert "!" not in self._text(self._body(self._render(tpl))), tpl
+
+    @pytest.mark.parametrize("tpl", _NEW_KIT_TEMPLATES)
+    def test_new_copy_has_no_all_caps_button(self, fake_db, tpl):
+        import re as _re
+        if tpl == "kit_followup":
+            pytest.skip("keeps its existing BUILD MY ... PLAN button (brief: label unchanged)")
+        html = self._render(tpl)
+        for label in _re.findall(r"<a [^>]*>(.*?)</a>", self._body(html), flags=_re.S):
+            letters = _re.sub(r"[^A-Za-z]", "", self._text(label))
+            assert not (len(letters) >= 4 and letters.isupper()), f"{tpl}: {label!r}"
+
+    def test_no_kit_path_template_says_rebuild(self, fake_db):
+        templates = _kit_path_templates()
+        assert {"kit_followup", "kit_endure_plan", "xc_prep_checkin"} <= set(templates)
+        for tpl in templates:
+            assert "rebuild" not in (_TPL_DIR / f"{tpl}.html").read_text().lower(), tpl
+
+    def test_disclosure_sits_under_every_endure_button(self, fake_db):
+        import re as _re
+        from mission_control.services.endure_offer import ENDURE_TRIAL_TERMS
+        for path in sorted(_TPL_DIR.glob("*.html")):
+            src = path.read_text()
+            buttons = src.count('href="{endure_plan_url}"')
+            assert buttons == src.count("endure_plan_url}") - src.count("{{#endure_plan_url}}") \
+                - src.count("{{/endure_plan_url}}"), path.name
+            assert "endurelabs.app" not in src, f"{path.name}: hard-coded Endure link"
+            assert "14 days free. Card required" not in src, f"{path.name}: hard-coded terms"
+            for m in _re.finditer(r'<a href="\{endure_plan_url\}">[^<]*</a></p>\s*', src):
+                assert src[m.end():].startswith('<p class="terms">{endure_trial_terms}</p>'), path.name
+        for tpl in _ENDURE_TEMPLATES:
+            html = self._render(tpl)
+            link = html.index('href="https://endurelabs.app/sign-up?')
+            terms = html.index(ENDURE_TRIAL_TERMS)
+            assert link < terms
+            assert html.count(ENDURE_TRIAL_TERMS) == 1
+
+    def test_endure_button_and_terms_vanish_without_a_link(self, fake_db):
+        cases = [(tpl, sd) for tpl in _ENDURE_TEMPLATES
+                 for sd in ({}, {"race_slug": "unbound-200"}, {"race_name": "Unbound 200"})]
+        cases.append(("kit_endure_plan", {"race_name": "Tour Divide", "race_slug": "tour-divide"}))
+        cases.append(("kit_endure_plan", dict(self.SD, _brand="xcskilabs")))
+        for tpl, sd in cases:
+            sd = dict(sd)
+            brand = sd.pop("_brand", None)
+            html = self._render(tpl, sd, brand=brand)
+            assert "endurelabs.app" not in html and "Start my" not in html, (tpl, sd)
+            assert "{endure" not in html and "{{" not in html
+
+    def test_no_xc_template_carries_endure(self, fake_db):
+        for path in sorted(_TPL_DIR.glob("xc_*.html")):
+            assert "endure" not in path.read_text().lower(), path.name
+            html = _render_template_for(path.stem, {"race_name": "Vasaloppet",
+                                                    "race_slug": "vasaloppet"}, "xcskilabs")
+            assert "endurelabs" not in html.lower(), path.name
+
+
+def _render_template_for(tpl, source_data, brand):
+    from mission_control.services.sequence_engine import _render_template
+    return _render_template(tpl, {"contact_name": "Test Rider", "source_data": source_data}, brand=brand)
+
+
 class TestRetiredVariantsStillSendInFlight:
     """Oct 2026: welcome B (Sober) and nurture A went to weight 0. New
     enrollments must never land in them, and a contact already enrolled in
@@ -1401,7 +1655,7 @@ class TestRetiredVariantsStillSendInFlight:
         sd = {"race_name": "Big Sugar", "race_slug": "big-sugar"}
         variants = {enroll(f"n{i}@example.com", "N", "nurture_v1", source="prep_kit_gate",
                            source_data=sd)["variant"] for i in range(200)}
-        assert variants == {"C"}
+        assert variants == {"D"}
 
     def test_retired_variants_keep_their_steps(self, fake_db):
         from mission_control.sequences import SEQUENCES

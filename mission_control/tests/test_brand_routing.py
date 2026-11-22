@@ -68,6 +68,74 @@ class TestSequenceBrandScoping:
                     )
 
 
+class TestKitRouting:
+    """A prep_kit_gate lead gets its own brand's kit path, and only that.
+    Until 2026-11-22 an xcskilabs kit lead matched no sequence: no email,
+    logged lead_unrouted."""
+
+    def _post(self, client, brand, email, slug="some-race", name="Some Race"):
+        return client.post(
+            "/webhooks/subscriber",
+            json={"email": email, "name": "Kit Rider", "source": "prep_kit_gate",
+                  "brand": brand, "race_slug": slug, "race_name": name},
+            headers={"Authorization": "Bearer test-secret-123"},
+        )
+
+    def _alerts(self, monkeypatch):
+        import mission_control.services.sequence_engine as se
+        sent = []
+        monkeypatch.setattr(se, "_send_email_sync",
+                            lambda to, subject, *a, **k: sent.append(subject) or "rs")
+        return sent
+
+    def test_xc_kit_lead_is_routed(self, client, fake_db, monkeypatch):
+        alerts = self._alerts(monkeypatch)
+        resp = self._post(client, "xcskilabs", "xc-kit@example.com",
+                          "american-birkebeiner", "American Birkebeiner")
+        assert resp.status_code == 200
+        assert set(resp.json()["enrolled"]) == {"xc_nurture_v1", "xc_kit_delivery_v1"}
+        assert not [r for r in fake_db.store["gg_audit_log"] if r["action"] == "lead_unrouted"]
+        assert not any("[UNROUTED]" in s for s in alerts)
+        rows = {e["sequence_id"]: e for e in fake_db.store["gg_sequence_enrollments"]}
+        assert rows["xc_kit_delivery_v1"]["source_data"]["prep_kit_url"] == (
+            "https://xcskilabs.com/race/american-birkebeiner/prep-kit/")
+
+    def test_road_kit_lead_gets_the_new_variants(self, client, fake_db):
+        resp = self._post(client, "roadielabs", "road-kit@example.com", "mallorca-312", "Mallorca 312")
+        assert set(resp.json()["enrolled"]) == {"road_nurture_v1", "road_kit_delivery_v1"}
+        rows = {e["sequence_id"]: e for e in fake_db.store["gg_sequence_enrollments"]}
+        assert rows["road_nurture_v1"]["variant"] == "B"
+        assert rows["road_kit_delivery_v1"]["variant"] == "B"
+
+    def test_gravel_kit_lead_gets_the_endure_variant(self, client, fake_db):
+        resp = self._post(client, "gravelgod", "gg-kit@example.com", "unbound-200", "Unbound 200")
+        assert set(resp.json()["enrolled"]) == {"nurture_v1", "kit_delivery_v1"}
+        rows = {e["sequence_id"]: e for e in fake_db.store["gg_sequence_enrollments"]}
+        assert rows["nurture_v1"]["variant"] == "D"
+
+    def test_each_brand_has_exactly_one_kit_pair(self):
+        for brand, pair in (("gravelgod", {"nurture_v1", "kit_delivery_v1"}),
+                            ("roadielabs", {"road_nurture_v1", "road_kit_delivery_v1"}),
+                            ("xcskilabs", {"xc_nurture_v1", "xc_kit_delivery_v1"})):
+            got = ({s["id"] for s in get_sequences_for_trigger("prep_kit_download", brand)}
+                   | {s["id"] for s in get_sequences_for_trigger("prep_kit_delivery", brand)})
+            assert got == pair, brand
+
+    def test_repeat_xc_kit_submission_does_not_double_enroll(self, client, fake_db):
+        assert len(self._post(client, "xcskilabs", "xc-twice@example.com").json()["enrolled"]) == 2
+        assert self._post(client, "xcskilabs", "xc-twice@example.com").json()["enrolled"] == []
+
+    def test_xc_kit_templates_carry_no_endure_or_plan_pitch(self):
+        from pathlib import Path
+        tpl_dir = Path(__file__).resolve().parent.parent / "templates" / "emails" / "sequences"
+        for seq_id in ("xc_nurture_v1", "xc_kit_delivery_v1"):
+            for variant in SEQUENCES[seq_id]["variants"].values():
+                for step in variant["steps"]:
+                    src = (tpl_dir / f"{step['template']}.html").read_text().lower()
+                    assert "endure" not in src and "questionnaire" not in src
+                    assert "plan" not in src, step["template"]
+
+
 class TestBrandSenders:
     def test_both_brands_configured(self):
         for brand in ("gravelgod", "roadielabs"):
@@ -141,7 +209,10 @@ class TestConditionalPersonalization:
     RACE_CONDITIONAL = ("anti_pitch", "repitch", "race_prep_tips",
                         "kit_checkin_pilot", "kit_pitch", "kit_followup",
                         "road_anti_pitch", "road_repitch",
-                        "road_prep_variables")
+                        "road_prep_variables",
+                        "kit_endure_plan", "kit_worry",
+                        "road_prep_kit_delivery_notes", "road_kit_endure_plan", "road_kit_worry",
+                        "xc_prep_kit_delivery", "xc_prep_checkin")
 
     def test_all_race_conditional_templates_render_both_branches(self):
         for tpl in self.RACE_CONDITIONAL:

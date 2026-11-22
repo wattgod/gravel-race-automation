@@ -20,7 +20,12 @@ from mission_control.sequences.race_countdown import GG_8, GG_16, RL_8, RL_16, X
 from mission_control.sequences.race_debrief import GG_DEBRIEF, RL_DEBRIEF, XC_DEBRIEF
 from mission_control.sequences.xc_welcome import SEQUENCE as xc_welcome
 from mission_control.sequences.xc_win_back import SEQUENCE as xc_win_back
-from mission_control.sequences.kit_delivery import GG as kit_delivery, ROAD as road_kit_delivery
+from mission_control.sequences.kit_delivery import (
+    GG as kit_delivery,
+    ROAD as road_kit_delivery,
+    XC as xc_kit_delivery,
+)
+from mission_control.sequences.xc_nurture import SEQUENCE as xc_nurture
 from mission_control.sequences.race_watch import SEQUENCE as race_watch
 from mission_control.sequences.athlete_exit import (
     GG as athlete_exit,
@@ -61,6 +66,8 @@ SEQUENCES: dict[str, dict] = {
     xc_goal_2027["id"]: xc_goal_2027,
     athlete_review["id"]: athlete_review,
     road_kit_delivery["id"]: road_kit_delivery,
+    xc_kit_delivery["id"]: xc_kit_delivery,
+    xc_nurture["id"]: xc_nurture,
     XC_16["id"]: XC_16,
     XC_8["id"]: XC_8,
     XC_DEBRIEF["id"]: XC_DEBRIEF,

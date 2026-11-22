@@ -264,3 +264,53 @@ class TestUnverifiedDateIsParked:
             facts = extract_race_facts_via_claude("Classic on June 20, 2027", "Dartmoor")
         assert facts["next_edition_date"] == "2027-06-20"
         assert "unverified_date" not in facts
+
+
+DATE_ON_PAGE_CASES = [
+    ("<span>27/06/2027</span>", "2027-06-27", True),
+    ("SATURDAY 05/16/2026", "2026-05-16", True),
+    ("starts 2027-03-07", "2027-03-07", True),
+    ("Dartmoor Classic on June 20, 2027. Choose", "2027-06-20", True),
+    ("<h2>Departure on June 5 and 6, 2027</h2>", "2027-06-05", True),
+    ("<h2>Departure on June 5 and 6, 2027</h2>", "2027-06-06", True),
+    ("Domenica 16 maggio 2027", "2027-05-16", True),
+    ("le 27 juin 2027", "2027-06-27", True),
+    ("den 7. März 2027", "2027-03-07", True),
+    ("2027: March 7", "2027-03-07", True),
+    ("5–6 June 2027", "2027-06-05", True),
+    ("5–6 June 2027", "2027-06-06", True),
+    ("July 30 - August 1, 2027", "2027-07-30", True),
+    ("July 30 - August 1, 2027", "2027-08-01", True),
+    ("30 July - 1 August 2027", "2027-07-30", True),
+    ("30 July - 1 August 2027", "2027-08-01", True),
+    ("<h2>June&nbsp;20, 2027</h2>", "2027-06-20", True),
+    ("June&#160;20, 2027", "2027-06-20", True),
+    ("Sunday, March 7, 2027", "2027-03-07", True),
+    ("June 20th, 2027", "2027-06-20", True),
+    ("Sept. 19, 2027", "2027-09-19", True),
+    ("06/06/2027", "2027-06-06", True),
+    ("<b>07.03.2027</b>", "2027-03-07", True),
+    ("07.03.2027", "2027-07-03", False),
+    ("05/06/2027 Saturday 5 June 2027", "2027-06-05", True),
+    ("Race day was 7 March 2026. See you in 2027!", "2026-03-07", True),
+    # A projected date: the page shows last year's date and mentions next year elsewhere.
+    ('SATURDAY 05/16/2026 <a href="/percorsi2027.aspx">Routes 2027</a>', "2027-05-15", False),
+    ("June 20, 2026", "2027-06-20", False),
+    ("June 20, 2027", "2027-06-02", False),
+    ("Race day was 7 March 2026. See you in 2027!", "2027-03-07", False),
+    # A full stop ends the date; the year belongs to the next sentence.
+    ("Race day: June 20. 2027 registration opens soon.", "2027-06-20", False),
+    # Day and month could be swapped, so the number proves neither reading.
+    ("05/06/2027", "2027-05-06", False),
+    ("05/06/2027", "2027-06-05", False),
+    ("13/13/2027", "2027-13-01", False),
+    ("31 February 2027", "2027-02-31", False),
+    ("June 20, 2027", "June 20", False),
+    ("", "2027-06-20", False),
+    ("May 2027 edition: 16 riders", "2027-05-16", False),
+]
+
+
+@pytest.mark.parametrize("page, claimed, expected", DATE_ON_PAGE_CASES)
+def test_date_is_on_page_cases(page, claimed, expected):
+    assert date_is_on_page(page, claimed) is expected

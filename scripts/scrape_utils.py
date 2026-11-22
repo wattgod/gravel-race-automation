@@ -290,9 +290,16 @@ def date_is_on_page(html: str, iso_date) -> bool:
 
     A model can project last year's date forward and return a plausible date
     the organizer never published. Only a date written on the page is kept.
-    The year must belong to the date: "7 March 2026. See you in 2027!" does
-    not show 7 March 2027.
+
+    - The year must be part of the same date or date range. "June 20. 2027
+      registration opens" does not show 20 June 2027.
+    - A slashed or hyphenated date whose day and month could be swapped
+      ("05/06/2027") proves nothing by itself, so it is not accepted. A dotted
+      date is read day-first.
+    - Either day of a range counts: "5–6 June 2027", "July 30 - August 1, 2027".
     """
+    import html as html_lib
+
     m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", str(iso_date or "").strip())
     if not m or not html:
         return False
@@ -301,30 +308,46 @@ def date_is_on_page(html: str, iso_date) -> bool:
         date(year, month, day)
     except ValueError:
         return False
-    text = re.sub(r"<[^>]+>", " ", html).lower()
+    text = html_lib.unescape(re.sub(r"<[^>]+>", " ", html)).lower()
     text = re.sub(r"\s+", " ", text)
 
     sep = r"\s?[-/.]\s?"
     d, mo = rf"0?{day}", rf"0?{month}"
-    numeric = [
-        rf"(?<!\d){year}{sep}{mo}{sep}{d}(?!\d)",
-        rf"(?<!\d){d}{sep}{mo}{sep}{year}(?!\d)",
-        rf"(?<!\d){mo}{sep}{d}{sep}{year}(?!\d)",
-    ]
-    if any(re.search(p, text) for p in numeric):
+    if re.search(rf"(?<!\d){year}{sep}{mo}{sep}{d}(?!\d)", text):
+        return True
+    # Year-last numbers are day-first in most of the world and month-first in the
+    # US. Accept them only when the two readings cannot differ.
+    if day > 12 or day == month:
+        if re.search(rf"(?<!\d)(?:{d}{sep}{mo}|{mo}{sep}{d}){sep}{year}(?!\d)", text):
+            return True
+
+    # Dots are the European day-first form ("07.03.2027" is 7 March).
+    if re.search(rf"(?<!\d){d}\s?\.\s?{mo}\s?\.\s?{year}(?!\d)", text):
         return True
 
     words = "|".join(re.escape(w) for w in _MONTH_WORDS[month])
-    day_first = rf"(?<!\d){d}(?:st|nd|rd|th|er|\.|º)?(?:\s(?:and|et|e|y|und|en|[-–&])\s?\d{{1,2}})?\s(?:de\s|of\s)?(?:{words})\b"
-    month_first = rf"\b(?:{words})\.?\s(?:\d{{1,2}}(?:st|nd|rd|th)?\s?(?:and|[-–&,])\s?)?{d}(?!\d)"
+    any_word = r"[^\W\d_]{3,12}\.?"
+    ordinal = r"(?:st|nd|rd|th|er|\.|º)?"
+    joiner = r"(?:\s?[-–&]\s?|\s(?:and|et|e|y|und|en|to)\s)"
+    # "5 june", "5–6 june", "5 and 6 june", and the second day of those.
+    day_first = rf"(?<!\d)(?:\d{{1,2}}{ordinal}{joiner})?{d}{ordinal}(?:{joiner}\d{{1,2}}{ordinal})?\s(?:de\s|of\s)?(?:{words})\b\.?"
+    # "june 5", "june 5-6", "june 5 and 6", and the second day of those.
+    # After a month name a full stop ends the sentence; it is not an ordinal mark.
+    suffix = r"(?:st|nd|rd|th)?"
+    month_first = rf"\b(?:{words})\.?\s(?:\d{{1,2}}{suffix}{joiner})?{d}{suffix}(?!\d)(?:{joiner}\d{{1,2}}{suffix}(?!\d))?"
+    # What may sit between the date and its year: the rest of a range into
+    # another month, then a comma or a space. A full stop ends the date.
+    range_tail = rf"(?:{joiner}(?:\d{{1,2}}{ordinal}\s(?:de\s|of\s)?{any_word}|{any_word}\s\d{{1,2}}{ordinal}))?"
+    year_after = re.compile(rf"{range_tail},?\s(\d{{4}})(?!\d)")
+    # "30 july - 1 august 2027" seen from the first day: the month word is ours,
+    # the range runs on into the next month.
     for match in re.finditer(rf"{day_first}|{month_first}", text):
-        # The first year written after the date (or the one right before it) is the date's year.
-        after = re.search(r"(?<!\d)(\d{4})(?!\d)", text[match.end(): match.end() + 16])
+        after = year_after.match(text, match.end())
         if after:
             if int(after.group(1)) == year:
                 return True
             continue
-        before = re.search(r"(?<!\d)(\d{4})\W{1,3}$", text[max(0, match.start() - 8): match.start()])
+        before = re.search(r"(?<!\d)(\d{4})[:,]?\s$", text[max(0, match.start() - 7): match.start()])
         if before and int(before.group(1)) == year:
             return True
     return False

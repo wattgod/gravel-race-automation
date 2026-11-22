@@ -235,6 +235,15 @@ class TestDateIsOnPage:
     def test_day_must_be_whole_number(self):
         assert not date_is_on_page("June 20, 2027", "2027-06-02")
 
+    def test_year_must_belong_to_the_date(self):
+        page = "Race day was 7 March 2026. See you in 2027!"
+        assert not date_is_on_page(page, "2027-03-07")
+        assert date_is_on_page(page, "2026-03-07")
+
+    def test_impossible_date_is_rejected_not_raised(self):
+        assert not date_is_on_page("13/13/2027", "2027-13-01")
+        assert not date_is_on_page("31 February 2027", "2027-02-31")
+
     def test_bad_input(self):
         assert not date_is_on_page("June 20, 2027", "June 20")
         assert not date_is_on_page("", "2027-06-20")

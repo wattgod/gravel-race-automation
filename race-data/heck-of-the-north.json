@@ -11,7 +11,7 @@
       "location_badge": "TWO HARBORS, MINNESOTA",
       "county": "Lake County",
       "date": "Late September annually",
-      "date_specific": "2026: September 26 (Saturday, CONFIRMED — heckofthenorth.com/heck-schedule)",
+      "date_specific": "2027: September 25 (Saturday, CONFIRMED — heckofthenorth.com)",
       "terrain_types": [
         "Mostly maintained gravel road (~80% unpaved)",
         "Technical two-track sectors (Briton Pit, Bear Pit, King Lake)",
@@ -153,6 +153,7 @@
     "editions": [
       {
         "year": 2026,
+        "date": "2026-09-26",
         "edition": 18,
         "note": "Start and finish moved back into downtown Two Harbors; first Heck Fest.",
         "source": "https://www.heckofthenorth.com/cadence"
@@ -365,6 +366,11 @@
         "url": "https://www.heckofthenorth.com/heck-schedule",
         "category": "other",
         "label": "Heckofthenorth: Schedule (2026 date)"
+      },
+      {
+        "url": "https://www.heckofthenorth.com",
+        "category": "official",
+        "label": "Official site — next edition date (2027: September 25), read 2026-11-22"
       }
     ],
     "results": {

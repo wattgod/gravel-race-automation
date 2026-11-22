@@ -117,7 +117,7 @@ def test_gravel_roubaix_profile_is_the_titusville_roughneck_race():
     assert vitals["location"].startswith("Titusville")
     assert vitals["distance_mi"] == 101.9
     assert vitals["elevation_ft"] == 9985
-    assert "next edition pending" in vitals["date_specific"]
+    assert vitals["date_specific"].startswith("2027: May 29")
     assert race["course_description"]["ridewithgps_id"] == "53075138"
     assert race["logistics"]["official_site"].startswith(
         "https://www.oilvalleyendurance.com/"

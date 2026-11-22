@@ -40,6 +40,30 @@ What held up, what did not? If the day came apart — kick, glide, fueling, the 
 
 — Matti
 
+### xc kit delivery · day 0 · xc_prep_kit_delivery   (xc_kit_delivery_v1, prep_kit_gate only; before 2026-11-22 these leads got no email) — DRAFT 2026-11-22, pending Matti's read
+SUBJECT: your {race_name} prep kit
+BODY:
+{greeting} thanks for grabbing {{#race_name}}the {race_name} prep kit{{/race_name}}{{^race_name}}the prep kit{{/race_name}}.
+
+{{#race_slug}}Here is the link so it does not get lost. [Open the prep kit](https://xcskilabs.com/race/{race_slug}/prep-kit/).{{/race_slug}}
+
+In a couple of days I'll send one short note about the race.
+
+Questions about the race, hit reply. What are you trying to sort out?
+
+— Matti
+
+### xc_nurture · day 2 · xc_prep_checkin   (xc_nurture_v1; no Endure link, no plan pitch) — DRAFT 2026-11-22, pending Matti's read
+SUBJECT: did the prep kit cover it?
+BODY:
+{greeting} thanks for grabbing {{#race_name}}the {race_name} prep kit{{/race_name}}{{^race_name}}the prep kit{{/race_name}}.
+
+Questions about the race, hit reply.
+
+Did it cover what you needed?
+
+— Matti
+
 ### xc_welcome · day 0 · xc_welcome_value
 SUBJECT: which race?
 BODY:

@@ -11,8 +11,8 @@ name: "Weekly Fact Refresh (gated auto-commit)"
 #   - Whitelisted FACT fields only (dates, cancelled/paused status);
 #     editorial content never auto-publishes
 #   - Anomaly brake: >10 changed profiles → issue instead of commit
-#   - Budget: scraping is free; Claude extraction ~$0.01-0.05/race on the
-#     stale subset (≤50/run) — comfortably inside the $25/mo cap
+#   - Budget: scraping is free; extraction is about $0.002/race with the cheap
+#     model, or ~$0.01-0.05/race on Claude, on the stale subset (≤50/run)
 
 on:
   schedule:
@@ -48,11 +48,19 @@ jobs:
       - name: Install dependencies
         run: pip install requests pyyaml anthropic beautifulsoup4 pytest
 
+      # The pages are public, so extraction uses the cheap model
+      # (thinkingmachines/inkling-2-mini, about $0.002 a page) when its key is
+      # set, and Claude otherwise. Either way a date is kept only when the
+      # page itself shows it (date_is_on_page in scrape_utils.py).
       - name: Scrape + extract (stale dates first)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
+          if [ -n "$OPENROUTER_API_KEY" ]; then EXTRACTOR=inkling; else EXTRACTOR=claude; fi
+          echo "Extractor: $EXTRACTOR"
           python scripts/scrape_official_sites.py --stale-only --limit 50 \
+            --extractor "$EXTRACTOR" \
             ${{ inputs.force_all && '--force' || '' }} || true
 
       - name: Apply safe fixes

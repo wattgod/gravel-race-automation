@@ -391,7 +391,10 @@ async def _send_next_step(enrollment: dict) -> bool:
     # has passed) is re-checked against the race's current date right before
     # it goes. A step that fails is not sent; the sequence moves on as if it
     # had been, and the audit log says why.
-    premise_failure = _race_premise_failure(step, enrollment, brand)
+    # A step that requires a server-built token (the Endure link) is skipped
+    # the same way when the token cannot be built for this lead.
+    premise_failure = (_race_premise_failure(step, enrollment, brand)
+                       or _step_requirement_failure(step, enrollment, brand))
     if premise_failure:
         db.log_action(
             "sequence_step_skipped", "enrollment", str(enrollment["id"]),
@@ -421,7 +424,7 @@ async def _send_next_step(enrollment: dict) -> bool:
     subject = _render_subject(step["subject"], enrollment.get("source_data") or {})
 
     # Render email template, inject UTM tracking, and inject unsubscribe link
-    html = _render_template(step["template"], enrollment)
+    html = _render_template(step["template"], enrollment, brand=brand)
     html = _inject_utm_params(
         html,
         sequence_id=enrollment["sequence_id"],
@@ -652,7 +655,8 @@ async def resend_first_step(enrollment: dict, subject: str | None = None) -> boo
 
     step = _resolve_step(variant["steps"][0], enrollment)
     brand = seq.get("brand", "gravelgod")
-    premise_failure = _race_premise_failure(step, enrollment, brand)
+    premise_failure = (_race_premise_failure(step, enrollment, brand)
+                       or _step_requirement_failure(step, enrollment, brand))
     if premise_failure:
         db.log_action("sequence_step_skipped", "enrollment", str(enrollment["id"]),
                       f"{enrollment['sequence_id']} step 0 ({step['template']}) "
@@ -675,7 +679,7 @@ async def resend_first_step(enrollment: dict, subject: str | None = None) -> boo
     # says so, so a failure never leaves a slot used or a phantom "send".
     done = False
     try:
-        html = _render_template(step["template"], enrollment)
+        html = _render_template(step["template"], enrollment, brand=brand)
         html = _inject_utm_params(html, sequence_id=enrollment["sequence_id"],
                                   variant=enrollment["variant"], step_index=0, brand=brand)
         html = _inject_unsubscribe(html, enrollment["contact_email"], brand)
@@ -769,6 +773,123 @@ def _race_facts(race_slug) -> dict:
 _RACE_FACT_KEYS = ("race_facts", "race_distance_mi", "race_elevation_ft",
                    "race_location", "race_terrain", "race_when", "race_score")
 
+# Endure offer tokens: server-derived only, reserved like the race facts.
+_ENDURE_TOKEN_KEYS = ("endure_plan_url", "endure_trial_terms")
+_MAX_ENDURE_RACE_NAME = 120
+
+
+def _gravel_race(slug: str) -> dict | None:
+    """The Gravel God race-data profile's "race" object, or None."""
+    try:
+        from mission_control.services.race_data import RACE_DATA_DIR
+        path = RACE_DATA_DIR / f"{slug}.json"
+        if not path.is_file():
+            return None
+        race = json.loads(path.read_text()).get("race")
+    except Exception:
+        return None
+    return race if isinstance(race, dict) else None
+
+
+def _endure_number(value) -> str | None:
+    """A positive race fact as a plain number: at most 2 decimals, no
+    thousands separators, no trailing zeros ("200", "62.14")."""
+    if not _is_real_number(value) or value <= 0:
+        return None
+    text = f"{round(float(value), 2):.2f}".rstrip("0").rstrip(".")
+    return text or None
+
+
+def _endure_plan_url(brand: str, race_slug, race_name, today=None) -> str | None:
+    """Endure sign-up link that opens onboarding with the lead's race filled
+    in (the kit emails' {endure_plan_url}), or None when there is none.
+
+    None unless the brand has the offer (Gravel God, Roadie Labs; never XC
+    Ski Labs), the slug is canonical and the race has a name. Gravel God also
+    needs the race's own race-data profile and a discipline Endure builds
+    (gravel, mtb, road; bikepacking gets no link). The discipline follows the
+    race page's rule (generate_neo_brutalist: rating, then vitals, else
+    gravel). race_date comes only from the published date and only when it is
+    ahead and within two years; distance and climbing only from Gravel God
+    race data. Every value is URL-encoded by urlencode; the template escapes
+    the whole link again for the href.
+    """
+    from mission_control.services.endure_offer import (
+        ENDURE_DISCIPLINES, ENDURE_KIT_CAMPAIGN, ENDURE_MAX_DAYS_AHEAD,
+        ENDURE_SIGNUP_URL, ENDURE_UTM_SOURCES,
+    )
+
+    utm_source = ENDURE_UTM_SOURCES.get(brand)
+    if not utm_source:
+        return None
+    slug = str(race_slug or "").strip().lower()
+    if not slug or not _SLUG_RE.match(slug):
+        return None
+    name = " ".join(str(race_name or "").split())[:_MAX_ENDURE_RACE_NAME].strip()
+    if not name:
+        return None
+
+    distance = elevation = None
+    if brand == "gravelgod":
+        race = _gravel_race(slug)
+        if race is None:
+            return None
+        vitals = race.get("vitals") if isinstance(race.get("vitals"), dict) else {}
+        rating = race.get("gravel_god_rating") if isinstance(race.get("gravel_god_rating"), dict) else {}
+        raw = rating.get("discipline") or vitals.get("discipline") or "gravel"
+        discipline = ENDURE_DISCIPLINES.get(str(raw).strip().lower())
+        if not discipline:
+            return None
+        distance = _endure_number(vitals.get("distance_mi"))
+        elevation = _endure_number(vitals.get("elevation_ft"))
+    else:
+        discipline = "road"
+
+    params = {"race": slug, "race_name": name}
+    from mission_control.services.race_countdown import published_race_date
+    today = today or datetime.now(timezone.utc).date()
+    race_date, _why = published_race_date(brand, slug)
+    if race_date and today < race_date <= today + timedelta(days=ENDURE_MAX_DAYS_AHEAD):
+        params["race_date"] = race_date.isoformat()
+    if distance:
+        params["distance_mi"] = distance
+    if elevation:
+        params["elevation_ft"] = elevation
+    params.update({
+        "discipline": discipline,
+        "utm_source": utm_source,
+        "utm_medium": "email",
+        "utm_campaign": ENDURE_KIT_CAMPAIGN,
+    })
+    return f"{ENDURE_SIGNUP_URL}?{urllib.parse.urlencode(params)}"
+
+
+def _endure_tokens(brand: str | None, source_data: dict) -> dict:
+    from mission_control.services.endure_offer import ENDURE_TRIAL_TERMS
+    tokens = {"endure_trial_terms": ENDURE_TRIAL_TERMS}
+    url = _endure_plan_url(brand or "", source_data.get("race_slug"), source_data.get("race_name"))
+    if url:
+        tokens["endure_plan_url"] = url
+    return tokens
+
+
+# Server-built tokens a step may require (`requires` on the step). A step
+# whose token cannot be built for this enrollment is not sent: the sequence
+# moves on exactly as for a failed race premise, and the audit log says why.
+_STEP_REQUIREMENTS = ("endure_plan_url",)
+
+
+def _step_requirement_failure(step: dict, enrollment: dict, brand: str) -> str | None:
+    need = step.get("requires")
+    if not need:
+        return None
+    if need not in _STEP_REQUIREMENTS:
+        return f"unknown requirement {need!r}"
+    source_data = enrollment.get("source_data") or {}
+    if not _endure_plan_url(brand, source_data.get("race_slug"), source_data.get("race_name")):
+        return "no Endure plan link for this lead (race slug, race name, brand or discipline)"
+    return None
+
 # Server-derived pricing tokens for sequence copy — data/pricing.json is the
 # only place these numbers live (docs/specs/goals-2027-funnel-spec.md D18).
 # Reserved the same way race_facts are: popped from source_data before this
@@ -820,8 +941,13 @@ def _apply_conditionals(html: str, data: dict) -> str:
     return html
 
 
-def _render_template(template_name: str, enrollment: dict) -> str:
-    """Render a sequence email template."""
+def _render_template(template_name: str, enrollment: dict, brand: str | None = None) -> str:
+    """Render a sequence email template.
+
+    brand selects brand-scoped server tokens ({endure_plan_url}); when not
+    given it is the enrollment's sequence's brand, and with neither the
+    token is simply absent.
+    """
     template_path = WEB_TEMPLATES_DIR / "emails" / "sequences" / f"{template_name}.html"
 
     if not template_path.exists():
@@ -847,6 +973,14 @@ def _render_template(template_name: str, enrollment: dict) -> str:
     for key in _PRICING_TOKEN_KEYS:
         source_data.pop(key, None)
     source_data.update(_pricing_tokens())
+    # Endure offer tokens: server-built only, same rule again.
+    for key in _ENDURE_TOKEN_KEYS:
+        source_data.pop(key, None)
+    if "endure_" in html:
+        if brand is None:
+            seq = get_sequence(enrollment.get("sequence_id") or "")
+            brand = seq.get("brand", "gravelgod") if seq else None
+        source_data.update(_endure_tokens(brand, source_data))
     html = _apply_conditionals(html, source_data)
     # Most templates open with a bare address ("Roberto —"). A missing name used
     # to fall through to the "there" fallback and render "there —", which reads

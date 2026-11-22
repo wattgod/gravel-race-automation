@@ -71,6 +71,43 @@ Any questions about the race, hit reply. What are you trying to sort out?
 
 — Matti
 
+### nurture C · day 11 · kit_followup   (variant C, in-flight rows only since 2026-11-22; race_premise upcoming) — DRAFT 2026-11-22, pending Matti's read
+SUBJECT: week six
+BODY:
+{greeting} the week that decides a plan is week six, when work blows up and you miss five days. Mine goes on your calendar one 4-week block at a time, and I look over every block before it goes on.
+
+[button, unchanged] BUILD MY {race_name} PLAN → (questionnaire, ?race={race_slug})
+
+If it's not this season, that's fine too.
+
+Which week usually derails you?
+
+— Matti
+
+### nurture D · day 2 · kit_checkin_pilot   (variant D, 100% of new prep_kit_download enrollments since 2026-11-22; same template as C, unchanged)
+
+### nurture D · day 7 · kit_endure_plan   (race_premise upcoming; requires {endure_plan_url}, else skipped and day 11 follows on schedule) — DRAFT 2026-11-22, pending Matti's read
+SUBJECT: your {race_name} plan
+BODY:
+{greeting} if {race_name} is the one you're building toward, Endure will build your season for it. Your race is already filled in, so it asks for your hours, the days you ride and a few things about you. The first 14 days are free, and nothing is charged until the plan is on your calendar.
+
+[button] Start my {race_name} plan → {endure_plan_url}
+
+[small print under the button] {endure_trial_terms} = "14 days free. Card required. Then your selected plan bills automatically unless you cancel. Cancel online before your trial ends to avoid a charge. Available to eligible new subscribers."
+
+How many hours a week do you really have?
+
+— Matti
+
+### nurture D · day 11 · kit_worry   (no link) — DRAFT 2026-11-22, pending Matti's read
+SUBJECT: the part that worries you
+BODY:
+{greeting} reply with the one thing about {{#race_name}}{race_name}{{/race_name}}{{^race_name}}your race{{/race_name}} that worries you and I'll tell you what I'd do about it.
+
+Is it the distance, the climbing or eating enough?
+
+— Matti
+
 ### race_specific · day 1 · quiz_results_recap   (they ran the race finder)
 SUBJECT: which one are you actually considering?
 BODY:

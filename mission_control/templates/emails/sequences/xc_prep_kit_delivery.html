@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: Georgia, serif; background: #f7f8f8; margin: 0; padding: 24px 20px; color: #16232a; }
+    .container { max-width: 560px; margin: 0 auto; }
+    p { margin: 0 0 16px; line-height: 1.65; font-size: 16px; }
+    a { color: #2b5d6e; }
+    .footer { margin-top: 28px; padding-top: 14px; border-top: 1px solid #c8d2d6; font-family: 'Courier New', monospace; font-size: 11px; color: #6b7d85; }
+    .footer a { color: #6b7d85; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>{greeting} thanks for grabbing {{#race_name}}the {race_name} prep kit{{/race_name}}{{^race_name}}the prep kit{{/race_name}}.</p>
+    {{#race_slug}}<p>Here is the link so it does not get lost. <a href="https://xcskilabs.com/race/{race_slug}/prep-kit/">Open the prep kit</a>.</p>{{/race_slug}}
+    <p>In a couple of days I&rsquo;ll send one short note about the race.</p>
+    <p>Questions about the race, hit reply. What are you trying to sort out?</p>
+    <p>— Matti</p>
+    <div class="footer">Matti Rowe &middot; XC Ski Labs &middot; <a href="https://xcskilabs.com">xcskilabs.com</a></div>
+  </div>
+</body>
+</html>

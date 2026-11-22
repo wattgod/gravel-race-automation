@@ -67,6 +67,43 @@ Questions about the race, hit reply. What are you trying to sort out?
 
 — Matti
 
+### road kit delivery B · day 0 · road_prep_kit_delivery_notes   (road_kit_delivery_v1 variant B, 100% of new prep_kit_gate enrollments since 2026-11-22; identical to road_prep_kit_delivery except the promise line) — DRAFT 2026-11-22, pending Matti's read
+SUBJECT: your {race_name} prep kit
+BODY:
+{greeting} thanks for grabbing {{#race_name}}the {race_name} prep kit{{/race_name}}{{^race_name}}the prep kit{{/race_name}}.
+
+{{#race_slug}}Here is the link before it disappears into a browser tab: https://roadielabs.com/race/{race_slug}/prep-kit/.{{/race_slug}}
+
+Over the next two weeks I'll send up to three short notes about the race.
+
+Questions about the race, hit reply. What are you trying to sort out?
+
+— Matti
+
+### road_nurture B · day 2 · road_prep_variables   (variant B, 100% of new enrollments since 2026-11-22; same template as A, unchanged)
+
+### road_nurture B · day 7 · road_kit_endure_plan   (race_premise upcoming; requires {endure_plan_url}, else skipped and day 11 follows on schedule) — DRAFT 2026-11-22, pending Matti's read
+SUBJECT: your {race_name} plan
+BODY:
+{greeting} if {race_name} is the target, Endure will build your season for it. The race is already filled in, so it asks for your hours, the days you ride and a few things about you. The first 14 days are free. Nothing is charged until the plan is on your calendar.
+
+[button] Start my {race_name} plan → {endure_plan_url}
+
+[small print under the button] {endure_trial_terms} = "14 days free. Card required. Then your selected plan bills automatically unless you cancel. Cancel online before your trial ends to avoid a charge. Available to eligible new subscribers."
+
+Where is the training at right now?
+
+— Matti
+
+### road_nurture B · day 11 · road_kit_worry   (no link) — DRAFT 2026-11-22, pending Matti's read
+SUBJECT: the part that worries you
+BODY:
+{greeting} reply with the one thing about {{#race_name}}{race_name}{{/race_name}}{{^race_name}}your race{{/race_name}} that worries you and I'll tell you what I'd do about it.
+
+Is it the distance, the climbing or the pace in the bunch?
+
+— Matti
+
 ### road_race_specific · day 1 · road_quiz_recap
 SUBJECT: which ones made the shortlist?
 BODY:

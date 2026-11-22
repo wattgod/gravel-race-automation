@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: Georgia, serif; background: #ffffff; margin: 0; padding: 24px 20px; color: #2b2b2b; }
+    .container { max-width: 560px; margin: 0 auto; }
+    p { margin: 0 0 16px; line-height: 1.65; font-size: 16px; }
+    ul { margin: 0 0 16px; padding-left: 20px; }
+    li { line-height: 1.6; font-size: 16px; margin-bottom: 6px; }
+    a { color: #1A8A82; }
+    .objection { font-style: italic; color: #59473c; margin-bottom: 6px; }
+    .offer { background: #f5efe6; border-left: 3px solid #178079; padding: 14px 18px; margin: 0 0 18px; }
+    .offer p { margin: 0 0 8px; font-size: 15px; }
+    .cta { font-weight: bold; font-size: 17px; }
+    .cta a { color: #178079; text-decoration: none; border-bottom: 2px solid #178079; }
+    .terms { font-size: 12px; line-height: 1.5; color: #59473c; }
+    .ps { color: #59473c; }
+    .footer { margin-top: 28px; padding-top: 14px; border-top: 1px solid #d4c5b9; font-family: 'Courier New', monospace; font-size: 11px; color: #8c7568; }
+    .footer a { color: #8c7568; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>{greeting} if {race_name} is the one you're building toward, Endure will build your season for it. Your race is already filled in, so it asks for your hours, the days you ride and a few things about you. The first 14 days are free, and nothing is charged until the plan is on your calendar.</p>
+    {{#endure_plan_url}}<p class="cta"><a href="{endure_plan_url}">Start my {race_name} plan</a></p>
+    <p class="terms">{endure_trial_terms}</p>{{/endure_plan_url}}
+    <p>How many hours a week do you really have?</p>
+    <p>— Matti</p>
+    <div class="footer">Matti Rowe &middot; Gravel God Cycling &middot; <a href="https://gravelgodcycling.com">gravelgodcycling.com</a></div>
+  </div>
+</body>
+</html>

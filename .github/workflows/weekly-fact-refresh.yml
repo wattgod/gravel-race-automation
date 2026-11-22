@@ -46,8 +46,13 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies
-        run: pip install requests pyyaml anthropic beautifulsoup4 pytest
+        run: |
+          pip install requests pyyaml anthropic beautifulsoup4 pytest "scrapling[fetchers]"
+          # Browser for sites that block plain requests; plain fetches work without it.
+          scrapling install || echo "::warning::browser install failed; blocked sites will be skipped"
 
+      # No "|| true" on this step: a crash must fail the run. The scraper was
+      # once missing from the install line and every run silently did nothing.
       # The pages are public, so extraction uses the cheap model
       # (thinkingmachines/inkling-2-mini, about $0.002 a page) when its key is
       # set, and Claude otherwise. Either way a date is kept only when the
@@ -61,7 +66,7 @@ jobs:
           echo "Extractor: $EXTRACTOR"
           python scripts/scrape_official_sites.py --stale-only --limit 50 \
             --extractor "$EXTRACTOR" \
-            ${{ inputs.force_all && '--force' || '' }} || true
+            ${{ inputs.force_all && '--force' || '' }}
 
       - name: Apply safe fixes
         run: python scripts/fact_check_profiles.py --auto-fix || true

@@ -23,7 +23,7 @@ def test_winterberg_is_canonical_and_aachen_is_retired():
     race = json.loads(
         (ROOT / "race-data" / "3rides-gravel-winterberg.json").read_text()
     )["race"]
-    assert race["vitals"]["date_specific"] == "2027: TBD"
+    assert race["vitals"]["date_specific"].startswith("2027: June 25-27")
     # 70: 154 mi / 19,193 ft stage-race totals (veracity-bot 80 mi / 9,843 ft
     # stage-3-only edit reverted in the 2026-10-10 audit).
     assert race["gravel_god_rating"]["overall_score"] == 70

@@ -32,11 +32,28 @@ practical suggestion before asking for more.
 
 ## Hard constraints (non-negotiable)
 
-- **Product facts only** (when facts appear at all — mostly in replies):
-  course profile + FTP + real hours; 48h; ZWO + PDF; $15 for every week
-  until the race, one payment, 4-week minimum, no cap (`wordpress/pricing.py`);
-  human rebuilds on reply; small coaching roster. Verify race numbers
-  against `race-data/<slug>.json`.
+- **Product facts only** (when facts appear at all — mostly in replies).
+  The plan's terms are `wordpress/plan_offer.py` (numbers from
+  `data/pricing.json` via `wordpress/pricing.py`); quote them, never
+  paraphrase them into new promises. As of 2026-11-22 they render as:
+  `PRICE_TO_RACE` "$49.99 every 4 weeks until race week"; `BLOCKS_LINE`
+  "Your plan goes on your TrainingPeaks calendar one 4-week block at a
+  time, and I look over every block before it goes on."; `LAST_BLOCK_LINE`
+  "If your race isn't a whole number of 4-week blocks away, the last,
+  shorter block costs $12.50 a week."; `ENDS_LINE` "It ends after race
+  week. Nothing is charged after that."; `FIRST_BLOCK_LINE` "Block 1
+  arrives within 24 hours of your payment or of you connecting
+  TrainingPeaks, whichever is later."; `CANCEL_LINE` "Cancel any time from
+  your plan page; you keep any block you've paid for."; `REFUND_LINE`
+  "Full refund within 14 days of your first payment." "Every 4 weeks",
+  never "monthly" or "/mo"; never call the plan coaching. No email
+  promises a rebuild or schedule change on reply (Matti, 2026-11-22).
+  Small coaching roster. Verify race numbers against
+  `race-data/<slug>.json`.
+- **Endure offer** (kit leads, GG and Roadie only, never XC): the link is
+  the server-built `{endure_plan_url}` and the small print under its
+  button is `{endure_trial_terms}` (`mission_control/services/endure_offer.py`,
+  pinned to `wordpress/endure_offer.py`). Never hard-code either.
 - **Never:** fabricated anything, countdown timers, fake scarcity, defensive
   copy, identity-transformation promises, hype adjectives, banner/all-caps
   CTAs, "as promised" sequence meta, resource catalogs, P.S. next-email
@@ -54,9 +71,14 @@ practical suggestion before asking for more.
 - **Sober variant B** (welcome) was the A/B control; retired Oct 2026 to
   weight 0 (welcome = A 100). Do not edit or delete its copy — contacts
   already enrolled in B still receive it.
-- **Nurture** (`prep_kit_download`) = kit path C 100 (A and B weight 0, kept
-  for in-flight rows). C pitches by design — see the doctrine exception in
-  `mission_control/sequences/nurture.py`.
+- **Nurture** (`prep_kit_download`) = kit path D 100 since 2026-11-22
+  (A, B and C weight 0, kept for in-flight rows): day 2 check-in, day 7
+  Endure season offer (skipped when there is no `{endure_plan_url}` or the
+  race premise fails), day 11 worry question. C pitched the plan by design
+  — see the doctrine exception in `mission_control/sequences/nurture.py`.
+  Roadie `road_nurture_v1` = B 100 (same shape), A in flight. XC
+  `xc_nurture_v1` = one day-2 check-in after `xc_kit_delivery_v1`.
+  Copy for D, Roadie B and XC is DRAFT pending Matti's read.
 
 ## File map
 

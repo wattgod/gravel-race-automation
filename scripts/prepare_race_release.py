@@ -305,14 +305,16 @@ def verify_assets(package: Path) -> None:
         assets = list((pages / "assets").glob(f"gg-{kind}.*.{extension}"))
         if len(assets) != 1 or assets[0].name.split(".")[1] != hashlib.md5(assets[0].read_bytes()).hexdigest()[:8]:
             raise ValueError("Shared asset filename/hash mismatch")
-    for page in pages.glob("*.html"):
+    embeds = pages.glob("assets/planner/finish-*.html")
+    for page in [*pages.glob("*.html"), *embeds]:
         text = page.read_text()
         for reference in re.findall(r'(?:href|src)=["\'](/race/assets/[^"\'?#]+)', text):
             relative = reference.removeprefix("/race/")
             resolved = (pages / relative).resolve()
             if not resolved.is_relative_to(pages.resolve()) or not resolved.is_file():
                 raise ValueError("Missing or unsafe shared asset reference")
-        verify_planner_assets(pages, page.stem, text)
+        slug = page.stem.removeprefix("finish-") if page.parent != pages else page.stem
+        verify_planner_assets(pages, slug, text)
 
 
 PLANNER_URL_KEYS = ("course_url", "worker_url", "engine_url", "core_url")
@@ -322,11 +324,14 @@ def verify_planner_assets(pages: Path, slug: str, text: str) -> None:
     """A planner page loads its worker, engine, core and course from URLs in its
     config JSON, which the href/src scan cannot see. Each must ship in the
     package, under its content hash, and the course must be this race's."""
-    match = re.search(r'<script type="application/json" class="gg-planner-config">(.*?)</script>', text, re.S)
-    if not match:
-        return
+    matches = re.findall(r'<script type="application/json" class="gg-(?:planner|sim)-config">(.*?)</script>', text, re.S)
+    for raw_config in matches:
+        verify_planner_config(pages, slug, raw_config)
+
+
+def verify_planner_config(pages: Path, slug: str, raw_config: str) -> None:
     try:
-        config = json.loads(match.group(1))
+        config = json.loads(raw_config)
     except ValueError:
         raise ValueError("Unreadable planner config") from None
     for key in PLANNER_URL_KEYS:
@@ -358,9 +363,11 @@ def package_files(package: Path, slugs: list[str]) -> dict[str, dict]:
             continue
         rel = path.relative_to(package).as_posix()
         planner_course = re.fullmatch(r"pages/assets/planner/([a-z0-9]+(?:-[a-z0-9]+)*)\.[0-9a-f]{8}\.json", rel)
+        outlook_embed = re.fullmatch(r"pages/assets/planner/finish-([a-z0-9]+(?:-[a-z0-9]+)*)\.html", rel)
         if rel not in expected and not (re.fullmatch(r"pages/assets/(?:gg-(?:styles|scripts)\.[0-9a-f]{8}\.(?:css|js)|fonts/[A-Za-z0-9_-]+\.woff2"
-                                                     r"|planner/(?:engine7|gg-planner|gg-planner-core|gg-planner-worker)\.[0-9a-f]{8}\.(?:js|css))", rel)
-                                        or (planner_course and planner_course.group(1) in slugs)):
+                                                     r"|planner/(?:engine7|gg-planner|gg-planner-core|gg-planner-worker|gg-finish-outlook)\.[0-9a-f]{8}\.(?:js|css))", rel)
+                                        or (planner_course and planner_course.group(1) in slugs)
+                                        or (outlook_embed and outlook_embed.group(1) in slugs)):
             raise ValueError("Unexpected publishing file: " + rel)
         if not path.stat().st_size:
             raise ValueError("Empty publishing file")

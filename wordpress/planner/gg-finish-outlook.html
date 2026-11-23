@@ -1,0 +1,49 @@
+<section class="gg-sim" id="gg-sim" aria-labelledby="gg-sim-title" data-state="idle">
+  <script type="application/json" class="gg-sim-config">{config}</script>
+  <div class="gg-sim-card">
+    <div class="gg-sim-side">
+      <p class="gg-sim-lab">Finish-time simulator &middot; {edition}</p>
+      <h2 class="gg-sim-title" id="gg-sim-title">What would <span class="gg-sim-hx">20</span> more watts buy you here?</h2>
+      <form class="gg-sim-form" novalidate>
+        <p class="gg-sim-eg">Example rider</p>
+        <div class="gg-sim-fields">
+          <label class="gg-sim-field"><span class="gg-sim-fl">Threshold power (FTP)</span><span class="gg-sim-in"><input name="ftp" value="260" inputmode="numeric" autocomplete="off" aria-label="FTP in watts"><em>W</em></span></label>
+          <div class="gg-sim-field"><span class="gg-sim-fl">Weight</span><span class="gg-sim-in"><input name="wt" value="165" inputmode="decimal" autocomplete="off" aria-label="Rider weight"><button type="button" class="gg-sim-unit" aria-label="Switch weight to kilograms">lb</button></span></div>
+          <label class="gg-sim-field gg-sim-field--plus"><span class="gg-sim-fl">More watts</span><span class="gg-sim-in"><b aria-hidden="true">+</b><input name="plus" value="20" inputmode="numeric" autocomplete="off" aria-label="Extra watts to compare"><em>W</em></span></label>
+        </div>
+      </form>
+      <div class="gg-sim-res" aria-live="polite">
+        <div class="gg-sim-gain"><b class="gg-sim-gain-n">&ndash;</b><span class="gg-sim-gain-u">minutes saved</span></div>
+        <dl class="gg-sim-rows">
+          <div class="gg-sim-row gg-sim-row--base"><dt><i aria-hidden="true"></i><span class="gg-sim-l-base">You &middot; 260 W</span></dt><dd class="gg-sim-t-base">&ndash;:&ndash;&ndash;</dd></div>
+          <div class="gg-sim-row gg-sim-row--plus"><dt><i aria-hidden="true"></i><span class="gg-sim-l-plus">+20 W &middot; 280 W</span></dt><dd class="gg-sim-t-plus">&ndash;:&ndash;&ndash;</dd></div>
+        </dl>
+        <p class="gg-sim-msg">Running the course&hellip;</p>
+      </div>
+      <div class="gg-sim-fine">
+        <p>{edition}. Riding time excludes stops. {target}</p>
+        <details><summary>Estimate assumptions</summary>
+          <p>Both estimates use the same relative effort<span class="gg-sim-if"></span>, an all-round carbon bike, two 750 ml bottles, 7–10 training hours a week, and some group riding. {weather} <a href="{planner_href}">Open the full planner</a></p>
+        </details>
+      </div>
+    </div>
+    <div class="gg-sim-map">
+      <p class="gg-sim-clock" aria-hidden="true"><span class="gg-sim-clock-l">Riding</span> <b class="gg-sim-clock-t">0:00</b></p>
+      <svg class="gg-sim-svg" viewBox="0 0 800 1000" role="img" aria-label="{race} route with two riders replaying their estimated rides">
+        <path class="gg-sim-route"/>
+        <polyline class="gg-sim-trail gg-sim-trail--base" points=""/>
+        <polyline class="gg-sim-trail gg-sim-trail--plus" points=""/>
+        <g class="gg-sim-start"><rect x="-13" y="-13" width="26" height="26"/><text x="-26" y="10" text-anchor="end">Start</text></g>
+        <g class="gg-sim-mk gg-sim-mk--base"><circle r="17"/><text x="-28" y="10" text-anchor="end">You</text></g>
+        <g class="gg-sim-mk gg-sim-mk--plus"><circle r="17"/><text class="gg-sim-mk-plus-t" x="28" y="10">+20 W</text></g>
+      </svg>
+      <p class="gg-sim-note" aria-hidden="true"></p>
+      <p class="gg-sim-vh gg-sim-say" aria-live="polite"></p>
+      <div class="gg-sim-ctl">
+        <button type="button" class="gg-sim-play" disabled>Pause</button>
+        <button type="button" class="gg-sim-replay" disabled>Replay</button>
+        <input type="range" class="gg-sim-scrub" min="0" max="1000" step="1" value="0" disabled aria-label="Riding time on the replay">
+      </div>
+    </div>
+  </div>
+</section>

@@ -575,3 +575,29 @@ def test_leadville_planner_drops_the_private_route_link():
     html = page("leadville-100")
     assert "56516679" not in html
     assert config(html)["route_url"] is None
+
+
+def test_finish_outlook_shares_the_published_course_and_engine(tmp_path):
+    slug = "unbound-200"
+    rd = load_race_data(ROOT / "race-data" / f"{slug}.json")
+    html = page(slug)
+    assert html.index('id="gg-sim"') < html.index('<figure class="gg-cd-prof gg-cd-prof--hero"') < html.index('id="finish-time"')
+    race_planner.write_planner_assets(tmp_path, [slug])
+    race_planner.write_finish_outlook_embed(tmp_path, rd)
+    embed = (tmp_path / "assets" / "planner" / f"finish-{slug}.html").read_text()
+    configs = [
+        json.loads(re.search(r'<script type="application/json" class="gg-sim-config">(.*?)</script>', doc).group(1))
+        for doc in (html, embed)
+    ]
+    assert configs[0] == configs[1]
+    for key in ("course_url", "engine_url", "core_url", "worker_url"):
+        assert configs[0][key] == config(html)[key]
+    assert "2025 route" in embed and "Riding time excludes stops" in embed
+    assert "The 2027 route isn&#x27;t published yet." in embed
+
+
+def test_finish_outlook_leaves_unreviewed_courses_and_unconfirmed_editions_alone():
+    cfg = config(page("unbound-200"))
+    assert not race_planner.build_finish_outlook({**cfg, "slug": "unbound-100"})
+    assert not race_planner.build_finish_outlook({**cfg, "edition_short": "route edition not confirmed"})
+    assert not race_planner.build_finish_outlook({**cfg, "visitor_sets_effort": True})

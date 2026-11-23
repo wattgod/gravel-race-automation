@@ -56,7 +56,8 @@ from page_dates import race_updated_date
 from fact_consistency import check_race
 from race_calculator import build_race_calculator, get_race_calculator_css, race_calculator_context
 from race_planner import (build_race_planner, planner_citation_items, planner_config,
-                          planner_head_tags, planner_script_tag, write_planner_assets)
+                          planner_head_tags, planner_script_tag, write_planner_assets,
+                          build_finish_outlook, outlook_head_tags, write_finish_outlook_embed)
 from season import UPCOMING, _status_label, edition_display, edition_state, edition_year, parse_edition, public_date
 from season import today as season_today
 from generate_race_recap import has_results, newest_results_year
@@ -8011,9 +8012,10 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     hours = cd.race_day_hours(rd['slug']) if race_planner else None
     weather_n = (n_sources + len(planner_items) + (1 if route_item else 0) + 1) if hours else None
 
+    finish_outlook = build_finish_outlook(planner_cfg)
     hero = cd.build_hero(rd, race_index, elev, marks, _hero_rider_cell(rd), RATED_BY_NAME,
                          DISCIPLINE_LABELS.get(discipline, discipline.upper()) if discipline != 'gravel' else '',
-                         route_cite=route_n)
+                         route_cite=route_n, finish_outlook=finish_outlook)
 
     plan_href = (None if suppress_plan_marketing else
                  f"{TRAINING_PLANS_URL}?race={rd['slug']}&src=race_profile")
@@ -8138,6 +8140,8 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
     preload = get_preload_hints()
     planner_head = ('\n  ' + planner_head_tags(inline=not external_assets)) if race_planner else ''
     planner_js = ('\n' + planner_script_tag()) if race_planner else ''
+    if finish_outlook:
+        planner_head += outlook_head_tags(inline=not external_assets)
 
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -8303,6 +8307,7 @@ def main():
             slug = f.stem.replace('-data', '')
             try:
                 rd = load_race_data(f)
+                write_finish_outlook_embed(output_dir, rd)
                 page_html = generate_page(
                     rd, race_index, external_assets=assets, race_intel=race_intel
                 )
@@ -8331,6 +8336,7 @@ def main():
         assets = write_shared_assets(output_dir)
         write_planner_assets(output_dir, [args.slug])
         rd = load_race_data(filepath)
+        write_finish_outlook_embed(output_dir, rd)
         page_html = generate_page(
             rd, race_index, external_assets=assets, race_intel=race_intel
         )

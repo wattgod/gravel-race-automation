@@ -335,7 +335,7 @@ def _rank(rd: dict, race_index: list) -> tuple[int, int] | None:
 
 def build_hero(rd: dict, race_index: list, elev: dict | None, marks: list[dict],
                rider_cell: str, rated_by: str, discipline_label: str = '',
-               route_cite: int | None = None) -> str:
+               route_cite: int | None = None, finish_outlook: str = '') -> str:
     v = rd.get('vitals') or {}
     lab = [esc(rd.get('tier_label', '').title())]
     if discipline_label:
@@ -370,6 +370,7 @@ def build_hero(rd: dict, race_index: list, elev: dict | None, marks: list[dict],
       <div class="gg-cd-rider">{rider_cell}</div>
     </div>
   </div>
+  {finish_outlook}
   {profile}
 </header>'''
 
@@ -409,7 +410,7 @@ def build_why_card(rd: dict, dims_course: list, dims_editorial: list, labels: di
 
 
 def build_course_card(rd: dict, geo: dict | None, elev: dict | None,
-                      route_cite: int | None = None) -> str:
+                      route_cite: int | None = None, finish_outlook: str = '') -> str:
     v = rd.get('vitals') or {}
     facts = []
     if v.get('distance') and v['distance'] != '--':

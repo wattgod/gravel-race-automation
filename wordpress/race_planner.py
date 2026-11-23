@@ -29,7 +29,7 @@ from datetime import date
 from functools import lru_cache
 from pathlib import Path
 
-from brand_tokens import SITE_BASE_URL
+from brand_tokens import SITE_BASE_URL, get_font_face_css, get_tokens_css
 import plan_offer
 from course_dossier import PRICE_RATE
 
@@ -43,6 +43,11 @@ ENGINE_JS = JS_DIR / "engine7.js"
 CORE_JS = JS_DIR / "gg-planner-core.js"
 WORKER_JS = JS_DIR / "gg-planner-worker.js"
 UI_JS = JS_DIR / "gg-planner.js"
+OUTLOOK_JS = JS_DIR / "gg-finish-outlook.js"
+OUTLOOK_CSS = JS_DIR / "gg-finish-outlook.css"
+OUTLOOK_TEMPLATE = JS_DIR / "gg-finish-outlook.html"
+# Launch one course at a time after checking its public route and effort model.
+OUTLOOK_RACES = frozenset({"unbound-200"})
 
 ASSET_DIR = "planner"            # under the race output's assets/
 ASSET_URL = "/race/assets/planner"
@@ -164,6 +169,54 @@ def planner_head_tags(inline: bool = False) -> str:
     return f'<link rel="stylesheet" href="{ASSET_URL}/{_css_name()}">'
 
 
+def outlook_head_tags(inline: bool = False) -> str:
+    style = (f"<style>{OUTLOOK_CSS.read_text()}</style>" if inline
+             else f'<link rel="stylesheet" href="{ASSET_URL}/{_hashed(OUTLOOK_CSS)}">')
+    return f'{style}<script defer src="{ASSET_URL}/{_hashed(OUTLOOK_JS)}"></script>'
+
+
+def build_finish_outlook(config: dict | None, *, embedded: bool = False) -> str:
+    if (not config or config["slug"] not in OUTLOOK_RACES
+            or config["visitor_sets_effort"] or not re.fullmatch(r"\d{4} route", config["edition_short"])):
+        return ""
+    runtime = {key: config[key] for key in (
+        "course_url", "engine_url", "core_url", "worker_url", "visitor_sets_effort", "brackets"
+    )}
+    runtime.update(bike_kg=next(b["kg"] for b in config["bikes"] if b["id"] == "all_round_carbon"),
+                   bottle_kg=config["bottles"][config["bottle_default"]]["kg"],
+                   bottles=2, hours="7-10", group="some")
+    return OUTLOOK_TEMPLATE.read_text().format(
+        config=json.dumps(runtime, separators=(",", ":")).replace("<", r"\u003c"),
+        edition=_esc(config["edition_short"]), race=_esc(config["race"]),
+        target=_esc(config["target_line"]), weather=_esc(config["weather_line"]),
+        planner_href=f'/race/{config["slug"]}/#finish-time' if embedded else "#finish-time",
+    )
+
+
+def write_finish_outlook_embed(output_dir: Path, rd: dict) -> None:
+    if rd["slug"] not in OUTLOOK_RACES:
+        return
+    config = planner_config(rd, False)
+    widget = build_finish_outlook(config, embedded=True)
+    if not widget:
+        return
+    target = output_dir / "assets" / ASSET_DIR / f'finish-{rd["slug"]}.html'
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(f'''<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; form-action 'none'; object-src 'none'; base-uri 'none'">
+<title>{_esc(config["race"])} finish-time simulator</title>
+<style>{get_tokens_css()}{get_font_face_css()}</style>
+{outlook_head_tags()}
+</head>
+<body class="gg-sim-embed">{widget}</body>
+</html>''', encoding="utf-8")
+
+
 def write_planner_assets(output_dir: Path, slugs) -> list[str]:
     """Write the planner's files for the races being generated into
     ``<output>/assets/planner/``, content-hashed: the shared scripts and
@@ -179,6 +232,8 @@ def write_planner_assets(output_dir: Path, slugs) -> list[str]:
     files = {_hashed(src): src.read_bytes() for src in (ENGINE_JS, CORE_JS, WORKER_JS, UI_JS)}
     files.update({_hashed(course_path(s)): course_path(s).read_bytes() for s in shown})
     files[_css_name()] = get_race_planner_css().encode("utf-8")
+    if OUTLOOK_RACES.intersection(shown):
+        files.update({_hashed(src): src.read_bytes() for src in (OUTLOOK_JS, OUTLOOK_CSS)})
     for name, data in files.items():
         stem, suffix = name.split(".", 1)[0], Path(name).suffix
         for old in dst.glob(f"{stem}.*{suffix}"):

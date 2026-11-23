@@ -1,0 +1,111 @@
+/* Gravel God: finish-time outlook. Everything is scoped to .gg-sim. */
+.gg-sim{--sim-paper:var(--gg-color-warm-paper);--sim-sand:var(--gg-color-sand);--sim-ink:var(--gg-color-near-black);--sim-ink2:var(--gg-color-dark-brown);--sim-ink3:var(--gg-color-secondary-brown);--sim-line:var(--gg-color-muted-tan);--sim-tan:var(--gg-color-tan);--sim-gold:var(--gg-color-light-gold);--sim-gold-d:var(--gg-color-gold);--sim-teal:var(--gg-color-teal);--sim-teal-d:var(--gg-color-dark-teal);--sim-mono:var(--gg-font-data);--sim-serif:var(--gg-font-editorial);position:relative;margin:28px 0 0;color:var(--sim-ink)}
+.gg-sim *,.gg-sim *::before,.gg-sim *::after{box-sizing:border-box}
+.gg-sim-card{display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);grid-template-areas:"map side";background:var(--sim-paper);border-radius:10px;overflow:hidden;border-top:4px solid var(--sim-gold);box-shadow:0 2px 0 rgba(0,0,0,.25)}
+
+/* ---------- right: question, inputs, answer ---------- */
+.gg-sim-side{grid-area:side;padding:22px 26px 20px;min-width:0;display:flex;flex-direction:column}
+.gg-sim-lab{margin:0;font:700 11px/1.4 var(--sim-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--sim-ink3)}
+.gg-sim-title{margin:6px 0 14px;font:700 clamp(22px,2.4vw,30px)/1.15 var(--sim-serif);letter-spacing:-.01em;color:var(--sim-ink)}
+.gg-sim-hx{color:var(--sim-teal-d);font-family:var(--sim-mono);font-weight:800;letter-spacing:-.02em}
+.gg-sim-form{margin:0}
+.gg-sim-eg{margin:0 0 8px;display:inline-block;padding:3px 8px;background:var(--sim-gold);color:var(--sim-ink);font:700 10.5px/1.4 var(--sim-mono);letter-spacing:.1em;text-transform:uppercase;border-radius:3px}
+.gg-sim-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.gg-sim-field{display:flex;flex-direction:column;gap:4px;min-width:0;margin:0}
+.gg-sim-fl{font:700 11px/1.3 var(--sim-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sim-ink2)}
+.gg-sim-in{display:flex;align-items:center;min-height:46px;background:var(--gg-color-white);border:2px solid var(--sim-ink);border-radius:6px;padding:0 8px 0 10px;gap:4px}
+.gg-sim-in:focus-within{outline:2px solid var(--sim-teal);outline-offset:2px}
+.gg-sim-in input{flex:1 1 auto;min-width:0;width:100%;border:0;background:transparent;padding:0;margin:0;font:800 22px/1 var(--sim-mono);color:var(--sim-ink);outline:none;box-shadow:none}
+.gg-sim-in em,.gg-sim-in b{font:700 13px/1 var(--sim-mono);font-style:normal;color:var(--sim-ink3)}
+.gg-sim-field--plus .gg-sim-in{border-color:var(--sim-teal);background:var(--gg-color-white)}
+.gg-sim-field--plus .gg-sim-in b,.gg-sim-field--plus .gg-sim-in input{color:var(--sim-teal-d)}
+.gg-sim-field--plus .gg-sim-in b{font-size:20px;font-weight:800}
+.gg-sim-unit{flex:none;border:1.5px solid var(--sim-line);background:var(--sim-sand);color:var(--sim-ink2);font:700 12px/1 var(--sim-mono);padding:5px 6px;border-radius:4px;cursor:pointer}
+.gg-sim-unit:hover{border-color:var(--sim-ink)}
+.gg-sim-field.is-bad .gg-sim-in{border-color:var(--gg-color-error);background:var(--sim-paper)}
+
+.gg-sim-res{margin-top:16px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 22px;align-items:center;border-top:2px solid var(--sim-ink);padding-top:14px}
+.gg-sim-gain{display:flex;flex-direction:column;min-width:0}
+.gg-sim-gain-n{font:800 clamp(44px,5vw,64px)/.9 var(--sim-mono);letter-spacing:-.04em;color:var(--sim-teal-d)}
+.gg-sim-gain-u{margin-top:6px;font:700 11px/1.3 var(--sim-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--sim-ink2);max-width:16ch}
+.gg-sim-rows{margin:0;display:grid;gap:6px;min-width:0}
+.gg-sim-row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid var(--sim-tan)}
+.gg-sim-row:last-child{border-bottom:0}
+.gg-sim-row dt{display:flex;align-items:center;gap:8px;font:700 12px/1.3 var(--sim-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--sim-ink2);min-width:0}
+.gg-sim-row dt i{flex:none;width:12px;height:12px;border-radius:50%;background:var(--sim-ink2);box-shadow:0 0 0 2px var(--sim-paper),0 0 0 3.5px var(--sim-ink2)}
+.gg-sim-row--plus dt i{background:var(--sim-teal);box-shadow:0 0 0 2px var(--sim-paper),0 0 0 3.5px var(--sim-teal)}
+.gg-sim-row dd{margin:0;font:800 26px/1 var(--sim-mono);letter-spacing:-.02em;color:var(--sim-ink);white-space:nowrap}
+.gg-sim-row--plus dd{color:var(--sim-teal-d)}
+.gg-sim-msg{grid-column:1/-1;margin:2px 0 0;font:400 13px/1.45 var(--sim-mono);color:var(--sim-ink3);min-height:1.45em}
+.gg-sim-msg:empty{display:none}
+.gg-sim[data-state="busy"] .gg-sim-gain-n,.gg-sim[data-state="busy"] .gg-sim-row dd{opacity:.4;transition:opacity .2s}
+.gg-sim[data-state="error"] .gg-sim-msg{color:var(--gg-color-error);font-weight:700}
+.gg-sim-fine{margin:12px 0 0;font:400 11.5px/1.55 var(--sim-mono);color:var(--sim-ink3)}
+.gg-sim-fine a{color:var(--sim-teal-d);font-weight:700;text-underline-offset:3px;white-space:nowrap}
+
+/* ---------- left: the route and the two riders ---------- */
+.gg-sim-map{grid-area:map;position:relative;background:var(--sim-sand);padding:14px 14px 12px;display:flex;flex-direction:column;min-width:0;border-right:2px solid var(--sim-ink)}
+.gg-sim-clock{margin:0;position:absolute;top:12px;left:14px;z-index:1;padding:5px 8px;background:var(--sim-ink);color:var(--sim-paper);border-radius:4px;font:700 11px/1.2 var(--sim-mono);letter-spacing:.08em;text-transform:uppercase}
+.gg-sim-clock b{font-size:15px;letter-spacing:0;color:var(--sim-gold)}
+.gg-sim-svg{display:block;width:100%;height:auto;max-height:400px;aspect-ratio:4/5;margin:6px auto 0;overflow:visible}
+.gg-sim-route{fill:none;stroke:var(--sim-line);stroke-width:3;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.gg-sim-trail{fill:none;stroke-linejoin:round;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.gg-sim-trail--base{stroke:var(--sim-ink2);stroke-width:6}
+.gg-sim-trail--plus{stroke:var(--sim-teal);stroke-width:3}
+.gg-sim-start rect{fill:var(--sim-gold);stroke:var(--sim-ink);stroke-width:4}
+.gg-sim-svg text{font:700 30px/1 var(--sim-mono);letter-spacing:.04em;text-transform:uppercase;paint-order:stroke;stroke:var(--sim-sand);stroke-width:8px;stroke-linejoin:round}
+.gg-sim-start text{fill:var(--sim-ink3);font-size:26px}
+.gg-sim-mk circle{stroke:var(--gg-color-white);stroke-width:5}
+.gg-sim-mk--base circle{fill:var(--sim-ink2)}
+.gg-sim-mk--base text{fill:var(--sim-ink2)}
+.gg-sim-mk--plus circle{fill:var(--sim-teal)}
+.gg-sim-mk--plus text{fill:var(--sim-teal-d)}
+.gg-sim[data-state="idle"] .gg-sim-mk,.gg-sim[data-state="error"] .gg-sim-mk{opacity:0}
+.gg-sim-note{margin:6px 0 0;min-height:2.9em;font:700 12px/1.45 var(--sim-mono);color:var(--sim-ink2);text-align:center}
+.gg-sim-ctl{display:flex;align-items:center;gap:8px;margin-top:4px}
+.gg-sim-ctl button{flex:none;min-height:36px;padding:0 12px;border:2px solid var(--sim-ink);border-radius:5px;background:var(--sim-ink);color:var(--sim-paper);font:700 11.5px/1 var(--sim-mono);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.gg-sim-ctl .gg-sim-replay{background:transparent;color:var(--sim-ink)}
+.gg-sim-ctl button:disabled{opacity:.4;cursor:default}
+.gg-sim-scrub{flex:1 1 auto;min-width:0;accent-color:var(--sim-teal);margin:0}
+.gg-sim :focus-visible{outline:2px solid var(--sim-teal);outline-offset:3px}
+
+@media (max-width:900px){
+  .gg-sim{margin-top:20px}
+  .gg-sim-card{grid-template-columns:minmax(180px,260px) minmax(0,1fr)}
+  .gg-sim-side{padding:18px 18px 16px}
+  .gg-sim-res{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .gg-sim-card{grid-template-columns:minmax(0,1fr);grid-template-areas:"side" "map"}
+  .gg-sim-map{border-right:0;border-top:2px solid var(--sim-ink)}
+  .gg-sim-svg{max-height:300px}
+  .gg-sim-fields{gap:8px}
+  .gg-sim-in{min-height:44px;padding:0 6px 0 8px}
+  .gg-sim-in input{font-size:19px}
+  .gg-sim-res{grid-template-columns:auto minmax(0,1fr)}
+  .gg-sim-gain-n{font-size:46px}
+  .gg-sim-row dd{font-size:22px}
+}
+@media (max-width:380px){
+  .gg-sim-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gg-sim-field--plus{grid-column:1/-1}
+  .gg-sim-res{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){.gg-sim *{transition:none!important}}
+
+/* The page flattens every corner and shadow (.gg-neo-brutalist-page * {...!important}).
+   These put back the ones this widget needs, the same way the site's own cards do. */
+.gg-sim .gg-sim-card{border-radius:10px!important;box-shadow:0 2px 0 rgba(0,0,0,.25)!important}
+.gg-sim .gg-sim-in{border-radius:6px!important}
+.gg-sim .gg-sim-eg{border-radius:3px!important}
+.gg-sim .gg-sim-unit,.gg-sim .gg-sim-clock{border-radius:4px!important}
+.gg-sim .gg-sim-ctl button{border-radius:5px!important}
+.gg-sim .gg-sim-row dt i{border-radius:50%!important;box-shadow:0 0 0 2px var(--sim-paper),0 0 0 3.5px var(--sim-ink2)!important}
+.gg-sim .gg-sim-row--plus dt i{box-shadow:0 0 0 2px var(--sim-paper),0 0 0 3.5px var(--sim-teal)!important}
+.gg-sim .gg-sim-in input{box-shadow:none!important}
+.gg-sim .gg-sim-vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.gg-sim[data-state="idle"] .gg-sim-svg g,
+.gg-sim[data-state="loading"] .gg-sim-svg:not(:has(.gg-sim-route[d])) g{visibility:hidden}
+body.gg-sim-embed{margin:0}
+.gg-sim-embed .gg-sim{margin:0;display:flow-root}

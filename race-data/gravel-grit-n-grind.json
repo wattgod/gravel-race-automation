@@ -9,7 +9,7 @@
       "elevation_ft": 3926,
       "location": "Halmstad, Sweden",
       "location_badge": "HALMSTAD, SWEDEN",
-      "date": "Late September 2026 (moved from mid-August for permits); historical pattern mid-August",
+      "date": "Mid-August (2026 ran in late September for permit reasons)",
       "terrain_types": [
         "Swedish farm and forest gravel",
         "UCI Gravel World Series (Saturday stage)",
@@ -18,7 +18,7 @@
       ],
       "field_size": "TBD",
       "registration": "Online (gravelgritngrind.se). Organizer: Nordic Gravel + Cancano Tours",
-      "date_specific": "2026: September 26 (SATURDAY = UCI Gravel World Series qualifier stage, CONFIRMED — ucigravelworldseries.com/en/halmstad + gravelgritngrind.se; Sunday Sep 27 = separate Nordic Gravel Series event. 2026 MOVED from Aug 15-16 for permit reasons — 2027 may revert to the August pattern; re-verify.)",
+      "date_specific": "2027: August 14 (SATURDAY = UCI Gravel World Series qualifier, CONFIRMED — gravelgritngrind.se; Sunday August 15 = separate Nordic Gravel Series event)",
       "lat": 56.674,
       "lng": 12.8575,
       "gain_display": "Varies",
@@ -26,9 +26,12 @@
       "start_elevation_asl_ft": 150
     },
     "climate": {
-      "primary": "TBD",
-      "description": "TBD",
-      "challenges": []
+      "primary": "Mild, wet Swedish west-coast August",
+      "description": "August at Halmstad airport averages 17 °C across the day, with rain on about 13 days and nearly 100 mm for the month. Forest sections give shelter and open farm roads do not.",
+      "challenges": [
+        "Rain on about 13 August days",
+        "Exposed farm roads"
+      ]
     },
     "terrain": {
       "primary": "Halland farm and forest gravel",
@@ -100,7 +103,10 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "The race moved from mid-August to late September for 2026 (permit reasons), so older mid-August weather patterns no longer apply to race day. Late September in coastal Halland runs crisper and more changeable — golden autumn light one year, sideways coastal rain the next, with no reliable regional data specific to Halmstad. Scandinavian autumn generally avoids extreme heat but can surprise you with rain or wind off the coast. The forest sections provide natural shelter, while open farm roads expose you to whatever weather shows up."
+        "explanation": "The race returns to mid-August for 2027 after one year in late September. August at Halmstad airport averages 17 °C across the day, with rain on about 13 days and nearly 100 mm for the month, which makes rain the likelier problem. The forest sections provide natural shelter, while open farm roads expose you to whatever weather shows up.",
+        "citation_refs": [
+          3
+        ]
       },
       "altitude": {
         "score": 1,
@@ -131,6 +137,16 @@
         "url": "https://ridewithgps.com/routes/45904274",
         "category": "route",
         "label": "RideWithGPS: Gravel Grit 'n Grind Granfondo 133km"
+      },
+      {
+        "url": "https://gravelgritngrind.se/",
+        "category": "official",
+        "label": "Official site: Gravel Grit'n Grind Halmstad, 14-15 August 2027; UCI qualifier Saturday 14 August, read 2026-11-23"
+      },
+      {
+        "url": "https://www.nodc.noaa.gov/archive/arc0216/0253808/2.2/data/0-data/Region-6-WMO-Normals-9120/Sweden/CSV/Halmstad_flygplats_02604.csv",
+        "category": "weather",
+        "label": "WMO Climate Normals 1991-2020, Halmstad flygplats (NOAA NCEI): August daily mean 17.2 °C, 97.7 mm, 12.8 days of rain"
       }
     ],
     "course_description": {
@@ -583,6 +599,10 @@
       }
     ],
     "editions": [
+      {
+        "year": 2026,
+        "date": "2026-09-26"
+      },
       {
         "year": 2024,
         "note": "New start at Wapnö farm north of Halmstad; U19 category added.",

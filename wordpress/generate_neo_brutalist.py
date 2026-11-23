@@ -746,6 +746,11 @@ def _rating_citation_refs(
     for index, citation in enumerate(citations, start=1):
         if not isinstance(citation, dict):
             continue
+        # Station climate normals back the climate rating and nothing else. A
+        # stray shared word ("data", "mean") must not attach them to field
+        # depth or logistics.
+        if str(citation.get('category', '')).lower() == 'weather' and dimension != 'climate':
+            continue
         source_text = ' '.join(str(citation.get(key, '')) for key in (
             'label', 'title', 'snippet', 'url', 'category'
         )).lower()

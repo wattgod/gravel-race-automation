@@ -187,3 +187,24 @@ class TestSafety:
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__, "-v"]))
 
+
+
+def test_key_workouts_respect_distance_limits():
+    """The guide shows only workouts the race page would also show."""
+    import json
+    from pathlib import Path
+    import generate_training_plan_pages as tpp
+    from generate_neo_brutalist import _workout_eligible
+
+    pack = json.loads(
+        (Path(__file__).resolve().parent.parent / "web" / "race-packs"
+         / "bohemian-border-bash.json").read_text(encoding="utf-8"))
+    assert pack["distance_mi"] > 300
+    html = tpp.build_workouts({"slug": pack["slug"], "name": pack["race_name"]}, pack)
+    shown = [w for tc in pack["top_categories"] for w in tc["workouts"]
+             if f"<h4>{w}</h4>" in html]
+    assert len(shown) == 3
+    for w in shown:
+        assert _workout_eligible(w, pack["distance_mi"], pack["demands"]), w
+    assert "Surge and Settle" not in html
+    assert "Breakaway Simulation" not in html

@@ -28,6 +28,7 @@ import re
 from datetime import date
 from functools import lru_cache
 from pathlib import Path
+from urllib.parse import urlencode
 
 from brand_tokens import SITE_BASE_URL, get_font_face_css, get_tokens_css
 import plan_offer
@@ -185,10 +186,20 @@ def build_finish_outlook(config: dict | None, *, embedded: bool = False) -> str:
     runtime.update(bike_kg=next(b["kg"] for b in config["bikes"] if b["id"] == "all_round_carbon"),
                    bottle_kg=config["bottles"][config["bottle_default"]]["kg"],
                    bottles=2, hours="7-10", group="some")
+    signup = ""
+    if not embedded and config["offer"]:
+        params = urlencode({
+            "race": config["slug"],
+            "race_name": config["race"],
+            "utm_source": "gravel-god",
+            "utm_medium": "race-page",
+            "utm_campaign": "finish-outlook",
+        })
+        signup = f'<a class="gg-sim-signup" href="{_esc("https://endurelabs.app/sign-up?" + params)}">Train for this race in Endure</a>'
     return OUTLOOK_TEMPLATE.read_text().format(
         config=json.dumps(runtime, separators=(",", ":")).replace("<", r"\u003c"),
         edition=_esc(config["edition_short"]), race=_esc(config["race"]),
-        target=_esc(config["target_line"]), weather=_esc(config["weather_line"]),
+        target=_esc(config["target_line"]), weather=_esc(config["weather_line"]), signup=signup,
         planner_href=f'/race/{config["slug"]}/#finish-time' if embedded else "#finish-time",
     )
 

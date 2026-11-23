@@ -595,6 +595,8 @@ def test_finish_outlook_shares_the_published_course_and_engine(tmp_path):
     # The iframe is a shared app component, so it carries no site analytics.
     assert '<meta name="robots" content="noindex, nofollow">' in embed
     assert "googletagmanager.com" not in embed
+    assert 'https://endurelabs.app/sign-up?race=unbound-200&amp;race_name=Unbound+Gravel+200' in html
+    assert 'endurelabs.app/sign-up' not in embed
     assert "2025 route" in embed and "Riding time excludes stops" in embed
     assert "The 2027 route isn&#x27;t published yet." in embed
 

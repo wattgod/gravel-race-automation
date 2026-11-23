@@ -41,6 +41,7 @@
 .gg-sim[data-state="busy"] .gg-sim-gain-n,.gg-sim[data-state="busy"] .gg-sim-row dd{opacity:.4;transition:opacity .2s}
 .gg-sim[data-state="error"] .gg-sim-msg{color:var(--gg-color-error);font-weight:700}
 .gg-sim-fine{margin:12px 0 0;font:400 11.5px/1.55 var(--sim-mono);color:var(--sim-ink3)}
+.gg-sim-signup{display:inline-block;margin-block-start:8px}
 .gg-sim-fine a{color:var(--sim-teal-d);font-weight:700;text-underline-offset:3px;white-space:nowrap}
 
 /* ---------- left: the route and the two riders ---------- */

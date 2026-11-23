@@ -41,7 +41,7 @@
     "terrain": {
       "primary": "Gravel roads, forest tracks and old asphalt across six border ranges",
       "surface": "Gravel roads, forest tracks, forgotten asphalt and sustained mountain climbs, with mud, rocky sections and stretches that are hard to ride.",
-      "technical_rating": 2,
+      "technical_rating": 4,
       "features": [
         "1,420 km with 25,290 m of climbing",
         "Six mountain ranges on the old border of Bohemia",
@@ -51,26 +51,26 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 53,
-      "tier": 3,
-      "tier_label": "TIER 3",
+      "overall_score": 60,
+      "tier": 2,
+      "tier_label": "TIER 2",
       "logistics": 2,
       "length": 5,
-      "technicality": 2,
+      "technicality": 4,
       "elevation": 5,
       "climate": 3,
       "altitude": 1,
-      "adventure": 2,
-      "prestige": 2,
+      "adventure": 4,
+      "prestige": 3,
       "race_quality": 2,
       "experience": 3,
       "community": 3,
       "field_depth": 2,
       "value": 3,
       "expenses": 2,
-      "score_note": "A 1,420 km self-supported ultra with 25,290 m of climbing. Length and elevation sit at the top of the scale; a young event with a small published record holds the rest down.",
+      "score_note": "A 1,420 km self-supported ultra with 25,290 m of climbing. Length and elevation sit at the top of the scale. A young event that publishes little about itself holds the editorial scores down.",
       "discipline": "bikepacking",
-      "display_tier": 3
+      "display_tier": 2
     },
     "biased_opinion": {
       "verdict": "Six Ranges, One Push",
@@ -92,7 +92,7 @@
       "bottom_line": "A full-size European ultra for riders who can look after themselves for a week. Check the dates with the organizer before you book anything."
     },
     "final_verdict": {
-      "score": "53 / 100",
+      "score": "60 / 100",
       "one_liner": "1,420 km and 25,290 m around Bohemia, on your own.",
       "should_you_race": "Yes, if you have finished a multi-day self-supported race and want a hard one in Central Europe. No, if you want aid stations or a one-day race.",
       "alternatives": "Trans Balkan Race and Badlands are two other European self-supported ultras.",
@@ -321,10 +321,12 @@
         ]
       },
       "technicality": {
-        "score": 2,
-        "explanation": "Justyna Jarczok describes 'singletrack riding, enduro trail descents, numerous hike & bike rides, hour-long walks with pushing the bike' through dense forests. One rider compared steep ramps to 'the Old Soviet Road at the Silk Road Mountain Race.' Technical enough to force mechanicals and DNFs, but mixed with gravel roads. Less technical than The Mid South. As Justina puts it: \"1400 km, 25 thousand meters of elevation gain, singletrack riding, enduro trail descents, numerous hike & bike rides, hour-long walks with pushing the bike, constant confusion about which country you ...\"",
+        "score": 4,
+        "explanation": "Gravel bike terrain that keeps turning into a walk. Sherry Cardona, the 2023 women's winner, wrote \"I faced more hiking than biking, a true test of my endurance.\" The race manual lists mud, rocky sections and stretches that are hard to ride, and the final 52 km include a hike-a-bike. Long gravel-road sections keep it off the top score.",
         "citation_refs": [
-          5
+          7,
+          14,
+          13
         ]
       },
       "elevation": {
@@ -350,24 +352,30 @@
         ]
       },
       "adventure": {
-        "score": 2,
-        "explanation": "Four countries, national parks, UNESCO sites, and complete self-reliance should scream adventure. But adventure requires more than just hard miles—it needs uncertainty, discovery, risk. This feels more like a very long training ride with pretty scenery than a true adventure challenge that transforms you. As Justina puts it: \"1400 km, 25 thousand meters of elevation gain, singletrack riding, enduro trail descents, numerous hike & bike rides, hour-long walks with pushing the bike, constant confusion about which country you ...\"",
+        "score": 4,
+        "explanation": "A week alone through Germany, Austria, Poland and the Czech Republic, starting and finishing in Bohemian-Saxon Switzerland National Park. The route passes Český Krumlov, a UNESCO site. Shops, a train line at Checkpoint 6 and drinkable tap water along the whole route keep it a step below the remote ultras.",
         "citation_refs": [
-          12
+          1,
+          7,
+          14
         ]
       },
       "prestige": {
-        "score": 2,
-        "explanation": "This is a newish ultra that emerged from COVID-delayed scouting trips in 2020-2021, so it hasn't had time to build legendary status. The bikepacking community calls it a 'monster of a route' and it's listed on major adventure sites, but there's zero data on past winners or notable finishers. Hard to be prestigious when nobody knows who's actually conquered your 1,400km beast.",
+        "score": 3,
+        "explanation": "Five editions in, the race has a regional name and no more. DotWatcher has tracked it since 2023 and Bikepacking.com lists it among its races. Winners are on record for three years.",
         "citation_refs": [
-          8
+          2,
+          1,
+          13
         ]
       },
       "race_quality": {
         "score": 2,
-        "explanation": "The 1,400km route through four countries hits UNESCO sites and delivers adventure, but organization remains bare-bones. One rider had to 'fix my derailleur hanger' in Cesky Krumlov mid-race. With DNF rates over 50% and mechanicals forcing riders onto 'fixed gear,' the route quality exceeds the event infrastructure.",
+        "explanation": "Adequate, with loose ends. Satellite tracking is mandatory, the nine checkpoints are self-stamped and the rider briefing is compulsory. The published pages disagree with each other on dates and checkpoint numbers, and the race phone number is still listed as TBA.",
         "citation_refs": [
-          1
+          14,
+          15,
+          13
         ]
       },
       "experience": {
@@ -386,9 +394,9 @@
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Zero data on field size, past results, or competitive depth. This attracts the bikepacking ultra crowd who treat 1,400km unsupported as a personal challenge, not a race. When your main selling point is 'don't underestimate this monster,' you're fishing for survivors, not speedsters. Less competitive depth than Almanzo 100. As Justina puts it: \"My assumptions were simple and said to treat this race as a bikepacking holiday with an additional attraction, which was to be sleeping in the wild... after 22 p.m. I set off towards the start...\"",
+        "explanation": "Field size is not published. Three years of winners are on record, with winning times between four and seven days. Nothing published shows how deep the field runs behind them.",
         "citation_refs": [
-          8
+          2
         ]
       },
       "value": {

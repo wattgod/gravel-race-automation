@@ -3,60 +3,61 @@
     "name": "Bohemian Border Bash",
     "slug": "bohemian-border-bash",
     "display_name": "Bohemian Border Bash",
-    "tagline": "Czech rolling to hilly gravel.",
+    "tagline": "1,420 km, self-supported, around the old borders of Bohemia.",
     "vitals": {
-      "distance_mi": 65,
-      "elevation_ft": 3500,
-      "location": "Czech Republic",
+      "distance_mi": 882,
+      "elevation_ft": 82972,
+      "location": "Srbská Kamenice, Czech Republic",
       "location_badge": "CZECH REPUBLIC",
       "county": "Czech Republic",
       "date": "Early September annually",
-      "date_specific": "2025: September 6",
+      "date_specific": "2026: September 5",
       "terrain_types": [
-        "Czech countryside",
-        "Rolling to hilly",
-        "Regional event",
-        "Czech Republic"
+        "Gravel roads",
+        "Forest tracks",
+        "Old asphalt",
+        "Mountain climbs",
+        "Hike-a-bike"
       ],
-      "field_size": "200-400 riders",
-      "start_time": "5:50 AM sunr",
-      "registration": "Online. Cost: ~€50-80",
-      "prize_purse": "Modest prizes",
-      "aid_stations": "Multiple aid stations",
-      "cutoff_time": "Varies",
-      "lat": 49.7439,
-      "lng": 15.3381
+      "field_size": "Not published",
+      "start_time": "Sunrise",
+      "registration": "Closed. The entry fee is not published.",
+      "prize_purse": "Not published",
+      "aid_stations": "None. Self-supported, with nine self-stamp checkpoints",
+      "cutoff_time": "Sunset on the eighth day (September 12 in 2026). No checkpoint cut-offs",
+      "lat": 50.8371,
+      "lng": 14.3568
     },
     "climate": {
-      "primary": "Czech summer",
-      "description": "Generally mild conditions.",
+      "primary": "Early September in the Central European mountains",
+      "description": "Mountain weather around Bohemia changes fast, and nights can drop close to freezing.",
       "challenges": [
-        "Variable weather",
-        "Generally mild",
-        "Rolling to hilly terrain",
-        "Summer conditions"
+        "Nights close to freezing",
+        "Fast-changing mountain weather",
+        "A harsh climate on the high ground of the Ore Mountains",
+        "Above-average rainfall in the Jizera Mountains"
       ]
     },
     "terrain": {
-      "primary": "Czech rolling to hilly gravel",
-      "surface": "Gravel roads through Czech countryside. Moderate elevation with countryside scenery.",
+      "primary": "Gravel roads, forest tracks and old asphalt across six border ranges",
+      "surface": "Gravel roads, forest tracks, forgotten asphalt and sustained mountain climbs, with mud, rocky sections and stretches that are hard to ride.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling to hilly (3500 feet)",
-        "Czech countryside scenery",
-        "Czech setting",
-        "Multiple distances",
-        "Regional event"
+        "1,420 km with 25,290 m of climbing",
+        "Six mountain ranges on the old border of Bohemia",
+        "Nine self-stamp checkpoints",
+        "High point of 1,356 m below Sněžka",
+        "Hike-a-bike in the final 52 km"
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 46,
+      "overall_score": 53,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 2,
-      "length": 3,
+      "length": 5,
       "technicality": 2,
-      "elevation": 2,
+      "elevation": 5,
       "climate": 3,
       "altitude": 1,
       "adventure": 2,
@@ -67,56 +68,62 @@
       "field_depth": 2,
       "value": 3,
       "expenses": 2,
-      "score_note": "Regional Czech event. Rolling to hilly terrain with moderate organization and regional field.",
-      "discipline": "gravel",
+      "score_note": "A 1,420 km self-supported ultra with 25,290 m of climbing. Length and elevation sit at the top of the scale; a young event with a small published record holds the rest down.",
+      "discipline": "bikepacking",
       "display_tier": 3
     },
     "biased_opinion": {
-      "verdict": "Czech Rolling Gravel",
-      "summary": "Bohemian Border Bash is a regional event in Czech Republic—rolling to hilly terrain with moderate elevation. The Czech countryside is nice, but the moderate organization and regional field keep it firmly in Tier 3.",
+      "verdict": "Six Ranges, One Push",
+      "summary": "Bohemian Border Bash is a 1,420 km fixed-route, self-supported race around the borderlands of Bohemia with 25,290 m of climbing. It has nine self-stamp checkpoints, no aid stations and an eight-day limit. The course is as big as anything in Europe. The event is young and publishes little about its field or its fee.",
       "strengths": [
-        "Czech countryside scenery",
-        "Czech cycling community",
-        "Czech mild summer weather",
-        "Lower European pricing",
-        "Czech setting"
+        "1,420 km and 25,290 m in one stage",
+        "Six mountain ranges on one fixed route",
+        "Start and finish at the same camp",
+        "Tap water is drinkable along the whole route",
+        "A train back to the start from Checkpoint 6"
       ],
       "weaknesses": [
-        "Czech Republic access (moderate)",
-        "Moderate organization",
-        "Regional field only",
-        "Limited international draw",
-        "European travel costs"
+        "Entry fee and field size are not published",
+        "Long stretches with no services",
+        "No camping in Šumava National Park outside seven legal bivouac spots",
+        "Nights close to freezing in the mountains",
+        "The organizer's pages disagree on dates"
       ],
-      "bottom_line": "A solid regional Czech gravel race with rolling terrain. Worth it for Czech/European cyclists. Not a destination race for international travelers."
+      "bottom_line": "A full-size European ultra for riders who can look after themselves for a week. Check the dates with the organizer before you book anything."
     },
     "final_verdict": {
-      "score": "46 / 100",
-      "one_liner": "Czech rolling to hilly gravel.",
-      "should_you_race": "If you're in Czech Republic/Europe—yes, it's solid. If you're international—there are better options.",
-      "alternatives": "For a verified Polish gravel race: Wyścig Niepołomice.",
+      "score": "53 / 100",
+      "one_liner": "1,420 km and 25,290 m around Bohemia, on your own.",
+      "should_you_race": "Yes, if you have finished a multi-day self-supported race and want a hard one in Central Europe. No, if you want aid stations or a one-day race.",
+      "alternatives": "Trans Balkan Race and Badlands are two other European self-supported ultras.",
       "alternative_slugs": [
-        "wyscig-niepolomice"
+        "trans-balkan-race",
+        "badlands"
       ]
     },
     "logistics": {
-      "airport": "Prague (PRG) varies by location",
-      "lodging_strategy": "Czech Republic has moderate lodging options.",
-      "food": "Czech Republic has full dining options. Stock nutrition.",
-      "packet_pickup": "Day before typically",
-      "parking": "At start/finish",
+      "airport": "No airport advice is published. Trains from Dresden or Děčín stop at Schöna. From there a ferry crosses the Elbe to Hřensko, and the camp is an 18.8 km ride.",
+      "lodging_strategy": "The race starts and finishes at Kemp u Ferdinanda in Srbská Kamenice, the Border Bash Bohemia Gravel Camp. Riders can leave bags in a locked room there.",
+      "food": "No aid stations. Buy from shops on the route and plan for long stretches with no services. Tap water is drinkable everywhere. Do not drink from creeks or rivers.",
+      "packet_pickup": "Registration at the camp the evening before the start. The rider briefing that night is mandatory.",
+      "parking": "Not published",
       "official_site": "https://www.borderbash.cc/"
     },
     "history": {
       "founded": 2022,
-      "founder": "Czech organizers",
-      "origin_story": "Regional Czech gravel event.",
-      "notable_moments": [],
-      "reputation": "Regional Czech event."
+      "founder": "Border Bash",
+      "origin_story": "First held in 2022 as a fixed-route, self-supported, single-stage race around the Bohemian borderlands.",
+      "notable_moments": [
+        "2023: Sherry Cardona wins the women's race in 5d 4h 58m on a 1,300 km course",
+        "2024: Rasmus Bozyk wins the men's race in 5d 6h 16m and Bettina Bögl the women's in 6d 18h 30m",
+        "2025: Tomas Rybar and Verena Walter win"
+      ],
+      "reputation": "A Central European off-road ultra with results on DotWatcher since 2023."
     },
     "editions": [
       {
         "year": 2025,
+        "date": "2025-09-06",
         "edition": 5,
         "source": "https://dotwatcher.cc/race/bohemian-border-bash-race-2025"
       },
@@ -134,77 +141,92 @@
       }
     ],
     "course_description": {
-      "character": "Czech rolling to hilly gravel.",
+      "character": "A fixed 1,420 km loop from Srbská Kamenice around the old border of Bohemia, crossing six mountain ranges on gravel roads, forest tracks and old asphalt.",
       "suffering_zones": [
         {
-          "mile": 20,
-          "label": "Early Rolling",
-          "desc": "First rolling sections.",
-          "terrain_detail": "Rolling",
-          "named_section": "Early Rolling"
+          "mile": 145,
+          "label": "Ore Mountains",
+          "desc": "Checkpoint 1 at Boží Dar, 1,186 km from the finish. The high ground has a harsh climate.",
+          "terrain_detail": "Mountain plateau",
+          "named_section": "Boží Dar"
         },
         {
-          "mile": 35,
-          "label": "Midpoint",
-          "desc": "Halfway through the course.",
-          "terrain_detail": "Midpoint",
-          "named_section": "Halfway"
+          "mile": 347,
+          "label": "Šumava",
+          "desc": "Checkpoint 3, 862 km from the finish, in a range that rises between 800 and 1,400 m. Camping is banned in the national park outside seven legal bivouac spots.",
+          "terrain_detail": "Forest tracks",
+          "named_section": "Bohemian Forest"
         },
         {
-          "mile": 55,
-          "label": "Late Rolling",
-          "desc": "Final rolling sections before finish.",
-          "terrain_detail": "Late rolling",
-          "named_section": "Final Push"
+          "mile": 636,
+          "label": "Choceň",
+          "desc": "Checkpoint 6, 396 km from the finish. Showers, indoor sleeping, shops, and a train back to the start for riders who stop here.",
+          "terrain_detail": "Town",
+          "named_section": "Checkpoint 6"
+        },
+        {
+          "mile": 767,
+          "label": "Giant Mountains",
+          "desc": "Checkpoint 8, 185 km from the finish. The route reaches its high point of 1,356 m below Sněžka.",
+          "terrain_detail": "Steep mountain climbs",
+          "named_section": "Krkonoše"
+        },
+        {
+          "mile": 850,
+          "label": "Jizera Mountains",
+          "desc": "Checkpoint 9. The last 52 km climb 1,000 m and include a hike-a-bike.",
+          "terrain_detail": "Hike-a-bike",
+          "named_section": "The Final Refrain"
         }
       ],
-      "signature_challenge": "Czech rolling countryside.",
+      "signature_challenge": "The last 261 km climb 5,720 m through the Giant and Jizera Mountains, after more than 1,150 km of riding.",
       "ridewithgps_id": null,
       "ridewithgps_name": null
     },
     "guide_variables": {
       "race_name": "Bohemian Border Bash",
-      "race_distance": "65 miles",
-      "race_elevation": "3,500 feet",
-      "race_date": "Summer",
-      "race_location": "Czech Republic",
-      "race_terrain": "Czech rolling to hilly gravel",
-      "race_weather": "Czech summer mild",
+      "race_distance": "882 miles",
+      "race_elevation": "82,972 feet",
+      "race_date": "Early September",
+      "race_location": "Srbská Kamenice, Czech Republic",
+      "race_terrain": "Gravel roads, forest tracks and old asphalt across six mountain ranges",
+      "race_weather": "Cold mountain nights and fast-changing weather",
       "race_challenges": [
-        "Rolling to hilly terrain",
-        "Regional field",
-        "European costs",
-        "Variable weather",
-        "Moderate elevation"
+        "Eight days of self-supported riding",
+        "25,290 m of climbing",
+        "Nights close to freezing",
+        "Long stretches with no services",
+        "Hike-a-bike"
       ],
       "altitude_section": false,
       "altitude_feet": null
     },
     "non_negotiables": [
       {
-        "requirement": "Rolling endurance",
+        "requirement": "Back-to-back long days",
         "by_when": "Week 8-10",
-        "why": "Czech rolling terrain requires sustained effort."
+        "why": "1,420 km inside the eight-day limit means about 180 km a day, every day."
       },
       {
-        "requirement": "Weather preparation",
+        "requirement": "Night riding with your full sleep kit",
         "by_when": "Week 4-6",
-        "why": "Czech summer weather is variable."
+        "why": "Lights and a sleeping system are mandatory, and nights can drop close to freezing."
       },
       {
-        "requirement": "Pacing discipline",
+        "requirement": "Loaded hike-a-bike",
         "by_when": "Week 2-4",
-        "why": "Rolling terrain requires pacing discipline."
+        "why": "The final 52 km include a hike-a-bike with a full week in your legs."
       }
     ],
     "research_metadata": {
       "data_confidence": "moderate",
       "validation_status": "pending",
       "sources": [
-        "czech_cycling_community"
+        "official_site",
+        "dotwatcher"
       ],
       "migration_notes": [
-        "Generated from regional information"
+        "Stub vitals replaced with organizer figures on 2026-11-23"
       ],
       "research_strength": {
         "overall": 89.2,
@@ -263,81 +285,126 @@
         ],
         "race_specific": true,
         "topics": {
-          "pacing": "Rolling terrain pacing",
-          "fueling": "Nutrition for rolling riding",
-          "weather": "Riding in variable Czech weather",
-          "rolling": "Sustained rolling strategy"
+          "pacing": "Pacing an eight-day effort",
+          "fueling": "Self-supported resupply with long gaps between services",
+          "weather": "Cold nights and fast-changing mountain weather",
+          "rolling": "Sustained climbing across six mountain ranges"
         }
       },
       "tier_overrides": {},
       "marketplace_variables": {
         "race_name": "Bohemian Border Bash",
-        "race_hook": "Czech rolling to hilly gravel.",
-        "race_hook_detail": "Regional event with rolling terrain.",
-        "distance": "65",
-        "dark_mile": "35",
-        "non_negotiable_1": "Rolling endurance",
-        "non_negotiable_2": "Weather preparation",
-        "non_negotiable_3": "Pacing discipline",
+        "race_hook": "1,420 km, self-supported, around the old borders of Bohemia.",
+        "race_hook_detail": "Six mountain ranges, nine self-stamp checkpoints, eight days.",
+        "distance": "882",
+        "dark_mile": "767",
+        "non_negotiable_1": "Back-to-back long days",
+        "non_negotiable_2": "Night riding with your full sleep kit",
+        "non_negotiable_3": "Loaded hike-a-bike",
         "trainingpeaks_url": null
       }
     },
     "biased_opinion_ratings": {
       "logistics": {
         "score": 2,
-        "explanation": "Registration is 'show up Friday at 5 PM with insurance docs' at Srbská Kamenice, Czech Republic. Justyna Jarczok describes '1400 km, constant confusion about which country you are currently in (4 to choose from), night river crossings' across four nations. Getting to rural Czech Republic for an unsupported 1,400km adventure remains largely your problem to solve."
+        "explanation": "Registration is 'show up Friday at 5 PM with insurance docs' at Srbská Kamenice, Czech Republic. Justyna Jarczok describes '1400 km, constant confusion about which country you are currently in (4 to choose from), night river crossings' across four nations. Getting to rural Czech Republic for an unsupported 1,400km adventure remains largely your problem to solve.",
+        "citation_refs": [
+          10
+        ]
       },
       "length": {
-        "score": 3,
-        "explanation": "The actual race is 1,400km with 25,000m elevation, not the listed 65 miles. Justyna Jarczok notes 'The first 50km were also a small elimination race. A small group quickly got away from the front, and the winners came out of that group.' She finished in 124 hours and 58 minutes, becoming the first woman to complete it. Similar distance to Crusher in the Tushar. As Saturday Camp routes puts it: \"The final 40 km, entirely on gravel, with several rolling hills that tested our endurance as fatigue set in.\""
+        "score": 5,
+        "explanation": "1,420 km is 882 miles, almost six times the 150 miles that earns the top score. Sherry Cardona won the 2023 women's race in 5 days 4 hours 58 minutes, when the course was 1,300 km. Rasmus Bozyk won the 2024 men's race in 5 days 6 hours 16 minutes.",
+        "citation_refs": [
+          13,
+          2
+        ]
       },
       "technicality": {
         "score": 2,
-        "explanation": "Justyna Jarczok describes 'singletrack riding, enduro trail descents, numerous hike & bike rides, hour-long walks with pushing the bike' through dense forests. One rider compared steep ramps to 'the Old Soviet Road at the Silk Road Mountain Race.' Technical enough to force mechanicals and DNFs, but mixed with gravel roads. Less technical than The Mid South. As Justina puts it: \"1400 km, 25 thousand meters of elevation gain, singletrack riding, enduro trail descents, numerous hike & bike rides, hour-long walks with pushing the bike, constant confusion about which country you ...\""
+        "explanation": "Justyna Jarczok describes 'singletrack riding, enduro trail descents, numerous hike & bike rides, hour-long walks with pushing the bike' through dense forests. One rider compared steep ramps to 'the Old Soviet Road at the Silk Road Mountain Race.' Technical enough to force mechanicals and DNFs, but mixed with gravel roads. Less technical than The Mid South. As Justina puts it: \"1400 km, 25 thousand meters of elevation gain, singletrack riding, enduro trail descents, numerous hike & bike rides, hour-long walks with pushing the bike, constant confusion about which country you ...\"",
+        "citation_refs": [
+          5
+        ]
       },
       "elevation": {
-        "score": 2,
-        "explanation": "Total 25,320m over 1,400km averages 18m gain per kilometer—not crushing by mountain standards. Daily segments range 1,000-4,230m, with meaningful climbs through Bohemian Forest and Jizerske mountains. Respectable elevation for the distance, but not the defining challenge of this route. Less climbing than The Mid South. As Justina puts it: \"1400 km, 25 thousand meters of elevation gain, singletrack riding, enduro trail descents, numerous hike & bike rides, hour-long walks with pushing the bike, constant confusion about which country you ...\""
+        "score": 5,
+        "explanation": "25,290 m of climbing is 82,972 feet, eight times the 10,000 feet that earns the top score. The route crosses six mountain ranges and tops out at 1,356 m below Sněžka. The last 261 km carry 5,720 m of it, and the final 52 km need a hike-a-bike.",
+        "citation_refs": [
+          13,
+          15
+        ]
       },
       "climate": {
         "score": 3,
-        "explanation": "Historical weather data shows average highs of 67°F and lows of 52°F, with a 50% chance of rain on any given day. Early September weather delivers serious challenges. During 2020 scouting, riders faced 'temperatures dropping to lower single digits,' putting 'plastic bags in our shoes and plastic gloves on our hands trying to keep them from freezing.' Snow appears at high points even in September, adding unpredictable suffering to the adventure. Similar climate challenges to SBT GRVL. As CP10 area [UNKNOWN year] puts it: \"The toughest challenges lay ahead as I reached the highest peaks in the Czech Republic. The harsh conditions and cold weather tested my resolve.\""
+        "explanation": "Historical weather data shows average highs of 67°F and lows of 52°F, with a 50% chance of rain on any given day. Early September weather delivers serious challenges. During 2020 scouting, riders faced 'temperatures dropping to lower single digits,' putting 'plastic bags in our shoes and plastic gloves on our hands trying to keep them from freezing.' Snow appears at high points even in September, adding unpredictable suffering to the adventure. Similar climate challenges to SBT GRVL. As CP10 area [UNKNOWN year] puts it: \"The toughest challenges lay ahead as I reached the highest peaks in the Czech Republic. The harsh conditions and cold weather tested my resolve.\"",
+        "citation_refs": [
+          10
+        ]
       },
       "altitude": {
         "score": 1,
-        "explanation": "No specific altitude data provided, but route stays in Central European highlands, not true high mountains. Bohemian Forest and Jizerske mountains are respectable hills, not oxygen-debt territory. Altitude isn't a factor in this challenge—it's all about distance and weather exposure. Lower altitude than Gravel Worlds — no thin-air concerns."
+        "explanation": "No specific altitude data provided, but route stays in Central European highlands, not true high mountains. Bohemian Forest and Jizerske mountains are respectable hills, not oxygen-debt territory. Altitude isn't a factor in this challenge—it's all about distance and weather exposure. Lower altitude than Gravel Worlds — no thin-air concerns.",
+        "citation_refs": [
+          5
+        ]
       },
       "adventure": {
         "score": 2,
-        "explanation": "Four countries, national parks, UNESCO sites, and complete self-reliance should scream adventure. But adventure requires more than just hard miles—it needs uncertainty, discovery, risk. This feels more like a very long training ride with pretty scenery than a true adventure challenge that transforms you. As Justina puts it: \"1400 km, 25 thousand meters of elevation gain, singletrack riding, enduro trail descents, numerous hike & bike rides, hour-long walks with pushing the bike, constant confusion about which country you ...\""
+        "explanation": "Four countries, national parks, UNESCO sites, and complete self-reliance should scream adventure. But adventure requires more than just hard miles—it needs uncertainty, discovery, risk. This feels more like a very long training ride with pretty scenery than a true adventure challenge that transforms you. As Justina puts it: \"1400 km, 25 thousand meters of elevation gain, singletrack riding, enduro trail descents, numerous hike & bike rides, hour-long walks with pushing the bike, constant confusion about which country you ...\"",
+        "citation_refs": [
+          12
+        ]
       },
       "prestige": {
         "score": 2,
-        "explanation": "This is a newish ultra that emerged from COVID-delayed scouting trips in 2020-2021, so it hasn't had time to build legendary status. The bikepacking community calls it a 'monster of a route' and it's listed on major adventure sites, but there's zero data on past winners or notable finishers. Hard to be prestigious when nobody knows who's actually conquered your 1,400km beast."
+        "explanation": "This is a newish ultra that emerged from COVID-delayed scouting trips in 2020-2021, so it hasn't had time to build legendary status. The bikepacking community calls it a 'monster of a route' and it's listed on major adventure sites, but there's zero data on past winners or notable finishers. Hard to be prestigious when nobody knows who's actually conquered your 1,400km beast.",
+        "citation_refs": [
+          8
+        ]
       },
       "race_quality": {
         "score": 2,
-        "explanation": "The 1,400km route through four countries hits UNESCO sites and delivers adventure, but organization remains bare-bones. One rider had to 'fix my derailleur hanger' in Cesky Krumlov mid-race. With DNF rates over 50% and mechanicals forcing riders onto 'fixed gear,' the route quality exceeds the event infrastructure."
+        "explanation": "The 1,400km route through four countries hits UNESCO sites and delivers adventure, but organization remains bare-bones. One rider had to 'fix my derailleur hanger' in Cesky Krumlov mid-race. With DNF rates over 50% and mechanicals forcing riders onto 'fixed gear,' the route quality exceeds the event infrastructure.",
+        "citation_refs": [
+          1
+        ]
       },
       "experience": {
         "score": 3,
-        "explanation": "Crossing borders multiple times through Bohemian-Saxon Switzerland, Czech Canada's extreme climate zones, and UNESCO Telč delivers adventure. Scouts gushed about 'those trails, the views, the people, the culture' despite aborting due to weather and COVID emergencies. The route promises suffer-beauty, even if the event structure is minimal. As Camp atmosphere puts it: \"It's not about the facilities but about the people you share these adventures with.\""
+        "explanation": "Crossing borders multiple times through Bohemian-Saxon Switzerland, Czech Canada's extreme climate zones, and UNESCO Telč delivers adventure. Scouts gushed about 'those trails, the views, the people, the culture' despite aborting due to weather and COVID emergencies. The route promises suffer-beauty, even if the event structure is minimal. As Camp atmosphere puts it: \"It's not about the facilities but about the people you share these adventures with.\"",
+        "citation_refs": [
+          10
+        ]
       },
       "community": {
         "score": 3,
-        "explanation": "Pavel Novotný describes returning 'felt like a family reunion, with plenty of familiar faces, yet an opportunity to forge new friendships.' The atmosphere was 'very international, naturally inviting to share cycling stories' with 'dot-watching the participants arrive at the finish in camp one by one, cheered on by the campers.' As Camp atmosphere puts it: \"It's not about the facilities but about the people you share these adventures with.\""
+        "explanation": "Pavel Novotný describes returning 'felt like a family reunion, with plenty of familiar faces, yet an opportunity to forge new friendships.' The atmosphere was 'very international, naturally inviting to share cycling stories' with 'dot-watching the participants arrive at the finish in camp one by one, cheered on by the campers.' As Camp atmosphere puts it: \"It's not about the facilities but about the people you share these adventures with.\"",
+        "citation_refs": [
+          8
+        ]
       },
       "field_depth": {
         "score": 2,
-        "explanation": "Zero data on field size, past results, or competitive depth. This attracts the bikepacking ultra crowd who treat 1,400km unsupported as a personal challenge, not a race. When your main selling point is 'don't underestimate this monster,' you're fishing for survivors, not speedsters. Less competitive depth than Almanzo 100. As Justina puts it: \"My assumptions were simple and said to treat this race as a bikepacking holiday with an additional attraction, which was to be sleeping in the wild... after 22 p.m. I set off towards the start...\""
+        "explanation": "Zero data on field size, past results, or competitive depth. This attracts the bikepacking ultra crowd who treat 1,400km unsupported as a personal challenge, not a race. When your main selling point is 'don't underestimate this monster,' you're fishing for survivors, not speedsters. Less competitive depth than Almanzo 100. As Justina puts it: \"My assumptions were simple and said to treat this race as a bikepacking holiday with an additional attraction, which was to be sleeping in the wild... after 22 p.m. I set off towards the start...\"",
+        "citation_refs": [
+          8
+        ]
       },
       "value": {
         "score": 3,
-        "explanation": "Related Bash events run 250€ for multi-day packages with lodging and meals, suggesting reasonable pricing for a week-long adventure. You're getting 1,400km of curated routing through four countries plus the post-race camp experience. Decent value if you survive to enjoy the beer."
+        "explanation": "Related Bash events run 250€ for multi-day packages with lodging and meals, suggesting reasonable pricing for a week-long adventure. You're getting 1,400km of curated routing through four countries plus the post-race camp experience. Decent value if you survive to enjoy the beer.",
+        "citation_refs": [
+          7
+        ]
       },
       "expenses": {
         "score": 2,
-        "explanation": "Registration runs €50-80. Central Europe travel costs plus a week-long commitment adds up fast. Being completely unsupported means carrying all your gear and food, but also means no mid-race hotel bills. No clear airport logistics or accommodation strategy provided, so you're figuring out international travel to rural Czech Republic on your own. Higher total cost than Badlands."
+        "explanation": "The entry fee is not published. Central Europe travel costs plus a week-long commitment adds up fast. Being completely unsupported means carrying all your gear and food, but also means no mid-race hotel bills. No clear airport logistics or accommodation strategy provided, so you're figuring out international travel to rural Czech Republic on your own. Higher total cost than Badlands.",
+        "citation_refs": [
+          10,
+          13
+        ]
       }
     },
     "citations": [
@@ -400,104 +467,23 @@
         "url": "https://rawcyclingmag.com/border-bash-bohemia-2024-international-gravel-event-you-should-visit/",
         "category": "community",
         "label": "rawcyclingmag.com: Border Bash Bohemia 2024 International Gravel Event You S..."
+      },
+      {
+        "url": "https://www.borderbash.cc/",
+        "category": "official",
+        "label": "Official site: 1,420 km, 25,290 m, self-supported, first held 2022, read 2026-11-23"
+      },
+      {
+        "url": "https://www.borderbash.cc/bbbr-race-manual",
+        "category": "official",
+        "label": "Race manual: start and finish, deadline, mandatory kit, weather, travel, read 2026-11-23"
+      },
+      {
+        "url": "https://www.borderbash.cc/bbbr26-info",
+        "category": "route",
+        "label": "Race info: checkpoints, mountain ranges and high point, read 2026-11-23"
       }
     ],
-    "tire_recommendations": {
-      "generated_at": "2026-11-06",
-      "primary": [
-        {
-          "rank": 1,
-          "tire_id": "continental-terra-competition-race-rapid",
-          "name": "Continental Terra Competition Race Rapid",
-          "brand": "Continental",
-          "recommended_width_mm": 45,
-          "msrp_usd": null,
-          "weight_grams": 482,
-          "crr_watts": 15.8,
-          "tested_width_mm": 45,
-          "course_cost_watts": 15.8,
-          "why": "Rolls 15.8 W at 45mm on BRR's drum."
-        },
-        {
-          "rank": 2,
-          "tire_id": "hutchinson-caracal-race",
-          "name": "Hutchinson Caracal Race",
-          "brand": "Hutchinson",
-          "recommended_width_mm": 45,
-          "msrp_usd": null,
-          "weight_grams": 566,
-          "crr_watts": 16.3,
-          "tested_width_mm": 45,
-          "course_cost_watts": 17.26,
-          "why": "Rolls 16.3 W at 45mm on BRR's drum."
-        },
-        {
-          "rank": 3,
-          "tire_id": "hutchinson-touareg",
-          "name": "Hutchinson Touareg Race",
-          "brand": "Hutchinson",
-          "recommended_width_mm": 45,
-          "msrp_usd": 73.9,
-          "weight_grams": 471,
-          "crr_watts": 16.0,
-          "tested_width_mm": 40,
-          "course_cost_watts": 19.16,
-          "why": "BRR tested the 40mm: 16 W."
-        }
-      ],
-      "front_rear_split": {
-        "applicable": true,
-        "front": {
-          "tire_id": "continental-terra-competition-race-rapid",
-          "name": "Continental Terra Competition Race Rapid",
-          "width_mm": 45
-        },
-        "rear": {
-          "tire_id": "schwalbe-g-one-r-pro",
-          "name": "Schwalbe G-One R Pro",
-          "width_mm": 45
-        },
-        "rationale": "The rear carries 53% of the weight and does the traction work on 3,500 ft of climbing, so it gets the 1.9mm center knobs; the front rolls the faster file tread."
-      },
-      "race_surface_profile": "mixed",
-      "recommended_width_mm": 45,
-      "pressure_psi": {
-        "gravel_category": 2,
-        "bike_and_kit_lb": 25,
-        "by_rider_lb": {
-          "130": {
-            "40mm": "36/38",
-            "45mm": "30/31",
-            "50mm": "24/25"
-          },
-          "150": {
-            "40mm": "37/39",
-            "45mm": "30/32",
-            "50mm": "25/26"
-          },
-          "170": {
-            "40mm": "38/39",
-            "45mm": "31/32",
-            "50mm": "26/27"
-          },
-          "190": {
-            "40mm": "39/40",
-            "45mm": "32/33",
-            "50mm": "26/27"
-          },
-          "210": {
-            "40mm": "39/41",
-            "45mm": "32/34",
-            "50mm": "27/28"
-          },
-          "230": {
-            "40mm": "40/42",
-            "45mm": "33/34",
-            "50mm": "27/28"
-          }
-        }
-      }
-    },
     "youtube_data": {
       "researched_at": "2026-02-23",
       "search_query": "Bohemian Border Bash gravel race Czech Republic",

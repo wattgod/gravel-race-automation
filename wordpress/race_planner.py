@@ -207,7 +207,7 @@ def write_finish_outlook_embed(output_dir: Path, rd: dict) -> None:
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
+<meta name="robots" content="noindex, nofollow">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; form-action 'none'; object-src 'none'; base-uri 'none'">
 <title>{_esc(config["race"])} finish-time simulator</title>
 <style>{get_tokens_css()}{get_font_face_css()}</style>

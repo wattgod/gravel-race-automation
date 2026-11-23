@@ -385,7 +385,7 @@ class TestExamples:
 # Each needs a fresh date or a taking_a_break note; shrink this list, never
 # grow it.
 STALE_DATE_BASELINE = {
-    "berryman-epic", "bohemian-border-bash",
+    "berryman-epic",
     "dusty-gravel-lacs-de-leau-dheure", "etape-du-dales",
     "hardwood-hustle", "iron-cross", "la-vaujany",
     "pickerel-buck40", "rose-city-rampage",

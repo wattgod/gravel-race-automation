@@ -6,7 +6,7 @@
     "tagline": "Rocky bridges and rolling farm gravel through upstate New York countryside.",
     "vitals": {
       "distance_mi": 65,
-      "elevation_ft": 3500,
+      "elevation_ft": 6400,
       "location": "New York",
       "location_badge": "NEW YORK",
       "county": "New York",
@@ -42,7 +42,7 @@
       "surface": "Gravel roads through NY countryside. Moderate elevation with countryside scenery.",
       "technical_rating": 2,
       "features": [
-        "Moderate rolling (3500 feet)",
+        "Hilly (6,400 feet)",
         "Countryside scenery",
         "NY setting",
         "Multiple distances",
@@ -50,13 +50,13 @@
       ]
     },
     "gravel_god_rating": {
-      "overall_score": 47,
+      "overall_score": 50,
       "tier": 3,
       "tier_label": "TIER 3",
       "logistics": 3,
       "length": 3,
       "technicality": 2,
-      "elevation": 2,
+      "elevation": 4,
       "climate": 3,
       "altitude": 1,
       "adventure": 2,
@@ -91,7 +91,7 @@
       "bottom_line": "A solid regional NY gravel race with rolling terrain. Worth it for NY/Northeast cyclists. Not a destination race for national travelers."
     },
     "final_verdict": {
-      "score": "47 / 100",
+      "score": "50 / 100",
       "one_liner": "New York rolling gravel.",
       "should_you_race": "If you're in NY/Northeast and want a local event—yes, it's solid. If you're from out of region—there are better options.",
       "alternatives": "For better NY events: Dirty Hector (NY State Championship). For similar regional events: other Northeast gravel races."
@@ -150,7 +150,7 @@
     "guide_variables": {
       "race_name": "Farmer's Daughter",
       "race_distance": "65 miles",
-      "race_elevation": "3,500 feet",
+      "race_elevation": "6,400 feet",
       "race_date": "Summer",
       "race_location": "New York",
       "race_terrain": "NY rolling gravel",
@@ -281,8 +281,8 @@
         "explanation": "Mix of gravel roads, pavement, and technical singletrack creates bottlenecks. sportsfan42069 described \"a section of singletrack that was so technical it was a Conga line of people walking their bikes. After what must have been 10 minutes we were through the thick of it.\" Less technical than The Mid South."
       },
       "elevation": {
-        "score": 2,
-        "explanation": "6,000-7,000 feet of climbing over 65 miles with grades hitting 20%. Jason Gonzalez detailed \"15 climbs each varying between .5 mile to 4 miles with grades starting at 5% and going up to 17%,\" including \"one 4 mile climb from 6%-, 17% gradients.\" Less climbing than The Mid South."
+        "score": 4,
+        "explanation": "6,400 feet of climbing over 65 miles, with grades hitting 20%. Jason Gonzalez detailed \"15 climbs each varying between .5 mile to 4 miles with grades starting at 5% and going up to 17%,\" including \"one 4 mile climb from 6%-, 17% gradients.\""
       },
       "climate": {
         "score": 3,
@@ -360,6 +360,11 @@
         "url": "https://www.adkforum.com/forum/the-adirondack-forum/biking-in-the-adirondacks/23613-farmer-s-daughter-gravel-grinder",
         "category": "community",
         "label": "adkforum.com: 23613 Farmer S Daughter Gravel Grinder"
+      },
+      {
+        "url": "http://www.farmersdaughtergravelgrinder.com/",
+        "category": "official",
+        "label": "Official site: 65 mile course with 6,400 feet of climbing, read 2026-11-23"
       }
     ],
     "tire_recommendations": {
@@ -417,7 +422,7 @@
           "name": "Schwalbe G-One R Pro",
           "width_mm": 45
         },
-        "rationale": "The rear carries 53% of the weight and does the traction work on 3,500 ft of climbing, so it gets the 1.9mm center knobs; the front rolls the faster file tread."
+        "rationale": "The rear carries 53% of the weight and does the traction work on 6,400 ft of climbing, so it gets the 1.9mm center knobs; the front rolls the faster file tread."
       },
       "race_surface_profile": "mixed",
       "recommended_width_mm": 45,
@@ -659,7 +664,7 @@
             "curated": true
           }
         ],
-        "search_text": "The Farmer's Daughter Gravel Grinder is a non-competitive 65-mile event in Chatham, New York, featuring 3,500 feet of elevation gain through Columbia County's gravel roads, paved sections, and single track trails. Riders describe the gravel roads as really dry and hard packed in good conditions, with roots on trail sections that aren't slippery when dry. Weather is a key concern, as rain can make trail sections muddy and significantly change conditions. The event attracts both beginners and veterans, with a lively atmosphere and music at the start. Fast riders sprint off early and disappear ahead, so newer riders shouldn't worry about keeping pace with them. The location is about 90 minutes from Danbury, Connecticut, making it accessible for regional riders."
+        "search_text": "The Farmer's Daughter Gravel Grinder is a non-competitive 65-mile event in Chatham, New York, featuring 6,400 feet of elevation gain through Columbia County's gravel roads, paved sections, and single track trails. Riders describe the gravel roads as really dry and hard packed in good conditions, with roots on trail sections that aren't slippery when dry. Weather is a key concern, as rain can make trail sections muddy and significantly change conditions. The event attracts both beginners and veterans, with a lively atmosphere and music at the start. Fast riders sprint off early and disappear ahead, so newer riders shouldn't worry about keeping pace with them. The location is about 90 minutes from Danbury, Connecticut, making it accessible for regional riders."
       }
     },
     "photos": [

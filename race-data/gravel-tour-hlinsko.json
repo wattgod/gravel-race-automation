@@ -12,8 +12,8 @@
       "location": "Hlinsko, Pardubice Region, Czechia",
       "location_badge": "HLINSKO, CZECHIA",
       "country": "Czechia",
-      "date": "Early August",
-      "date_specific": "2026: August 1 (Saturday); no 2027 date published",
+      "date": "May 15, 2027",
+      "date_specific": "2027: May 15 (Saturday, CONFIRMED — ucigravelworldseries.com/en/gravel-tour-hlinsko)",
       "terrain_types": [
         "Iron Mountains gravel",
         "Forest tracks",
@@ -37,13 +37,12 @@
       ]
     },
     "climate": {
-      "primary": "Temperate Czech summer weather",
-      "description": "Early August can be warm with thunderstorms. Forest shade limits exposure, while rain can make the tracks slower and more selective.",
+      "primary": "Mild Czech upland spring weather",
+      "description": "Mid-May averages a 16 °C daytime high and a 7 °C morning low at Svratouch, the nearest long-record weather station, with rain on about one day in three. Forest shade limits exposure, while rain can make the tracks slower and more selective.",
       "challenges": [
-        "Summer thunderstorm risk",
-        "Humid forest sections",
-        "Rain-softened tracks",
-        "Warm exposed climbs"
+        "Cool start near 7 °C",
+        "Rain on about one day in three",
+        "Rain-softened tracks"
       ]
     },
     "terrain": {
@@ -101,7 +100,10 @@
       },
       "climate": {
         "score": 2,
-        "explanation": "Early-August heat or storms can change the forest tracks, but the baseline Czech summer is only slightly challenging."
+        "explanation": "Mid-May showers can soften the forest tracks and the start is cool, but a 16 °C average high keeps the baseline only slightly challenging.",
+        "citation_refs": [
+          4
+        ]
       },
       "altitude": {
         "score": 1,
@@ -208,6 +210,10 @@
     },
     "editions": [
       {
+        "year": 2026,
+        "date": "2026-08-01"
+      },
+      {
         "year": 2025,
         "date": "2025-08-02",
         "edition": 7,
@@ -219,10 +225,10 @@
       "race_name": "Gravel Tour Hlinsko",
       "race_distance": "129 km / 80.2 miles",
       "race_elevation": "1,577 m / 5,174 feet",
-      "race_date": "2026: August 1 (Saturday); no 2027 date published",
+      "race_date": "2027: May 15 (Saturday, CONFIRMED — ucigravelworldseries.com/en/gravel-tour-hlinsko)",
       "race_location": "Hlinsko, Pardubice Region, Czechia",
       "race_terrain": "A dynamic mix of gravel roads, forest tracks, and rolling climbs across the Iron Mountains and Žďárské Vrchy; the organizer does not publish a surface percentage.",
-      "race_weather": "Temperate Czech summer weather",
+      "race_weather": "Mild Czech upland spring weather",
       "race_challenges": [
         "86 km mandatory main loop",
         "43 km second loop",
@@ -275,7 +281,7 @@
         "topics": {
           "pacing": "Crossing the start-finish corridor after 86 km and beginning the second loop at race effort instead of mentally finishing early.",
           "handling": "A dynamic mix of gravel roads, forest tracks, and rolling climbs across the Iron Mountains and Žďárské Vrchy; the organizer does not publish a surface percentage.",
-          "weather": "Early August can be warm with thunderstorms. Forest shade limits exposure, while rain can make the tracks slower and more selective.",
+          "weather": "Mid-May averages a 16 °C daytime high and a 7 °C morning low at Svratouch, the nearest long-record weather station, with rain on about one day in three. Forest shade limits exposure, while rain can make the tracks slower and more selective.",
           "logistics": "Use Hlinsko for simple race access; the town is small enough that early booking is sensible."
         }
       },
@@ -306,7 +312,7 @@
       {
         "requirement": "1,577 m total climbing",
         "by_when": "Week 10",
-        "why": "Early August can be warm with thunderstorms. Forest shade limits exposure, while rain can make the tracks slower and more selective."
+        "why": "Mid-May averages a 16 °C daytime high and a 7 °C morning low at Svratouch, the nearest long-record weather station, with rain on about one day in three. Forest shade limits exposure, while rain can make the tracks slower and more selective."
       }
     ],
     "final_verdict": {
@@ -330,19 +336,24 @@
         "url": "https://ucigravelworldseries.com/en/regulations/",
         "category": "official",
         "label": "UCI Gravel World Series — qualification rules"
+      },
+      {
+        "url": "https://www.nodc.noaa.gov/archive/arc0216/0253808/2.2/data/0-data/Region-6-WMO-Normals-9120/CzechRepublic/CSV/Svratouch_11683.csv",
+        "category": "weather",
+        "label": "WMO Climate Normals 1991-2020, Svratouch station (NOAA NCEI): May daily maximum 16.0 °C, minimum 7.4 °C, 10.7 days of rain"
       }
     ],
     "eligibility": {
       "status": "active",
       "race_plan_eligible": true,
-      "verified": "2026-08-14",
+      "verified": "2026-11-22",
       "source": "https://ucigravelworldseries.com/en/gravel-tour-hlinsko/",
-      "status_note": "The August 1, 2026 qualifier is complete and no organizer-confirmed 2027 date is published."
+      "status_note": "The organizer has confirmed May 15, 2027. Course facts were last reviewed on 2026-08-14 against the 2026 edition."
     },
     "source_review": {
       "reviewed_at": "2026-08-14",
       "race_date": "2026-08-01",
-      "facts_scope": "The UCI page confirms the date, two-loop structure, distances, climbing totals, high point, support zones, organizer experience, and facility package. No 2027 date is published."
+      "facts_scope": "The UCI page confirms the date, two-loop structure, distances, climbing totals, high point, support zones, organizer experience, and facility package. The 2027 date, May 15, 2027, was confirmed on 2026-11-22; the course facts have not been re-reviewed for 2027."
     },
     "research_metadata": {
       "data_confidence": "high for the explicitly cited official facts; unresolved next-edition facts remain unknown",

@@ -12,8 +12,8 @@
       "location": "Dronninglund, North Jutland, Denmark",
       "location_badge": "DRONNINGLUND, DENMARK",
       "country": "Denmark",
-      "date": "Early September",
-      "date_specific": "2026: September 5 (Saturday); no 2027 date published",
+      "date": "June 12, 2027",
+      "date_specific": "2027: June 12 (Saturday, CONFIRMED — ucigravelworldseries.com/en/dronninglund)",
       "terrain_types": [
         "North Jutland forest",
         "Castle courtyard",
@@ -37,8 +37,8 @@
       ]
     },
     "climate": {
-      "primary": "Windy and changeable Danish early autumn",
-      "description": "September can be cool, wet, and windy. Forest shelter alternates with exposed rural sectors, making clothing and tire choice a live decision.",
+      "primary": "Windy and changeable Danish June",
+      "description": "June can still be cool, wet, and windy. The daily mean at Tylstrup, the nearest long-record weather station, is about 14 °C in June. Forest shelter alternates with exposed rural sectors, making clothing and tire choice a live decision.",
       "challenges": [
         "North Sea wind",
         "Cool rain",
@@ -101,7 +101,7 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "Wind, cool rain, and wet forest roads are meaningful in September, but the race is not designed around an extreme climate."
+        "explanation": "Wind, cool rain, and wet forest roads are meaningful in June, but the race is not designed around an extreme climate."
       },
       "altitude": {
         "score": 1,
@@ -209,6 +209,7 @@
     "editions": [
       {
         "year": 2026,
+        "date": "2026-09-05",
         "edition": 1,
         "note": "First edition as a UCI Gravel World Series qualifier.",
         "source": "https://ucigravelworldseries.com/en/stokbro-nielsen-and-kasper-crowned-winners-at-inaugural-the-wolf-in-denmark/"
@@ -218,10 +219,10 @@
       "race_name": "The Wolf",
       "race_distance": "165 km / 102.5 miles",
       "race_elevation": "1,398 m / 4,587 feet",
-      "race_date": "2026: September 5 (Saturday); no 2027 date published",
+      "race_date": "2027: June 12 (Saturday, CONFIRMED — ucigravelworldseries.com/en/dronninglund)",
       "race_location": "Dronninglund, North Jutland, Denmark",
       "race_terrain": "The lap mixes wide fast gravel with rugged Dronninglund Storskov forest roads and an early technical passage through Voergaard Castle's moat and courtyard.",
-      "race_weather": "Windy and changeable Danish early autumn",
+      "race_weather": "Windy and changeable Danish June",
       "race_challenges": [
         "Voergaard Castle courtyard",
         "Rugged forest tracks",
@@ -274,7 +275,7 @@
         "topics": {
           "pacing": "Handling the early castle selection cleanly, then resisting the temptation to over-race the first of three rolling forest laps.",
           "handling": "The lap mixes wide fast gravel with rugged Dronninglund Storskov forest roads and an early technical passage through Voergaard Castle's moat and courtyard.",
-          "weather": "September can be cool, wet, and windy. Forest shelter alternates with exposed rural sectors, making clothing and tire choice a live decision.",
+          "weather": "June can still be cool, wet, and windy. The daily mean at Tylstrup, the nearest long-record weather station, is about 14 °C in June. Forest shelter alternates with exposed rural sectors, making clothing and tire choice a live decision.",
           "logistics": "Use Dronninglund, Brønderslev, or Aalborg depending on inventory and race-morning transport."
         }
       },
@@ -305,7 +306,7 @@
       {
         "requirement": "466 m climbing per published lap",
         "by_when": "Week 10",
-        "why": "September can be cool, wet, and windy. Forest shelter alternates with exposed rural sectors, making clothing and tire choice a live decision."
+        "why": "June can still be cool, wet, and windy. The daily mean at Tylstrup, the nearest long-record weather station, is about 14 °C in June. Forest shelter alternates with exposed rural sectors, making clothing and tire choice a live decision."
       }
     ],
     "final_verdict": {
@@ -329,19 +330,24 @@
         "url": "https://ucigravelworldseries.com/en/regulations/",
         "category": "official",
         "label": "UCI Gravel World Series — qualification rules"
+      },
+      {
+        "url": "https://www.nodc.noaa.gov/archive/arc0216/0253808/2.2/data/0-data/Region-6-WMO-Normals-9120/Denmark/CSV/TYLSTRUP_06031.csv",
+        "category": "reference",
+        "label": "WMO Climate Normals 1991-2020, Tylstrup station (NOAA NCEI): June daily mean 14.1 °C, September 13.1 °C"
       }
     ],
     "eligibility": {
       "status": "active",
       "race_plan_eligible": true,
-      "verified": "2026-08-14",
+      "verified": "2026-11-22",
       "source": "https://ucigravelworldseries.com/en/dronninglund/",
-      "status_note": "The September 5, 2026 race is inside the six-week product floor and no organizer-confirmed 2027 date is published."
+      "status_note": "The organizer has confirmed June 12, 2027. Course facts were last reviewed on 2026-08-14 against the 2026 edition."
     },
     "source_review": {
       "reviewed_at": "2026-08-14",
       "race_date": "2026-09-05",
-      "facts_scope": "The UCI confirms the date, listed 82/123/165 km distances, forest and castle course character, and 466 m climbing per described lap. The same page calls the lap 52 km, which does not reconcile with all headline distances, so the inconsistency stays explicit."
+      "facts_scope": "The UCI confirms the date, listed 82/123/165 km distances, forest and castle course character, and 466 m climbing per described lap. The same page calls the lap 52 km, which does not reconcile with all headline distances, so the inconsistency stays explicit. The 2027 date, June 12, 2027, was confirmed on 2026-11-22; the course facts have not been re-reviewed for 2027."
     },
     "research_metadata": {
       "data_confidence": "high for the explicitly cited official facts; unresolved next-edition facts remain unknown",

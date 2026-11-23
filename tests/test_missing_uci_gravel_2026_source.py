@@ -17,6 +17,10 @@ SLUGS = (
     "falling-leaves-lahti",
     "tartu-rattamaraton-gravel",
 )
+WMO_NORMALS = (
+    "https://www.nodc.noaa.gov/archive/arc0216/0253808/2.2/data/0-data/"
+    "Region-6-WMO-Normals-9120/"
+)
 SCORE_KEYS = {
     "logistics", "length", "technicality", "elevation", "climate",
     "altitude", "adventure", "prestige", "race_quality", "experience",
@@ -70,9 +74,17 @@ def test_no_new_profile_projects_a_2026_course_into_an_unannounced_2027_edition(
     assert "must not be inferred" in falling["source_review"]["facts_scope"]
 
     for slug in set(SLUGS) - {"falling-leaves-lahti"}:
-        assert "no organizer-confirmed 2027 date" in race(slug)["eligibility"][
-            "status_note"
-        ]
+        profile = race(slug)
+        note = profile["eligibility"]["status_note"]
+        if note.startswith("The organizer has confirmed"):
+            # The organizer has since published the 2027 date. The date moves
+            # forward; the course facts stay marked as the 2026 review until
+            # someone re-reads them, so nothing is projected.
+            assert profile["vitals"]["date_specific"].startswith("2027:")
+            assert "against the 2026 edition" in note
+            assert "have not been re-reviewed for 2027" in profile["source_review"]["facts_scope"]
+        else:
+            assert "no organizer-confirmed 2027 date" in note
 
 
 def test_profiles_cite_only_official_organizer_or_uci_sources() -> None:
@@ -82,6 +94,12 @@ def test_profiles_cite_only_official_organizer_or_uci_sources() -> None:
         # The organizer-embedded course route is cited as a "route" (#661).
         assert all(
             citation["category"] == "official"
+            # Climate figures come from the WMO 1991-2020 station normals, the
+            # only non-organizer source these profiles may cite.
+            or (
+                citation["category"] == "reference"
+                and citation["url"].startswith(WMO_NORMALS)
+            )
             or (
                 citation["category"] == "route"
                 and (

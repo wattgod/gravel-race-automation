@@ -592,6 +592,9 @@ def test_finish_outlook_shares_the_published_course_and_engine(tmp_path):
     assert configs[0] == configs[1]
     for key in ("course_url", "engine_url", "core_url", "worker_url"):
         assert configs[0][key] == config(html)[key]
+    # The iframe is a shared app component, so it carries no site analytics.
+    assert '<meta name="robots" content="noindex, nofollow">' in embed
+    assert "googletagmanager.com" not in embed
     assert "2025 route" in embed and "Riding time excludes stops" in embed
     assert "The 2027 route isn&#x27;t published yet." in embed
 

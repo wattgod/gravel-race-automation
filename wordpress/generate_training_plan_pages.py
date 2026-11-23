@@ -43,6 +43,7 @@ from generate_neo_brutalist import (
     parse_event_dates,
     _safe_json_for_script,
     WORKOUT_SHOWCASE,
+    _workout_eligible,
     PLAN_SLUG_ALIASES,
 )
 
@@ -256,12 +257,16 @@ def build_demands(rd: dict, pack: dict) -> str:
 def build_workouts(rd: dict, pack: dict) -> str:
     """Key workout types from the race's archetype mapping."""
     cards = []
-    for tc in pack.get("top_categories", [])[:6]:
+    # Same eligibility rules as the race page's cards: a workout capped at
+    # 300 miles is not shown for a longer race.
+    distance_mi = float(pack.get("distance_mi") or 0)
+    demands = pack.get("demands", {})
+    for tc in pack.get("top_categories", []):
         if len(cards) >= 3:
             break
         for w in tc.get("workouts", []):
             sc = WORKOUT_SHOWCASE.get(w)
-            if sc:
+            if sc and _workout_eligible(w, distance_mi, demands):
                 cards.append(
                     f'<div class="gg-tpp-workout">'
                     f'<h4>{esc(w.replace("_", " "))}</h4>'

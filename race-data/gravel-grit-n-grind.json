@@ -103,7 +103,10 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "The race returns to mid-August for 2027 after one year in late September. August at Halmstad airport averages 17 °C across the day, with rain on about 13 days and nearly 100 mm for the month, which makes rain the likelier problem. The forest sections provide natural shelter, while open farm roads expose you to whatever weather shows up."
+        "explanation": "The race returns to mid-August for 2027 after one year in late September. August at Halmstad airport averages 17 °C across the day, with rain on about 13 days and nearly 100 mm for the month, which makes rain the likelier problem. The forest sections provide natural shelter, while open farm roads expose you to whatever weather shows up.",
+        "citation_refs": [
+          3
+        ]
       },
       "altitude": {
         "score": 1,
@@ -142,7 +145,7 @@
       },
       {
         "url": "https://www.nodc.noaa.gov/archive/arc0216/0253808/2.2/data/0-data/Region-6-WMO-Normals-9120/Sweden/CSV/Halmstad_flygplats_02604.csv",
-        "category": "reference",
+        "category": "weather",
         "label": "WMO Climate Normals 1991-2020, Halmstad flygplats (NOAA NCEI): August daily mean 17.2 °C, 97.7 mm, 12.8 days of rain"
       }
     ],

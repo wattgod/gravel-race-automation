@@ -101,7 +101,10 @@
       },
       "climate": {
         "score": 3,
-        "explanation": "Wind, cool rain, and wet forest roads are meaningful in June, but the race is not designed around an extreme climate."
+        "explanation": "Wind, cool rain, and wet forest roads are meaningful in June, but the race is not designed around an extreme climate.",
+        "citation_refs": [
+          4
+        ]
       },
       "altitude": {
         "score": 1,
@@ -333,7 +336,7 @@
       },
       {
         "url": "https://www.nodc.noaa.gov/archive/arc0216/0253808/2.2/data/0-data/Region-6-WMO-Normals-9120/Denmark/CSV/TYLSTRUP_06031.csv",
-        "category": "reference",
+        "category": "weather",
         "label": "WMO Climate Normals 1991-2020, Tylstrup station (NOAA NCEI): June daily mean 14.1 °C, September 13.1 °C"
       }
     ],

@@ -100,7 +100,10 @@
       },
       "climate": {
         "score": 2,
-        "explanation": "Mid-May showers can soften the forest tracks and the start is cool, but a 16 °C average high keeps the baseline only slightly challenging."
+        "explanation": "Mid-May showers can soften the forest tracks and the start is cool, but a 16 °C average high keeps the baseline only slightly challenging.",
+        "citation_refs": [
+          4
+        ]
       },
       "altitude": {
         "score": 1,
@@ -336,7 +339,7 @@
       },
       {
         "url": "https://www.nodc.noaa.gov/archive/arc0216/0253808/2.2/data/0-data/Region-6-WMO-Normals-9120/CzechRepublic/CSV/Svratouch_11683.csv",
-        "category": "reference",
+        "category": "weather",
         "label": "WMO Climate Normals 1991-2020, Svratouch station (NOAA NCEI): May daily maximum 16.0 °C, minimum 7.4 °C, 10.7 days of rain"
       }
     ],

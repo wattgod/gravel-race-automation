@@ -97,7 +97,7 @@ def test_profiles_cite_only_official_organizer_or_uci_sources() -> None:
             # Climate figures come from the WMO 1991-2020 station normals, the
             # only non-organizer source these profiles may cite.
             or (
-                citation["category"] == "reference"
+                citation["category"] == "weather"
                 and citation["url"].startswith(WMO_NORMALS)
             )
             or (

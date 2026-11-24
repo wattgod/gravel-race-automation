@@ -1,0 +1,1166 @@
+{
+ "date": "2026-11-24",
+ "measurement_epochs": [],
+ "ga4": {
+  "gravelgod": {
+   "sessions": 198,
+   "users": 179,
+   "pageviews": 354,
+   "sessions_7d_avg": 167.4,
+   "yesterday_last_hour": 23,
+   "yesterday_provisional": false,
+   "hourly_error": null,
+   "realtime_active_users": null,
+   "sessions_d2": 183,
+   "sessions_d2_date": "2026-11-22",
+   "funnel": {
+    "cta_click": 5,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0,
+    "refund": 0
+   },
+   "top_pages": [
+    {
+     "path": "/gravel-races/",
+     "views": 34
+    },
+    {
+     "path": "/race/best-gravel-races-colorado/",
+     "views": 22
+    },
+    {
+     "path": "/questionnaire/",
+     "views": 21
+    },
+    {
+     "path": "/race/unbound-200/tires/",
+     "views": 16
+    },
+    {
+     "path": "/",
+     "views": 14
+    },
+    {
+     "path": "/race/colorado-trail-race/",
+     "views": 7
+    },
+    {
+     "path": "/guide/",
+     "views": 5
+    },
+    {
+     "path": "/race/best-gravel-races-canada/",
+     "views": 5
+    }
+   ],
+   "channel_mix": {
+    "Organic Search": 119,
+    "Direct": 78,
+    "Unassigned": 1
+   },
+   "top_landing": [
+    {
+     "path": "/race/best-gravel-races-colorado/",
+     "sessions": 12
+    },
+    {
+     "path": "/race/unbound-200/tires/",
+     "sessions": 12
+    },
+    {
+     "path": "/",
+     "sessions": 7
+    },
+    {
+     "path": "",
+     "sessions": 6
+    },
+    {
+     "path": "/race/colorado-trail-race/",
+     "sessions": 4
+    },
+    {
+     "path": "/race/le-grand-du-nord/",
+     "sessions": 4
+    }
+   ],
+   "sessions_28d": 3471,
+   "funnel_28d": {
+    "cta_click": 104,
+    "form_start": 7,
+    "form_submit": 0,
+    "begin_checkout": 1,
+    "purchase": 0,
+    "refund": 0
+   },
+   "plan_funnel": {
+    "available": true,
+    "error": null,
+    "yesterday": {
+     "race_offer_seen_users": 52,
+     "plan_cta_users": 2,
+     "cta_unlabelled_users": 0,
+     "questionnaire_users_by_surface": {
+      "direct": 2,
+      "race_profile": 2
+     },
+     "questionnaire_users": 4,
+     "form_start_users": 0,
+     "form_submit_users": 0,
+     "checkout_users": 0,
+     "plan_purchase_users": 0
+    },
+    "28d": {
+     "race_offer_seen_users": 769,
+     "plan_cta_users": 16,
+     "cta_unlabelled_users": 0,
+     "questionnaire_users_by_surface": {
+      "direct": 40,
+      "race_profile": 14,
+      "race_plan_page": 4,
+      "internal_other": 3,
+      "race_profile_untagged": 1
+     },
+     "questionnaire_users": 62,
+     "form_start_users": 5,
+     "form_submit_users": 0,
+     "checkout_users": 1,
+     "plan_purchase_users": 0
+    }
+   },
+   "ok": true
+  },
+  "roadielabs": {
+   "sessions": 75,
+   "users": 72,
+   "pageviews": 76,
+   "sessions_7d_avg": 27.3,
+   "yesterday_last_hour": 23,
+   "yesterday_provisional": false,
+   "hourly_error": null,
+   "realtime_active_users": null,
+   "sessions_d2": 21,
+   "sessions_d2_date": "2026-11-22",
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0,
+    "refund": 0
+   },
+   "top_pages": [
+    {
+     "path": "/race/strade-bianche-gran-fondo/",
+     "views": 5
+    },
+    {
+     "path": "/",
+     "views": 3
+    },
+    {
+     "path": "/race/gfny-san-luis-potosi/",
+     "views": 2
+    },
+    {
+     "path": "/race/giro-ride-like-a-pro-usa/",
+     "views": 2
+    },
+    {
+     "path": "/race/947-ride-joburg/",
+     "views": 1
+    },
+    {
+     "path": "/race/amstel-gold-race-toerversie/",
+     "views": 1
+    },
+    {
+     "path": "/race/belgrade-gran-fondo/",
+     "views": 1
+    },
+    {
+     "path": "/race/cape-rouleur/",
+     "views": 1
+    }
+   ],
+   "channel_mix": {
+    "Direct": 64,
+    "Organic Search": 11
+   },
+   "top_landing": [
+    {
+     "path": "/race/strade-bianche-gran-fondo/",
+     "sessions": 4
+    },
+    {
+     "path": "/",
+     "sessions": 3
+    },
+    {
+     "path": "/race/gfny-san-luis-potosi/",
+     "sessions": 2
+    },
+    {
+     "path": "/race/giro-ride-like-a-pro-usa/",
+     "sessions": 2
+    },
+    {
+     "path": "/race/947-ride-joburg/",
+     "sessions": 1
+    },
+    {
+     "path": "/race/amstel-gold-race-toerversie/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 302,
+   "funnel_28d": {
+    "cta_click": 9,
+    "form_start": 1,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0,
+    "refund": 0
+   },
+   "plan_funnel": {
+    "available": false,
+    "error": null
+   },
+   "ok": true
+  },
+  "xcski": {
+   "sessions": 10,
+   "users": 9,
+   "pageviews": 10,
+   "sessions_7d_avg": 15.3,
+   "yesterday_last_hour": 23,
+   "yesterday_provisional": false,
+   "hourly_error": null,
+   "realtime_active_users": null,
+   "sessions_d2": 13,
+   "sessions_d2_date": "2026-11-22",
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0,
+    "refund": 0
+   },
+   "top_pages": [
+    {
+     "path": "/course/",
+     "views": 2
+    },
+    {
+     "path": "/",
+     "views": 1
+    },
+    {
+     "path": "/race/engelbrektsloppet/",
+     "views": 1
+    },
+    {
+     "path": "/race/granfondo-dobbiaco-cortina/",
+     "views": 1
+    },
+    {
+     "path": "/race/jizerska-50/",
+     "views": 1
+    },
+    {
+     "path": "/race/la-sgambeda/",
+     "views": 1
+    },
+    {
+     "path": "/race/marxa-beret/",
+     "views": 1
+    },
+    {
+     "path": "/race/sudtirol-moonlight-classic/",
+     "views": 1
+    }
+   ],
+   "channel_mix": {
+    "Direct": 9,
+    "Organic Search": 1
+   },
+   "top_landing": [
+    {
+     "path": "/course/",
+     "sessions": 2
+    },
+    {
+     "path": "/",
+     "sessions": 1
+    },
+    {
+     "path": "/race/engelbrektsloppet/",
+     "sessions": 1
+    },
+    {
+     "path": "/race/granfondo-dobbiaco-cortina/",
+     "sessions": 1
+    },
+    {
+     "path": "/race/jizerska-50/",
+     "sessions": 1
+    },
+    {
+     "path": "/race/la-sgambeda/",
+     "sessions": 1
+    }
+   ],
+   "sessions_28d": 215,
+   "funnel_28d": {
+    "cta_click": 1,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 4,
+    "purchase": 0,
+    "refund": 0
+   },
+   "plan_funnel": {
+    "available": false,
+    "error": null
+   },
+   "ok": true
+  }
+ },
+ "checkout": {
+  "gravelgod": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "roadielabs": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "error": ""
+  },
+  "xcski": {
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "ok": true,
+   "plans_gated": true,
+   "error": ""
+  }
+ },
+ "mission_control": {
+  "hot_leads_14d": [
+   {
+    "email": "s***@web.de",
+    "name": "",
+    "race": "Bohemian Border Bash",
+    "brand": "gravelgod",
+    "sequence": "race_debrief_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 1,
+    "clicks": 1
+   },
+   {
+    "email": "b***@gmail.com",
+    "name": "",
+    "race": "Chase the Sun Norway",
+    "brand": "roadielabs",
+    "sequence": "road_welcome_v1",
+    "step": 0,
+    "status": "active",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "h***@gmail.com",
+    "name": "",
+    "race": "Death Ride \u2014 Tour of the California Alps",
+    "brand": "roadielabs",
+    "sequence": "road_kit_delivery_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 0,
+    "clicks": 0
+   },
+   {
+    "email": "c***@gmail.com",
+    "name": "",
+    "race": "Unbound Gravel 100",
+    "brand": "gravelgod",
+    "sequence": "kit_delivery_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "d***@gmail.com",
+    "name": "",
+    "race": "Colorado Trail Race",
+    "brand": "gravelgod",
+    "sequence": "race_debrief_v1",
+    "step": 1,
+    "status": "unsubscribed",
+    "opens": 1,
+    "clicks": 1
+   },
+   {
+    "email": "p***@slingshot.co.nz",
+    "name": "",
+    "race": "Gravel and Tar Classic",
+    "brand": "gravelgod",
+    "sequence": "race_countdown_8_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "c***@outlook.com",
+    "name": "",
+    "race": "Iowa Wind and Rock",
+    "brand": "gravelgod",
+    "sequence": "welcome_v1",
+    "step": 1,
+    "status": "active",
+    "opens": 1,
+    "clicks": 0
+   },
+   {
+    "email": "1***@gmail.com",
+    "name": "",
+    "race": "Iowa Wind and Rock",
+    "brand": "gravelgod",
+    "sequence": "kit_delivery_v1",
+    "step": 1,
+    "status": "completed",
+    "opens": 0,
+    "clicks": 0
+   }
+  ],
+  "new_leads_24h": 4,
+  "leads_by_brand": {
+   "gravelgod": 1,
+   "roadielabs": 3
+  },
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 4,
+  "opens_24h": 1,
+  "clicks_24h": 1,
+  "bounces_24h": 1,
+  "errors_24h": [],
+  "ok": true
+ },
+ "commerce_ledger": {
+  "coaching_onboarding": {
+   "abandoned_checkout_cases": 0,
+   "conversion_percent_from_application": {
+    "active": 0.0,
+    "billing_attention": 0.0,
+    "billing_healthy": 0.0,
+    "checkout_created": 0.0,
+    "checkout_expired": 0.0,
+    "checkout_recovered": 0.0,
+    "context_sealed": 0.0,
+    "fit_approved": 0.0,
+    "onboarding_delivered": 0.0,
+    "payment_confirmed": 0.0,
+    "plan_approved": 0.0,
+    "recovery_sent": 0.0,
+    "subscription_ended": 0.0,
+    "terms_signed": 0.0,
+    "trainingpeaks_connected": 0.0
+   },
+   "median_hours": {
+    "application_to_active": null,
+    "application_to_payment": null
+   },
+   "stage_counts": {
+    "active": 0,
+    "applications": 0,
+    "billing_attention": 0,
+    "billing_healthy": 0,
+    "checkout_created": 0,
+    "checkout_expired": 0,
+    "checkout_recovered": 0,
+    "context_sealed": 0,
+    "fit_approved": 0,
+    "onboarding_delivered": 0,
+    "payment_confirmed": 0,
+    "plan_approved": 0,
+    "recovery_sent": 0,
+    "subscription_ended": 0,
+    "terms_signed": 0,
+    "trainingpeaks_connected": 0
+   }
+  },
+  "failed_orders": [],
+  "open_paid_orders": [],
+  "orders": [
+   {
+    "blocker_count": 15,
+    "email": "g***@gmail.com",
+    "error": null,
+    "fulfillment_open": true,
+    "fulfillment_status": "BLOCKED_REVIEW",
+    "id": "drill-20261123",
+    "name": "Daily",
+    "order_ref": "fbcea473e423",
+    "product_type": "training_plan",
+    "success": true,
+    "timestamp": "2026-11-23T13:05:53.194186"
+   }
+  ],
+  "questionnaire_starts": 0,
+  "recoveries": [],
+  "window_hours": 24,
+  "ok": true
+ },
+ "social": {
+  "accounts_live": false,
+  "queued_today": 0,
+  "queued_yesterday": 0,
+  "posts": [],
+  "ok": true
+ },
+ "workflows": {
+  "latest": {
+   "gravel-race-automation/link-check.yml": "success",
+   "road-race-automation/link-check.yml": "success",
+   "road-race-automation/checkout-monitor.yml": "success",
+   "gravel-race-automation/regression-tests.yml": "success",
+   "gravel-race-automation/aeo-weekly.yml": "success",
+   "gravel-race-automation/seo-weekly.yml": "success"
+  },
+  "runs": {
+   "gravel-race-automation/link-check.yml": {
+    "conclusion": "success",
+    "event": "schedule",
+    "updated_at": "2026-11-17T12:20:46Z",
+    "age_hours": 167.8,
+    "last_success_at": "2026-11-17T12:20:46Z",
+    "last_success_event": "schedule"
+   },
+   "road-race-automation/link-check.yml": {
+    "conclusion": "success",
+    "event": "schedule",
+    "updated_at": "2026-11-23T12:05:07Z",
+    "age_hours": 24.1,
+    "last_success_at": "2026-11-23T12:05:07Z",
+    "last_success_event": "schedule"
+   },
+   "road-race-automation/checkout-monitor.yml": {
+    "conclusion": "success",
+    "event": "schedule",
+    "updated_at": "2026-11-24T08:14:13Z",
+    "age_hours": 3.9,
+    "last_success_at": "2026-11-24T08:14:13Z",
+    "last_success_event": "schedule"
+   },
+   "gravel-race-automation/regression-tests.yml": {
+    "conclusion": "success",
+    "event": "push",
+    "updated_at": "2026-11-23T20:00:28Z",
+    "age_hours": 16.1,
+    "last_success_at": "2026-11-23T20:00:28Z",
+    "last_success_event": "push"
+   },
+   "gravel-race-automation/aeo-weekly.yml": {
+    "conclusion": "success",
+    "event": "schedule",
+    "updated_at": "2026-11-23T10:33:21Z",
+    "age_hours": 25.6,
+    "last_success_at": "2026-11-23T10:33:21Z",
+    "last_success_event": "schedule"
+   },
+   "gravel-race-automation/seo-weekly.yml": {
+    "conclusion": "success",
+    "event": "schedule",
+    "updated_at": "2026-11-23T11:23:29Z",
+    "age_hours": 24.8,
+    "last_success_at": "2026-11-23T11:23:29Z",
+    "last_success_event": "schedule"
+   }
+  },
+  "ok": true
+ },
+ "aeo": {
+  "state": "ok",
+  "ok": true,
+  "artifact": "aeo-weekly-2026-11-23.json",
+  "prior_artifact": "aeo-weekly-2026-11-16.json",
+  "generated_at_utc": "2026-11-23T10:33:06.056429Z",
+  "current_window": {
+   "end": "2026-11-22",
+   "start": "2026-11-16"
+  },
+  "brands": {
+   "gravelgod": {
+    "label": "Gravel God",
+    "ga4_status": "ok",
+    "logs_status": "ok",
+    "llms_serving_status": "ok",
+    "llms_serving_verified_via": "http",
+    "llms_serving_first_line": "# Gravel God Race Database",
+    "llms_serving_error": "",
+    "ai_referral_sessions": 7,
+    "ai_referral_delta": 1,
+    "ai_referral_delta_text": "+1 WoW",
+    "user_fetch": 213,
+    "user_fetch_delta": -58,
+    "user_fetch_delta_text": "-58 WoW",
+    "search_index": 993,
+    "training_crawl": 2799,
+    "llms_2xx": 666,
+    "llms_non_2xx": 34,
+    "top_user_fetch_paths": [
+     {
+      "path": "/",
+      "hits": 37
+     },
+     {
+      "path": "/robots.txt",
+      "hits": 30
+     },
+     {
+      "path": "/tire/continental-terra-speed-40/",
+      "hits": 6
+     }
+    ]
+   },
+   "roadie": {
+    "label": "Roadie Labs",
+    "ga4_status": "ok",
+    "logs_status": "ok",
+    "llms_serving_status": "ok",
+    "llms_serving_verified_via": "http",
+    "llms_serving_first_line": "# Roadie Labs Race Database",
+    "llms_serving_error": "",
+    "ai_referral_sessions": 3,
+    "ai_referral_delta": 2,
+    "ai_referral_delta_text": "+2 WoW",
+    "user_fetch": 79,
+    "user_fetch_delta": 14,
+    "user_fetch_delta_text": "+14 WoW",
+    "search_index": 494,
+    "training_crawl": 1429,
+    "llms_2xx": 768,
+    "llms_non_2xx": 58,
+    "top_user_fetch_paths": [
+     {
+      "path": "/",
+      "hits": 21
+     },
+     {
+      "path": "/robots.txt",
+      "hits": 9
+     },
+     {
+      "path": "/race/gran-fondo-medellin/",
+      "hits": 3
+     }
+    ]
+   },
+   "xcski": {
+    "label": "XC Ski Labs",
+    "ga4_status": "not_configured",
+    "logs_status": "ok",
+    "llms_serving_status": "ok",
+    "llms_serving_verified_via": "http",
+    "llms_serving_first_line": "# XC Ski Labs Race Database",
+    "llms_serving_error": "",
+    "ai_referral_sessions": null,
+    "ai_referral_delta": null,
+    "ai_referral_delta_text": "baseline \u2014 no prior artifact",
+    "user_fetch": 8,
+    "user_fetch_delta": -11,
+    "user_fetch_delta_text": "-11 WoW",
+    "search_index": 28,
+    "training_crawl": 1812,
+    "llms_2xx": 318,
+    "llms_non_2xx": 7,
+    "top_user_fetch_paths": [
+     {
+      "path": "/",
+      "hits": 4
+     },
+     {
+      "path": "/coaching/apply/",
+      "hits": 1
+     },
+     {
+      "path": "/goals/",
+      "hits": 1
+     }
+    ]
+   }
+  },
+  "unknown_agent_candidates": [
+   {
+    "brands": {
+     "gravelgod": 2902,
+     "roadie": 1243,
+     "xcski": 62
+    },
+    "count": 4207,
+    "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; KeenableBot/1.0; +https://keenable.ai/bot)",
+    "new_this_week": false
+   },
+   {
+    "brands": {
+     "gravelgod": 509,
+     "roadie": 213,
+     "xcski": 40
+    },
+    "count": 762,
+    "user_agent": "Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://crawler.exa.ai/)",
+    "new_this_week": false
+   },
+   {
+    "brands": {
+     "gravelgod": 559,
+     "roadie": 26
+    },
+    "count": 585,
+    "user_agent": "RiverBot/1.0 (+https://river.ai/bot)",
+    "new_this_week": false
+   },
+   {
+    "brands": {
+     "gravelgod": 265,
+     "roadie": 43,
+     "xcski": 1
+    },
+    "count": 309,
+    "user_agent": "Mozilla/5.0 (compatible; ExaSearchBot-Images/1.0; +https://images.crawler.exa.ai)",
+    "new_this_week": true
+   },
+   {
+    "brands": {
+     "gravelgod": 245,
+     "roadie": 19,
+     "xcski": 43
+    },
+    "count": 307,
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Claude/5.11492.5 Chrome/156.0.807",
+    "new_this_week": true
+   },
+   {
+    "brands": {
+     "gravelgod": 144,
+     "roadie": 34,
+     "xcski": 60
+    },
+    "count": 238,
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Claude/4.23118.1 Chrome/152.0.797",
+    "new_this_week": true
+   },
+   {
+    "brands": {
+     "gravelgod": 203,
+     "roadie": 20
+    },
+    "count": 223,
+    "user_agent": "CCBot/2.0 (https://commoncrawl.org/faq/)",
+    "new_this_week": false
+   },
+   {
+    "brands": {
+     "gravelgod": 182,
+     "roadie": 17,
+     "xcski": 2
+    },
+    "count": 201,
+    "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; AzureAI-SearchBot/1.0;",
+    "new_this_week": true
+   },
+   {
+    "brands": {
+     "gravelgod": 167
+    },
+    "count": 167,
+    "user_agent": "Mozilla/5.0 (compatible; ibou-search/2.0; +https://ibou.com/crawlers.html)",
+    "new_this_week": true
+   },
+   {
+    "brands": {
+     "gravelgod": 156,
+     "roadie": 9
+    },
+    "count": 165,
+    "user_agent": "ClueWeb-Crawler/1.0 (+https://boston.lti.cs.cmu.edu/CMU-ClueWeb-Crawler/; mailto:c***@andrew.cmu.edu)",
+    "new_this_week": false
+   },
+   {
+    "brands": {
+     "gravelgod": 92,
+     "roadie": 9,
+     "xcski": 2
+    },
+    "count": 103,
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 fac",
+    "new_this_week": false
+   },
+   {
+    "brands": {
+     "gravelgod": 78,
+     "roadie": 12,
+     "xcski": 11
+    },
+    "count": 101,
+    "user_agent": "DuckAssistBot/1.2; (+http://duckduckgo.com/duckassistbot.html)",
+    "new_this_week": false
+   },
+   {
+    "brands": {
+     "gravelgod": 65,
+     "roadie": 26
+    },
+    "count": 91,
+    "user_agent": "Mozilla/5.0 (compatible; CrolBot/0.1; +https://cloro.dev)",
+    "new_this_week": true
+   },
+   {
+    "brands": {
+     "roadie": 40,
+     "xcski": 30
+    },
+    "count": 70,
+    "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 (Stripebot/1.0; +h",
+    "new_this_week": false
+   },
+   {
+    "brands": {
+     "gravelgod": 51
+    },
+    "count": 51,
+    "user_agent": "EchoGreyBot/1.0 (+https://echogrey.ai/bot)",
+    "new_this_week": true
+   }
+  ]
+ },
+ "seo": {
+  "state": "ok",
+  "ok": true,
+  "artifact": "seo-weekly-2026-11-21.json",
+  "generated_at_utc": "2026-11-23T11:23:20.597119Z",
+  "current_window": {
+   "end": "2026-11-21",
+   "start": "2026-10-25"
+  },
+  "overall": {
+   "clicks": 1735,
+   "impressions": 42683,
+   "ctr": 0.04064850174542558,
+   "position": 9.072066162172293,
+   "clicks_delta": -268,
+   "clicks_delta_text": "-268 WoW",
+   "impressions_delta": -8114,
+   "impressions_delta_text": "-8114 WoW"
+  },
+  "top_candidates": [
+   {
+    "action": "refresh_content",
+    "bucket": "decliners",
+    "clicks": 12,
+    "combined_upside": 49.0,
+    "ctr": 0.15,
+    "impressions": 80,
+    "page": "/race/big-sugar/tires/",
+    "position": 5.35,
+    "prior": {
+     "clicks": 61,
+     "ctr": 0.13203463203463203,
+     "impressions": 462,
+     "position": 5.112554112554113
+    },
+    "query": null,
+    "rank": 1,
+    "reason": "/race/big-sugar/tires/ clicks fell from 61 to 12 \u2014 refresh content.",
+    "score": 49.0,
+    "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+    "supporting_queries": [],
+    "target_path": "/race/big-sugar/tires/",
+    "adjudicated_issue": 637,
+    "adjudicated_title": "intel: SEO decliners /race/big-sugar/, /race/big-sugar/tires/, /race/uci-gravel-worlds/tires/, /race/flanders-legacy-gra"
+   },
+   {
+    "action": "refresh_content",
+    "bucket": "decliners",
+    "clicks": 24,
+    "combined_upside": 48.0,
+    "ctr": 0.14201183431952663,
+    "impressions": 169,
+    "page": "/race/uci-gravel-worlds/tires/",
+    "position": 4.585798816568047,
+    "prior": {
+     "clicks": 72,
+     "ctr": 0.16,
+     "impressions": 450,
+     "position": 4.511111111111111
+    },
+    "query": null,
+    "rank": 2,
+    "reason": "/race/uci-gravel-worlds/tires/ clicks fell from 72 to 24 \u2014 refresh content.",
+    "score": 48.0,
+    "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+    "supporting_queries": [],
+    "target_path": "/race/uci-gravel-worlds/tires/",
+    "adjudicated_issue": 637,
+    "adjudicated_title": "intel: SEO decliners /race/big-sugar/, /race/big-sugar/tires/, /race/uci-gravel-worlds/tires/, /race/flanders-legacy-gra"
+   },
+   {
+    "action": "refresh_content",
+    "bucket": "decliners",
+    "clicks": 2,
+    "combined_upside": 44.0,
+    "ctr": 0.03225806451612903,
+    "impressions": 62,
+    "page": "/race/gravel-revival/",
+    "position": 9.274193548387096,
+    "prior": {
+     "clicks": 46,
+     "ctr": 0.02633085289066972,
+     "impressions": 1747,
+     "position": 6.355466514024041
+    },
+    "query": null,
+    "rank": 3,
+    "reason": "/race/gravel-revival/ clicks fell from 46 to 2 \u2014 refresh content.",
+    "score": 44.0,
+    "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+    "supporting_queries": [],
+    "target_path": "/race/gravel-revival/",
+    "adjudicated_issue": 499,
+    "adjudicated_title": "intel: SEO candidates gravel-revival + chino-grinder (both striking-distance) \u2014 no prior ruling"
+   },
+   {
+    "action": "refresh_content",
+    "bucket": "decliners",
+    "clicks": 1,
+    "combined_upside": 35.0,
+    "ctr": 0.005681818181818182,
+    "impressions": 176,
+    "page": "/race/big-sugar/",
+    "position": 13.801136363636363,
+    "prior": {
+     "clicks": 36,
+     "ctr": 0.030456852791878174,
+     "impressions": 1182,
+     "position": 7.392554991539763
+    },
+    "query": null,
+    "rank": 4,
+    "reason": "/race/big-sugar/ clicks fell from 36 to 1, position worsened 7.4 \u2192 13.8 \u2014 refresh content.",
+    "score": 35.0,
+    "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+    "supporting_queries": [],
+    "target_path": "/race/big-sugar/",
+    "adjudicated_issue": 637,
+    "adjudicated_title": "intel: SEO decliners /race/big-sugar/, /race/big-sugar/tires/, /race/uci-gravel-worlds/tires/, /race/flanders-legacy-gra"
+   },
+   {
+    "action": "refresh_content",
+    "bucket": "decliners",
+    "clicks": 5,
+    "combined_upside": 29.0,
+    "ctr": 0.027624309392265192,
+    "impressions": 181,
+    "page": "/race/the-equalizer/",
+    "position": 5.386740331491713,
+    "prior": {
+     "clicks": 34,
+     "ctr": 0.049490538573508006,
+     "impressions": 687,
+     "position": 4.640465793304221
+    },
+    "query": null,
+    "rank": 5,
+    "reason": "/race/the-equalizer/ clicks fell from 34 to 5 \u2014 refresh content.",
+    "score": 29.0,
+    "source_hint": "race-data/<slug>.json \u2192 seo.title/seo.description (+ profile fields for content); regenerate, preflight, deploy",
+    "supporting_queries": [],
+    "target_path": "/race/the-equalizer/"
+   }
+  ]
+ },
+ "since_yesterday": {
+  "merged_prs": [
+   {
+    "repo": "gravel-race-automation",
+    "number": 727,
+    "title": "Link the Unbound outlook to the matching Endure signup",
+    "merged_at": "2026-11-23T19:59:59Z"
+   },
+   {
+    "repo": "gravel-race-automation",
+    "number": 726,
+    "title": "Keep the standalone race outlook out of search and analytics",
+    "merged_at": "2026-11-23T19:37:32Z"
+   },
+   {
+    "repo": "gravel-race-automation",
+    "number": 725,
+    "title": "Put the interactive finish-time simulator in the Unbound hero",
+    "merged_at": "2026-11-23T19:20:57Z"
+   },
+   {
+    "repo": "gravel-race-automation",
+    "number": 722,
+    "title": "Bohemian Border Bash: rescore the ratings written for the old 65-mile stub",
+    "merged_at": "2026-11-23T15:14:03Z"
+   }
+  ],
+  "closed_issues": [
+   {
+    "repo": "gravel-race-automation",
+    "number": 728,
+    "title": "Uptime: Gravel God home, Roadie Labs home, XC Ski Labs home down",
+    "closed_at": "2026-11-24T05:26:07Z"
+   },
+   {
+    "repo": "gravel-race-automation",
+    "number": 721,
+    "title": "Put the interactive race finish simulator above the Unbound 200 course profile",
+    "closed_at": "2026-11-23T19:20:59Z"
+   },
+   {
+    "repo": "road-race-automation",
+    "number": 105,
+    "title": "intel: Sync Race Catalog \u2192 Endure Labs import failing 421/421 \u2014 \"Legacy API keys are disabled\" on SUPABASE_SERVICE_ROLE_KEY",
+    "closed_at": "2026-11-23T13:37:14Z"
+   }
+  ],
+  "review_queue": [
+   {
+    "repo": "gravel-race-automation",
+    "number": 370,
+    "title": "exec: retired model ID in batch_enrich/batch_fill_content/youtube_enrich (#368)",
+    "agent": "nightly-executor",
+    "draft": true,
+    "age_days": 63.4
+   },
+   {
+    "repo": "road-race-automation",
+    "number": 75,
+    "title": "exec: retired model ID in batch_enrich/batch_fill_content/youtube_enrich (#69)",
+    "agent": "nightly-executor",
+    "draft": true,
+    "age_days": 61.4
+   },
+   {
+    "repo": "gravel-race-automation",
+    "number": 434,
+    "title": "intel-fix: resync search index and test fixtures after leadville-100 veracity correction",
+    "agent": "morning-intel-triage",
+    "draft": true,
+    "age_days": 52.0
+   },
+   {
+    "repo": "gravel-race-automation",
+    "number": 485,
+    "title": "intel-fix: require SEO-signal context for daily_intel.py adjudication matches",
+    "agent": "morning-intel-triage",
+    "draft": true,
+    "age_days": 44.0
+   },
+   {
+    "repo": "gravel-race-automation",
+    "number": 484,
+    "title": "intel-fix: label daily health-check drill orders, not customer orders",
+    "agent": "morning-intel-triage",
+    "draft": true,
+    "age_days": 44.0
+   },
+   {
+    "repo": "gravel-race-automation",
+    "number": 573,
+    "title": "intel-fix: retry once on transient GA4 Data API errors in daily_intel.py",
+    "agent": "morning-intel-triage",
+    "draft": true,
+    "age_days": 10.9
+   }
+  ],
+  "runs_24h": {
+   "gravel-race-automation/Uptime": {
+    "success": 36,
+    "failure": 0,
+    "other": 0
+   },
+   "gravel-race-automation/pages build and deployment": {
+    "success": 1,
+    "failure": 0,
+    "other": 0
+   },
+   "gravel-race-automation/Immune Check": {
+    "success": 1,
+    "failure": 0,
+    "other": 0
+   },
+   "gravel-race-automation/Daily Monitoring": {
+    "success": 1,
+    "failure": 0,
+    "other": 0
+   },
+   "road-race-automation/Checkout Health Monitor": {
+    "success": 4,
+    "failure": 0,
+    "other": 0
+   },
+   "road-race-automation/CWV Monitoring": {
+    "success": 1,
+    "failure": 0,
+    "other": 0
+   },
+   "road-race-automation/GSC Monitoring": {
+    "success": 1,
+    "failure": 0,
+    "other": 0
+   },
+   "road-race-automation/Immune Check": {
+    "success": 1,
+    "failure": 0,
+    "other": 0
+   }
+  },
+  "ok": true
+ },
+ "constraint": {
+  "ok": true,
+  "assessment": "plan_funnel",
+  "reason": "unique users through the named plan steps (28d); counts, not rates \u2014 n is small",
+  "sessions_28d": 3471,
+  "event_totals_28d": {
+   "cta_click": 104,
+   "form_start": 7,
+   "form_submit": 0,
+   "begin_checkout": 1,
+   "purchase": 0,
+   "refund": 0
+  },
+  "plan_funnel_28d": {
+   "race_offer_seen_users": 769,
+   "plan_cta_users": 16,
+   "cta_unlabelled_users": 0,
+   "questionnaire_users_by_surface": {
+    "direct": 40,
+    "race_profile": 14,
+    "race_plan_page": 4,
+    "internal_other": 3,
+    "race_profile_untagged": 1
+   },
+   "questionnaire_users": 62,
+   "form_start_users": 5,
+   "form_submit_users": 0,
+   "checkout_users": 1,
+   "plan_purchase_users": 0
+  }
+ },
+ "report_issues": [],
+ "ga4_revisions": {},
+ "interpretation_ok": true,
+ "report": "## TOP LINE\n- Traffic up on both main brands: Gravel God 198 sessions (vs 167.4 7d avg), Roadie Labs 75 (vs 27.3) \u2014 but plan_purchase stays 0 across both, 28 days running.\n- Gravel God plan funnel yesterday: 52 offer-seen \u2192 2 plan CTA \u2192 4 questionnaire \u2192 0 downstream. Drop-off is before questionnaire, not after.\n- Only order-processing record in the last 24h is the Daily health-check (BLOCKED_REVIEW, 15 blockers) \u2014 not a customer order. No paid-but-undelivered orders exist.\n\n## NUMBERS\n| Brand | Sessions (vs 7d avg) | Independent event totals | Leads |\n|---|---:|---|---:|\n| Gravel God | 198 (vs 167.4) | cta 5; form_start 0; submit 0; checkout 0; purchase 0; refund 0 | 1 |\n| Roadie Labs | 75 (vs 27.3) | cta 0; form_start 0; submit 0; checkout 0; purchase 0; refund 0 | 3 |\n| XC Ski Labs | 10 (vs 15.3) | cta 0; form_start 0; submit 0; checkout 0; purchase 0; refund 0 | unavailable |\n- GA4 event totals are independent; they do not form a joined funnel.\n\n## TRAFFIC\n- **Gravel God top pages:** /gravel-races/ (34 views), /race/best-gravel-races-colorado/ (22 views), /questionnaire/ (21 views), /race/unbound-200/tires/ (16 views), / (14 views).\n- **Gravel God channel mix:** Organic Search 119, Direct 78, Unassigned 1.\n- **Gravel God top landing:** /race/best-gravel-races-colorado/ (12 sessions), /race/unbound-200/tires/ (12 sessions), / (7 sessions), (not set) (6 sessions), /race/colorado-trail-race/ (4 sessions).\n- **Roadie Labs top pages:** /race/strade-bianche-gran-fondo/ (5 views), / (3 views), /race/gfny-san-luis-potosi/ (2 views), /race/giro-ride-like-a-pro-usa/ (2 views), /race/947-ride-joburg/ (1 views).\n- **Roadie Labs channel mix:** Direct 64, Organic Search 11.\n- **Roadie Labs top landing:** /race/strade-bianche-gran-fondo/ (4 sessions), / (3 sessions), /race/gfny-san-luis-potosi/ (2 sessions), /race/giro-ride-like-a-pro-usa/ (2 sessions), /race/947-ride-joburg/ (1 sessions).\n- **XC Ski Labs top pages:** /course/ (2 views), / (1 views), /race/engelbrektsloppet/ (1 views), /race/granfondo-dobbiaco-cortina/ (1 views), /race/jizerska-50/ (1 views).\n- **XC Ski Labs channel mix:** Direct 9, Organic Search 1.\n- **XC Ski Labs top landing:** /course/ (2 sessions), / (1 sessions), /race/engelbrektsloppet/ (1 sessions), /race/granfondo-dobbiaco-cortina/ (1 sessions), /race/jizerska-50/ (1 sessions).\n\n## ORDER PROCESSING (LOCAL RECORDS)\n- processing record: Daily <g***@gmail.com> \u2014 training_plan; processing succeeded; NOT DELIVERED (BLOCKED_REVIEW, 15 blocker(s)).\n- questionnaire starts: 0.\n- paid orders awaiting delivery: none.\n\n## CONSTRAINT\n- causal bottleneck: data insufficient \u2014 independent GA4 event totals do not establish a shared cohort or event order.\n- 28d observed totals: sessions 3471; cta 104; form_start 7; submit 0; checkout 1; purchase 0; refund 0.\n\n## PLAN FUNNEL (Gravel God, unique users)\n- yesterday: offer seen 52 \u2192 plan CTA 2 \u2192 questionnaire 4 (direct 2, race_profile 2) \u2192 start 0 \u2192 submit 0 \u2192 checkout 0 \u2192 plan purchase 0.\n- 28d: offer seen 769 \u2192 plan CTA 16 \u2192 questionnaire 62 (direct 40, race_profile 14, race_plan_page 4, internal_other 3, race_profile_untagged 1) \u2192 start 5 \u2192 submit 0 \u2192 checkout 1 \u2192 plan purchase 0.\n- counts of unique users, not rates; dimensions registered 2026-09-11, so 28d windows are partial until 2026-10-09.\n\n## SINCE YESTERDAY (last 24h)\n- merged gravel-race-automation#727: Link the Unbound outlook to the matching Endure signup\n- merged gravel-race-automation#726: Keep the standalone race outlook out of search and analytics\n- merged gravel-race-automation#725: Put the interactive finish-time simulator in the Unbound hero\n- merged gravel-race-automation#722: Bohemian Border Bash: rescore the ratings written for the old 65-mile stub\n- closed gravel-race-automation#728: Uptime: Gravel God home, Roadie Labs home, XC Ski Labs home down\n- closed gravel-race-automation#721: Put the interactive race finish simulator above the Unbound 200 course profile\n- closed road-race-automation#105: intel: Sync Race Catalog \u2192 Endure Labs import failing 421/421 \u2014 \"Legacy API keys are disabled\" on SUPABASE_SERVICE_ROLE_KEY\n- runs: gravel-race-automation/Daily Monitoring 1\u2713/0\u2717; gravel-race-automation/Immune Check 1\u2713/0\u2717; gravel-race-automation/Uptime 36\u2713/0\u2717; gravel-race-automation/pages build and deployment 1\u2713/0\u2717; road-race-automation/CWV Monitoring 1\u2713/0\u2717; road-race-automation/Checkout Health Monitor 4\u2713/0\u2717; road-race-automation/GSC Monitoring 1\u2713/0\u2717; road-race-automation/Immune Check 1\u2713/0\u2717.\n\n## REVIEW QUEUE (agent PRs waiting on Matti)\n- gravel-race-automation#370 (nightly-executor, draft, 63.4d): exec: retired model ID in batch_enrich/batch_fill_content/youtube_enrich (#368)\n- road-race-automation#75 (nightly-executor, draft, 61.4d): exec: retired model ID in batch_enrich/batch_fill_content/youtube_enrich (#69)\n- gravel-race-automation#434 (morning-intel-triage, draft, 52.0d): intel-fix: resync search index and test fixtures after leadville-100 veracity correction\n- gravel-race-automation#485 (morning-intel-triage, draft, 44.0d): intel-fix: require SEO-signal context for daily_intel.py adjudication matches\n- gravel-race-automation#484 (morning-intel-triage, draft, 44.0d): intel-fix: label daily health-check drill orders, not customer orders\n- gravel-race-automation#573 (morning-intel-triage, draft, 10.9d): intel-fix: retry once on transient GA4 Data API errors in daily_intel.py\n\n## LEADS (movement only)\n- MOVED s***@web.de \u2014 Bohemian Border Bash; race_debrief_v1 step 1; 1 opens/1 clicks.\n- MOVED c***@gmail.com \u2014 Unbound Gravel 100; kit_delivery_v1 step 1; 1 opens/0 clicks.\n- MOVED d***@gmail.com \u2014 Colorado Trail Race; race_debrief_v1 step 1; 1 opens/1 clicks.\n- MOVED p***@slingshot.co.nz \u2014 Gravel and Tar Classic; race_countdown_8_v1 step 1; 1 opens/0 clicks.\n- MOVED c***@outlook.com \u2014 Iowa Wind and Rock; welcome_v1 step 1; 1 opens/0 clicks.\n- 3 fresh lead(s) at step 1 with no signal yet (not listed).\n\n## AEO (WEEKLY)\n- completed window: 2026-11-16 through 2026-11-22; AI-referral sessions are a lower-bound click-through proxy, not proof of citation.\n- **Gravel God:** AI-referral 7 (+1 WoW); user_fetch 213 (-58 WoW); search_index 993; training_crawl 2799; llms.txt/.md 2xx 666 (34 non-2xx).\n- **Gravel God top fetched paths:** / (37), /robots.txt (30), /tire/continental-terra-speed-40/ (6).\n- **Roadie Labs:** AI-referral 3 (+2 WoW); user_fetch 79 (+14 WoW); search_index 494; training_crawl 1429; llms.txt/.md 2xx 768 (58 non-2xx).\n- **Roadie Labs top fetched paths:** / (21), /robots.txt (9), /race/gran-fondo-medellin/ (3).\n- **XC Ski Labs:** AI-referral not configured; user_fetch 8 (-11 WoW); search_index 28; training_crawl 1812; llms.txt/.md 2xx 318 (7 non-2xx).\n- **XC Ski Labs top fetched paths:** / (4), /coaching/apply/ (1), /goals/ (1).\n- 8 recurring unknown agent(s) unchanged from last week (not listed).\n- **New unknown agent candidates this week (spoofable):** Mozilla/5.0 (compatible; ExaSearchBot-Images/1.0; +https://images.crawler.exa.ai) (309; gravelgod 265, roadie 43, xcski 1), Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Claude/5.11492.5 Chrome/156.0.807 (307; gravelgod 245, roadie 19, xcski 43), Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Claude/4.23118.1 Chrome/152.0.797 (238; gravelgod 144, roadie 34, xcski 60), Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; AzureAI-SearchBot/1.0; (201; gravelgod 182, roadie 17, xcski 2), Mozilla/5.0 (compatible; ibou-search/2.0; +https://ibou.com/crawlers.html) (167; gravelgod 167), Mozilla/5.0 (compatible; CrolBot/0.1; +https://cloro.dev) (91; gravelgod 65, roadie 26), EchoGreyBot/1.0 (+https://echogrey.ai/bot) (51; gravelgod 51).\n\n## SEO (WEEKLY)\n- overall: 1735 clicks (-268 WoW), 42683 impressions (-8114 WoW).\n- #1 [decliners] /race/big-sugar/tires/ \u2014 pos 5.3, 80 impr, CTR 15.0% \u2014 /race/big-sugar/tires/ clicks fell from 61 to 12 \u2014 refresh content. \u2014 ADJUDICATED in #637 (intel: SEO decliners /race/big-sugar/, /race/big-sugar/tires/, /race/uci-gravel-worlds/tires/, /race/flanders-legacy-gra); no new action unless the ruling changed\n- #2 [decliners] /race/uci-gravel-worlds/tires/ \u2014 pos 4.6, 169 impr, CTR 14.2% \u2014 /race/uci-gravel-worlds/tires/ clicks fell from 72 to 24 \u2014 refresh content. \u2014 ADJUDICATED in #637 (intel: SEO decliners /race/big-sugar/, /race/big-sugar/tires/, /race/uci-gravel-worlds/tires/, /race/flanders-legacy-gra); no new action unless the ruling changed\n- #3 [decliners] /race/gravel-revival/ \u2014 pos 9.3, 62 impr, CTR 3.2% \u2014 /race/gravel-revival/ clicks fell from 46 to 2 \u2014 refresh content. \u2014 ADJUDICATED in #499 (intel: SEO candidates gravel-revival + chino-grinder (both striking-distance) \u2014 no prior ruling); no new action unless the ruling changed\n- #4 [decliners] /race/big-sugar/ \u2014 pos 13.8, 176 impr, CTR 0.6% \u2014 /race/big-sugar/ clicks fell from 36 to 1, position worsened 7.4 \u2192 13.8 \u2014 refresh content. \u2014 ADJUDICATED in #637 (intel: SEO decliners /race/big-sugar/, /race/big-sugar/tires/, /race/uci-gravel-worlds/tires/, /race/flanders-legacy-gra); no new action unless the ruling changed\n- #5 [decliners] /race/the-equalizer/ \u2014 pos 5.4, 181 impr, CTR 2.8% \u2014 /race/the-equalizer/ clicks fell from 34 to 5 \u2014 refresh content.\n- 1 candidate(s) without a ruling; draft refreshes for those only.\n\n## BROKEN\n- nothing broken.\n\n## DO TODAY\n1. Review gravel-race-automation#370 (draft, 63.4d old, nightly-executor) \u2014 oldest item in queue, retired model ID fix \u2014 verified (REVIEW QUEUE age).\n2. Review road-race-automation#75 (draft, 61.4d old, same retired-model-ID issue) \u2014 second-oldest, same root cause as #370 \u2014 verified.\n3. Nothing else \u2014 let traffic and funnel run; no new SEO action needed (4 of 5 decliners already adjudicated, 1 candidate queued) and nothing is broken \u2014 verified."
+}

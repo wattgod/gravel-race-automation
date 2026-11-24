@@ -984,6 +984,16 @@ def _collect_seo(today: date | None = None) -> dict:
     }
 
 
+# Keywords that mark a passage as actually discussing SEO performance, not
+# just mentioning a path in passing (e.g. a curl/verification list). Used to
+# gate _annotate_seo_adjudications matches — see intel issue #371.
+_SEO_ADJUDICATION_CONTEXT = re.compile(
+    r"declin|\bctr\b|impression|\bclicks?\b|ranking|seasonal|\bfell\b|position|"
+    r"striking.distance|refresh content|search console|serp",
+    re.IGNORECASE,
+)
+
+
 def _annotate_seo_adjudications(candidates: list) -> list:
     """Attach the open intel issue that already adjudicated a page, so the
     report stops re-listing 'refresh content' for pages triage ruled
@@ -1000,7 +1010,6 @@ def _annotate_seo_adjudications(candidates: list) -> list:
         issues = json.loads(r.stdout or "[]")
     except Exception:
         return out
-    import re
     for c in out:
         path = str(c.get("target_path") or "")
         if not path:
@@ -1010,9 +1019,13 @@ def _annotate_seo_adjudications(candidates: list) -> list:
         pattern = re.compile(r"(?<![/-])" + re.escape(path) + r"(?![\w-])")  # domain prefix OK
         for issue in issues:
             text = f"{issue.get('title', '')}\n{issue.get('body', '')}"
-            if pattern.search(text):
-                c["adjudicated_issue"] = issue["number"]
-                c["adjudicated_title"] = issue.get("title", "")[:120]
+            for m in pattern.finditer(text):
+                window = text[max(0, m.start() - 200):m.end() + 200]
+                if _SEO_ADJUDICATION_CONTEXT.search(window):
+                    c["adjudicated_issue"] = issue["number"]
+                    c["adjudicated_title"] = issue.get("title", "")[:120]
+                    break
+            if c.get("adjudicated_issue"):
                 break
     return out
 

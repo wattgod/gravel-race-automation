@@ -17,7 +17,7 @@ What the page says (LAUNCH_DECISIONS, 2026-11-12):
 - the course edition next to the result;
 - the effort default (level-and-duration curves) shown as an editable value;
 - improvement rows one at a time, never summed; Fitness size chosen by the rider;
-- the plan button goes to the existing Custom Training Plan checkout.
+- the plan button links to the race’s training offer.
 """
 from __future__ import annotations
 
@@ -33,6 +33,7 @@ from urllib.parse import urlencode
 from brand_tokens import SITE_BASE_URL, get_font_face_css, get_tokens_css
 import plan_offer
 from course_dossier import PRICE_RATE
+from endure_offer import ENDURE_PRIMARY_RACES, ENDURE_RACE_CTA, endure_plan_url
 
 REPO = Path(__file__).resolve().parent.parent
 PLANNER_DIR = REPO / "data" / "planner"
@@ -195,7 +196,8 @@ def build_finish_outlook(config: dict | None, *, embedded: bool = False) -> str:
             "utm_medium": "race-page",
             "utm_campaign": "finish-outlook",
         })
-        signup = f'<a class="gg-sim-signup" href="{_esc("https://endurelabs.app/sign-up?" + params)}">Train for this race in Endure</a>'
+        href = config.get("outlook_signup") or "https://endurelabs.app/sign-up?" + params
+        signup = f'<a class="gg-sim-signup" href="{_esc(href)}">{ENDURE_RACE_CTA}</a>'
     return OUTLOOK_TEMPLATE.read_text().format(
         config=json.dumps(runtime, separators=(",", ":")).replace("<", r"\u003c"),
         edition=_esc(config["edition_short"]), race=_esc(config["race"]),
@@ -360,6 +362,7 @@ def planner_config(rd: dict, show_offer: bool) -> dict | None:
     summary = _course_summary(slug)
     names = asset_names()
     gear = _gear()
+    endure_href = endure_plan_url(rd, campaign="race_planner") if show_offer and slug in ENDURE_PRIMARY_RACES else None
     return {
         "slug": slug,
         "race": str(rd.get("name") or slug),
@@ -384,7 +387,8 @@ def planner_config(rd: dict, show_offer: bool) -> dict | None:
         "bottle_default": next(i for i, b in enumerate(gear["bottles"]) if b["ml"] == 750),
         "packs": [{"label": q["model"], "litres": q["litres"], "kg": round(q["g"] / 1000 + q["litres"], 3)} for q in gear["packs"]],
         "gels": [{"id": x["id"], "label": x["model"], "g": x["g"], "url": x["url"]} for x in gear["gels"]],
-        "offer": ({
+        "outlook_signup": endure_plan_url(rd, campaign="finish-outlook") if endure_href else None,
+        "offer": ({"href": endure_href, "endure": True, "label": ENDURE_RACE_CTA} if endure_href else {
             "href": f"{PLAN_URL}?race={slug}&src=race_planner",
             "price": PRICE_RATE,
             "price_note": f"{plan_offer.REFUND_LINE} Cancel any time from your plan page.",

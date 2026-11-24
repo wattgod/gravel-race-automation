@@ -27,6 +27,9 @@ def get_endure_offer_html() -> str:
 </aside>'''
 
 
+ENDURE_RACE_CTA = "Train for this race in Endure"
+ENDURE_PRIMARY_RACES = frozenset({"unbound-200"})
+
 ENDURE_PLAN_COPY = "Or train in Endure: $24/month, 14 days free"
 
 # Beta: only these race pages carry the secondary Endure link (spec G-A, 10-20 races).
@@ -78,7 +81,7 @@ def _climbing_ft(vitals: dict) -> "str | None":
     return _number(float(match.group(1).replace(",", ""))) if match else None
 
 
-def endure_plan_url(race: dict, today: "date | None" = None) -> "str | None":
+def endure_plan_url(race: dict, today: "date | None" = None, *, campaign: str = "endure_plan") -> "str | None":
     """Endure sign-up link carrying the race facts (read by Endure's race hand-off).
 
     Returns None unless the race is on the beta list and has a confirmed future
@@ -102,5 +105,5 @@ def endure_plan_url(race: dict, today: "date | None" = None) -> "str | None":
         "discipline": "gravel",
         "utm_source": "gravel-god",
         "utm_medium": "race-page",
-        "utm_campaign": "endure_plan",
+        "utm_campaign": campaign,
     })

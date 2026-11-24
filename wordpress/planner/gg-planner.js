@@ -700,10 +700,15 @@
 
   function offerCard() {
     var o = cfg.offer;
-    var a = el("a", { cls: "gg-planner-cta", href: o.href, "data-cta": "planner_custom_plan", text: "Build my plan · " + o.price });
+    var a = el("a", {
+      cls: "gg-planner-cta", href: o.href,
+      "data-cta": o.endure ? "planner_endure_plan" : "planner_custom_plan",
+      text: o.endure ? o.label : "Build my plan · " + o.price
+    });
     a.addEventListener("click", function () {
       if (typeof gtag === "function") gtag("event", cfg.events.cta, { race_slug: cfg.slug, source: "race_planner" });
     });
+    if (o.endure) return el("div", { cls: "gg-planner-card gg-planner-offer" }, [a]);
     var ul = el("ul");
     o.includes.forEach(function (s) { ul.appendChild(el("li", { text: s })); });
     return el("div", { cls: "gg-planner-card gg-planner-offer" }, [

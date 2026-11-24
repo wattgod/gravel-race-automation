@@ -9,12 +9,13 @@ private material ships; a failed solve shows no time.
 import base64
 import hashlib
 import json
-from html import escape as html_escape
+from html import escape as html_escape, unescape
 import re
 import shutil
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 import pytest
 
@@ -214,9 +215,10 @@ def test_analytics_events_go_through_gtag_behind_consent():
     assert "data-measure-section" not in opening
 
 
-def test_plan_button_goes_to_the_existing_checkout():
-    cfg = config(page("unbound-200"))
-    assert cfg["offer"]["href"] == "https://gravelgodcycling.com/questionnaire/?race=unbound-200&src=race_planner"
+def test_other_plan_buttons_go_to_the_existing_checkout():
+    slug = "leadville-100"
+    cfg = config(page(slug))
+    assert cfg["offer"]["href"] == f"https://gravelgodcycling.com/questionnaire/?race={slug}&src=race_planner"
     import plan_offer
     # Rate only, in the race page's one price form (issue #675).
     assert cfg["offer"]["price"] == "$49.99 / four weeks"
@@ -224,6 +226,29 @@ def test_plan_button_goes_to_the_existing_checkout():
     assert not plan_offer.stale_offer_phrases(" ".join([cfg["offer"]["price"], cfg["offer"]["price_note"],
                                                          *cfg["offer"]["includes"]]))
     assert "o.price_note" in (PLANNER_JS / "gg-planner.js").read_text()
+
+
+def test_unbound_training_ctas_share_the_endure_race_handoff():
+    html = page("unbound-200")
+
+    hero_href = unescape(re.search(r'class="gg-sim-signup" href="([^"]+)"', html).group(1))
+    profile_href = unescape(re.search(r'class="gg-cd-buy" href="([^"]+)"', html).group(1))
+    offer = config(html)["offer"]
+    assert offer["endure"] is True
+    assert 'data-cta="approved_custom_plan"' not in html
+    assert "$49.99 / four weeks" not in html
+    for campaign, href in [
+        ("finish-outlook", hero_href), ("race_profile", profile_href), ("race_planner", offer["href"]),
+    ]:
+        url = urlsplit(href)
+        assert (url.scheme, url.netloc, url.path) == ("https", "endurelabs.app", "/sign-up")
+        params = parse_qs(url.query)
+        assert params["race"] == ["unbound-200"]
+        assert params["race_name"] == ["Unbound Gravel 200"]
+        assert params["race_date"] == ["2027-06-05"]
+        assert params["distance_mi"] == ["200"]
+        assert params["discipline"] == ["gravel"]
+        assert params["utm_campaign"] == [campaign]
 
 
 def test_fuel_brackets_come_from_the_pipeline():
@@ -368,6 +393,16 @@ def test_release_contract_accepts_the_planner_in_place_of_the_calculator():
     release.verify_page_contract(html, slug, hrefs)
     with pytest.raises(ValueError, match="Calculator"):
         release.verify_page_contract(html, "other-race", hrefs)
+
+    unbound = page("unbound-200")
+    from endure_offer import endure_plan_url
+    race = load_race_data(ROOT / "race-data" / "unbound-200.json")
+    expected = endure_plan_url(race, campaign="race_profile")
+    assert expected
+    release.verify_page_contract(unbound, "unbound-200", [], expected_endure_href=expected)
+    with pytest.raises(ValueError, match="Endure CTA"):
+        release.verify_page_contract(unbound, "unbound-200", [], expected_endure_href="https://endurelabs.app/")
+
 
 
 def test_release_package_must_ship_every_planner_asset_the_config_loads(tmp_path):

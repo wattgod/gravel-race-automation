@@ -66,10 +66,11 @@ def test_objective_course_facts_match_the_official_uci_pages() -> None:
         assert profile["source_review"]["reviewed_at"] == "2026-08-14"
 
 
-def test_no_new_profile_projects_a_2026_course_into_an_unannounced_2027_edition() -> None:
+def test_falling_leaves_keeps_its_2026_edition_separate_from_the_confirmed_2027_date() -> None:
     falling = race("falling-leaves-lahti")
-    assert "September 12 (Saturday)" in falling["vitals"]["date_specific"]
-    assert "no 2027 Falling Leaves date" in falling["vitals"]["date_specific"]
+    # NGS announced September 11 in its official 2027 series calendar.
+    assert falling["vitals"]["date_specific"].startswith("2027: September 11")
+    assert any(edition["date"] == "2026-09-12" for edition in falling["editions"])
     assert "separately cataloged event" in falling["eligibility"]["status_note"]
     assert "must not be inferred" in falling["source_review"]["facts_scope"]
 

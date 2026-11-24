@@ -429,6 +429,8 @@ MERGES = json.loads((ROOT / "data" / "duplicate-merges.json").read_text())["merg
 
 # Same first-location word + same month, but checked and NOT the same event.
 NOT_DUPLICATES = {
+    frozenset({"unbound-100", "unbound-200"}): "separate 100-mile and 200-mile distances",
+    frozenset({"unbound-100", "unbound-xl"}): "separate 100-mile and XL distances",
     frozenset({"unbound-200", "unbound-xl"}): "two distances, separately rated",
     frozenset({"sea-otter-gravel", "fuego-mtb"}): "gravel race vs MTB race at one festival",
     frozenset({"big-sugar", "little-sugar-mtb"}): "gravel race vs MTB race, same weekend",

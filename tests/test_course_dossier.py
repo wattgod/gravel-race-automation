@@ -200,16 +200,23 @@ def test_rating_citations_resolve(unbound_html):
         assert f'id="gg-citation-{n}"' in unbound_html
 
 
-def test_plan_offer_shows_only_the_rate(unbound_html):
+def test_custom_plan_offer_shows_only_the_rate(race_index):
+    rd = gnb.load_race_data(ROOT / "race-data" / "leadville-100.json")
+    html = _body(gnb.generate_page(rd, race_index))
+    yours = html[html.index('gg-cd-yours'):html.index('class="gg-cd-route"')]
     assert cd.PRICE_RATE == "$49.99 / four weeks"
-    yours = unbound_html[unbound_html.index('gg-cd-yours'):unbound_html.index('class="gg-cd-route"')]
-    assert "$49.99 / four weeks" in yours
+    assert cd.PRICE_RATE in yours
     assert "Start my plan" in yours and 'data-cta="approved_custom_plan"' in yours
-    assert "data-cd-weeks" in yours and "data-cd-estimator" in yours
-    lowered = unbound_html.lower()
     for banned in ("every 4 weeks", "payments", " in all", "total of"):
         assert banned not in yours.lower(), banned
-    assert "every 4 weeks" not in lowered
+
+
+def test_unbound_plan_offer_uses_endure(unbound_html):
+    yours = unbound_html[unbound_html.index('gg-cd-yours'):unbound_html.index('class="gg-cd-route"')]
+    assert "Train for this race in Endure" in yours
+    assert 'data-cta="approved_endure_plan"' in yours
+    assert cd.PRICE_RATE not in yours
+    assert "data-cd-weeks" in yours and "data-cd-estimator" in yours
 
 
 def test_page_keeps_schema_and_unique_ids(race_index):
@@ -233,6 +240,7 @@ def test_suppressed_marketing_drops_every_plan_ask(race_index):
     rd["taking_a_break"] = {"label": "Taking a break", "line": "No 2027 edition."}
     html = _body(gnb.generate_page(rd, race_index))
     assert "Start my plan" not in html and "route_bar_plan" not in html
+    assert "Train for this race in Endure" not in html
     assert 'data-measure-section="custom-plan"' not in html
     assert "four weeks" not in html
 

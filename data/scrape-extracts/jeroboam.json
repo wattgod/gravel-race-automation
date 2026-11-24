@@ -1,5 +1,19 @@
 {
-  "date_2026": "2026: July 18-22",
-  "source": "regex_from_html",
-  "url": "https://jeroboam.bike/"
+  "next_edition_date": null,
+  "distance_mi": 186,
+  "elevation_ft": null,
+  "registration_status": "open",
+  "registration_cost": null,
+  "field_size": null,
+  "start_time": null,
+  "official_site_confirmed": true,
+  "location": "Italy",
+  "aid_stations": null,
+  "cutoff_time": null,
+  "distances_offered": [
+    "300 km"
+  ],
+  "source_url_title": "Home - Jeroboam",
+  "extraction_model": "thinkingmachines/inkling-2-mini",
+  "extraction_cost_usd": 0.002372475
 }

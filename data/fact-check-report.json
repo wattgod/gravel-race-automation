@@ -1,108 +1,268 @@
 [
   {
-    "slug": "cheaha-challenge-gran-fondo",
+    "slug": "alentejo-gravel",
     "fields": {
-      "date_specific": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: May 16, scraped=2026: May 16",
-        "profile": "2026: May 16",
-        "scraped": "2026: May 16"
+        "detail": "profile=74.0, scraped=74.0, diff=0.0mi",
+        "profile": 74,
+        "scraped": 74
+      },
+      "elevation_ft": {
+        "classification": "CONFIRM",
+        "detail": "profile=5741.0, scraped=5700.0, diff=41ft",
+        "profile": 5741,
+        "scraped": 5700
       }
     },
     "summary": "CONFIRM"
+  },
+  {
+    "slug": "ardenne-gravel-stages",
+    "fields": {
+      "distance_mi": {
+        "classification": "CONFIRM",
+        "detail": "profile=165.0, scraped=165.0, diff=0.0mi",
+        "profile": 165,
+        "scraped": 165
+      },
+      "elevation_ft": {
+        "classification": "CONFIRM",
+        "detail": "profile=14009.0, scraped=14000.0, diff=9ft",
+        "profile": 14009,
+        "scraped": 14000
+      }
+    },
+    "summary": "CONFIRM"
+  },
+  {
+    "slug": "bohemian-border-bash",
+    "fields": {
+      "distance_mi": {
+        "classification": "CONFIRM",
+        "detail": "profile=882.0, scraped=882.0, diff=0.0mi",
+        "profile": 882,
+        "scraped": 882
+      },
+      "elevation_ft": {
+        "classification": "CONFIRM",
+        "detail": "profile=82972.0, scraped=83000.0, diff=28ft",
+        "profile": 82972,
+        "scraped": 83000
+      }
+    },
+    "summary": "CONFIRM"
+  },
+  {
+    "slug": "boulder-roubaix",
+    "fields": {
+      "distance_mi": {
+        "classification": "CONFIRM",
+        "detail": "profile=30.0, scraped=29.0, diff=1.0mi",
+        "profile": 30,
+        "scraped": 29
+      }
+    },
+    "summary": "CONFIRM"
+  },
+  {
+    "slug": "bwr-mexico",
+    "fields": {
+      "distance_mi": {
+        "classification": "CONFIRM",
+        "detail": "profile=112.0, scraped=112.0, diff=0.0mi",
+        "profile": 112,
+        "scraped": 112
+      }
+    },
+    "summary": "CONFIRM"
+  },
+  {
+    "slug": "cirrem",
+    "fields": {
+      "distance_mi": {
+        "classification": "CONFIRM",
+        "detail": "profile=62.0, scraped=62.0, diff=0.0mi",
+        "profile": 62,
+        "scraped": 62
+      }
+    },
+    "summary": "CONFIRM"
+  },
+  {
+    "slug": "collegiate-gravel-nationals",
+    "fields": {},
+    "summary": "NO_DATA"
   },
   {
     "slug": "crusher-in-the-tushar",
-    "fields": {
-      "date_specific": {
-        "classification": "CONFIRM",
-        "detail": "profile=2026: July 11, scraped=2026: July 11",
-        "profile": "2026: July 11",
-        "scraped": "2026: July 11"
-      }
-    },
-    "summary": "CONFIRM"
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "d2r2",
+    "fields": {},
+    "summary": "NO_DATA"
   },
   {
     "slug": "dirty-reiver",
-    "fields": {
-      "date_specific": {
-        "classification": "CONFIRM",
-        "detail": "profile=2026: April 24-26, scraped=2026: April 24-26",
-        "profile": "2026: April 24-26",
-        "scraped": "2026: April 24-26"
-      }
-    },
-    "summary": "CONFIRM"
+    "fields": {},
+    "summary": "NO_DATA"
   },
   {
     "slug": "edition-zero",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "falling-leaves-lahti",
     "fields": {
       "date_specific": {
+        "classification": "STALE_DATE",
+        "detail": "profile=2026: September 12 (Saturday); no 2027 Falling Leaves date published, scraped=2027-09-11",
+        "profile": "2026: September 12 (Saturday); no 2027 Falling Leaves date published",
+        "scraped": "2027-09-11"
+      }
+    },
+    "summary": "STALE_DATE"
+  },
+  {
+    "slug": "farmers-daughter",
+    "fields": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: January 28, scraped=2026: January 28",
-        "profile": "2026: January 28",
-        "scraped": "2026: January 28"
+        "detail": "profile=65.0, scraped=65.0, diff=0.0mi",
+        "profile": 65,
+        "scraped": 65
+      },
+      "elevation_ft": {
+        "classification": "CONFIRM",
+        "detail": "profile=6400.0, scraped=6400.0, diff=0ft",
+        "profile": 6400,
+        "scraped": 6400
       }
     },
     "summary": "CONFIRM"
   },
   {
-    "slug": "gfny-lourdes-tourmalet",
+    "slug": "giro-sardegna-gravel",
     "fields": {
-      "date_specific": {
+      "elevation_ft": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: June 14, scraped=2026: June 14",
-        "profile": "2026: June 14",
-        "scraped": "2026: June 14"
+        "detail": "profile=4100.0, scraped=4000.0, diff=100ft",
+        "profile": 4100,
+        "scraped": 4000
       }
     },
     "summary": "CONFIRM"
   },
   {
-    "slug": "grafton-to-inverell-classic",
+    "slug": "grand-tour-3-cime-lavaredo",
     "fields": {
-      "date_specific": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: March 14, scraped=2026: March 14-15",
-        "profile": "2026: March 14",
-        "scraped": "2026: March 14-15"
+        "detail": "profile=82.6, scraped=83.0, diff=0.4mi",
+        "profile": 82.6,
+        "scraped": 83
+      },
+      "elevation_ft": {
+        "classification": "CONFIRM",
+        "detail": "profile=10400.0, scraped=10400.0, diff=0ft",
+        "profile": 10400,
+        "scraped": 10400
       }
     },
     "summary": "CONFIRM"
   },
   {
-    "slug": "gran-fondo-maryland",
+    "slug": "gravel-bogota",
     "fields": {
-      "date_specific": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: September 20, scraped=2026: September 20",
-        "profile": "2026: September 20",
-        "scraped": "2026: September 20"
+        "detail": "profile=80.0, scraped=80.0, diff=0.0mi",
+        "profile": 80,
+        "scraped": 80
+      },
+      "elevation_ft": {
+        "classification": "CONFIRM",
+        "detail": "profile=6188.0, scraped=6200.0, diff=12ft",
+        "profile": 6188,
+        "scraped": 6200
       }
     },
     "summary": "CONFIRM"
   },
   {
-    "slug": "granfondo-matildica",
+    "slug": "gravel-of-marathon",
     "fields": {
-      "date_specific": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: September 13, scraped=2026: September 13",
-        "profile": "2026: September 13",
-        "scraped": "2026: September 13"
+        "detail": "profile=59.6, scraped=59.0, diff=0.6mi",
+        "profile": 59.6,
+        "scraped": 59
+      }
+    },
+    "summary": "CONFIRM"
+  },
+  {
+    "slug": "gravel-revival",
+    "fields": {
+      "distance_mi": {
+        "classification": "CONFIRM",
+        "detail": "profile=68.0, scraped=68.0, diff=0.0mi",
+        "profile": 68,
+        "scraped": 68
       }
     },
     "summary": "CONFIRM"
   },
   {
     "slug": "gravel-worlds",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "gravelista",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "grinduro",
     "fields": {
-      "date_specific": {
+      "registration": {
+        "classification": "ENRICHABLE",
+        "detail": "scraped=coming_soon",
+        "profile": null,
+        "scraped": "coming_soon"
+      }
+    },
+    "summary": "ENRICHABLE"
+  },
+  {
+    "slug": "grinduro-california",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "grinduro-italy",
+    "fields": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: Aug 19-23 (Race Aug 22-23), scraped=2026: August 19-23",
-        "profile": "2026: Aug 19-23 (Race Aug 22-23)",
-        "scraped": "2026: August 19-23"
+        "detail": "profile=62.0, scraped=62.0, diff=0.0mi",
+        "profile": 62,
+        "scraped": 62
+      }
+    },
+    "summary": "CONFIRM"
+  },
+  {
+    "slug": "gunni-grinder",
+    "fields": {
+      "distance_mi": {
+        "classification": "CONFIRM",
+        "detail": "profile=120.5, scraped=120.0, diff=0.5mi",
+        "profile": 120.5,
+        "scraped": 120
       }
     },
     "summary": "CONFIRM"
@@ -110,203 +270,259 @@
   {
     "slug": "hell-of-hunterdon",
     "fields": {
-      "date_specific": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: March 29, scraped=2026: March 29",
-        "profile": "2026: March 29",
-        "scraped": "2026: March 29"
+        "detail": "profile=75.0, scraped=73.0, diff=2.0mi",
+        "profile": 75,
+        "scraped": 73
       }
     },
     "summary": "CONFIRM"
+  },
+  {
+    "slug": "houffa-gravel",
+    "fields": {
+      "distance_mi": {
+        "classification": "CONFIRM",
+        "detail": "profile=86.0, scraped=86.0, diff=0.0mi",
+        "profile": 86,
+        "scraped": 86
+      },
+      "elevation_ft": {
+        "classification": "CONFIRM",
+        "detail": "profile=7185.0, scraped=7200.0, diff=15ft",
+        "profile": 7185,
+        "scraped": 7200
+      }
+    },
+    "summary": "CONFIRM"
+  },
+  {
+    "slug": "hysk-gravel-classic-yakurai",
+    "fields": {
+      "start_time": {
+        "classification": "ENRICHABLE",
+        "detail": "scraped=06:30 AM",
+        "profile": null,
+        "scraped": "06:30 AM"
+      }
+    },
+    "summary": "ENRICHABLE"
   },
   {
     "slug": "jeroboam",
     "fields": {
-      "date_specific": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: July 18-22, scraped=2026: July 18-22",
-        "profile": "2026: July 18-22",
-        "scraped": "2026: July 18-22"
+        "detail": "profile=186.0, scraped=186.0, diff=0.0mi",
+        "profile": 186,
+        "scraped": 186
+      },
+      "registration": {
+        "classification": "ENRICHABLE",
+        "detail": "scraped=open",
+        "profile": null,
+        "scraped": "open"
       }
     },
-    "summary": "CONFIRM"
+    "summary": "ENRICHABLE"
   },
   {
     "slug": "just-gravel",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "la-dromoise-gravel",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "mammoth-tuff",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "monaco-gravel-race",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "ned-gravel",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "niseko-gravel",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "ouachita-challenge",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "pirinexus-360",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "pony-xpress",
     "fields": {
-      "date_specific": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: October 3, scraped=2026: October 3",
-        "profile": "2026: October 3",
-        "scraped": "2026: October 3"
+        "detail": "profile=100.0, scraped=100.0, diff=0.0mi",
+        "profile": 100,
+        "scraped": 100
       }
     },
     "summary": "CONFIRM"
   },
   {
-    "slug": "lake-taupo-cycle-challenge",
-    "fields": {
-      "date_specific": {
-        "classification": "CONFIRM",
-        "detail": "profile=2026: November 28, scraped=2026: November 28",
-        "profile": "2026: November 28",
-        "scraped": "2026: November 28"
-      }
-    },
-    "summary": "CONFIRM"
+    "slug": "pyrenees-catalanes-gravel-tour",
+    "fields": {},
+    "summary": "NO_DATA"
   },
   {
-    "slug": "letape-du-tour",
+    "slug": "r3g3",
     "fields": {
-      "date_specific": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: July 19, scraped=2026: July 19",
-        "profile": "2026: July 19",
-        "scraped": "2026: July 19"
-      }
-    },
-    "summary": "CONFIRM"
-  },
-  {
-    "slug": "liege-bastogne-liege-challenge",
-    "fields": {
-      "date_specific": {
-        "classification": "CONFIRM",
-        "detail": "profile=2026: April 25, scraped=2026: April 25",
-        "profile": "2026: April 25",
-        "scraped": "2026: April 25"
-      }
-    },
-    "summary": "CONFIRM"
-  },
-  {
-    "slug": "mount-baker-hill-climb",
-    "fields": {
-      "date_specific": {
-        "classification": "CONFIRM",
-        "detail": "profile=2026: September 13, scraped=2026: September 13",
-        "profile": "2026: September 13",
-        "scraped": "2026: September 13"
+        "detail": "profile=104.2, scraped=104.0, diff=0.2mi",
+        "profile": 104.2,
+        "scraped": 104
       }
     },
     "summary": "CONFIRM"
   },
   {
     "slug": "rebeccas-private-idaho",
-    "fields": {
-      "date_specific": {
-        "classification": "CONFIRM",
-        "detail": "profile=2026: September 12, scraped=2026: September 9",
-        "profile": "2026: September 12",
-        "scraped": "2026: September 9"
-      }
-    },
-    "summary": "CONFIRM"
+    "fields": {},
+    "summary": "NO_DATA"
   },
   {
-    "slug": "schleck-gran-fondo",
+    "slug": "red-granite-grinder",
     "fields": {
-      "date_specific": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: May 30, scraped=2026: May 14",
-        "profile": "2026: May 30",
-        "scraped": "2026: May 14"
+        "detail": "profile=150.0, scraped=150.0, diff=0.0mi",
+        "profile": 150,
+        "scraped": 150
       }
     },
     "summary": "CONFIRM"
   },
   {
     "slug": "sea-otter-gravel",
-    "fields": {
-      "date_specific": {
-        "classification": "CONFIRM",
-        "detail": "profile=2026: April 16-19, scraped=2026: April 16-19",
-        "profile": "2026: April 16-19",
-        "scraped": "2026: April 16-19"
-      }
-    },
-    "summary": "CONFIRM"
+    "fields": {},
+    "summary": "NO_DATA"
   },
   {
     "slug": "seven",
-    "fields": {
-      "date_specific": {
-        "classification": "CONFIRM",
-        "detail": "profile=2026: May 16, scraped=2026: May 16",
-        "profile": "2026: May 16",
-        "scraped": "2026: May 16"
-      }
-    },
-    "summary": "CONFIRM"
+    "fields": {},
+    "summary": "NO_DATA"
   },
   {
     "slug": "steamboat-gravel",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "tartu-rattamaraton-gravel",
     "fields": {
-      "date_specific": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: June 28, scraped=2026: June 26-28",
-        "profile": "2026: June 28",
-        "scraped": "2026: June 26-28"
+        "detail": "profile=78.3, scraped=76.0, diff=2.3mi",
+        "profile": 78.3,
+        "scraped": 76
       }
     },
     "summary": "CONFIRM"
   },
   {
-    "slug": "tour-of-nilgiris",
+    "slug": "torino-nice-rally",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "trans-balkan-race",
     "fields": {
-      "date_specific": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: December 12-20, scraped=2026: January 29",
-        "profile": "2026: December 12-20",
-        "scraped": "2026: January 29"
+        "detail": "profile=870.0, scraped=870.0, diff=0.0mi",
+        "profile": 870,
+        "scraped": 870
+      },
+      "elevation_ft": {
+        "classification": "CONFIRM",
+        "detail": "profile=98425.0, scraped=98400.0, diff=25ft",
+        "profile": 98425,
+        "scraped": 98400
+      },
+      "date_specific": {
+        "classification": "STALE_DATE",
+        "detail": "profile=TBD — official event window is 28 May through 6 June 2027; exact race start date is not yet separated from accreditation, scraped=2027-05-28",
+        "profile": "TBD — official event window is 28 May through 6 June 2027; exact race start date is not yet separated from accreditation",
+        "scraped": "2027-05-28"
+      },
+      "registration": {
+        "classification": "ENRICHABLE",
+        "detail": "scraped=open",
+        "profile": null,
+        "scraped": "open"
       }
     },
-    "summary": "CONFIRM"
+    "summary": "STALE_DATE"
   },
   {
     "slug": "transcontinental-race",
     "fields": {
-      "date_specific": {
-        "classification": "CONFIRM",
-        "detail": "profile=2026: July 19 (Trondheim, Norway to Kalamata, Greece), scraped=2026: July 19",
-        "profile": "2026: July 19 (Trondheim, Norway to Kalamata, Greece)",
-        "scraped": "2026: July 19"
+      "distance_mi": {
+        "classification": "MISMATCH",
+        "detail": "profile=3100.0, scraped=2485.0, diff=615.0mi (tolerance=155.0)",
+        "profile": 3100,
+        "scraped": 2485
       }
     },
-    "summary": "CONFIRM"
+    "summary": "MISMATCH"
   },
   {
     "slug": "unbound-100",
     "fields": {
       "date_specific": {
-        "classification": "CONFIRM",
-        "detail": "profile=2026: May 30, scraped=2026: May 28-31",
-        "profile": "2026: May 30",
-        "scraped": "2026: May 28-31"
+        "classification": "STALE_DATE",
+        "detail": "profile=2026: May 30 (SATURDAY, CONFIRMED, ~103mi/4,373ft per that year's route — unboundgravel.com/results); 2027 dates within the June 3-6, 2027 event weekend not yet announced, per unboundgravel.com ('2027 routes are in the works'), scraped=2027-06-05",
+        "profile": "2026: May 30 (SATURDAY, CONFIRMED, ~103mi/4,373ft per that year's route — unboundgravel.com/results); 2027 dates within the June 3-6, 2027 event weekend not yet announced, per unboundgravel.com ('2027 routes are in the works')",
+        "scraped": "2027-06-05"
       }
     },
-    "summary": "CONFIRM"
+    "summary": "STALE_DATE"
   },
   {
     "slug": "unbound-200",
-    "fields": {
-      "date_specific": {
-        "classification": "CONFIRM",
-        "detail": "profile=2026: May 30, scraped=2026: May 28-31",
-        "profile": "2026: May 30",
-        "scraped": "2026: May 28-31"
-      }
-    },
-    "summary": "CONFIRM"
+    "fields": {},
+    "summary": "NO_DATA"
   },
   {
-    "slug": "white-rose-classic",
+    "slug": "vermont-overland",
+    "fields": {},
+    "summary": "NO_DATA"
+  },
+  {
+    "slug": "wyo-131",
     "fields": {
-      "date_specific": {
+      "distance_mi": {
         "classification": "CONFIRM",
-        "detail": "profile=2026: May 31, scraped=2026: May 31",
-        "profile": "2026: May 31",
-        "scraped": "2026: May 31"
+        "detail": "profile=131.0, scraped=131.0, diff=0.0mi",
+        "profile": 131,
+        "scraped": 131
+      },
+      "elevation_ft": {
+        "classification": "CONFIRM",
+        "detail": "profile=10000.0, scraped=10000.0, diff=0ft",
+        "profile": 10000,
+        "scraped": 10000
       }
     },
     "summary": "CONFIRM"

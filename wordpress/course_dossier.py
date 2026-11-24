@@ -24,6 +24,7 @@ import re
 from datetime import date
 from pathlib import Path
 
+from endure_offer import ENDURE_RACE_CTA
 from pricing import BLOCK_PRICE, BLOCK_WEEKS
 from season import PAST, UPCOMING, canonical, estimate_next, parse_edition
 from season import today as season_today
@@ -439,7 +440,7 @@ def build_course_card(rd: dict, geo: dict | None, elev: dict | None,
 
 def build_yours_card(rd: dict, *, planner_route: str | None, plan_href: str | None,
                      coaching_href: str | None, target: dict | None,
-                     on: date | None = None) -> str:
+                     on: date | None = None, endure: bool = False) -> str:
     """Estimator (pages with the finish-time planner) and the plan offer
     (pages that sell one). '' when the page has neither."""
     parts = []
@@ -459,13 +460,18 @@ def build_yours_card(rd: dict, *, planner_route: str | None, plan_href: str | No
                      "isn't announced, so there's no week count yet.</p>")
         coach = (f'<a class="gg-cd-coach" href="{esc(coaching_href)}" data-cta="approved_coaching">'
                  'Or have me coach you all season &rarr;</a>') if coaching_href else ''
+        cta = "approved_endure_plan" if endure else "approved_custom_plan"
+        label = ENDURE_RACE_CTA if endure else "Start my plan"
+        rate = '' if endure else f'<div class="gg-cd-fine">{esc(PRICE_RATE)}. Cancel any time.</div>'
         parts.append(f'''<div class="gg-cd-plan">{strip}</div>
-    <a class="gg-cd-buy" href="{esc(plan_href)}" data-cta="approved_custom_plan">Start my plan</a>
-    <div class="gg-cd-fine">{esc(PRICE_RATE)}. Cancel any time.</div>
+    <a class="gg-cd-buy" href="{esc(plan_href)}" data-cta="{cta}">{esc(label)}</a>
+    {rate}
     {coach}''')
     if not parts:
         return ''
-    return f'''<div class="gg-cd-card gg-cd-yours" id="plan"{' data-measure-section="custom-plan"' if plan_href else ''}>
+    section_name = "endure-plan" if endure else "custom-plan"
+    section = f' data-measure-section="{section_name}"' if plan_href else ''
+    return f'''<div class="gg-cd-card gg-cd-yours" id="plan"{section}>
     <div class="gg-cd-lab">Your {esc(rd['name'])}</div>
     {''.join(parts)}
   </div>'''

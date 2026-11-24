@@ -14,6 +14,7 @@ import http.server
 import sys
 import threading
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 import pytest
 
@@ -38,7 +39,7 @@ SLUG = "unbound-200"
 def site(tmp_path_factory):
     import race_planner
     from generate_neo_brutalist import generate_page, load_race_data
-    if race_planner.planner_status(SLUG) not in race_planner.SHOWN:
+    if not race_planner.planner_shown(SLUG):
         pytest.skip(f"{SLUG} has no planner in the imported status")
     root = tmp_path_factory.mktemp("site")
     race_dir = root / "race"
@@ -134,6 +135,13 @@ def test_reduced_motion_replay_jumps_to_the_finish(site):
         page = ctx.new_page()
         page.goto(site)
         q = _result(page)
+        cta = page.get_by_role("link", name="Train for this race in Endure").and_(
+            page.locator(q(".gg-planner-cta"))
+        )
+        assert cta.is_visible()
+        href = urlsplit(cta.get_attribute("href"))
+        assert (href.netloc, href.path) == ("endurelabs.app", "/sign-up")
+        assert parse_qs(href.query)["race_date"] == ["2027-06-05"]
         prof = page.locator(q(".gg-planner-profile"))
         prof.focus()
         page.keyboard.press("Home")
@@ -190,7 +198,7 @@ def stub_site(tmp_path, monkeypatch):
     script, a stylesheet, and a missing path for whichever one a test blocks."""
     import race_planner
     from generate_neo_brutalist import generate_page, load_race_data
-    if race_planner.planner_status(SLUG) not in race_planner.SHOWN:
+    if not race_planner.planner_shown(SLUG):
         pytest.skip(f"{SLUG} has no planner in the imported status")
     handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(tmp_path))
     handler.log_message = lambda *a, **k: None

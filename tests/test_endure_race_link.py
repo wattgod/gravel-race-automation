@@ -56,10 +56,10 @@ def test_no_link_for_unlisted_races_unsure_dates_or_past_dates():
         assert offer.endure_plan_url(r3, TODAY) is None, key
 
 
-def test_race_page_has_one_plan_ask_and_no_endure_link():
+def test_other_race_page_has_one_plan_ask_and_no_endure_link():
     """Course Dossier (mock 6, #675): the plan card carries one ask; the
     Endure cross-sell under it is retired from race pages."""
-    html = generate_page(normalize_race_data({"race": _race("unbound-200")}), [])
+    html = generate_page(normalize_race_data({"race": _race("the-gralloch")}), [])
     assert 'data-cta="approved_custom_plan"' in html
     assert 'data-cta="endure_plan"' not in html
     assert "Or train in Endure" not in html

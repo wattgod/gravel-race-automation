@@ -51,7 +51,7 @@ from shared_footer import get_mega_footer_css, get_mega_footer_html
 from shared_header import get_site_header_css, get_site_header_html, get_site_header_js
 from pricing import plan_quote_js
 import plan_offer
-from endure_offer import ENDURE_PLAN_COPY, endure_plan_url
+from endure_offer import ENDURE_PLAN_COPY, ENDURE_PRIMARY_RACES, endure_plan_url
 from page_dates import race_updated_date
 from fact_consistency import check_race
 from race_calculator import build_race_calculator, get_race_calculator_css, race_calculator_context
@@ -8017,15 +8017,18 @@ def generate_page(rd: dict, race_index: list = None, external_assets: dict = Non
                          DISCIPLINE_LABELS.get(discipline, discipline.upper()) if discipline != 'gravel' else '',
                          route_cite=route_n, finish_outlook=finish_outlook)
 
+    endure_href = (endure_plan_url(rd, campaign="race_profile")
+                   if not suppress_plan_marketing and rd['slug'] in ENDURE_PRIMARY_RACES else None)
     plan_href = (None if suppress_plan_marketing else
-                 f"{TRAINING_PLANS_URL}?race={rd['slug']}&src=race_profile")
+                 endure_href or f"{TRAINING_PLANS_URL}?race={rd['slug']}&src=race_profile")
     coaching_href = None if suppress_plan_marketing else f"{COACHING_URL}?race={rd['slug']}"
     target = cd.plan_target(rd)
     fold = cd.build_fold([
         cd.build_why_card(rd, COURSE_DIMS, OPINION_DIMS, DIM_LABELS, _parse_score),
         cd.build_course_card(rd, geo, elev, route_n),
         cd.build_yours_card(rd, planner_route=planner_cfg['edition_short'] if planner_cfg else None,
-                            plan_href=plan_href, coaching_href=coaching_href, target=target),
+                            plan_href=plan_href, coaching_href=coaching_href, target=target,
+                            endure=bool(endure_href)),
     ])
 
     ratings = cd.build_ratings(rd, COURSE_DIMS, OPINION_DIMS, DIM_LABELS, _parse_score, n_sources)

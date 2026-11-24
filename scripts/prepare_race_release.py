@@ -271,7 +271,8 @@ def _planner_slug(text: str):
         return None
 
 
-def verify_page_contract(text: str, slug: str, expected_plan_hrefs: list[str], expected_citation_hrefs: list[str] | None = None) -> None:
+def verify_page_contract(text: str, slug: str, expected_plan_hrefs: list[str],
+                         expected_citation_hrefs: list[str] | None = None, *, expected_endure_href: str | None = None) -> None:
     parsed = Markup(); parsed.feed(text)
     forms = [f for f in parsed.forms if f.get("action") == CALCULATOR and f.get("method", "get").lower() == "get"]
     # A race with an eligible finish-time planner carries the planner in place
@@ -284,6 +285,9 @@ def verify_page_contract(text: str, slug: str, expected_plan_hrefs: list[str], e
     actual = [a.get("href") for a in parsed.anchors if a.get("data-cta") == "approved_custom_plan"]
     if actual != expected_plan_hrefs:
         raise ValueError("Active custom-plan CTA changed")
+    endure_links = [a.get("href") for a in parsed.anchors if a.get("data-cta") == "approved_endure_plan"]
+    if endure_links != ([expected_endure_href] if expected_endure_href else []):
+        raise ValueError("Active Endure CTA changed")
     marketplace = re.compile(r"https://(?:www\.)?trainingpeaks\.com/training-plans/[^\s\"\']*tp-[0-9]+")
     # Existing source citations are research references, not a mounted legacy
     # offer. Account for each exact source-backed citation occurrence; an extra
@@ -409,22 +413,26 @@ def prepare(destination: Path, scope: str, slug: str | None) -> None:
         run([*args, "--output-dir", str(validation / "blog")], receipts / (name + ".log"))
     run(["wordpress/generate_blog_index_page.py", "--output-dir", str(validation)], receipts / "blog-index.log")
     mirror_files(validation, ROOT / "wordpress/output")
-    # Same active custom-plan behavior as generate_page; no legacy TP ladder.
+    # Validate each race’s active training destination against its source.
     sys.path.insert(0, str(ROOT / "wordpress"))
     import generate_neo_brutalist as generator
+    from endure_offer import ENDURE_PRIMARY_RACES, endure_plan_url
     eligible_ctas = 0
     for selected in slugs:
         rd = generator.load_race_data(ROOT / "race-data" / (selected + ".json"))
         if not isinstance(rd.get("vitals"), dict):
             raise ValueError(f"Race {selected} has no valid vitals; repair its source profile")
         suppressed = rd["vitals"].get("course_status") == "source_blocked" or bool(rd.get("taking_a_break")) or not rd.get("race_plan_eligible", True)
-        offer = Markup(); offer.feed("" if suppressed else generator.build_custom_plan_offer(rd))
+        endure_href = (endure_plan_url(rd, campaign="race_profile")
+                       if not suppressed and selected in ENDURE_PRIMARY_RACES else None)
+        offer = Markup(); offer.feed("" if suppressed or endure_href else generator.build_custom_plan_offer(rd))
         hrefs = [a["href"] for a in offer.anchors if a.get("data-cta") == "approved_custom_plan"]
-        if not suppressed and not hrefs:
-            raise ValueError("Eligible source offer has no active custom-plan CTA")
-        eligible_ctas += bool(hrefs)
+        if not suppressed and not (hrefs or endure_href):
+            raise ValueError("Eligible source offer has no active training CTA")
+        eligible_ctas += bool(hrefs or endure_href)
         verify_page_contract((package / "pages" / (selected + ".html")).read_text(), selected, hrefs,
-                             [c["url"] for c in rd.get("citations", []) if isinstance(c, dict) and isinstance(c.get("url"), str)])
+                             [c["url"] for c in rd.get("citations", []) if isinstance(c, dict) and isinstance(c.get("url"), str)],
+                             expected_endure_href=endure_href)
     if scope == "all" and not eligible_ctas:
         raise ValueError("All-race CTA check cannot pass without an eligible offer")
     run(["-m", "pytest", "tests/", "-q", "--tb=short", "-x"], receipts / "pytest.log")
@@ -433,7 +441,7 @@ def prepare(destination: Path, scope: str, slug: str | None) -> None:
     run(["scripts/preflight_quality.py"], receipts / "preflight-quality.log")
     if source_identity() != source:
         raise ValueError("Source changed during release preparation")
-    manifest = {"version": 1, "source": source, "scope": scope, "slugs": slugs, "created_at_utc": datetime.now(timezone.utc).isoformat(), "files": package_files(package, slugs), "public_input_receipts": {name: hashlib.sha256((receipts / name).read_bytes()).hexdigest() for name in ["training-guides.json", "media.json"]}, "gates": "passed", "commerce": "active custom-plan CTA; legacy TP ladder unmounted; no private plan DB dependency"}
+    manifest = {"version": 1, "source": source, "scope": scope, "slugs": slugs, "created_at_utc": datetime.now(timezone.utc).isoformat(), "files": package_files(package, slugs), "public_input_receipts": {name: hashlib.sha256((receipts / name).read_bytes()).hexdigest() for name in ["training-guides.json", "media.json"]}, "gates": "passed", "commerce": "active training CTA; legacy TP ladder unmounted; no private plan DB dependency"}
     (receipts / "release-manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print(f"Validated {len(slugs)} races. No SSH or publishing action was performed.")
 

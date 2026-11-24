@@ -394,6 +394,16 @@ def test_release_contract_accepts_the_planner_in_place_of_the_calculator():
     with pytest.raises(ValueError, match="Calculator"):
         release.verify_page_contract(html, "other-race", hrefs)
 
+    unbound = page("unbound-200")
+    from endure_offer import endure_plan_url
+    race = load_race_data(ROOT / "race-data" / "unbound-200.json")
+    expected = endure_plan_url(race, campaign="race_profile")
+    assert expected
+    release.verify_page_contract(unbound, "unbound-200", [], expected_endure_href=expected)
+    with pytest.raises(ValueError, match="Endure CTA"):
+        release.verify_page_contract(unbound, "unbound-200", [], expected_endure_href="https://endurelabs.app/")
+
+
 
 def test_release_package_must_ship_every_planner_asset_the_config_loads(tmp_path):
     sys.path.insert(0, str(ROOT / "scripts"))

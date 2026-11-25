@@ -23,17 +23,13 @@ jobs:
       - name: Install dependencies
         run: pip install --quiet google-analytics-data
 
-      - name: Write GA4 credentials
-        run: echo "$GA4_CREDENTIALS_JSON" > ga4-credentials.json
-        env:
-          GA4_CREDENTIALS_JSON: ${{ secrets.GA4_CREDENTIALS_JSON }}
-
       - name: Write SSH keys
         env:
           GG_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           RL_SSH_PRIVATE_KEY: ${{ secrets.RL_SSH_PRIVATE_KEY }}
           XC_SSH_PRIVATE_KEY: ${{ secrets.XC_SSH_PRIVATE_KEY }}
         run: |
+          umask 077
           mkdir -p "$RUNNER_TEMP/aeo-keys"
           printf '%s\n' "$GG_SSH_PRIVATE_KEY" > "$RUNNER_TEMP/aeo-keys/gravelgod"
           printf '%s\n' "$RL_SSH_PRIVATE_KEY" > "$RUNNER_TEMP/aeo-keys/roadie"
@@ -44,7 +40,7 @@ jobs:
 
       - name: Collect weekly AEO facts
         env:
-          GA4_CREDENTIALS: ${{ github.workspace }}/ga4-credentials.json
+          GOOGLE_CREDENTIALS_JSON: ${{ secrets.GA4_CREDENTIALS_JSON }}
           GG_GA4_PROPERTY_ID: ${{ secrets.GG_GA4_PROPERTY_ID }}
           RL_GA4_PROPERTY_ID: ${{ secrets.RL_GA4_PROPERTY_ID }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
@@ -59,7 +55,11 @@ jobs:
           XC_SSH_USER: ${{ secrets.XC_SSH_USER }}
           XC_SSH_PORT: ${{ secrets.XC_SSH_PORT }}
           XC_SSH_KEY_PATH: ${{ runner.temp }}/aeo-keys/xcski
-        run: python3 scripts/aeo_weekly.py
+        run: bash scripts/with-google-credentials.sh python3 scripts/aeo_weekly.py
+
+      - name: Remove SSH keys
+        if: always()
+        run: rm -f -- "$RUNNER_TEMP/aeo-keys/"{gravelgod,roadie,xcski}
 
       - name: Commit AEO artifact
         run: |

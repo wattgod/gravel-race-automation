@@ -258,17 +258,19 @@ def run_snapshot(strategies: list[str]) -> dict:
                     "url": url,
                     "label": label,
                     "strategy": strategy,
-                    "error": f"HTTP {e.code}: {e.reason}",
+                    "error": f"HTTP {e.code}",
                     "metrics": {},
                     "grades": {},
                 })
             except Exception as e:
-                print(f"ERROR: {e}")
+                # Keep request details, which can contain an API key, out of snapshots and logs.
+                error = type(e).__name__
+                print(f"ERROR: {error}")
                 snapshot["results"].append({
                     "url": url,
                     "label": label,
                     "strategy": strategy,
-                    "error": str(e),
+                    "error": error,
                     "metrics": {},
                     "grades": {},
                 })

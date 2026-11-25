@@ -87,6 +87,9 @@ def test_inventory_from_fixture_dirs(tmp_path):
     articles = tmp_path / "articles" / "an-essay"
     articles.mkdir(parents=True)
     (articles / "index.html").write_text("<title>An Essay | Gravel God</title>")
+    archive = articles.parent / "archived-essay"
+    archive.mkdir()
+    (archive / "index.html").write_text("<title>Archived Essay</title>")
     index = tmp_path / "blog-index.json"
     index.write_text(json.dumps([
         {"url": "/blog/roundup-x/", "title": "Roundup &amp; X"},
@@ -97,8 +100,11 @@ def test_inventory_from_fixture_dirs(tmp_path):
         "/a-post/": {"title": "A Post", "type": "post"},
         "/b-post/": {"title": "B Title", "type": "post"},
         "/articles/an-essay/": {"title": "An Essay", "type": "essay"},
+        "/articles/archived-essay/": {"title": "Archived Essay", "type": "essay"},
         "/blog/roundup-x/": {"title": "Roundup & X", "type": "roundup"},
     }
+    public = bp.load_inventory(sources, articles.parent, index, public_only=True)
+    assert set(public) == set(inv) - {"/articles/archived-essay/"}
 
 
 @pytest.mark.parametrize("slug,kind", [
@@ -385,14 +391,25 @@ def test_public_report_keeps_only_cataloged_page_paths():
     reports = daily_reports(pages=[
         (["20261020", known], [5, 5, 10, 0.5]),
         (["20261020", provider_only], [50, 50, 10, 0.5]),
+        (["20261021", known], [7, 7, 10, 0.5]),
+        (["20261021", provider_only], [70, 70, 10, 0.5]),
     ])
     report = bp.build_report(
         ESSAY, reports, bp.build_windows(date(2026, 10, 25)),
         property_name="properties/1", mock=True, include_discovered=False,
+        exclude_dates=[date(2026, 10, 21)],
     )
     assert [page["path"] for page in report["pages"]] == [known]
     assert report["types"]["essay"]["current"]["views"] == 5
+    assert report["excluded"] == [{"date": "2026-10-21", "views": 7}]
     assert provider_only not in json.dumps(report)
+    queries = bp.report_requests(report["query_span"], list(ESSAY), include_discovered=False)
+    catalog_filter = {"filter": {"fieldName": "pagePath", "inListFilter": {
+        "values": [known.rstrip("/"), known], "caseSensitive": True,
+    }}}
+    assert queries["browsers"]["dimensionFilter"] == catalog_filter
+    for name in ("pages", "events", "cta"):
+        assert queries[name]["dimensionFilter"]["andGroup"]["expressions"][0] == catalog_filter
 
 
 def test_missing_cta_breakdown_marks_clicks_unavailable():

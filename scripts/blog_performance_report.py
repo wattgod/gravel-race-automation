@@ -124,15 +124,26 @@ def classify_blog_slug(slug: str) -> str:
 
 def load_inventory(post_sources: Path = POST_SOURCES,
                    articles_dir: Path = ARTICLES_DIR,
-                   blog_index: Path = BLOG_INDEX) -> dict[str, dict]:
+                   blog_index: Path = BLOG_INDEX, *,
+                   public_only: bool = False) -> dict[str, dict]:
     """Map cataloged content URLs to titles and page types."""
+    try:
+        entries = json.loads(blog_index.read_text()) if blog_index.exists() else []
+    except ValueError:
+        entries = []
+    entries = entries if isinstance(entries, list) else []
+    public_urls = {entry.get("url") for entry in entries if isinstance(entry, dict)
+                   and isinstance(entry.get("url"), str)}
     pages: dict[str, dict] = {}
     if articles_dir.exists():
         for index in sorted(articles_dir.glob("*/index.html")):
             slug = index.parent.name
+            url = f"/articles/{slug}/"
+            if public_only and url not in public_urls:
+                continue
             match = re.search(r"<title>(.*?)</title>",
                               index.read_text(errors="replace"), re.DOTALL)
-            pages[f"/articles/{slug}/"] = {
+            pages[url] = {
                 "title": _clean_title(match.group(1)) if match else _slug_title(slug),
                 "type": "essay"}
     if post_sources.exists():
@@ -145,18 +156,15 @@ def load_inventory(post_sources: Path = POST_SOURCES,
             live = data.get("live") or {}
             title = live.get("headline") or live.get("title") or _slug_title(slug)
             pages[f"/{slug}/"] = {"title": _clean_title(title), "type": "post"}
-    if blog_index.exists():
-        try:
-            entries = json.loads(blog_index.read_text())
-        except ValueError:
-            entries = []
-        for entry in entries if isinstance(entries, list) else []:
-            url = str(entry.get("url") or "")
-            if not url.startswith("/blog/"):
-                continue  # /articles/ entries come from the HTML titles above
-            slug = url.strip("/").split("/")[-1]
-            pages[url] = {"title": _clean_title(entry.get("title") or slug),
-                          "type": classify_blog_slug(slug)}
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        url = str(entry.get("url") or "")
+        if not url.startswith("/blog/"):
+            continue  # /articles/ entries come from the HTML titles above
+        slug = url.strip("/").split("/")[-1]
+        pages[url] = {"title": _clean_title(entry.get("title") or slug),
+                      "type": classify_blog_slug(slug)}
     return pages
 
 
@@ -263,14 +271,19 @@ def first_week_over_week_end(page_type: str, end: date,
 
 # ── GA4 queries (REST runReport) ─────────────────────────────────────────
 
-def _page_filter(post_paths: list[str]) -> dict:
+def _page_filter(page_paths: list[str], include_discovered: bool) -> dict:
     exprs = [
         {"filter": {"fieldName": "pagePath", "stringFilter": {
             "matchType": "BEGINS_WITH", "value": prefix}}}
         for prefix in ("/blog/", "/articles/")
     ]
     # pagePath may arrive with or without the trailing slash.
-    variants = sorted({v for p in post_paths for v in (p, p.rstrip("/"))})
+    variants = sorted({v for p in page_paths for v in (p, p.rstrip("/"))})
+    if not include_discovered:
+        if not variants:
+            raise Ga4Error("public content inventory is empty")
+        return {"filter": {"fieldName": "pagePath",
+                           "inListFilter": {"values": variants, "caseSensitive": True}}}
     if variants:
         exprs.append({"filter": {"fieldName": "pagePath",
                                  "inListFilter": {"values": variants}}})
@@ -287,11 +300,12 @@ HEADLESS_EXCLUSION = {"notExpression": {"filter": {
         "caseSensitive": False}}}}
 
 
-def report_requests(span: dict, post_paths: list[str]) -> dict[str, dict]:
+def report_requests(span: dict, page_paths: list[str], *,
+                    include_discovered: bool = True) -> dict[str, dict]:
     """Daily (date-dimensioned) reports over the whole span, so tracking
     start and excluded dates can be applied per day in Python."""
     date_ranges = [{"startDate": span["start"], "endDate": span["end"]}]
-    pages = _page_filter(post_paths)
+    pages = _page_filter(page_paths, include_discovered)
     return {
         "pages": {
             "dateRanges": date_ranges,
@@ -451,12 +465,14 @@ OPTIONAL_REPORTS = {
 
 
 def fetch_reports(session: Any, property_name: str, span: dict,
-                  post_paths: list[str]) -> tuple[dict, list[str]]:
+                  page_paths: list[str], *,
+                  include_discovered: bool = True) -> tuple[dict, list[str]]:
     """Run every report over the span. cta and browsers are optional: if
     either fails the report still ships and says what is missing."""
     warnings: list[str] = []
     reports: dict[str, dict | None] = {}
-    for name, body in report_requests(span, post_paths).items():
+    for name, body in report_requests(
+            span, page_paths, include_discovered=include_discovered).items():
         try:
             reports[name] = _run_paged(session, property_name, body,
                                        f"{name} report")
@@ -718,6 +734,9 @@ def build_report(inventory: dict[str, dict], reports: dict, windows: dict, *,
                  include_discovered: bool = True) -> dict:
     exclude = tuple(sorted(set(exclude_dates)))
     daily = parse_daily_reports(reports)
+    if not include_discovered:
+        daily = {day: {path: values for path, values in rows.items() if path in inventory}
+                 for day, rows in daily.items()}
     clicks = reports.get("cta") is not None
     rows = build_rows(inventory, daily, windows, exclude, clicks,
                       include_discovered=include_discovered)
@@ -1006,8 +1025,9 @@ def run(*, end: date, mock: bool, property_value: str | None,
         session_factory: Callable[[Path], Any] | None = None) -> dict:
     windows = build_windows(end, compare_redesign)
     span = query_span(windows)
-    inventory = load_inventory()
-    post_paths = sorted(p for p, m in inventory.items() if m["type"] == "post")
+    inventory = load_inventory(public_only=not include_discovered)
+    page_paths = sorted(p for p, meta in inventory.items()
+                        if not include_discovered or meta["type"] == "post")
     warnings: list[str] = []
     if mock:
         property_name = "properties/0"
@@ -1020,7 +1040,8 @@ def run(*, end: date, mock: bool, property_value: str | None,
             raise Ga4Error("credentials file not found")
         factory = session_factory or (lambda p: _audit.authorized_session(p))
         session = factory(credentials)
-        reports, warnings = fetch_reports(session, property_name, span, post_paths)
+        reports, warnings = fetch_reports(session, property_name, span, page_paths,
+                                          include_discovered=include_discovered)
     return build_report(inventory, reports, windows, property_name=property_name,
                         mock=mock, exclude_dates=exclude_dates, warnings=warnings,
                         include_discovered=include_discovered)

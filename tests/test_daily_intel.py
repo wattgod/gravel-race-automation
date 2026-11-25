@@ -1253,3 +1253,56 @@ def test_provider_request_preserves_the_business_error_and_bounds_its_body(monke
     assert status == 400
     assert body.startswith(message.decode())
     assert len(body) == 500
+
+
+def test_morning_intel_snapshot_handoff_keeps_validated_bytes(collected, tmp_path):
+    from scripts.daily_intel import build_public_snapshot
+    from stage_intel_snapshot import stage_snapshot
+
+    snapshot_date = collected["date"]
+    snapshot = build_public_snapshot(collected, snapshot_date)
+    subject = snapshot.pop("subject")
+    source = tmp_path / "source"
+    source.mkdir()
+    json_file = source / f"{snapshot_date}.json"
+    md_file = source / f"{snapshot_date}.md"
+    json_file.write_text(json.dumps(snapshot, indent=1))
+    md_file.write_text(f"# {subject}\n\n{snapshot['report']}\n")
+
+    handoff, destination = tmp_path / "handoff", tmp_path / "published"
+    stage_snapshot(source, handoff, snapshot_date)
+    stage_snapshot(handoff, destination, snapshot_date)
+    for source_file in sorted(source.iterdir()):
+        assert (destination / source_file.name).read_bytes() == source_file.read_bytes()
+
+    md_file.write_text(md_file.read_text() + "extra text")
+    with pytest.raises(ValueError, match="Markdown does not match"):
+        stage_snapshot(source, tmp_path / "invalid-markdown", snapshot_date)
+
+    md_file.write_text((handoff / md_file.name).read_text())
+    snapshot["lead_email"] = "fixture@sensitive.invalid"
+    json_file.write_text(json.dumps(snapshot, indent=1))
+    with pytest.raises(ValueError, match="sensitive text"):
+        stage_snapshot(source, tmp_path / "invalid-json", snapshot_date)
+
+    json_file.write_text('{"date":"other", ' + json.dumps(snapshot, indent=1)[1:])
+    with pytest.raises(ValueError, match="canonical JSON"):
+        stage_snapshot(source, tmp_path / "duplicate-key", snapshot_date)
+
+
+def test_morning_intel_write_token_is_separate_from_provider_credentials():
+    from pathlib import Path
+
+    import yaml
+
+    config = yaml.safe_load(
+        (Path(__file__).resolve().parents[1] / ".github/workflows/daily-intel.yml").read_text()
+    )
+    assert config["permissions"] == {"contents": "read", "actions": "read"}
+    collect, publish = (config["jobs"][job] for job in ("intel", "publish"))
+    assert "permissions" not in collect
+    assert publish["needs"] == "intel"
+    assert publish["permissions"] == {"contents": "write"}
+    assert all(job["steps"][0]["with"]["persist-credentials"] is False for job in (collect, publish))
+    assert "secrets." not in json.dumps(publish)
+    assert "refs/heads/main" in publish["steps"][-1]["run"]

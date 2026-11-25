@@ -64,6 +64,8 @@ jobs:
       matrix: ${{ fromJson(needs.find-races.outputs.matrix) }}
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      RACE_NAME: ${{ matrix.race_name }}
+      RACE_FOLDER: ${{ matrix.folder }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -73,18 +75,18 @@ jobs:
       - name: Refresh ${{ matrix.race_name }}
         run: |
           python scripts/research.py \
-            --race "${{ matrix.race_name }}" \
-            --folder "${{ matrix.folder }}"
+            --race "${RACE_NAME}" \
+            --folder "${RACE_FOLDER}"
           python scripts/synthesize.py \
-            --input "research-dumps/${{ matrix.folder }}-raw.md" \
-            --output "briefs/${{ matrix.folder }}-brief.md"
+            --input "research-dumps/${RACE_FOLDER}-raw.md" \
+            --output "briefs/${RACE_FOLDER}-brief.md"
           python scripts/generate_json.py \
-            --input "briefs/${{ matrix.folder }}-brief.md" \
-            --output "landing-pages/${{ matrix.folder }}.json"
+            --input "briefs/${RACE_FOLDER}-brief.md" \
+            --output "landing-pages/${RACE_FOLDER}.json"
       - name: Commit updates
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git commit -m "Weekly refresh: ${{ matrix.folder }}" || echo "No changes"
+          git commit -m "Weekly refresh: ${RACE_FOLDER}" || echo "No changes"
           git push || true

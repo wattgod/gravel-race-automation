@@ -29,6 +29,8 @@ jobs:
       
       - name: Get next race
         id: set-matrix
+        env:
+          PROCESS_LIMIT: ${{ github.event.inputs.limit || '1' }}
         run: |
           python3 << 'EOF'
           import json
@@ -37,7 +39,7 @@ jobs:
           with open("db/gravel_races_full_database.json") as f:
               db = json.load(f)
           
-          limit = int("${{ github.event.inputs.limit || '1' }}" or 1)
+          limit = int(os.environ["PROCESS_LIMIT"] or 1)
           
           # Get all unprocessed races
           races = db.get("races", [])
@@ -63,7 +65,8 @@ jobs:
                   ]
               }
           
-          print(f"::set-output name=matrix::{json.dumps(matrix)}")
+          with open(os.environ["GITHUB_OUTPUT"], "a") as out:
+              out.write(f"matrix={json.dumps(matrix)}\n")
           EOF
 
   process:
@@ -75,6 +78,9 @@ jobs:
       max-parallel: 1
       fail-fast: false
     
+    env:
+      RACE_NAME: ${{ matrix.race_name }}
+      RACE_FOLDER: ${{ matrix.folder }}
     steps:
       - uses: actions/checkout@v4
       
@@ -90,25 +96,25 @@ jobs:
         timeout-minutes: 10
         run: |
           python scripts/research.py \
-            --race "${{ matrix.race_name }}" \
-            --folder "${{ matrix.folder }}"
+            --race "${RACE_NAME}" \
+            --folder "${RACE_FOLDER}"
           
           python scripts/synthesize.py \
-            --input "research-dumps/${{ matrix.folder }}-raw.md" \
-            --output "briefs/${{ matrix.folder }}-brief.md"
+            --input "research-dumps/${RACE_FOLDER}-raw.md" \
+            --output "briefs/${RACE_FOLDER}-brief.md"
           
           python scripts/generate_json.py \
-            --input "briefs/${{ matrix.folder }}-brief.md" \
-            --output "landing-pages/${{ matrix.folder }}.json"
+            --input "briefs/${RACE_FOLDER}-brief.md" \
+            --output "landing-pages/${RACE_FOLDER}.json"
           
           mkdir -p data/processed
-          echo "${{ matrix.race_name }}" >> data/processed/completed.txt
+          printf '%s\n' "$RACE_NAME" >> data/processed/completed.txt
       
       - name: Commit
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add research-dumps/ briefs/ landing-pages/ data/processed/
-          git commit -m "Processed: ${{ matrix.race_name }}" || true
+          git commit -m "Processed: ${RACE_NAME}" || true
           git push || true
 

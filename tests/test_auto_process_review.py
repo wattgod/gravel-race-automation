@@ -2,6 +2,7 @@ from pathlib import Path
 import json
 import os
 import subprocess
+import time
 
 import pytest
 import yaml
@@ -86,7 +87,8 @@ def test_staging_rejects_invalid_json_and_symlinks(tmp_path):
         validate_outputs(tmp_path, paths)
 
 
-def test_publish_step_writes_only_review_ref_and_stops_if_push_fails(tmp_path):
+@pytest.mark.parametrize("kind", ["auto-process", "update-existing"])
+def test_publish_step_writes_only_review_ref_and_stops_if_push_fails(tmp_path, kind):
     jobs = yaml.safe_load((ROOT / ".github/workflows/publish-race-review.yml").read_text())
     publish = jobs["jobs"]["publish"]
     assert publish["permissions"] == {"contents": "write"}
@@ -100,7 +102,7 @@ def test_publish_step_writes_only_review_ref_and_stops_if_push_fails(tmp_path):
     env = {**os.environ, "GIT_AUTHOR_NAME": "Fixture", "GIT_AUTHOR_EMAIL": "fixture@example.invalid",
            "GIT_COMMITTER_NAME": "Fixture", "GIT_COMMITTER_EMAIL": "fixture@example.invalid",
            "GITHUB_RUN_ID": "42", "GITHUB_RUN_ATTEMPT": "1", "GITHUB_SERVER_URL": "https://github.com",
-           "GITHUB_REPOSITORY": "fixture/project", "GITHUB_STEP_SUMMARY": str(summary), "REVIEW_KIND": "auto-process"}
+           "GITHUB_REPOSITORY": "fixture/project", "GITHUB_STEP_SUMMARY": str(summary), "REVIEW_KIND": kind}
 
     def git(cwd, *args):
         return subprocess.check_output(["git", "-C", str(cwd), *args], env=env, text=True, stderr=subprocess.PIPE).strip()
@@ -120,7 +122,7 @@ def test_publish_step_writes_only_review_ref_and_stops_if_push_fails(tmp_path):
         return subprocess.run(["bash", "-e", "-c", step["run"]], cwd=checkout,
                               capture_output=True, text=True, env=env)
     assert run_publish().returncode == 0
-    branch = "review/auto-process/42-1"
+    branch = f"review/{kind}/42-1"
     files = set(git(remote, "diff", "--name-only", main, branch).splitlines())
     assert files == {str(path) for path in paths} | {"data/processed/races/race-one.txt"}
     assert branch in summary.read_text()
@@ -132,7 +134,7 @@ def test_publish_step_writes_only_review_ref_and_stops_if_push_fails(tmp_path):
     completed.write_text("Race Two\n")
     env["GITHUB_RUN_ATTEMPT"] = "2"
     assert run_publish().returncode != 0
-    assert "review/auto-process/42-2" not in summary.read_text()
+    assert f"review/{kind}/42-2" not in summary.read_text()
     assert git(remote, "rev-parse", "main") == main
 
 
@@ -212,6 +214,37 @@ def test_generation_jobs_use_shared_scanner_and_separate_publisher(name, kind):
     assert publish["permissions"] == {"contents": "write"}
     assert publish["uses"] == "./.github/workflows/publish-race-review.yml"
     assert publish["with"]["review_kind"] == kind
+
+
+def test_manual_refresh_scans_the_existing_stale_brief_selection(tmp_path):
+    workflow = yaml.safe_load((ROOT / ".github/workflows/update-existing.yml").read_text())
+    assert set(workflow[True]) == {"workflow_dispatch"}
+    assert workflow["permissions"] == {"contents": "read"}
+    jobs = workflow["jobs"]
+    assert jobs["find-races"]["if"] == "github.ref == 'refs/heads/main'"
+    assert jobs["refresh"]["steps"][0]["with"]["persist-credentials"] is False
+    assert jobs["refresh"]["steps"][-1]["uses"] == "./.github/actions/stage-race-review"
+    assert jobs["publish"]["needs"] == ["find-races", "refresh"]
+    assert jobs["publish"]["uses"] == "./.github/workflows/publish-race-review.yml"
+    assert jobs["publish"]["with"]["review_kind"] == "update-existing"
+
+    brief_dir = tmp_path / "briefs"
+    brief_dir.mkdir()
+    stale = brief_dir / "older-race-brief.md"
+    stale.touch()
+    (brief_dir / "recent-race-brief.md").touch()
+    older = time.time() - 31 * 86400
+    os.utime(stale, (older, older))
+    output = tmp_path / "outputs"
+    step = next(step for step in jobs["find-races"]["steps"] if step.get("id") == "find")
+    env = {**os.environ, "GITHUB_OUTPUT": str(output), "PYTHONPATH": str(ROOT / "scripts")}
+    subprocess.run(["bash", "-e", "-c", step["run"]], cwd=tmp_path, env=env, check=True,
+                   capture_output=True)
+    fields = dict(line.split("=", 1) for line in output.read_text().splitlines())
+    assert fields["count"] == "1"
+    assert json.loads(fields["matrix"]) == {
+        "include": [{"race_name": "Older Race", "folder": "older-race"}],
+    }
 
 
 def test_restore_rejects_duplicate_planned_slug_before_copying(tmp_path):

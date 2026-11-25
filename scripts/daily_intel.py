@@ -39,7 +39,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SNAPSHOT_DIR = PROJECT_ROOT / "data" / "intel-snapshots"
 DEFAULT_AEO_DIR = PROJECT_ROOT / "data" / "aeo"
-AEO_DIR = Path(os.environ.get("AEO_SNAPSHOT_DIR") or DEFAULT_AEO_DIR)
+AEO_DIR = DEFAULT_AEO_DIR
 SEO_DIR = PROJECT_ROOT / "data" / "seo"
 
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
@@ -804,9 +804,10 @@ def _load_aeo_artifact(path: Path, history_commit: str | None) -> dict:
 
 def _collect_aeo(today: date | None = None) -> dict:
     """Implementation for collect_aeo; the public collector is fully fail-soft."""
+    directory = Path(os.environ.get("AEO_SNAPSHOT_DIR") or AEO_DIR)
     history_commit = (refresh_history("AEO_SNAPSHOT_DIR", state_branch="aeo-state")
-                      if AEO_DIR == DEFAULT_AEO_DIR else None)
-    paths = sorted(AEO_DIR / name for name in snapshot_names(AEO_DIR, history_commit)
+                      if directory == DEFAULT_AEO_DIR else None)
+    paths = sorted(directory / name for name in snapshot_names(directory, history_commit)
                    if name.startswith("aeo-weekly-"))
     if not paths:
         return {"state": "missing", "ok": True}

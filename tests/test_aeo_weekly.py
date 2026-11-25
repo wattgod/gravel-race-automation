@@ -385,6 +385,13 @@ def test_collect_aeo_computes_deltas_from_two_newest_artifacts(
     assert gravel["user_fetch_delta_text"] == "+8 WoW"
 
 
+def test_collect_aeo_reads_directory_override_set_after_import(tmp_path, monkeypatch):
+    _write_artifact(tmp_path, _artifact("2026-07-20", referral=15))
+    monkeypatch.setenv("AEO_SNAPSHOT_DIR", str(tmp_path))
+    result = daily_intel.collect_aeo(today=date(2026, 7, 21))
+    assert result["brands"]["gravelgod"]["ai_referral_sessions"] == 15
+
+
 def test_aeo_state_publication_and_daily_reader(tmp_path, monkeypatch):
     source = Path(__file__).resolve().parent.parent
     checkout, remote, state = (tmp_path / name for name in ("checkout", "remote", "state"))

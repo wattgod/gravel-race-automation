@@ -48,8 +48,7 @@ jobs:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
         run: |
           bash scripts/with-google-credentials.sh python scripts/gsc_tracker.py --snapshot > "$RUNNER_TEMP/gsc-monitor.log" 2>&1
-          python scripts/gsc_tracker.py --report --alert >> "$RUNNER_TEMP/gsc-monitor.log" 2>&1
-          echo "Search Console snapshot and report completed."
+          python scripts/gsc_tracker.py --report --alert --aggregate-only
 
       - name: CWV monitoring
         env:

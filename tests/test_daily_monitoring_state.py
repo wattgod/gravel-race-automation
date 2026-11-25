@@ -3,6 +3,9 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
+from datetime import date
+
+import gsc_tracker
 
 src = Path(__file__).resolve().parent.parent
 names = {
@@ -87,3 +90,20 @@ def test_monitoring_history_publication_and_readback(tmp_path, monkeypatch):
     assert reader.load_snapshot(gsc_path / "2026-10-02.json", branch)["overall"]["clicks"] == 8
     put(seed, "data/gsc-snapshots/2026-10-02.json", '{"overall":{"clicks": 99}}')
     assert reader.load_snapshot(gsc_path / "2026-10-02.json", branch)["overall"]["clicks"] == 99
+
+
+def test_gsc_aggregate_log_hides_search_details_and_keeps_alerts(monkeypatch, capsys):
+    snapshot = {
+        "date": "2026-10-02",
+        "window": {"start": "2026-09-25", "end": "2026-10-01"},
+        "overall": {"clicks": 1, "impressions": 250, "ctr": 0.4, "position": 8.0},
+        "top_queries": [{"query": "synthetic contact details", "clicks": 1, "impressions": 1, "ctr": 100, "position": 1}],
+    }
+    monkeypatch.setattr(gsc_tracker, "find_nearest_snapshot", lambda *_args, **_kwargs: snapshot)
+    today = date(2026, 10, 2)
+    gsc_tracker.print_report(today, aggregate_only=True)
+    assert gsc_tracker.check_alerts(today) == 1
+    log = capsys.readouterr().out
+    assert "Impressions: 250" in log
+    assert "LOW CTR" in log
+    assert "synthetic contact details" not in log

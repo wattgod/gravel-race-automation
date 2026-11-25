@@ -180,7 +180,7 @@ def pct_change(current: float, previous: float) -> str:
     return f"{arrow} {abs(change):.1f}%"
 
 
-def print_report(today: date, history_commit: str | None = None):
+def print_report(today: date, history_commit: str | None = None, *, aggregate_only: bool = False):
     """Print trend report comparing latest vs 7d/30d ago."""
     latest = find_nearest_snapshot(today, history_commit=history_commit)
     week_ago = find_nearest_snapshot(today - timedelta(days=7), history_commit=history_commit)
@@ -212,6 +212,9 @@ def print_report(today: date, history_commit: str | None = None):
         print(f"    Impressions: {pct_change(o.get('impressions', 0), prev.get('impressions', 0))}")
         print(f"    CTR:         {o.get('ctr', 0):.2f}% (was {prev.get('ctr', 0):.2f}%)")
         print(f"    Position:    {o.get('position', 0):.1f} (was {prev.get('position', 0):.1f})")
+
+    if aggregate_only:
+        return
 
     # Top queries
     queries = latest.get("top_queries", [])
@@ -319,6 +322,7 @@ def main():
     parser.add_argument("--snapshot", action="store_true", help="Capture daily snapshot")
     parser.add_argument("--report", action="store_true", help="Show trend report")
     parser.add_argument("--alert", action="store_true", help="Check alert thresholds")
+    parser.add_argument("--aggregate-only", action="store_true", help="Omit query and page details from reports")
     parser.add_argument("--date", help="Override date (YYYY-MM-DD), default=today")
     args = parser.parse_args()
 
@@ -357,7 +361,7 @@ def main():
 
     history_commit = refresh_history(SNAPSHOT_DIR_ENV) if args.report or args.alert else None
     if args.report:
-        print_report(today, history_commit)
+        print_report(today, history_commit, aggregate_only=args.aggregate_only)
 
     if args.alert:
         exit_code = check_alerts(today, history_commit)

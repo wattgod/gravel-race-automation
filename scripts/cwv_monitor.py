@@ -26,7 +26,10 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-SNAPSHOT_DIR = Path(__file__).resolve().parent.parent / "data" / "cwv-snapshots"
+from monitoring_snapshot_history import REPO_ROOT, load_snapshot, refresh_history, snapshot_names
+
+SNAPSHOT_DIR_ENV = "CWV_SNAPSHOT_DIR"
+SNAPSHOT_DIR = Path(os.environ.get(SNAPSHOT_DIR_ENV, REPO_ROOT / "data/cwv-snapshots"))
 
 # Pages to monitor — one per page type
 MONITORED_URLS = [
@@ -312,14 +315,10 @@ def save_snapshot(snapshot: dict) -> Path:
     return path
 
 
-def load_latest_snapshot() -> dict | None:
+def load_latest_snapshot(history_commit: str | None = None) -> dict | None:
     """Load the most recent snapshot file, or None."""
-    if not SNAPSHOT_DIR.exists():
-        return None
-    files = sorted(SNAPSHOT_DIR.glob("*.json"))
-    if not files:
-        return None
-    return json.loads(files[-1].read_text())
+    latest = max(snapshot_names(SNAPSHOT_DIR, history_commit), default=None)
+    return load_snapshot(SNAPSHOT_DIR / latest, history_commit) if latest else None
 
 
 def list_snapshots() -> list[Path]:
@@ -459,6 +458,9 @@ def main():
         avg = s.get("avg_performance_score")
         avg_str = f"{avg:.0f}" if avg is not None else "--"
         print(f"  Avg score: {avg_str}/100  Pass: {s.get('pass_count', 0)}  Fail: {s.get('fail_count', 0)}  Errors: {s.get('errors', 0)}")
+
+    if not args.snapshot and (args.report or args.alert):
+        snapshot = load_latest_snapshot(refresh_history(SNAPSHOT_DIR_ENV))
 
     if args.report:
         print_report(snapshot)

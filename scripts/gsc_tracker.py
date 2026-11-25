@@ -21,8 +21,11 @@ import sys
 from datetime import date, timedelta
 from pathlib import Path
 
+from monitoring_snapshot_history import REPO_ROOT, load_snapshot as read_snapshot, refresh_history
+
 SITE_URL = "sc-domain:gravelgodcycling.com"
-SNAPSHOT_DIR = Path(__file__).resolve().parent.parent / "data" / "gsc-snapshots"
+SNAPSHOT_DIR_ENV = "GSC_SNAPSHOT_DIR"
+SNAPSHOT_DIR = Path(os.environ.get(SNAPSHOT_DIR_ENV, REPO_ROOT / "data/gsc-snapshots"))
 
 # Alert thresholds
 IMPRESSION_DROP_PCT = 20  # warn if impressions drop >20% vs 7d ago
@@ -141,22 +144,21 @@ def save_snapshot(snapshot: dict) -> Path:
     return path
 
 
-def load_snapshot(target_date: date) -> dict | None:
+def load_snapshot(target_date: date, history_commit: str | None = None) -> dict | None:
     """Load a snapshot by date, or None if not found."""
-    path = SNAPSHOT_DIR / f"{target_date.isoformat()}.json"
-    if path.exists():
-        return json.loads(path.read_text())
-    return None
+    return read_snapshot(SNAPSHOT_DIR / f"{target_date.isoformat()}.json", history_commit)
 
 
-def find_nearest_snapshot(target_date: date, max_days: int = 3) -> dict | None:
+def find_nearest_snapshot(
+    target_date: date, max_days: int = 3, *, history_commit: str | None = None,
+) -> dict | None:
     """Find the nearest snapshot within max_days of target_date."""
     for offset in range(max_days + 1):
-        snap = load_snapshot(target_date - timedelta(days=offset))
+        snap = load_snapshot(target_date - timedelta(days=offset), history_commit)
         if snap:
             return snap
         if offset > 0:
-            snap = load_snapshot(target_date + timedelta(days=offset))
+            snap = load_snapshot(target_date + timedelta(days=offset), history_commit)
             if snap:
                 return snap
     return None
@@ -178,11 +180,11 @@ def pct_change(current: float, previous: float) -> str:
     return f"{arrow} {abs(change):.1f}%"
 
 
-def print_report(today: date):
+def print_report(today: date, history_commit: str | None = None):
     """Print trend report comparing latest vs 7d/30d ago."""
-    latest = find_nearest_snapshot(today)
-    week_ago = find_nearest_snapshot(today - timedelta(days=7))
-    month_ago = find_nearest_snapshot(today - timedelta(days=30))
+    latest = find_nearest_snapshot(today, history_commit=history_commit)
+    week_ago = find_nearest_snapshot(today - timedelta(days=7), history_commit=history_commit)
+    month_ago = find_nearest_snapshot(today - timedelta(days=30), history_commit=history_commit)
 
     if not latest:
         print("No snapshots found. Run --snapshot first.")
@@ -261,10 +263,10 @@ def print_report(today: date):
     print()
 
 
-def check_alerts(today: date) -> int:
+def check_alerts(today: date, history_commit: str | None = None) -> int:
     """Check alert thresholds. Returns exit code (0=ok, 1=alerts)."""
-    latest = find_nearest_snapshot(today)
-    week_ago = find_nearest_snapshot(today - timedelta(days=7))
+    latest = find_nearest_snapshot(today, history_commit=history_commit)
+    week_ago = find_nearest_snapshot(today - timedelta(days=7), history_commit=history_commit)
 
     if not latest:
         print("No snapshots found. Run --snapshot first.")
@@ -353,11 +355,12 @@ def main():
                 if not (args.report or args.alert):
                     sys.exit(1)
 
+    history_commit = refresh_history(SNAPSHOT_DIR_ENV) if args.report or args.alert else None
     if args.report:
-        print_report(today)
+        print_report(today, history_commit)
 
     if args.alert:
-        exit_code = check_alerts(today)
+        exit_code = check_alerts(today, history_commit)
         if exit_code and not args.report:
             sys.exit(exit_code)
 

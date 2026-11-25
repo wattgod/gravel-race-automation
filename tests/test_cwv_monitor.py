@@ -593,21 +593,23 @@ class TestRunSnapshot:
         assert all(r["strategy"] == "desktop" for r in snap["results"])
 
     @patch("cwv_monitor.fetch_psi")
-    def test_api_error_captured(self, mock_fetch):
+    def test_api_error_captured(self, mock_fetch, capsys):
         import urllib.error
         mock_fetch.side_effect = urllib.error.HTTPError(
-            url="http://test", code=429, msg="Too Many Requests", hdrs=None, fp=None
+            url="https://example.invalid", code=429, msg="synthetic request detail", hdrs=None, fp=None
         )
         snap = run_snapshot(["mobile"])
         assert len(snap["results"]) == len(MONITORED_URLS)
-        assert all("error" in r for r in snap["results"])
+        assert all(r["error"] == "HTTP 429" for r in snap["results"])
+        assert "synthetic request detail" not in capsys.readouterr().out
         assert snap["summary"]["errors"] == len(MONITORED_URLS)
 
     @patch("cwv_monitor.fetch_psi")
-    def test_generic_exception_captured(self, mock_fetch):
-        mock_fetch.side_effect = Exception("Network timeout")
+    def test_generic_exception_captured(self, mock_fetch, capsys):
+        mock_fetch.side_effect = TimeoutError("synthetic request detail")
         snap = run_snapshot(["mobile"])
-        assert all("error" in r for r in snap["results"])
+        assert all(r["error"] == "TimeoutError" for r in snap["results"])
+        assert "synthetic request detail" not in capsys.readouterr().out
 
     @patch("cwv_monitor.fetch_psi")
     @patch("cwv_monitor.time.sleep")

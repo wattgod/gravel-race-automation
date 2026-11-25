@@ -93,17 +93,14 @@ Use `auto-process-races.yml` with modified schedule:
 ### Check Progress Anytime
 
 ```bash
-# See completed races
-cat data/processed/completed.txt | wc -l
-
-# See remaining
 python3 << 'EOF'
 import json
-with open('gravel_races_full_database.json') as f:
-    db = json.load(f)
-total = len(db.get('races', []))
-with open('data/processed/completed.txt') as f:
-    completed = len([l for l in f if l.strip()])
+from pathlib import Path
+from scripts.auto_process_review import completed_races
+
+db = json.loads(Path("db/gravel_races_full_database.json").read_text())
+total = len(db.get("races", []))
+completed = len(completed_races(Path.cwd()))
 print(f"Progress: {completed}/{total} ({completed/total*100:.1f}%)")
 EOF
 ```

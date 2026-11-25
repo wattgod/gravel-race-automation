@@ -107,19 +107,19 @@ Add to workflow:
 ### Check What's Done
 
 ```bash
-# See completed races
-cat data/processed/completed.txt
+python3 - <<'PYTHON'
+from pathlib import Path
+from scripts.auto_process_review import completed_races
 
-# Count completed
-wc -l data/processed/completed.txt
+names = completed_races(Path.cwd())
+print("\n".join(sorted(names)))
+print(f"{len(names)} processed races")
+PYTHON
 ```
 
-### Check What's Remaining
-
-The workflow automatically:
-- Skips already processed races
-- Processes unprocessed races only
-- Tracks progress in `data/processed/completed.txt`
+The selectors skip races recorded in the legacy `data/processed/completed.txt` list or in
+`data/processed/races/`. Scheduled batches stage their output and completion markers
+on a review branch. Open the compare link in the Actions run summary to review the batch.
 
 ## Cost Estimate
 
@@ -148,7 +148,7 @@ The workflow automatically:
 
 ### No Races Processed
 
-- Check if all races are already in `data/processed/completed.txt`
+- Check the completed race list using the command under Progress Tracking
 - Verify database file exists
 - Check workflow logs for errors
 

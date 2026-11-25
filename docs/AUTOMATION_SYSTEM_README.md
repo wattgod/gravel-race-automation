@@ -190,10 +190,9 @@ python scripts/generate_json.py \
 
 ## Tracking Progress
 
-The system tracks processed races in:
-`data/processed/completed.txt`
-
-Each race name is added after successful processing.
+The selectors read the historical list at `data/processed/completed.txt` and the
+per-race markers in `data/processed/races/`. Scheduled results and their markers
+enter main when the review PR merges.
 
 ## Troubleshooting
 

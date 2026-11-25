@@ -1,0 +1,73 @@
+name: Mission Control container
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .dockerignore
+      - .github/workflows/mission-control-container.yml
+      - Dockerfile
+      - requirements.txt
+      - mission_control.py
+      - mission_control/**
+      - pipeline/__init__.py
+      - pipeline/nutrition.py
+      - scripts/jev_client.py
+      - data/pricing.json
+      - guide/fonts/**
+      - templates/emails/**
+      - race-data/*.json
+      - web/race-index.json
+
+permissions:
+  contents: read
+
+jobs:
+  verify-image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Build Mission Control image
+        run: docker build --tag mission-control:ci .
+
+      - name: Verify runtime files and non-root execution
+        run: |
+          docker run --rm --interactive --network=none --read-only --tmpfs /tmp \
+            --entrypoint python3 mission-control:ci - <<'PY'
+          import os
+          import pwd
+          from pathlib import Path
+
+          from PIL import ImageFont
+          from playwright.sync_api import sync_playwright
+
+          from mission_control.app import create_app
+          from mission_control.services.email_preview import list_templates
+          from mission_control.services.race_data import get_race_db
+          from pipeline.nutrition import compute_fueling
+          from scripts import jev_client
+
+          assert os.getuid() == os.getgid() == 10001
+          assert pwd.getpwuid(os.getuid()).pw_dir == str(Path.home())
+          assert Path.home().stat().st_uid == os.getuid()
+          assert Path("mission_control.py").stat().st_uid == 0
+          assert Path("mission_control/static").is_dir()
+          assert Path("data/pricing.json").is_file()
+          assert not Path(".git").exists()
+          assert not Path(".env").exists()
+          assert not Path("mission_control/tests").exists()
+          assert not Path("athletes").exists()
+          assert not Path("intakes").exists()
+          assert not Path("plans").exists()
+          assert create_app().openapi()["paths"]
+          assert list_templates()
+          assert get_race_db().get_profile("unbound-200")
+          assert callable(compute_fueling) and jev_client
+          assert ImageFont.truetype("guide/fonts/SometypeMono-Regular.ttf", size=16)
+          with sync_playwright() as playwright:
+              assert os.access(playwright.chromium.executable_path, os.X_OK)
+          PY

@@ -67,6 +67,7 @@ def test_watch_patterns_cover_the_build():
         "mission_control.py",
         "requirements.txt",
         "Dockerfile",
+        ".dockerignore",
         "pipeline/__init__.py",
         "pipeline/nutrition.py",
         "scripts/jev_client.py",

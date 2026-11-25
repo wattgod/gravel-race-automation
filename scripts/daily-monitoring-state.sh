@@ -15,6 +15,14 @@ case "$profile" in
     seed_paths=(data/aeo)
     publish_paths=(':(glob)data/aeo/aeo-weekly-????-??-??.json')
     ;;
+  intel)
+    state_ref=refs/heads/morning-intel-state
+    if [[ ! "${SNAPSHOT_DATE:-}" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+      echo "Missing or invalid completed snapshot date." >&2
+      exit 1
+    fi
+    publish_paths=("data/intel-snapshots/$SNAPSHOT_DATE.json" "data/intel-snapshots/$SNAPSHOT_DATE.md")
+    ;;
   *)
     echo "Unknown monitoring publication profile." >&2
     exit 2
@@ -32,12 +40,22 @@ case "${1:-}" in
     else
       status=$?
       if [ "$status" -ne 2 ]; then exit "$status"; fi
-      # Seed existing history without attaching the source checkout's ancestry.
-      git archive HEAD "${seed_paths[@]}" | tar -x -C "$state_dir"
+      if [[ "$profile" != intel ]]; then
+        # Seed existing history without attaching the source checkout's ancestry.
+        git archive HEAD "${seed_paths[@]}" | tar -x -C "$state_dir"
+      fi
     fi
     ;;
   publish)
     cd "$state_dir"
+    if [[ "$profile" == intel ]]; then
+      for path in "${publish_paths[@]}"; do
+        if [[ ! -f "$path" || -L "$path" ]]; then
+          echo "Expected both regular snapshot files." >&2
+          exit 1
+        fi
+      done
+    fi
     git add --all -- "${publish_paths[@]}"
     if git diff --cached --quiet; then exit 0; fi
     python3 "$source_checkout/scripts/validate-monitoring-publication.py" "$profile"
@@ -47,7 +65,7 @@ case "${1:-}" in
     git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push origin "HEAD:$state_ref"
     ;;
   *)
-    echo "Usage: $0 {prepare|publish} [daily|aeo]" >&2
+    echo "Usage: $0 {prepare|publish} [daily|aeo|intel]" >&2
     exit 2
     ;;
 esac

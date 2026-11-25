@@ -1305,4 +1305,8 @@ def test_morning_intel_write_token_is_separate_from_provider_credentials():
     assert publish["permissions"] == {"contents": "write"}
     assert all(job["steps"][0]["with"]["persist-credentials"] is False for job in (collect, publish))
     assert "secrets." not in json.dumps(publish)
-    assert "refs/heads/main" in publish["steps"][-1]["run"]
+    steps = {step.get("name"): step for step in publish["steps"]}
+    assert "refs/heads/main" in steps["Commit snapshot"]["run"]
+    state_step = steps["Publish the validated snapshot on the data branch"]["run"]
+    assert "scripts/stage_intel_snapshot.py" in state_step
+    assert "daily-monitoring-state.sh publish intel" in state_step

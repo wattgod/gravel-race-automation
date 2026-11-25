@@ -547,6 +547,8 @@ def test_workflow_is_dispatchable_weekly_and_never_echoes_secrets():
     assert "GG_GA4_PROPERTY_ID" in text
     assert "--exclude-dates" in text and "--compare-redesign" in text
     assert "--known-pages-only" in text
+    assert "name: blog-performance-${{ github.run_id }}-${{ github.run_attempt }}" in text
+    assert "artifact-ids: ${{ needs.report.outputs.artifact-id }}" in text
     for line in text.splitlines():
         if "secrets." in line:
             assert "echo" not in line and "cat " not in line

@@ -43,11 +43,6 @@ jobs:
       folder: ${{ steps.validate-inputs.outputs.folder }}
       race-name: ${{ steps.validate-inputs.outputs.race-name }}
     
-    env:
-      RACE_NAME: ${{ inputs.race_name || github.event.client_payload.race_name }}
-      RACE_FOLDER: ${{ inputs.race_folder || github.event.client_payload.race_folder }}
-      RESEARCH_ENGINE: ${{ inputs.research_engine || github.event.client_payload.research_engine || 'perplexity' }}
-      SKIP_VALIDATION: ${{ inputs.skip_validation || github.event.client_payload.skip_validation || 'false' }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -68,21 +63,33 @@ jobs:
           import os
           import re
           import sys
+          from pathlib import Path
           sys.path.insert(0, "scripts")
           from auto_process_review import validate_matrix
 
-          name = os.environ["RACE_NAME"]
-          folder = os.environ["RACE_FOLDER"]
-          if not re.fullmatch(r"[a-z0-9][a-z0-9()-]{0,100}", folder):
+          event = json.loads(Path(os.environ["GITHUB_EVENT_PATH"]).read_text())
+          inputs = event.get("inputs") or event.get("client_payload") or {}
+          if not isinstance(inputs, dict):
+              sys.exit("Race inputs must be an object.")
+          name = inputs.get("race_name")
+          folder = inputs.get("race_folder") or inputs.get("folder")
+          engine = inputs.get("research_engine") or "perplexity"
+          skip = str(inputs.get("skip_validation", False)).lower()
+          if not isinstance(name, str) or "\x00" in name:
+              sys.exit("Enter a race name.")
+          if not isinstance(folder, str) or not re.fullmatch(r"[a-z0-9][a-z0-9()-]{0,100}", folder):
               sys.exit("Enter a folder slug using lowercase letters, numbers, dashes, or parentheses.")
-          if os.environ["RESEARCH_ENGINE"] not in {"perplexity", "claude"}:
+          if engine not in ("perplexity", "claude"):
               sys.exit("Unknown research provider.")
-          if os.environ["SKIP_VALIDATION"] not in {"true", "false"}:
+          if skip not in {"true", "false"}:
               sys.exit("The skip validation input must be true or false.")
           matrix = {"include": [{"race_name": name, "folder": folder}]}
           validate_matrix(matrix)
           with open(os.environ["GITHUB_OUTPUT"], "a") as out:
               out.write(f"matrix={json.dumps(matrix)}\nfolder={folder}\nrace-name={name}\n")
+              out.write(f"engine={engine}\nskip-validation={skip}\n")
+          with open(os.environ["GITHUB_ENV"], "a") as env:
+              env.write(f"RACE_NAME={name}\nRACE_FOLDER={folder}\n")
           PYTHON
       
       - name: Install dependencies
@@ -94,7 +101,7 @@ jobs:
           rm -f -- "research-dumps/${RACE_FOLDER}-raw.md" "briefs/${RACE_FOLDER}-brief.md" "landing-pages/${RACE_FOLDER}.json"
 
       - name: Run Research (Perplexity)
-        if: env.RESEARCH_ENGINE == 'perplexity'
+        if: steps.validate-inputs.outputs.engine == 'perplexity'
         env:
           PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
         run: |
@@ -103,7 +110,7 @@ jobs:
             --folder "${RACE_FOLDER}"
       
       - name: Run Research (Claude)
-        if: env.RESEARCH_ENGINE == 'claude'
+        if: steps.validate-inputs.outputs.engine == 'claude'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
@@ -112,7 +119,7 @@ jobs:
             --folder "${RACE_FOLDER}"
       
       - name: Validate Research
-        if: env.SKIP_VALIDATION != 'true'
+        if: steps.validate-inputs.outputs.skip-validation != 'true'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |

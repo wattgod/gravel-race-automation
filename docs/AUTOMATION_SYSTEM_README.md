@@ -10,7 +10,7 @@ Fully self-contained automation system that lives in your GitHub repo. No extern
 Your GitHub Repo
 ├── .github/
 │   └── workflows/
-│       ├── research-race.yml      ← Trigger: manual or scheduled
+│       ├── research-race.yml      ← Trigger: manual or API dispatch
 │       ├── batch-process.yml      ← Trigger: process list of races
 │       └── update-existing.yml    ← Trigger: weekly refresh
 ├── scripts/
@@ -75,6 +75,9 @@ curl -X POST \
   https://api.github.com/repos/YOUR_USERNAME/YOUR_REPO/dispatches \
   -d '{"event_type":"research-race","client_payload":{"race_name":"Mid South","folder":"mid-south"}}'
 ```
+
+The run summary links to a review branch with the scanned research files.
+The WordPress step creates a draft from the scanned landing-page output.
 
 ### Batch Process Races
 

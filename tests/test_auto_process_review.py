@@ -62,18 +62,20 @@ def test_review_rejects_extra_files_before_copying_valid_results(tmp_path):
     assert not checkout.exists()
 
 
-@pytest.mark.parametrize("overrides", [
-    {},
-    {"RACE_FOLDER": "../outside"},
-    {"RACE_NAME": "First line\nother=value"},
-    {"RESEARCH_ENGINE": "unknown"},
+@pytest.mark.parametrize("kind,folder_key,overrides", [
+    ("inputs", "race_folder", {}),
+    ("client_payload", "folder", {}),
+    ("client_payload", "race_folder", {}),
+    ("client_payload", "folder", {"folder": "../outside"}),
+    ("inputs", "race_folder", {"race_name": "First line\nother=value"}),
+    ("inputs", "race_folder", {"research_engine": "unknown"}),
 ])
-def test_individual_research_validates_inputs_and_isolates_draft_credentials(tmp_path, overrides):
+def test_individual_research_validates_inputs_and_isolates_draft_credentials(
+        tmp_path, kind, folder_key, overrides):
     workflow = yaml.safe_load((ROOT / ".github/workflows/research-race.yml").read_text())
     assert set(workflow[True]) == {"workflow_dispatch", "repository_dispatch"}
     assert workflow["permissions"] == {"contents": "read"}
     research, publish, draft = (workflow["jobs"][name] for name in ("research", "publish", "stage-draft"))
-    assert "client_payload" in research["env"]["RACE_FOLDER"]
     assert research["steps"][0]["with"]["persist-credentials"] is False
     assert research["steps"][-1]["uses"] == "./.github/actions/stage-race-review"
     assert publish["with"]["review_kind"] == "research-race"
@@ -85,22 +87,29 @@ def test_individual_research_validates_inputs_and_isolates_draft_credentials(tmp
     assert '"$RUNNER_TEMP/reviewed-race/landing-pages/' in draft_step["run"]
 
     output = tmp_path / "outputs"
+    exported = tmp_path / "environment"
+    event = tmp_path / "event.json"
     step = next(step for step in research["steps"] if step.get("id") == "validate-inputs")
-    fixture = {"RACE_NAME": "Fixture Race", "RACE_FOLDER": "fixture-race",
-               "RESEARCH_ENGINE": "perplexity", "SKIP_VALIDATION": "false"}
-    env = {**os.environ, "GITHUB_OUTPUT": str(output), "PYTHONPATH": str(ROOT / "scripts"),
-           **fixture, **overrides}
+    fixture = {"race_name": "Fixture Race", folder_key: "fixture-race",
+               "skip_validation": True if kind == "inputs" else "false"}
+    event.write_text(json.dumps({kind: {**fixture, **overrides}}))
+    env = {**os.environ, "GITHUB_OUTPUT": str(output), "GITHUB_ENV": str(exported),
+           "GITHUB_EVENT_PATH": str(event), "PYTHONPATH": str(ROOT / "scripts")}
     result = subprocess.run(["bash", "-e", "-c", step["run"]], cwd=tmp_path,
                             env=env, capture_output=True, text=True)
     if overrides:
         assert result.returncode != 0
         assert not output.exists()
+        assert not exported.exists()
     else:
         assert result.returncode == 0, result.stderr
         fields = dict(line.split("=", 1) for line in output.read_text().splitlines())
         assert json.loads(fields["matrix"]) == {
             "include": [{"race_name": "Fixture Race", "folder": "fixture-race"}],
         }
+        assert fields["engine"] == "perplexity"
+        assert fields["skip-validation"] == ("true" if kind == "inputs" else "false")
+        assert exported.read_text() == "RACE_NAME=Fixture Race\nRACE_FOLDER=fixture-race\n"
 
 
 def test_individual_research_publishes_only_a_wordpress_draft_and_redacts_errors(

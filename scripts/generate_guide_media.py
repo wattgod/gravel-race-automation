@@ -186,7 +186,7 @@ async def generate_nano_banana(asset: dict, defaults: dict) -> Path:
     dims = asset.get("dimensions", {"width": 1920, "height": 640})
 
     # Google AI Studio Imagen API endpoint (Imagen 4)
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key={api_key}"
+    url = "https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict"
 
     payload = {
         "instances": [{"prompt": prompt}],
@@ -196,10 +196,17 @@ async def generate_nano_banana(asset: dict, defaults: dict) -> Path:
         },
     }
 
-    async with httpx.AsyncClient(timeout=120) as client:
-        resp = await client.post(url, json=payload)
-        resp.raise_for_status()
-        data = resp.json()
+    # Exception text can reach the tracked media manifest. Keep authentication
+    # out of URLs and retain only safe diagnostics from the HTTP client.
+    try:
+        async with httpx.AsyncClient(timeout=120) as client:
+            resp = await client.post(url, headers={"x-goog-api-key": api_key}, json=payload)
+            resp.raise_for_status()
+            data = resp.json()
+    except httpx.HTTPStatusError as error:
+        raise RuntimeError(f"Imagen request failed with HTTP {error.response.status_code}") from None
+    except httpx.RequestError as error:
+        raise RuntimeError(f"Imagen request failed ({type(error).__name__})") from None
 
     # Extract image bytes from response
     predictions = data.get("predictions", [])

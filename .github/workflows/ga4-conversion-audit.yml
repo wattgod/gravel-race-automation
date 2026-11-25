@@ -36,25 +36,9 @@ jobs:
           cache: pip
       - name: Install GA4 client dependencies
         run: pip install --quiet google-auth requests
-      - name: Validate and write service-account credentials
-        env:
-          GA4_CREDENTIALS_JSON: ${{ secrets.GA4_CREDENTIALS_JSON }}
-        run: |
-          python3 - <<'PY'
-          import json, os, pathlib
-          raw = os.environ.get("GA4_CREDENTIALS_JSON", "")
-          if not raw:
-              raise SystemExit("GA4_CREDENTIALS_JSON is not configured")
-          parsed = json.loads(raw)
-          required = {"client_email", "private_key", "token_uri"}
-          if not required.issubset(parsed):
-              raise SystemExit("GA4_CREDENTIALS_JSON has an invalid shape")
-          path = pathlib.Path(os.environ["RUNNER_TEMP"]) / "ga4-credentials.json"
-          path.write_text(json.dumps(parsed))
-          path.chmod(0o600)
-          PY
       - name: Audit conversion authority
         env:
+          GOOGLE_CREDENTIALS_JSON: ${{ secrets.GA4_CREDENTIALS_JSON }}
           GA4_PROPERTY_ID: ${{ secrets.GG_GA4_PROPERTY_ID }}
           MODE: ${{ inputs.mode }}
           START_DATE: ${{ inputs.start_date }}
@@ -64,9 +48,8 @@ jobs:
             echo "::error::GG_GA4_PROPERTY_ID is not configured"
             exit 1
           fi
-          python3 scripts/ga4_conversion_audit.py \
+          bash scripts/with-google-credentials.sh --require-service-account python3 scripts/ga4_conversion_audit.py \
             --property "$GA4_PROPERTY_ID" \
-            --credentials "${RUNNER_TEMP}/ga4-credentials.json" \
             --start-date "$START_DATE" \
             --end-date "$END_DATE" \
             --mode "$MODE" \

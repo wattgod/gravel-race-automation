@@ -39,6 +39,7 @@ import argparse
 import html
 import importlib.util
 import json
+import os
 import re
 import sys
 from datetime import date, datetime, timedelta, timezone
@@ -1025,7 +1026,8 @@ def main(argv: list[str] | None = None) -> int:
                         help="Use deterministic sample data; no GA4 call")
     parser.add_argument("--property", help="GA4 property ID or properties/ID")
     parser.add_argument("--credentials", type=Path,
-                        help="Service-account JSON path")
+                        default=os.environ.get("GOOGLE_APPLICATION_CREDENTIALS") or None,
+                        help="Service-account JSON path (defaults to GOOGLE_APPLICATION_CREDENTIALS)")
     parser.add_argument("--end-date", default=None,
                         help="Last day of this week's window (default: yesterday UTC)")
     parser.add_argument("--exclude-dates", default=None,

@@ -530,4 +530,4 @@ def test_workflow_is_dispatchable_weekly_and_never_echoes_secrets():
     for line in text.splitlines():
         if "secrets." in line:
             assert "echo" not in line and "cat " not in line
-    assert "chmod(0o600)" in text
+    assert "with-google-credentials.sh --require-service-account" in text

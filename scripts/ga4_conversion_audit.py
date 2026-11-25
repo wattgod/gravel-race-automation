@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -304,7 +305,9 @@ def build_audit(session: Any, property_name: str, start: date, end: date,
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--property", required=True)
-    parser.add_argument("--credentials", type=Path, required=True)
+    credentials_path = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS") or None
+    parser.add_argument("--credentials", type=Path, default=credentials_path,
+                        required=credentials_path is None)
     parser.add_argument("--start-date", required=True)
     parser.add_argument("--end-date", required=True)
     parser.add_argument("--mode", choices=("audit", "demote_cta_click"),

@@ -1,6 +1,6 @@
 {
  "date": "2026-11-25",
- "report": "## TOP LINE\n- Gravel God: sessions 196.\n- Roadie Labs: sessions 56.\n- XC Ski Labs: sessions 15.\n\n## CHECKOUT\n- Gravel God: healthy.\n- Roadie Labs: healthy.\n- XC Ski Labs: plan purchases intentionally gated.\n\n## OPERATIONS\n- New leads (24h): 5.\n- Emails sent (24h): 6.\n- Order processing records: 1.\n- Processing failures: 0.\n- Paid orders awaiting delivery: 0.",
+ "report": "## TOP LINE\n- Gravel God: sessions 196.\n- Roadie Labs: sessions 56.\n- XC Ski Labs: sessions 15.\n\n## CHECKOUT\n- Gravel God: healthy.\n- Roadie Labs: healthy.\n- XC Ski Labs: plan purchases intentionally gated.\n\n## OPERATIONS\n- New leads (24h): 5.\n- Emails sent (24h): 5.\n- Order processing records: 1.\n- Processing failures: 0.\n- Paid orders awaiting delivery: 0.",
  "measurement_epochs": [],
  "interpretation_ok": null,
  "ga4": {
@@ -155,8 +155,8 @@
   "ok": true,
   "new_leads_24h": 5,
   "countdown_enrollments": 0,
-  "emails_sent_24h": 6,
-  "opens_24h": 4,
+  "emails_sent_24h": 5,
+  "opens_24h": 3,
   "clicks_24h": 2,
   "bounces_24h": 0,
   "leads_by_brand": {
@@ -211,43 +211,43 @@
    "gravel-race-automation/link-check.yml": {
     "conclusion": "success",
     "last_success_at": "2026-11-24T12:21:09+00:00",
-    "age_hours": 31.8
+    "age_hours": 32.3
    },
    "road-race-automation/link-check.yml": {
     "conclusion": "success",
     "last_success_at": "2026-11-23T12:05:07+00:00",
-    "age_hours": 56.1
+    "age_hours": 56.6
    },
    "road-race-automation/checkout-monitor.yml": {
     "conclusion": "success",
-    "last_success_at": "2026-11-25T14:11:26+00:00",
-    "age_hours": 6.0
+    "last_success_at": "2026-11-25T20:09:37+00:00",
+    "age_hours": 0.5
    },
    "gravel-race-automation/regression-tests.yml": {
     "conclusion": "success",
-    "last_success_at": "2026-11-25T20:07:46+00:00",
+    "last_success_at": "2026-11-25T20:40:29+00:00",
     "age_hours": 0.0
    },
    "gravel-race-automation/aeo-weekly.yml": {
     "conclusion": "success",
     "last_success_at": "2026-11-23T10:33:21+00:00",
-    "age_hours": 57.6
+    "age_hours": 58.1
    },
    "gravel-race-automation/seo-weekly.yml": {
     "conclusion": "success",
     "last_success_at": "2026-11-23T11:23:29+00:00",
-    "age_hours": 56.8
+    "age_hours": 57.3
    }
   }
  },
  "since_yesterday": {
-  "merged_prs_count": 18,
+  "merged_prs_count": 22,
   "closed_issues_count": 0,
   "review_queue_count": 6,
   "run_totals": {
-   "success": 72,
-   "failure": 1,
-   "other": 5
+   "success": 70,
+   "failure": 2,
+   "other": 6
   }
  },
  "report_issues": []

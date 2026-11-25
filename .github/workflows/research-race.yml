@@ -50,8 +50,9 @@ jobs:
       - name: Validate race inputs
         shell: bash
         run: |
-          if [[ -z "$RACE_NAME" || ! "$RACE_FOLDER" =~ ^[a-z0-9][a-z0-9-]*$ ]]; then
-            echo "Enter a race name and a lowercase race folder slug." >&2
+          slug_pattern='^[a-z0-9][a-z0-9()-]*$'
+          if [[ -z "$RACE_NAME" || ! "$RACE_FOLDER" =~ $slug_pattern ]]; then
+            echo "Enter a race name and a folder slug using lowercase letters, numbers, dashes, or parentheses." >&2
             exit 1
           fi
       

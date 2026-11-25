@@ -73,9 +73,10 @@ jobs:
             echo "Enter at least one race slug." >&2
             exit 1
           fi
+          slug_pattern='^[a-z0-9][a-z0-9()-]*$'
           for slug in "${slugs[@]}"; do
-            if [[ ! "$slug" =~ ^[a-z0-9][a-z0-9-]*$ ]]; then
-              echo "Each race slug must contain only lowercase letters, numbers, and dashes." >&2
+            if [[ ! "$slug" =~ $slug_pattern ]]; then
+              echo "Use lowercase letters, numbers, dashes, or parentheses in race slugs." >&2
               exit 1
             fi
           done

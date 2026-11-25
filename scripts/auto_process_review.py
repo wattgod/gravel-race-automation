@@ -49,8 +49,20 @@ def copy_outputs(source: Path, destination: Path, paths: list[Path]) -> None:
         shutil.copyfile(source / relative, target)
 
 
+def validate_matrix(matrix: dict) -> dict[str, str]:
+    expected = {}
+    for row in matrix["include"]:
+        slug = row["folder"]
+        name = row["race_name"]
+        output_paths(slug)
+        if slug in expected or not name.strip() or len(name.splitlines()) != 1:
+            raise ValueError("Invalid race row in planned research batch")
+        expected[slug] = name
+    return expected
+
+
 def restore_batch(artifacts: Path, matrix: dict, checkout: Path) -> None:
-    expected = {row["folder"]: row["race_name"] for row in matrix["include"]}
+    expected = validate_matrix(matrix)
     results = []
     for artifact in sorted(artifacts.iterdir()):
         slug = artifact.name.removeprefix(ARTIFACT_PREFIX)

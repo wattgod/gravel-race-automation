@@ -1,0 +1,60 @@
+name: Publish generated race research for review
+
+on:
+  workflow_call:
+    inputs:
+      race_matrix:
+        description: The planned matrix whose outputs may be published
+        required: true
+        type: string
+      review_kind:
+        description: Review branch namespace for the calling workflow
+        required: true
+        type: string
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.11'
+      - name: Download successful race output
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: race-output-*
+          path: ${{ runner.temp }}/race-artifacts
+      - name: Assemble successful race outputs
+        env:
+          RACE_MATRIX: ${{ inputs.race_matrix }}
+        run: python scripts/auto_process_review.py restore "$RUNNER_TEMP/race-artifacts" "$RACE_MATRIX"
+      - name: Publish research for review
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REVIEW_KIND: ${{ inputs.review_kind }}
+          GIT_TERMINAL_PROMPT: "0"
+        run: |
+          set -euo pipefail
+          case "$REVIEW_KIND" in
+            auto-process|batch-process|aggressive-process|fast-process-races) ;;
+            *) echo "::error::Unknown race review workflow."; exit 1 ;;
+          esac
+          git diff --cached --quiet
+          git add -- research-dumps/ briefs/ landing-pages/ data/processed/races/
+          if git diff --cached --quiet; then
+            echo "There are no new research changes."
+            exit 0
+          fi
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          branch="review/$REVIEW_KIND/$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          git commit -m "Review race research ($(date -u +%F))"
+          git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push origin "HEAD:refs/heads/$branch"
+          printf '[Review race results](%s/%s/compare/main...%s?expand=1)\n' \
+            "$GITHUB_SERVER_URL" "$GITHUB_REPOSITORY" "$branch" >> "$GITHUB_STEP_SUMMARY"

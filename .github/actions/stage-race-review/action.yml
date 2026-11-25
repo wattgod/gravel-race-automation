@@ -1,0 +1,35 @@
+name: Stage race research for review
+description: Validate and scan only the generated race outputs before uploading them.
+inputs:
+  folder:
+    description: Validated race output slug
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Validate and scan race output
+      shell: bash
+      env:
+        RACE_FOLDER: ${{ inputs.folder }}
+      run: |
+        destination="$RUNNER_TEMP/race-output"
+        python scripts/auto_process_review.py stage "$RACE_FOLDER" "$destination"
+        archive="$RUNNER_TEMP/trufflehog.tar.gz"
+        curl --fail --silent --show-error --location --retry 3 --max-time 75 --proto '=https' \
+          --output "$archive" \
+          https://github.com/trufflesecurity/trufflehog/releases/download/v3.100.1/trufflehog_3.100.1_linux_amd64.tar.gz
+        echo "b2460688116f29ce33f1afe16d14fef3fa3db928e74ba55a6c9fed392c60ad69  $archive" | sha256sum --check
+        tar -xzf "$archive" -C "$RUNNER_TEMP" trufflehog
+        if ! "$RUNNER_TEMP/trufflehog" filesystem "$destination" --no-verification --no-update --fail --fail-on-scan-errors --concurrency=2 >/dev/null 2>&1; then
+          echo "::error::Race output failed its offline secret scan."
+          exit 1
+        fi
+
+    - name: Save race output
+      uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      with:
+        name: race-output-${{ inputs.folder }}
+        path: ${{ runner.temp }}/race-output/
+        if-no-files-found: error
+        retention-days: 7
+        overwrite: true

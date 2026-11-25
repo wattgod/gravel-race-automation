@@ -87,9 +87,7 @@ def test_staging_rejects_invalid_json_and_symlinks(tmp_path):
 
 
 def test_publish_step_writes_only_review_ref_and_stops_if_push_fails(tmp_path):
-    jobs = yaml.safe_load((ROOT / ".github/workflows/auto-process-races.yml").read_text())
-    assert jobs["permissions"] == {"contents": "read"}
-    assert "permissions" not in jobs["jobs"]["process"]
+    jobs = yaml.safe_load((ROOT / ".github/workflows/publish-race-review.yml").read_text())
     publish = jobs["jobs"]["publish"]
     assert publish["permissions"] == {"contents": "write"}
     steps = publish["steps"]
@@ -102,7 +100,7 @@ def test_publish_step_writes_only_review_ref_and_stops_if_push_fails(tmp_path):
     env = {**os.environ, "GIT_AUTHOR_NAME": "Fixture", "GIT_AUTHOR_EMAIL": "fixture@example.invalid",
            "GIT_COMMITTER_NAME": "Fixture", "GIT_COMMITTER_EMAIL": "fixture@example.invalid",
            "GITHUB_RUN_ID": "42", "GITHUB_RUN_ATTEMPT": "1", "GITHUB_SERVER_URL": "https://github.com",
-           "GITHUB_REPOSITORY": "fixture/project", "GITHUB_STEP_SUMMARY": str(summary)}
+           "GITHUB_REPOSITORY": "fixture/project", "GITHUB_STEP_SUMMARY": str(summary), "REVIEW_KIND": "auto-process"}
 
     def git(cwd, *args):
         return subprocess.check_output(["git", "-C", str(cwd), *args], env=env, text=True, stderr=subprocess.PIPE).strip()
@@ -163,8 +161,7 @@ def test_prepare_job_honors_both_completion_formats(tmp_path, name):
         output.write_text("")
         subprocess.run(["bash", "-e", "-c", step["run"]], cwd=tmp_path, env=env, check=True, capture_output=True)
         fields = dict(line.split("=", 1) for line in output.read_text().splitlines())
-        if name == "auto-process-races":
-            assert fields["has_work"] == expected
+        assert fields["has_work"] == expected
         selected = [race["folder"] for race in json.loads(fields["matrix"])["include"]]
         assert selected == (["second-race"] if expected == "true" else [])
 
@@ -196,3 +193,34 @@ def test_disjoint_review_batches_merge_without_completion_conflicts(tmp_path):
     git("merge", "--no-ff", "--no-edit", "race-two")
     assert completed_races(checkout) == {"Earlier Race", "Race One", "Race Two"}
     assert legacy.read_text() == "Earlier Race\n"
+
+@pytest.mark.parametrize("name,kind", [
+    ("auto-process-races", "auto-process"),
+    ("batch-process", "batch-process"),
+    ("aggressive-process", "aggressive-process"),
+    ("fast-process-races", "fast-process-races"),
+])
+def test_generation_jobs_use_shared_scanner_and_separate_publisher(name, kind):
+    workflow = yaml.safe_load((ROOT / f".github/workflows/{name}.yml").read_text())
+    assert workflow["permissions"] == {"contents": "read"}
+    jobs = workflow["jobs"]
+    assert "permissions" not in jobs["process"]
+    assert jobs["process"]["steps"][0]["with"]["persist-credentials"] is False
+    assert jobs["process"]["steps"][-1]["uses"] == "./.github/actions/stage-race-review"
+    publish = jobs["publish"]
+    assert publish["needs"] == ["prepare", "process"]
+    assert publish["permissions"] == {"contents": "write"}
+    assert publish["uses"] == "./.github/workflows/publish-race-review.yml"
+    assert publish["with"]["review_kind"] == kind
+
+
+def test_restore_rejects_duplicate_planned_slug_before_copying(tmp_path):
+    artifacts = tmp_path / "artifacts"
+    write_outputs(artifacts / "race-output-race-one", "race-one")
+    checkout = tmp_path / "checkout"
+    with pytest.raises(ValueError, match="Invalid race row"):
+        restore_batch(artifacts, {"include": [
+            {"folder": "race-one", "race_name": "First Race"},
+            {"folder": "race-one", "race_name": "Second Race"},
+        ]}, checkout)
+    assert not checkout.exists()

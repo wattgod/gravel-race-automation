@@ -154,3 +154,28 @@ def test_provider_errors_are_sanitized():
         audit._json_response(response, "key-event list")
     assert "PERMISSION_DENIED" in str(error.value)
     assert "secret detail" not in str(error.value)
+
+
+@pytest.mark.parametrize("explicit", [False, True])
+def test_audit_cli_accepts_temporary_google_credentials(tmp_path, monkeypatch, explicit):
+    from_environment = tmp_path / "runner.json"
+    explicit_credential = tmp_path / "explicit.json"
+    monkeypatch.setenv("GOOGLE_APPLICATION_CREDENTIALS", str(from_environment))
+    expected = explicit_credential if explicit else from_environment
+
+    def fake_session(path, *, edit):
+        assert path == expected
+        assert edit is False
+        return object()
+
+    monkeypatch.setattr(audit, "authorized_session", fake_session)
+    monkeypatch.setattr(audit, "build_audit", lambda *_args, **_kwargs: {
+        "schema": "fixture", "property": "properties/123", "period": {},
+        "controls": {}, "action": {},
+    })
+    flags = ["--credentials", str(explicit_credential)] if explicit else []
+    monkeypatch.setattr("sys.argv", [
+        "ga4_conversion_audit.py", "--property", "123", "--start-date", "2026-11-01",
+        "--end-date", "2026-11-02", "--output", str(tmp_path / "receipt.json"), *flags,
+    ])
+    assert audit.main() == 0

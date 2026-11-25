@@ -2,6 +2,9 @@
 
 import importlib.util
 import json
+import os
+import subprocess
+import sys
 from datetime import date
 from pathlib import Path
 
@@ -530,4 +533,53 @@ def test_workflow_is_dispatchable_weekly_and_never_echoes_secrets():
     for line in text.splitlines():
         if "secrets." in line:
             assert "echo" not in line and "cat " not in line
-    assert "chmod(0o600)" in text
+    assert "with-google-credentials.sh --require-service-account" in text
+
+
+@pytest.mark.parametrize("status", [0, 23])
+def test_google_credential_handoff_uses_a_private_file_and_cleans_up(tmp_path, status):
+    credentials = json.dumps({
+        "client_email": "fixture@example.invalid",
+        "private_key": "synthetic fixture",
+        "token_uri": "https://example.invalid",
+    })
+    child = """
+import os
+import stat
+import sys
+from pathlib import Path
+
+path = Path(os.environ["GOOGLE_APPLICATION_CREDENTIALS"])
+assert path.parent == Path(os.environ["RUNNER_TEMP"])
+assert stat.S_IMODE(path.stat().st_mode) == 0o600
+assert path == Path(os.environ["GA4_CREDENTIALS"])
+assert "GOOGLE_CREDENTIALS_JSON" not in os.environ
+assert "synthetic fixture" in path.read_text()
+raise SystemExit(int(sys.argv[1]))
+"""
+    result = subprocess.run(
+        ["bash", str(ROOT / "scripts/with-google-credentials.sh"),
+         "--require-service-account", sys.executable, "-c", child, str(status)],
+        env={**os.environ, "RUNNER_TEMP": str(tmp_path), "GOOGLE_CREDENTIALS_JSON": credentials},
+        capture_output=True, text=True, timeout=10,
+    )
+    assert result.returncode == status, result.stderr
+    assert "synthetic fixture" not in result.stdout + result.stderr
+    assert not list(tmp_path.iterdir())
+
+
+@pytest.mark.parametrize("explicit", [False, True])
+def test_blog_cli_accepts_temporary_google_credentials(tmp_path, monkeypatch, explicit):
+    from_environment = tmp_path / "runner.json"
+    explicit_credential = tmp_path / "explicit.json"
+    monkeypatch.setenv("GOOGLE_APPLICATION_CREDENTIALS", str(from_environment))
+    expected = explicit_credential if explicit else from_environment
+
+    def fake_report(**kwargs):
+        assert kwargs["credentials"] == expected
+        return {"pages": [], "warnings": []}
+
+    monkeypatch.setattr(bp, "run", fake_report)
+    monkeypatch.setattr(bp, "render_markdown", lambda _: "fixture report")
+    flags = ["--credentials", str(explicit_credential)] if explicit else []
+    assert bp.main(["--property", "123", "--output-dir", str(tmp_path), *flags]) == 0

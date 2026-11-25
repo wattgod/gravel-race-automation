@@ -17,9 +17,9 @@
         "status": "ok"
       },
       "llms_serving": {
-        "first_line": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y",
+        "first_line": "",
         "marker": "# Gravel God Race Database",
-        "status": "displaced"
+        "status": "challenged"
       },
       "logs": {
         "compressed_bytes": 2203794,
@@ -163,9 +163,9 @@
         "status": "ok"
       },
       "llms_serving": {
-        "first_line": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y",
+        "first_line": "",
         "marker": "# Roadie Labs Race Database",
-        "status": "displaced"
+        "status": "challenged"
       },
       "logs": {
         "compressed_bytes": 480835,
@@ -305,9 +305,9 @@
         "status": "not_configured"
       },
       "llms_serving": {
-        "first_line": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y",
+        "first_line": "",
         "marker": "# XC Ski Labs Race Database",
-        "status": "displaced"
+        "status": "challenged"
       },
       "logs": {
         "compressed_bytes": 64625,
@@ -468,11 +468,11 @@
     },
     {
       "brands": {
-        "gravelgod": 137,
-        "roadie": 18,
-        "xcski": 15
+        "gravelgod": 127,
+        "roadie": 15,
+        "xcski": 11
       },
-      "count": 170,
+      "count": 153,
       "user_agent": "unknown-agent"
     },
     {
@@ -506,6 +506,15 @@
     },
     {
       "brands": {
+        "gravelgod": 4,
+        "roadie": 3,
+        "xcski": 4
+      },
+      "count": 11,
+      "user_agent": "Pandalytics/2.0"
+    },
+    {
+      "brands": {
         "gravelgod": 8
       },
       "count": 8,
@@ -526,6 +535,13 @@
       },
       "count": 7,
       "user_agent": "ABEvalBot/0.1"
+    },
+    {
+      "brands": {
+        "gravelgod": 6
+      },
+      "count": 6,
+      "user_agent": "MistralAI-User/1.0"
     },
     {
       "brands": {

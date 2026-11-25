@@ -121,15 +121,25 @@ _AGENT_PRODUCT = re.compile(
     r"(?<![^\s;(])([A-Za-z][A-Za-z0-9_-]{0,31}(?:/[0-9]+(?:\.[0-9]+)*)?)(?=$|[\s;)])"
 )
 UNKNOWN_AGENT_LABEL = "unknown-agent"
+_BROWSER_PRODUCT_NAMES = {
+    "mozilla", "applewebkit", "chrome", "chromium", "edge", "edg", "firefox", "gecko",
+    "headlesschrome", "msie", "opera", "opr", "safari", "trident", "version",
+}
 
 
 def public_agent_label(header: str) -> str:
     """Return a bounded crawler label suitable for public reporting."""
+    versioned = None
     for match in _AGENT_PRODUCT.finditer(header):
         label = match.group(1)
-        if len(label) <= 48 and UNKNOWN_CANDIDATE_RE.search(label.split("/", 1)[0]):
+        product, separator, _ = label.partition("/")
+        if len(label) > 48 or product.casefold() in _BROWSER_PRODUCT_NAMES:
+            continue
+        if UNKNOWN_CANDIDATE_RE.search(product):
             return label
-    return UNKNOWN_AGENT_LABEL
+        if separator and versioned is None:
+            versioned = label
+    return versioned or UNKNOWN_AGENT_LABEL
 
 
 def public_agent_candidates(candidates: list) -> list[dict]:

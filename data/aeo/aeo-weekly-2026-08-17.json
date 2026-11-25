@@ -16,7 +16,7 @@
         "status": "ok"
       },
       "llms_serving": {
-        "error": "URLError: <urlopen error timed out>",
+        "error": "verification request failed",
         "status": "error"
       },
       "logs": {
@@ -53,7 +53,7 @@
         "status": "ok"
       },
       "llms_serving": {
-        "error": "URLError: <urlopen error timed out>",
+        "error": "verification request failed",
         "status": "error"
       },
       "logs": {
@@ -84,7 +84,7 @@
         "status": "not_configured"
       },
       "llms_serving": {
-        "error": "URLError: <urlopen error timed out>",
+        "error": "verification request failed",
         "status": "error"
       },
       "logs": {

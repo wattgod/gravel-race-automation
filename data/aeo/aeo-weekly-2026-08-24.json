@@ -309,7 +309,7 @@
         "status": "not_configured"
       },
       "llms_serving": {
-        "first_line": "# XC Ski Labs",
+        "first_line": "",
         "marker": "# XC Ski Labs Race Database",
         "status": "displaced"
       },
@@ -488,11 +488,11 @@
     },
     {
       "brands": {
-        "gravelgod": 104,
-        "roadie": 22,
-        "xcski": 2
+        "gravelgod": 100,
+        "roadie": 15,
+        "xcski": 1
       },
-      "count": 128,
+      "count": 116,
       "user_agent": "unknown-agent"
     },
     {
@@ -531,6 +531,22 @@
       },
       "count": 8,
       "user_agent": "SEOJuice-SearchBot/1.0"
+    },
+    {
+      "brands": {
+        "roadie": 6
+      },
+      "count": 6,
+      "user_agent": "YaDirectFetcher/1.0"
+    },
+    {
+      "brands": {
+        "gravelgod": 4,
+        "roadie": 1,
+        "xcski": 1
+      },
+      "count": 6,
+      "user_agent": "YandexFavicons/1.0"
     },
     {
       "brands": {

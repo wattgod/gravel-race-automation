@@ -14,9 +14,9 @@
         "status": "ok"
       },
       "llms_serving": {
-        "first_line": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y",
+        "first_line": "",
         "marker": "# Gravel God Race Database",
-        "status": "displaced"
+        "status": "challenged"
       },
       "logs": {
         "compressed_bytes": 1967482,
@@ -163,9 +163,9 @@
         "status": "ok"
       },
       "llms_serving": {
-        "first_line": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y",
+        "first_line": "",
         "marker": "# Roadie Labs Race Database",
-        "status": "displaced"
+        "status": "challenged"
       },
       "logs": {
         "compressed_bytes": 585417,
@@ -305,9 +305,9 @@
         "status": "not_configured"
       },
       "llms_serving": {
-        "first_line": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fllms.txt&y",
+        "first_line": "",
         "marker": "# XC Ski Labs Race Database",
-        "status": "displaced"
+        "status": "challenged"
       },
       "logs": {
         "compressed_bytes": 86609,
@@ -453,12 +453,10 @@
   "unknown_agent_candidates": [
     {
       "brands": {
-        "gravelgod": 89,
-        "roadie": 432,
-        "xcski": 3
+        "roadie": 421
       },
-      "count": 524,
-      "user_agent": "unknown-agent"
+      "count": 421,
+      "user_agent": "AIWebIndex/2.0"
     },
     {
       "brands": {
@@ -492,6 +490,15 @@
       },
       "count": 100,
       "user_agent": "Stripebot/1.0"
+    },
+    {
+      "brands": {
+        "gravelgod": 89,
+        "roadie": 4,
+        "xcski": 3
+      },
+      "count": 96,
+      "user_agent": "unknown-agent"
     },
     {
       "brands": {
@@ -545,6 +552,13 @@
       },
       "count": 10,
       "user_agent": "SEBot-WA"
+    },
+    {
+      "brands": {
+        "roadie": 7
+      },
+      "count": 7,
+      "user_agent": "CheckMarkNetwork/1.0"
     },
     {
       "brands": {

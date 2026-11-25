@@ -516,6 +516,17 @@ def _fetch_llms_head(url: str, timeout: int) -> str:
         return head
 
 
+def public_llms_status(status: str, legacy_first_line: str = "") -> str:
+    """Preserve the distinction between a challenge and a verified mismatch."""
+    if status == "displaced" and "sgcaptcha" in legacy_first_line.lower():
+        return "challenged"
+    return status if status in {"ok", "challenged", "displaced", "error"} else "unknown"
+
+
+def _has_llms_marker(head: str, marker: str) -> bool:
+    return head.lstrip("\ufeff\n\r ").partition("\n")[0].strip() == marker
+
+
 def check_llms_marker(brand: str, timeout: int = 20) -> dict[str, Any]:
     """Verify the live /llms.txt still serves OUR database file.
 
@@ -533,30 +544,30 @@ def check_llms_marker(brand: str, timeout: int = 20) -> dict[str, Any]:
     head = _fetch_llms_head(url, timeout)
     stripped = head.lstrip("﻿\n\r ")
     for pause in LLMS_CHALLENGE_BACKOFF:
-        if stripped.startswith(marker) or "sgcaptcha" not in stripped.lower():
+        if _has_llms_marker(stripped, marker) or "sgcaptcha" not in stripped.lower():
             break
         time.sleep(pause)
         head = _fetch_llms_head(url, timeout)
         stripped = head.lstrip("﻿\n\r ")
 
-    ok = stripped.startswith(marker)
+    ok = _has_llms_marker(stripped, marker)
     if not ok and "sgcaptcha" in stripped.lower():
         # The WAF challenged every HTTP attempt: the file is unverified, not
         # broken. Read it from the host instead — the same SSH config the log
         # collector uses — so a challenge window never renders as BROKEN.
         host_head = _read_llms_head_via_ssh(brand)
         if host_head is not None:
-            host_stripped = host_head.lstrip("\ufeff\n\r ")
+            ok = _has_llms_marker(host_head, marker)
             return {
-                "status": "ok" if host_stripped.startswith(marker) else "displaced",
+                "status": "ok" if ok else "displaced",
                 "marker": marker,
-                "first_line": host_head.splitlines()[0][:120] if host_head else "",
+                "first_line": marker if ok else "",
                 "verified_via": "ssh",
             }
     return {
         "status": "ok" if ok else ("challenged" if "sgcaptcha" in stripped.lower() else "displaced"),
         "marker": marker,
-        "first_line": head.splitlines()[0][:120] if head else "",
+        "first_line": marker if ok else "",
     }
 
 
@@ -623,8 +634,8 @@ def collect_weekly(now: datetime | None = None) -> dict[str, Any]:
             candidates = []
         try:
             llms = check_llms_marker(brand)
-        except Exception as exc:
-            llms = {"status": "error", "error": _error(f"{type(exc).__name__}: {exc}")}
+        except Exception:
+            llms = {"status": "error", "error": "verification request failed"}
         artifact["brands"][brand] = {"ga4": ga4, "llms_serving": llms, **log_result}
         unknown_by_brand[brand] = candidates
     artifact["unknown_agent_candidates"] = _merge_unknown_candidates(unknown_by_brand)

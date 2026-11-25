@@ -35,6 +35,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     
+    env:
+      RACE_NAME: ${{ github.event.inputs.race_name }}
+      RACE_FOLDER: ${{ github.event.inputs.race_folder }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -43,6 +46,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Validate race inputs
+        shell: bash
+        run: |
+          if [[ -z "$RACE_NAME" || ! "$RACE_FOLDER" =~ ^[a-z0-9][a-z0-9-]*$ ]]; then
+            echo "Enter a race name and a lowercase race folder slug." >&2
+            exit 1
+          fi
       
       - name: Install dependencies
         run: |
@@ -54,8 +65,8 @@ jobs:
           PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
         run: |
           python scripts/research_perplexity.py \
-            --race "${{ github.event.inputs.race_name }}" \
-            --folder "${{ github.event.inputs.race_folder }}"
+            --race "${RACE_NAME}" \
+            --folder "${RACE_FOLDER}"
       
       - name: Run Research (Claude)
         if: ${{ github.event.inputs.research_engine == 'claude' }}
@@ -63,8 +74,8 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           python scripts/research.py \
-            --race "${{ github.event.inputs.race_name }}" \
-            --folder "${{ github.event.inputs.race_folder }}"
+            --race "${RACE_NAME}" \
+            --folder "${RACE_FOLDER}"
       
       - name: Validate Research
         if: ${{ github.event.inputs.skip_validation != 'true' }}
@@ -72,7 +83,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           python scripts/validate.py \
-            --input "research-dumps/${{ github.event.inputs.race_folder }}-raw.md"
+            --input "research-dumps/${RACE_FOLDER}-raw.md"
         continue-on-error: true
       
       - name: Synthesize Brief
@@ -80,21 +91,21 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           python scripts/synthesize.py \
-            --input "research-dumps/${{ github.event.inputs.race_folder }}-raw.md" \
-            --output "briefs/${{ github.event.inputs.race_folder }}-brief.md"
+            --input "research-dumps/${RACE_FOLDER}-raw.md" \
+            --output "briefs/${RACE_FOLDER}-brief.md"
       
       - name: Generate JSON
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           python scripts/generate_json.py \
-            --input "briefs/${{ github.event.inputs.race_folder }}-brief.md" \
-            --output "landing-pages/${{ github.event.inputs.race_folder }}.json"
+            --input "briefs/${RACE_FOLDER}-brief.md" \
+            --output "landing-pages/${RACE_FOLDER}.json"
       
       - name: Quality Gate - Research
         run: |
           python scripts/quality_gates.py \
-            --file "research-dumps/${{ github.event.inputs.race_folder }}-raw.md" \
+            --file "research-dumps/${RACE_FOLDER}-raw.md" \
             --type research \
             --strict
         continue-on-error: false
@@ -102,7 +113,7 @@ jobs:
       - name: Quality Gate - Brief
         run: |
           python scripts/quality_gates.py \
-            --file "briefs/${{ github.event.inputs.race_folder }}-brief.md" \
+            --file "briefs/${RACE_FOLDER}-brief.md" \
             --type brief \
             --strict
         continue-on-error: false
@@ -110,7 +121,7 @@ jobs:
       - name: Validate Output Quality
         run: |
           python scripts/validate_output.py \
-            --folder "${{ github.event.inputs.race_folder }}" \
+            --folder "${RACE_FOLDER}" \
             --strict
         continue-on-error: true
       
@@ -119,7 +130,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add research-dumps/ briefs/ landing-pages/ data/
-          git commit -m "Research + Brief: ${{ github.event.inputs.race_name }}" || echo "No changes"
+          git commit -m "Research + Brief: ${RACE_NAME}" || echo "No changes"
           git push
 
       - name: Push to WordPress
@@ -129,7 +140,7 @@ jobs:
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
         run: |
           python scripts/push_wordpress.py \
-            --json "landing-pages/${{ github.event.inputs.race_folder }}.json"
+            --json "landing-pages/${RACE_FOLDER}.json"
         continue-on-error: true
       
       - name: Notify Slack
@@ -137,7 +148,7 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         run: |
           python scripts/notify.py \
-            --race "${{ github.event.inputs.race_name }}" \
+            --race "${RACE_NAME}" \
             --status "complete"
         continue-on-error: true
 

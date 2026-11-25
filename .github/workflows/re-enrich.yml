@@ -31,6 +31,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
+    env:
+      ENRICH_MODE: ${{ inputs.mode }}
+      ENRICH_COUNT: ${{ inputs.count }}
+      ENRICH_SLUGS: ${{ inputs.slugs }}
     steps:
       - uses: actions/checkout@v4
 
@@ -48,22 +52,34 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python scripts/batch_enrich.py --auto ${{ inputs.count }}
+          python scripts/batch_enrich.py --auto "$ENRICH_COUNT"
 
       - name: Run enrichment (force)
         if: ${{ inputs.mode == 'force' }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python scripts/batch_enrich.py --force --auto ${{ inputs.count }}
+          python scripts/batch_enrich.py --force --auto "$ENRICH_COUNT"
 
       - name: Run enrichment (slugs)
         if: ${{ inputs.mode == 'slugs' }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        shell: bash
         run: |
-          SLUGS=$(echo "${{ inputs.slugs }}" | tr ',' ' ')
-          python scripts/batch_enrich.py --slugs $SLUGS
+          slug_list=${ENRICH_SLUGS//,/ }
+          read -r -a slugs <<< "${slug_list//$'\n'/ }"
+          if (( ${#slugs[@]} == 0 )); then
+            echo "Enter at least one race slug." >&2
+            exit 1
+          fi
+          for slug in "${slugs[@]}"; do
+            if [[ ! "$slug" =~ ^[a-z0-9][a-z0-9-]*$ ]]; then
+              echo "Each race slug must contain only lowercase letters, numbers, and dashes." >&2
+              exit 1
+            fi
+          done
+          python scripts/batch_enrich.py --slugs "${slugs[@]}"
 
       - name: Validate citations
         run: |
@@ -74,5 +90,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || git commit -m "chore: re-enrich race profiles (${{ inputs.mode }}, ${{ inputs.count }})"
+          git diff --cached --quiet || git commit -m "chore: re-enrich race profiles (${ENRICH_MODE}, ${ENRICH_COUNT})"
           git push

@@ -153,7 +153,6 @@ jobs:
         if: >-
           !cancelled() && inputs.dry_run != true && steps.changes.outputs.review == 'true'
           && steps.changes.outputs.count <= 10 && steps.verify.outcome == 'success'
-          && steps.gates.outcome != 'failure'
         run: |
           review_checkout="$RUNNER_TEMP/veracity-over-limit"
           git worktree add --detach "$review_checkout" "$GITHUB_SHA"

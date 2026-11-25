@@ -588,6 +588,7 @@ class TestWorkflowWiring:
         apply = self._step(steps, "Apply and verify over-limit")
         assert 'inputs.dry_run != true' in apply["if"]
         assert "steps.verify.outcome == 'success'" in apply["if"]
+        assert "steps.gates.outcome" not in apply["if"]
         assert 'git worktree add --detach "$review_checkout" "$GITHUB_SHA"' in apply["run"]
         assert "--apply-review-queue" in apply["run"]
         assert "tests/test_index_integrity.py" in apply["run"]

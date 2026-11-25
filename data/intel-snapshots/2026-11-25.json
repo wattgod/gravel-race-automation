@@ -103,7 +103,7 @@
    "pageviews": 15,
    "sessions_7d_avg": 6.9,
    "yesterday_last_hour": 20,
-   "realtime_active_users": 0,
+   "realtime_active_users": 1,
    "sessions_28d": 229,
    "yesterday_provisional": true,
    "funnel": {
@@ -211,43 +211,43 @@
    "gravel-race-automation/link-check.yml": {
     "conclusion": "success",
     "last_success_at": "2026-11-24T12:21:09+00:00",
-    "age_hours": 32.3
+    "age_hours": 34.9
    },
    "road-race-automation/link-check.yml": {
     "conclusion": "success",
     "last_success_at": "2026-11-23T12:05:07+00:00",
-    "age_hours": 56.6
+    "age_hours": 59.2
    },
    "road-race-automation/checkout-monitor.yml": {
     "conclusion": "success",
     "last_success_at": "2026-11-25T20:09:37+00:00",
-    "age_hours": 0.5
+    "age_hours": 3.1
    },
    "gravel-race-automation/regression-tests.yml": {
     "conclusion": "success",
-    "last_success_at": "2026-11-25T20:40:29+00:00",
+    "last_success_at": "2026-11-25T23:13:29+00:00",
     "age_hours": 0.0
    },
    "gravel-race-automation/aeo-weekly.yml": {
     "conclusion": "success",
     "last_success_at": "2026-11-23T10:33:21+00:00",
-    "age_hours": 58.1
+    "age_hours": 60.7
    },
    "gravel-race-automation/seo-weekly.yml": {
     "conclusion": "success",
     "last_success_at": "2026-11-23T11:23:29+00:00",
-    "age_hours": 57.3
+    "age_hours": 59.8
    }
   }
  },
  "since_yesterday": {
-  "merged_prs_count": 22,
+  "merged_prs_count": 29,
   "closed_issues_count": 0,
   "review_queue_count": 6,
   "run_totals": {
-   "success": 70,
-   "failure": 2,
-   "other": 6
+   "success": 71,
+   "failure": 1,
+   "other": 5
   }
  },
  "report_issues": []

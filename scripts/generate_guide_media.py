@@ -18,14 +18,11 @@ Usage:
 import argparse
 import asyncio
 import json
+import re
 import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-
-from dotenv import load_dotenv
-
-load_dotenv()
 
 # Paths
 GUIDE_DIR = Path(__file__).parent.parent / "guide"
@@ -38,13 +35,45 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
+PUBLIC_FAILURES = {
+    "Imagen API key is missing",
+    "Imagen request failed (network error)",
+    "Imagen returned no predictions",
+    "Media processing failed",
+}
+
+
+def safe_diagnostic(value: object) -> str:
+    if isinstance(value, str) and (
+        value in PUBLIC_FAILURES or re.fullmatch(r"Imagen request failed with HTTP [1-5][0-9]{2}", value)
+    ):
+        return value
+    return "Media processing failed"
+
+
+class GuideMediaError(RuntimeError):
+    """An error with a diagnostic suitable for a public manifest."""
+
+
+def mark_failed(asset: dict, error: Exception) -> str:
+    public_detail = str(error) if isinstance(error, GuideMediaError) else None
+    diagnostic = safe_diagnostic(public_detail)
+    asset["status"] = "failed"
+    asset["error"] = diagnostic
+    print(f"  FAILED: {diagnostic}")
+    return diagnostic
+
+
 def load_manifest() -> dict:
     """Load and return the media manifest."""
     return json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
 
 
 def save_manifest(manifest: dict) -> None:
-    """Save manifest back to disk."""
+    """Save only public-safe diagnostics in the tracked manifest."""
+    for asset in manifest["assets"]:
+        if "error" in asset:
+            asset["error"] = safe_diagnostic(asset["error"])
     MANIFEST_PATH.write_text(
         json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
@@ -177,9 +206,7 @@ async def generate_nano_banana(asset: dict, defaults: dict) -> Path:
 
     api_key = os.environ.get("GOOGLE_AI_API_KEY")
     if not api_key:
-        raise RuntimeError(
-            "GOOGLE_AI_API_KEY not set. Add it to .env or export it."
-        )
+        raise GuideMediaError("Imagen API key is missing")
 
     model = asset.get("model", defaults.get("model", "nano-banana-pro"))
     prompt = asset["prompt"]
@@ -204,14 +231,14 @@ async def generate_nano_banana(asset: dict, defaults: dict) -> Path:
             resp.raise_for_status()
             data = resp.json()
     except httpx.HTTPStatusError as error:
-        raise RuntimeError(f"Imagen request failed with HTTP {error.response.status_code}") from None
-    except httpx.RequestError as error:
-        raise RuntimeError(f"Imagen request failed ({type(error).__name__})") from None
+        raise GuideMediaError(f"Imagen request failed with HTTP {error.response.status_code}") from None
+    except httpx.RequestError:
+        raise GuideMediaError("Imagen request failed (network error)") from None
 
     # Extract image bytes from response
     predictions = data.get("predictions", [])
     if not predictions:
-        raise RuntimeError(f"No predictions returned for {asset['id']}")
+        raise GuideMediaError("Imagen returned no predictions")
 
     import base64
     img_bytes = base64.b64decode(predictions[0]["bytesBase64Encoded"])
@@ -270,14 +297,12 @@ async def generate_batch(
 
                 output_paths = post_process(asset, raw_path, defaults)
                 asset["status"] = "complete"
+                asset.pop("error", None)
                 asset["generated_at"] = datetime.now(timezone.utc).isoformat()
                 asset["output_files"] = [p.name for p in output_paths]
                 results[asset_id] = "success"
-            except Exception as e:
-                asset["status"] = "failed"
-                asset["error"] = str(e)
-                results[asset_id] = f"error: {e}"
-                print(f"  FAILED: {e}")
+            except Exception as error:
+                results[asset_id] = f"error: {mark_failed(asset, error)}"
 
     await asyncio.gather(*[_gen(a) for a in assets])
     return results
@@ -306,7 +331,7 @@ def print_status(manifest: dict) -> None:
         print(f"\nFailed assets:")
         for a in assets:
             if a.get("status") == "failed":
-                print(f"  - {a['id']}: {a.get('error', 'unknown')}")
+                print(f"  - {a['id']}: {safe_diagnostic(a.get('error'))}")
 
     # Check output directory
     webp_count = len(list(OUTPUT_DIR.glob("*.webp")))
@@ -321,6 +346,9 @@ def print_status(manifest: dict) -> None:
 
 
 def main():
+    from dotenv import load_dotenv
+
+    load_dotenv()
     parser = argparse.ArgumentParser(
         description="Generate media assets for the Gravel God Training Guide"
     )
@@ -403,11 +431,10 @@ def main():
                 try:
                     post_process(asset, raw_path, defaults)
                     asset["status"] = "complete"
+                    asset.pop("error", None)
                     asset["generated_at"] = datetime.now(timezone.utc).isoformat()
-                except Exception as e:
-                    print(f"  FAILED: {e}")
-                    asset["status"] = "failed"
-                    asset["error"] = str(e)
+                except Exception as error:
+                    mark_failed(asset, error)
     else:
         results = asyncio.run(
             generate_batch(targets, defaults, concurrency=args.concurrency)

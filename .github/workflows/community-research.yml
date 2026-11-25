@@ -30,6 +30,7 @@ permissions:
 
 jobs:
   research:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
@@ -38,7 +39,9 @@ jobs:
       RESEARCH_TIER: ${{ inputs.tier }}
       FORCE_RESEARCH: ${{ inputs.force }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -64,10 +67,23 @@ jobs:
           fi
           python scripts/batch_community_research.py "${args[@]}"
 
-      - name: Commit changes
+      - name: Publish changes for review
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GIT_TERMINAL_PROMPT: "0"
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git diff --cached --quiet || git commit -m "chore: community re-research (tier=${RESEARCH_TIER}, count=${RESEARCH_COUNT})"
-          git push
+          set -euo pipefail
+          git diff --cached --exit-code --quiet
+          git ls-files -z --cached --others --exclude-standard -- ':(glob)research-dumps/*-community.md' ':(glob)research-dumps/*-community.bak.md' |
+            git --literal-pathspecs add -A --pathspec-from-file=- --pathspec-file-nul
+          if git diff --cached --quiet; then
+            echo "No generated changes."
+            exit 0
+          fi
+          branch="review/community-research/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" \
+            commit -m "chore: community re-research (tier=${RESEARCH_TIER}, count=${RESEARCH_COUNT})"
+          git -c credential.helper= -c 'credential.helper=!gh auth git-credential' \
+            push origin "HEAD:refs/heads/$branch"
+          review_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/compare/main...$branch?expand=1"
+          printf 'Review the proposed updates in a [pull request](%s).\n' "$review_url" >> "$GITHUB_STEP_SUMMARY"

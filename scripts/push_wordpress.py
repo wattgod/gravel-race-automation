@@ -139,10 +139,9 @@ def push_to_wordpress(json_path: str):
             return page_id
         else:
             print(f"✗ Failed to create page: {response.status_code}")
-            print(response.text)
             return None
     except Exception as e:
-        print(f"✗ Error pushing to WordPress: {e}")
+        print(f"✗ Error pushing to WordPress: {type(e).__name__}")
         return None
 
 

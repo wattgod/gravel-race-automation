@@ -677,6 +677,39 @@ def test_public_snapshot_only_contains_allowlisted_aggregate_metrics():
     assert source["commerce_ledger"]["orders"][0]["email"] == "jane.rider@example.org"
 
 
+def test_public_snapshot_preserves_operational_alerts_and_known_channel_states():
+    from scripts.daily_intel import build_public_snapshot
+
+    snapshot = build_public_snapshot({
+        "checkout": {
+            "gravelgod": {"ok": True, "plans_gated": True},
+            "xcski": {"ok": False, "health_ok": True, "stripe_checkout_ok": False,
+                      "error": "private probe detail"},
+        },
+        "commerce_ledger": {"ok": True, "open_paid_orders": [
+            {"stale": True, "order_ref": "private-order"},
+            {"stale": False, "order_ref": "private-pending-order"},
+        ]},
+        "ga4": {"gravelgod": {"ok": True, "channel_mix": {"AI Assistant": 4}}},
+        "workflows": {"runs": {
+            "gravel-race-automation/link-check.yml": {"conclusion": "in-progress"},
+            "road-race-automation/link-check.yml": {"conclusion": "never-run"},
+        }},
+    }, "2026-11-25")
+
+    assert snapshot["commerce_ledger"]["awaiting_delivery_records"] == 2
+    assert snapshot["commerce_ledger"]["overdue_delivery_records"] == 1
+    assert snapshot["checkout"]["xcski"]["ok"] is False
+    assert "Paid orders overdue for delivery: 1." in snapshot["report"]
+    assert "checkout probe failed" in snapshot["report"]
+    assert "plan purchases intentionally gated" in snapshot["report"]
+    assert "private" not in json.dumps(snapshot)
+    assert snapshot["ga4"]["gravelgod"]["channel_mix"] == {"AI Assistant": 4}
+    assert {run["conclusion"] for run in snapshot["workflows"]["runs"].values()} == {
+        "in-progress", "never-run",
+    }
+
+
 @pytest.mark.parametrize("publication_only", [False, True])
 def test_main_publishes_aggregates_and_keeps_detail_on_the_email_path(
     tmp_path, monkeypatch, capsys, publication_only,

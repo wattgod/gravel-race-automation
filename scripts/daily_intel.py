@@ -1970,7 +1970,7 @@ def build_public_snapshot(collected: dict, today: str) -> dict:
         "Direct", "Organic Search", "Organic Social", "Referral", "Email",
         "Paid Search", "Paid Social", "Cross-network", "Display", "Unassigned",
         "Organic Video", "Organic Shopping", "Paid Shopping", "Paid Video",
-        "Affiliates", "Audio", "Mobile Push Notifications", "SMS",
+        "Affiliates", "Audio", "Mobile Push Notifications", "SMS", "AI Assistant",
     )
     for brand in BRANDS:
         ga4 = _public_object(_public_object(collected.get("ga4")).get(brand))
@@ -2003,7 +2003,9 @@ def build_public_snapshot(collected: dict, today: str) -> dict:
             **_public_metrics(ledger, ("questionnaire_starts",)),
         )
         if "open_paid_orders" in ledger:
-            commerce["awaiting_delivery_records"] = len(_public_rows(ledger["open_paid_orders"]))
+            awaiting = _public_rows(ledger["open_paid_orders"])
+            commerce["awaiting_delivery_records"] = len(awaiting)
+            commerce["overdue_delivery_records"] = sum(item.get("stale") is True for item in awaiting)
     mission = _public_object(collected.get("mission_control"))
     mission_public = {
         "ok": mission.get("ok") is True,
@@ -2032,7 +2034,8 @@ def build_public_snapshot(collected: dict, today: str) -> dict:
         conclusion = run.get("conclusion")
         runs[key] = {
             "conclusion": conclusion if conclusion in ("success", "failure", "cancelled",
-                "skipped", "neutral", "timed_out", "action_required") else "unknown",
+                "skipped", "neutral", "timed_out", "action_required", "in-progress",
+                "never-run", "startup_failure", "stale") else "unknown",
             "last_success_at": _public_timestamp(run.get("last_success_at")),
             **_public_metrics(run, ("age_hours",)),
         }
@@ -2046,11 +2049,32 @@ def build_public_snapshot(collected: dict, today: str) -> dict:
     issues = []
     if collected.get("report_issues"):
         issues.append("One or more private report checks need attention.")
+    checkout = {}
+    checkout_results = _public_object(collected.get("checkout"))
+    for brand, meta in BRANDS.items():
+        probe = _public_object(checkout_results.get(brand))
+        checkout[brand] = {field: probe[field] for field in
+                          ("ok", "health_ok", "stripe_checkout_ok", "plans_gated")
+                          if type(probe.get(field)) is bool}
+        if probe.get("ok") is False:
+            issues.append(f"{meta['label']}: checkout probe failed.")
+    overdue = commerce.get("overdue_delivery_records")
+    if overdue:
+        issues.append(f"Paid orders overdue for delivery: {overdue}.")
     subject = f"Morning Intel {today}"
     lines = ["## TOP LINE"]
     for brand, metrics in traffic.items():
         sessions = metrics.get("sessions", "unavailable") if metrics["ok"] else "unavailable"
         lines.append(f"- {BRANDS[brand]['label']}: sessions {sessions}.")
+    lines.extend(["", "## CHECKOUT"])
+    for brand, probe in checkout.items():
+        if probe.get("ok") is False:
+            status = "failed"
+        elif probe.get("ok") is True:
+            status = "plan purchases intentionally gated" if probe.get("plans_gated") else "healthy"
+        else:
+            status = "unavailable"
+        lines.append(f"- {BRANDS[brand]['label']}: {status}.")
     lines.extend(["", "## OPERATIONS",
         f"- New leads (24h): {mission_public.get('new_leads_24h', 'unavailable')}.",
         f"- Emails sent (24h): {mission_public.get('emails_sent_24h', 'unavailable')}.",
@@ -2058,11 +2082,13 @@ def build_public_snapshot(collected: dict, today: str) -> dict:
         f"- Processing failures: {commerce.get('failed_processing_records', 'unavailable')}.",
         f"- Paid orders awaiting delivery: {commerce.get('awaiting_delivery_records', 'unavailable')}.",
     ])
+    if issues:
+        lines.extend(["", "## BROKEN", *(f"- {issue}" for issue in issues)])
     return {
         "date": today, "subject": subject, "report": "\n".join(lines),
         "measurement_epochs": measurement_epochs_for_report(today),
         "interpretation_ok": interpretation_ok if type(interpretation_ok) is bool else None,
-        "ga4": traffic, "ga4_revisions": revisions,
+        "ga4": traffic, "ga4_revisions": revisions, "checkout": checkout,
         "mission_control": mission_public, "commerce_ledger": commerce,
         "constraint": {"assessment": "plan_funnel" if traffic["gravelgod"]["plan_funnel"]["available"]
                        else "data_insufficient"},

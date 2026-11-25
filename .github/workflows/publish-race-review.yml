@@ -42,7 +42,7 @@ jobs:
         run: |
           set -euo pipefail
           case "$REVIEW_KIND" in
-            auto-process|batch-process|aggressive-process|fast-process-races) ;;
+            auto-process|batch-process|aggressive-process|fast-process-races|update-existing) ;;
             *) echo "::error::Unknown race review workflow."; exit 1 ;;
           esac
           git diff --cached --quiet

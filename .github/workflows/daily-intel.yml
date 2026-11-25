@@ -129,3 +129,16 @@ jobs:
             -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" \
             pull --rebase origin main
           git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push origin HEAD:refs/heads/main
+
+      - name: Publish the validated snapshot on the data branch
+        shell: bash
+        env:
+          MONITORING_STATE_DIR: ${{ runner.temp }}/morning-intel-state
+          SNAPSHOT_DATE: ${{ needs.intel.outputs.snapshot-date }}
+          GH_TOKEN: ${{ github.token }}
+          GIT_TERMINAL_PROMPT: "0"
+        run: |
+          bash scripts/daily-monitoring-state.sh prepare intel
+          python3 scripts/stage_intel_snapshot.py "$RUNNER_TEMP/intel-review" \
+            "$MONITORING_STATE_DIR/data/intel-snapshots" "$SNAPSHOT_DATE"
+          bash scripts/daily-monitoring-state.sh publish intel

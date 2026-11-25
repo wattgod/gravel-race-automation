@@ -11,10 +11,11 @@ DAILY = re.compile(
     r"|reports/\d{4}-\d{2}-\d{2}\.md)"
 )
 AEO = re.compile(r"data/aeo/aeo-weekly-\d{4}-\d{2}-\d{2}\.json")
+INTEL = re.compile(r"data/intel-snapshots/\d{4}-\d{2}-\d{2}\.(?:json|md)")
 EMAIL = re.compile(rb"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 
 profile = sys.argv[1] if len(sys.argv) > 1 else "daily"
-allowed = {"daily": DAILY, "aeo": AEO}[profile]
+allowed = {"daily": DAILY, "aeo": AEO, "intel": INTEL}[profile]
 if profile == "aeo":
     from aeo_weekly import validate_artifact
 

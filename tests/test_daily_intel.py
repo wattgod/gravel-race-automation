@@ -1193,3 +1193,63 @@ def test_interpret_prompt_treats_open_paid_orders_as_undelivered():
 
     assert "open_paid_orders" in INTERPRET_PROMPT
     assert "never as a" in INTERPRET_PROMPT and "milestone" in INTERPRET_PROMPT
+
+
+@pytest.mark.parametrize("endpoint", [
+    "http://provider.example.invalid/health",
+    "file:///tmp/synthetic",
+    "https://synthetic-user@provider.example.invalid/health",
+])
+def test_provider_request_rejects_insecure_or_credential_bearing_urls(monkeypatch, endpoint):
+    from scripts import daily_intel
+
+    def unexpected(*args):
+        pytest.fail("An invalid destination must not create an HTTP opener")
+
+    monkeypatch.setattr(daily_intel.urllib.request, "build_opener", unexpected)
+    assert daily_intel._http(endpoint) == (0, "Invalid HTTPS provider URL.")
+
+
+def test_provider_request_uses_a_no_redirect_opener(monkeypatch):
+    import io
+    from urllib.error import HTTPError
+    from scripts import daily_intel
+
+    url = "https://provider.example.invalid/health"
+    redirects = []
+
+    class Provider:
+        def open(self, request, *, timeout):
+            assert request.full_url == url
+            assert request.get_header("X-cron-secret") == "synthetic"
+            assert timeout == 25
+            redirects.append(request.full_url)
+            raise HTTPError(url, 302, "Redirect", {}, io.BytesIO(b"private provider diagnostic"))
+
+    def build(handler):
+        assert handler.redirect_request(None, None, 302, "", {}, "https://other.example.invalid/") is None
+        return Provider()
+
+    monkeypatch.setattr(daily_intel.urllib.request, "build_opener", build)
+    assert daily_intel._http(url, headers={"X-Cron-Secret": "synthetic"}) == (302, "Provider redirected the request.")
+    assert redirects == [url]
+
+
+def test_provider_request_preserves_the_business_error_and_bounds_its_body(monkeypatch):
+    import io
+    from urllib.error import HTTPError
+    from scripts import daily_intel
+
+    message = b"does not support training-plan generation"
+    url = "https://provider.example.invalid/checkout"
+
+    class Provider:
+        def open(self, request, *, timeout):
+            assert request.get_method() == "POST"
+            raise HTTPError(url, 400, "Bad Request", {}, io.BytesIO(message + b"x" * 4096))
+
+    monkeypatch.setattr(daily_intel.urllib.request, "build_opener", lambda handler: Provider())
+    status, body = daily_intel._http(url, data={"synthetic": True})
+    assert status == 400
+    assert body.startswith(message.decode())
+    assert len(body) == 500

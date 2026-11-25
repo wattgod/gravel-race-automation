@@ -26,12 +26,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import os
 import re
 import sys
 import urllib.error
 import urllib.request
-from copy import deepcopy
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -1065,10 +1065,10 @@ def load_trend(days: int = 7) -> list[dict]:
                     compact[f"{event}_events"] = None
             ledger = snap.get("commerce_ledger") or {}
             if ledger.get("ok"):
-                compact["order_processing_records"] = sum(
-                    1 for order in (ledger.get("orders") or [])
-                    if isinstance(order, dict)
-                )
+                # Older snapshots stored person-level rows; new ones retain the count.
+                compact["order_processing_records"] = ledger.get("order_processing_records")
+                if type(compact["order_processing_records"]) is not int:
+                    compact["order_processing_records"] = len(_public_rows(ledger.get("orders")))
             else:
                 compact["order_processing_records"] = None
             trend.append(compact)
@@ -1934,57 +1934,177 @@ def send_email(subject: str, markdown: str) -> str:
     return json.loads(body_resp).get("id", "")
 
 
-_EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
-
-# (group, list) pairs in `collected` whose rows are real people.
-_PEOPLE_LISTS = (("commerce_ledger", "orders"),
-                 ("commerce_ledger", "failed_orders"),
-                 ("commerce_ledger", "recoveries"),
-                 ("mission_control", "hot_leads_14d"))
+def _public_object(value):
+    return value if isinstance(value, dict) else {}
 
 
-def redact_for_snapshot(snapshot: dict) -> dict:
-    """Copy of the snapshot that is safe to commit.
+def _public_metrics(value, fields):
+    return {key: number for key, number in _public_object(value).items()
+            if key in fields and (type(number) is int or
+                                  (type(number) is float and math.isfinite(number)))}
 
-    data/intel-snapshots/ lives in a PUBLIC repo, and from 2026-07-02 to
-    2026-09-23 it committed customer and lead names and emails every day.
-    On disk, people keep their first name and a masked email
-    (j***@gmail.com). The emailed report keeps the full detail.
-    """
-    snapshot = deepcopy(snapshot)
-    full_names = set()
-    for group, key in _PEOPLE_LISTS:
-        rows = (snapshot.get(group) or {}).get(key) if isinstance(
-            snapshot.get(group), dict) else None
-        for person in rows or []:
-            if not isinstance(person, dict):
-                continue
-            name = " ".join(str(person.get("name") or "").split())
-            if " " in name:
-                full_names.add(name)
-                person["name"] = name.split()[0]
-    # Longest first, so "Ann Lee Smith" is replaced before "Ann Lee".
-    # Case-insensitive: Stripe names are often upper-case, narration isn't.
-    name_patterns = [
-        (re.compile(re.escape(name), re.IGNORECASE), name.split()[0])
-        for name in sorted(full_names, key=len, reverse=True)
-    ]
 
-    def scrub(value):
-        if isinstance(value, dict):
-            return {k: scrub(v) for k, v in value.items()}
-        if isinstance(value, list):
-            return [scrub(v) for v in value]
-        if not isinstance(value, str):
-            return value
-        value = _EMAIL_RE.sub(
-            lambda m: m.group(0)[:1] + "***@" + m.group(0).split("@", 1)[1],
-            value)
-        for pattern, first in name_patterns:
-            value = pattern.sub(first, value)
-        return value
+def _public_rows(value):
+    return [row for row in value if isinstance(row, dict)] if isinstance(value, list) else []
 
-    return scrub(snapshot)
+
+def _public_timestamp(value):
+    if isinstance(value, str):
+        try:
+            return datetime.fromisoformat(value).isoformat()
+        except ValueError:
+            pass
+    return None
+
+
+def build_public_snapshot(collected: dict, today: str) -> dict:
+    """Publish allowlisted metrics, never collector text, narration or person rows."""
+    today = date.fromisoformat(today).isoformat()
+    traffic = {}
+    plan_fields = (
+        "race_offer_seen_users", "plan_cta_users", "cta_unlabelled_users",
+        "questionnaire_users", "form_start_users", "form_submit_users",
+        "checkout_users", "plan_purchase_users",
+    )
+    channels = (
+        "Direct", "Organic Search", "Organic Social", "Referral", "Email",
+        "Paid Search", "Paid Social", "Cross-network", "Display", "Unassigned",
+        "Organic Video", "Organic Shopping", "Paid Shopping", "Paid Video",
+        "Affiliates", "Audio", "Mobile Push Notifications", "SMS", "AI Assistant",
+    )
+    for brand in BRANDS:
+        ga4 = _public_object(_public_object(collected.get("ga4")).get(brand))
+        plan = _public_object(ga4.get("plan_funnel"))
+        traffic[brand] = {
+            "ok": ga4.get("ok") is True,
+            **_public_metrics(ga4, ("sessions", "users", "pageviews", "sessions_7d_avg",
+                "sessions_28d", "yesterday_last_hour", "realtime_active_users", "abandoned_submits")),
+            "yesterday_provisional": (ga4.get("yesterday_provisional")
+                if type(ga4.get("yesterday_provisional")) is bool else None),
+            "funnel": _public_metrics(ga4.get("funnel"), FUNNEL_STAGES),
+            "funnel_28d": _public_metrics(ga4.get("funnel_28d"), FUNNEL_STAGES),
+            "channel_mix": _public_metrics(ga4.get("channel_mix"), channels),
+            "plan_funnel": {
+                "available": plan.get("available") is True,
+                **{window: _public_metrics(plan.get(window), plan_fields)
+                   for window in ("yesterday", "28d")},
+            },
+        }
+
+    ledger = _public_object(collected.get("commerce_ledger"))
+    commerce = {"ok": ledger.get("ok") is True}
+    if commerce["ok"]:
+        orders = _public_rows(ledger.get("orders"))
+        failures = [order for order in orders if order.get("success") is False]
+        commerce.update(
+            order_processing_records=len(orders),
+            failed_processing_records=len(failures or _public_rows(ledger.get("failed_orders"))),
+            recovery_records=len(_public_rows(ledger.get("recoveries"))),
+            **_public_metrics(ledger, ("questionnaire_starts",)),
+        )
+        if "open_paid_orders" in ledger:
+            awaiting = _public_rows(ledger["open_paid_orders"])
+            commerce["awaiting_delivery_records"] = len(awaiting)
+            commerce["overdue_delivery_records"] = sum(item.get("stale") is True for item in awaiting)
+    mission = _public_object(collected.get("mission_control"))
+    mission_public = {
+        "ok": mission.get("ok") is True,
+        **_public_metrics(mission, ("new_leads_24h", "countdown_enrollments",
+            "emails_sent_24h", "opens_24h", "clicks_24h", "bounces_24h")),
+        "leads_by_brand": _public_metrics(mission.get("leads_by_brand"), BRANDS),
+    }
+
+    revisions = {}
+    for brand in BRANDS:
+        revision = _public_object(_public_object(collected.get("ga4_revisions")).get(brand))
+        if revision:
+            revisions[brand] = {
+                "date": _public_timestamp(revision.get("date")),
+                **_public_metrics(revision, ("reported", "now")),
+            }
+    aeo = _public_object(collected.get("aeo"))
+    aeo_brands = _public_object(aeo.get("brands"))
+    workflow_runs = _public_object(_public_object(collected.get("workflows")).get("runs"))
+    runs = {}
+    for repo, workflow in HEALTH_WORKFLOWS:
+        key = f"{repo.split('/')[1]}/{workflow}"
+        run = _public_object(workflow_runs.get(key))
+        if not run:
+            continue
+        conclusion = run.get("conclusion")
+        runs[key] = {
+            "conclusion": conclusion if conclusion in ("success", "failure", "cancelled",
+                "skipped", "neutral", "timed_out", "action_required", "in-progress",
+                "never-run", "startup_failure", "stale") else "unknown",
+            "last_success_at": _public_timestamp(run.get("last_success_at")),
+            **_public_metrics(run, ("age_hours",)),
+        }
+
+    changes = _public_object(collected.get("since_yesterday"))
+    run_totals = {state: 0 for state in ("success", "failure", "other")}
+    for run in _public_object(changes.get("runs_24h")).values():
+        for state, count in _public_metrics(run, run_totals).items():
+            run_totals[state] += count
+    interpretation_ok = collected.get("interpretation_ok")
+    issues = []
+    if collected.get("report_issues"):
+        issues.append("One or more private report checks need attention.")
+    checkout = {}
+    checkout_results = _public_object(collected.get("checkout"))
+    for brand, meta in BRANDS.items():
+        probe = _public_object(checkout_results.get(brand))
+        checkout[brand] = {field: probe[field] for field in
+                          ("ok", "health_ok", "stripe_checkout_ok", "plans_gated")
+                          if type(probe.get(field)) is bool}
+        if probe.get("ok") is False:
+            issues.append(f"{meta['label']}: checkout probe failed.")
+    overdue = commerce.get("overdue_delivery_records")
+    if overdue:
+        issues.append(f"Paid orders overdue for delivery: {overdue}.")
+    subject = f"Morning Intel {today}"
+    lines = ["## TOP LINE"]
+    for brand, metrics in traffic.items():
+        sessions = metrics.get("sessions", "unavailable") if metrics["ok"] else "unavailable"
+        lines.append(f"- {BRANDS[brand]['label']}: sessions {sessions}.")
+    lines.extend(["", "## CHECKOUT"])
+    for brand, probe in checkout.items():
+        if probe.get("ok") is False:
+            status = "failed"
+        elif probe.get("ok") is True:
+            status = "plan purchases intentionally gated" if probe.get("plans_gated") else "healthy"
+        else:
+            status = "unavailable"
+        lines.append(f"- {BRANDS[brand]['label']}: {status}.")
+    lines.extend(["", "## OPERATIONS",
+        f"- New leads (24h): {mission_public.get('new_leads_24h', 'unavailable')}.",
+        f"- Emails sent (24h): {mission_public.get('emails_sent_24h', 'unavailable')}.",
+        f"- Order processing records: {commerce.get('order_processing_records', 'unavailable')}.",
+        f"- Processing failures: {commerce.get('failed_processing_records', 'unavailable')}.",
+        f"- Paid orders awaiting delivery: {commerce.get('awaiting_delivery_records', 'unavailable')}.",
+    ])
+    if issues:
+        lines.extend(["", "## BROKEN", *(f"- {issue}" for issue in issues)])
+    return {
+        "date": today, "subject": subject, "report": "\n".join(lines),
+        "measurement_epochs": measurement_epochs_for_report(today),
+        "interpretation_ok": interpretation_ok if type(interpretation_ok) is bool else None,
+        "ga4": traffic, "ga4_revisions": revisions, "checkout": checkout,
+        "mission_control": mission_public, "commerce_ledger": commerce,
+        "constraint": {"assessment": "plan_funnel" if traffic["gravelgod"]["plan_funnel"]["available"]
+                       else "data_insufficient"},
+        "aeo": {"ok": aeo.get("ok") is True, "brands": {
+            brand: _public_metrics(aeo_brands.get(brand),
+                ("ai_referral_sessions", "ai_referral_delta", "llms_2xx", "llms_non_2xx",
+                 "training_crawl", "user_fetch", "user_fetch_delta"))
+            for brand in AEO_BRANDS}},
+        "workflows": {"runs": runs},
+        "since_yesterday": {
+            **{f"{key}_count": len(_public_rows(changes.get(key)))
+               for key in ("merged_prs", "closed_issues", "review_queue")},
+            "run_totals": run_totals,
+        },
+        "report_issues": issues,
+    }
 
 
 def main() -> int:
@@ -1992,7 +2112,7 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true", help="skip the email send")
     ap.add_argument("--no-llm", action="store_true", help="skip interpretation")
     ap.add_argument("--no-email", action="store_true",
-                    help="write the snapshot and narration but do not email (Morning Console is the surface)")
+                    help="write only the public aggregate snapshot for Morning Console")
     args = ap.parse_args()
 
     today = date.today().isoformat()
@@ -2020,7 +2140,7 @@ def main() -> int:
     trend = load_trend()
     deterministic_report = safe_render(collected)
 
-    if args.no_llm:
+    if args.no_llm or args.no_email:
         # deliberately skipped, not broken — must not extend the failure streak
         collected["interpretation_ok"] = None
         subject, report = plain_digest(collected)
@@ -2042,26 +2162,27 @@ def main() -> int:
             report = f"INTERPRETATION UNAVAILABLE: {reason}\n\n{deterministic_report}"
 
     # persistence must never cost the email — snapshot failures ride in the report
+    snapshot_written = False
     try:
         SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
-        snapshot = redact_for_snapshot(
-            {**collected, "report": report, "subject": subject})
+        snapshot = build_public_snapshot(collected, today)
         subject_on_disk = snapshot.pop("subject")
         (SNAPSHOT_DIR / f"{today}.json").write_text(
             json.dumps(snapshot, indent=1, default=str))
         (SNAPSHOT_DIR / f"{today}.md").write_text(
             f"# {subject_on_disk}\n\n{snapshot['report']}\n")
+        snapshot_written = True
         print(f"snapshot: data/intel-snapshots/{today}.json")
     except Exception as e:
         report += f"\n- BROKEN: snapshot write failed: {type(e).__name__}: {e}"
-    print(f"subject:  {subject}")
+    print(f"subject:  Morning Intel {today}")
 
     if args.dry_run:
         print("\n" + report)
         return 0
     if args.no_email:
         print("email:    skipped (--no-email); snapshot is the product")
-        return 0
+        return 0 if snapshot_written else 1
     msg_id = send_email(subject, report)
     print(f"sent:     {msg_id} → {INTEL_TO}")
     return 0

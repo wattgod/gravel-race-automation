@@ -637,29 +637,83 @@ def _people_snapshot():
     }
 
 
-def test_redact_for_snapshot_keeps_first_names_and_masks_emails():
-    """data/intel-snapshots/ is committed to a public repo."""
-    from scripts.daily_intel import redact_for_snapshot
+def test_public_snapshot_only_contains_allowlisted_aggregate_metrics():
+    from scripts.daily_intel import build_public_snapshot
 
-    original = _people_snapshot()
-    snap = redact_for_snapshot(original)
-    text = json.dumps(snap)
-
-    for leaked in ("Rider", "jane.rider@", "Sam Lead", "sam@", "nameless@",
-                   "Failed", "FAILED", "pat@", "Cart", "rae@"):
+    source = _people_snapshot()
+    source["commerce_ledger"].update(ok=True, questionnaire_starts=4)
+    source["commerce_ledger"]["orders"][0].update(
+        customer_reference="fixture-reference", error="private provider text")
+    source["mission_control"].update(ok=True, new_leads_24h=7, emails_sent_24h=12)
+    source["ga4"] = {"gravelgod": {
+        "ok": True, "sessions": 100, "sessions_7d_avg": 92.5,
+        "pageviews": float("nan"), "users": "private collector text",
+        "top_pages": [{"path": "/account/private-ref", "views": 3}],
+        "funnel": {"purchase": 2, "private-label@example.org": 5},
+        "channel_mix": {"Direct": 25, "private-label@example.org": 5},
+        "plan_funnel": {"available": True, "28d": {
+            "plan_purchase_users": 5, "arbitrary_field": "private collector text",
+        }},
+    }}
+    source["subject"] = "private subject"
+    source["report_issues"] = ["private provider text"]
+    source["since_yesterday"] = {"review_queue": [{"title": "private collector text"}]}
+    snap = build_public_snapshot(source, "2026-11-25")
+    text = json.dumps(snap, allow_nan=False)
+    for leaked in ("Jane", "Sam", "Pat Failed", "Rae", "@", "fixture-reference",
+                   "private provider text", "private collector text", "private subject",
+                   "private-ref", "arbitrary_field"):
         assert leaked not in text
-    assert snap["commerce_ledger"]["orders"][0]["name"] == "Jane"
-    assert snap["commerce_ledger"]["orders"][0]["email"] == "j***@example.org"
-    assert snap["mission_control"]["hot_leads_14d"][1]["email"] == "n***@example.net"
-    assert snap["report"] == ("Order processing: Jane <j***@example.org>. "
-                              "Sam opened twice. PROCESSING FAILURE: Pat. "
-                              "cart recovery: Rae.")
-    # Non-person names are untouched, and the input is not mutated.
-    assert snap["workflows"]["runs"][0]["name"] == "Daily Intel Report"
-    assert original["commerce_ledger"]["orders"][0]["email"] == "jane.rider@example.org"
+    assert "orders" not in snap["commerce_ledger"]
+    assert "hot_leads_14d" not in snap["mission_control"]
+    assert snap["ga4"]["gravelgod"]["sessions"] == 100
+    assert snap["ga4"]["gravelgod"]["funnel"] == {"purchase": 2}
+    assert snap["ga4"]["gravelgod"]["channel_mix"] == {"Direct": 25}
+    assert snap["ga4"]["gravelgod"]["plan_funnel"]["28d"] == {"plan_purchase_users": 5}
+    assert snap["mission_control"]["new_leads_24h"] == 7
+    assert snap["commerce_ledger"]["order_processing_records"] == 1
+    assert snap["commerce_ledger"]["questionnaire_starts"] == 4
+    assert snap["since_yesterday"]["review_queue_count"] == 1
+    assert source["commerce_ledger"]["orders"][0]["email"] == "jane.rider@example.org"
 
 
-def test_main_writes_redacted_snapshot_but_emails_full_report(tmp_path, monkeypatch):
+def test_public_snapshot_preserves_operational_alerts_and_known_channel_states():
+    from scripts.daily_intel import build_public_snapshot
+
+    snapshot = build_public_snapshot({
+        "checkout": {
+            "gravelgod": {"ok": True, "plans_gated": True},
+            "xcski": {"ok": False, "health_ok": True, "stripe_checkout_ok": False,
+                      "error": "private probe detail"},
+        },
+        "commerce_ledger": {"ok": True, "open_paid_orders": [
+            {"stale": True, "order_ref": "private-order"},
+            {"stale": False, "order_ref": "private-pending-order"},
+        ]},
+        "ga4": {"gravelgod": {"ok": True, "channel_mix": {"AI Assistant": 4}}},
+        "workflows": {"runs": {
+            "gravel-race-automation/link-check.yml": {"conclusion": "in-progress"},
+            "road-race-automation/link-check.yml": {"conclusion": "never-run"},
+        }},
+    }, "2026-11-25")
+
+    assert snapshot["commerce_ledger"]["awaiting_delivery_records"] == 2
+    assert snapshot["commerce_ledger"]["overdue_delivery_records"] == 1
+    assert snapshot["checkout"]["xcski"]["ok"] is False
+    assert "Paid orders overdue for delivery: 1." in snapshot["report"]
+    assert "checkout probe failed" in snapshot["report"]
+    assert "plan purchases intentionally gated" in snapshot["report"]
+    assert "private" not in json.dumps(snapshot)
+    assert snapshot["ga4"]["gravelgod"]["channel_mix"] == {"AI Assistant": 4}
+    assert {run["conclusion"] for run in snapshot["workflows"]["runs"].values()} == {
+        "in-progress", "never-run",
+    }
+
+
+@pytest.mark.parametrize("publication_only", [False, True])
+def test_main_publishes_aggregates_and_keeps_detail_on_the_email_path(
+    tmp_path, monkeypatch, capsys, publication_only,
+):
     from scripts import daily_intel
 
     people = _people_snapshot()
@@ -676,25 +730,35 @@ def test_main_writes_redacted_snapshot_but_emails_full_report(tmp_path, monkeypa
     monkeypatch.setattr(daily_intel, "collect_mission_control",
                         lambda: people["mission_control"])
     monkeypatch.setattr(daily_intel, "load_trend", lambda: [])
-    monkeypatch.setattr(daily_intel, "interpret", lambda *a: (
-        "Jane Q Rider bought a plan",
-        "## TOP LINE\n" + people["report"] + "\n## DO TODAY\n- ship it"))
+    narrator_calls = []
+
+    def narrate(*args):
+        narrator_calls.append(True)
+        return ("Jane Q Rider bought a plan",
+                "## TOP LINE\n" + people["report"] + "\n## DO TODAY\n- ship it")
+
+    monkeypatch.setattr(daily_intel, "interpret", narrate)
     monkeypatch.setattr(daily_intel, "SNAPSHOT_DIR", tmp_path)
     sent = {}
     monkeypatch.setattr(daily_intel, "send_email",
                         lambda subject, report: sent.update(
                             subject=subject, report=report) or "msg_test")
-    monkeypatch.setattr("sys.argv", ["daily_intel.py"])
+    flags = ["--no-email"] if publication_only else []
+    monkeypatch.setattr("sys.argv", ["daily_intel.py", *flags])
 
     assert daily_intel.main() == 0
 
-    on_disk = "".join(p.read_text() for p in tmp_path.iterdir())
-    for leaked in ("Rider", "jane.rider@", "Sam Lead", "sam@", "nameless@",
-                   "Pat Failed", "pat@", "Rae Cart", "rae@"):
-        assert leaked not in on_disk
-    assert "Jane" in on_disk
-    assert "jane.rider@example.org" in sent["report"]
-    assert sent["subject"] == "Jane Q Rider bought a plan"
+    public = "".join(p.read_text() for p in tmp_path.iterdir()) + capsys.readouterr().out
+    for leaked in ("Jane", "Rider", "Sam Lead", "Pat Failed", "Rae Cart", "@example"):
+        assert leaked not in public
+    assert "Morning Intel" in public
+    if publication_only:
+        assert not narrator_calls
+        assert not sent
+    else:
+        assert narrator_calls == [True]
+        assert "jane.rider@example.org" in sent["report"]
+        assert sent["subject"] == "Jane Q Rider bought a plan"
 
 
 def test_collect_mission_control_reads_newest_rows_past_the_1000_row_cap(monkeypatch):

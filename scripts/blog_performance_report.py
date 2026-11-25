@@ -18,9 +18,11 @@ every GA4 query drops rows whose browser begins with "Headless".
 Content covered:
   essays   /articles/<slug>/      (wordpress/articles/)
   posts    /<slug>/               (wordpress/post_sources/*.json)
-  blog     /blog/<slug>/          (previews, recaps, roundups — every
-                                   /blog/* path GA4 returns, plus the
-                                   slugs in web/blog-index.json)
+  blog     /blog/<slug>/          (previews, recaps, roundups in
+                                   web/blog-index.json)
+
+Local reports also discover new paths in GA4. Scheduled reports use
+--known-pages-only to limit publication to cataloged paths.
 
 Read-only: uses the analytics.readonly scope and the same service-account
 auth as scripts/ga4_conversion_audit.py. Runs in GitHub Actions
@@ -122,17 +124,26 @@ def classify_blog_slug(slug: str) -> str:
 
 def load_inventory(post_sources: Path = POST_SOURCES,
                    articles_dir: Path = ARTICLES_DIR,
-                   blog_index: Path = BLOG_INDEX) -> dict[str, dict]:
-    """Known content URLs → {title, type}. Essays and posts always appear in
-    the report (zero rows included); blog pages appear if known or if GA4
-    returns them."""
+                   blog_index: Path = BLOG_INDEX, *,
+                   public_only: bool = False) -> dict[str, dict]:
+    """Map cataloged content URLs to titles and page types."""
+    try:
+        entries = json.loads(blog_index.read_text()) if blog_index.exists() else []
+    except ValueError:
+        entries = []
+    entries = entries if isinstance(entries, list) else []
+    public_urls = {entry.get("url") for entry in entries if isinstance(entry, dict)
+                   and isinstance(entry.get("url"), str)}
     pages: dict[str, dict] = {}
     if articles_dir.exists():
         for index in sorted(articles_dir.glob("*/index.html")):
             slug = index.parent.name
+            url = f"/articles/{slug}/"
+            if public_only and url not in public_urls:
+                continue
             match = re.search(r"<title>(.*?)</title>",
                               index.read_text(errors="replace"), re.DOTALL)
-            pages[f"/articles/{slug}/"] = {
+            pages[url] = {
                 "title": _clean_title(match.group(1)) if match else _slug_title(slug),
                 "type": "essay"}
     if post_sources.exists():
@@ -145,18 +156,15 @@ def load_inventory(post_sources: Path = POST_SOURCES,
             live = data.get("live") or {}
             title = live.get("headline") or live.get("title") or _slug_title(slug)
             pages[f"/{slug}/"] = {"title": _clean_title(title), "type": "post"}
-    if blog_index.exists():
-        try:
-            entries = json.loads(blog_index.read_text())
-        except ValueError:
-            entries = []
-        for entry in entries if isinstance(entries, list) else []:
-            url = str(entry.get("url") or "")
-            if not url.startswith("/blog/"):
-                continue  # /articles/ entries come from the HTML titles above
-            slug = url.strip("/").split("/")[-1]
-            pages[url] = {"title": _clean_title(entry.get("title") or slug),
-                          "type": classify_blog_slug(slug)}
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        url = str(entry.get("url") or "")
+        if not url.startswith("/blog/"):
+            continue  # /articles/ entries come from the HTML titles above
+        slug = url.strip("/").split("/")[-1]
+        pages[url] = {"title": _clean_title(entry.get("title") or slug),
+                      "type": classify_blog_slug(slug)}
     return pages
 
 
@@ -263,14 +271,19 @@ def first_week_over_week_end(page_type: str, end: date,
 
 # ── GA4 queries (REST runReport) ─────────────────────────────────────────
 
-def _page_filter(post_paths: list[str]) -> dict:
+def _page_filter(page_paths: list[str], include_discovered: bool) -> dict:
     exprs = [
         {"filter": {"fieldName": "pagePath", "stringFilter": {
             "matchType": "BEGINS_WITH", "value": prefix}}}
         for prefix in ("/blog/", "/articles/")
     ]
     # pagePath may arrive with or without the trailing slash.
-    variants = sorted({v for p in post_paths for v in (p, p.rstrip("/"))})
+    variants = sorted({v for p in page_paths for v in (p, p.rstrip("/"))})
+    if not include_discovered:
+        if not variants:
+            raise Ga4Error("public content inventory is empty")
+        return {"filter": {"fieldName": "pagePath",
+                           "inListFilter": {"values": variants, "caseSensitive": True}}}
     if variants:
         exprs.append({"filter": {"fieldName": "pagePath",
                                  "inListFilter": {"values": variants}}})
@@ -287,11 +300,12 @@ HEADLESS_EXCLUSION = {"notExpression": {"filter": {
         "caseSensitive": False}}}}
 
 
-def report_requests(span: dict, post_paths: list[str]) -> dict[str, dict]:
+def report_requests(span: dict, page_paths: list[str], *,
+                    include_discovered: bool = True) -> dict[str, dict]:
     """Daily (date-dimensioned) reports over the whole span, so tracking
     start and excluded dates can be applied per day in Python."""
     date_ranges = [{"startDate": span["start"], "endDate": span["end"]}]
-    pages = _page_filter(post_paths)
+    pages = _page_filter(page_paths, include_discovered)
     return {
         "pages": {
             "dateRanges": date_ranges,
@@ -451,12 +465,14 @@ OPTIONAL_REPORTS = {
 
 
 def fetch_reports(session: Any, property_name: str, span: dict,
-                  post_paths: list[str]) -> tuple[dict, list[str]]:
+                  page_paths: list[str], *,
+                  include_discovered: bool = True) -> tuple[dict, list[str]]:
     """Run every report over the span. cta and browsers are optional: if
     either fails the report still ships and says what is missing."""
     warnings: list[str] = []
     reports: dict[str, dict | None] = {}
-    for name, body in report_requests(span, post_paths).items():
+    for name, body in report_requests(
+            span, page_paths, include_discovered=include_discovered).items():
         try:
             reports[name] = _run_paged(session, property_name, body,
                                        f"{name} report")
@@ -599,11 +615,13 @@ def _metrics_for(daily: dict, path: str, window: dict, page_type: str,
 
 
 def build_rows(inventory: dict[str, dict], daily: dict, windows: dict,
-               exclude: tuple[date, ...], clicks: bool = True) -> list[dict]:
-    seen = {p for day in daily.values() for p in day}
+               exclude: tuple[date, ...], clicks: bool = True, *,
+               include_discovered: bool = True) -> list[dict]:
     paths = set(inventory)
-    paths |= {p for p in seen if is_blog_content(p)}
-    paths |= {p for p in seen if p.startswith("/articles/") and p != "/articles/"}
+    if include_discovered:
+        seen = {p for day in daily.values() for p in day}
+        paths |= {p for p in seen if is_blog_content(p)}
+        paths |= {p for p in seen if p.startswith("/articles/") and p != "/articles/"}
     redesign = "redesign_before" in windows
     rows = []
     for path in sorted(paths):
@@ -712,11 +730,16 @@ def build_type_summary(rows: list[dict], daily: dict, windows: dict,
 def build_report(inventory: dict[str, dict], reports: dict, windows: dict, *,
                  property_name: str, mock: bool,
                  exclude_dates: Iterable[date] = DEFAULT_EXCLUDE_DATES,
-                 warnings: list[str] | None = None) -> dict:
+                 warnings: list[str] | None = None,
+                 include_discovered: bool = True) -> dict:
     exclude = tuple(sorted(set(exclude_dates)))
     daily = parse_daily_reports(reports)
+    if not include_discovered:
+        daily = {day: {path: values for path, values in rows.items() if path in inventory}
+                 for day, rows in daily.items()}
     clicks = reports.get("cta") is not None
-    rows = build_rows(inventory, daily, windows, exclude, clicks)
+    rows = build_rows(inventory, daily, windows, exclude, clicks,
+                      include_discovered=include_discovered)
     end = date.fromisoformat(windows["current"]["end"])
     span = query_span(windows)
     browsers = parse_browsers(reports.get("browsers"))
@@ -998,11 +1021,13 @@ def run(*, end: date, mock: bool, property_value: str | None,
         credentials: Path | None,
         exclude_dates: Iterable[date] = DEFAULT_EXCLUDE_DATES,
         compare_redesign: bool = False,
+        include_discovered: bool = True,
         session_factory: Callable[[Path], Any] | None = None) -> dict:
     windows = build_windows(end, compare_redesign)
     span = query_span(windows)
-    inventory = load_inventory()
-    post_paths = sorted(p for p, m in inventory.items() if m["type"] == "post")
+    inventory = load_inventory(public_only=not include_discovered)
+    page_paths = sorted(p for p, meta in inventory.items()
+                        if not include_discovered or meta["type"] == "post")
     warnings: list[str] = []
     if mock:
         property_name = "properties/0"
@@ -1015,9 +1040,11 @@ def run(*, end: date, mock: bool, property_value: str | None,
             raise Ga4Error("credentials file not found")
         factory = session_factory or (lambda p: _audit.authorized_session(p))
         session = factory(credentials)
-        reports, warnings = fetch_reports(session, property_name, span, post_paths)
+        reports, warnings = fetch_reports(session, property_name, span, page_paths,
+                                          include_discovered=include_discovered)
     return build_report(inventory, reports, windows, property_name=property_name,
-                        mock=mock, exclude_dates=exclude_dates, warnings=warnings)
+                        mock=mock, exclude_dates=exclude_dates, warnings=warnings,
+                        include_discovered=include_discovered)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -1037,6 +1064,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--compare-redesign", action="store_true",
                         help="Add the 30-days-before vs after-redesign section "
                              "(page types tracked before the redesign only)")
+    parser.add_argument("--known-pages-only", action="store_true",
+                        help="Include only paths in the site's content inventory")
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--stem", default=None,
                         help="Output file stem (default: run date, YYYY-MM-DD)")
@@ -1054,7 +1083,8 @@ def main(argv: list[str] | None = None) -> int:
     try:
         report = run(end=end, mock=args.mock, property_value=args.property,
                      credentials=args.credentials, exclude_dates=exclude,
-                     compare_redesign=args.compare_redesign)
+                     compare_redesign=args.compare_redesign,
+                     include_discovered=not args.known_pages_only)
     except Ga4Error as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1

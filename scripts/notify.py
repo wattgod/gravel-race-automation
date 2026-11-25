@@ -29,7 +29,7 @@ def notify_slack(race_name: str, status: str, webhook_url: str):
         response.raise_for_status()
         print(f"✓ Notification sent to Slack")
     except Exception as e:
-        print(f"⚠️  Failed to send Slack notification: {e}")
+        print(f"⚠️  Failed to send Slack notification: {type(e).__name__}")
 
 
 if __name__ == "__main__":

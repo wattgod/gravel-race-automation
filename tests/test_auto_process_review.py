@@ -3,6 +3,7 @@ import json
 import os
 import subprocess
 import time
+from types import SimpleNamespace
 
 import pytest
 import yaml
@@ -61,6 +62,83 @@ def test_review_rejects_extra_files_before_copying_valid_results(tmp_path):
     assert not checkout.exists()
 
 
+@pytest.mark.parametrize("kind,folder_key,overrides", [
+    ("inputs", "race_folder", {}),
+    ("client_payload", "folder", {}),
+    ("client_payload", "race_folder", {}),
+    ("client_payload", "folder", {"folder": "../outside"}),
+    ("inputs", "race_folder", {"race_name": "First line\nother=value"}),
+    ("inputs", "race_folder", {"research_engine": "unknown"}),
+])
+def test_individual_research_validates_inputs_and_isolates_draft_credentials(
+        tmp_path, kind, folder_key, overrides):
+    workflow = yaml.safe_load((ROOT / ".github/workflows/research-race.yml").read_text())
+    assert set(workflow[True]) == {"workflow_dispatch", "repository_dispatch"}
+    assert workflow["permissions"] == {"contents": "read"}
+    research, publish, draft = (workflow["jobs"][name] for name in ("research", "publish", "stage-draft"))
+    assert research["steps"][0]["with"]["persist-credentials"] is False
+    assert research["steps"][-1]["uses"] == "./.github/actions/stage-race-review"
+    assert publish["with"]["review_kind"] == "research-race"
+    assert publish["permissions"] == {"contents": "write"}
+    assert draft["needs"] == ["research", "publish"]
+    assert "WP_APP_PASSWORD" not in json.dumps(research)
+    assert "SLACK_WEBHOOK" not in json.dumps(research)
+    draft_step = next(step for step in draft["steps"] if step.get("name") == "Stage WordPress draft")
+    assert '"$RUNNER_TEMP/reviewed-race/landing-pages/' in draft_step["run"]
+
+    output = tmp_path / "outputs"
+    exported = tmp_path / "environment"
+    event = tmp_path / "event.json"
+    step = next(step for step in research["steps"] if step.get("id") == "validate-inputs")
+    fixture = {"race_name": "Fixture Race", folder_key: "fixture-race",
+               "skip_validation": True if kind == "inputs" else "false"}
+    event.write_text(json.dumps({kind: {**fixture, **overrides}}))
+    env = {**os.environ, "GITHUB_OUTPUT": str(output), "GITHUB_ENV": str(exported),
+           "GITHUB_EVENT_PATH": str(event), "PYTHONPATH": str(ROOT / "scripts")}
+    result = subprocess.run(["bash", "-e", "-c", step["run"]], cwd=tmp_path,
+                            env=env, capture_output=True, text=True)
+    if overrides:
+        assert result.returncode != 0
+        assert not output.exists()
+        assert not exported.exists()
+    else:
+        assert result.returncode == 0, result.stderr
+        fields = dict(line.split("=", 1) for line in output.read_text().splitlines())
+        assert json.loads(fields["matrix"]) == {
+            "include": [{"race_name": "Fixture Race", "folder": "fixture-race"}],
+        }
+        assert fields["engine"] == "perplexity"
+        assert fields["skip-validation"] == ("true" if kind == "inputs" else "false")
+        assert exported.read_text() == "RACE_NAME=Fixture Race\nRACE_FOLDER=fixture-race\n"
+
+
+def test_individual_research_publishes_only_a_wordpress_draft_and_redacts_errors(
+        tmp_path, monkeypatch, capsys):
+    from scripts import notify, push_wordpress
+
+    opaque = "synthetic provider response or sensitive webhook URL"
+    file = tmp_path / "landing.json"
+    file.write_text('{"race": {"name": "Fixture Race"}}')
+    monkeypatch.setattr(push_wordpress, "get_wp_credentials",
+                        lambda: ("https://wordpress.example.invalid", "user", "test-password"))
+
+    def rejected_wordpress(_url, *, json, **_kwargs):
+        assert json["status"] == "draft"
+        return SimpleNamespace(status_code=403, text=opaque)
+
+    monkeypatch.setattr(push_wordpress.requests, "post", rejected_wordpress)
+    assert push_wordpress.push_to_wordpress(str(file)) is None
+
+    def broken_webhook(*_args, **_kwargs):
+        raise RuntimeError(opaque)
+
+    monkeypatch.setattr(notify.requests, "post", broken_webhook)
+    notify.notify_slack("Fixture Race", "complete", "https://hooks.example.invalid")
+    log = capsys.readouterr().out
+    assert "403" in log and "RuntimeError" in log
+    assert opaque not in log
+
+
 def test_pending_processing_refuses_empty_or_unplanned_artifact_batches(tmp_path):
     artifacts = tmp_path / "artifacts"
     artifacts.mkdir()
@@ -87,7 +165,7 @@ def test_staging_rejects_invalid_json_and_symlinks(tmp_path):
         validate_outputs(tmp_path, paths)
 
 
-@pytest.mark.parametrize("kind", ["auto-process", "update-existing"])
+@pytest.mark.parametrize("kind", ["auto-process", "update-existing", "research-race"])
 def test_publish_step_writes_only_review_ref_and_stops_if_push_fails(tmp_path, kind):
     jobs = yaml.safe_load((ROOT / ".github/workflows/publish-race-review.yml").read_text())
     publish = jobs["jobs"]["publish"]

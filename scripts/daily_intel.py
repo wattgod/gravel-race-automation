@@ -2114,13 +2114,48 @@ def build_public_snapshot(collected: dict, today: str) -> dict:
     }
 
 
+_PUBLIC_SENSITIVE_TEXT = re.compile(
+    r"(?i)[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}"
+    r"|AIza[0-9A-Za-z_-]{35}|sk-ant-[0-9A-Za-z_-]{30,}|sb_secret_[0-9A-Za-z_-]{20,}"
+)
+_PUBLIC_PERSON_FIELDS = frozenset({
+    "email", "customer_email", "buyer_email", "lead_email", "customer_name",
+    "first_name", "last_name", "customer_id", "order_id", "phone", "contact",
+})
+
+
+def _validate_public_snapshot(snapshot: dict) -> None:
+    if _PUBLIC_SENSITIVE_TEXT.search(json.dumps(snapshot, default=str)):
+        raise ValueError("Public snapshot contains a sensitive text pattern.")
+
+    def check_fields(value, path=()):
+        if isinstance(value, list):
+            for item in value:
+                check_fields(item, path)
+        elif isinstance(value, dict):
+            for field, item in value.items():
+                email_channel = (
+                    len(path) == 3 and path[0] == "ga4" and path[2] == "channel_mix"
+                    and field == "Email" and type(item) in (int, float)
+                )
+                if field.lower() in _PUBLIC_PERSON_FIELDS and not email_channel:
+                    raise ValueError("Public snapshot contains a person-level field.")
+                check_fields(item, path + (field,))
+
+    check_fields(snapshot)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="skip the email send")
     ap.add_argument("--no-llm", action="store_true", help="skip interpretation")
     ap.add_argument("--no-email", action="store_true",
                     help="write only the public aggregate snapshot for Morning Console")
+    ap.add_argument("--github-output", type=Path,
+                    help="append the completed snapshot date to the Actions step output")
     args = ap.parse_args()
+    if args.github_output and (not args.no_email or args.dry_run):
+        ap.error("--github-output requires --no-email without --dry-run")
 
     today = date.today().isoformat()
     collected = {
@@ -2173,11 +2208,15 @@ def main() -> int:
     try:
         SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
         snapshot = build_public_snapshot(collected, today)
+        _validate_public_snapshot(snapshot)
         subject_on_disk = snapshot.pop("subject")
         (SNAPSHOT_DIR / f"{today}.json").write_text(
             json.dumps(snapshot, indent=1, default=str))
         (SNAPSHOT_DIR / f"{today}.md").write_text(
             f"# {subject_on_disk}\n\n{snapshot['report']}\n")
+        if args.github_output:
+            with args.github_output.open("a", encoding="utf-8") as output:
+                output.write(f"snapshot_date={today}\n")
         snapshot_written = True
         print(f"snapshot: data/intel-snapshots/{today}.json")
     except Exception as e:

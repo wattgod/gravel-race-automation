@@ -743,7 +743,8 @@ def test_main_publishes_aggregates_and_keeps_detail_on_the_email_path(
     monkeypatch.setattr(daily_intel, "send_email",
                         lambda subject, report: sent.update(
                             subject=subject, report=report) or "msg_test")
-    flags = ["--no-email"] if publication_only else []
+    github_output = tmp_path / "github-output"
+    flags = ["--no-email", "--github-output", str(github_output)] if publication_only else []
     monkeypatch.setattr("sys.argv", ["daily_intel.py", *flags])
 
     assert daily_intel.main() == 0
@@ -753,12 +754,32 @@ def test_main_publishes_aggregates_and_keeps_detail_on_the_email_path(
         assert leaked not in public
     assert "Morning Intel" in public
     if publication_only:
+        snapshot = next(tmp_path.glob("*.json"))
+        assert github_output.read_text() == f"snapshot_date={snapshot.stem}\n"
         assert not narrator_calls
         assert not sent
     else:
         assert narrator_calls == [True]
         assert "jane.rider@example.org" in sent["report"]
         assert sent["subject"] == "Jane Q Rider bought a plan"
+
+
+@pytest.mark.parametrize("extra", [
+    {"report": "Details for synthetic.user@example.invalid"},
+    {"commerce_ledger": {"orders": [{"customer_id": "synthetic"}]}},
+    {"report": "Unapproved opaque token " + "sb_secret_" + "x" * 32},
+])
+def test_unsafe_public_snapshot_is_rejected_without_echoing_data(extra):
+    from scripts.daily_intel import _validate_public_snapshot
+
+    with pytest.raises(ValueError, match=r"Public snapshot contains a (sensitive text pattern|person-level field)\."):
+        _validate_public_snapshot(extra)
+
+
+def test_numeric_email_channel_is_an_allowed_aggregate():
+    from scripts.daily_intel import _validate_public_snapshot
+
+    _validate_public_snapshot({"ga4": {"gravelgod": {"channel_mix": {"Email": 42}}}})
 
 
 def test_collect_mission_control_reads_newest_rows_past_the_1000_row_cap(monkeypatch):

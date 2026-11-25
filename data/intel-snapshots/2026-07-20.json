@@ -1,11 +1,18 @@
 {
  "date": "2026-07-20",
+ "report": "## TOP LINE\n- Gravel God: sessions 27.\n- Roadie Labs: sessions 3.\n- XC Ski Labs: sessions unavailable.\n\n## CHECKOUT\n- Gravel God: healthy.\n- Roadie Labs: healthy.\n- XC Ski Labs: unavailable.\n\n## OPERATIONS\n- New leads (24h): 2.\n- Emails sent (24h): 5.\n- Order processing records: 0.\n- Processing failures: 0.\n- Paid orders awaiting delivery: unavailable.\n\n## BROKEN\n- One or more private report checks need attention.",
+ "measurement_epochs": [],
+ "interpretation_ok": true,
  "ga4": {
   "gravelgod": {
+   "ok": true,
    "sessions": 27,
    "users": 21,
    "pageviews": 92,
    "sessions_7d_avg": 36.0,
+   "abandoned_submits": 0,
+   "sessions_28d": 1031,
+   "yesterday_provisional": null,
    "funnel": {
     "cta_click": 0,
     "form_start": 0,
@@ -13,73 +20,6 @@
     "begin_checkout": 0,
     "purchase": 0
    },
-   "abandoned_submits": 0,
-   "top_pages": [
-    {
-     "path": "/gravel-races/",
-     "views": 21
-    },
-    {
-     "path": "/",
-     "views": 8
-    },
-    {
-     "path": "/guide/what-is-gravel-racing/",
-     "views": 3
-    },
-    {
-     "path": "/race/gunni-grinder/",
-     "views": 3
-    },
-    {
-     "path": "/race/salida-76/",
-     "views": 3
-    },
-    {
-     "path": "/race/swamp-fox-gravel-fondo/",
-     "views": 3
-    },
-    {
-     "path": "/coaching/",
-     "views": 2
-    },
-    {
-     "path": "/guide/",
-     "views": 2
-    }
-   ],
-   "channel_mix": {
-    "Organic Search": 14,
-    "Direct": 11,
-    "Unassigned": 2
-   },
-   "top_landing": [
-    {
-     "path": "/",
-     "sessions": 4
-    },
-    {
-     "path": "/race/calendar/2026/",
-     "sessions": 2
-    },
-    {
-     "path": "(not set)",
-     "sessions": 1
-    },
-    {
-     "path": "/coaching/",
-     "sessions": 1
-    },
-    {
-     "path": "/course/",
-     "sessions": 1
-    },
-    {
-     "path": "/gravel-races/",
-     "sessions": 1
-    }
-   ],
-   "sessions_28d": 1031,
    "funnel_28d": {
     "cta_click": 41,
     "form_start": 38,
@@ -87,13 +27,26 @@
     "begin_checkout": 1,
     "purchase": 3
    },
-   "ok": true
+   "channel_mix": {
+    "Organic Search": 14,
+    "Direct": 11,
+    "Unassigned": 2
+   },
+   "plan_funnel": {
+    "available": false,
+    "yesterday": {},
+    "28d": {}
+   }
   },
   "roadielabs": {
+   "ok": true,
    "sessions": 3,
    "users": 3,
    "pageviews": 5,
    "sessions_7d_avg": 0.9,
+   "abandoned_submits": 0,
+   "sessions_28d": 11,
+   "yesterday_provisional": null,
    "funnel": {
     "cta_click": 0,
     "form_start": 0,
@@ -101,44 +54,6 @@
     "begin_checkout": 0,
     "purchase": 0
    },
-   "abandoned_submits": 0,
-   "top_pages": [
-    {
-     "path": "/race/letape-du-tour/",
-     "views": 2
-    },
-    {
-     "path": "/",
-     "views": 1
-    },
-    {
-     "path": "/race/letape-slovakia/",
-     "views": 1
-    },
-    {
-     "path": "/road-races/",
-     "views": 1
-    }
-   ],
-   "channel_mix": {
-    "Unassigned": 3,
-    "Organic Search": 2
-   },
-   "top_landing": [
-    {
-     "path": "",
-     "sessions": 3
-    },
-    {
-     "path": "/race/letape-du-tour/",
-     "sessions": 2
-    },
-    {
-     "path": "/race/letape-slovakia/",
-     "sessions": 1
-    }
-   ],
-   "sessions_28d": 11,
    "funnel_28d": {
     "cta_click": 0,
     "form_start": 0,
@@ -146,167 +61,88 @@
     "begin_checkout": 0,
     "purchase": 0
    },
-   "ok": true
+   "channel_mix": {
+    "Unassigned": 3,
+    "Organic Search": 2
+   },
+   "plan_funnel": {
+    "available": false,
+    "yesterday": {},
+    "28d": {}
+   }
+  },
+  "xcski": {
+   "ok": false,
+   "yesterday_provisional": null,
+   "funnel": {},
+   "funnel_28d": {},
+   "channel_mix": {},
+   "plan_funnel": {
+    "available": false,
+    "yesterday": {},
+    "28d": {}
+   }
   }
  },
+ "ga4_revisions": {},
  "checkout": {
   "gravelgod": {
-   "health_ok": true,
-   "stripe_checkout_ok": true,
    "ok": true,
-   "error": ""
+   "health_ok": true,
+   "stripe_checkout_ok": true
   },
   "roadielabs": {
-   "health_ok": true,
-   "stripe_checkout_ok": true,
    "ok": true,
-   "error": ""
-  }
+   "health_ok": true,
+   "stripe_checkout_ok": true
+  },
+  "xcski": {}
  },
  "mission_control": {
-  "hot_leads_14d": [
-   {
-    "email": "g.e.mainard@gmail.com",
-    "name": "",
-    "race": "Hotter'N Hell Hundred",
-    "brand": "roadielabs",
-    "sequence": "road_welcome_v1",
-    "step": 1,
-    "status": "active",
-    "opens": 0,
-    "clicks": 0
-   },
-   {
-    "email": "deaneinerson@gmail.com",
-    "name": "",
-    "race": "Tour Divide",
-    "brand": "gravelgod",
-    "sequence": "nurture_v1",
-    "step": 0,
-    "status": "active",
-    "opens": 0,
-    "clicks": 0
-   },
-   {
-    "email": "judo_guido@yahoo.com",
-    "name": "",
-    "race": "Filthy 50",
-    "brand": "gravelgod",
-    "sequence": "nurture_v1",
-    "step": 0,
-    "status": "active",
-    "opens": 0,
-    "clicks": 0
-   },
-   {
-    "email": "connerbane@gmail.com",
-    "name": "",
-    "race": "RAIN - Ride Across Indiana",
-    "brand": "gravelgod",
-    "sequence": "welcome_v1",
-    "step": 1,
-    "status": "active",
-    "opens": 1,
-    "clicks": 0
-   },
-   {
-    "email": "sum-wasted-2e@icloud.com",
-    "name": "",
-    "race": "Gravel Worlds",
-    "brand": "gravelgod",
-    "sequence": "nurture_v1",
-    "step": 1,
-    "status": "completed",
-    "opens": 0,
-    "clicks": 0
-   },
-   {
-    "email": "gravelgodcoaching+e2e-xcguide@gmail.com",
-    "name": "",
-    "race": "(no race given)",
-    "brand": "xcskilabs",
-    "sequence": "xc_welcome_v1",
-    "step": 1,
-    "status": "active",
-    "opens": 0,
-    "clicks": 0
-   },
-   {
-    "email": "gravelgodcoaching+e2e-xctest@gmail.com",
-    "name": "E2E XCTest",
-    "race": "American Birkebeiner",
-    "brand": "xcskilabs",
-    "sequence": "xc_welcome_v1",
-    "step": 1,
-    "status": "active",
-    "opens": 0,
-    "clicks": 0
-   },
-   {
-    "email": "gravelgodcoaching+e2e-roadtest@gmail.com",
-    "name": "E2E RoadTest",
-    "race": "Maratona dles Dolomites",
-    "brand": "roadielabs",
-    "sequence": "road_welcome_v1",
-    "step": 1,
-    "status": "active",
-    "opens": 0,
-    "clicks": 0
-   }
-  ],
+  "ok": true,
   "new_leads_24h": 2,
-  "leads_by_brand": {
-   "gravelgod": 0,
-   "roadielabs": 2
-  },
   "countdown_enrollments": 0,
   "emails_sent_24h": 5,
   "opens_24h": 3,
   "clicks_24h": 0,
   "bounces_24h": 0,
-  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
-  "errors_24h": [],
-  "ok": true
+  "leads_by_brand": {
+   "gravelgod": 0,
+   "roadielabs": 2
+  }
  },
  "commerce_ledger": {
-  "failed_orders": [],
-  "orders": [],
-  "questionnaire_starts": 0,
-  "recoveries": [],
-  "window_hours": 24,
-  "ok": true
- },
- "social": {
-  "accounts_live": false,
-  "queued_today": 0,
-  "queued_yesterday": 0,
-  "posts": [],
-  "ok": true
- },
- "workflows": {
-  "latest": {
-   "gravel-race-automation/link-check.yml": "failure",
-   "road-race-automation/link-check.yml": "success",
-   "road-race-automation/checkout-monitor.yml": "success",
-   "gravel-race-automation/regression-tests.yml": "success"
-  },
-  "ok": true
+  "ok": true,
+  "order_processing_records": 0,
+  "failed_processing_records": 0,
+  "recovery_records": 0,
+  "questionnaire_starts": 0
  },
  "constraint": {
-  "ok": true,
-  "sessions_per_day": 36.8,
-  "cta_rate_pct": 3.98,
-  "cta_to_submit_pct": 51.2,
-  "submit_to_purchase_pct": 14.3,
-  "purchases_28d": 3,
-  "submits_28d": 21,
-  "ctas_28d": 41,
-  "sessions_per_day_needed_for_1_sale": 344,
-  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+  "assessment": "data_insufficient"
+ },
+ "aeo": {
+  "ok": false,
+  "brands": {
+   "gravelgod": {},
+   "roadie": {},
+   "xcski": {}
+  }
+ },
+ "workflows": {
+  "runs": {}
+ },
+ "since_yesterday": {
+  "merged_prs_count": 0,
+  "closed_issues_count": 0,
+  "review_queue_count": 0,
+  "run_totals": {
+   "success": 0,
+   "failure": 0,
+   "other": 0
+  }
  },
  "report_issues": [
-  "possible GA4 event-tracking regression: 27 sessions but 0 cta_click for 3+ consecutive days"
- ],
- "interpretation_ok": true,
- "report": "## TOP LINE\n- GG sessions down to 27 (vs 36.0 7d avg); 4th straight day with 0 cta_click despite nonzero pageviews on money pages (/gravel-races/ 21 views).\n- Roadie Labs had its best session day of the week (3) and both new leads (2/2) came from it \u2014 small sample, but a break from zero.\n- gravel-race-automation/link-check.yml is failing; commerce ledger shows zero orders, zero recoveries, zero questionnaire starts.\n\n## NUMBERS\n| Brand | Sessions (vs 7d avg) | Funnel | Leads |\n|---|---:|---|---:|\n| Gravel God | 27 (vs 36.0) | cta 0 \u2192 form_start 0 \u2192 submit 0 \u2192 checkout 0 \u2192 purchase 0 | 0 |\n| Roadie Labs | 3 (vs 0.9) | cta 0 \u2192 form_start 0 \u2192 submit 0 \u2192 checkout 0 \u2192 purchase 0 | 2 |\n\n## TRAFFIC\n- **Gravel God top pages:** /gravel-races/ (21 views), / (8 views), /guide/what-is-gravel-racing/ (3 views), /race/gunni-grinder/ (3 views), /race/salida-76/ (3 views).\n- **Gravel God channel mix:** Organic Search 14, Direct 11, Unassigned 2.\n- **Gravel God top landing:** / (4 sessions), /race/calendar/2026/ (2 sessions), (not set) (1 sessions), /coaching/ (1 sessions), /course/ (1 sessions).\n- **Roadie Labs:** 3 sessions; near-zero traffic.\n\n## COMMERCE (GROUND TRUTH)\n- no orders, cart recoveries, or questionnaire starts.\n\n## CONSTRAINT\n- binding constraint: traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet.\n- 28d rates: CTA 3.98%; CTA\u2192submit 51.2%; submit\u2192purchase 14.3%.\n- sessions/day needed for 1 sale/day: 344; actual: 36.8.\n\n## HOT LEADS\n- g.e.mainard@gmail.com \u2014 Hotter'N Hell Hundred; road_welcome_v1 step 1; 0 opens/0 clicks.\n- deaneinerson@gmail.com \u2014 Tour Divide; nurture_v1 step 0; 0 opens/0 clicks.\n- judo_guido@yahoo.com \u2014 Filthy 50; nurture_v1 step 0; 0 opens/0 clicks.\n- connerbane@gmail.com \u2014 RAIN - Ride Across Indiana; welcome_v1 step 1; 1 opens/0 clicks.\n- sum-wasted-2e@icloud.com \u2014 Gravel Worlds; nurture_v1 step 1; 0 opens/0 clicks.\n- gravelgodcoaching+e2e-xcguide@gmail.com \u2014 (no race given); xc_welcome_v1 step 1; 0 opens/0 clicks.\n- E2E XCTest <gravelgodcoaching+e2e-xctest@gmail.com> \u2014 American Birkebeiner; xc_welcome_v1 step 1; 0 opens/0 clicks.\n- E2E RoadTest <gravelgodcoaching+e2e-roadtest@gmail.com> \u2014 Maratona dles Dolomites; road_welcome_v1 step 1; 0 opens/0 clicks.\n\n## BROKEN\n- workflow gravel-race-automation/link-check.yml: failure\n- possible GA4 event-tracking regression: 27 sessions but 0 cta_click for 3+ consecutive days\n\n## DO TODAY\n- Check GA4 CTA button event/tag on Gravel God today \u2014 0 clicks across 4 days with real traffic is a tracking break, not a demand break.\n- Open gravel-race-automation/link-check.yml failure log \u2014 could be silently killing race pages that feed the funnel.\n- No lead follow-up action needed \u2014 all 8 hot leads show 0-1 opens; sequences are running, nothing actionable until opens move."
+  "One or more private report checks need attention."
+ ]
 }

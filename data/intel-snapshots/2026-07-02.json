@@ -1,11 +1,17 @@
 {
  "date": "2026-07-02",
+ "report": "## TOP LINE\n- Gravel God: sessions 30.\n- Roadie Labs: sessions 0.\n- XC Ski Labs: sessions unavailable.\n\n## CHECKOUT\n- Gravel God: healthy.\n- Roadie Labs: healthy.\n- XC Ski Labs: unavailable.\n\n## OPERATIONS\n- New leads (24h): 0.\n- Emails sent (24h): 6.\n- Order processing records: unavailable.\n- Processing failures: unavailable.\n- Paid orders awaiting delivery: unavailable.",
+ "measurement_epochs": [],
+ "interpretation_ok": null,
  "ga4": {
   "gravelgod": {
+   "ok": true,
    "sessions": 30,
    "users": 28,
    "pageviews": 38,
    "sessions_7d_avg": 34.9,
+   "abandoned_submits": 0,
+   "yesterday_provisional": null,
    "funnel": {
     "cta_click": 0,
     "form_start": 0,
@@ -13,40 +19,22 @@
     "begin_checkout": 0,
     "purchase": 0
    },
-   "abandoned_submits": 0,
-   "top_pages": [
-    {
-     "path": "/gravel-races/",
-     "views": 5
-    },
-    {
-     "path": "/race/calendar/2026/",
-     "views": 5
-    },
-    {
-     "path": "/",
-     "views": 4
-    },
-    {
-     "path": "/products/training-plans/",
-     "views": 3
-    },
-    {
-     "path": "/race/granfondo-pinarello/",
-     "views": 3
-    },
-    {
-     "path": "/i-opened-a-fascat-ai-coaching-email-so-you-dont-have-to/",
-     "views": 2
-    }
-   ],
-   "ok": true
+   "funnel_28d": {},
+   "channel_mix": {},
+   "plan_funnel": {
+    "available": false,
+    "yesterday": {},
+    "28d": {}
+   }
   },
   "roadielabs": {
+   "ok": true,
    "sessions": 0,
    "users": 0,
    "pageviews": 0,
    "sessions_7d_avg": 0.2,
+   "abandoned_submits": 0,
+   "yesterday_provisional": null,
    "funnel": {
     "cta_click": 0,
     "form_start": 0,
@@ -54,48 +42,80 @@
     "begin_checkout": 0,
     "purchase": 0
    },
-   "abandoned_submits": 0,
-   "top_pages": [],
-   "ok": true
+   "funnel_28d": {},
+   "channel_mix": {},
+   "plan_funnel": {
+    "available": false,
+    "yesterday": {},
+    "28d": {}
+   }
+  },
+  "xcski": {
+   "ok": false,
+   "yesterday_provisional": null,
+   "funnel": {},
+   "funnel_28d": {},
+   "channel_mix": {},
+   "plan_funnel": {
+    "available": false,
+    "yesterday": {},
+    "28d": {}
+   }
   }
  },
+ "ga4_revisions": {},
  "checkout": {
   "gravelgod": {
-   "health_ok": true,
-   "stripe_checkout_ok": true,
    "ok": true,
-   "error": ""
+   "health_ok": true,
+   "stripe_checkout_ok": true
   },
   "roadielabs": {
-   "health_ok": true,
-   "stripe_checkout_ok": true,
    "ok": true,
-   "error": ""
-  }
+   "health_ok": true,
+   "stripe_checkout_ok": true
+  },
+  "xcski": {}
  },
  "mission_control": {
+  "ok": true,
   "new_leads_24h": 0,
-  "leads_by_brand": {
-   "gravelgod": 0,
-   "roadielabs": 0
-  },
   "countdown_enrollments": 0,
   "emails_sent_24h": 6,
   "opens_24h": 2,
   "clicks_24h": 0,
   "bounces_24h": 0,
-  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
-  "errors_24h": [],
-  "ok": true
+  "leads_by_brand": {
+   "gravelgod": 0,
+   "roadielabs": 0
+  }
+ },
+ "commerce_ledger": {
+  "ok": false
+ },
+ "constraint": {
+  "assessment": "data_insufficient"
+ },
+ "aeo": {
+  "ok": false,
+  "brands": {
+   "gravelgod": {},
+   "roadie": {},
+   "xcski": {}
+  }
  },
  "workflows": {
-  "latest": {
-   "gravel-race-automation/link-check.yml": "failure",
-   "road-race-automation/link-check.yml": "success",
-   "road-race-automation/checkout-monitor.yml": "success",
-   "gravel-race-automation/regression-tests.yml": "success"
-  },
-  "ok": true
+  "runs": {}
  },
- "report": "## TOP LINE\n- GravelGod: 30 sessions, but every funnel step (cta_click \u2192 purchase) read zero \u2014 no clicks, no submits, nothing.\n- Roadie Labs: 0 sessions, 0 leads, effectively dormant today.\n- Lead counts conflict: mission_control reports 0 new leads 24h; trend summary reports 2 \u2014 unresolved discrepancy, not reconciled here.\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA click | Form start | Form submit | Checkout | Purchase | Leads | Orders |\n|---|---|---|---|---|---|---|---|---|\n| GravelGod | 30 (34.9) | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n| Roadie Labs | 0 (0.2) | 0 | 0 | 0 | 0 | 0 | 0 | 0 |\n\n## BROKEN\n- `gravel-race-automation/link-check.yml` \u2014 failure (severity: check for broken links on GG site).\n- Lead count mismatch: mission_control (0) vs trend summary (2) for same date \u2014 data integrity issue, not a traffic issue.\n- No checkout or GA4 collector failures \u2014 both brands `ok: true`.\n\n## DO TODAY\n- Fix gravel-race-automation link-check failure \u2014 broken links can silently kill funnel entry; direct impact on GG traffic quality.\n- Verify GA4 event tagging on GG (cta_click through purchase all zero on 30 sessions is unusual, not just \"no sales\") \u2014 confirm tracking isn't broken before treating this as a demand problem.\n- Reconcile leads discrepancy (0 vs 2) in mission_control vs trend export \u2014 don't trust either number until fixed."
+ "since_yesterday": {
+  "merged_prs_count": 0,
+  "closed_issues_count": 0,
+  "review_queue_count": 0,
+  "run_totals": {
+   "success": 0,
+   "failure": 0,
+   "other": 0
+  }
+ },
+ "report_issues": []
 }

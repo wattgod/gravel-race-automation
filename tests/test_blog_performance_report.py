@@ -379,6 +379,22 @@ def test_unknown_blog_paths_are_added_and_non_content_ignored():
         ("/blog/new-race-recap/", "recap")]
 
 
+def test_public_report_keeps_only_cataloged_page_paths():
+    known = "/articles/an-essay/"
+    provider_only = "/articles/unlisted-path/"
+    reports = daily_reports(pages=[
+        (["20261020", known], [5, 5, 10, 0.5]),
+        (["20261020", provider_only], [50, 50, 10, 0.5]),
+    ])
+    report = bp.build_report(
+        ESSAY, reports, bp.build_windows(date(2026, 10, 25)),
+        property_name="properties/1", mock=True, include_discovered=False,
+    )
+    assert [page["path"] for page in report["pages"]] == [known]
+    assert report["types"]["essay"]["current"]["views"] == 5
+    assert provider_only not in json.dumps(report)
+
+
 def test_missing_cta_breakdown_marks_clicks_unavailable():
     reports = daily_reports(pages=views_rows("/a-post/", days_between(
         "2026-10-12", "2026-10-25")))
@@ -530,6 +546,7 @@ def test_workflow_is_dispatchable_weekly_and_never_echoes_secrets():
     assert "data/blog-performance" in text
     assert "GG_GA4_PROPERTY_ID" in text
     assert "--exclude-dates" in text and "--compare-redesign" in text
+    assert "--known-pages-only" in text
     for line in text.splitlines():
         if "secrets." in line:
             assert "echo" not in line and "cat " not in line

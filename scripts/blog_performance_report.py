@@ -18,9 +18,11 @@ every GA4 query drops rows whose browser begins with "Headless".
 Content covered:
   essays   /articles/<slug>/      (wordpress/articles/)
   posts    /<slug>/               (wordpress/post_sources/*.json)
-  blog     /blog/<slug>/          (previews, recaps, roundups — every
-                                   /blog/* path GA4 returns, plus the
-                                   slugs in web/blog-index.json)
+  blog     /blog/<slug>/          (previews, recaps, roundups in
+                                   web/blog-index.json)
+
+Local reports also discover new paths in GA4. Scheduled reports use
+--known-pages-only to limit publication to cataloged paths.
 
 Read-only: uses the analytics.readonly scope and the same service-account
 auth as scripts/ga4_conversion_audit.py. Runs in GitHub Actions
@@ -123,9 +125,7 @@ def classify_blog_slug(slug: str) -> str:
 def load_inventory(post_sources: Path = POST_SOURCES,
                    articles_dir: Path = ARTICLES_DIR,
                    blog_index: Path = BLOG_INDEX) -> dict[str, dict]:
-    """Known content URLs → {title, type}. Essays and posts always appear in
-    the report (zero rows included); blog pages appear if known or if GA4
-    returns them."""
+    """Map cataloged content URLs to titles and page types."""
     pages: dict[str, dict] = {}
     if articles_dir.exists():
         for index in sorted(articles_dir.glob("*/index.html")):
@@ -599,11 +599,13 @@ def _metrics_for(daily: dict, path: str, window: dict, page_type: str,
 
 
 def build_rows(inventory: dict[str, dict], daily: dict, windows: dict,
-               exclude: tuple[date, ...], clicks: bool = True) -> list[dict]:
-    seen = {p for day in daily.values() for p in day}
+               exclude: tuple[date, ...], clicks: bool = True, *,
+               include_discovered: bool = True) -> list[dict]:
     paths = set(inventory)
-    paths |= {p for p in seen if is_blog_content(p)}
-    paths |= {p for p in seen if p.startswith("/articles/") and p != "/articles/"}
+    if include_discovered:
+        seen = {p for day in daily.values() for p in day}
+        paths |= {p for p in seen if is_blog_content(p)}
+        paths |= {p for p in seen if p.startswith("/articles/") and p != "/articles/"}
     redesign = "redesign_before" in windows
     rows = []
     for path in sorted(paths):
@@ -712,11 +714,13 @@ def build_type_summary(rows: list[dict], daily: dict, windows: dict,
 def build_report(inventory: dict[str, dict], reports: dict, windows: dict, *,
                  property_name: str, mock: bool,
                  exclude_dates: Iterable[date] = DEFAULT_EXCLUDE_DATES,
-                 warnings: list[str] | None = None) -> dict:
+                 warnings: list[str] | None = None,
+                 include_discovered: bool = True) -> dict:
     exclude = tuple(sorted(set(exclude_dates)))
     daily = parse_daily_reports(reports)
     clicks = reports.get("cta") is not None
-    rows = build_rows(inventory, daily, windows, exclude, clicks)
+    rows = build_rows(inventory, daily, windows, exclude, clicks,
+                      include_discovered=include_discovered)
     end = date.fromisoformat(windows["current"]["end"])
     span = query_span(windows)
     browsers = parse_browsers(reports.get("browsers"))
@@ -998,6 +1002,7 @@ def run(*, end: date, mock: bool, property_value: str | None,
         credentials: Path | None,
         exclude_dates: Iterable[date] = DEFAULT_EXCLUDE_DATES,
         compare_redesign: bool = False,
+        include_discovered: bool = True,
         session_factory: Callable[[Path], Any] | None = None) -> dict:
     windows = build_windows(end, compare_redesign)
     span = query_span(windows)
@@ -1017,7 +1022,8 @@ def run(*, end: date, mock: bool, property_value: str | None,
         session = factory(credentials)
         reports, warnings = fetch_reports(session, property_name, span, post_paths)
     return build_report(inventory, reports, windows, property_name=property_name,
-                        mock=mock, exclude_dates=exclude_dates, warnings=warnings)
+                        mock=mock, exclude_dates=exclude_dates, warnings=warnings,
+                        include_discovered=include_discovered)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -1037,6 +1043,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--compare-redesign", action="store_true",
                         help="Add the 30-days-before vs after-redesign section "
                              "(page types tracked before the redesign only)")
+    parser.add_argument("--known-pages-only", action="store_true",
+                        help="Include only paths in the site's content inventory")
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--stem", default=None,
                         help="Output file stem (default: run date, YYYY-MM-DD)")
@@ -1054,7 +1062,8 @@ def main(argv: list[str] | None = None) -> int:
     try:
         report = run(end=end, mock=args.mock, property_value=args.property,
                      credentials=args.credentials, exclude_dates=exclude,
-                     compare_redesign=args.compare_redesign)
+                     compare_redesign=args.compare_redesign,
+                     include_discovered=not args.known_pages_only)
     except Ga4Error as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1

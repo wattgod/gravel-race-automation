@@ -222,4 +222,4 @@ def test_veracity_commit_counts_applied_fixes():
 def test_veracity_workflow_uses_the_counted_subject():
     wf = (ROOT / ".github/workflows/rankings-veracity.yml").read_text()
     assert "no fixes needed" not in wf
-    assert wf.count("--commit-message data/verification/last_run_report.json") == 2
+    assert wf.count("--commit-message data/verification/last_run_report.json") == 1

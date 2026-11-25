@@ -537,7 +537,7 @@ class TestIndexRegeneration:
         assert _vitals(path)["distance_mi"] == 70
         text = body.read_text()
         assert "| `nordsjorittet` | vitals.distance_mi | 96.0 | 70.0 | https://nordsjorittet.no/" in text
-        assert "GITHUB_TOKEN" in text and "does not trigger CI" in text
+        assert "Open a pull request to run normal CI" in text
 
 
 # ---------------------------------------------------------------------------
@@ -553,58 +553,48 @@ class TestWorkflowWiring:
     def _step(self, steps, prefix):
         return next(s for n, s in steps.items() if n.startswith(prefix))
 
-    def test_index_integrity_gates_the_commit(self, steps):
+    def test_review_stages_the_gated_index_and_profiles(self, steps):
         gate = self._step(steps, "Verification gates")
         assert "tests/test_index_integrity.py" in gate["run"]
-        commit = self._step(steps, "Commit fixes to main")
-        assert "steps.gates.outcome == 'success'" in commit["if"]
-        assert "web/race-index.json" in commit["run"]
-        assert "generate_index.py --with-jsonld" in commit["run"]
+        publish = self._step(steps, "Publish rankings")
+        for path in ("race-data/", "data/verification/", "web/race-index.json", "web/jsonld/"):
+            assert path in publish["run"]
+        assert "review/veracity/$status/" in publish["run"]
+        assert 'push origin "HEAD:refs/heads/$branch"' in publish["run"]
+        assert "gh issue create" in publish["run"]
 
     def test_every_piped_step_sets_pipefail(self, steps):
-        """Actions' default `bash -e` has no pipefail: `pytest | tee` exits 0."""
+        """Actions' default `bash -e` has no pipefail."""
         import re
         piped = {n: st["run"] for n, st in steps.items()
                  if "run" in st and re.search(r"[^|]\|[^|]", st["run"])}
-        assert piped, "expected piped steps (verify, gates)"
+        assert piped
         for name, run in piped.items():
             assert run.lstrip().startswith("set -o pipefail"), name
 
-    def test_commit_requires_verify_success(self, steps):
-        commit = self._step(steps, "Commit fixes to main")
-        assert "steps.verify.outcome == 'success'" in commit["if"]
-        assert commit.get("continue-on-error") is True
-
-    def test_web_regenerated_only_after_rebase(self, steps):
-        run = self._step(steps, "Commit fixes to main")["run"]
-        first_add = run.index("git add race-data/ data/verification/")
-        assert "web/" not in run[first_add:run.index("\n", first_add)]
-        assert run.index("git pull --rebase") < run.index("generate_index.py --with-jsonld")
-        assert 'echo "pushed=true"' in run
-
-    def test_any_failure_opens_pr_not_push_to_main(self, steps):
-        fail = self._step(steps, "Verify, gates or push failed")
-        for cond in ("steps.verify.outcome == 'failure'",
-                     "steps.gates.outcome == 'failure'",
-                     "steps.commit.outcome == 'failure'",
-                     "steps.commit.outputs.pushed != 'true'", "!cancelled()"):
-            assert cond in fail["if"], cond
-        assert "gh pr create" in fail["run"] and "--label" in fail["run"]
-        assert "git push origin \"$BRANCH\"" in fail["run"]
-        assert "GITHUB_TOKEN" in fail["run"]  # CI-not-triggered note in body
-
-    def test_final_step_fails_the_run(self, steps):
+    def test_failed_checks_hold_changes_and_fail_the_run(self, steps):
+        publish = self._step(steps, "Publish rankings")
+        assert 'status="held"' in publish["run"]
+        assert 'labels=(--label "$REVIEW_LABEL")' in publish["run"]
+        assert 'inputs.dry_run != true' in publish["if"]
+        assert 'steps.changes.outputs.count <= 10' in publish["if"]
         final = self._step(steps, "Fail the run")
         assert final["if"].startswith("always()")
-        for s_id in ("verify", "gates", "commit"):
-            assert f"steps.{s_id}.outcome == 'failure'" in final["if"]
+        for step in ("verify", "gates"):
+            assert f"steps.{step}.outcome == 'failure'" in final["if"]
         assert "exit 1" in final["run"]
 
-    def test_review_pr_survives_earlier_failure(self, steps):
-        assert "!cancelled()" in self._step(steps, "Over-limit changes")["if"]
-
-    def test_over_limit_changes_open_labelled_review_pr(self, steps):
+    def test_over_limit_changes_gate_the_separate_labelled_review(self, steps):
+        apply = self._step(steps, "Apply and verify over-limit")
+        assert 'inputs.dry_run != true' in apply["if"]
+        assert "steps.verify.outcome == 'success'" in apply["if"]
+        assert "steps.gates.outcome" not in apply["if"]
+        assert 'git worktree add --detach "$review_checkout" "$GITHUB_SHA"' in apply["run"]
+        assert "--apply-review-queue" in apply["run"]
+        assert "tests/test_index_integrity.py" in apply["run"]
+        assert "env" not in apply
         review = self._step(steps, "Over-limit changes")
-        assert "--apply-review-queue" in review["run"]
-        assert "gh pr create" in review["run"] and "$REVIEW_LABEL" in review["run"]
+        assert review["if"] == "!cancelled() && steps.over_limit.outputs.changes == 'true'"
+        assert "review/veracity/over-limit/" in review["run"]
+        assert "gh issue create" in review["run"] and "$REVIEW_LABEL" in review["run"]
         assert "--body-file" in review["run"]

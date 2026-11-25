@@ -3,9 +3,11 @@ import os
 from pathlib import Path
 import shutil
 import subprocess
+import sys
 from datetime import date
 
 import gsc_tracker
+import yaml
 
 src = Path(__file__).resolve().parent.parent
 names = {
@@ -107,3 +109,30 @@ def test_gsc_aggregate_log_hides_search_details_and_keeps_alerts(monkeypatch, ca
     assert "Impressions: 250" in log
     assert "LOW CTR" in log
     assert "synthetic contact details" not in log
+
+
+def test_workflow_search_console_failure_preserves_history_reporting(monkeypatch, capsys):
+    workflow = yaml.safe_load((src / ".github/workflows/daily-monitoring.yml").read_text())
+    step = next(step for step in workflow["jobs"]["monitor"]["steps"] if step.get("name") == "GSC monitoring")
+    command = step["run"].split()
+    assert command[:4] == ["bash", "scripts/with-google-credentials.sh", "python", "scripts/gsc_tracker.py"]
+    monkeypatch.setattr(sys, "argv", command[3:])
+    monkeypatch.setattr(gsc_tracker, "get_gsc_service", lambda: object())
+    monkeypatch.setattr(gsc_tracker, "refresh_history", lambda _directory: None)
+
+    def unavailable(_service, _today):
+        raise RuntimeError("synthetic private provider response")
+
+    snapshot = {
+        "date": "2026-10-02",
+        "window": {"start": "2026-09-25", "end": "2026-10-01"},
+        "overall": {"clicks": 1, "impressions": 250, "ctr": 0.4, "position": 8.0},
+        "top_queries": [{"query": "synthetic private query", "clicks": 1, "impressions": 1, "ctr": 100, "position": 1}],
+    }
+    monkeypatch.setattr(gsc_tracker, "fetch_snapshot", unavailable)
+    monkeypatch.setattr(gsc_tracker, "find_nearest_snapshot", lambda *_args, **_kwargs: snapshot)
+    gsc_tracker.main()
+    log = capsys.readouterr().out
+    assert "Search Console capture failed" in log
+    assert "Impressions: 250" in log and "LOW CTR" in log
+    assert "synthetic private" not in log

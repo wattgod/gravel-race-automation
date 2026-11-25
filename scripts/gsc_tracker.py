@@ -355,7 +355,10 @@ def main():
                       f"CTR: {o.get('ctr', 0):.2f}%  Position: {o.get('position', 0):.1f}")
                 print(f"  Race pages tracked: {len(snapshot.get('race_pages', []))}")
             except Exception as e:
-                print(f"  ERROR capturing snapshot: {e}")
+                if args.aggregate_only:
+                    print("::warning::Search Console capture failed. Using available snapshot history.")
+                else:
+                    print(f"  ERROR capturing snapshot: {e}")
                 if not (args.report or args.alert):
                     sys.exit(1)
 

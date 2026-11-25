@@ -8,17 +8,30 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: aeo-weekly-publication
+  cancel-in-progress: false
+
 jobs:
   monitor:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.11"
+
+      - name: Prepare AEO history
+        run: |
+          export MONITORING_STATE_DIR="$RUNNER_TEMP/gravel-aeo-state"
+          bash scripts/daily-monitoring-state.sh prepare aeo
+          printf 'MONITORING_STATE_DIR=%s\n' "$MONITORING_STATE_DIR" >> "$GITHUB_ENV"
 
       - name: Install dependencies
         run: pip install --quiet google-analytics-data
@@ -55,27 +68,21 @@ jobs:
           XC_SSH_USER: ${{ secrets.XC_SSH_USER }}
           XC_SSH_PORT: ${{ secrets.XC_SSH_PORT }}
           XC_SSH_KEY_PATH: ${{ runner.temp }}/aeo-keys/xcski
-        run: bash scripts/with-google-credentials.sh python3 scripts/aeo_weekly.py
+        run: |
+          bash scripts/with-google-credentials.sh python3 scripts/aeo_weekly.py \
+            --output-dir "$MONITORING_STATE_DIR/data/aeo"
 
       - name: Remove SSH keys
         if: always()
         run: rm -f -- "$RUNNER_TEMP/aeo-keys/"{gravelgod,roadie,xcski}
 
-      - name: Commit AEO artifact
-        run: |
-          git config user.name "aeo-weekly-bot"
-          git config user.email "aeo-weekly@gravelgodcycling.com"
-          git add data/aeo/
-          if git diff --cached --quiet; then
-            echo "No AEO artifact changes to commit."
-          else
-            git commit -m "chore: AEO weekly monitor $(date -u +%Y-%m-%d)"
-            for i in 1 2 3; do
-              git pull --rebase origin main && git push && break
-              [ "$i" = "3" ] && exit 1
-              sleep 5
-            done
-          fi
+      - name: Publish AEO history
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GIT_TERMINAL_PROMPT: "0"
+        run: bash scripts/daily-monitoring-state.sh publish aeo
 
-      - name: Validate committed artifact
-        run: python3 scripts/aeo_weekly.py --validate-latest --require-all-ok
+      - name: Check collector health
+        run: |
+          python3 scripts/aeo_weekly.py --output-dir "$MONITORING_STATE_DIR/data/aeo" \
+            --validate-latest --require-all-ok

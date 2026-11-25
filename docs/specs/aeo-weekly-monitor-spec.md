@@ -134,7 +134,9 @@ agents get discovered and added to the taxonomy.
 - New `collect_aeo()` in `scripts/daily_intel.py`, registered as
   `"aeo": _safe(collect_aeo)` in the `collected` dict (the `_safe`
   registry around daily_intel.py:915). It reads the two newest
-  `data/aeo/aeo-weekly-*.json` (current + prior for deltas).
+  `data/aeo/aeo-weekly-*.json` (current + prior for deltas), using the
+  `aeo-state` branch with cached or checked-out history available offline.
+  Set `AEO_SNAPSHOT_DIR` to use a separate local directory.
 - Three states: `missing` (no artifact ever — section absent, no BROKEN
   line, first-deploy friendly), `ok` (artifact ≤8 days old — section
   renders; note: that means it renders EVERY day of the week, which is
@@ -160,14 +162,13 @@ agents get discovered and added to the taxonomy.
   google-analytics-data`; write `GA4_CREDENTIALS_JSON` secret to
   `ga4-credentials.json` (same step as daily-intel.yml:27); write the 3
   SSH keys from secrets (`chmod 600`, no shell tracing).
-- Run `scripts/aeo_weekly.py`; commit `data/aeo/` with the
-  Thursday-veracity rebase/retry pattern (main moves fast; plain push is
-  not acceptable); no-change-safe.
-- Final step validates the artifact (schema + all collectors ok) and
-  fails the run on error — AFTER the commit step, so partial artifacts
-  survive.
-- Rollout: after merge, dispatch once manually and verify artifact +
-  next-morning intel section.
+- Run `scripts/aeo_weekly.py` in a temporary state checkout. Check the
+  staged report paths, validate the schema, and reject email addresses before pushing the
+  `aeo-state` branch. Seed it from existing aggregate history; later
+  runs append to it through fast-forward pushes.
+- Check collector health after publication so valid partial artifacts
+  remain available when a provider fails.
+- Verify the next scheduled state publication and its Morning Intel readback.
 
 ## Tests (pytest, `tests/test_aeo_weekly.py`)
 

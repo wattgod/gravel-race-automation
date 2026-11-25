@@ -3,12 +3,16 @@
 from __future__ import annotations
 
 import json
+import os
+import shutil
+import subprocess
 from datetime import date, datetime, timezone
+from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
 
-from scripts import aeo_agents, aeo_weekly, daily_intel
+from scripts import aeo_agents, aeo_weekly, daily_intel, monitoring_snapshot_history
 
 
 @pytest.mark.parametrize(
@@ -379,6 +383,68 @@ def test_collect_aeo_computes_deltas_from_two_newest_artifacts(
     assert gravel["ai_referral_delta_text"] == "+3 WoW"
     assert gravel["user_fetch_delta"] == 8
     assert gravel["user_fetch_delta_text"] == "+8 WoW"
+
+
+def test_aeo_state_publication_and_daily_reader(tmp_path, monkeypatch):
+    source = Path(__file__).resolve().parent.parent
+    checkout, remote, state = (tmp_path / name for name in ("checkout", "remote", "state"))
+    subprocess.run(["git", "init", "-b", "main", str(checkout)], check=True)
+    subprocess.run(["git", "init", "--bare", str(remote)], check=True)
+
+    def git(repo, *args):
+        return subprocess.check_output(["git", "-C", str(repo), *args], text=True).strip()
+
+    def publish(operation, directory):
+        return subprocess.run(
+            ["bash", str(source / "scripts/daily-monitoring-state.sh"), operation, "aeo"],
+            cwd=checkout, env={**os.environ, "MONITORING_STATE_DIR": str(directory)},
+            text=True, capture_output=True,
+        )
+
+    scripts = checkout / "scripts"
+    scripts.mkdir()
+    for name in ("aeo_agents.py", "aeo_weekly.py", "validate-monitoring-publication.py"):
+        shutil.copy2(source / "scripts" / name, scripts)
+    local = checkout / "data/aeo"
+    _write_artifact(local, _artifact("2026-07-13", referral=7))
+    git(checkout, "add", ".")
+    git(checkout, "-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+        "commit", "-m", "Baseline")
+    git(checkout, "remote", "add", "origin", remote.as_uri())
+    git(checkout, "push", "origin", "main")
+    main = git(remote, "rev-parse", "main")
+
+    monkeypatch.setattr(monitoring_snapshot_history, "REPO_ROOT", checkout)
+    monkeypatch.setattr(daily_intel, "AEO_DIR", local)
+    monkeypatch.setattr(daily_intel, "DEFAULT_AEO_DIR", local)
+    monkeypatch.delenv("AEO_SNAPSHOT_DIR", raising=False)
+    before = daily_intel.collect_aeo(today=date(2026, 7, 14))
+    assert before["brands"]["gravelgod"]["ai_referral_delta"] is None
+
+    prepared = publish("prepare", state)
+    assert prepared.returncode == 0, prepared.stderr
+    _write_artifact(state / "data/aeo", _artifact("2026-07-20", referral=10))
+    published = publish("publish", state)
+    assert published.returncode == 0, published.stderr
+    first_state = git(remote, "rev-parse", "aeo-state")
+    assert git(remote, "rev-parse", "main") == main
+    assert git(remote, "rev-list", "--count", "aeo-state") == "1"
+    assert git(remote, "ls-tree", "--name-only", "aeo-state") == "data"
+    result = daily_intel.collect_aeo(today=date(2026, 7, 21))
+    assert result["brands"]["gravelgod"]["ai_referral_delta"] == 3
+
+    next_state = tmp_path / "next"
+    assert publish("prepare", next_state).returncode == 0
+    bad_path = _write_artifact(next_state / "data/aeo", _artifact("2026-07-27"))
+    bad_path.write_text('{"note":"synthetic@example.invalid"}')
+    blocked = publish("publish", next_state)
+    assert blocked.returncode != 0 and "contains an email address" in blocked.stderr
+    assert "synthetic@example.invalid" not in blocked.stdout + blocked.stderr
+    bad_path.write_text("{}")
+    invalid = publish("publish", next_state)
+    assert invalid.returncode != 0 and "failed artifact validation" in invalid.stderr
+    assert git(remote, "rev-parse", "aeo-state") == first_state
+    assert git(remote, "rev-parse", "main") == main
 
 
 def test_stale_artifact_produces_exactly_one_broken_line(

@@ -38,11 +38,17 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SNAPSHOT_DIR = PROJECT_ROOT / "data" / "intel-snapshots"
-AEO_DIR = PROJECT_ROOT / "data" / "aeo"
+DEFAULT_AEO_DIR = PROJECT_ROOT / "data" / "aeo"
+AEO_DIR = Path(os.environ.get("AEO_SNAPSHOT_DIR") or DEFAULT_AEO_DIR)
 SEO_DIR = PROJECT_ROOT / "data" / "seo"
 
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 from pricing import PLAN_PRICE_LINE, PRICE_PER_WEEK  # data/pricing.json (D18)
+
+try:
+    from scripts.monitoring_snapshot_history import load_snapshot, refresh_history, snapshot_names
+except ImportError:
+    from monitoring_snapshot_history import load_snapshot, refresh_history, snapshot_names
 
 try:
     from dotenv import load_dotenv
@@ -781,9 +787,9 @@ def _aeo_delta_text(delta: int | None) -> str:
     return "0 WoW"
 
 
-def _load_aeo_artifact(path: Path) -> dict:
+def _load_aeo_artifact(path: Path, history_commit: str | None) -> dict:
     try:
-        artifact = json.loads(path.read_text())
+        artifact = load_snapshot(path, history_commit)
     except Exception as exc:
         raise ValueError(f"{type(exc).__name__}: {exc}") from exc
     try:
@@ -798,12 +804,15 @@ def _load_aeo_artifact(path: Path) -> dict:
 
 def _collect_aeo(today: date | None = None) -> dict:
     """Implementation for collect_aeo; the public collector is fully fail-soft."""
-    paths = sorted(AEO_DIR.glob("aeo-weekly-*.json"))
+    history_commit = (refresh_history("AEO_SNAPSHOT_DIR", state_branch="aeo-state")
+                      if AEO_DIR == DEFAULT_AEO_DIR else None)
+    paths = sorted(AEO_DIR / name for name in snapshot_names(AEO_DIR, history_commit)
+                   if name.startswith("aeo-weekly-"))
     if not paths:
         return {"state": "missing", "ok": True}
     latest_path = paths[-1]
     try:
-        latest = _load_aeo_artifact(latest_path)
+        latest = _load_aeo_artifact(latest_path, history_commit)
     except Exception as exc:
         return {
             "state": "invalid",
@@ -833,7 +842,7 @@ def _collect_aeo(today: date | None = None) -> dict:
     if len(paths) > 1:
         prior_path = paths[-2]
         try:
-            prior = _load_aeo_artifact(prior_path)
+            prior = _load_aeo_artifact(prior_path, history_commit)
         except Exception:
             # A healthy current artifact remains useful; an unreadable historical
             # comparison degrades to a baseline instead of hiding the section.

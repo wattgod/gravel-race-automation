@@ -9,17 +9,17 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 STATE_BRANCH = "monitoring-state"
-STATE_REF = f"refs/remotes/origin/{STATE_BRANCH}"
 
 
-def refresh_history(directory_env: str) -> str | None:
+def refresh_history(directory_env: str, *, state_branch: str = STATE_BRANCH) -> str | None:
     if directory_env in os.environ:
         return None
 
     git = ["git", "-C", str(REPO_ROOT)]
+    state_ref = f"refs/remotes/origin/{state_branch}"
     try:
         subprocess.run(
-            [*git, "fetch", "--no-tags", "origin", f"refs/heads/{STATE_BRANCH}:{STATE_REF}"],
+            [*git, "fetch", "--no-tags", "origin", f"refs/heads/{state_branch}:{state_ref}"],
             check=True, capture_output=True, timeout=10,
             env={**os.environ, "GIT_TERMINAL_PROMPT": "0"},
         )
@@ -28,7 +28,7 @@ def refresh_history(directory_env: str) -> str | None:
 
     try:
         return subprocess.check_output(
-            [*git, "rev-parse", "--verify", STATE_REF],
+            [*git, "rev-parse", "--verify", state_ref],
             stderr=subprocess.DEVNULL, text=True,
         ).strip()
     except (OSError, subprocess.CalledProcessError):

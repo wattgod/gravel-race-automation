@@ -38,7 +38,7 @@ git push -u origin main
 Go to your repository → Settings → Secrets and variables → Actions → New repository secret
 
 **Required:**
-- `ANTHROPIC_API_KEY`: `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`
+- `ANTHROPIC_API_KEY`: `<Anthropic API key removed>`
 
 **Optional (for WordPress publishing):**
 - `WP_URL`: Your WordPress site URL

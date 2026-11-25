@@ -1,11 +1,18 @@
 {
  "date": "2026-07-04",
+ "report": "## TOP LINE\n- Gravel God: sessions 20.\n- Roadie Labs: sessions 1.\n- XC Ski Labs: sessions unavailable.\n\n## CHECKOUT\n- Gravel God: healthy.\n- Roadie Labs: healthy.\n- XC Ski Labs: unavailable.\n\n## OPERATIONS\n- New leads (24h): 0.\n- Emails sent (24h): 10.\n- Order processing records: 0.\n- Processing failures: 0.\n- Paid orders awaiting delivery: unavailable.",
+ "measurement_epochs": [],
+ "interpretation_ok": null,
  "ga4": {
   "gravelgod": {
+   "ok": true,
    "sessions": 20,
    "users": 19,
    "pageviews": 25,
    "sessions_7d_avg": 35.0,
+   "abandoned_submits": 0,
+   "sessions_28d": 1100,
+   "yesterday_provisional": null,
    "funnel": {
     "cta_click": 0,
     "form_start": 0,
@@ -13,72 +20,6 @@
     "begin_checkout": 0,
     "purchase": 0
    },
-   "abandoned_submits": 0,
-   "top_pages": [
-    {
-     "path": "/gravel-races/",
-     "views": 4
-    },
-    {
-     "path": "/race/calendar/2026/",
-     "views": 3
-    },
-    {
-     "path": "/",
-     "views": 2
-    },
-    {
-     "path": "/race/unbound-200/tires/",
-     "views": 2
-    },
-    {
-     "path": "/race/big-sugar/",
-     "views": 1
-    },
-    {
-     "path": "/race/bike-abu-dhabi-gran-fondo/",
-     "views": 1
-    },
-    {
-     "path": "/race/copper-triangle/",
-     "views": 1
-    },
-    {
-     "path": "/race/granfondo-san-sebastian/",
-     "views": 1
-    }
-   ],
-   "channel_mix": {
-    "Organic Search": 15,
-    "Direct": 5
-   },
-   "top_landing": [
-    {
-     "path": "/race/calendar/2026/",
-     "sessions": 3
-    },
-    {
-     "path": "/race/the-traka/tires/",
-     "sessions": 2
-    },
-    {
-     "path": "/race/unbound-200/tires/",
-     "sessions": 2
-    },
-    {
-     "path": "(not set)",
-     "sessions": 1
-    },
-    {
-     "path": "/",
-     "sessions": 1
-    },
-    {
-     "path": "/gravel-races/",
-     "sessions": 1
-    }
-   ],
-   "sessions_28d": 1100,
    "funnel_28d": {
     "cta_click": 28,
     "form_start": 33,
@@ -86,13 +27,25 @@
     "begin_checkout": 0,
     "purchase": 2
    },
-   "ok": true
+   "channel_mix": {
+    "Organic Search": 15,
+    "Direct": 5
+   },
+   "plan_funnel": {
+    "available": false,
+    "yesterday": {},
+    "28d": {}
+   }
   },
   "roadielabs": {
+   "ok": true,
    "sessions": 1,
    "users": 1,
    "pageviews": 1,
    "sessions_7d_avg": 0.4,
+   "abandoned_submits": 0,
+   "sessions_28d": 14,
+   "yesterday_provisional": null,
    "funnel": {
     "cta_click": 0,
     "form_start": 0,
@@ -100,23 +53,6 @@
     "begin_checkout": 0,
     "purchase": 0
    },
-   "abandoned_submits": 0,
-   "top_pages": [
-    {
-     "path": "/race/la-marmotte/",
-     "views": 1
-    }
-   ],
-   "channel_mix": {
-    "Organic Search": 1
-   },
-   "top_landing": [
-    {
-     "path": "/race/la-marmotte/",
-     "sessions": 1
-    }
-   ],
-   "sessions_28d": 14,
    "funnel_28d": {
     "cta_click": 0,
     "form_start": 0,
@@ -124,156 +60,85 @@
     "begin_checkout": 0,
     "purchase": 0
    },
-   "ok": true
+   "channel_mix": {
+    "Organic Search": 1
+   },
+   "plan_funnel": {
+    "available": false,
+    "yesterday": {},
+    "28d": {}
+   }
+  },
+  "xcski": {
+   "ok": false,
+   "yesterday_provisional": null,
+   "funnel": {},
+   "funnel_28d": {},
+   "channel_mix": {},
+   "plan_funnel": {
+    "available": false,
+    "yesterday": {},
+    "28d": {}
+   }
   }
  },
+ "ga4_revisions": {},
  "checkout": {
   "gravelgod": {
-   "health_ok": true,
-   "stripe_checkout_ok": true,
    "ok": true,
-   "error": ""
+   "health_ok": true,
+   "stripe_checkout_ok": true
   },
   "roadielabs": {
-   "health_ok": true,
-   "stripe_checkout_ok": true,
    "ok": true,
-   "error": ""
-  }
+   "health_ok": true,
+   "stripe_checkout_ok": true
+  },
+  "xcski": {}
  },
  "mission_control": {
-  "hot_leads_14d": [
-   {
-    "email": "ferrarioanea@gmail.com",
-    "name": "",
-    "race": "Sea Otter Fuego XL",
-    "brand": "gravelgod",
-    "sequence": "welcome_v1",
-    "step": 1,
-    "status": "active",
-    "opens": 1,
-    "clicks": 0
-   },
-   {
-    "email": "alpineluddites@gmail.com",
-    "name": "",
-    "race": "Tour Divide",
-    "brand": "gravelgod",
-    "sequence": "welcome_v1",
-    "step": 2,
-    "status": "active",
-    "opens": 2,
-    "clicks": 0
-   },
-   {
-    "email": "bigkaisa@icloud.com",
-    "name": "",
-    "race": "Crusher in the Tushar",
-    "brand": "gravelgod",
-    "sequence": "welcome_v1",
-    "step": 2,
-    "status": "active",
-    "opens": 0,
-    "clicks": 0
-   },
-   {
-    "email": "sabrinahirsch@gmail.com",
-    "name": "",
-    "race": "(no race given)",
-    "brand": "gravelgod",
-    "sequence": "welcome_v1",
-    "step": 2,
-    "status": "active",
-    "opens": 2,
-    "clicks": 0
-   },
-   {
-    "email": "raccoon-boldest.4t@icloud.com",
-    "name": "",
-    "race": "V\u00e4tternrundan",
-    "brand": "gravelgod",
-    "sequence": "welcome_v1",
-    "step": 3,
-    "status": "active",
-    "opens": 3,
-    "clicks": 0
-   },
-   {
-    "email": "jemldymond@gmail.com",
-    "name": "",
-    "race": "Lake Taup\u014d Cycle Challenge",
-    "brand": "gravelgod",
-    "sequence": "welcome_v1",
-    "step": 3,
-    "status": "unsubscribed",
-    "opens": 3,
-    "clicks": 2
-   },
-   {
-    "email": "ellenihoward@gmail.com",
-    "name": "",
-    "race": "SBT GRVL",
-    "brand": "gravelgod",
-    "sequence": "welcome_v1",
-    "step": 4,
-    "status": "active",
-    "opens": 0,
-    "clicks": 0
-   },
-   {
-    "email": "mshcrowley@gmail.com",
-    "name": "",
-    "race": "Bowral Classic",
-    "brand": "gravelgod",
-    "sequence": "welcome_v1",
-    "step": 4,
-    "status": "active",
-    "opens": 4,
-    "clicks": 0
-   }
-  ],
+  "ok": true,
   "new_leads_24h": 0,
-  "leads_by_brand": {
-   "gravelgod": 0,
-   "roadielabs": 0
-  },
   "countdown_enrollments": 0,
   "emails_sent_24h": 10,
   "opens_24h": 4,
   "clicks_24h": 0,
   "bounces_24h": 0,
-  "new_orders_24h_UNRELIABLE": "use ga4 purchase counts \u2014 gg_athletes is not written by purchases",
-  "errors_24h": [],
-  "ok": true
+  "leads_by_brand": {
+   "gravelgod": 0,
+   "roadielabs": 0
+  }
  },
  "commerce_ledger": {
-  "failed_orders": [],
-  "orders": [],
-  "questionnaire_starts": 0,
-  "recoveries": [],
-  "window_hours": 24,
-  "ok": true
- },
- "workflows": {
-  "latest": {
-   "gravel-race-automation/link-check.yml": "failure",
-   "road-race-automation/link-check.yml": "success",
-   "road-race-automation/checkout-monitor.yml": "success",
-   "gravel-race-automation/regression-tests.yml": "success"
-  },
-  "ok": true
+  "ok": true,
+  "order_processing_records": 0,
+  "failed_processing_records": 0,
+  "recovery_records": 0,
+  "questionnaire_starts": 0
  },
  "constraint": {
-  "ok": true,
-  "sessions_per_day": 39.3,
-  "cta_rate_pct": 2.55,
-  "cta_to_submit_pct": 67.9,
-  "submit_to_purchase_pct": 10.5,
-  "purchases_28d": 2,
-  "submits_28d": 19,
-  "ctas_28d": 28,
-  "sessions_per_day_needed_for_1_sale": 550,
-  "binding_constraint": "traffic \u2014 at these volumes no funnel rate is even measurable; nothing downstream is worth optimizing yet"
+  "assessment": "data_insufficient"
  },
- "report": "## TOP LINE\n- GravelGod sessions down to 20 (7d avg 35); Roadie Labs at 1 session (7d avg 0.4).\n- Zero funnel activity on either brand yesterday: no CTA clicks, no form starts, no purchases.\n- gravel-race-automation/link-check.yml failed overnight \u2014 unconfirmed link rot on GG.\n\n## NUMBERS\n| Brand | Sessions (7d avg) | CTA | Form start | Submit | Checkout | Purchase | Leads |\n|---|---|---|---|---|---|---|---|\n| GravelGod | 20 (35.0) | 0 | 0 | 0 | 0 | 0 | 0 |\n| Roadie Labs | 1 (0.4) | 0 | 0 | 0 | 0 | 0 | 0 |\n\n## TRAFFIC\n**GravelGod** (20 sessions)\n- Top pages: /gravel-races/ (4), /race/calendar/2026/ (3), / (2), /race/unbound-200/tires/ (2)\n- Channels: Organic Search 15, Direct 5\n- Top landing: /race/calendar/2026/ (3), /race/the-traka/tires/ (2), /race/unbound-200/tires/ (2)\n- Nothing notable \u2014 same mix as usual, just less of it.\n\n**Roadie Labs**: 1 session total, landed on /race/la-marmotte/ via organic search. Below reporting threshold, moving on.\n\n## COMMERCE (ground truth)\nNo orders, no failed orders, no cart-recovery emails, no questionnaire starts in the last 24h.\n\n## CONSTRAINT\nBinding constraint: traffic. At 28d rates \u2014 CTA 2.55%, CTA\u2192submit 67.9%, submit\u2192purchase 10.5% (2 purchases / 19 submits / 28 CTAs over 28 days) \u2014 funnel rates aren't the problem, volume is. Need ~550 sessions/day for one sale/day at current rates; actual is 39.3/day. Nothing downstream worth touching yet.\n\n## HOT LEADS\n- ferrarioanea@gmail.com \u2014 Sea Otter Fuego XL, welcome_v1 step 1, 1 open/0 clicks \u2014 too early, let sequence run.\n- alpineluddites@gmail.com \u2014 Tour Divide, welcome_v1 step 2, 2 opens/0 clicks \u2014 engaged but no click; consider manual follow-up referencing Tour Divide.\n- bigkaisa@icloud.com \u2014 Crusher in the Tushar, welcome_v1 step 2, 0 opens \u2014 sequence not landing; no action yet.\n- sabrinahirsch@gmail.com \u2014 no race given, welcome_v1 step 2, 2 opens/0 clicks \u2014 reply personally, ask what race they're training for \u2014 use draft_race_reply.\n- raccoon-boldest.4t@icloud.com \u2014 V\u00e4tternrundan, welcome_v1 step 3, 3 opens/0 clicks \u2014 high opens, no click; reply personally about V\u00e4tternrundan \u2014 use draft_race_reply.\n- jemldymond@gmail.com \u2014 Lake Taup\u014d Cycle Challenge, step 3, unsubscribed (3 opens/2 clicks historically) \u2014 do not contact.\n- ellenihoward@gmail.com \u2014 SBT GRVL, welcome_v1 step 4, 0 opens/0 clicks \u2014 cold; no action.\n- mshcrowley@gmail.com \u2014 Bowral Classic, welcome_v1 step 4, 4 opens/0 clicks \u2014 most engaged lead in the list; reply personally about Bowral Classic \u2014 use draft_race_reply.\n\n## BROKEN\n- gravel-race-automation/link-check.yml: failure. Highest-priority item this report \u2014 check"
+ "aeo": {
+  "ok": false,
+  "brands": {
+   "gravelgod": {},
+   "roadie": {},
+   "xcski": {}
+  }
+ },
+ "workflows": {
+  "runs": {}
+ },
+ "since_yesterday": {
+  "merged_prs_count": 0,
+  "closed_issues_count": 0,
+  "review_queue_count": 0,
+  "run_totals": {
+   "success": 0,
+   "failure": 0,
+   "other": 0
+  }
+ },
+ "report_issues": []
 }

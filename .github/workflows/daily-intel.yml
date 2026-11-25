@@ -74,5 +74,6 @@ jobs:
           fi
           git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" \
             commit -m "chore: intel snapshot $SNAPSHOT_DATE"
-          git pull --rebase origin main
+          git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" \
+            pull --rebase origin main
           git push origin HEAD:refs/heads/main

@@ -28,6 +28,8 @@ try:
         TAXONOMY_VERSION,
         UNKNOWN_CANDIDATE_PATTERN,
         USER_AGENT_TAXONOMY,
+        public_agent_candidates,
+        public_agent_label,
     )
 except ImportError:  # Direct execution: python3 scripts/aeo_weekly.py
     from aeo_agents import (  # type: ignore
@@ -37,6 +39,8 @@ except ImportError:  # Direct execution: python3 scripts/aeo_weekly.py
         TAXONOMY_VERSION,
         UNKNOWN_CANDIDATE_PATTERN,
         USER_AGENT_TAXONOMY,
+        public_agent_candidates,
+        public_agent_label,
     )
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -385,14 +389,14 @@ def parse_server_tsv(
                     raise ValueError("query string survived path sanitization")
                 paths[path] = paths.get(path, 0) + int(parts[2])
             elif record == "UNKNOWN" and len(parts) == 3:
-                sample = parts[1][:MAX_UNKNOWN_SAMPLE_CHARS]
+                sample = public_agent_label(parts[1])
                 unknown[sample] = unknown.get(sample, 0) + int(parts[2])
             elif record == "ERROR" and len(parts) >= 2:
                 remote_error = ": ".join(parts[1:])
             else:
                 raise ValueError(f"unexpected TSV record {record!r}")
         except (TypeError, ValueError) as exc:
-            raise ValueError(f"invalid server TSV line: {line[:160]}") from exc
+            raise ValueError("invalid server TSV record") from exc
 
     for day in expected - seen_days - missing:
         missing.add(day)
@@ -479,18 +483,14 @@ def _empty_log_error(message: str, dates: list[str]) -> dict[str, Any]:
 
 def _merge_unknown_candidates(
         by_brand: dict[str, list[dict[str, Any]]]) -> list[dict[str, Any]]:
-    combined: dict[str, dict[str, Any]] = {}
-    for brand, candidates in by_brand.items():
-        for candidate in candidates:
-            sample = str(candidate["user_agent"])[:MAX_UNKNOWN_SAMPLE_CHARS]
-            count = int(candidate["count"])
-            item = combined.setdefault(
-                sample, {"user_agent": sample, "count": 0, "brands": {}})
-            item["count"] += count
-            item["brands"][brand] = item["brands"].get(brand, 0) + count
+    samples = [
+        {"user_agent": item["user_agent"], "count": item["count"], "brands": {brand: item["count"]}}
+        for brand, candidates in by_brand.items()
+        for item in candidates
+    ]
     return sorted(
-        combined.values(),
-        key=lambda item: (-int(item["count"]), str(item["user_agent"]).lower()),
+        public_agent_candidates(samples),
+        key=lambda item: (-item["count"], item["user_agent"].lower()),
     )[:MAX_UNKNOWN_CANDIDATES]
 
 

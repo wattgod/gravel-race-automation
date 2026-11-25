@@ -887,15 +887,15 @@ def _mark_new_agents(current: list, prior: list) -> list:
     """Flag agents not seen in the prior weekly artifact; the render shows
     only those plus a count of recurring ones (the full list repeated weekly
     was a wall of text with nothing to act on)."""
-    seen = {str(item.get("user_agent")) for item in prior if isinstance(item, dict)}
-    out = []
-    for item in current:
-        if not isinstance(item, dict):
-            continue
-        item = dict(item)
-        item["new_this_week"] = not prior or str(item.get("user_agent")) not in seen
-        out.append(item)
-    return out
+    try:
+        from scripts.aeo_agents import public_agent_candidates
+    except ImportError:
+        from aeo_agents import public_agent_candidates
+    seen = {item["user_agent"].casefold() for item in public_agent_candidates(prior)}
+    return [
+        {**item, "new_this_week": item["user_agent"].casefold() not in seen}
+        for item in public_agent_candidates(current)
+    ]
 
 
 def collect_aeo(today: date | None = None) -> dict:

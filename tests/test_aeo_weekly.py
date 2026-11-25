@@ -508,3 +508,35 @@ def test_read_llms_head_via_ssh_returns_none_without_ssh_config(monkeypatch):
     for name in ("SSH_HOST", "SSH_USER", "SSH_KEY_PATH"):
         monkeypatch.delenv(name, raising=False)
     assert aeo_weekly._read_llms_head_via_ssh("gravelgod") is None
+
+
+def test_public_agent_counts_drop_header_metadata_and_merge_variants():
+    samples = [
+        {"user_agent": "Mozilla/5.0 (compatible; FooBot/1.0; contact ops@example.invalid)",
+         "count": 4, "brands": {"gravelgod": 4}},
+        {"user_agent": "FooBot/1.0 (team@example.invalid)", "count": 2, "brands": {"roadie": 2}},
+    ]
+    assert aeo_agents.public_agent_candidates(samples) == [
+        {"user_agent": "FooBot/1.0", "count": 6, "brands": {"gravelgod": 4, "roadie": 2}},
+    ]
+    assert aeo_agents.public_agent_label("Mozilla/5.0 (bot@example.invalid)") == "unknown-agent"
+    assert aeo_agents.public_agent_label("Mozilla/5.0 https://fooabot.example.invalid") == "unknown-agent"
+
+
+def test_server_summary_and_existing_artifacts_keep_only_public_agent_labels(tmp_path, monkeypatch):
+    _, candidates = aeo_weekly.parse_server_tsv(
+        "UNKNOWN\tFooBot/1.0 (contact ops@example.invalid)\t4\n", []
+    )
+    assert candidates == [{"user_agent": "FooBot/1.0", "count": 4}]
+
+    old = [{"user_agent": "Mozilla/5.0 (FooBot/1.0; owner@example.invalid)", "count": 3}]
+    current = [{"user_agent": "FooBot/1.0 (contact ops@example.invalid)", "count": 5}]
+    _write_artifact(tmp_path, _artifact("2026-07-13", unknown=old))
+    _write_artifact(tmp_path, _artifact("2026-07-20", unknown=current))
+    monkeypatch.setattr(daily_intel, "AEO_DIR", tmp_path)
+    result = daily_intel.collect_aeo(today=date(2026, 7, 21))
+    assert result["ok"] is True
+    assert result["unknown_agent_candidates"] == [
+        {"user_agent": "FooBot/1.0", "count": 5, "brands": {}, "new_this_week": False}
+    ]
+    assert "example.invalid" not in json.dumps(result)

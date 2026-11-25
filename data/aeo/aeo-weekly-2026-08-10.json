@@ -453,15 +453,16 @@
         "roadie": 37
       },
       "count": 163,
-      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ShapBot/0.1.0"
+      "user_agent": "ShapBot/0.1.0"
     },
     {
       "brands": {
-        "gravelgod": 76,
-        "roadie": 11
+        "gravelgod": 79,
+        "roadie": 14,
+        "xcski": 5
       },
-      "count": 87,
-      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 fac"
+      "count": 98,
+      "user_agent": "unknown-agent"
     },
     {
       "brands": {
@@ -469,7 +470,7 @@
         "roadie": 5
       },
       "count": 19,
-      "user_agent": "ThresholdCycling-EventsBot/1.0 (+https://thresholdcycling.com; events-bot@thresholdcycling.com) Mozilla/5.0 (Windows NT "
+      "user_agent": "ThresholdCycling-EventsBot/1.0"
     },
     {
       "brands": {
@@ -483,14 +484,14 @@
         "gravelgod": 15
       },
       "count": 15,
-      "user_agent": "LinkupBot/1.0 (LinkupBot for web indexing; https://linkup.so/bot; bot@linkup.so)"
+      "user_agent": "LinkupBot/1.0"
     },
     {
       "brands": {
         "gravelgod": 9
       },
       "count": 9,
-      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; AzureAI-SearchBot/1.0;"
+      "user_agent": "AzureAI-SearchBot/1.0"
     },
     {
       "brands": {
@@ -501,25 +502,17 @@
     },
     {
       "brands": {
-        "roadie": 3,
-        "xcski": 5
-      },
-      "count": 8,
-      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140."
-    },
-    {
-      "brands": {
         "gravelgod": 6
       },
       "count": 6,
-      "user_agent": "GoogleMessages/20.2 facebookexternalhit/1.1 Facebot Twitterbot/1.0"
+      "user_agent": "Facebot"
     },
     {
       "brands": {
         "gravelgod": 5
       },
       "count": 5,
-      "user_agent": "Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com)"
+      "user_agent": "Discordbot/2.0"
     },
     {
       "brands": {
@@ -527,7 +520,7 @@
         "roadie": 2
       },
       "count": 4,
-      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Bravebot/1.0; +https://search.brave.com/help/brave-search"
+      "user_agent": "Bravebot/1.0"
     },
     {
       "brands": {
@@ -535,14 +528,7 @@
         "roadie": 1
       },
       "count": 4,
-      "user_agent": "RecordedFuture Global Inventory Crawler"
-    },
-    {
-      "brands": {
-        "gravelgod": 3
-      },
-      "count": 3,
-      "user_agent": "Mozilla/5.0 (compatible; YandexImages/3.0; +http://yandex.com/bots)"
+      "user_agent": "Crawler"
     },
     {
       "brands": {
@@ -556,7 +542,7 @@
         "gravelgod": 3
       },
       "count": 3,
-      "user_agent": "WebTunerBot/1.0 (+https://webtuner.app)"
+      "user_agent": "WebTunerBot/1.0"
     }
   ]
 }

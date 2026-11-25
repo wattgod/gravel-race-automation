@@ -424,22 +424,23 @@
         "gravelgod": 134
       },
       "count": 134,
-      "user_agent": "LinkupBot/1.0 (LinkupBot for web indexing; https://linkup.so/bot; bot@linkup.so)"
+      "user_agent": "LinkupBot/1.0"
     },
     {
       "brands": {
-        "gravelgod": 93,
-        "roadie": 6
+        "gravelgod": 103,
+        "roadie": 6,
+        "xcski": 2
       },
-      "count": 99,
-      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 fac"
+      "count": 111,
+      "user_agent": "unknown-agent"
     },
     {
       "brands": {
         "gravelgod": 95
       },
       "count": 95,
-      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; ShapBot/0.1.0"
+      "user_agent": "ShapBot/0.1.0"
     },
     {
       "brands": {
@@ -453,35 +454,28 @@
         "gravelgod": 58
       },
       "count": 58,
-      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 (Stripebot/1.0; +h"
+      "user_agent": "Stripebot/1.0"
     },
     {
       "brands": {
         "gravelgod": 12
       },
       "count": 12,
-      "user_agent": "Mozilla/5.0 (compatible; MojeekBot/0.11; +https://www.mojeek.com/bot.html)"
+      "user_agent": "MojeekBot/0.11"
     },
     {
       "brands": {
         "gravelgod": 9
       },
       "count": 9,
-      "user_agent": "Mozilla/5.0 (compatible; Discordbot/2.0; +https://discordapp.com)"
+      "user_agent": "Discordbot/2.0"
     },
     {
       "brands": {
         "gravelgod": 6
       },
       "count": 6,
-      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; AzureAI-SearchBot/1.0;"
-    },
-    {
-      "brands": {
-        "gravelgod": 6
-      },
-      "count": 6,
-      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; MistralAI-User/1.0; +https://docs.mistral.ai/robots)"
+      "user_agent": "AzureAI-SearchBot/1.0"
     },
     {
       "brands": {
@@ -492,31 +486,17 @@
     },
     {
       "brands": {
-        "gravelgod": 4
-      },
-      "count": 4,
-      "user_agent": "Mozilla/5.0 (compatible; YandexFavicons/1.0; +http://yandex.com/bots)"
-    },
-    {
-      "brands": {
-        "xcski": 2
-      },
-      "count": 2,
-      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140."
-    },
-    {
-      "brands": {
         "gravelgod": 2
       },
       "count": 2,
-      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; SEOJuice-SearchBot/1.0; +https://seojuice.io/bot"
+      "user_agent": "SEOJuice-SearchBot/1.0"
     },
     {
       "brands": {
         "xcski": 2
       },
       "count": 2,
-      "user_agent": "RecordedFuture Global Inventory Crawler"
+      "user_agent": "Crawler"
     },
     {
       "brands": {

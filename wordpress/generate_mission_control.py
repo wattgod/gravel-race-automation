@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import os
 import subprocess
 from collections import Counter
 from datetime import date, datetime
@@ -19,6 +20,8 @@ from generate_neo_brutalist import (
     get_page_css,
     write_shared_assets,
 )
+
+from monitoring_snapshot_history import load_snapshot, refresh_history, snapshot_names
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -283,26 +286,25 @@ def collect_deploy_targets() -> dict:
         return {"error": str(e)}
 
 
-def collect_seo_pulse() -> dict:
+def collect_seo_pulse(history_commit: str | None = None) -> dict:
     """Latest GSC snapshot data."""
     try:
-        snapshot_dir = PROJECT_ROOT / "data" / "gsc-snapshots"
-        if not snapshot_dir.exists() or not list(snapshot_dir.glob("*.json")):
+        snapshot_dir = Path(os.environ.get("GSC_SNAPSHOT_DIR", PROJECT_ROOT / "data/gsc-snapshots"))
+        latest = max(snapshot_names(snapshot_dir, history_commit), default=None)
+        if latest is None:
             return {"configured": False}
-
-        # Get latest snapshot
-        snapshots = sorted(snapshot_dir.glob("*.json"))
-        latest = snapshots[-1]
-        with open(latest) as f:
-            data = json.load(f)
+        data = load_snapshot(snapshot_dir / latest, history_commit)
+        if data is None:
+            return {"configured": False}
+        totals = data.get("overall", data.get("totals", {}))
 
         return {
             "configured": True,
-            "snapshot_date": latest.stem,
-            "clicks": data.get("totals", {}).get("clicks", 0),
-            "impressions": data.get("totals", {}).get("impressions", 0),
-            "ctr": data.get("totals", {}).get("ctr", 0),
-            "position": data.get("totals", {}).get("position", 0),
+            "snapshot_date": Path(latest).stem,
+            "clicks": totals.get("clicks", 0),
+            "impressions": totals.get("impressions", 0),
+            "ctr": totals.get("ctr", 0),
+            "position": totals.get("position", 0),
             "top_queries": data.get("top_queries", [])[:10],
             "top_pages": data.get("top_pages", [])[:10],
         }
@@ -1155,14 +1157,14 @@ def build_mc_js() -> str:
 # ── Page Assembly ────────────────────────────────────────────────
 
 
-def generate_mc_page() -> str:
+def generate_mc_page(history_commit: str | None = None) -> str:
     """Assemble the complete Mission Control HTML page."""
     # Collect all data
     health = collect_health_overview()
     freshness = collect_data_freshness()
     pipeline = collect_content_pipeline()
     deploy = collect_deploy_targets()
-    seo = collect_seo_pulse()
+    seo = collect_seo_pulse(history_commit)
     commands = collect_quick_commands()
     sprints = collect_sprint_log()
 
@@ -1232,7 +1234,7 @@ def main():
     mc_dir = output_dir / "mission-control"
     mc_dir.mkdir(parents=True, exist_ok=True)
 
-    html_content = generate_mc_page()
+    html_content = generate_mc_page(refresh_history("GSC_SNAPSHOT_DIR"))
 
     output_file = mc_dir / "index.html"
     output_file.write_text(html_content, encoding="utf-8")

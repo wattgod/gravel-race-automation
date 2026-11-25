@@ -9,13 +9,20 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: daily-monitoring
+  cancel-in-progress: false
+
 jobs:
   monitor:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -26,10 +33,21 @@ jobs:
       - name: Install dependencies
         run: pip install google-api-python-client google-auth google-analytics-data requests pyyaml
 
+      - name: Prepare monitoring history
+        run: |
+          export MONITORING_STATE_DIR="$RUNNER_TEMP/gravel-monitoring-state"
+          bash scripts/daily-monitoring-state.sh prepare
+          {
+            printf 'MONITORING_STATE_DIR=%s\n' "$MONITORING_STATE_DIR"
+            printf 'GSC_SNAPSHOT_DIR=%s/data/gsc-snapshots\n' "$MONITORING_STATE_DIR"
+            printf 'CWV_SNAPSHOT_DIR=%s/data/cwv-snapshots\n' "$MONITORING_STATE_DIR"
+          } >> "$GITHUB_ENV"
+
       - name: GSC monitoring
         env:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
-        run: bash scripts/with-google-credentials.sh python scripts/gsc_tracker.py --snapshot --report --alert
+        run: |
+          bash scripts/with-google-credentials.sh python scripts/gsc_tracker.py --snapshot --report --alert --aggregate-only
 
       - name: CWV monitoring
         env:
@@ -37,22 +55,15 @@ jobs:
         run: python scripts/cwv_monitor.py --snapshot --report --alert
 
       - name: Marketing report
-        id: marketing
         run: |
-          mkdir -p reports
-          report="reports/$(date -u +%Y-%m-%d).md"
+          mkdir -p "$MONITORING_STATE_DIR/reports"
+          report="$MONITORING_STATE_DIR/reports/$(date -u +%F).md"
           bash scripts/with-google-credentials.sh python scripts/daily-marketing-report.py --output "$report"
-          printf 'report=%s\n' "$report" >> "$GITHUB_OUTPUT"
         env:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
 
-      - name: Commit changes
+      - name: Publish scoped monitoring reports
         env:
-          REPORT_PATH: ${{ steps.marketing.outputs.report }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -- data/gsc-snapshots/ data/cwv-snapshots/ "$REPORT_PATH"
-          git diff --cached --quiet || git commit -m "chore: daily monitoring $(date +%Y-%m-%d)"
-          git push
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/daily-monitoring-state.sh publish

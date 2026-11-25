@@ -40,7 +40,7 @@
         ]
       },
       "status": "complete",
-      "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+      "error": "Imagen request failed with HTTP 400",
       "generated_at": "2026-02-14T15:48:05.823980+00:00",
       "output_files": [
         "ch1-hero-1x.webp",
@@ -68,7 +68,7 @@
         ]
       },
       "status": "complete",
-      "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+      "error": "Imagen request failed with HTTP 400",
       "generated_at": "2026-02-14T15:48:06.052351+00:00",
       "output_files": [
         "ch2-hero-1x.webp",
@@ -96,7 +96,7 @@
         ]
       },
       "status": "complete",
-      "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+      "error": "Imagen request failed with HTTP 400",
       "generated_at": "2026-02-14T15:48:06.222790+00:00",
       "output_files": [
         "ch3-hero-1x.webp",
@@ -124,7 +124,7 @@
         ]
       },
       "status": "complete",
-      "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+      "error": "Imagen request failed with HTTP 400",
       "generated_at": "2026-02-14T15:48:06.432931+00:00",
       "output_files": [
         "ch4-hero-1x.webp",
@@ -152,7 +152,7 @@
         ]
       },
       "status": "complete",
-      "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+      "error": "Imagen request failed with HTTP 400",
       "generated_at": "2026-02-14T15:48:06.662110+00:00",
       "output_files": [
         "ch5-hero-1x.webp",
@@ -180,7 +180,7 @@
         ]
       },
       "status": "complete",
-      "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+      "error": "Imagen request failed with HTTP 400",
       "generated_at": "2026-02-14T15:48:06.819123+00:00",
       "output_files": [
         "ch6-hero-1x.webp",
@@ -208,7 +208,7 @@
         ]
       },
       "status": "complete",
-      "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+      "error": "Imagen request failed with HTTP 400",
       "generated_at": "2026-02-14T15:48:07.038111+00:00",
       "output_files": [
         "ch7-hero-1x.webp",
@@ -236,7 +236,7 @@
         ]
       },
       "status": "complete",
-      "error": "Client error '400 Bad Request' for url 'https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400",
+      "error": "Imagen request failed with HTTP 400",
       "generated_at": "2026-02-14T15:48:07.211319+00:00",
       "output_files": [
         "ch8-hero-1x.webp",
@@ -521,7 +521,7 @@
         "ch1-rider-grid-1x.webp",
         "ch1-rider-grid-2x.webp"
       ],
-      "error": "name 'font_xs' is not defined"
+      "error": "Media processing failed"
     },
     {
       "id": "ch2-tier-distribution",
@@ -646,7 +646,7 @@
         "ch4-execution-gap-1x.webp",
         "ch4-execution-gap-2x.webp"
       ],
-      "error": "name 'font_xs' is not defined"
+      "error": "Media processing failed"
     },
     {
       "id": "ch4-traffic-light",

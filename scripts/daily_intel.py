@@ -32,6 +32,7 @@ import re
 import sys
 import urllib.error
 import urllib.request
+from urllib.parse import urlsplit
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
@@ -161,8 +162,21 @@ def _measurement_warnings(collected: dict, days: int) -> list[str]:
     return [MEASUREMENT_WARNING.format(date=epoch["date"]) for epoch in epochs]
 
 
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, new_url):
+        return None
+
+
 def _http(url: str, data: dict | None = None, headers: dict | None = None,
           timeout: int = 25) -> tuple[int, str]:
+    try:
+        endpoint = urlsplit(url)
+    except ValueError:
+        return 0, "Invalid HTTPS provider URL."
+    if (endpoint.scheme != "https" or not endpoint.hostname
+            or endpoint.username is not None or endpoint.password is not None):
+        return 0, "Invalid HTTPS provider URL."
+
     req = urllib.request.Request(
         url,
         data=json.dumps(data).encode() if data is not None else None,
@@ -171,13 +185,18 @@ def _http(url: str, data: dict | None = None, headers: dict | None = None,
                  **(headers or {})},
         method="POST" if data is not None else "GET",
     )
+    # These calls carry provider credentials that must stay on the first request.
+    opener = urllib.request.build_opener(_NoRedirect())
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            return r.status, r.read().decode("utf-8", "replace")
-    except urllib.error.HTTPError as e:
-        return e.code, e.read().decode("utf-8", "replace")[:500]
-    except Exception as e:
-        return 0, str(e)[:300]
+        with opener.open(req, timeout=timeout) as response:
+            return response.status, response.read().decode("utf-8", "replace")
+    except urllib.error.HTTPError as error:
+        with error:
+            if 300 <= error.code < 400:
+                return error.code, "Provider redirected the request."
+            return error.code, error.read(2048).decode("utf-8", "replace")[:500]
+    except Exception as error:
+        return 0, f"Provider request failed ({type(error).__name__})."
 
 
 def _safe(fn):

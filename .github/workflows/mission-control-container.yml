@@ -40,10 +40,10 @@ jobs:
             --entrypoint python3 mission-control:ci - <<'PY'
           import os
           import pwd
+          import shutil
           from pathlib import Path
 
           from PIL import ImageFont
-          from playwright.sync_api import sync_playwright
 
           from mission_control.app import create_app
           from mission_control.services.email_preview import list_templates
@@ -63,13 +63,14 @@ jobs:
           assert not Path("athletes").exists()
           assert not Path("intakes").exists()
           assert not Path("plans").exists()
+          assert shutil.which("ssh") is None
+          assert shutil.which("git") is None
+          assert not Path("/opt/playwright").exists()
           assert create_app().openapi()["paths"]
           assert list_templates()
           assert get_race_db().get_profile("unbound-200")
           assert callable(compute_fueling) and jev_client
           assert ImageFont.truetype("guide/fonts/SometypeMono-Regular.ttf", size=16)
-          with sync_playwright() as playwright:
-              assert os.access(playwright.chromium.executable_path, os.X_OK)
           PY
 
       - name: Scan the built image for vulnerabilities

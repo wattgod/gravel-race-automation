@@ -1,16 +1,9 @@
 FROM python:3.12-slim
 
-# Chromium is installed by root and read by the runtime user.
-ENV PLAYWRIGHT_BROWSERS_PATH=/opt/playwright
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    git openssh-client \
-    && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /app
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt \
-    && playwright install chromium --with-deps \
     && groupadd --gid 10001 mission-control \
     && useradd --uid 10001 --gid 10001 --create-home \
         --home-dir /home/mission-control --shell /usr/sbin/nologin mission-control

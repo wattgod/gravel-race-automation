@@ -53,8 +53,9 @@ jobs:
           import json
           import os
           import sys
+          from pathlib import Path
           sys.path.insert(0, 'scripts')
-          from auto_process_review import output_paths
+          from auto_process_review import completed_races, output_paths
 
           with open("db/gravel_races_full_database.json") as f:
               db = json.load(f)
@@ -70,11 +71,7 @@ jobs:
               races = db.get("races", [])
 
           # Filter out already processed
-          processed = set()
-          processed_file = "data/processed/completed.txt"
-          if os.path.exists(processed_file):
-              with open(processed_file) as f:
-                  processed = set(f.read().splitlines())
+          processed = completed_races(Path.cwd())
 
           races = [r for r in races if r.get("RACE_NAME", "") not in processed]
 
@@ -213,7 +210,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          git add -- research-dumps/ briefs/ landing-pages/ data/processed/completed.txt
+          git add -- research-dumps/ briefs/ landing-pages/ data/processed/races/
           if git diff --cached --quiet; then
             echo "There are no new research changes."
             exit 0

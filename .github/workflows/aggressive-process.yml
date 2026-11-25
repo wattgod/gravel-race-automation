@@ -35,6 +35,10 @@ jobs:
           python3 << 'EOF'
           import json
           import os
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, 'scripts')
+          from auto_process_review import completed_races
           
           with open("db/gravel_races_full_database.json") as f:
               db = json.load(f)
@@ -44,10 +48,7 @@ jobs:
           # Get all unprocessed races
           races = db.get("races", [])
           
-          processed = set()
-          if os.path.exists("data/processed/completed.txt"):
-              with open("data/processed/completed.txt") as f:
-                  processed = set(f.read().splitlines())
+          processed = completed_races(Path.cwd())
           
           races = [r for r in races if r.get("RACE_NAME", "") not in processed]
           races = races[:limit]

@@ -1,11 +1,12 @@
 from pathlib import Path
+import json
 import os
 import subprocess
 
 import pytest
 import yaml
 
-from auto_process_review import copy_outputs, output_paths, restore_batch, validate_outputs
+from auto_process_review import completed_races, copy_outputs, output_paths, restore_batch, validate_outputs
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,7 +38,8 @@ def test_review_batch_preserves_successful_outputs_and_completed_records(tmp_pat
     ]}
     restore_batch(artifacts, matrix, checkout)
     restore_batch(artifacts, matrix, checkout)
-    assert existing.read_text() == "Earlier Race\nRace One\nRace Two\n"
+    assert existing.read_text() == "Earlier Race\n"
+    assert completed_races(checkout) == {"Earlier Race", "Race One", "Race Two"}
     assert (checkout / paths[0]).read_text() == "# reviewed research output"
     assert (checkout / "landing-pages/race-two.json").read_text() == "{}"
     assert not (checkout / "landing-pages/failed-race.json").exists()
@@ -112,7 +114,7 @@ def test_publish_step_writes_only_review_ref_and_stops_if_push_fails(tmp_path):
     git(checkout, "push", "origin", "main")
     main = git(remote, "rev-parse", "main")
     paths = write_outputs(checkout, "race-one")
-    completed = checkout / "data/processed/completed.txt"
+    completed = checkout / "data/processed/races/race-one.txt"
     completed.parent.mkdir(parents=True)
     completed.write_text("Race One\n")
 
@@ -122,7 +124,7 @@ def test_publish_step_writes_only_review_ref_and_stops_if_push_fails(tmp_path):
     assert run_publish().returncode == 0
     branch = "review/auto-process/42-1"
     files = set(git(remote, "diff", "--name-only", main, branch).splitlines())
-    assert files == {str(path) for path in paths} | {"data/processed/completed.txt"}
+    assert files == {str(path) for path in paths} | {"data/processed/races/race-one.txt"}
     assert branch in summary.read_text()
     assert git(remote, "rev-parse", "main") == main
 
@@ -136,8 +138,9 @@ def test_publish_step_writes_only_review_ref_and_stops_if_push_fails(tmp_path):
     assert git(remote, "rev-parse", "main") == main
 
 
-def test_prepare_job_omits_processed_races_and_marks_empty_batches(tmp_path):
-    workflow = yaml.safe_load((ROOT / ".github/workflows/auto-process-races.yml").read_text())
+@pytest.mark.parametrize("name", ["auto-process-races", "batch-process", "aggressive-process", "fast-process-races"])
+def test_prepare_job_honors_both_completion_formats(tmp_path, name):
+    workflow = yaml.safe_load((ROOT / f".github/workflows/{name}.yml").read_text())
     step = next(step for step in workflow["jobs"]["prepare"]["steps"] if step.get("id") == "set-matrix")
     db = tmp_path / "db"
     db.mkdir()
@@ -151,12 +154,45 @@ def test_prepare_job_omits_processed_races_and_marks_empty_batches(tmp_path):
     completed.parent.mkdir(parents=True)
     output = tmp_path / "outputs"
     env = {**os.environ, "PROCESS_TIER": "2", "PROCESS_LIMIT": "5", "GITHUB_OUTPUT": str(output)}
-    for names, expected in [("First Race\n", "true"), ("First Race\nSecond Race\n", "false")]:
-        completed.write_text(names)
+    marker = completed.parent / "races/second-race.txt"
+    marker.parent.mkdir()
+    for expected in ("true", "false"):
+        if expected == "false":
+            marker.write_text("Second Race\n")
+        completed.write_text("First Race\n")
         output.write_text("")
         subprocess.run(["bash", "-e", "-c", step["run"]], cwd=tmp_path, env=env, check=True, capture_output=True)
         fields = dict(line.split("=", 1) for line in output.read_text().splitlines())
-        assert fields["has_work"] == expected
-        if expected == "true":
-            assert '"folder": "second-race"' in fields["matrix"]
-        assert '"folder": "first-race"' not in fields["matrix"]
+        if name == "auto-process-races":
+            assert fields["has_work"] == expected
+        selected = [race["folder"] for race in json.loads(fields["matrix"])["include"]]
+        assert selected == (["second-race"] if expected == "true" else [])
+
+
+def test_disjoint_review_batches_merge_without_completion_conflicts(tmp_path):
+    checkout = tmp_path / "checkout"
+    checkout.mkdir()
+    env = {**os.environ, "GIT_AUTHOR_NAME": "Fixture", "GIT_AUTHOR_EMAIL": "fixture@example.invalid",
+           "GIT_COMMITTER_NAME": "Fixture", "GIT_COMMITTER_EMAIL": "fixture@example.invalid"}
+
+    def git(*args):
+        subprocess.run(["git", *args], cwd=checkout, env=env, check=True, capture_output=True)
+
+    git("init", "--initial-branch=main")
+    legacy = checkout / "data/processed/completed.txt"
+    legacy.parent.mkdir(parents=True)
+    legacy.write_text("Earlier Race\n")
+    git("add", ".")
+    git("commit", "-m", "Seed")
+    for slug, name in [("race-one", "Race One"), ("race-two", "Race Two")]:
+        git("checkout", "-b", slug, "main")
+        artifacts = tmp_path / slug
+        write_outputs(artifacts / f"race-output-{slug}", slug)
+        restore_batch(artifacts, {"include": [{"folder": slug, "race_name": name}]}, checkout)
+        git("add", ".")
+        git("commit", "-m", f"Review {name}")
+    git("checkout", "main")
+    git("merge", "--no-ff", "--no-edit", "race-one")
+    git("merge", "--no-ff", "--no-edit", "race-two")
+    assert completed_races(checkout) == {"Earlier Race", "Race One", "Race Two"}
+    assert legacy.read_text() == "Earlier Race\n"

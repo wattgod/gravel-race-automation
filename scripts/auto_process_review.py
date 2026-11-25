@@ -9,7 +9,17 @@ import shutil
 
 SLUG = re.compile(r"[a-z0-9][a-z0-9()&-]{0,100}")
 ARTIFACT_PREFIX = "race-output-"
+COMPLETION_DIR = Path("data/processed/races")
 
+
+
+def completed_races(checkout: Path) -> set[str]:
+    legacy = checkout / "data/processed/completed.txt"
+    names = set(legacy.read_text(encoding="utf-8").splitlines()) if legacy.exists() else set()
+    for marker in (checkout / COMPLETION_DIR).glob("*.txt"):
+        if marker.is_file() and not marker.is_symlink():
+            names.add(marker.read_text(encoding="utf-8").strip())
+    return names
 
 def output_paths(slug: str) -> list[Path]:
     if not SLUG.fullmatch(slug):
@@ -53,19 +63,17 @@ def restore_batch(artifacts: Path, matrix: dict, checkout: Path) -> None:
                   if file.is_symlink() or not file.is_dir()}
         if actual != set(paths):
             raise ValueError("Race artifact contains unexpected paths")
-        results.append((artifact, paths, expected[slug]))
+        results.append((artifact, paths, slug))
     if not results:
         raise ValueError("No successful race outputs to publish")
 
-    for artifact, paths, _ in results:
+    for artifact, paths, slug in results:
         copy_outputs(artifact, checkout, paths)
-    completed = checkout / "data/processed/completed.txt"
-    if completed.resolve() != completed:
-        raise ValueError("Cannot write through a symlink")
-    names = completed.read_text(encoding="utf-8").splitlines() if completed.exists() else []
-    completed.parent.mkdir(parents=True, exist_ok=True)
-    names = list(dict.fromkeys(names + [name for _, _, name in results]))
-    completed.write_text("\n".join(names) + "\n", encoding="utf-8")
+        marker = checkout / COMPLETION_DIR / f"{slug}.txt"
+        if marker.resolve() != marker:
+            raise ValueError("Cannot write through a symlink")
+        marker.parent.mkdir(parents=True, exist_ok=True)
+        marker.write_text(expected[slug] + "\n", encoding="utf-8")
 
 
 def main() -> None:

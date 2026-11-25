@@ -118,7 +118,7 @@ def is_unknown_candidate(user_agent: str) -> bool:
 # A product name and optional numeric version are enough to spot a new
 # crawler. Ignore URL paths, addresses, comments, and free-form headers.
 _AGENT_PRODUCT = re.compile(
-    r"(?<![\w.%+@/-])([A-Za-z][A-Za-z0-9_-]{0,31}(?:/[0-9]+(?:\.[0-9]+)*)?)(?![\w.%+@/-])"
+    r"(?<![^\s;(])([A-Za-z][A-Za-z0-9_-]{0,31}(?:/[0-9]+(?:\.[0-9]+)*)?)(?=$|[\s;)])"
 )
 UNKNOWN_AGENT_LABEL = "unknown-agent"
 

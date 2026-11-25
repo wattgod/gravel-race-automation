@@ -521,6 +521,7 @@ def test_public_agent_counts_drop_header_metadata_and_merge_variants():
     ]
     assert aeo_agents.public_agent_label("Mozilla/5.0 (bot@example.invalid)") == "unknown-agent"
     assert aeo_agents.public_agent_label("Mozilla/5.0 https://fooabot.example.invalid") == "unknown-agent"
+    assert aeo_agents.public_agent_label("Mozilla/5.0 https://example.invalid?agent=FooBot/1.0") == "unknown-agent"
 
 
 def test_server_summary_and_existing_artifacts_keep_only_public_agent_labels(tmp_path, monkeypatch):

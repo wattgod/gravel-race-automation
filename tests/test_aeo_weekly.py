@@ -508,3 +508,84 @@ def test_read_llms_head_via_ssh_returns_none_without_ssh_config(monkeypatch):
     for name in ("SSH_HOST", "SSH_USER", "SSH_KEY_PATH"):
         monkeypatch.delenv(name, raising=False)
     assert aeo_weekly._read_llms_head_via_ssh("gravelgod") is None
+
+
+def test_public_agent_counts_drop_header_metadata_and_merge_variants():
+    samples = [
+        {"user_agent": "Mozilla/5.0 (compatible; FooBot/1.0; contact ops@example.invalid)",
+         "count": 4, "brands": {"gravelgod": 4}},
+        {"user_agent": "FooBot/1.0 (team@example.invalid)", "count": 2, "brands": {"roadie": 2}},
+    ]
+    assert aeo_agents.public_agent_candidates(samples) == [
+        {"user_agent": "FooBot/1.0", "count": 6, "brands": {"gravelgod": 4, "roadie": 2}},
+    ]
+    assert aeo_agents.public_agent_label("Mozilla/5.0 (bot@example.invalid)") == "unknown-agent"
+    assert aeo_agents.public_agent_label("Mozilla/5.0 https://fooabot.example.invalid") == "unknown-agent"
+    assert aeo_agents.public_agent_label("Mozilla/5.0 https://example.invalid?agent=FooBot/1.0") == "unknown-agent"
+
+
+def test_server_summary_and_existing_artifacts_keep_only_public_agent_labels(tmp_path, monkeypatch):
+    _, candidates = aeo_weekly.parse_server_tsv(
+        "UNKNOWN\tFooBot/1.0 (contact ops@example.invalid)\t4\n", []
+    )
+    assert candidates == [{"user_agent": "FooBot/1.0", "count": 4}]
+
+    old = [{"user_agent": "Mozilla/5.0 (FooBot/1.0; owner@example.invalid)", "count": 3}]
+    current = [{"user_agent": "FooBot/1.0 (contact ops@example.invalid)", "count": 5}]
+    _write_artifact(tmp_path, _artifact("2026-07-13", unknown=old))
+    _write_artifact(tmp_path, _artifact("2026-07-20", unknown=current))
+    monkeypatch.setattr(daily_intel, "AEO_DIR", tmp_path)
+    result = daily_intel.collect_aeo(today=date(2026, 7, 21))
+    assert result["ok"] is True
+    assert result["unknown_agent_candidates"] == [
+        {"user_agent": "FooBot/1.0", "count": 5, "brands": {}, "new_this_week": False}
+    ]
+    assert "example.invalid" not in json.dumps(result)
+
+
+def test_llms_verification_checks_the_complete_heading_without_publishing_it(monkeypatch):
+    marker = str(aeo_weekly.BRANDS["gravelgod"]["llms_marker"])
+    for body, state in [(marker + " ops@example.invalid", "displaced"), (marker + "\nNext line", "ok")]:
+        monkeypatch.setattr(aeo_weekly, "_fetch_llms_head", lambda *_args: body)
+        result = aeo_weekly.check_llms_marker("gravelgod")
+        assert result["status"] == state
+        assert result["first_line"] == (marker if state == "ok" else "")
+        assert "example.invalid" not in json.dumps(result)
+
+
+def test_legacy_llms_metadata_never_reaches_the_report(tmp_path, monkeypatch):
+    artifact = _artifact("2026-07-20")
+    artifact["brands"]["gravelgod"]["llms_serving"] = {
+        "status": "displaced",
+        "first_line": "sgcaptcha synthetic@example.invalid",
+        "error": "provider details synthetic@example.invalid",
+    }
+    _write_artifact(tmp_path, artifact)
+    monkeypatch.setattr(daily_intel, "AEO_DIR", tmp_path)
+    result = daily_intel.collect_aeo(today=date(2026, 7, 21))
+    assert result["brands"]["gravelgod"]["llms_serving_status"] == "challenged"
+    assert "example.invalid" not in json.dumps(result)
+    alerts = daily_intel._collector_failures({"aeo": result})
+    assert any("CAPTCHA-BLOCKED" in alert for alert in alerts)
+    assert "example.invalid" not in json.dumps(alerts)
+
+
+@pytest.mark.parametrize(("header", "label"), [
+    ("AIWebIndex/2.0 (+https://example.invalid/crawler)", "AIWebIndex/2.0"),
+    ("Mozilla/5.0 (compatible; ibou-search/2.0; +https://example.invalid/bot)", "ibou-search/2.0"),
+    ("CheckMarkNetwork/1.0 (https://example.invalid/crawler; owner@example.invalid)", "CheckMarkNetwork/1.0"),
+])
+def test_preserves_explicit_product_when_crawler_hint_is_in_url(header, label):
+    assert aeo_agents.public_agent_label(header) == label
+
+
+def test_unidentified_counts_stay_visible_without_claiming_matching_identity():
+    current = [{"user_agent": "Mozilla/5.0 https://example.invalid/crawler-a", "count": 5}]
+    prior = [{"user_agent": "Mozilla/5.0 https://example.invalid/crawler-b", "count": 7}]
+    marked = daily_intel._mark_new_agents(current, prior)
+    assert marked == [{"user_agent": "unknown-agent", "count": 5, "brands": {}, "new_this_week": None}]
+    report = daily_intel.render_report({
+        "aeo": {"state": "ok", "brands": {}, "unknown_agent_candidates": marked}
+    })
+    assert "**Unidentified agent requests:** 5." in report
+    assert "recurring unknown agent" not in report and "example.invalid" not in report

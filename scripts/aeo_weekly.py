@@ -28,6 +28,8 @@ try:
         TAXONOMY_VERSION,
         UNKNOWN_CANDIDATE_PATTERN,
         USER_AGENT_TAXONOMY,
+        public_agent_candidates,
+        public_agent_label,
     )
 except ImportError:  # Direct execution: python3 scripts/aeo_weekly.py
     from aeo_agents import (  # type: ignore
@@ -37,6 +39,8 @@ except ImportError:  # Direct execution: python3 scripts/aeo_weekly.py
         TAXONOMY_VERSION,
         UNKNOWN_CANDIDATE_PATTERN,
         USER_AGENT_TAXONOMY,
+        public_agent_candidates,
+        public_agent_label,
     )
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -385,14 +389,14 @@ def parse_server_tsv(
                     raise ValueError("query string survived path sanitization")
                 paths[path] = paths.get(path, 0) + int(parts[2])
             elif record == "UNKNOWN" and len(parts) == 3:
-                sample = parts[1][:MAX_UNKNOWN_SAMPLE_CHARS]
+                sample = public_agent_label(parts[1])
                 unknown[sample] = unknown.get(sample, 0) + int(parts[2])
             elif record == "ERROR" and len(parts) >= 2:
                 remote_error = ": ".join(parts[1:])
             else:
                 raise ValueError(f"unexpected TSV record {record!r}")
         except (TypeError, ValueError) as exc:
-            raise ValueError(f"invalid server TSV line: {line[:160]}") from exc
+            raise ValueError("invalid server TSV record") from exc
 
     for day in expected - seen_days - missing:
         missing.add(day)
@@ -479,18 +483,14 @@ def _empty_log_error(message: str, dates: list[str]) -> dict[str, Any]:
 
 def _merge_unknown_candidates(
         by_brand: dict[str, list[dict[str, Any]]]) -> list[dict[str, Any]]:
-    combined: dict[str, dict[str, Any]] = {}
-    for brand, candidates in by_brand.items():
-        for candidate in candidates:
-            sample = str(candidate["user_agent"])[:MAX_UNKNOWN_SAMPLE_CHARS]
-            count = int(candidate["count"])
-            item = combined.setdefault(
-                sample, {"user_agent": sample, "count": 0, "brands": {}})
-            item["count"] += count
-            item["brands"][brand] = item["brands"].get(brand, 0) + count
+    samples = [
+        {"user_agent": item["user_agent"], "count": item["count"], "brands": {brand: item["count"]}}
+        for brand, candidates in by_brand.items()
+        for item in candidates
+    ]
     return sorted(
-        combined.values(),
-        key=lambda item: (-int(item["count"]), str(item["user_agent"]).lower()),
+        public_agent_candidates(samples),
+        key=lambda item: (-item["count"], item["user_agent"].lower()),
     )[:MAX_UNKNOWN_CANDIDATES]
 
 
@@ -516,6 +516,17 @@ def _fetch_llms_head(url: str, timeout: int) -> str:
         return head
 
 
+def public_llms_status(status: str, legacy_first_line: str = "") -> str:
+    """Preserve the distinction between a challenge and a verified mismatch."""
+    if status == "displaced" and "sgcaptcha" in legacy_first_line.lower():
+        return "challenged"
+    return status if status in {"ok", "challenged", "displaced", "error"} else "unknown"
+
+
+def _has_llms_marker(head: str, marker: str) -> bool:
+    return head.lstrip("\ufeff\n\r ").partition("\n")[0].strip() == marker
+
+
 def check_llms_marker(brand: str, timeout: int = 20) -> dict[str, Any]:
     """Verify the live /llms.txt still serves OUR database file.
 
@@ -533,30 +544,30 @@ def check_llms_marker(brand: str, timeout: int = 20) -> dict[str, Any]:
     head = _fetch_llms_head(url, timeout)
     stripped = head.lstrip("﻿\n\r ")
     for pause in LLMS_CHALLENGE_BACKOFF:
-        if stripped.startswith(marker) or "sgcaptcha" not in stripped.lower():
+        if _has_llms_marker(stripped, marker) or "sgcaptcha" not in stripped.lower():
             break
         time.sleep(pause)
         head = _fetch_llms_head(url, timeout)
         stripped = head.lstrip("﻿\n\r ")
 
-    ok = stripped.startswith(marker)
+    ok = _has_llms_marker(stripped, marker)
     if not ok and "sgcaptcha" in stripped.lower():
         # The WAF challenged every HTTP attempt: the file is unverified, not
         # broken. Read it from the host instead — the same SSH config the log
         # collector uses — so a challenge window never renders as BROKEN.
         host_head = _read_llms_head_via_ssh(brand)
         if host_head is not None:
-            host_stripped = host_head.lstrip("\ufeff\n\r ")
+            ok = _has_llms_marker(host_head, marker)
             return {
-                "status": "ok" if host_stripped.startswith(marker) else "displaced",
+                "status": "ok" if ok else "displaced",
                 "marker": marker,
-                "first_line": host_head.splitlines()[0][:120] if host_head else "",
+                "first_line": marker if ok else "",
                 "verified_via": "ssh",
             }
     return {
         "status": "ok" if ok else ("challenged" if "sgcaptcha" in stripped.lower() else "displaced"),
         "marker": marker,
-        "first_line": head.splitlines()[0][:120] if head else "",
+        "first_line": marker if ok else "",
     }
 
 
@@ -623,8 +634,8 @@ def collect_weekly(now: datetime | None = None) -> dict[str, Any]:
             candidates = []
         try:
             llms = check_llms_marker(brand)
-        except Exception as exc:
-            llms = {"status": "error", "error": _error(f"{type(exc).__name__}: {exc}")}
+        except Exception:
+            llms = {"status": "error", "error": "verification request failed"}
         artifact["brands"][brand] = {"ga4": ga4, "llms_serving": llms, **log_result}
         unknown_by_brand[brand] = candidates
     artifact["unknown_agent_candidates"] = _merge_unknown_candidates(unknown_by_brand)

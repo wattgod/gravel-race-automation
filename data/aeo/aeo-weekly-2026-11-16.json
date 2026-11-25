@@ -441,7 +441,7 @@
         "xcski": 57
       },
       "count": 3220,
-      "user_agent": "Mozilla/5.0 (compatible; ExaSearchBot/1.0; +https://crawler.exa.ai/)"
+      "user_agent": "ExaSearchBot/1.0"
     },
     {
       "brands": {
@@ -450,7 +450,7 @@
         "xcski": 28
       },
       "count": 2545,
-      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; KeenableBot/1.0; +https://keenable.ai/bot)"
+      "user_agent": "KeenableBot/1.0"
     },
     {
       "brands": {
@@ -458,7 +458,7 @@
         "roadie": 555
       },
       "count": 2018,
-      "user_agent": "RiverBot/1.0 (+https://river.ai/bot)"
+      "user_agent": "RiverBot/1.0"
     },
     {
       "brands": {
@@ -467,15 +467,16 @@
         "xcski": 2
       },
       "count": 670,
-      "user_agent": "CCBot/2.0 (https://commoncrawl.org/faq/)"
+      "user_agent": "CCBot/2.0"
     },
     {
       "brands": {
-        "gravelgod": 81,
-        "roadie": 258
+        "gravelgod": 397,
+        "roadie": 408,
+        "xcski": 5
       },
-      "count": 339,
-      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 (compati"
+      "count": 810,
+      "user_agent": "unknown-agent"
     },
     {
       "brands": {
@@ -487,26 +488,11 @@
     },
     {
       "brands": {
-        "gravelgod": 38,
-        "roadie": 138
-      },
-      "count": 176,
-      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36 (c"
-    },
-    {
-      "brands": {
-        "gravelgod": 170
-      },
-      "count": 170,
-      "user_agent": "[NVIDIA]-[PSIRT@nvidia.com]-[NSPECT-I05S-FIEU]-[NVIDIABOT]"
-    },
-    {
-      "brands": {
         "gravelgod": 19,
         "roadie": 124
       },
       "count": 143,
-      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; SEOJuice-SearchBot/1.0; +https://seojuice.io/bot"
+      "user_agent": "SEOJuice-SearchBot/1.0"
     },
     {
       "brands": {
@@ -514,7 +500,7 @@
         "xcski": 12
       },
       "count": 138,
-      "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 (Stripebot/1.0; +h"
+      "user_agent": "Stripebot/1.0"
     },
     {
       "brands": {
@@ -523,16 +509,7 @@
         "xcski": 6
       },
       "count": 131,
-      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; YouBot/1.0; +https://docs.you.com/youbot; env:prod) Chrom"
-    },
-    {
-      "brands": {
-        "gravelgod": 108,
-        "roadie": 12,
-        "xcski": 5
-      },
-      "count": 125,
-      "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.4 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.4 fac"
+      "user_agent": "YouBot/1.0"
     },
     {
       "brands": {
@@ -541,7 +518,7 @@
         "xcski": 6
       },
       "count": 87,
-      "user_agent": "DuckAssistBot/1.2; (+http://duckduckgo.com/duckassistbot.html)"
+      "user_agent": "DuckAssistBot/1.2"
     },
     {
       "brands": {
@@ -550,7 +527,7 @@
         "xcski": 9
       },
       "count": 86,
-      "user_agent": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Reflectionbot/1.0; +https://reflection.ai/bot) Chrome/151"
+      "user_agent": "Reflectionbot/1.0"
     },
     {
       "brands": {
@@ -558,7 +535,7 @@
         "roadie": 17
       },
       "count": 83,
-      "user_agent": "ClueWeb-Crawler/1.0 (+https://boston.lti.cs.cmu.edu/CMU-ClueWeb-Crawler/; mailto:cmu-clueweb-crawler@andrew.cmu.edu)"
+      "user_agent": "ClueWeb-Crawler/1.0"
     }
   ]
 }

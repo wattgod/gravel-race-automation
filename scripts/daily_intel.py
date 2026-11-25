@@ -820,6 +820,11 @@ def _collect_aeo(today: date | None = None) -> dict:
             # comparison degrades to a baseline instead of hiding the section.
             prior = None
 
+    try:
+        from scripts.aeo_weekly import public_llms_status
+    except ImportError:
+        from aeo_weekly import public_llms_status
+
     latest_brands = latest.get("brands") or {}
     prior_brands = (prior or {}).get("brands") or {}
     rendered_brands = {}
@@ -846,10 +851,9 @@ def _collect_aeo(today: date | None = None) -> dict:
             "label": label,
             "ga4_status": (current_brand.get("ga4") or {}).get("status", "error"),
             "logs_status": (current_brand.get("logs") or {}).get("status", "error"),
-            "llms_serving_status": llms_serving.get("status", "unknown"),
-            "llms_serving_verified_via": llms_serving.get("verified_via", "http"),
-            "llms_serving_first_line": llms_serving.get("first_line", ""),
-            "llms_serving_error": llms_serving.get("error", ""),
+            "llms_serving_status": public_llms_status(
+                llms_serving.get("status", "unknown"), str(llms_serving.get("first_line", ""))),
+            "llms_serving_verified_via": "ssh" if llms_serving.get("verified_via") == "ssh" else "http",
             "ai_referral_sessions": ga4_sessions,
             "ai_referral_delta": ga4_delta,
             "ai_referral_delta_text": _aeo_delta_text(ga4_delta),
@@ -887,15 +891,16 @@ def _mark_new_agents(current: list, prior: list) -> list:
     """Flag agents not seen in the prior weekly artifact; the render shows
     only those plus a count of recurring ones (the full list repeated weekly
     was a wall of text with nothing to act on)."""
-    seen = {str(item.get("user_agent")) for item in prior if isinstance(item, dict)}
-    out = []
-    for item in current:
-        if not isinstance(item, dict):
-            continue
-        item = dict(item)
-        item["new_this_week"] = not prior or str(item.get("user_agent")) not in seen
-        out.append(item)
-    return out
+    try:
+        from scripts.aeo_agents import UNKNOWN_AGENT_LABEL, public_agent_candidates
+    except ImportError:
+        from aeo_agents import UNKNOWN_AGENT_LABEL, public_agent_candidates
+    seen = {item["user_agent"].casefold() for item in public_agent_candidates(prior)}
+    return [
+        {**item, "new_this_week": (
+            None if item["user_agent"] == UNKNOWN_AGENT_LABEL else item["user_agent"].casefold() not in seen)}
+        for item in public_agent_candidates(current)
+    ]
 
 
 def collect_aeo(today: date | None = None) -> dict:
@@ -1195,12 +1200,11 @@ def _collector_failures(collected: dict) -> list[str]:
             elif status == "displaced":
                 broken.append(
                     f"{label} /llms.txt MARKER MISMATCH — response does not start "
-                    f"with our database marker (serving: {first!r}); "
-                    "inspect the live file and response before assigning a cause.")
+                    "with our database marker; inspect the live file and response "
+                    "before assigning a cause.")
             elif status == "error":
-                error = summary.get("llms_serving_error") or "unknown fetch error"
                 broken.append(
-                    f"{label} /llms.txt UNREACHABLE — {error}; file contents are unverified.")
+                    f"{label} /llms.txt UNREACHABLE — verification failed. File contents are unverified.")
     seo = collected.get("seo") or {}
     if (
             isinstance(seo, dict)
@@ -1503,8 +1507,11 @@ def render_report(collected: dict) -> str:
             ) or "none"
             lines.append(f"- **{label} top fetched paths:** {paths}.")
         candidates = aeo.get("unknown_agent_candidates") or []
-        recurring = [c for c in candidates if isinstance(c, dict) and not c.get("new_this_week", True)]
-        candidates = [c for c in candidates if not isinstance(c, dict) or c.get("new_this_week", True)]
+        unidentified = [c for c in candidates if isinstance(c, dict) and c.get("new_this_week", True) is None]
+        for item in unidentified:
+            lines.append(f"- **Unidentified agent requests:** {_display(item.get('count'))}.")
+        recurring = [c for c in candidates if isinstance(c, dict) and c.get("new_this_week", True) is False]
+        candidates = [c for c in candidates if isinstance(c, dict) and c.get("new_this_week", True) is True]
         if recurring:
             lines.append(f"- {len(recurring)} recurring unknown agent(s) unchanged from last week (not listed).")
         if candidates:

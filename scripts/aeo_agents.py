@@ -113,3 +113,49 @@ def is_unknown_candidate(user_agent: str) -> bool:
         and classify_user_agent(user_agent) is None
         and not is_suppressed_non_ai(user_agent)
     )
+
+
+# A product name and optional numeric version are enough to spot a new
+# crawler. Ignore URL paths, addresses, comments, and free-form headers.
+_AGENT_PRODUCT = re.compile(
+    r"(?<![^\s;(])([A-Za-z][A-Za-z0-9_-]{0,31}(?:/[0-9]+(?:\.[0-9]+)*)?)(?=$|[\s;)])"
+)
+UNKNOWN_AGENT_LABEL = "unknown-agent"
+_BROWSER_PRODUCT_NAMES = {
+    "mozilla", "applewebkit", "chrome", "chromium", "edge", "edg", "firefox", "gecko",
+    "headlesschrome", "msie", "opera", "opr", "safari", "trident", "version",
+}
+
+
+def public_agent_label(header: str) -> str:
+    """Return a bounded crawler label suitable for public reporting."""
+    versioned = None
+    for match in _AGENT_PRODUCT.finditer(header):
+        label = match.group(1)
+        product, separator, _ = label.partition("/")
+        if len(label) > 48 or product.casefold() in _BROWSER_PRODUCT_NAMES:
+            continue
+        if UNKNOWN_CANDIDATE_RE.search(product):
+            return label
+        if separator and versioned is None:
+            versioned = label
+    return versioned or UNKNOWN_AGENT_LABEL
+
+
+def public_agent_candidates(candidates: list) -> list[dict]:
+    """Fold raw or legacy crawler samples into safe public labels and counts."""
+    combined = {}
+    for item in candidates:
+        if not isinstance(item, dict):
+            continue
+        label = public_agent_label(str(item.get("user_agent", "")))
+        entry = combined.setdefault(label.casefold(), {"user_agent": label, "count": 0, "brands": {}})
+        count = item.get("count")
+        if type(count) is int and count >= 0:
+            entry["count"] += count
+        per_brand = item.get("brands")
+        if isinstance(per_brand, dict):
+            for brand, brand_count in per_brand.items():
+                if brand in ("gravelgod", "roadie", "xcski") and type(brand_count) is int and brand_count >= 0:
+                    entry["brands"][brand] = entry["brands"].get(brand, 0) + brand_count
+    return list(combined.values())

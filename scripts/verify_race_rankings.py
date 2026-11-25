@@ -514,11 +514,8 @@ def render_review_pr_body(results):
         lines += ["", "Flagged and NOT written (for context):", *flagged]
     lines += ["", "Index and JSON-LD regenerated with "
               "`python scripts/generate_index.py --with-jsonld`; "
-              "`tests/test_index_integrity.py` passed before this PR was opened.",
-              "",
-              "Note: this PR was opened with GITHUB_TOKEN, and GitHub does not "
-              "trigger CI workflows for such PRs. Re-run CI before merging (push an "
-              "empty commit, or close and reopen the PR)."]
+              "the workflow runs `tests/test_index_integrity.py` before publishing "
+              "the review branch. Open a pull request to run normal CI before merging."]
     return "\n".join(lines) + "\n"
 
 

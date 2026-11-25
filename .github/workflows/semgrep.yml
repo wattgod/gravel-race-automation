@@ -1,0 +1,62 @@
+name: Semgrep
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: semgrep-${{ github.event.pull_request.number }}-${{ github.event.pull_request.draft && 'draft' || 'ready' }}
+  cancel-in-progress: true
+
+jobs:
+  semgrep:
+    name: ${{ github.event.pull_request.draft && 'semgrep (draft, not run)' || 'semgrep' }}
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Block on new Semgrep findings
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          SCAN_SHA: ${{ github.sha }}
+        run: |
+          docker run --rm \
+            --volume "$GITHUB_WORKSPACE:/source:ro" --workdir /tmp \
+            --env BASE_SHA --env SCAN_SHA \
+            --env SEMGREP_SEND_METRICS=off --env SEMGREP_ENABLE_VERSION_CHECK=0 \
+            --entrypoint bash semgrep/semgrep@sha256:6e1b04340e60e910fbb4ddbf3c857ab0918f064417ad5ac530014ccb3cf8c8f1 -euc '
+              git config --global --add safe.directory /source
+              git config --global --add safe.directory /source/.git
+              git clone --shared --no-checkout /source /src
+              cd /src
+              git checkout --detach "$SCAN_SHA"
+              status=0
+              semgrep scan --error --baseline-commit "$BASE_SHA" \
+                --config p/owasp-top-ten --config p/security-audit --config p/secrets \
+                --config p/python --config p/javascript --config p/typescript --jobs 4 --timeout 120 --json --output /tmp/semgrep-findings.json || status=$?
+              # Public workflow logs can show locations without printing matched source.
+              if [ -s /tmp/semgrep-findings.json ]; then
+                python3 -c "
+          import json
+          import sys
+          with open(sys.argv[1]) as report:
+              findings = json.load(report).get(\"results\", [])
+          locations = [
+              {key: finding[key] for key in (\"check_id\", \"path\", \"start\")}
+              for finding in findings
+          ]
+          print(json.dumps(locations))
+          " /tmp/semgrep-findings.json
+              fi
+              exit "$status"
+            '

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 import json
+import subprocess
 import sys
 from types import ModuleType, SimpleNamespace
 
@@ -569,6 +570,43 @@ def test_collect_checkout_real_400_still_fails(monkeypatch):
     assert "checkout=400" in out["error"]
 
 
+def test_report_history_combines_the_data_branch_with_the_older_archive(tmp_path, monkeypatch):
+    from scripts import daily_intel, monitoring_snapshot_history
+
+    def git(*args):
+        return subprocess.check_output(
+            ["git", "-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+             "-c", "commit.gpgsign=false", *args],
+            cwd=tmp_path, text=True, stderr=subprocess.DEVNULL,
+        ).strip()
+
+    directory = tmp_path / "data" / "intel-snapshots"
+
+    def write_snapshot(day):
+        directory.mkdir(parents=True, exist_ok=True)
+        (directory / f"{day}.json").write_text(json.dumps({"date": day, "interpretation_ok": False}))
+
+    git("init", "--initial-branch=main")
+    write_snapshot("2026-11-24")
+    git("add", "data")
+    git("commit", "-m", "Fixture archive")
+    git("switch", "--orphan", "morning-intel-state")
+    write_snapshot("2026-11-25")
+    git("add", "data")
+    git("commit", "-m", "Fixture scheduled report")
+    state = git("rev-parse", "HEAD")
+    git("switch", "main")
+    monkeypatch.setattr(monitoring_snapshot_history, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(daily_intel, "SNAPSHOT_DIR", directory)
+
+    assert [row["date"] for row in daily_intel.load_prior_snapshots("2026-11-26", history_commit=state)] == [
+        "2026-11-25", "2026-11-24",
+    ]
+    assert [row["date"] for row in daily_intel.load_trend(history_commit=state)] == ["2026-11-24", "2026-11-25"]
+    assert daily_intel.interpretation_failure_streak("2026-11-26", history_commit=state) == 3
+    assert not (directory / "2026-11-25.json").exists()
+
+
 def test_load_prior_snapshots_skips_non_dict(tmp_path, monkeypatch):
     from scripts import daily_intel
     monkeypatch.setattr(daily_intel, "SNAPSHOT_DIR", tmp_path)
@@ -598,7 +636,7 @@ def test_main_sends_email_even_when_everything_downstream_breaks(
         monkeypatch.setattr(daily_intel, name, boom)
     monkeypatch.setattr(daily_intel, "render_report", boom)
     monkeypatch.setattr(daily_intel, "interpret", boom)
-    monkeypatch.setattr(daily_intel, "load_trend", lambda: [])
+    monkeypatch.setattr(daily_intel, "load_trend", lambda *, history_commit=None: [])
     # unwritable snapshot dir: a path whose parent is a file
     blocker = tmp_path / "blocker"
     blocker.write_text("x")
@@ -729,7 +767,7 @@ def test_main_publishes_aggregates_and_keeps_detail_on_the_email_path(
                         lambda: people["commerce_ledger"])
     monkeypatch.setattr(daily_intel, "collect_mission_control",
                         lambda: people["mission_control"])
-    monkeypatch.setattr(daily_intel, "load_trend", lambda: [])
+    monkeypatch.setattr(daily_intel, "load_trend", lambda *, history_commit=None: [])
     narrator_calls = []
 
     def narrate(*args):
@@ -1306,7 +1344,7 @@ def test_morning_intel_write_token_is_separate_from_provider_credentials():
     assert all(job["steps"][0]["with"]["persist-credentials"] is False for job in (collect, publish))
     assert "secrets." not in json.dumps(publish)
     steps = {step.get("name"): step for step in publish["steps"]}
-    assert "refs/heads/main" in steps["Commit snapshot"]["run"]
+    assert "refs/heads/main" not in json.dumps(publish["steps"])
     state_step = steps["Publish the validated snapshot on the data branch"]["run"]
     assert "scripts/stage_intel_snapshot.py" in state_step
     assert "daily-monitoring-state.sh publish intel" in state_step

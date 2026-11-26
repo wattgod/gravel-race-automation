@@ -2,7 +2,7 @@ name: Morning Intel
 
 # Daily interpreted report (GA4 + checkout + Mission Control + errors) for
 # both brands → gravelgodcoaching@gmail.com, with snapshots committed to
-# data/intel-snapshots/ so trends compound. Spec: docs/specs/daily-intel-report.md
+# the morning-intel-state branch so trends compound. Spec: docs/specs/daily-intel-report.md
 
 on:
   schedule:
@@ -88,48 +88,6 @@ jobs:
           artifact-ids: ${{ needs.intel.outputs.artifact-id }}
           merge-multiple: true
           path: ${{ runner.temp }}/intel-review
-      - name: Verify and restore the aggregate snapshot
-        env:
-          SNAPSHOT_DATE: ${{ needs.intel.outputs.snapshot-date }}
-        run: python3 scripts/stage_intel_snapshot.py "$RUNNER_TEMP/intel-review" data/intel-snapshots "$SNAPSHOT_DATE"
-      - name: Commit snapshot
-        shell: bash
-        env:
-          SNAPSHOT_DATE: ${{ needs.intel.outputs.snapshot-date }}
-          GH_TOKEN: ${{ github.token }}
-          GIT_TERMINAL_PROMPT: "0"
-        run: |
-          set -euo pipefail
-          if [[ ! "$SNAPSHOT_DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
-            echo "Missing or invalid completed snapshot date." >&2
-            exit 1
-          fi
-          if ! git diff --cached --quiet; then
-            echo "Unexpected staged changes before snapshot publication." >&2
-            exit 1
-          fi
-          snapshot="data/intel-snapshots/$SNAPSHOT_DATE"
-          if ! git diff --quiet -- . ":(exclude)$snapshot.json" ":(exclude)$snapshot.md"; then
-            echo "Unexpected tracked changes outside the snapshot pair." >&2
-            exit 1
-          fi
-          for path in "$snapshot.json" "$snapshot.md"; do
-            if [[ ! -f "$path" || -L "$path" ]]; then
-              echo "Expected a regular file for each completed snapshot artifact." >&2
-              exit 1
-            fi
-          done
-          git add -- "$snapshot.json" "$snapshot.md"
-          if git diff --cached --quiet; then
-            exit 0
-          fi
-          git -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" \
-            commit -m "chore: intel snapshot $SNAPSHOT_DATE"
-          git -c credential.helper= -c 'credential.helper=!gh auth git-credential' \
-            -c user.name="github-actions[bot]" -c user.email="github-actions[bot]@users.noreply.github.com" \
-            pull --rebase origin main
-          git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push origin HEAD:refs/heads/main
-
       - name: Publish the validated snapshot on the data branch
         shell: bash
         env:

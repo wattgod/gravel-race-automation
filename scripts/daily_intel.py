@@ -37,7 +37,8 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-SNAPSHOT_DIR = PROJECT_ROOT / "data" / "intel-snapshots"
+DEFAULT_SNAPSHOT_DIR = PROJECT_ROOT / "data" / "intel-snapshots"
+SNAPSHOT_DIR = DEFAULT_SNAPSHOT_DIR
 DEFAULT_AEO_DIR = PROJECT_ROOT / "data" / "aeo"
 AEO_DIR = DEFAULT_AEO_DIR
 SEO_DIR = PROJECT_ROOT / "data" / "seo"
@@ -1066,13 +1067,14 @@ def collect_seo(today: date | None = None) -> dict:
         }
 
 
-def load_trend(days: int = 7) -> list[dict]:
+def load_trend(days: int = 7, *, history_commit: str | None = None) -> list[dict]:
     """Prior snapshots (compact) for trend context in the interpretation."""
     trend = []
-    for f in sorted(SNAPSHOT_DIR.glob("*.json"))[-days:]:
+    for name in sorted(snapshot_names(SNAPSHOT_DIR, history_commit))[-days:]:
         try:
-            snap = json.loads(f.read_text())
-            compact = {"date": f.stem}
+            path = SNAPSHOT_DIR / name
+            snap = load_snapshot(path, history_commit)
+            compact = {"date": path.stem}
             for b in BRANDS:
                 g = snap.get("ga4", {}).get(b, {})
                 funnel = g.get("funnel") or {}
@@ -1725,16 +1727,14 @@ def compute_ga4_revisions(collected: dict, prior_snapshots: list[dict]) -> dict:
     return revisions
 
 
-def load_prior_snapshots(today: str, days: int = 2) -> list[dict]:
+def load_prior_snapshots(today: str, days: int = 2, *, history_commit: str | None = None) -> list[dict]:
     """Load exact preceding calendar days; a missing day breaks consecutiveness."""
     snapshots = []
     current = date.fromisoformat(today)
     for offset in range(1, days + 1):
         path = SNAPSHOT_DIR / f"{current - timedelta(days=offset)}.json"
-        if not path.exists():
-            break
         try:
-            loaded = json.loads(path.read_text())
+            loaded = load_snapshot(path, history_commit)
         except Exception:
             break
         if not isinstance(loaded, dict):
@@ -1743,17 +1743,16 @@ def load_prior_snapshots(today: str, days: int = 2) -> list[dict]:
     return snapshots
 
 
-def interpretation_failure_streak(today: str) -> int:
+def interpretation_failure_streak(today: str, *, history_commit: str | None = None) -> int:
     """Count today's failure plus explicit failures on consecutive prior days."""
     streak = 1
     current = date.fromisoformat(today)
     offset = 1
     while True:
         path = SNAPSHOT_DIR / f"{current - timedelta(days=offset)}.json"
-        if not path.exists():
-            break
         try:
-            status = json.loads(path.read_text()).get("interpretation_ok")
+            snapshot = load_snapshot(path, history_commit)
+            status = snapshot.get("interpretation_ok") if isinstance(snapshot, dict) else None
         except Exception:
             break
         if status is not False:
@@ -2187,6 +2186,8 @@ def main() -> int:
         ap.error("--github-output requires --no-email without --dry-run")
 
     today = date.today().isoformat()
+    history_commit = (refresh_history(state_branch="morning-intel-state")
+                      if SNAPSHOT_DIR == DEFAULT_SNAPSHOT_DIR else None)
     collected = {
         "date": today,
         "measurement_epochs": measurement_epochs_for_report(today),
@@ -2203,12 +2204,13 @@ def main() -> int:
     collected["constraint"] = compute_constraint(collected["ga4"].get("gravelgod", {}))
     try:
         tracking_issue = detect_tracking_regression(
-            collected, load_prior_snapshots(today))
+            collected, load_prior_snapshots(today, history_commit=history_commit))
     except Exception as e:
         tracking_issue = f"tracking-regression check crashed: {type(e).__name__}: {e}"
     collected["report_issues"] = [tracking_issue] if tracking_issue else []
-    collected["ga4_revisions"] = compute_ga4_revisions(collected, load_prior_snapshots(today, 1))
-    trend = load_trend()
+    collected["ga4_revisions"] = compute_ga4_revisions(
+        collected, load_prior_snapshots(today, 1, history_commit=history_commit))
+    trend = load_trend(history_commit=history_commit)
     deterministic_report = safe_render(collected)
 
     if args.no_llm or args.no_email:
@@ -2226,7 +2228,7 @@ def main() -> int:
             collected["report_issues"].append(f"interpretation unavailable: {reason}")
             deterministic_report = safe_render(collected)
             try:
-                streak = interpretation_failure_streak(today)
+                streak = interpretation_failure_streak(today, history_commit=history_commit)
             except Exception:
                 streak = 1
             subject = f"intel {today}: INTERPRETATION BROKEN — day {streak}"

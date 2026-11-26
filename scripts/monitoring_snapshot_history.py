@@ -11,8 +11,8 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 STATE_BRANCH = "monitoring-state"
 
 
-def refresh_history(directory_env: str, *, state_branch: str = STATE_BRANCH) -> str | None:
-    if directory_env in os.environ:
+def refresh_history(directory_env: str | None = None, *, state_branch: str = STATE_BRANCH) -> str | None:
+    if directory_env is not None and directory_env in os.environ:
         return None
 
     git = ["git", "-C", str(REPO_ROOT)]

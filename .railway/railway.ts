@@ -50,6 +50,7 @@ const WATCH_PATTERNS = [
   "mission_control.py",
   "requirements.txt",
   "Dockerfile",
+  ".dockerignore",
   "pipeline/__init__.py",
   "pipeline/nutrition.py",
   "scripts/jev_client.py",

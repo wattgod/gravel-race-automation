@@ -1,0 +1,112 @@
+name: Mission Control container
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - .dockerignore
+      - .github/workflows/mission-control-container.yml
+      - Dockerfile
+      - requirements.txt
+      - mission_control.py
+      - mission_control/**
+      - pipeline/__init__.py
+      - pipeline/nutrition.py
+      - scripts/jev_client.py
+      - data/pricing.json
+      - guide/fonts/**
+      - templates/emails/**
+      - race-data/*.json
+      - web/race-index.json
+
+permissions:
+  contents: read
+
+jobs:
+  verify-image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Build Mission Control image
+        run: docker build --tag mission-control:ci .
+
+      - name: Verify runtime files and non-root execution
+        run: |
+          docker run --rm --interactive --network=none --read-only --tmpfs /tmp \
+            --entrypoint python3 mission-control:ci - <<'PY'
+          import os
+          import pwd
+          import shutil
+          from pathlib import Path
+
+          from PIL import ImageFont
+
+          from mission_control.app import create_app
+          from mission_control.services.email_preview import list_templates
+          from mission_control.services.race_data import get_race_db
+          from pipeline.nutrition import compute_fueling
+          from scripts import jev_client
+
+          assert os.getuid() == os.getgid() == 10001
+          assert pwd.getpwuid(os.getuid()).pw_dir == str(Path.home())
+          assert Path.home().stat().st_uid == os.getuid()
+          assert Path("mission_control.py").stat().st_uid == 0
+          assert Path("mission_control/static").is_dir()
+          assert Path("data/pricing.json").is_file()
+          assert not Path(".git").exists()
+          assert not Path(".env").exists()
+          assert not Path("mission_control/tests").exists()
+          assert not Path("athletes").exists()
+          assert not Path("intakes").exists()
+          assert not Path("plans").exists()
+          assert shutil.which("ssh") is None
+          assert shutil.which("git") is None
+          assert not Path("/opt/playwright").exists()
+          assert create_app().openapi()["paths"]
+          assert list_templates()
+          assert get_race_db().get_profile("unbound-200")
+          assert callable(compute_fueling) and jev_client
+          assert ImageFont.truetype("guide/fonts/SometypeMono-Regular.ttf", size=16)
+          PY
+
+      - name: Scan the built image for vulnerabilities
+        run: |
+          trivy_archive="$RUNNER_TEMP/trivy_0.76.2_Linux-64bit.tar.gz"
+          curl --fail --silent --show-error --location --max-time 90 \
+            https://github.com/aquasecurity/trivy/releases/download/v0.76.2/trivy_0.76.2_Linux-64bit.tar.gz \
+            --output "$trivy_archive"
+          printf '%s  %s\n' bc0fc726e017b8927a62b2d3531d7a84ee01769daf5c99ed866dced54089fdbf \
+            "$trivy_archive" | sha256sum --check
+          tar -xzf "$trivy_archive" -C "$RUNNER_TEMP" trivy
+
+          docker save --output "$RUNNER_TEMP/mission-control-image.tar" mission-control:ci
+          "$RUNNER_TEMP/trivy" image --input "$RUNNER_TEMP/mission-control-image.tar" \
+            --scanners vuln --disable-telemetry --skip-version-check \
+            --format json --output "$RUNNER_TEMP/mission-control-vulnerabilities.json"
+          python3 - "$RUNNER_TEMP/mission-control-vulnerabilities.json" >> "$GITHUB_STEP_SUMMARY" <<'PY'
+          import json
+          import sys
+          from collections import Counter
+          from pathlib import Path
+
+          report = json.loads(Path(sys.argv[1]).read_text())
+          targets = report.get("Results", [])
+          assert targets, "Trivy returned no results for the built image"
+          print("## Mission Control image vulnerability scan\n")
+          for target in targets:
+              counts = Counter(item["Severity"] for item in target.get("Vulnerabilities", []))
+              findings = ", ".join(f"{severity}: {count}" for severity, count in sorted(counts.items()))
+              print(f"- {target.get('Type', 'unknown')}: {findings or 'no reported vulnerabilities'}")
+          PY
+
+      - name: Upload image vulnerability results
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: mission-control-image-vulnerabilities
+          path: ${{ runner.temp }}/mission-control-vulnerabilities.json
+          retention-days: 7
+          if-no-files-found: error

@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: seo-weekly
@@ -16,6 +16,8 @@ jobs:
   collect:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    outputs:
+      artifact-id: ${{ steps.upload.outputs.artifact-id }}
 
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -32,35 +34,70 @@ jobs:
       - name: Collect weekly SEO facts
         env:
           GOOGLE_CREDENTIALS_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
-        run: bash scripts/with-google-credentials.sh --require-service-account python3 scripts/seo_weekly.py
+        run: |
+          report_dir="$RUNNER_TEMP/seo-weekly"
+          mkdir -p "$report_dir"
+          cp -- data/seo/updates-log.jsonl "$report_dir/"
+          if ! bash scripts/with-google-credentials.sh --require-service-account python3 scripts/seo_weekly.py \
+            --output-dir "$report_dir" >/dev/null 2>&1; then
+            echo "::error::Search Console collection failed before producing a validated SEO report."
+            exit 1
+          fi
 
       - name: Validate collected artifact
-        run: python3 scripts/seo_weekly.py --validate-latest --require-all-ok
+        run: |
+          python3 scripts/validate-monitoring-publication.py seo "$RUNNER_TEMP/seo-weekly"
 
-      - name: Commit SEO artifact
+      - name: Upload the validated report
+        id: upload
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: seo-weekly-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/seo-weekly/seo-weekly-*.json
+          if-no-files-found: error
+          retention-days: 1
+
+  publish:
+    needs: collect
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.11"
+
+      - name: Require the validated artifact ID
+        env:
+          ARTIFACT_ID: ${{ needs.collect.outputs.artifact-id }}
+        run: '[[ "$ARTIFACT_ID" =~ ^[1-9][0-9]*$ ]]'
+
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          artifact-ids: ${{ needs.collect.outputs.artifact-id }}
+          merge-multiple: true
+          path: ${{ runner.temp }}/seo-weekly
+
+      - name: Publish on the SEO state branch
         env:
           GH_TOKEN: ${{ github.token }}
+          MONITORING_STATE_DIR: ${{ runner.temp }}/seo-state
+          GIT_TERMINAL_PROMPT: "0"
         run: |
-          git config user.name "seo-weekly-bot"
-          git config user.email "seo-weekly@gravelgodcycling.com"
-          git add data/seo/
-          if git diff --cached --quiet; then
-            echo "No SEO artifact changes to commit."
-          else
-            git commit -m "chore: SEO weekly update-candidates $(date -u +%Y-%m-%d)"
-            committed=0
-            for i in 1 2 3; do
-              if git pull --rebase origin main && \
-                 git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push; then
-                committed=1
-                break
-              fi
-              git rebase --abort || true
-              [ "$i" = "3" ] && break
-              sleep 5
-            done
-            if [ "$committed" != "1" ]; then
-              echo "::error::failed to rebase and push SEO artifact after 3 attempts"
-              exit 1
-            fi
+          set -euo pipefail
+          shopt -s nullglob
+          reports=("$RUNNER_TEMP/seo-weekly"/seo-weekly-*.json)
+          if [[ "${#reports[@]}" != 1 || ! -f "${reports[0]}" || -L "${reports[0]}" ]]; then
+            echo "::error::Expected exactly one regular SEO report."
+            exit 1
           fi
+          bash scripts/daily-monitoring-state.sh prepare seo
+          mkdir -p "$MONITORING_STATE_DIR/data/seo"
+          cp -- "${reports[0]}" "$MONITORING_STATE_DIR/data/seo/"
+          bash scripts/daily-monitoring-state.sh publish seo

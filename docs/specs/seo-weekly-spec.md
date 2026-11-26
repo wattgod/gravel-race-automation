@@ -21,7 +21,7 @@ seo-weekly.yml ──runs──▶ scripts/seo_weekly.py                  /seo-u
                           │  GSC Search Analytics API            │ reads latest artifact
                           │  (paginated pulls, two 28d windows)  │ inspects candidate pages
                           ▼                                      │ drafts 5 edits as diffs
-                data/seo/seo-weekly-YYYY-MM-DD.json ──▶ collect_seo() section
+                seo-state:data/seo/seo-weekly-YYYY-MM-DD.json ──▶ collect_seo() section
                 (validated BEFORE commit)                        ▼
                                                         Matti gates → deploy
                                                                  ▼
@@ -143,19 +143,18 @@ importable (daily_intel reuses it).
 ## 2. Workflow — `.github/workflows/seo-weekly.yml`
 
 - `schedule: cron "20 11 * * 1"` + `workflow_dispatch`;
-  `permissions: contents: write`; timeout 15 min;
+  collection uses `contents: read` and a 15-minute timeout;
   `concurrency: {group: seo-weekly, cancel-in-progress: false}`.
-- Steps: checkout → setup-python 3.11 → `pip install google-api-python-client
-  google-auth` → write `$GSC_SERVICE_ACCOUNT_JSON` (existing secret, proven in
-  daily-monitoring.yml) to `$RUNNER_TEMP/gsc-creds.json` → run collector →
-  **`--validate-latest --require-all-ok` BEFORE commit** → commit `data/seo/`
-  with the aeo rebase-retry ×3; on rebase conflict `git rebase --abort` and
-  fail the step explicitly.
+- The collector uses a temporary credential file and reads the cooldown log
+  from the source checkout. It validates completeness and checks the generated
+  report for email addresses before upload. The publish job runs on `main` with
+  `contents: write`, revalidates the staged report, and pushes only the dated
+  report to `seo-state`.
 
 ## 3. Morning Intel — `scripts/daily_intel.py`
 
-- `collect_seo(today)` mirroring `collect_aeo`: newest
-  `data/seo/seo-weekly-*.json`; states `missing` (silent, ok=True) / `ok` /
+- `collect_seo(today)` reads the newest `data/seo/seo-weekly-*.json` across the
+  state branch and the local archive. States are `missing` (silent, ok=True) / `ok` /
   `stale` (>8 days) / `invalid`; stale/invalid → one BROKEN line via
   `_collector_failures`. Validation via imported `validate_artifact`.
 - Deterministic render: overall WoW line + up to 5 top_candidates

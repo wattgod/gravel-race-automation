@@ -1,6 +1,6 @@
 ---
 name: seo-updates
-description: Draft the week's 5 SEO content updates from the latest data/seo/seo-weekly-*.json artifact. Load when the operator runs /seo-updates or asks to act on the Morning Intel SEO section. Drafts diffs only — Matti gates every deploy.
+description: Draft the week's 5 SEO content updates from the latest SEO artifact on seo-state or in the local archive. Load when the operator runs /seo-updates or asks to act on the Morning Intel SEO section. Drafts diffs only — Matti gates every deploy.
 ---
 
 # SEO Updates (weekly drafting session)
@@ -25,7 +25,11 @@ and the words. Spec: `docs/specs/seo-weekly-spec.md`.
 
 ## Procedure
 
-1. **Load the artifact**: newest `data/seo/seo-weekly-*.json`. If
+1. **Load the artifact.** Fetch `git fetch --no-tags origin refs/heads/seo-state:refs/remotes/origin/seo-state`.
+   List scheduled artifacts with `git ls-tree --name-only origin/seo-state:data/seo` and compare
+   their dates with the local `data/seo/seo-weekly-*.json` archive. Use the newest date, preferring
+   the scheduled artifact on a tie. Read it with `git show origin/seo-state:data/seo/<artifact>`;
+   use the local archive if it has the newest report or the scheduled branch has no reports. If
    `generated_at_utc` is >8 days old, stop and tell the operator to run the
    seo-weekly workflow (`gh workflow run seo-weekly.yml`) instead of drafting
    from stale data.

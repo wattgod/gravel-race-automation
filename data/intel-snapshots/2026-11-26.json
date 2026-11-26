@@ -1,0 +1,251 @@
+{
+ "date": "2026-11-26",
+ "report": "## TOP LINE\n- Gravel God: sessions 199.\n- Roadie Labs: sessions 39.\n- XC Ski Labs: sessions 31.\n\n## CHECKOUT\n- Gravel God: healthy.\n- Roadie Labs: healthy.\n- XC Ski Labs: plan purchases intentionally gated.\n\n## OPERATIONS\n- New leads (24h): 4.\n- Emails sent (24h): 4.\n- Order processing records: 1.\n- Processing failures: 0.\n- Paid orders awaiting delivery: 0.",
+ "measurement_epochs": [],
+ "interpretation_ok": null,
+ "ga4": {
+  "gravelgod": {
+   "ok": true,
+   "sessions": 199,
+   "users": 180,
+   "pageviews": 385,
+   "sessions_7d_avg": 174.3,
+   "yesterday_last_hour": 23,
+   "sessions_28d": 3649,
+   "yesterday_provisional": false,
+   "funnel": {
+    "cta_click": 11,
+    "form_start": 1,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0,
+    "refund": 0
+   },
+   "funnel_28d": {
+    "cta_click": 103,
+    "form_start": 8,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0,
+    "refund": 0
+   },
+   "channel_mix": {
+    "Organic Search": 111,
+    "Direct": 79,
+    "Unassigned": 8,
+    "Email": 1
+   },
+   "plan_funnel": {
+    "available": true,
+    "yesterday": {
+     "race_offer_seen_users": 39,
+     "plan_cta_users": 1,
+     "cta_unlabelled_users": 0,
+     "questionnaire_users": 2,
+     "form_start_users": 1,
+     "form_submit_users": 0,
+     "checkout_users": 0,
+     "plan_purchase_users": 0
+    },
+    "28d": {
+     "race_offer_seen_users": 808,
+     "plan_cta_users": 15,
+     "cta_unlabelled_users": 0,
+     "questionnaire_users": 66,
+     "form_start_users": 6,
+     "form_submit_users": 0,
+     "checkout_users": 0,
+     "plan_purchase_users": 0
+    }
+   }
+  },
+  "roadielabs": {
+   "ok": true,
+   "sessions": 39,
+   "users": 39,
+   "pageviews": 39,
+   "sessions_7d_avg": 34.4,
+   "yesterday_last_hour": 23,
+   "sessions_28d": 391,
+   "yesterday_provisional": false,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0,
+    "refund": 0
+   },
+   "funnel_28d": {
+    "cta_click": 9,
+    "form_start": 1,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0,
+    "refund": 0
+   },
+   "channel_mix": {
+    "Direct": 33,
+    "Organic Search": 6
+   },
+   "plan_funnel": {
+    "available": false,
+    "yesterday": {},
+    "28d": {}
+   }
+  },
+  "xcski": {
+   "ok": true,
+   "sessions": 31,
+   "users": 31,
+   "pageviews": 31,
+   "sessions_7d_avg": 11.1,
+   "yesterday_last_hour": 23,
+   "sessions_28d": 259,
+   "yesterday_provisional": false,
+   "funnel": {
+    "cta_click": 0,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 0,
+    "purchase": 0,
+    "refund": 0
+   },
+   "funnel_28d": {
+    "cta_click": 1,
+    "form_start": 0,
+    "form_submit": 0,
+    "begin_checkout": 4,
+    "purchase": 0,
+    "refund": 0
+   },
+   "channel_mix": {
+    "Direct": 31
+   },
+   "plan_funnel": {
+    "available": false,
+    "yesterday": {},
+    "28d": {}
+   }
+  }
+ },
+ "ga4_revisions": {},
+ "checkout": {
+  "gravelgod": {
+   "ok": true,
+   "health_ok": true,
+   "stripe_checkout_ok": true
+  },
+  "roadielabs": {
+   "ok": true,
+   "health_ok": true,
+   "stripe_checkout_ok": true
+  },
+  "xcski": {
+   "ok": true,
+   "health_ok": true,
+   "stripe_checkout_ok": true,
+   "plans_gated": true
+  }
+ },
+ "mission_control": {
+  "ok": true,
+  "new_leads_24h": 4,
+  "countdown_enrollments": 0,
+  "emails_sent_24h": 4,
+  "opens_24h": 3,
+  "clicks_24h": 1,
+  "bounces_24h": 0,
+  "leads_by_brand": {
+   "gravelgod": 4,
+   "roadielabs": 0
+  }
+ },
+ "commerce_ledger": {
+  "ok": true,
+  "order_processing_records": 1,
+  "failed_processing_records": 0,
+  "recovery_records": 0,
+  "questionnaire_starts": 0,
+  "awaiting_delivery_records": 0,
+  "overdue_delivery_records": 0
+ },
+ "constraint": {
+  "assessment": "plan_funnel"
+ },
+ "aeo": {
+  "ok": true,
+  "brands": {
+   "gravelgod": {
+    "ai_referral_sessions": 7,
+    "ai_referral_delta": 1,
+    "user_fetch": 213,
+    "user_fetch_delta": -58,
+    "training_crawl": 2799,
+    "llms_2xx": 666,
+    "llms_non_2xx": 34
+   },
+   "roadie": {
+    "ai_referral_sessions": 3,
+    "ai_referral_delta": 2,
+    "user_fetch": 79,
+    "user_fetch_delta": 14,
+    "training_crawl": 1429,
+    "llms_2xx": 768,
+    "llms_non_2xx": 58
+   },
+   "xcski": {
+    "user_fetch": 8,
+    "user_fetch_delta": -11,
+    "training_crawl": 1812,
+    "llms_2xx": 318,
+    "llms_non_2xx": 7
+   }
+  }
+ },
+ "workflows": {
+  "runs": {
+   "gravel-race-automation/link-check.yml": {
+    "conclusion": "success",
+    "last_success_at": "2026-11-24T12:21:09+00:00",
+    "age_hours": 47.8
+   },
+   "road-race-automation/link-check.yml": {
+    "conclusion": "success",
+    "last_success_at": "2026-11-23T12:05:07+00:00",
+    "age_hours": 72.0
+   },
+   "road-race-automation/checkout-monitor.yml": {
+    "conclusion": "success",
+    "last_success_at": "2026-11-26T08:13:58+00:00",
+    "age_hours": 3.9
+   },
+   "gravel-race-automation/regression-tests.yml": {
+    "conclusion": "success",
+    "last_success_at": "2026-11-26T02:05:34+00:00",
+    "age_hours": 10.0
+   },
+   "gravel-race-automation/aeo-weekly.yml": {
+    "conclusion": "success",
+    "last_success_at": "2026-11-23T10:33:21+00:00",
+    "age_hours": 73.6
+   },
+   "gravel-race-automation/seo-weekly.yml": {
+    "conclusion": "success",
+    "last_success_at": "2026-11-23T11:23:29+00:00",
+    "age_hours": 72.7
+   }
+  }
+ },
+ "since_yesterday": {
+  "merged_prs_count": 33,
+  "closed_issues_count": 0,
+  "review_queue_count": 6,
+  "run_totals": {
+   "success": 78,
+   "failure": 1,
+   "other": 0
+  }
+ },
+ "report_issues": []
+}

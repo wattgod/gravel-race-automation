@@ -279,6 +279,130 @@ def test_collect_ga4_filters_both_event_queries_before_limit(monkeypatch):
         assert path_expr.filter.string_filter.match_type == "BEGINS_WITH"
 
 
+def test_collect_ga4_retries_once_on_transient_error(monkeypatch):
+    """2026-11-13: a single DeadlineExceeded on any of collect_ga4's ~15-20
+    sequential calls blanked the whole day's GA4 for gravelgod + roadielabs.
+    One retry on a transient-looking error should ride that out."""
+    from scripts import daily_intel
+
+    class Message:
+        def __init__(self, **kwargs):
+            self.__dict__.update(kwargs)
+
+    class Filter(Message):
+        class InListFilter(Message):
+            pass
+
+        class StringFilter(Message):
+            class MatchType:
+                BEGINS_WITH = "BEGINS_WITH"
+
+    class DeadlineExceeded(Exception):
+        """Stand-in for google.api_core.exceptions.DeadlineExceeded — matched
+        by type name only, so this test needs no real google.api_core."""
+
+    def metric_row(*values):
+        return SimpleNamespace(metric_values=[SimpleNamespace(value=str(v)) for v in values])
+
+    class Client:
+        def __init__(self):
+            self.totals_calls = 0
+
+        def run_realtime_report(self, request):
+            return SimpleNamespace(rows=[])
+
+        def run_report(self, request):
+            metrics = [m.name for m in request.metrics]
+            dimensions = [d.name for d in request.dimensions]
+            if metrics == ["sessions", "totalUsers", "screenPageViews"]:
+                self.totals_calls += 1
+                if self.totals_calls == 1:
+                    raise DeadlineExceeded("504 Deadline Exceeded")
+                return SimpleNamespace(rows=[metric_row(42, 30, 100)])
+            if dimensions == ["dateHour"]:
+                return SimpleNamespace(rows=[])
+            return SimpleNamespace(rows=[])
+
+    client = Client()
+    fake_api = ModuleType("google.analytics.data_v1beta")
+    fake_api.BetaAnalyticsDataClient = lambda: client
+    fake_types = ModuleType("google.analytics.data_v1beta.types")
+    for name, value in {
+        "DateRange": Message,
+        "Dimension": Message,
+        "Filter": Filter,
+        "FilterExpression": Message,
+        "FilterExpressionList": Message,
+        "Metric": Message,
+        "RunReportRequest": Message,
+        "RunRealtimeReportRequest": Message,
+    }.items():
+        setattr(fake_types, name, value)
+    monkeypatch.setitem(sys.modules, "google.analytics.data_v1beta", fake_api)
+    monkeypatch.setitem(sys.modules, "google.analytics.data_v1beta.types", fake_types)
+    monkeypatch.setenv(daily_intel.BRANDS["gravelgod"]["property_env"], "123")
+    monkeypatch.setattr(daily_intel.time, "sleep", lambda *_: None)
+
+    result = daily_intel.collect_ga4("gravelgod")
+
+    assert client.totals_calls == 2  # one failure, one retry
+    assert result["sessions"] == 42
+    assert result["users"] == 30
+    assert result["pageviews"] == 100
+
+
+def test_collect_ga4_does_not_retry_non_transient_error(monkeypatch):
+    """A real bug (bad request, missing dimension) must still fail loudly on
+    the first try, not get masked by the transient-error retry."""
+    from scripts import daily_intel
+
+    class Message:
+        def __init__(self, **kwargs):
+            self.__dict__.update(kwargs)
+
+    class Filter(Message):
+        class InListFilter(Message):
+            pass
+
+        class StringFilter(Message):
+            class MatchType:
+                BEGINS_WITH = "BEGINS_WITH"
+
+    class Client:
+        def __init__(self):
+            self.calls = 0
+
+        def run_realtime_report(self, request):
+            return SimpleNamespace(rows=[])
+
+        def run_report(self, request):
+            self.calls += 1
+            raise ValueError("invalid dimension")
+
+    client = Client()
+    fake_api = ModuleType("google.analytics.data_v1beta")
+    fake_api.BetaAnalyticsDataClient = lambda: client
+    fake_types = ModuleType("google.analytics.data_v1beta.types")
+    for name, value in {
+        "DateRange": Message,
+        "Dimension": Message,
+        "Filter": Filter,
+        "FilterExpression": Message,
+        "FilterExpressionList": Message,
+        "Metric": Message,
+        "RunReportRequest": Message,
+        "RunRealtimeReportRequest": Message,
+    }.items():
+        setattr(fake_types, name, value)
+    monkeypatch.setitem(sys.modules, "google.analytics.data_v1beta", fake_api)
+    monkeypatch.setitem(sys.modules, "google.analytics.data_v1beta.types", fake_types)
+    monkeypatch.setenv(daily_intel.BRANDS["gravelgod"]["property_env"], "123")
+
+    with pytest.raises(ValueError):
+        daily_intel.collect_ga4("gravelgod")
+    assert client.calls == 1  # no retry for a non-transient error
+
+
 def test_load_trend_keeps_events_distinct_from_processing_records(tmp_path, monkeypatch):
     from scripts import daily_intel
 

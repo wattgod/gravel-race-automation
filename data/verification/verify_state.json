@@ -290,44 +290,172 @@
   }
  },
  "battenkill": {
-  "last_checked": "2026-07-09T15:00:05.041570+00:00",
-  "changed": false
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 63,
+    "tier": 1,
+    "url": "https://www.intervals.icu/events/10031/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": "~4,900-5,500 (Varies by course option; single official figure not published)",
+    "tier": 1,
+    "url": "https://battistrada.com/en/cycling-calendar/edition/tour-of-the-battenkill-2026/47791/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "prize_purse": {
+    "value": "Prizes for top finishers",
+    "tier": 1,
+    "url": "https://www.granfondoguide.com/Events/Index/12215/battenkill",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "bealach-mor": {
   "last_checked": "2026-07-09T15:00:05.041570+00:00",
   "changed": false
  },
  "bear-100": {
-  "last_checked": "2026-07-09T15:00:05.041570+00:00",
-  "changed": false
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 103,
+    "tier": 1,
+    "url": "https://www.bikereg.com/the-bear-100?orc=1",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "field_size": {
+    "value": "550-rider limit for the 2026 edition",
+    "tier": 1,
+    "url": "https://www.bikereg.com/the-bear-100?orc=2",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "bear-howard-gravel": {
-  "last_checked": "2026-07-09T15:00:05.041570+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 60,
+    "tier": 1,
+    "url": "https://www.sableevents.com/events/bearhowardgravel",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 6000,
+    "tier": 1,
+    "url": "https://www.sableevents.com/events/bearhowardgravel",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "beaver-dam-gravel-grinder": {
-  "last_checked": "2026-07-09T15:00:05.041570+00:00",
-  "changed": false
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 50,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/beaver-dam-gravel-grinder/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 3000,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/beaver-dam-gravel-grinder/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "field_size": {
+    "value": "50-100 riders",
+    "tier": 1,
+    "url": "https://beaverdamgravelgrinder.com/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "belgian-waffle-ride-kansas": {
-  "last_checked": "2026-07-09T15:00:05.041570+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 111,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/series/belgian-waffle-ride/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 8000,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/series/belgian-waffle-ride/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "belgrade-gran-fondo": {
   "last_checked": "2026-07-09T15:00:05.041570+00:00",
   "changed": false
  },
  "bend-dirt-fest": {
-  "last_checked": "2026-07-09T15:00:05.041570+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 54.7,
+    "tier": 4,
+    "url": "https://irp.cdn-website.com/26edc316/files/uploaded/Bend-Dirt-Fest+Tech+Guide+20278426.pdf",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 4016,
+    "tier": 4,
+    "url": "https://irp.cdn-website.com/26edc316/files/uploaded/Bend-Dirt-Fest+Tech+Guide+20278426.pdf",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "field_size": {
+    "value": "2026 OBRA results list 121 gravel entries; the 2027 solo-gravel cap is 300 and total festival cap is 500",
+    "tier": 4,
+    "url": "https://www.mudslingerevents.com/bend-dirt-fest",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "prize_purse": {
+    "value": "Age-group, finisher, team, and Oregon Triple Crown Series awards; no cash purse advertised",
+    "tier": 4,
+    "url": "https://www.mudslingerevents.com/oregon-triple-crown-series",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "bergen-voss": {
   "last_checked": "2026-07-09T15:00:05.041570+00:00",
   "changed": false
  },
  "berryman-epic": {
-  "last_checked": "2026-07-09T15:00:05.041570+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 50,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/berryman-epic/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 5400,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/berryman-epic/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "field_size": {
+    "value": "200-400 riders",
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/berryman-epic/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "best-buddies-challenge-hyannis-port": {
   "last_checked": "2026-07-09T15:00:05.041570+00:00",
@@ -338,20 +466,76 @@
   "changed": false
  },
  "bald-eagle-gravel-grinder": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 73,
+    "tier": 1,
+    "url": "https://www.trans-sylvaniaproductions.com/begg",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "big-sky-gravel": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 100,
+    "tier": 1,
+    "url": "https://www.granfondoguide.com/Events/Index/12017/big-sky-gravel",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 6000,
+    "tier": 1,
+    "url": "https://www.granfondoguide.com/Events/Index/12017/big-sky-gravel",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "big-sugar": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": false
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 101.8,
+    "tier": 1,
+    "url": "https://thenwatoday.com/festivals/big-sugar-gravel",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 6400,
+    "tier": 1,
+    "url": "https://www.trainerroad.com/blog/big-sugar-gravel-2026-results-winners-finish-times-and-rider-data/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "field_size": {
+    "value": "2,000+ riders across all distances",
+    "tier": 1,
+    "url": "https://www.granfondoguide.com/Contents/IndexFull/9407/2026-big-sugar-gravel-results-stella-hobbs-solos-as-tobias-kongstad-wins-big-sprint",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "bighorn-gravel": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": true,
+  "sources": {
+   "distance_mi": {
+    "value": 85,
+    "tier": 4,
+    "url": "https://www.bighornevents.com/race-day-gravel",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 10000,
+    "tier": 4,
+    "url": "https://www.bighornevents.com/race-day-gravel",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "bike-abu-dhabi-gran-fondo": {
   "last_checked": "2026-07-16T14:38:13.755603+00:00",
@@ -362,12 +546,40 @@
   "changed": false
  },
  "bikingman-corsica": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 310.7,
+    "tier": 4,
+    "url": "https://bikingman.com/en/corsica-en/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 32808,
+    "tier": 4,
+    "url": "https://bikingman.com/en/corsica-en/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "birkebeinerrittet-road": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": false
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 52.2,
+    "tier": 4,
+    "url": "https://birken.no/en/cycling/birkebeinerrittet-84-km",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 3986,
+    "tier": 4,
+    "url": "https://birken.no/en/cycling/birkebeinerrittet-84-km",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "black-forest-gravel": {
   "last_checked": "2026-07-16T14:38:13.755603+00:00",
@@ -378,16 +590,44 @@
   "changed": false
  },
  "bohemian-border-bash": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 882,
+    "tier": 4,
+    "url": "https://www.borderbash.cc",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 82972,
+    "tier": 4,
+    "url": "https://www.borderbash.cc",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "boone-gran-fondo": {
   "last_checked": "2026-07-16T14:38:13.755603+00:00",
   "changed": true
  },
  "bootlegger-100": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": false
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 85,
+    "tier": 4,
+    "url": "https://www.pisgahproductions.com/events/bootlegger-100/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 7250,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/bootlegger-100/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "bordeaux-paris-ultra-cycling": {
   "last_checked": "2026-07-16T14:38:13.755603+00:00",
@@ -398,8 +638,28 @@
   "changed": true
  },
  "boulder-roubaix": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": false
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 30,
+    "tier": 4,
+    "url": "https://dbcevents.com/2026-boulder-roubaix-press-release/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "field_size": {
+    "value": "~1,000+ riders across all categories",
+    "tier": 4,
+    "url": "https://dbcevents.com/2026-boulder-roubaix-press-release/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "prize_purse": {
+    "value": "$1,000 (Men Pro 1/2, split 10 places). Top 3 medals in all other categories.",
+    "tier": 1,
+    "url": "https://www.bikereg.com/74005",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "bowral-classic": {
   "last_checked": "2026-07-16T14:38:13.755603+00:00",
@@ -414,36 +674,176 @@
   "changed": true
  },
  "burgr-95": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": false
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 95,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/best-gravel-races-wisconsin/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 4000,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/best-gravel-races-wisconsin/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "burnt-bridge-classic": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 62,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/burnt-bridge-classic/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 3200,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/burnt-bridge-classic/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "field_size": {
+    "value": "100-300 riders",
+    "tier": 3,
+    "url": "https://www.webscorer.com/race?raceid=390636",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "prize_purse": {
+    "value": "None",
+    "tier": 1,
+    "url": "https://www.bcgravelseries.com/burntbridgeclassic",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "bwr-arizona": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": false
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 103,
+    "tier": 1,
+    "url": "https://veloracycling.com/events/belgian-waffle-ride-arizona-2026/preview",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 7500,
+    "tier": 1,
+    "url": "https://veloracycling.com/events/belgian-waffle-ride-arizona-2026/preview",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "field_size": {
+    "value": "~300-400 riders (Waffle)",
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/bwr-arizona/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "prize_purse": {
+    "value": "Cash purse for top finishers",
+    "tier": 1,
+    "url": "https://www.granfondoguide.com/Contents/IndexFull/8814/register-now-for-the-2026-belgian-waffle-ride-arizona",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "bwr-asheville": {
   "last_checked": "2026-07-16T14:38:13.755603+00:00",
   "changed": true
  },
  "bwr-california": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 107,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/bwr-california/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 7367,
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/bwr-california/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "field_size": {
+    "value": "~2,800 total across all distances, ~1,600 in Waffle",
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/series/belgian-waffle-ride/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "prize_purse": {
+    "value": "$50,000+ (Waffle elites only, largest in one-day gravel racing)",
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/bwr-california/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "bwr-cedar-city": {
-  "last_checked": "2026-07-16T14:38:13.755603+00:00",
-  "changed": false
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 117,
+    "tier": 1,
+    "url": "https://www.granfondoguide.com/RaceDashboard/BelgianWaffleRideSeries",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 5940,
+    "tier": 1,
+    "url": "https://www.granfondoguide.com/RaceDashboard/BelgianWaffleRideSeries",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "field_size": {
+    "value": "Hundreds of starters, deep North American pro field (Stetina, Gomez Villafa\u00f1e, Roberge)",
+    "tier": 1,
+    "url": "https://visitcedarcity.com/event/belgian-waffle-ride/120/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "bwr-montana": {
-  "last_checked": "2026-07-23T14:43:25.360148+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": true,
+  "sources": {
+   "elevation_ft": {
+    "value": 8000,
+    "tier": 1,
+    "url": "https://visitmt.com/events/second-annual-belgian-waffle-ride-46762",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "field_size": {
+    "value": "500-800 riders",
+    "tier": 1,
+    "url": "https://gravelgodcycling.com/race/bwr-montana/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "bwr-north-carolina": {
-  "last_checked": "2026-07-23T14:43:25.360148+00:00",
-  "changed": false
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": false,
+  "sources": {
+   "distance_mi": {
+    "value": 100,
+    "tier": 4,
+    "url": "https://www.belgianwaffleride.bike/pages/northcarolina",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "elevation_ft": {
+    "value": 8000,
+    "tier": 4,
+    "url": "https://www.belgianwaffleride.bike/pages/northcarolina",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "bwr-san-diego": {
   "last_checked": "2026-07-23T14:43:25.360148+00:00",
@@ -458,12 +858,49 @@
   "changed": true
  },
  "camp-michaux-gravel-grinder": {
-  "last_checked": "2026-07-23T14:43:25.360148+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": true,
+  "sources": {
+   "elevation_ft": {
+    "value": 5725,
+    "tier": 1,
+    "url": "https://www.trans-sylvaniaproductions.com/cmgg",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "field_size": {
+    "value": "50-100 riders",
+    "tier": 1,
+    "url": "https://www.granfondoguide.com/Events/Index/9356/camp-michaux-gravel-grinder",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   },
+   "prize_purse": {
+    "value": "Modest prizes",
+    "tier": 1,
+    "url": "https://www.bikereg.com/cmgg?orc=1",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "canmore-crux": {
-  "last_checked": "2026-07-23T14:43:25.360148+00:00",
-  "changed": true
+  "last_checked": "2026-11-26T14:01:45.199172+00:00",
+  "changed": true,
+  "one_off_notes": [
+   {
+    "checked": "2026-11-26T14:01:45.199172+00:00",
+    "field": "vitals.distance_mi",
+    "value": 49.7,
+    "source": "https://www.canmorecrux.com/faq",
+    "note": "2026 format is AMLAP (As Many Laps As Possible) on 16 km (9.94 mi) loop over 4 hours. Standard flagship is 80 km (49.7 mi) in prior/non-2026 editions."
+   }
+  ],
+  "sources": {
+   "field_size": {
+    "value": "50-100 riders",
+    "tier": 1,
+    "url": "https://www.albertaparks.ca/parks/kananaskis/canmore-nordic-centre-pp/events/events/canmore-crux-2026/",
+    "checked": "2026-11-26T14:01:45.199172+00:00"
+   }
+  }
  },
  "cape-rouleur": {
   "last_checked": "2026-07-23T14:43:25.360148+00:00",

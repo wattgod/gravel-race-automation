@@ -40,7 +40,8 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 SNAPSHOT_DIR = PROJECT_ROOT / "data" / "intel-snapshots"
 DEFAULT_AEO_DIR = PROJECT_ROOT / "data" / "aeo"
 AEO_DIR = DEFAULT_AEO_DIR
-SEO_DIR = PROJECT_ROOT / "data" / "seo"
+DEFAULT_SEO_DIR = PROJECT_ROOT / "data" / "seo"
+SEO_DIR = DEFAULT_SEO_DIR
 
 sys.path.insert(0, str(PROJECT_ROOT / "wordpress"))
 from pricing import PLAN_PRICE_LINE, PRICE_PER_WEEK  # data/pricing.json (D18)
@@ -947,9 +948,9 @@ def collect_aeo(today: date | None = None) -> dict:
         }
 
 
-def _load_seo_artifact(path: Path) -> dict:
+def _load_seo_artifact(path: Path, history_commit: str | None) -> dict:
     try:
-        artifact = json.loads(path.read_text())
+        artifact = load_snapshot(path, history_commit)
     except Exception as exc:
         raise ValueError(f"{type(exc).__name__}: {exc}") from exc
     try:
@@ -964,12 +965,16 @@ def _load_seo_artifact(path: Path) -> dict:
 
 def _collect_seo(today: date | None = None) -> dict:
     """Implementation for collect_seo; the public collector is fully fail-soft."""
-    paths = sorted(SEO_DIR.glob("seo-weekly-*.json"))
+    directory = Path(os.environ.get("SEO_SNAPSHOT_DIR") or SEO_DIR)
+    history_commit = (refresh_history("SEO_SNAPSHOT_DIR", state_branch="seo-state")
+                      if directory == DEFAULT_SEO_DIR else None)
+    paths = sorted(directory / name for name in snapshot_names(directory, history_commit)
+                   if name.startswith("seo-weekly-"))
     if not paths:
         return {"state": "missing", "ok": True}
     latest_path = paths[-1]
     try:
-        latest = _load_seo_artifact(latest_path)
+        latest = _load_seo_artifact(latest_path, history_commit)
     except Exception as exc:
         return {
             "state": "invalid",

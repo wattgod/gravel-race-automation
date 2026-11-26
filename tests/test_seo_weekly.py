@@ -3,8 +3,12 @@
 from __future__ import annotations
 
 import json
+import os
+import shutil
 import subprocess as subprocess_module
+import sys
 from datetime import date, datetime, timedelta, timezone
+from pathlib import Path
 
 import pytest
 
@@ -665,6 +669,79 @@ def _write_seo_artifact(directory, artifact):
     path = directory / f"seo-weekly-{artifact['data_boundary']}.json"
     path.write_text(json.dumps(artifact))
     return path
+
+
+def test_scheduled_seo_publication_and_reader_use_isolated_branch(tmp_path, monkeypatch):
+    from scripts import monitoring_snapshot_history
+
+    source = Path(__file__).resolve().parents[1]
+    checkout, remote = tmp_path / "checkout", tmp_path / "remote"
+    checkout.mkdir()
+    env = {
+        **os.environ,
+        "GIT_AUTHOR_NAME": "Fixture",
+        "GIT_AUTHOR_EMAIL": "fixture@example.invalid",
+        "GIT_COMMITTER_NAME": "Fixture",
+        "GIT_COMMITTER_EMAIL": "fixture@example.invalid",
+        "MONITORING_STATE_DIR": str(tmp_path / "state"),
+    }
+
+    def git(root, *args):
+        return subprocess_module.check_output(
+            ["git", "-C", str(root), *args], env=env, text=True, stderr=subprocess_module.PIPE,
+        ).strip()
+
+    git(checkout, "init", "--initial-branch=main")
+    git(tmp_path, "init", "--bare", "--initial-branch=main", str(remote))
+    local = checkout / "data" / "seo"
+    _write_seo_artifact(local, _valid_artifact("2026-07-25"))
+    (local / "updates-log.jsonl").write_text("{}\n")
+    scripts = checkout / "scripts"
+    scripts.mkdir()
+    for filename in ("validate-monitoring-publication.py", "seo_weekly.py"):
+        shutil.copy2(source / "scripts" / filename, scripts)
+    git(checkout, "add", ".")
+    git(checkout, "commit", "-m", "Fixture source")
+    git(checkout, "remote", "add", "origin", remote.as_uri())
+    git(checkout, "push", "origin", "main")
+    main = git(remote, "rev-parse", "main")
+    runner = source / "scripts" / "daily-monitoring-state.sh"
+
+    def run(*args):
+        return subprocess_module.run(args, cwd=checkout, env=env, capture_output=True, text=True)
+
+    assert run("bash", str(runner), "prepare", "seo").returncode == 0
+    staged = tmp_path / "state" / "data" / "seo"
+    report = _valid_artifact("2026-07-26")
+    report["warnings"] = ["private@example.invalid"]
+    path = _write_seo_artifact(staged, report)
+    path.write_text(path.read_text().replace("@", r"\u0040"))
+    for rejected in (
+        run(sys.executable, str(scripts / "validate-monitoring-publication.py"), "seo", str(staged)),
+        run("bash", str(runner), "publish", "seo"),
+    ):
+        assert rejected.returncode != 0 and "contains an email address" in rejected.stderr
+        assert "private" not in rejected.stderr
+    assert not git(remote, "branch", "--list", "seo-state")
+
+    report["warnings"] = []
+    _write_seo_artifact(staged, report)
+    assert run(sys.executable, str(scripts / "validate-monitoring-publication.py"), "seo", str(staged)).returncode == 0
+    published = run("bash", str(runner), "publish", "seo")
+    assert published.returncode == 0, published.stderr
+    assert git(remote, "rev-parse", "main") == main
+    assert git(remote, "rev-list", "--count", "seo-state") == "1"
+    assert git(remote, "ls-tree", "-r", "--name-only", "seo-state") == "data/seo/seo-weekly-2026-07-26.json"
+    assert run("bash", str(runner), "publish", "seo").returncode == 0
+    assert git(remote, "rev-list", "--count", "seo-state") == "1"
+
+    monkeypatch.delenv("SEO_SNAPSHOT_DIR", raising=False)
+    monkeypatch.setattr(monitoring_snapshot_history, "REPO_ROOT", checkout)
+    monkeypatch.setattr(daily_intel, "DEFAULT_SEO_DIR", local)
+    monkeypatch.setattr(daily_intel, "SEO_DIR", local)
+    readback = daily_intel.collect_seo(today=date(2026, 7, 27))
+    assert readback["state"] == "ok"
+    assert readback["artifact"] == "seo-weekly-2026-07-26.json"
 
 
 def test_collect_seo_missing_state_is_ok_and_silent(tmp_path, monkeypatch):

@@ -15,6 +15,10 @@ case "$profile" in
     seed_paths=(data/aeo)
     publish_paths=(':(glob)data/aeo/aeo-weekly-????-??-??.json')
     ;;
+  seo)
+    state_ref=refs/heads/seo-state
+    publish_paths=(':(glob)data/seo/seo-weekly-????-??-??.json')
+    ;;
   intel)
     state_ref=refs/heads/morning-intel-state
     if [[ ! "${SNAPSHOT_DATE:-}" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
@@ -40,7 +44,7 @@ case "${1:-}" in
     else
       status=$?
       if [ "$status" -ne 2 ]; then exit "$status"; fi
-      if [[ "$profile" != intel ]]; then
+      if [[ "$profile" == daily || "$profile" == aeo ]]; then
         # Seed existing history without attaching the source checkout's ancestry.
         git archive HEAD "${seed_paths[@]}" | tar -x -C "$state_dir"
       fi
@@ -65,7 +69,7 @@ case "${1:-}" in
     git -c credential.helper= -c 'credential.helper=!gh auth git-credential' push origin "HEAD:$state_ref"
     ;;
   *)
-    echo "Usage: $0 {prepare|publish} [daily|aeo|intel]" >&2
+    echo "Usage: $0 {prepare|publish} [daily|aeo|seo|intel]" >&2
     exit 2
     ;;
 esac

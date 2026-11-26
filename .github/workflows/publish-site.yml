@@ -37,14 +37,14 @@ jobs:
       # shallow clone falls back to the checkout time, so every page would
       # look freshly updated on every publish.
       - name: Checkout Gravel God source
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
 
       # The generators read ../gravel-god-training-plans/db, the sibling
       # checkout a laptop publish has next to this repo.
       - name: Checkout plans database
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           repository: wattgod/gravel-god-training-plans
           token: ${{ secrets.GH_PAT }}
@@ -58,7 +58,7 @@ jobs:
           mv gravel-god-training-plans "$GITHUB_WORKSPACE/../gravel-god-training-plans"
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.13"
           cache: pip

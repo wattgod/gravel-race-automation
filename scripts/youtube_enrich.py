@@ -186,7 +186,7 @@ def _log_api_usage(response, model: str, script: str) -> None:
 
         # Calculate cost
         pricing = {
-            "claude-sonnet-4-20250514": {"input": 3.00, "output": 15.00},
+            "claude-sonnet-4-5-20250929": {"input": 3.00, "output": 15.00},
             "claude-3-5-haiku-20241022": {"input": 0.80, "output": 4.00},
         }
         rates = pricing.get(model, {"input": 3.00, "output": 15.00})
@@ -235,11 +235,11 @@ def call_api(prompt: str, max_retries: int = 3, retry_delay: int = 30) -> str:
     for attempt in range(max_retries):
         try:
             response = client.messages.create(
-                model="claude-sonnet-4-20250514",
+                model="claude-sonnet-4-5-20250929",
                 max_tokens=4000,
                 messages=[{"role": "user", "content": prompt}]
             )
-            _log_api_usage(response, "claude-sonnet-4-20250514", "youtube_enrich")
+            _log_api_usage(response, "claude-sonnet-4-5-20250929", "youtube_enrich")
             return response.content[0].text
         except anthropic.RateLimitError:
             if attempt < max_retries - 1:
@@ -275,7 +275,7 @@ def call_api_vision(prompt: str, images: list[dict], max_retries: int = 3,
     for attempt in range(max_retries):
         try:
             response = client.messages.create(
-                model="claude-sonnet-4-20250514",
+                model="claude-sonnet-4-5-20250929",
                 max_tokens=4000,
                 messages=[{"role": "user", "content": content}]
             )
